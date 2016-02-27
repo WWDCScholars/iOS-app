@@ -1,1 +1,1 @@
-# WWDC-Scholars-iOS
+# WWDCScholars-iOS

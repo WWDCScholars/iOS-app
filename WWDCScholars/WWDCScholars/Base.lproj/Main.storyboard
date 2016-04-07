@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIZ-DC-Vqm">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Scholars-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ScholarsViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,9 +18,88 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Scholars" id="2i0-9Z-xy7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1217" y="-630"/>
+        </scene>
+        <!--Blog-->
+        <scene sceneID="gLD-ie-YKb">
+            <objects>
+                <viewController id="qiP-lR-jI2" customClass="BlogViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="emh-Oi-Mqj"/>
+                        <viewControllerLayoutGuide type="bottom" id="50g-W2-a5o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dNo-6z-XYE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Blog" id="ZeD-wz-Pqm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IHL-1y-cIm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1217" y="76"/>
+        </scene>
+        <!--Alumni-->
+        <scene sceneID="bAZ-9K-5ed">
+            <objects>
+                <viewController id="nbF-qz-3hW" customClass="AlumniViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6UL-IK-bnb"/>
+                        <viewControllerLayoutGuide type="bottom" id="zeS-OX-a7c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HGP-Vn-4VT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Alumni" id="N0X-nF-0aJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YZE-kb-XF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1217" y="790"/>
+        </scene>
+        <!--Credits-->
+        <scene sceneID="Ucg-To-7oc">
+            <objects>
+                <viewController id="00G-Zd-ZWK" customClass="CreditsViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Buy-2P-zQv"/>
+                        <viewControllerLayoutGuide type="bottom" id="YLy-zA-eGt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sTT-xf-zDR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Credits" id="EVr-Cp-QV0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Njt-9R-oCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1217" y="1487"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="52Z-xz-vgA">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wIZ-DC-Vqm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="89r-IU-lIg">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="iKX-ue-aqQ"/>
+                        <segue destination="qiP-lR-jI2" kind="relationship" relationship="viewControllers" id="ZjR-3p-DQU"/>
+                        <segue destination="nbF-qz-3hW" kind="relationship" relationship="viewControllers" id="nE5-jA-7rA"/>
+                        <segue destination="00G-Zd-ZWK" kind="relationship" relationship="viewControllers" id="ee4-To-k9Z"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wkk-Oy-SFo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="429"/>
         </scene>
     </scenes>
 </document>

@@ -12,6 +12,8 @@
 		223884261C8252D900A96752 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223884241C8252D900A96752 /* Main.storyboard */; };
 		223884281C8252D900A96752 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 223884271C8252D900A96752 /* Assets.xcassets */; };
 		2238842B1C8252D900A96752 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223884291C8252D900A96752 /* LaunchScreen.storyboard */; };
+		223F5E931CB9436200E582C5 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223F5E921CB9436200E582C5 /* CustomColors.swift */; };
+		223F5E971CB95C3C00E582C5 /* ScholarsTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223F5E961CB95C3C00E582C5 /* ScholarsTabBarViewController.swift */; };
 		22543B1F1CB70182003F9422 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B1E1CB70182003F9422 /* BlogViewController.swift */; };
 		22543B211CB7019A003F9422 /* AlumniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B201CB7019A003F9422 /* AlumniViewController.swift */; };
 		22543B231CB701B3003F9422 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B221CB701B3003F9422 /* CreditsViewController.swift */; };
@@ -25,6 +27,8 @@
 		223884271C8252D900A96752 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2238842A1C8252D900A96752 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2238842C1C8252D900A96752 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		223F5E921CB9436200E582C5 /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		223F5E961CB95C3C00E582C5 /* ScholarsTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsTabBarViewController.swift; sourceTree = "<group>"; };
 		22543B1E1CB70182003F9422 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		22543B201CB7019A003F9422 /* AlumniViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumniViewController.swift; sourceTree = "<group>"; };
 		22543B221CB701B3003F9422 /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
@@ -60,17 +64,59 @@
 		2238841F1C8252D900A96752 /* WWDCScholars */ = {
 			isa = PBXGroup;
 			children = (
-				223884201C8252D900A96752 /* AppDelegate.swift */,
+				223F5E8F1CB942B000E582C5 /* General */,
+				223F5E8B1CB9429200E582C5 /* Scholars */,
+				223F5E8C1CB9429B00E582C5 /* Blog */,
+				223F5E8D1CB942A100E582C5 /* Alumni */,
+				223F5E8E1CB942A700E582C5 /* Credits */,
+			);
+			path = WWDCScholars;
+			sourceTree = "<group>";
+		};
+		223F5E8B1CB9429200E582C5 /* Scholars */ = {
+			isa = PBXGroup;
+			children = (
 				223884221C8252D900A96752 /* ScholarsViewController.swift */,
+			);
+			name = Scholars;
+			sourceTree = "<group>";
+		};
+		223F5E8C1CB9429B00E582C5 /* Blog */ = {
+			isa = PBXGroup;
+			children = (
 				22543B1E1CB70182003F9422 /* BlogViewController.swift */,
+			);
+			name = Blog;
+			sourceTree = "<group>";
+		};
+		223F5E8D1CB942A100E582C5 /* Alumni */ = {
+			isa = PBXGroup;
+			children = (
 				22543B201CB7019A003F9422 /* AlumniViewController.swift */,
+			);
+			name = Alumni;
+			sourceTree = "<group>";
+		};
+		223F5E8E1CB942A700E582C5 /* Credits */ = {
+			isa = PBXGroup;
+			children = (
 				22543B221CB701B3003F9422 /* CreditsViewController.swift */,
+			);
+			name = Credits;
+			sourceTree = "<group>";
+		};
+		223F5E8F1CB942B000E582C5 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				223884201C8252D900A96752 /* AppDelegate.swift */,
 				223884241C8252D900A96752 /* Main.storyboard */,
 				223884271C8252D900A96752 /* Assets.xcassets */,
 				223884291C8252D900A96752 /* LaunchScreen.storyboard */,
 				2238842C1C8252D900A96752 /* Info.plist */,
+				223F5E921CB9436200E582C5 /* CustomColors.swift */,
+				223F5E961CB95C3C00E582C5 /* ScholarsTabBarViewController.swift */,
 			);
-			path = WWDCScholars;
+			name = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,7 +193,9 @@
 				223884231C8252D900A96752 /* ScholarsViewController.swift in Sources */,
 				223884211C8252D900A96752 /* AppDelegate.swift in Sources */,
 				22543B211CB7019A003F9422 /* AlumniViewController.swift in Sources */,
+				223F5E971CB95C3C00E582C5 /* ScholarsTabBarViewController.swift in Sources */,
 				22543B1F1CB70182003F9422 /* BlogViewController.swift in Sources */,
+				223F5E931CB9436200E582C5 /* CustomColors.swift in Sources */,
 				22543B231CB701B3003F9422 /* CreditsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ScholarsTabBarViewController: UITabBarController {
 
+    var tapSoundEffect: AVAudioPlayer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +25,19 @@ class ScholarsTabBarViewController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        let path = NSBundle.mainBundle().pathForResource("tabBarDidSelectItem.m4a", ofType: nil)!
+        let url = NSURL(fileURLWithPath: path)
+        
+        do {
+            let sound = try AVAudioPlayer(contentsOfURL: url)
+            tapSoundEffect = sound
+            tapSoundEffect.volume = 0.1
+            sound.play()
+        } catch {
+            // Couldn't load file :(
+        }
+    }
 
     /*
     // MARK: - Navigation

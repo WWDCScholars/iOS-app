@@ -1,4 +1,4 @@
-# WWDC-Scholars-iOS
+# WWDC Scholars iOS App
 
 Our iOS portfolio app for WWDCScholars. 
 

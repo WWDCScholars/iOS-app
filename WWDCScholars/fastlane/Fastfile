@@ -18,7 +18,7 @@ default_platform :ios
 platform :ios do
   before_all do
     ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
-
+    increment_build_number
 
   end
 
@@ -52,8 +52,12 @@ platform :ios do
   after_all do |lane|
     # This block is called, only if the executed lane was successful
 
+    commit_version_bump(
+          message: "Build #{build}"
+        )
+
     slack(
-      message: "Successfully deployed new App Update."
+      message: "Successfully deployed build #{build}! :rocket: "
     )
   end
 

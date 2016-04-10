@@ -55,8 +55,9 @@ platform :ios do
     build       = get_build_number(xcodeproj: "WWDCScholars.xcodeproj")
 
     commit_version_bump(
-          message: "Version #{version}, Build #{build}"
-        )
+      message: "Version #{version}, Build #{build}"
+    )
+    push_to_git_remote
 
     slack(
       message: "Successfully deployed version *#{version}* (#{build})! :rocket: "

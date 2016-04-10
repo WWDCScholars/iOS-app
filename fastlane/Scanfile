@@ -1,0 +1,6 @@
+scheme "WWDCScholars"
+clean true
+code_coverage false
+device "iPhone 6 (9.3)"
+skip_slack false
+slack_only_on_failure true

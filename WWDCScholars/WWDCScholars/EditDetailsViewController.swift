@@ -10,11 +10,19 @@ import UIKit
 
 class EditDetailsViewController: UIViewController {
 
+    @IBOutlet var screenshotScrollView: UIScrollView!
+    @IBOutlet var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         viewSetup()
+        scrollView.scrollEnabled = true
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 3000)
+        
+        screenshotScrollView.scrollEnabled = true
+        screenshotScrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.size.height)
+        
     }
 
     override func didReceiveMemoryWarning() {

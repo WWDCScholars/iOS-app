@@ -51,13 +51,16 @@ platform :ios do
 
   after_all do |lane|
     # This block is called, only if the executed lane was successful
+    version     = get_version_number(xcodeproj: "WWDCScholars.xcodeproj")
+    build       = get_build_number(xcodeproj: "WWDCScholars.xcodeproj")
 
     commit_version_bump(
-          message: "Build #{build}"
-        )
+      message: "Version #{version}, Build #{build}"
+    )
+    push_to_git_remote
 
     slack(
-      message: "Successfully deployed build #{build}! :rocket: "
+      message: "Successfully deployed version *#{version}* (#{build})! :rocket: "
     )
   end
 

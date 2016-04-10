@@ -26,6 +26,170 @@
             </objects>
             <point key="canvasLocation" x="2029" y="-630"/>
         </scene>
+        <!--Edit your details-->
+        <scene sceneID="MbD-yO-ed4">
+            <objects>
+                <viewController id="ojZ-YO-drh" customClass="EditDetailsViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MGO-7d-nqG"/>
+                        <viewControllerLayoutGuide type="bottom" id="zgj-rS-PVy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kdR-Gn-UtX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="axT-wU-O0f" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="97" width="437" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="1BS-EO-t72"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UfP-a9-Qsu" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="149" width="437" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="GnJ-DF-XE0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City, Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bID-gF-gmu" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="201" width="437" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Lit-As-lwg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFu-V2-IS9">
+                                <rect key="frame" x="445" y="97" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="MeW-Xp-98d"/>
+                                    <constraint firstAttribute="width" constant="150" id="PHG-nJ-8GM"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="WWDCScholars Icon"/>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aXn-bD-Idb" customClass="FloatLabelTextView" customModule="WWDCScholars" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="253" width="600" height="161"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="161" id="ZTA-bX-k8W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Short Bio"/>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENERAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ld6-Dn-REU">
+                                <rect key="frame" x="10" y="72" width="54" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="1dE-KO-fuO"/>
+                                    <constraint firstAttribute="width" constant="54" id="TsE-Ur-uf5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCHOLARSHIP APP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEI-b2-226">
+                                <rect key="frame" x="10" y="428" width="110" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="2Rb-wJ-6Ul"/>
+                                    <constraint firstAttribute="width" constant="110" id="Ye1-zh-7TO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="YouTube link of your app" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZb-qc-dTf" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                <rect key="frame" x="76" y="453" width="524" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="nhc-Hr-QCe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youTubeIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="ZN1-9X-hkl">
+                                <rect key="frame" x="5" y="453" width="63" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="jA5-nf-8Sw"/>
+                                    <constraint firstAttribute="height" constant="44" id="lvc-qH-k76"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="GitHub link of your app" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6dz-hb-BxJ" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                <rect key="frame" x="76" y="505" width="524" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="zrV-Sa-TL6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="YTE-UM-T8r">
+                                <rect key="frame" x="14" y="505" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5T9-ks-0GL"/>
+                                    <constraint firstAttribute="width" constant="44" id="Jgz-jC-bSw"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZN1-9X-hkl" firstAttribute="top" secondItem="xEI-b2-226" secondAttribute="bottom" constant="4" id="3Le-JP-EU2"/>
+                            <constraint firstItem="6dz-hb-BxJ" firstAttribute="leading" secondItem="YTE-UM-T8r" secondAttribute="trailing" constant="18" id="4c8-Wh-V5X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AFu-V2-IS9" secondAttribute="trailing" constant="-15" id="6XQ-qX-ztu"/>
+                            <constraint firstItem="ld6-Dn-REU" firstAttribute="top" secondItem="MGO-7d-nqG" secondAttribute="bottom" constant="8" id="7tC-zz-Zj2"/>
+                            <constraint firstItem="aXn-bD-Idb" firstAttribute="leading" secondItem="kdR-Gn-UtX" secondAttribute="leadingMargin" constant="-20" id="Ad6-DP-qWI"/>
+                            <constraint firstItem="UfP-a9-Qsu" firstAttribute="top" secondItem="axT-wU-O0f" secondAttribute="bottom" constant="8" id="B5P-cs-FlN"/>
+                            <constraint firstItem="axT-wU-O0f" firstAttribute="top" secondItem="MGO-7d-nqG" secondAttribute="bottom" constant="33" id="CdD-b0-geP"/>
+                            <constraint firstItem="HZb-qc-dTf" firstAttribute="leading" secondItem="ZN1-9X-hkl" secondAttribute="trailing" constant="8" id="Ie1-4e-QVb"/>
+                            <constraint firstItem="UfP-a9-Qsu" firstAttribute="leading" secondItem="kdR-Gn-UtX" secondAttribute="leadingMargin" constant="-20" id="JBY-Gw-BST"/>
+                            <constraint firstItem="bID-gF-gmu" firstAttribute="top" secondItem="UfP-a9-Qsu" secondAttribute="bottom" constant="8" id="Jr2-w1-DMP"/>
+                            <constraint firstItem="AFu-V2-IS9" firstAttribute="leading" secondItem="bID-gF-gmu" secondAttribute="trailing" constant="8" id="LmG-Tx-4fq"/>
+                            <constraint firstItem="ZN1-9X-hkl" firstAttribute="leading" secondItem="kdR-Gn-UtX" secondAttribute="leadingMargin" constant="-15" id="Q9K-lq-e9g"/>
+                            <constraint firstItem="AFu-V2-IS9" firstAttribute="leading" secondItem="axT-wU-O0f" secondAttribute="trailing" constant="8" id="QEb-Xd-kPe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6dz-hb-BxJ" secondAttribute="trailing" constant="-20" id="Rzr-5A-ocI"/>
+                            <constraint firstItem="bID-gF-gmu" firstAttribute="leading" secondItem="kdR-Gn-UtX" secondAttribute="leadingMargin" constant="-20" id="SmC-hb-FJl"/>
+                            <constraint firstItem="YTE-UM-T8r" firstAttribute="leading" secondItem="kdR-Gn-UtX" secondAttribute="leadingMargin" constant="-6" id="Vq8-jx-QhV"/>
+                            <constraint firstItem="AFu-V2-IS9" firstAttribute="top" secondItem="MGO-7d-nqG" secondAttribute="bottom" constant="33" id="Y6L-Ov-P5i"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aXn-bD-Idb" secondAttribute="trailing" constant="-20" id="d90-Tq-0fv"/>
+                            <constraint firstItem="ld6-Dn-REU" firstAttribute="leading" secondItem="kdR-Gn-UtX" secondAttribute="leadingMargin" constant="-10" id="eZH-g4-Plg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HZb-qc-dTf" secondAttribute="trailing" constant="-20" id="lnp-oz-OrC"/>
+                            <constraint firstItem="HZb-qc-dTf" firstAttribute="top" secondItem="xEI-b2-226" secondAttribute="bottom" constant="4" id="n0V-1b-u3t"/>
+                            <constraint firstItem="6dz-hb-BxJ" firstAttribute="top" secondItem="HZb-qc-dTf" secondAttribute="bottom" constant="8" id="oGe-mI-Dxe"/>
+                            <constraint firstItem="YTE-UM-T8r" firstAttribute="top" secondItem="ZN1-9X-hkl" secondAttribute="bottom" constant="8" id="pnS-u9-6d0"/>
+                            <constraint firstItem="aXn-bD-Idb" firstAttribute="top" secondItem="AFu-V2-IS9" secondAttribute="bottom" constant="6" id="sRN-eX-bsC"/>
+                            <constraint firstItem="xEI-b2-226" firstAttribute="leading" secondItem="kdR-Gn-UtX" secondAttribute="leadingMargin" constant="-10" id="tIY-Lc-hW1"/>
+                            <constraint firstItem="axT-wU-O0f" firstAttribute="leading" secondItem="kdR-Gn-UtX" secondAttribute="leadingMargin" constant="-20" id="tkM-x6-xGj"/>
+                            <constraint firstItem="xEI-b2-226" firstAttribute="top" secondItem="aXn-bD-Idb" secondAttribute="bottom" constant="14" id="tqo-ow-i3C"/>
+                            <constraint firstItem="AFu-V2-IS9" firstAttribute="leading" secondItem="UfP-a9-Qsu" secondAttribute="trailing" constant="8" id="x6u-NZ-X4M"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit your details" id="Iwn-g1-arx">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AMn-dA-PeN">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelAction:" destination="ojZ-YO-drh" id="heC-lA-L9I"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="68W-Nl-Fp4">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="doneAction:" destination="ojZ-YO-drh" id="mpV-rV-Zxq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ggu-WN-3dW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3578" y="1487"/>
+        </scene>
         <!--Blog View Controller-->
         <scene sceneID="gLD-ie-YKb">
             <objects>
@@ -143,6 +307,9 @@
                                         <exclude reference="o4Y-ET-8EH"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <segue destination="qgE-kd-7qI" kind="presentation" id="Q5n-re-3Qz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOU-bL-fOM">
                                 <rect key="frame" x="179" y="300" width="110" height="37"/>
@@ -460,6 +627,26 @@
             </objects>
             <point key="canvasLocation" x="1217" y="1487"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tTU-FL-LcI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qgE-kd-7qI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="p2x-R0-5HS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ojZ-YO-drh" kind="relationship" relationship="rootViewController" id="AoV-7b-dLf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4eK-XE-yhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2766" y="1487"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Andrew Walker" width="133" height="133"/>
@@ -468,6 +655,7 @@
         <image name="Project Management" width="59" height="58"/>
         <image name="WWDCScholars Icon" width="155" height="155"/>
         <image name="Website" width="59" height="58"/>
+        <image name="gitHubIconSmall" width="44" height="44"/>
         <image name="iOS" width="59" height="58"/>
         <image name="tabBarIconAlumni" width="25" height="25"/>
         <image name="tabBarIconAlumniFilled" width="25" height="25"/>
@@ -478,5 +666,6 @@
         <image name="tabBarIconScholars" width="25" height="25"/>
         <image name="tabBarIconScholarsFilled" width="25" height="25"/>
         <image name="watchOS" width="59" height="58"/>
+        <image name="youTubeIconSmall" width="62" height="44"/>
     </resources>
 </document>

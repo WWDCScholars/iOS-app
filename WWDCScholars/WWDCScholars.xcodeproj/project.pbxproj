@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */; };
+		22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */; };
+		22297D6F1CBA911F00BF5B41 /* EditDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D6E1CBA911F00BF5B41 /* EditDetailsViewController.swift */; };
 		223884211C8252D900A96752 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223884201C8252D900A96752 /* AppDelegate.swift */; };
 		223884231C8252D900A96752 /* ScholarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223884221C8252D900A96752 /* ScholarsViewController.swift */; };
 		2238842B1C8252D900A96752 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223884291C8252D900A96752 /* LaunchScreen.storyboard */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
+		22297D6E1CBA911F00BF5B41 /* EditDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDetailsViewController.swift; sourceTree = "<group>"; };
 		2238841D1C8252D900A96752 /* WWDCScholars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDCScholars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		223884201C8252D900A96752 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		223884221C8252D900A96752 /* ScholarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarsViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +62,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22297D631CBA8A2A00BF5B41 /* Edit Details */ = {
+			isa = PBXGroup;
+			children = (
+				22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */,
+				22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */,
+				22297D6E1CBA911F00BF5B41 /* EditDetailsViewController.swift */,
+			);
+			name = "Edit Details";
+			sourceTree = "<group>";
+		};
 		223884141C8252D900A96752 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +97,7 @@
 				223F5E8C1CB9429B00E582C5 /* Blog */,
 				223F5E8D1CB942A100E582C5 /* Alumni */,
 				223F5E8E1CB942A700E582C5 /* Credits */,
+				22297D631CBA8A2A00BF5B41 /* Edit Details */,
 			);
 			path = WWDCScholars;
 			sourceTree = "<group>";
@@ -213,9 +230,12 @@
 				22543B211CB7019A003F9422 /* AlumniViewController.swift in Sources */,
 				6EB723D61CB9B84D005A076F /* CreditsViewController.swift in Sources */,
 				223F5E971CB95C3C00E582C5 /* ScholarsTabBarViewController.swift in Sources */,
+				22297D6F1CBA911F00BF5B41 /* EditDetailsViewController.swift in Sources */,
 				6EB723D41CB9B84D005A076F /* Credit.swift in Sources */,
 				22543B1F1CB70182003F9422 /* BlogViewController.swift in Sources */,
 				223F5E931CB9436200E582C5 /* Style.swift in Sources */,
+				22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */,
+				22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */,
 				6EB723D71CB9B84D005A076F /* CreditTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

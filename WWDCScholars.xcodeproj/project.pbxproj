@@ -25,7 +25,26 @@
 		6EB723D61CB9B84D005A076F /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB723D21CB9B84D005A076F /* CreditsViewController.swift */; };
 		6EB723D71CB9B84D005A076F /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB723D31CB9B84D005A076F /* CreditTableViewCell.swift */; };
 		6EB723D91CB9B85B005A076F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB723D81CB9B85B005A076F /* Assets.xcassets */; };
+		7B2AA6E01CBAE7530025EC7B /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */; };
+		7B2AA6EE1CBAE75B0025EC7B /* WWDCScholarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6ED1CBAE75B0025EC7B /* WWDCScholarsUITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7B2AA6E21CBAE7530025EC7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 223884151C8252D900A96752 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2238841C1C8252D900A96752;
+			remoteInfo = WWDCScholars;
+		};
+		7B2AA6F01CBAE75B0025EC7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 223884151C8252D900A96752 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2238841C1C8252D900A96752;
+			remoteInfo = WWDCScholars;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
@@ -48,6 +67,12 @@
 		6EB723D21CB9B84D005A076F /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		6EB723D31CB9B84D005A076F /* CreditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
 		6EB723D81CB9B85B005A076F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B2AA6DD1CBAE7530025EC7B /* WWDCScholarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsTests.swift; sourceTree = "<group>"; };
+		7B2AA6E11CBAE7530025EC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B2AA6EB1CBAE75B0025EC7B /* WWDCScholarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B2AA6ED1CBAE75B0025EC7B /* WWDCScholarsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsUITests.swift; sourceTree = "<group>"; };
+		7B2AA6EF1CBAE75B0025EC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +81,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				223F5E9A1CB970EC00E582C5 /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B2AA6DA1CBAE7530025EC7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B2AA6E81CBAE75B0025EC7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +116,8 @@
 			children = (
 				223F5E991CB970EC00E582C5 /* AVFoundation.framework */,
 				2238841F1C8252D900A96752 /* WWDCScholars */,
+				7B2AA6DE1CBAE7530025EC7B /* WWDCScholarsTests */,
+				7B2AA6EC1CBAE75B0025EC7B /* WWDCScholarsUITests */,
 				2238841E1C8252D900A96752 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				2238841D1C8252D900A96752 /* WWDCScholars.app */,
+				7B2AA6DD1CBAE7530025EC7B /* WWDCScholarsTests.xctest */,
+				7B2AA6EB1CBAE75B0025EC7B /* WWDCScholarsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,6 +195,24 @@
 			name = General;
 			sourceTree = "<group>";
 		};
+		7B2AA6DE1CBAE7530025EC7B /* WWDCScholarsTests */ = {
+			isa = PBXGroup;
+			children = (
+				7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */,
+				7B2AA6E11CBAE7530025EC7B /* Info.plist */,
+			);
+			path = WWDCScholarsTests;
+			sourceTree = "<group>";
+		};
+		7B2AA6EC1CBAE75B0025EC7B /* WWDCScholarsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7B2AA6ED1CBAE75B0025EC7B /* WWDCScholarsUITests.swift */,
+				7B2AA6EF1CBAE75B0025EC7B /* Info.plist */,
+			);
+			path = WWDCScholarsUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,18 +233,62 @@
 			productReference = 2238841D1C8252D900A96752 /* WWDCScholars.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7B2AA6DC1CBAE7530025EC7B /* WWDCScholarsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B2AA6E61CBAE7530025EC7B /* Build configuration list for PBXNativeTarget "WWDCScholarsTests" */;
+			buildPhases = (
+				7B2AA6D91CBAE7530025EC7B /* Sources */,
+				7B2AA6DA1CBAE7530025EC7B /* Frameworks */,
+				7B2AA6DB1CBAE7530025EC7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B2AA6E31CBAE7530025EC7B /* PBXTargetDependency */,
+			);
+			name = WWDCScholarsTests;
+			productName = WWDCScholarsTests;
+			productReference = 7B2AA6DD1CBAE7530025EC7B /* WWDCScholarsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7B2AA6EA1CBAE75B0025EC7B /* WWDCScholarsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B2AA6F21CBAE75B0025EC7B /* Build configuration list for PBXNativeTarget "WWDCScholarsUITests" */;
+			buildPhases = (
+				7B2AA6E71CBAE75B0025EC7B /* Sources */,
+				7B2AA6E81CBAE75B0025EC7B /* Frameworks */,
+				7B2AA6E91CBAE75B0025EC7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B2AA6F11CBAE75B0025EC7B /* PBXTargetDependency */,
+			);
+			name = WWDCScholarsUITests;
+			productName = WWDCScholarsUITests;
+			productReference = 7B2AA6EB1CBAE75B0025EC7B /* WWDCScholarsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		223884151C8252D900A96752 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = WWDCScholars;
 				TargetAttributes = {
 					2238841C1C8252D900A96752 = {
 						CreatedOnToolsVersion = 7.2.1;
+					};
+					7B2AA6DC1CBAE7530025EC7B = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 2238841C1C8252D900A96752;
+					};
+					7B2AA6EA1CBAE75B0025EC7B = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 2238841C1C8252D900A96752;
 					};
 				};
 			};
@@ -201,6 +306,8 @@
 			projectRoot = "";
 			targets = (
 				2238841C1C8252D900A96752 /* WWDCScholars */,
+				7B2AA6DC1CBAE7530025EC7B /* WWDCScholarsTests */,
+				7B2AA6EA1CBAE75B0025EC7B /* WWDCScholarsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -215,6 +322,20 @@
 				6EB723D51CB9B84D005A076F /* Credits.plist in Resources */,
 				6EB723CF1CB9B83B005A076F /* Main.storyboard in Resources */,
 				6EB723D91CB9B85B005A076F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B2AA6DB1CBAE7530025EC7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B2AA6E91CBAE75B0025EC7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +361,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7B2AA6D91CBAE7530025EC7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B2AA6E01CBAE7530025EC7B /* WWDCScholarsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B2AA6E71CBAE75B0025EC7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B2AA6EE1CBAE75B0025EC7B /* WWDCScholarsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7B2AA6E31CBAE7530025EC7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2238841C1C8252D900A96752 /* WWDCScholars */;
+			targetProxy = 7B2AA6E21CBAE7530025EC7B /* PBXContainerItemProxy */;
+		};
+		7B2AA6F11CBAE75B0025EC7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2238841C1C8252D900A96752 /* WWDCScholars */;
+			targetProxy = 7B2AA6F01CBAE75B0025EC7B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		223884291C8252D900A96752 /* LaunchScreen.storyboard */ = {
@@ -345,6 +495,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 6;
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -360,12 +511,67 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 6;
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		7B2AA6E41CBAE7530025EC7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = WWDCScholarsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wwdcscholars.WWDCScholarsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WWDCScholars.app/WWDCScholars";
+			};
+			name = Debug;
+		};
+		7B2AA6E51CBAE7530025EC7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = WWDCScholarsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wwdcscholars.WWDCScholarsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WWDCScholars.app/WWDCScholars";
+			};
+			name = Release;
+		};
+		7B2AA6F31CBAE75B0025EC7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = WWDCScholarsUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wwdcscholars.WWDCScholarsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WWDCScholars;
+			};
+			name = Debug;
+		};
+		7B2AA6F41CBAE75B0025EC7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = WWDCScholarsUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wwdcscholars.WWDCScholarsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WWDCScholars;
 			};
 			name = Release;
 		};
@@ -389,6 +595,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		7B2AA6E61CBAE7530025EC7B /* Build configuration list for PBXNativeTarget "WWDCScholarsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B2AA6E41CBAE7530025EC7B /* Debug */,
+				7B2AA6E51CBAE7530025EC7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7B2AA6F21CBAE75B0025EC7B /* Build configuration list for PBXNativeTarget "WWDCScholarsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B2AA6F31CBAE75B0025EC7B /* Debug */,
+				7B2AA6F41CBAE75B0025EC7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

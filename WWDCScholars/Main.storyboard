@@ -483,7 +483,7 @@
             </objects>
             <point key="canvasLocation" x="2766" y="1487"/>
         </scene>
-        <!--Edit your details-->
+        <!--Profile-->
         <scene sceneID="0ba-ZV-IVi">
             <objects>
                 <viewController id="aRN-gn-xTh" customClass="EditDetailsViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
@@ -492,248 +492,508 @@
                         <viewControllerLayoutGuide type="bottom" id="p4J-5j-nYJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FSt-O0-dsc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkG-tb-RGJ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbg-wk-SUG">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="1400"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLg-4g-5pY" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBy-AJ-Yl4" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1400"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ob6-FD-rmm" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="33" width="437" height="44"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENERAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Otx-jg-qcT" userLabel="GENERAL Label">
+                                                <rect key="frame" x="10" y="8" width="54" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="GnP-Y6-6fo"/>
+                                                    <constraint firstAttribute="width" constant="54" id="TFB-Q6-fog"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CiS-jx-Cg3" userLabel="Name TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="5" y="33" width="432" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="mfu-8V-XdF"/>
+                                                    <constraint firstAttribute="height" constant="44" id="fxA-On-bZk"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m0A-mc-cCg" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="85" width="437" height="44"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Age" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8gd-hm-Osc" userLabel="Age TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="5" y="85" width="432" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="6QO-dI-z5W"/>
+                                                    <constraint firstAttribute="height" constant="44" id="btm-Gu-BeP"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City, Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UbH-Y0-a2A" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="137" width="437" height="44"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City, Country" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-b7-ZDY" userLabel="City, Country TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="5" y="137" width="432" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="wvR-g5-hwx"/>
+                                                    <constraint firstAttribute="height" constant="44" id="z6c-Uq-O04"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HW-gs-sGa">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkv-9T-5X9" userLabel="Upload Photo Button">
                                                 <rect key="frame" x="445" y="33" width="150" height="150"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="4h7-Te-EUa"/>
-                                                    <constraint firstAttribute="width" constant="150" id="abx-P5-r4E"/>
+                                                    <constraint firstAttribute="height" constant="150" id="16L-FM-XhI"/>
+                                                    <constraint firstAttribute="width" constant="150" id="tH9-DW-vqh"/>
                                                 </constraints>
-                                                <state key="normal" backgroundImage="WWDCScholars Icon"/>
+                                                <state key="normal" backgroundImage="WWDCScholars Icon">
+                                                    <color key="titleColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="profilePhotoButtonPressed:" destination="aRN-gn-xTh" eventType="touchUpInside" id="V43-gD-mGb"/>
+                                                </connections>
                                             </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sI7-Yk-Lxh" customClass="FloatLabelTextView" customModule="WWDCScholars" customModuleProvider="target">
-                                                <rect key="frame" x="1" y="189" width="598" height="161"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TLu-Hv-soS" userLabel="Short Bio TextView" customClass="FloatLabelTextView" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="5" y="189" width="590" height="161"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="161" id="ybD-R9-uwW"/>
+                                                    <constraint firstAttribute="height" constant="161" id="Zfk-2M-CxY"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Short Bio"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENERAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQO-hA-Rfq">
-                                                <rect key="frame" x="10" y="8" width="54" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="RVL-Vl-FUL"/>
-                                                    <constraint firstAttribute="width" constant="54" id="TvB-Uc-y2f"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCHOLARSHIP APP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhL-D7-CIM">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCHOLARSHIP APP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNl-m6-yFy" userLabel="SCHOLARSHIP APP Label">
                                                 <rect key="frame" x="10" y="364" width="110" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="j9J-rO-DdH"/>
-                                                    <constraint firstAttribute="width" constant="110" id="w95-5A-VFI"/>
+                                                    <constraint firstAttribute="width" constant="110" id="I3J-ta-e8Q"/>
+                                                    <constraint firstAttribute="height" constant="21" id="Itj-Ou-Jib"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+<<<<<<< HEAD
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="YouTube link of your App" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5WL-Ke-O2l" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
                                                 <rect key="frame" x="76" y="389" width="524" height="44"/>
+=======
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="YouTube link of your app" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GWS-Bz-HyP" userLabel="YouTube Link TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="389" width="519" height="44"/>
+>>>>>>> editdetails
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="KQd-8C-29L"/>
+                                                    <constraint firstAttribute="height" constant="44" id="wkR-Wd-2jy"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youTubeIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="8jK-MY-j6d">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youTubeIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="R1w-k4-bJq" userLabel="YouTube Icon Image">
                                                 <rect key="frame" x="5" y="389" width="63" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="63" id="MUe-uU-oTr"/>
-                                                    <constraint firstAttribute="height" constant="44" id="NRP-Me-Dye"/>
+                                                    <constraint firstAttribute="width" constant="63" id="0Fc-v6-udR"/>
+                                                    <constraint firstAttribute="height" constant="44" id="hce-v5-awk"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="GitHub link of your app" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h8e-wc-cbC" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="441" width="524" height="44"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="GitHub link of your app" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Sbr-IO-c4S" userLabel="GitHub Link TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="441" width="519" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="AVz-tW-ien"/>
+                                                    <constraint firstAttribute="height" constant="44" id="ryz-FE-0Rz"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="nXu-19-eqU">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="dmg-TG-pFC" userLabel="GitHub Icon Image">
                                                 <rect key="frame" x="14" y="441" width="44" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="44" id="ohf-OK-lRu"/>
-                                                    <constraint firstAttribute="height" constant="44" id="yPF-dZ-99G"/>
+                                                    <constraint firstAttribute="width" constant="44" id="MSH-Y4-N3I"/>
+                                                    <constraint firstAttribute="height" constant="44" id="duq-zy-HKn"/>
                                                 </constraints>
                                             </imageView>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26N-jq-tpn">
-                                                <rect key="frame" x="0.0" y="499" width="600" height="249"/>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Azv-wg-5Yl" userLabel="Screenshots Scroll View">
+                                                <rect key="frame" x="0.0" y="493" width="600" height="249"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7M1-x8-PQN">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKC-B3-xjU" userLabel="Screenshot Content View">
                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFT-WE-oeR">
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lw6-CA-uvc" userLabel="Upload Screenshot 1 Button">
                                                                 <rect key="frame" x="8" y="0.0" width="140" height="249"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="140" id="c8z-P7-sXe"/>
-                                                                    <constraint firstAttribute="height" constant="249" id="eeM-S3-M9G"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Upload Screenshot"/>
+                                                                <state key="normal" title="Upload Screenshot">
+                                                                    <color key="titleColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="screenshot1ButtonPressed:" destination="aRN-gn-xTh" eventType="touchUpInside" id="zM1-2f-Rjv"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ia5-Fb-Ce0">
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbr-5f-bCX" userLabel="Upload Screenshot 2 Button">
                                                                 <rect key="frame" x="156" y="0.0" width="140" height="249"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="140" id="5o7-Nr-Y0m"/>
-                                                                    <constraint firstAttribute="height" constant="249" id="nmY-7m-BVC"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Upload Screenshot"/>
+                                                                <state key="normal" title="Upload Screenshot">
+                                                                    <color key="titleColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="screenshot2ButtonPressed:" destination="aRN-gn-xTh" eventType="touchUpInside" id="MTi-II-0Qr"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcZ-bh-aYJ">
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cru-qc-8z8" userLabel="Upload Screenshot 3 Button">
                                                                 <rect key="frame" x="304" y="0.0" width="140" height="249"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="140" id="Q11-GS-MWk"/>
-                                                                    <constraint firstAttribute="height" constant="249" id="faz-h0-qIX"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Upload Screenshot"/>
+                                                                <state key="normal" title="Upload Screenshot">
+                                                                    <color key="titleColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="screenshot3ButtonPressed:" destination="aRN-gn-xTh" eventType="touchUpInside" id="a0y-cM-Qbq"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5i-O8-UF6">
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICS-dO-aLs" userLabel="Upload Screenshot 4 Button">
                                                                 <rect key="frame" x="452" y="0.0" width="140" height="249"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="140" id="Na0-JC-4C2"/>
-                                                                    <constraint firstAttribute="height" constant="249" id="mnv-Vm-CFF"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Upload Screenshot"/>
+                                                                <state key="normal" title="Upload Screenshot">
+                                                                    <color key="titleColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="screenshot4ButtonPressed:" destination="aRN-gn-xTh" eventType="touchUpInside" id="CEP-jX-sO2"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="XcZ-bh-aYJ" firstAttribute="top" secondItem="7M1-x8-PQN" secondAttribute="top" id="Bdg-CZ-KSh"/>
-                                                            <constraint firstItem="MFT-WE-oeR" firstAttribute="leading" secondItem="7M1-x8-PQN" secondAttribute="leading" constant="8" id="NrE-nQ-Mfr"/>
-                                                            <constraint firstItem="d5i-O8-UF6" firstAttribute="leading" secondItem="XcZ-bh-aYJ" secondAttribute="trailing" constant="8" id="O3L-v5-X1l"/>
-                                                            <constraint firstAttribute="trailing" secondItem="d5i-O8-UF6" secondAttribute="trailing" constant="8" id="bXY-C5-O5U"/>
-                                                            <constraint firstItem="MFT-WE-oeR" firstAttribute="top" secondItem="7M1-x8-PQN" secondAttribute="top" id="cLQ-hy-G15"/>
-                                                            <constraint firstItem="Ia5-Fb-Ce0" firstAttribute="leading" secondItem="MFT-WE-oeR" secondAttribute="trailing" constant="8" id="fgK-qr-Q9S"/>
-                                                            <constraint firstItem="d5i-O8-UF6" firstAttribute="top" secondItem="7M1-x8-PQN" secondAttribute="top" id="mKh-VT-7d0"/>
-                                                            <constraint firstItem="Ia5-Fb-Ce0" firstAttribute="top" secondItem="7M1-x8-PQN" secondAttribute="top" id="tjl-Cu-b6M"/>
-                                                            <constraint firstItem="XcZ-bh-aYJ" firstAttribute="leading" secondItem="Ia5-Fb-Ce0" secondAttribute="trailing" constant="8" id="wRW-5x-fVv"/>
+                                                            <constraint firstAttribute="height" constant="249" id="OWK-Ak-TSA"/>
+                                                            <constraint firstAttribute="width" constant="600" id="ZZ1-W9-j14"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="7M1-x8-PQN" firstAttribute="leading" secondItem="26N-jq-tpn" secondAttribute="leading" id="Bdc-cx-gFa"/>
-                                                    <constraint firstAttribute="bottom" secondItem="7M1-x8-PQN" secondAttribute="bottom" id="D5Y-71-vFz"/>
-                                                    <constraint firstItem="7M1-x8-PQN" firstAttribute="centerY" secondItem="26N-jq-tpn" secondAttribute="centerY" id="IWC-VH-ZZR"/>
-                                                    <constraint firstAttribute="height" constant="249" id="Mkt-5k-aOx"/>
-                                                    <constraint firstItem="7M1-x8-PQN" firstAttribute="centerX" secondItem="26N-jq-tpn" secondAttribute="centerX" id="TXy-7E-STY"/>
-                                                    <constraint firstItem="7M1-x8-PQN" firstAttribute="top" secondItem="26N-jq-tpn" secondAttribute="top" id="UIj-in-cBb"/>
-                                                    <constraint firstAttribute="trailing" secondItem="7M1-x8-PQN" secondAttribute="trailing" id="rdt-4U-Hyz"/>
+                                                    <constraint firstItem="YKC-B3-xjU" firstAttribute="centerY" secondItem="Azv-wg-5Yl" secondAttribute="centerY" id="0Tf-yY-HuT"/>
+                                                    <constraint firstAttribute="height" constant="249" id="9Zx-e4-eZV"/>
+                                                    <constraint firstAttribute="trailing" secondItem="YKC-B3-xjU" secondAttribute="trailing" id="FyB-6I-DC4"/>
+                                                    <constraint firstAttribute="bottom" secondItem="YKC-B3-xjU" secondAttribute="bottom" id="MPO-Qa-C1S"/>
+                                                    <constraint firstAttribute="width" constant="600" id="OCR-fl-mHb"/>
+                                                    <constraint firstItem="YKC-B3-xjU" firstAttribute="centerX" secondItem="Azv-wg-5Yl" secondAttribute="centerX" id="anR-uK-1SS"/>
+                                                    <constraint firstItem="YKC-B3-xjU" firstAttribute="top" secondItem="Azv-wg-5Yl" secondAttribute="top" id="xFt-sO-OKJ"/>
+                                                    <constraint firstItem="YKC-B3-xjU" firstAttribute="leading" secondItem="Azv-wg-5Yl" secondAttribute="leading" id="yLS-1c-JLP"/>
                                                 </constraints>
                                             </scrollView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTACT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSx-vw-l9e" userLabel="CONTACT Label">
+                                                <rect key="frame" x="14" y="756" width="54" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="54" id="5oD-6h-jNO"/>
+                                                    <constraint firstAttribute="height" constant="21" id="mdW-T5-ljF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bvj-QH-501" userLabel="Email address TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="777" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="GNV-Bk-5pk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mailIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Trr-AW-5KJ" userLabel="Mail Icon Image">
+                                                <rect key="frame" x="14" y="777" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="MAF-cR-1nn"/>
+                                                    <constraint firstAttribute="height" constant="44" id="TDd-tK-FVl"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Twitter" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SNt-Lu-aPq" userLabel="Twitter TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="829" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Wua-lj-qLm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitterIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="sDJ-TW-V14" userLabel="Twitter Icon Image">
+                                                <rect key="frame" x="14" y="829" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Kuy-Um-X6j"/>
+                                                    <constraint firstAttribute="width" constant="44" id="bw9-cb-W28"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Facebook" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3yK-dU-RHI" userLabel="Facebook TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="881" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="dmt-bC-sGc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebookIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="gzA-P8-lkq" userLabel="Facebook Icon Image">
+                                                <rect key="frame" x="14" y="881" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="hiR-rd-f8S"/>
+                                                    <constraint firstAttribute="width" constant="44" id="xqX-uy-1Bl"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="GitHub" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n3h-4M-lIe" userLabel="GitHub TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="933" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="doD-I8-YCb"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="ZeC-Zb-gIk" userLabel="GitHub Icon Image">
+                                                <rect key="frame" x="14" y="933" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="SCX-cU-DbZ"/>
+                                                    <constraint firstAttribute="height" constant="44" id="hMO-Fh-93R"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LinkedIn" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lWt-dL-UEh" userLabel="LinkedIn TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="985" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="0Iw-sC-qXX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedinIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="QLw-Ue-yH9" userLabel="LinkedIn Icon Image">
+                                                <rect key="frame" x="14" y="985" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Mfm-ze-vIq"/>
+                                                    <constraint firstAttribute="width" constant="44" id="Uwa-j4-pCl"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Website" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="L9U-cp-7DI" userLabel="Website TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="1037" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="dLa-nZ-o8A"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="websiteIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="IV2-RF-YoO" userLabel="Website Icon Image">
+                                                <rect key="frame" x="14" y="1037" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="5EB-Im-s09"/>
+                                                    <constraint firstAttribute="width" constant="44" id="Cug-kO-Jms"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="App Store" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="djZ-nc-hUT" userLabel="App Store TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="1089" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="hDA-iL-qLc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appstoreIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="ft4-fh-mWJ" userLabel="App Store Icon Image">
+                                                <rect key="frame" x="14" y="1089" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Ipl-Hf-IXq"/>
+                                                    <constraint firstAttribute="width" constant="44" id="jyM-XJ-ldB"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="h8e-wc-cbC" firstAttribute="top" secondItem="5WL-Ke-O2l" secondAttribute="bottom" constant="8" id="2UY-NY-gDB"/>
-                                            <constraint firstItem="8jK-MY-j6d" firstAttribute="leading" secondItem="sLg-4g-5pY" secondAttribute="leading" constant="5" id="94C-yV-oov"/>
-                                            <constraint firstAttribute="trailing" secondItem="7HW-gs-sGa" secondAttribute="trailing" constant="5" id="A2V-AU-4eU"/>
-                                            <constraint firstItem="nXu-19-eqU" firstAttribute="top" secondItem="8jK-MY-j6d" secondAttribute="bottom" constant="8" id="An0-8G-1ct"/>
-                                            <constraint firstItem="26N-jq-tpn" firstAttribute="top" secondItem="h8e-wc-cbC" secondAttribute="bottom" constant="14" id="BM2-R9-9dX"/>
-                                            <constraint firstItem="sI7-Yk-Lxh" firstAttribute="top" secondItem="UbH-Y0-a2A" secondAttribute="bottom" constant="8" id="Ec5-Od-sxX"/>
-                                            <constraint firstItem="8jK-MY-j6d" firstAttribute="top" secondItem="vhL-D7-CIM" secondAttribute="bottom" constant="4" id="INx-1g-SPI"/>
-                                            <constraint firstItem="vhL-D7-CIM" firstAttribute="top" secondItem="sI7-Yk-Lxh" secondAttribute="bottom" constant="14" id="J1l-mt-Nl4"/>
-                                            <constraint firstItem="5WL-Ke-O2l" firstAttribute="top" secondItem="sI7-Yk-Lxh" secondAttribute="bottom" constant="39" id="JpS-Gu-bnx"/>
-                                            <constraint firstItem="h8e-wc-cbC" firstAttribute="leading" secondItem="nXu-19-eqU" secondAttribute="trailing" constant="18" id="RnO-3A-iYV"/>
-                                            <constraint firstItem="UbH-Y0-a2A" firstAttribute="leading" secondItem="sLg-4g-5pY" secondAttribute="leading" id="Vby-vJ-CEB"/>
-                                            <constraint firstItem="7HW-gs-sGa" firstAttribute="leading" secondItem="m0A-mc-cCg" secondAttribute="trailing" constant="8" id="WZu-yi-4MU"/>
-                                            <constraint firstItem="5WL-Ke-O2l" firstAttribute="leading" secondItem="8jK-MY-j6d" secondAttribute="trailing" constant="8" id="XpD-qS-VCN"/>
-                                            <constraint firstAttribute="trailing" secondItem="5WL-Ke-O2l" secondAttribute="trailing" id="aL2-yj-pHR"/>
-                                            <constraint firstItem="ob6-FD-rmm" firstAttribute="top" secondItem="hQO-hA-Rfq" secondAttribute="bottom" constant="4" id="cdB-mb-8WB"/>
-                                            <constraint firstItem="ob6-FD-rmm" firstAttribute="leading" secondItem="sLg-4g-5pY" secondAttribute="leading" id="cii-cK-LLJ"/>
-                                            <constraint firstItem="sI7-Yk-Lxh" firstAttribute="leading" secondItem="sLg-4g-5pY" secondAttribute="leading" constant="1" id="fgj-Fd-Ddo"/>
-                                            <constraint firstItem="nXu-19-eqU" firstAttribute="leading" secondItem="sLg-4g-5pY" secondAttribute="leading" constant="14" id="gna-UR-F9W"/>
-                                            <constraint firstItem="7HW-gs-sGa" firstAttribute="leading" secondItem="ob6-FD-rmm" secondAttribute="trailing" constant="8" id="i1T-Bc-2bd"/>
-                                            <constraint firstItem="hQO-hA-Rfq" firstAttribute="leading" secondItem="sLg-4g-5pY" secondAttribute="leading" constant="10" id="jHe-8R-tbS"/>
-                                            <constraint firstItem="26N-jq-tpn" firstAttribute="leading" secondItem="sLg-4g-5pY" secondAttribute="leading" id="kUi-YR-R4m"/>
-                                            <constraint firstItem="7HW-gs-sGa" firstAttribute="leading" secondItem="UbH-Y0-a2A" secondAttribute="trailing" constant="8" id="lq6-Em-IrD"/>
-                                            <constraint firstAttribute="trailing" secondItem="26N-jq-tpn" secondAttribute="trailing" id="m75-E6-kmd"/>
-                                            <constraint firstItem="UbH-Y0-a2A" firstAttribute="top" secondItem="m0A-mc-cCg" secondAttribute="bottom" constant="8" id="o8U-Wy-dpr"/>
-                                            <constraint firstAttribute="trailing" secondItem="h8e-wc-cbC" secondAttribute="trailing" id="oZF-9l-aXe"/>
-                                            <constraint firstItem="vhL-D7-CIM" firstAttribute="leading" secondItem="sLg-4g-5pY" secondAttribute="leading" constant="10" id="sFO-II-krv"/>
-                                            <constraint firstItem="m0A-mc-cCg" firstAttribute="top" secondItem="ob6-FD-rmm" secondAttribute="bottom" constant="8" id="tAj-UL-kEu"/>
-                                            <constraint firstItem="hQO-hA-Rfq" firstAttribute="top" secondItem="sLg-4g-5pY" secondAttribute="top" constant="8" id="u0u-nQ-uF3"/>
-                                            <constraint firstItem="7HW-gs-sGa" firstAttribute="top" secondItem="sLg-4g-5pY" secondAttribute="top" constant="33" id="xD4-jG-l1c"/>
-                                            <constraint firstItem="m0A-mc-cCg" firstAttribute="leading" secondItem="sLg-4g-5pY" secondAttribute="leading" id="y5h-pI-7qd"/>
-                                            <constraint firstAttribute="trailing" secondItem="sI7-Yk-Lxh" secondAttribute="trailing" constant="1" id="ya3-fN-ZFU"/>
+                                            <constraint firstItem="Bvj-QH-501" firstAttribute="leading" secondItem="Trr-AW-5KJ" secondAttribute="trailing" constant="18" id="01s-45-ymT"/>
+                                            <constraint firstItem="QLw-Ue-yH9" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="0BH-ff-sTA"/>
+                                            <constraint firstAttribute="trailing" secondItem="TLu-Hv-soS" secondAttribute="trailing" constant="5" id="20F-HD-aRN"/>
+                                            <constraint firstItem="dmg-TG-pFC" firstAttribute="top" secondItem="R1w-k4-bJq" secondAttribute="bottom" constant="8" id="3Rc-tL-CXa"/>
+                                            <constraint firstItem="rkv-9T-5X9" firstAttribute="leading" secondItem="G3X-b7-ZDY" secondAttribute="trailing" constant="8" id="3k8-rN-7Cr"/>
+                                            <constraint firstItem="n3h-4M-lIe" firstAttribute="top" secondItem="3yK-dU-RHI" secondAttribute="bottom" constant="8" id="3wM-ir-AvA"/>
+                                            <constraint firstAttribute="trailing" secondItem="Bvj-QH-501" secondAttribute="trailing" constant="5" id="41Q-qZ-SWa"/>
+                                            <constraint firstItem="rkv-9T-5X9" firstAttribute="top" secondItem="uBy-AJ-Yl4" secondAttribute="top" constant="33" id="42H-pb-VI7"/>
+                                            <constraint firstItem="TLu-Hv-soS" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="5" id="4BP-Pw-hgR"/>
+                                            <constraint firstAttribute="trailing" secondItem="Azv-wg-5Yl" secondAttribute="trailing" id="4IN-9G-7aI"/>
+                                            <constraint firstItem="ft4-fh-mWJ" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="6c6-4Y-Evf"/>
+                                            <constraint firstAttribute="trailing" secondItem="djZ-nc-hUT" secondAttribute="trailing" constant="5" id="71M-v1-6Ra"/>
+                                            <constraint firstItem="Otx-jg-qcT" firstAttribute="top" secondItem="uBy-AJ-Yl4" secondAttribute="top" constant="8" id="81v-GR-kOz"/>
+                                            <constraint firstItem="SNt-Lu-aPq" firstAttribute="top" secondItem="Bvj-QH-501" secondAttribute="bottom" constant="8" id="8uc-JB-men"/>
+                                            <constraint firstItem="lWt-dL-UEh" firstAttribute="top" secondItem="n3h-4M-lIe" secondAttribute="bottom" constant="8" id="ARt-5L-IzV"/>
+                                            <constraint firstAttribute="trailing" secondItem="GWS-Bz-HyP" secondAttribute="trailing" constant="5" id="Cac-2b-hgg"/>
+                                            <constraint firstItem="rkv-9T-5X9" firstAttribute="leading" secondItem="8gd-hm-Osc" secondAttribute="trailing" constant="8" id="Du1-pL-t9E"/>
+                                            <constraint firstItem="GWS-Bz-HyP" firstAttribute="top" secondItem="PNl-m6-yFy" secondAttribute="bottom" constant="4" id="EA6-yR-E2B"/>
+                                            <constraint firstItem="8gd-hm-Osc" firstAttribute="top" secondItem="CiS-jx-Cg3" secondAttribute="bottom" constant="8" id="F8i-Ea-QQo"/>
+                                            <constraint firstItem="gzA-P8-lkq" firstAttribute="top" secondItem="sDJ-TW-V14" secondAttribute="bottom" constant="8" id="FUt-NM-jMW"/>
+                                            <constraint firstItem="sDJ-TW-V14" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="GtC-04-bTY"/>
+                                            <constraint firstItem="IV2-RF-YoO" firstAttribute="top" secondItem="QLw-Ue-yH9" secondAttribute="bottom" constant="8" id="Gzv-6R-iKV"/>
+                                            <constraint firstItem="CiS-jx-Cg3" firstAttribute="top" secondItem="Otx-jg-qcT" secondAttribute="bottom" constant="4" id="J8w-Iw-ZyQ"/>
+                                            <constraint firstItem="TLu-Hv-soS" firstAttribute="top" secondItem="rkv-9T-5X9" secondAttribute="bottom" constant="6" id="Lq3-1L-kLZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="3yK-dU-RHI" secondAttribute="trailing" constant="5" id="Ntw-qr-BoX"/>
+                                            <constraint firstItem="djZ-nc-hUT" firstAttribute="top" secondItem="L9U-cp-7DI" secondAttribute="bottom" constant="8" id="OIZ-WO-vuM"/>
+                                            <constraint firstItem="SNt-Lu-aPq" firstAttribute="leading" secondItem="sDJ-TW-V14" secondAttribute="trailing" constant="18" id="Pmg-h3-ch0"/>
+                                            <constraint firstItem="Sbr-IO-c4S" firstAttribute="leading" secondItem="dmg-TG-pFC" secondAttribute="trailing" constant="18" id="QEq-Fh-u5v"/>
+                                            <constraint firstAttribute="trailing" secondItem="Sbr-IO-c4S" secondAttribute="trailing" constant="5" id="TUP-9k-sbN"/>
+                                            <constraint firstItem="djZ-nc-hUT" firstAttribute="leading" secondItem="ft4-fh-mWJ" secondAttribute="trailing" constant="18" id="Tan-Pu-HGP"/>
+                                            <constraint firstItem="sDJ-TW-V14" firstAttribute="top" secondItem="Trr-AW-5KJ" secondAttribute="bottom" constant="8" id="Wi9-QU-3kG"/>
+                                            <constraint firstAttribute="trailing" secondItem="SNt-Lu-aPq" secondAttribute="trailing" constant="5" id="XJy-ZH-XES"/>
+                                            <constraint firstItem="L9U-cp-7DI" firstAttribute="top" secondItem="lWt-dL-UEh" secondAttribute="bottom" constant="8" id="Xfe-J0-ORO"/>
+                                            <constraint firstItem="Azv-wg-5Yl" firstAttribute="top" secondItem="dmg-TG-pFC" secondAttribute="bottom" constant="8" id="Xk1-BY-cjf"/>
+                                            <constraint firstItem="3yK-dU-RHI" firstAttribute="leading" secondItem="gzA-P8-lkq" secondAttribute="trailing" constant="18" id="ZJs-jQ-oGr"/>
+                                            <constraint firstAttribute="bottom" secondItem="djZ-nc-hUT" secondAttribute="bottom" constant="267" id="aOB-5D-Vpz"/>
+                                            <constraint firstItem="G3X-b7-ZDY" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="5" id="bwX-Ok-8w4"/>
+                                            <constraint firstItem="Bvj-QH-501" firstAttribute="top" secondItem="OSx-vw-l9e" secondAttribute="bottom" id="cTP-m9-s4o"/>
+                                            <constraint firstItem="Otx-jg-qcT" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="10" id="f4a-Sk-A79"/>
+                                            <constraint firstItem="8gd-hm-Osc" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="5" id="fX1-ZZ-Wa5"/>
+                                            <constraint firstItem="L9U-cp-7DI" firstAttribute="leading" secondItem="IV2-RF-YoO" secondAttribute="trailing" constant="18" id="iNk-mg-wEi"/>
+                                            <constraint firstItem="ft4-fh-mWJ" firstAttribute="top" secondItem="IV2-RF-YoO" secondAttribute="bottom" constant="8" id="iqK-Ea-1jq"/>
+                                            <constraint firstItem="Trr-AW-5KJ" firstAttribute="top" secondItem="OSx-vw-l9e" secondAttribute="bottom" id="jJv-XZ-Sck"/>
+                                            <constraint firstItem="CiS-jx-Cg3" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="5" id="jOS-Ae-bu5"/>
+                                            <constraint firstItem="Sbr-IO-c4S" firstAttribute="top" secondItem="GWS-Bz-HyP" secondAttribute="bottom" constant="8" id="kM0-lE-eKP"/>
+                                            <constraint firstAttribute="trailing" secondItem="lWt-dL-UEh" secondAttribute="trailing" constant="5" id="kea-8H-2E8"/>
+                                            <constraint firstItem="G3X-b7-ZDY" firstAttribute="top" secondItem="8gd-hm-Osc" secondAttribute="bottom" constant="8" id="ksx-vY-BUo"/>
+                                            <constraint firstItem="lWt-dL-UEh" firstAttribute="leading" secondItem="QLw-Ue-yH9" secondAttribute="trailing" constant="18" id="lfi-Il-WKt"/>
+                                            <constraint firstAttribute="trailing" secondItem="L9U-cp-7DI" secondAttribute="trailing" constant="5" id="ljg-Q4-BPH"/>
+                                            <constraint firstItem="ZeC-Zb-gIk" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="nbU-yg-8QQ"/>
+                                            <constraint firstItem="PNl-m6-yFy" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="10" id="nmT-T3-a9H"/>
+                                            <constraint firstItem="R1w-k4-bJq" firstAttribute="top" secondItem="PNl-m6-yFy" secondAttribute="bottom" constant="4" id="omR-yY-ehI"/>
+                                            <constraint firstItem="R1w-k4-bJq" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="5" id="paG-ww-GqZ"/>
+                                            <constraint firstItem="Azv-wg-5Yl" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" id="qOn-1l-QUo"/>
+                                            <constraint firstAttribute="trailing" secondItem="n3h-4M-lIe" secondAttribute="trailing" constant="5" id="rdZ-bz-qae"/>
+                                            <constraint firstItem="OSx-vw-l9e" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="s74-ib-FN0"/>
+                                            <constraint firstItem="GWS-Bz-HyP" firstAttribute="leading" secondItem="R1w-k4-bJq" secondAttribute="trailing" constant="8" id="sRw-dt-4gm"/>
+                                            <constraint firstAttribute="trailing" secondItem="rkv-9T-5X9" secondAttribute="trailing" constant="5" id="t0Z-99-hCv"/>
+                                            <constraint firstItem="n3h-4M-lIe" firstAttribute="leading" secondItem="ZeC-Zb-gIk" secondAttribute="trailing" constant="18" id="tbp-k1-oLA"/>
+                                            <constraint firstItem="rkv-9T-5X9" firstAttribute="leading" secondItem="CiS-jx-Cg3" secondAttribute="trailing" constant="8" id="u1e-NQ-WwW"/>
+                                            <constraint firstItem="OSx-vw-l9e" firstAttribute="top" secondItem="Azv-wg-5Yl" secondAttribute="bottom" constant="14" id="v2v-ak-a3J"/>
+                                            <constraint firstItem="QLw-Ue-yH9" firstAttribute="top" secondItem="ZeC-Zb-gIk" secondAttribute="bottom" constant="8" id="vpH-dj-UM7"/>
+                                            <constraint firstItem="PNl-m6-yFy" firstAttribute="top" secondItem="TLu-Hv-soS" secondAttribute="bottom" constant="14" id="wg5-8s-30f"/>
+                                            <constraint firstItem="gzA-P8-lkq" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="wkI-CR-XPm"/>
+                                            <constraint firstItem="Trr-AW-5KJ" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="x27-PS-oXq"/>
+                                            <constraint firstItem="dmg-TG-pFC" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="xGB-kw-rH4"/>
+                                            <constraint firstItem="3yK-dU-RHI" firstAttribute="top" secondItem="SNt-Lu-aPq" secondAttribute="bottom" constant="8" id="xPM-1H-RDu"/>
+                                            <constraint firstItem="ZeC-Zb-gIk" firstAttribute="top" secondItem="gzA-P8-lkq" secondAttribute="bottom" constant="8" id="yFI-Y3-kOx"/>
+                                            <constraint firstItem="IV2-RF-YoO" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="zf7-jl-flS"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="4IN-9G-7aI"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="sLg-4g-5pY" firstAttribute="centerX" secondItem="jkG-tb-RGJ" secondAttribute="centerX" id="2Ly-iY-8BA"/>
-                                    <constraint firstItem="sLg-4g-5pY" firstAttribute="top" secondItem="jkG-tb-RGJ" secondAttribute="top" id="4YP-9b-NBU"/>
-                                    <constraint firstAttribute="trailing" secondItem="sLg-4g-5pY" secondAttribute="trailing" id="4eo-c5-Iaa"/>
-                                    <constraint firstAttribute="bottom" secondItem="sLg-4g-5pY" secondAttribute="bottom" id="Aho-BF-Hdg"/>
-                                    <constraint firstItem="sLg-4g-5pY" firstAttribute="centerY" secondItem="jkG-tb-RGJ" secondAttribute="centerY" id="FNm-jC-SD1"/>
-                                    <constraint firstItem="sLg-4g-5pY" firstAttribute="leading" secondItem="jkG-tb-RGJ" secondAttribute="leading" id="nol-vQ-rbH"/>
+                                    <constraint firstItem="uBy-AJ-Yl4" firstAttribute="leading" secondItem="dbg-wk-SUG" secondAttribute="leading" id="A3b-yc-hT2"/>
+                                    <constraint firstAttribute="bottom" secondItem="uBy-AJ-Yl4" secondAttribute="bottom" id="LcQ-21-yzs"/>
+                                    <constraint firstItem="uBy-AJ-Yl4" firstAttribute="top" secondItem="dbg-wk-SUG" secondAttribute="top" id="Rgd-PX-UX2"/>
+                                    <constraint firstAttribute="trailing" secondItem="uBy-AJ-Yl4" secondAttribute="trailing" id="vZN-km-LQS"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="p4J-5j-nYJ" firstAttribute="top" secondItem="jkG-tb-RGJ" secondAttribute="bottom" id="0e7-2G-tmD"/>
-                            <constraint firstItem="sLg-4g-5pY" firstAttribute="leading" secondItem="FSt-O0-dsc" secondAttribute="leadingMargin" constant="-20" id="N4s-7A-NXu"/>
-                            <constraint firstItem="jkG-tb-RGJ" firstAttribute="top" secondItem="wf6-Vw-BWo" secondAttribute="bottom" constant="-64" id="UAT-vk-Q7h"/>
-                            <constraint firstItem="sLg-4g-5pY" firstAttribute="top" secondItem="wf6-Vw-BWo" secondAttribute="bottom" id="XKL-LZ-NF9"/>
-                            <constraint firstItem="jkG-tb-RGJ" firstAttribute="leading" secondItem="FSt-O0-dsc" secondAttribute="leadingMargin" constant="-20" id="ab4-Hy-8dl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jkG-tb-RGJ" secondAttribute="trailing" constant="-20" id="cL7-AY-pV8"/>
-                            <constraint firstItem="sLg-4g-5pY" firstAttribute="width" secondItem="FSt-O0-dsc" secondAttribute="width" id="h9s-oE-BWl"/>
-                            <constraint firstItem="sLg-4g-5pY" firstAttribute="height" secondItem="FSt-O0-dsc" secondAttribute="height" id="zKF-Nm-njj"/>
+                            <constraint firstItem="uBy-AJ-Yl4" firstAttribute="width" secondItem="FSt-O0-dsc" secondAttribute="width" id="1Sb-s8-Tij"/>
+                            <constraint firstItem="uBy-AJ-Yl4" firstAttribute="height" secondItem="FSt-O0-dsc" secondAttribute="height" priority="250" id="5Rc-kc-ZF3"/>
+                            <constraint firstItem="dbg-wk-SUG" firstAttribute="leading" secondItem="FSt-O0-dsc" secondAttribute="leading" id="Wan-ip-o8z"/>
+                            <constraint firstItem="p4J-5j-nYJ" firstAttribute="top" secondItem="dbg-wk-SUG" secondAttribute="bottom" id="qOe-fj-aad"/>
+                            <constraint firstAttribute="trailing" secondItem="dbg-wk-SUG" secondAttribute="trailing" id="rYQ-20-I1N"/>
+                            <constraint firstItem="dbg-wk-SUG" firstAttribute="top" secondItem="FSt-O0-dsc" secondAttribute="top" id="sAF-N7-RHf"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="N4s-7A-NXu"/>
-                                <exclude reference="XKL-LZ-NF9"/>
-                                <exclude reference="h9s-oE-BWl"/>
-                                <exclude reference="zKF-Nm-njj"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit your details" id="gJg-hK-bUQ">
+                    <navigationItem key="navigationItem" title="Profile" id="gJg-hK-bUQ">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6oE-xL-4IB">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -749,15 +1009,30 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="1000"/>
+                    <size key="freeformSize" width="600" height="1400"/>
                     <connections>
-                        <outlet property="screenshotScrollView" destination="26N-jq-tpn" id="DAs-xG-arz"/>
-                        <outlet property="scrollView" destination="jkG-tb-RGJ" id="FDq-Gz-Ruv"/>
+                        <outlet property="ageTextField" destination="8gd-hm-Osc" id="aOP-rX-8rU"/>
+                        <outlet property="appstoreTextField" destination="djZ-nc-hUT" id="85C-Jy-xCX"/>
+                        <outlet property="cityCountryTextField" destination="G3X-b7-ZDY" id="1mM-tt-6ws"/>
+                        <outlet property="emailTextField" destination="Bvj-QH-501" id="HEr-F7-KRD"/>
+                        <outlet property="facebookTextField" destination="3yK-dU-RHI" id="SmA-jR-kLc"/>
+                        <outlet property="githubLinkTextField" destination="Sbr-IO-c4S" id="nKw-QW-li6"/>
+                        <outlet property="githubTextField" destination="n3h-4M-lIe" id="lbh-dD-PoO"/>
+                        <outlet property="linkedinTextField" destination="lWt-dL-UEh" id="X5J-10-eMi"/>
+                        <outlet property="nameTextField" destination="CiS-jx-Cg3" id="O4K-oD-q54"/>
+                        <outlet property="profilePhotoButton" destination="rkv-9T-5X9" id="TVe-mr-kza"/>
+                        <outlet property="screenshot1Button" destination="lw6-CA-uvc" id="SaQ-qB-Kcm"/>
+                        <outlet property="screenshot3Button" destination="cru-qc-8z8" id="JaH-7z-gQy"/>
+                        <outlet property="screenshot4Button" destination="ICS-dO-aLs" id="roU-kR-lGZ"/>
+                        <outlet property="shortBioTextView" destination="TLu-Hv-soS" id="zRv-MN-nhi"/>
+                        <outlet property="twitterTextField" destination="SNt-Lu-aPq" id="f1t-g9-a8r"/>
+                        <outlet property="websiteTextField" destination="L9U-cp-7DI" id="SDO-tN-sUL"/>
+                        <outlet property="youtubeLinkTextField" destination="GWS-Bz-HyP" id="Cd0-YZ-lz2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zas-LB-aNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3462" y="1487"/>
+            <point key="canvasLocation" x="3526" y="1487"/>
         </scene>
     </scenes>
     <resources>
@@ -767,8 +1042,12 @@
         <image name="Project Management" width="59" height="58"/>
         <image name="WWDCScholars Icon" width="155" height="155"/>
         <image name="Website" width="59" height="58"/>
+        <image name="appstoreIconSmall" width="44" height="44"/>
+        <image name="facebookIconSmall" width="44" height="44"/>
         <image name="gitHubIconSmall" width="44" height="44"/>
         <image name="iOS" width="59" height="58"/>
+        <image name="linkedinIconSmall" width="44" height="44"/>
+        <image name="mailIconSmall" width="44" height="44"/>
         <image name="tabBarIconAlumni" width="25" height="25"/>
         <image name="tabBarIconAlumniFilled" width="25" height="25"/>
         <image name="tabBarIconBlog" width="25" height="25"/>
@@ -777,7 +1056,9 @@
         <image name="tabBarIconCreditsFilled" width="25" height="25"/>
         <image name="tabBarIconScholars" width="25" height="25"/>
         <image name="tabBarIconScholarsFilled" width="25" height="25"/>
+        <image name="twitterIconSmall" width="44" height="44"/>
         <image name="watchOS" width="59" height="58"/>
+        <image name="websiteIconSmall" width="44" height="44"/>
         <image name="youTubeIconSmall" width="62" height="44"/>
     </resources>
 </document>

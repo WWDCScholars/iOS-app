@@ -9,19 +9,52 @@
 import UIKit
 
 class EditDetailsViewController: UIViewController {
-
-    @IBOutlet var screenshotScrollView: UIScrollView!
-    @IBOutlet var scrollView: UIScrollView!
+    
+    // MARK: - Outlets
+    // MARK: TextFields & TextViews
+    @IBOutlet var nameTextField: FloatLabelTextField!
+    @IBOutlet var ageTextField: FloatLabelTextField!
+    @IBOutlet var cityCountryTextField: FloatLabelTextField!
+    @IBOutlet var shortBioTextView: FloatLabelTextView!
+    @IBOutlet var youtubeLinkTextField: FloatLabelTextField!
+    @IBOutlet var githubLinkTextField: FloatLabelTextField!
+    @IBOutlet var emailTextField: FloatLabelTextField!
+    @IBOutlet var twitterTextField: FloatLabelTextField!
+    @IBOutlet var facebookTextField: FloatLabelTextField!
+    @IBOutlet var githubTextField: FloatLabelTextField!
+    @IBOutlet var linkedinTextField: FloatLabelTextField!
+    @IBOutlet var websiteTextField: FloatLabelTextField!
+    @IBOutlet var appstoreTextField: FloatLabelTextField!
+    
+    // MARK: Buttons
+    @IBOutlet var profilePhotoButton: UIButton!
+    @IBOutlet var screenshot1Button: UIButton!
+    @IBOutlet var screenshot2Button: UIButton!
+    @IBOutlet var screenshot3Button: UIButton!
+    @IBOutlet var screenshot4Button: UIButton!
+    
+    // MARK: - Actions
+    @IBAction func profilePhotoButtonPressed(sender: AnyObject) {
+    }
+    
+    @IBAction func screenshot1ButtonPressed(sender: AnyObject) {
+    }
+    
+    @IBAction func screenshot2ButtonPressed(sender: AnyObject) {
+    }
+    
+    @IBAction func screenshot3ButtonPressed(sender: AnyObject) {
+    }
+    
+    @IBAction func screenshot4ButtonPressed(sender: AnyObject) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         viewSetup()
-        scrollView.scrollEnabled = true
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 3000)
-        
-        screenshotScrollView.scrollEnabled = true
-        screenshotScrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.size.height)
+   
         
     }
 
@@ -41,7 +74,7 @@ class EditDetailsViewController: UIViewController {
     }
     */
     func viewSetup(){
-        self.title = "Edit your details"
+        self.title = "Profile"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
     

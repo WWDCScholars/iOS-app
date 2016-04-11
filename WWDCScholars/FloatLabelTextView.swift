@@ -151,7 +151,8 @@ import UIKit
 		self.addSubview(title)
         
         self.contentInset = UIEdgeInsetsMake(0, 10, 0, 10)
-        
+        self.layer.cornerRadius = 5
+
         
 		// Observers
 		if !isIB {

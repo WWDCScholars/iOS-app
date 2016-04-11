@@ -157,11 +157,14 @@ import UIKit
 			}
 		}
         
-        let paddingView = UIView(frame: CGRectMake(0,0,10,44))
+        self.layer.cornerRadius = 5
+        
+        let paddingView = UIView(frame: CGRectMake(0,0,10,50))
         self.leftView = paddingView
         self.leftViewMode = UITextFieldViewMode.Always
         self.rightView = paddingView
         self.rightViewMode = UITextFieldViewMode.Always
+        
 		self.addSubview(title)
 	}
 

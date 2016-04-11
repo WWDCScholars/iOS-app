@@ -32,7 +32,7 @@ platform :ios do
 
   desc "Deploy a new bleeding-edge version to Crashlytics beta"
   lane :crashlytics do
-    match(type: "appstore")
+    match(type: "appstore", readonly: true)
     gym(scheme: "WWDCScholars")
     scan
     crashlytics
@@ -41,7 +41,7 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :testflight do
-    match(type: "appstore")
+    match(type: "appstore", readonly: true)
     gym(scheme: "WWDCScholars")
     scan
     pilot

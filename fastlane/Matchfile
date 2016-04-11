@@ -1,4 +1,4 @@
-git_url "https://$GH_TOKEN@github.com/WWDCScholars/certificates.git"
+git_url "https://github.com/WWDCScholars/certificates.git"
 
 type "development" # The default type, can be: appstore, adhoc or development
 

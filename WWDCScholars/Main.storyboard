@@ -609,7 +609,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Trr-AW-5KJ">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mailIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Trr-AW-5KJ">
                                                 <rect key="frame" x="14" y="777" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="MAF-cR-1nn"/>
@@ -625,7 +625,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="sDJ-TW-V14">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitterIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="sDJ-TW-V14">
                                                 <rect key="frame" x="14" y="829" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="Kuy-Um-X6j"/>
@@ -641,7 +641,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="gzA-P8-lkq">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebookIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="gzA-P8-lkq">
                                                 <rect key="frame" x="14" y="881" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="hiR-rd-f8S"/>
@@ -723,7 +723,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="QLw-Ue-yH9">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedinIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="QLw-Ue-yH9">
                                                 <rect key="frame" x="14" y="985" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="Mfm-ze-vIq"/>
@@ -739,7 +739,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="IV2-RF-YoO">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="websiteIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="IV2-RF-YoO">
                                                 <rect key="frame" x="14" y="1037" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="5EB-Im-s09"/>
@@ -755,7 +755,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="ft4-fh-mWJ">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appstoreIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="ft4-fh-mWJ">
                                                 <rect key="frame" x="14" y="1089" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="Ipl-Hf-IXq"/>
@@ -890,8 +890,12 @@
         <image name="Project Management" width="59" height="58"/>
         <image name="WWDCScholars Icon" width="155" height="155"/>
         <image name="Website" width="59" height="58"/>
+        <image name="appstoreIconSmall" width="44" height="44"/>
+        <image name="facebookIconSmall" width="44" height="44"/>
         <image name="gitHubIconSmall" width="44" height="44"/>
         <image name="iOS" width="59" height="58"/>
+        <image name="linkedinIconSmall" width="44" height="44"/>
+        <image name="mailIconSmall" width="44" height="44"/>
         <image name="tabBarIconAlumni" width="25" height="25"/>
         <image name="tabBarIconAlumniFilled" width="25" height="25"/>
         <image name="tabBarIconBlog" width="25" height="25"/>
@@ -900,7 +904,9 @@
         <image name="tabBarIconCreditsFilled" width="25" height="25"/>
         <image name="tabBarIconScholars" width="25" height="25"/>
         <image name="tabBarIconScholarsFilled" width="25" height="25"/>
+        <image name="twitterIconSmall" width="44" height="44"/>
         <image name="watchOS" width="59" height="58"/>
+        <image name="websiteIconSmall" width="44" height="44"/>
         <image name="youTubeIconSmall" width="62" height="44"/>
     </resources>
 </document>

@@ -1,6 +1,6 @@
-# WWDC Scholars iOS App
+# WWDC Scholars iOS App [![Build Status](https://travis-ci.org/WWDCScholars/WWDCScholars-iOS.svg?branch=master)](https://travis-ci.org/WWDCScholars/WWDCScholars-iOS)
 
-We are currently working on our new iOS portfolio app for WWDCScholars. 
+We are currently working on our new iOS portfolio app for WWDCScholars.
 
 You can find out more information about us at our website: http://WWDCScholars.com or download our app at https://itunes.apple.com/us/app/scholars-of-wwdc/id999731893?mt=8
 

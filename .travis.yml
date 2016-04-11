@@ -3,6 +3,9 @@ osx_image: xcode7.3
 xcode_workspace: WWDCScholars.xcodeproj
 xcode_scheme: WWDCScholarsTests
 script:
-  -  ./fastlane/travis.sh
+- "./fastlane/travis.sh"
 cache:
-  - bundler
+- bundler
+env:
+  global:
+    secure: U7CN3bBL1oJ2R+keamz75DglPuAcYmq+C9nfrLXaOa2QIg/2kZ52yr1D4zpBiqkSOxcADFzPDWg0cpyQO1ZKRK/2OkfcMRBIgzqZR/dli/+9s4rz61kgtUQrNqVHhILkklsbK4nuSeAPxcOVphvsbKK1HiMBIum2s8Pe5iSZ92Iqiew2FDOTgZ2cnGRrVXEMyOcQE+xtLbBdVdvszZFHcFoNmeBTqcdm+dY2vPQSoqH8exXufZ6/m8orrVnF+r10auppY0zI49QtMFrA66T0TpIzCJZ9UCq91uykeJbkgluLUvdvXgZ93Qh7QbzSDcr6BwX+lWlIF22f/TQC0ZXNkechHbFwU69Qs7np+rhERCqO9BfRIaQNjtazyzgH77FwCIlt+H3TgmNrWuFu7VNCx8ashId18s5FAapdePkt5zk3C85VlJFo7FW2IztYe/WRWUM4CslSpHjRobqj1jep9vYtbNkup886mcNV2PfjenfKIJT0J13baM5EmMZssTqgP8iJ8VMZUUmx4Lo0rZc5TFGcNPdw9XmrzxBEI20Ba8oY8EmOWgixPXhC0BIpuZ//dO2F8+bPvvJXhSyyMIxIkEQeiUNJ9o+CiCBbMdljqMSUcLxEA8+UiFae6THeaa4sYFd94yvfo/7EDNDVDw9ed0J2kPAY0oLS2Nfl0D2wyFM=

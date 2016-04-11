@@ -30,6 +30,14 @@ platform :ios do
     scan
   end
 
+  desc "Deploy a new bleeding-edge version to Crashlytics beta"
+  lane :crashlytics do
+    # match(type: "appstore")
+    gym(scheme: "WWDCScholars")
+    scan
+    crashlytics
+  end
+
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :testflight do
@@ -60,12 +68,12 @@ platform :ios do
     build       = get_build_number(xcodeproj: "WWDCScholars.xcodeproj")
 
     commit_version_bump(
-      message: "Version #{version}, Build #{build}\n\n[ci skip]"
+      message: "Version #{version}, Build #{build}\n[ci skip]"
     )
-    # push_to_git_remote
+    push_to_git_remote
 
     slack(
-      message: "Successfully deployed version *#{version}* (#{build})! :rocket: "
+      message: "Successfully deployed version *#{version}* (#{build})! :tim: :tada:"
     )
   end
 

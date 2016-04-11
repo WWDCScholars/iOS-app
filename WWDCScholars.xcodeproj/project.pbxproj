@@ -27,6 +27,8 @@
 		6EB723D91CB9B85B005A076F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB723D81CB9B85B005A076F /* Assets.xcassets */; };
 		7B2AA6E01CBAE7530025EC7B /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */; };
 		7B2AA6EE1CBAE75B0025EC7B /* WWDCScholarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6ED1CBAE75B0025EC7B /* WWDCScholarsUITests.swift */; };
+		7BBA87641CBB7F3A0057E9AD /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBA87621CBB7F3A0057E9AD /* Fabric.framework */; };
+		7BBA87651CBB7F3A0057E9AD /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBA87631CBB7F3A0057E9AD /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		7B2AA6EB1CBAE75B0025EC7B /* WWDCScholarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2AA6ED1CBAE75B0025EC7B /* WWDCScholarsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsUITests.swift; sourceTree = "<group>"; };
 		7B2AA6EF1CBAE75B0025EC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BBA87621CBB7F3A0057E9AD /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		7BBA87631CBB7F3A0057E9AD /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				223F5E9A1CB970EC00E582C5 /* AVFoundation.framework in Frameworks */,
+				7BBA87651CBB7F3A0057E9AD /* Crashlytics.framework in Frameworks */,
+				7BBA87641CBB7F3A0057E9AD /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +125,8 @@
 				7B2AA6DE1CBAE7530025EC7B /* WWDCScholarsTests */,
 				7B2AA6EC1CBAE75B0025EC7B /* WWDCScholarsUITests */,
 				2238841E1C8252D900A96752 /* Products */,
+				7BBA87621CBB7F3A0057E9AD /* Fabric.framework */,
+				7BBA87631CBB7F3A0057E9AD /* Crashlytics.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,6 +231,7 @@
 				223884191C8252D900A96752 /* Sources */,
 				2238841A1C8252D900A96752 /* Frameworks */,
 				2238841B1C8252D900A96752 /* Resources */,
+				7BBA87611CBB7F210057E9AD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -340,6 +349,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7BBA87611CBB7F210057E9AD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run d870990c31d5e6607e80fc418397610c59340eec e90d6681747a8d65aebd5a8df4fd264459fbd5e3d9d33deee5deb3c49f3f9b2f";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		223884191C8252D900A96752 /* Sources */ = {
@@ -496,6 +521,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 10;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -512,6 +541,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 10;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -603,6 +636,7 @@
 				7B2AA6E51CBAE7530025EC7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B2AA6F21CBAE75B0025EC7B /* Build configuration list for PBXNativeTarget "WWDCScholarsUITests" */ = {
 			isa = XCConfigurationList;
@@ -611,6 +645,7 @@
 				7B2AA6F41CBAE75B0025EC7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

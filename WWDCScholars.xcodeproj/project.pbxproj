@@ -603,6 +603,7 @@
 				7B2AA6E51CBAE7530025EC7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B2AA6F21CBAE75B0025EC7B /* Build configuration list for PBXNativeTarget "WWDCScholarsUITests" */ = {
 			isa = XCConfigurationList;
@@ -611,6 +612,7 @@
 				7B2AA6F41CBAE75B0025EC7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,7 +9,46 @@
 import UIKit
 
 class EditDetailsViewController: UIViewController {
-
+    
+    // MARK: - Outlets
+    // MARK: TextFields & TextViews
+    @IBOutlet var nameTextField: FloatLabelTextField!
+    @IBOutlet var ageTextField: FloatLabelTextField!
+    @IBOutlet var cityCountryTextField: FloatLabelTextField!
+    @IBOutlet var shortBioTextView: FloatLabelTextView!
+    @IBOutlet var youtubeLinkTextField: FloatLabelTextField!
+    @IBOutlet var githubLinkTextField: FloatLabelTextField!
+    @IBOutlet var emailTextField: FloatLabelTextField!
+    @IBOutlet var twitterTextField: FloatLabelTextField!
+    @IBOutlet var facebookTextField: FloatLabelTextField!
+    @IBOutlet var githubTextField: FloatLabelTextField!
+    @IBOutlet var linkedinTextField: FloatLabelTextField!
+    @IBOutlet var websiteTextField: FloatLabelTextField!
+    @IBOutlet var appstoreTextField: FloatLabelTextField!
+    
+    // MARK: Buttons
+    @IBOutlet var profilePhotoButton: UIButton!
+    @IBOutlet var screenshot1Button: UIButton!
+    @IBOutlet var screenshot2Button: UIButton!
+    @IBOutlet var screenshot3Button: UIButton!
+    @IBOutlet var screenshot4Button: UIButton!
+    
+    // MARK: - Actions
+    @IBAction func profilePhotoButtonPressed(sender: AnyObject) {
+    }
+    
+    @IBAction func screenshot1ButtonPressed(sender: AnyObject) {
+    }
+    
+    @IBAction func screenshot2ButtonPressed(sender: AnyObject) {
+    }
+    
+    @IBAction func screenshot3ButtonPressed(sender: AnyObject) {
+    }
+    
+    @IBAction func screenshot4ButtonPressed(sender: AnyObject) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

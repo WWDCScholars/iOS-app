@@ -501,7 +501,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBy-AJ-Yl4" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="1400"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENERAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Otx-jg-qcT">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENERAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Otx-jg-qcT" userLabel="GENERAL Label">
                                                 <rect key="frame" x="10" y="8" width="54" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="GnP-Y6-6fo"/>
@@ -511,7 +511,7 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CiS-jx-Cg3" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CiS-jx-Cg3" userLabel="Name TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
                                                 <rect key="frame" x="5" y="33" width="432" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -528,7 +528,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Age" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8gd-hm-Osc" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Age" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8gd-hm-Osc" userLabel="Age TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
                                                 <rect key="frame" x="5" y="85" width="432" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -545,7 +545,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City, Country" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-b7-ZDY" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City, Country" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-b7-ZDY" userLabel="City, Country TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
                                                 <rect key="frame" x="5" y="137" width="432" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -562,7 +562,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkv-9T-5X9">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkv-9T-5X9" userLabel="Upload Photo Button">
                                                 <rect key="frame" x="445" y="33" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="16L-FM-XhI"/>
@@ -571,8 +571,11 @@
                                                 <state key="normal" backgroundImage="WWDCScholars Icon">
                                                     <color key="titleColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="profilePhotoButtonPressed:" destination="aRN-gn-xTh" eventType="touchUpInside" id="V43-gD-mGb"/>
+                                                </connections>
                                             </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TLu-Hv-soS" customClass="FloatLabelTextView" customModule="WWDCScholars" customModuleProvider="target">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TLu-Hv-soS" userLabel="Short Bio TextView" customClass="FloatLabelTextView" customModule="WWDCScholars" customModuleProvider="target">
                                                 <rect key="frame" x="5" y="189" width="590" height="161"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -587,7 +590,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCHOLARSHIP APP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNl-m6-yFy">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCHOLARSHIP APP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNl-m6-yFy" userLabel="SCHOLARSHIP APP Label">
                                                 <rect key="frame" x="10" y="364" width="110" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="110" id="I3J-ta-e8Q"/>
@@ -597,7 +600,7 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="YouTube link of your app" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GWS-Bz-HyP" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="YouTube link of your app" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GWS-Bz-HyP" userLabel="YouTube Link TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
                                                 <rect key="frame" x="76" y="389" width="519" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -614,14 +617,14 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youTubeIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="R1w-k4-bJq">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youTubeIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="R1w-k4-bJq" userLabel="YouTube Icon Image">
                                                 <rect key="frame" x="5" y="389" width="63" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="63" id="0Fc-v6-udR"/>
                                                     <constraint firstAttribute="height" constant="44" id="hce-v5-awk"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="GitHub link of your app" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Sbr-IO-c4S" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="GitHub link of your app" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Sbr-IO-c4S" userLabel="GitHub Link TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
                                                 <rect key="frame" x="76" y="441" width="519" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -638,197 +641,58 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="dmg-TG-pFC">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="dmg-TG-pFC" userLabel="GitHub Icon Image">
                                                 <rect key="frame" x="14" y="441" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="MSH-Y4-N3I"/>
                                                     <constraint firstAttribute="height" constant="44" id="duq-zy-HKn"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bvj-QH-501" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="777" width="519" height="44"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="GNV-Bk-5pk"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mailIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Trr-AW-5KJ">
-                                                <rect key="frame" x="14" y="777" width="44" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="44" id="MAF-cR-1nn"/>
-                                                    <constraint firstAttribute="height" constant="44" id="TDd-tK-FVl"/>
-                                                </constraints>
-                                            </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Twitter" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SNt-Lu-aPq" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="829" width="519" height="44"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="Wua-lj-qLm"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitterIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="sDJ-TW-V14">
-                                                <rect key="frame" x="14" y="829" width="44" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="Kuy-Um-X6j"/>
-                                                    <constraint firstAttribute="width" constant="44" id="bw9-cb-W28"/>
-                                                </constraints>
-                                            </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Facebook" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3yK-dU-RHI" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="881" width="519" height="44"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="dmt-bC-sGc"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebookIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="gzA-P8-lkq">
-                                                <rect key="frame" x="14" y="881" width="44" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="hiR-rd-f8S"/>
-                                                    <constraint firstAttribute="width" constant="44" id="xqX-uy-1Bl"/>
-                                                </constraints>
-                                            </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="GitHub" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n3h-4M-lIe" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="933" width="519" height="44"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="doD-I8-YCb"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="ZeC-Zb-gIk">
-                                                <rect key="frame" x="14" y="933" width="44" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="44" id="SCX-cU-DbZ"/>
-                                                    <constraint firstAttribute="height" constant="44" id="hMO-Fh-93R"/>
-                                                </constraints>
-                                            </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LinkedIn" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lWt-dL-UEh" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="985" width="519" height="44"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="0Iw-sC-qXX"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedinIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="QLw-Ue-yH9">
-                                                <rect key="frame" x="14" y="985" width="44" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="Mfm-ze-vIq"/>
-                                                    <constraint firstAttribute="width" constant="44" id="Uwa-j4-pCl"/>
-                                                </constraints>
-                                            </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Website" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="L9U-cp-7DI" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="1037" width="519" height="44"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="dLa-nZ-o8A"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="websiteIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="IV2-RF-YoO">
-                                                <rect key="frame" x="14" y="1037" width="44" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="5EB-Im-s09"/>
-                                                    <constraint firstAttribute="width" constant="44" id="Cug-kO-Jms"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appstoreIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="ft4-fh-mWJ">
-                                                <rect key="frame" x="14" y="1089" width="44" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="Ipl-Hf-IXq"/>
-                                                    <constraint firstAttribute="width" constant="44" id="jyM-XJ-ldB"/>
-                                                </constraints>
-                                            </imageView>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Azv-wg-5Yl">
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Azv-wg-5Yl" userLabel="Screenshots Scroll View">
                                                 <rect key="frame" x="0.0" y="493" width="600" height="249"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKC-B3-xjU" userLabel="Screenshot Content View">
                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lw6-CA-uvc">
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lw6-CA-uvc" userLabel="Upload Screenshot 1 Button">
                                                                 <rect key="frame" x="8" y="0.0" width="140" height="249"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <state key="normal" title="Upload Screenshot">
                                                                     <color key="titleColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="screenshot1ButtonPressed:" destination="aRN-gn-xTh" eventType="touchUpInside" id="zM1-2f-Rjv"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbr-5f-bCX">
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbr-5f-bCX" userLabel="Upload Screenshot 2 Button">
                                                                 <rect key="frame" x="156" y="0.0" width="140" height="249"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <state key="normal" title="Upload Screenshot">
                                                                     <color key="titleColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="screenshot2ButtonPressed:" destination="aRN-gn-xTh" eventType="touchUpInside" id="MTi-II-0Qr"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cru-qc-8z8">
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cru-qc-8z8" userLabel="Upload Screenshot 3 Button">
                                                                 <rect key="frame" x="304" y="0.0" width="140" height="249"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <state key="normal" title="Upload Screenshot">
                                                                     <color key="titleColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="screenshot3ButtonPressed:" destination="aRN-gn-xTh" eventType="touchUpInside" id="a0y-cM-Qbq"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICS-dO-aLs">
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICS-dO-aLs" userLabel="Upload Screenshot 4 Button">
                                                                 <rect key="frame" x="452" y="0.0" width="140" height="249"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <state key="normal" title="Upload Screenshot">
                                                                     <color key="titleColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="screenshot4ButtonPressed:" destination="aRN-gn-xTh" eventType="touchUpInside" id="CEP-jX-sO2"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -848,7 +712,7 @@
                                                     <constraint firstItem="YKC-B3-xjU" firstAttribute="leading" secondItem="Azv-wg-5Yl" secondAttribute="leading" id="yLS-1c-JLP"/>
                                                 </constraints>
                                             </scrollView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTACT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSx-vw-l9e">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTACT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSx-vw-l9e" userLabel="CONTACT Label">
                                                 <rect key="frame" x="14" y="756" width="54" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="54" id="5oD-6h-jNO"/>
@@ -858,7 +722,151 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="App Store" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="djZ-nc-hUT" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bvj-QH-501" userLabel="Email address TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="777" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="GNV-Bk-5pk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mailIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Trr-AW-5KJ" userLabel="Mail Icon Image">
+                                                <rect key="frame" x="14" y="777" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="MAF-cR-1nn"/>
+                                                    <constraint firstAttribute="height" constant="44" id="TDd-tK-FVl"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Twitter" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SNt-Lu-aPq" userLabel="Twitter TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="829" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Wua-lj-qLm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitterIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="sDJ-TW-V14" userLabel="Twitter Icon Image">
+                                                <rect key="frame" x="14" y="829" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Kuy-Um-X6j"/>
+                                                    <constraint firstAttribute="width" constant="44" id="bw9-cb-W28"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Facebook" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3yK-dU-RHI" userLabel="Facebook TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="881" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="dmt-bC-sGc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebookIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="gzA-P8-lkq" userLabel="Facebook Icon Image">
+                                                <rect key="frame" x="14" y="881" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="hiR-rd-f8S"/>
+                                                    <constraint firstAttribute="width" constant="44" id="xqX-uy-1Bl"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="GitHub" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n3h-4M-lIe" userLabel="GitHub TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="933" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="doD-I8-YCb"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="ZeC-Zb-gIk" userLabel="GitHub Icon Image">
+                                                <rect key="frame" x="14" y="933" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="SCX-cU-DbZ"/>
+                                                    <constraint firstAttribute="height" constant="44" id="hMO-Fh-93R"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LinkedIn" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lWt-dL-UEh" userLabel="LinkedIn TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="985" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="0Iw-sC-qXX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedinIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="QLw-Ue-yH9" userLabel="LinkedIn Icon Image">
+                                                <rect key="frame" x="14" y="985" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Mfm-ze-vIq"/>
+                                                    <constraint firstAttribute="width" constant="44" id="Uwa-j4-pCl"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Website" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="L9U-cp-7DI" userLabel="Website TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="1037" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="dLa-nZ-o8A"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="websiteIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="IV2-RF-YoO" userLabel="Website Icon Image">
+                                                <rect key="frame" x="14" y="1037" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="5EB-Im-s09"/>
+                                                    <constraint firstAttribute="width" constant="44" id="Cug-kO-Jms"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="App Store" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="djZ-nc-hUT" userLabel="App Store TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
                                                 <rect key="frame" x="76" y="1089" width="519" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -875,6 +883,13 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appstoreIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="ft4-fh-mWJ" userLabel="App Store Icon Image">
+                                                <rect key="frame" x="14" y="1089" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Ipl-Hf-IXq"/>
+                                                    <constraint firstAttribute="width" constant="44" id="jyM-XJ-ldB"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
@@ -990,6 +1005,25 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1400"/>
+                    <connections>
+                        <outlet property="ageTextField" destination="8gd-hm-Osc" id="aOP-rX-8rU"/>
+                        <outlet property="appstoreTextField" destination="djZ-nc-hUT" id="85C-Jy-xCX"/>
+                        <outlet property="cityCountryTextField" destination="G3X-b7-ZDY" id="1mM-tt-6ws"/>
+                        <outlet property="emailTextField" destination="Bvj-QH-501" id="HEr-F7-KRD"/>
+                        <outlet property="facebookTextField" destination="3yK-dU-RHI" id="SmA-jR-kLc"/>
+                        <outlet property="githubLinkTextField" destination="Sbr-IO-c4S" id="nKw-QW-li6"/>
+                        <outlet property="githubTextField" destination="n3h-4M-lIe" id="lbh-dD-PoO"/>
+                        <outlet property="linkedinTextField" destination="lWt-dL-UEh" id="X5J-10-eMi"/>
+                        <outlet property="nameTextField" destination="CiS-jx-Cg3" id="O4K-oD-q54"/>
+                        <outlet property="profilePhotoButton" destination="rkv-9T-5X9" id="TVe-mr-kza"/>
+                        <outlet property="screenshot1Button" destination="lw6-CA-uvc" id="SaQ-qB-Kcm"/>
+                        <outlet property="screenshot3Button" destination="cru-qc-8z8" id="JaH-7z-gQy"/>
+                        <outlet property="screenshot4Button" destination="ICS-dO-aLs" id="roU-kR-lGZ"/>
+                        <outlet property="shortBioTextView" destination="TLu-Hv-soS" id="zRv-MN-nhi"/>
+                        <outlet property="twitterTextField" destination="SNt-Lu-aPq" id="f1t-g9-a8r"/>
+                        <outlet property="websiteTextField" destination="L9U-cp-7DI" id="SDO-tN-sUL"/>
+                        <outlet property="youtubeLinkTextField" destination="GWS-Bz-HyP" id="Cd0-YZ-lz2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zas-LB-aNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

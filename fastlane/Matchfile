@@ -1,8 +1,8 @@
-git_url "https://github.com/WWDCScholars/certificates"
+git_url "https://$GH_TOKEN@github.com/WWDCScholars/certificates.git"
 
 type "development" # The default type, can be: appstore, adhoc or development
 
-app_identifier "com.wwdcscholars.WWDC-Scholars-2015" 
+app_identifier "com.wwdcscholars.WWDC-Scholars-2015"
 username "matthijsappzz@xs4all.nl" # Your Apple Developer Portal username
 
 # For all available options run `match --help`

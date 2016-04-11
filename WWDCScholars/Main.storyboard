@@ -600,13 +600,8 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-<<<<<<< HEAD
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="YouTube link of your App" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5WL-Ke-O2l" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="389" width="524" height="44"/>
-=======
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="YouTube link of your app" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GWS-Bz-HyP" userLabel="YouTube Link TextField" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
                                                 <rect key="frame" x="76" y="389" width="519" height="44"/>
->>>>>>> editdetails
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="wkR-Wd-2jy"/>

@@ -74,7 +74,7 @@ platform :ios do
     commit_version_bump(
       message: "Version #{version}, Build #{build}\n[ci skip]"
     )
-    push_to_git_remote(remote: 'https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/WWDCScholars-iOS.git')
+    push_to_git_remote(remote: "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/WWDCScholars-iOS.git")
 
     # sh ('git push --quiet --mirror "https://$GH_TOKEN@github.com/WWDCScholars/WWDCScholars-iOS.git" > /dev/null 2>&1')
     slack(

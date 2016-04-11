@@ -82,7 +82,7 @@ platform :ios do
 
   error do |lane, exception|
     slack(
-      message: "Build failed! " + exception.message,
+      message: "Build failed! :sad-steve: " + exception.message,
       success: false
     )
   end

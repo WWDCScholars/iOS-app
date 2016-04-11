@@ -492,14 +492,14 @@
                         <viewControllerLayoutGuide type="bottom" id="p4J-5j-nYJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FSt-O0-dsc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbg-wk-SUG">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBy-AJ-Yl4" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENERAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Otx-jg-qcT">
                                                 <rect key="frame" x="10" y="8" width="54" height="21"/>
@@ -600,6 +600,70 @@
                                                     <constraint firstAttribute="height" constant="44" id="duq-zy-HKn"/>
                                                 </constraints>
                                             </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bvj-QH-501" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="777" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="GNV-Bk-5pk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Trr-AW-5KJ">
+                                                <rect key="frame" x="14" y="777" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="MAF-cR-1nn"/>
+                                                    <constraint firstAttribute="height" constant="44" id="TDd-tK-FVl"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Twitter.com/username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SNt-Lu-aPq" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="829" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Wua-lj-qLm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="sDJ-TW-V14">
+                                                <rect key="frame" x="14" y="829" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Kuy-Um-X6j"/>
+                                                    <constraint firstAttribute="width" constant="44" id="bw9-cb-W28"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Facebook.com/username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3yK-dU-RHI" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="881" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="dmt-bC-sGc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="gzA-P8-lkq">
+                                                <rect key="frame" x="14" y="881" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="hiR-rd-f8S"/>
+                                                    <constraint firstAttribute="width" constant="44" id="xqX-uy-1Bl"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="GitHub.com/username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n3h-4M-lIe" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="933" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="doD-I8-YCb"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="ZeC-Zb-gIk">
+                                                <rect key="frame" x="14" y="933" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="SCX-cU-DbZ"/>
+                                                    <constraint firstAttribute="height" constant="44" id="hMO-Fh-93R"/>
+                                                </constraints>
+                                            </imageView>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Azv-wg-5Yl">
                                                 <rect key="frame" x="0.0" y="493" width="600" height="249"/>
                                                 <subviews>
@@ -640,41 +704,136 @@
                                                     <constraint firstItem="YKC-B3-xjU" firstAttribute="leading" secondItem="Azv-wg-5Yl" secondAttribute="leading" id="yLS-1c-JLP"/>
                                                 </constraints>
                                             </scrollView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTACT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSx-vw-l9e">
+                                                <rect key="frame" x="14" y="756" width="54" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="54" id="5oD-6h-jNO"/>
+                                                    <constraint firstAttribute="height" constant="21" id="mdW-T5-ljF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LinkedIn.com/username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWt-dL-UEh" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="985" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="0Iw-sC-qXX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="QLw-Ue-yH9">
+                                                <rect key="frame" x="14" y="985" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Mfm-ze-vIq"/>
+                                                    <constraint firstAttribute="width" constant="44" id="Uwa-j4-pCl"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Website.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L9U-cp-7DI" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="1037" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="dLa-nZ-o8A"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="IV2-RF-YoO">
+                                                <rect key="frame" x="14" y="1037" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="5EB-Im-s09"/>
+                                                    <constraint firstAttribute="width" constant="44" id="Cug-kO-Jms"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Appsto.re/yourDevAccount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="djZ-nc-hUT" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="1089" width="519" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="hDA-iL-qLc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="ft4-fh-mWJ">
+                                                <rect key="frame" x="14" y="1089" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Ipl-Hf-IXq"/>
+                                                    <constraint firstAttribute="width" constant="44" id="jyM-XJ-ldB"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="Bvj-QH-501" firstAttribute="leading" secondItem="Trr-AW-5KJ" secondAttribute="trailing" constant="18" id="01s-45-ymT"/>
+                                            <constraint firstItem="QLw-Ue-yH9" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="0BH-ff-sTA"/>
                                             <constraint firstAttribute="trailing" secondItem="TLu-Hv-soS" secondAttribute="trailing" constant="5" id="20F-HD-aRN"/>
                                             <constraint firstItem="dmg-TG-pFC" firstAttribute="top" secondItem="R1w-k4-bJq" secondAttribute="bottom" constant="8" id="3Rc-tL-CXa"/>
                                             <constraint firstItem="rkv-9T-5X9" firstAttribute="leading" secondItem="G3X-b7-ZDY" secondAttribute="trailing" constant="8" id="3k8-rN-7Cr"/>
+                                            <constraint firstItem="n3h-4M-lIe" firstAttribute="top" secondItem="3yK-dU-RHI" secondAttribute="bottom" constant="8" id="3wM-ir-AvA"/>
+                                            <constraint firstAttribute="trailing" secondItem="Bvj-QH-501" secondAttribute="trailing" constant="5" id="41Q-qZ-SWa"/>
                                             <constraint firstItem="rkv-9T-5X9" firstAttribute="top" secondItem="uBy-AJ-Yl4" secondAttribute="top" constant="33" id="42H-pb-VI7"/>
                                             <constraint firstItem="TLu-Hv-soS" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="5" id="4BP-Pw-hgR"/>
                                             <constraint firstAttribute="trailing" secondItem="Azv-wg-5Yl" secondAttribute="trailing" id="4IN-9G-7aI"/>
+                                            <constraint firstItem="ft4-fh-mWJ" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="6c6-4Y-Evf"/>
+                                            <constraint firstAttribute="trailing" secondItem="djZ-nc-hUT" secondAttribute="trailing" constant="5" id="71M-v1-6Ra"/>
                                             <constraint firstItem="Otx-jg-qcT" firstAttribute="top" secondItem="uBy-AJ-Yl4" secondAttribute="top" constant="8" id="81v-GR-kOz"/>
+                                            <constraint firstItem="SNt-Lu-aPq" firstAttribute="top" secondItem="Bvj-QH-501" secondAttribute="bottom" constant="8" id="8uc-JB-men"/>
+                                            <constraint firstItem="lWt-dL-UEh" firstAttribute="top" secondItem="n3h-4M-lIe" secondAttribute="bottom" constant="8" id="ARt-5L-IzV"/>
                                             <constraint firstAttribute="trailing" secondItem="GWS-Bz-HyP" secondAttribute="trailing" constant="5" id="Cac-2b-hgg"/>
                                             <constraint firstItem="rkv-9T-5X9" firstAttribute="leading" secondItem="8gd-hm-Osc" secondAttribute="trailing" constant="8" id="Du1-pL-t9E"/>
                                             <constraint firstItem="GWS-Bz-HyP" firstAttribute="top" secondItem="PNl-m6-yFy" secondAttribute="bottom" constant="4" id="EA6-yR-E2B"/>
                                             <constraint firstItem="8gd-hm-Osc" firstAttribute="top" secondItem="CiS-jx-Cg3" secondAttribute="bottom" constant="8" id="F8i-Ea-QQo"/>
+                                            <constraint firstItem="gzA-P8-lkq" firstAttribute="top" secondItem="sDJ-TW-V14" secondAttribute="bottom" constant="8" id="FUt-NM-jMW"/>
+                                            <constraint firstItem="sDJ-TW-V14" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="GtC-04-bTY"/>
+                                            <constraint firstItem="IV2-RF-YoO" firstAttribute="top" secondItem="QLw-Ue-yH9" secondAttribute="bottom" constant="8" id="Gzv-6R-iKV"/>
                                             <constraint firstItem="CiS-jx-Cg3" firstAttribute="top" secondItem="Otx-jg-qcT" secondAttribute="bottom" constant="4" id="J8w-Iw-ZyQ"/>
                                             <constraint firstItem="TLu-Hv-soS" firstAttribute="top" secondItem="rkv-9T-5X9" secondAttribute="bottom" constant="6" id="Lq3-1L-kLZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="3yK-dU-RHI" secondAttribute="trailing" constant="5" id="Ntw-qr-BoX"/>
+                                            <constraint firstItem="djZ-nc-hUT" firstAttribute="top" secondItem="L9U-cp-7DI" secondAttribute="bottom" constant="8" id="OIZ-WO-vuM"/>
+                                            <constraint firstItem="SNt-Lu-aPq" firstAttribute="leading" secondItem="sDJ-TW-V14" secondAttribute="trailing" constant="18" id="Pmg-h3-ch0"/>
                                             <constraint firstItem="Sbr-IO-c4S" firstAttribute="leading" secondItem="dmg-TG-pFC" secondAttribute="trailing" constant="18" id="QEq-Fh-u5v"/>
-                                            <constraint firstAttribute="bottom" secondItem="Azv-wg-5Yl" secondAttribute="bottom" constant="258" id="RGF-Jb-xw5"/>
                                             <constraint firstAttribute="trailing" secondItem="Sbr-IO-c4S" secondAttribute="trailing" constant="5" id="TUP-9k-sbN"/>
+                                            <constraint firstItem="djZ-nc-hUT" firstAttribute="leading" secondItem="ft4-fh-mWJ" secondAttribute="trailing" constant="18" id="Tan-Pu-HGP"/>
+                                            <constraint firstItem="sDJ-TW-V14" firstAttribute="top" secondItem="Trr-AW-5KJ" secondAttribute="bottom" constant="8" id="Wi9-QU-3kG"/>
+                                            <constraint firstAttribute="trailing" secondItem="SNt-Lu-aPq" secondAttribute="trailing" constant="5" id="XJy-ZH-XES"/>
+                                            <constraint firstItem="L9U-cp-7DI" firstAttribute="top" secondItem="lWt-dL-UEh" secondAttribute="bottom" constant="8" id="Xfe-J0-ORO"/>
                                             <constraint firstItem="Azv-wg-5Yl" firstAttribute="top" secondItem="dmg-TG-pFC" secondAttribute="bottom" constant="8" id="Xk1-BY-cjf"/>
+                                            <constraint firstItem="3yK-dU-RHI" firstAttribute="leading" secondItem="gzA-P8-lkq" secondAttribute="trailing" constant="18" id="ZJs-jQ-oGr"/>
+                                            <constraint firstAttribute="bottom" secondItem="djZ-nc-hUT" secondAttribute="bottom" constant="67" id="aOB-5D-Vpz"/>
                                             <constraint firstItem="G3X-b7-ZDY" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="5" id="bwX-Ok-8w4"/>
+                                            <constraint firstItem="Bvj-QH-501" firstAttribute="top" secondItem="OSx-vw-l9e" secondAttribute="bottom" id="cTP-m9-s4o"/>
                                             <constraint firstItem="Otx-jg-qcT" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="10" id="f4a-Sk-A79"/>
                                             <constraint firstItem="8gd-hm-Osc" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="5" id="fX1-ZZ-Wa5"/>
+                                            <constraint firstItem="L9U-cp-7DI" firstAttribute="leading" secondItem="IV2-RF-YoO" secondAttribute="trailing" constant="18" id="iNk-mg-wEi"/>
+                                            <constraint firstItem="ft4-fh-mWJ" firstAttribute="top" secondItem="IV2-RF-YoO" secondAttribute="bottom" constant="8" id="iqK-Ea-1jq"/>
+                                            <constraint firstItem="Trr-AW-5KJ" firstAttribute="top" secondItem="OSx-vw-l9e" secondAttribute="bottom" id="jJv-XZ-Sck"/>
                                             <constraint firstItem="CiS-jx-Cg3" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="5" id="jOS-Ae-bu5"/>
                                             <constraint firstItem="Sbr-IO-c4S" firstAttribute="top" secondItem="GWS-Bz-HyP" secondAttribute="bottom" constant="8" id="kM0-lE-eKP"/>
+                                            <constraint firstAttribute="trailing" secondItem="lWt-dL-UEh" secondAttribute="trailing" constant="5" id="kea-8H-2E8"/>
                                             <constraint firstItem="G3X-b7-ZDY" firstAttribute="top" secondItem="8gd-hm-Osc" secondAttribute="bottom" constant="8" id="ksx-vY-BUo"/>
+                                            <constraint firstItem="lWt-dL-UEh" firstAttribute="leading" secondItem="QLw-Ue-yH9" secondAttribute="trailing" constant="18" id="lfi-Il-WKt"/>
+                                            <constraint firstAttribute="trailing" secondItem="L9U-cp-7DI" secondAttribute="trailing" constant="5" id="ljg-Q4-BPH"/>
+                                            <constraint firstItem="ZeC-Zb-gIk" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="nbU-yg-8QQ"/>
                                             <constraint firstItem="PNl-m6-yFy" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="10" id="nmT-T3-a9H"/>
                                             <constraint firstItem="R1w-k4-bJq" firstAttribute="top" secondItem="PNl-m6-yFy" secondAttribute="bottom" constant="4" id="omR-yY-ehI"/>
                                             <constraint firstItem="R1w-k4-bJq" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="5" id="paG-ww-GqZ"/>
                                             <constraint firstItem="Azv-wg-5Yl" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" id="qOn-1l-QUo"/>
+                                            <constraint firstAttribute="trailing" secondItem="n3h-4M-lIe" secondAttribute="trailing" constant="5" id="rdZ-bz-qae"/>
+                                            <constraint firstItem="OSx-vw-l9e" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="s74-ib-FN0"/>
                                             <constraint firstItem="GWS-Bz-HyP" firstAttribute="leading" secondItem="R1w-k4-bJq" secondAttribute="trailing" constant="8" id="sRw-dt-4gm"/>
                                             <constraint firstAttribute="trailing" secondItem="rkv-9T-5X9" secondAttribute="trailing" constant="5" id="t0Z-99-hCv"/>
+                                            <constraint firstItem="n3h-4M-lIe" firstAttribute="leading" secondItem="ZeC-Zb-gIk" secondAttribute="trailing" constant="18" id="tbp-k1-oLA"/>
                                             <constraint firstItem="rkv-9T-5X9" firstAttribute="leading" secondItem="CiS-jx-Cg3" secondAttribute="trailing" constant="8" id="u1e-NQ-WwW"/>
+                                            <constraint firstItem="OSx-vw-l9e" firstAttribute="top" secondItem="Azv-wg-5Yl" secondAttribute="bottom" constant="14" id="v2v-ak-a3J"/>
+                                            <constraint firstItem="QLw-Ue-yH9" firstAttribute="top" secondItem="ZeC-Zb-gIk" secondAttribute="bottom" constant="8" id="vpH-dj-UM7"/>
                                             <constraint firstItem="PNl-m6-yFy" firstAttribute="top" secondItem="TLu-Hv-soS" secondAttribute="bottom" constant="14" id="wg5-8s-30f"/>
+                                            <constraint firstItem="gzA-P8-lkq" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="wkI-CR-XPm"/>
+                                            <constraint firstItem="Trr-AW-5KJ" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="x27-PS-oXq"/>
                                             <constraint firstItem="dmg-TG-pFC" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="xGB-kw-rH4"/>
+                                            <constraint firstItem="3yK-dU-RHI" firstAttribute="top" secondItem="SNt-Lu-aPq" secondAttribute="bottom" constant="8" id="xPM-1H-RDu"/>
+                                            <constraint firstItem="ZeC-Zb-gIk" firstAttribute="top" secondItem="gzA-P8-lkq" secondAttribute="bottom" constant="8" id="yFI-Y3-kOx"/>
+                                            <constraint firstItem="IV2-RF-YoO" firstAttribute="leading" secondItem="uBy-AJ-Yl4" secondAttribute="leading" constant="14" id="zf7-jl-flS"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -717,75 +876,11 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="1000"/>
+                    <size key="freeformSize" width="600" height="1200"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zas-LB-aNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3526" y="1496"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="MOa-di-lBc">
-            <objects>
-                <viewController id="ku5-pg-3Iy" customClass="EditDetailsViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WdP-lW-Qmb"/>
-                        <viewControllerLayoutGuide type="bottom" id="62M-yA-iVI"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="b6w-Wc-Qev">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L27-mK-gbb">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Clc-3M-tOu" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                    </view>
-                                </subviews>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Clc-3M-tOu" firstAttribute="top" secondItem="WdP-lW-Qmb" secondAttribute="bottom" id="PrD-QS-YHn"/>
-                            <constraint firstItem="Clc-3M-tOu" firstAttribute="leading" secondItem="b6w-Wc-Qev" secondAttribute="leadingMargin" constant="-20" id="ass-CT-SlV"/>
-                            <constraint firstItem="Clc-3M-tOu" firstAttribute="height" secondItem="b6w-Wc-Qev" secondAttribute="height" id="rYS-XO-WlO"/>
-                            <constraint firstItem="Clc-3M-tOu" firstAttribute="width" secondItem="b6w-Wc-Qev" secondAttribute="width" id="uFp-px-V2N"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="PrD-QS-YHn"/>
-                                <exclude reference="ass-CT-SlV"/>
-                                <exclude reference="rYS-XO-WlO"/>
-                                <exclude reference="uFp-px-V2N"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" title="Profile" id="JbM-b2-ZyE">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="NBX-DB-vxN">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="cancelAction:" destination="ku5-pg-3Iy" id="kbw-KV-Olu"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="WiF-sX-iRi">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="doneAction:" destination="ku5-pg-3Iy" id="ZQC-Vh-O8m"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="1000"/>
-                    <connections>
-                        <outlet property="screenshotScrollView" destination="Azv-wg-5Yl" id="ng5-cs-Ojy"/>
-                        <outlet property="scrollView" destination="L27-mK-gbb" id="LZn-fK-F5A"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7bA-yh-oet" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4185" y="1496"/>
+            <point key="canvasLocation" x="3526" y="1487"/>
         </scene>
     </scenes>
     <resources>

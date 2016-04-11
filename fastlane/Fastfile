@@ -31,7 +31,7 @@ platform :ios do
   desc "Runs all the tests"
   lane :test do
     gym(scheme: "WWDCScholars")
-    scan
+    # scan
   end
 
   desc "Deploy a new bleeding-edge version to Crashlytics beta"

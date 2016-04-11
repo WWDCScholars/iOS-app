@@ -22,7 +22,7 @@ platform :ios do
     sh('git init')
     sh('git config user.name "WWDCScholars-bot"')
     sh('git config user.email "wwdcscholars@logicbit.nl"')
-    sh('git remote add origin "https://" + ENV['GH_TOKEN'] + "@github.com/WWDCScholars/WWDCScholars-iOS.git"')
+    sh('git remote add origin "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/WWDCScholars-iOS.git"')
     # ensure_git_status_clean
     increment_build_number
 
@@ -36,7 +36,7 @@ platform :ios do
 
   desc "Deploy a new bleeding-edge version to Crashlytics beta"
   lane :crashlytics do
-    match(git_url: "https://" + ENV['GH_TOKEN'] + "@github.com/WWDCScholars/certificates.git", type: "appstore", readonly: true)
+    match(git_url: "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/certificates.git", type: "appstore", readonly: true)
     gym(scheme: "WWDCScholars")
     scan
     crashlytics
@@ -45,7 +45,7 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :testflight do
-    match(git_url: "https://" + ENV['GH_TOKEN'] + "github.com/WWDCScholars/certificates.git", type: "appstore", readonly: true)
+    match(git_url: "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/certificates.git", type: "appstore", readonly: true)
     gym(scheme: "WWDCScholars")
     scan
     pilot
@@ -56,7 +56,7 @@ platform :ios do
 
   desc "Deploy a new version to the App Store"
   lane :appstore do
-    match(git_url: "https://" + ENV['GH_TOKEN'] + "@github.com/WWDCScholars/certificates.git", type: "appstore", readonly: true)
+    match(git_url: "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/certificates.git", type: "appstore", readonly: true)
     snapshot
     gym(scheme: "WWDCScholars") # Build your app - more options available
     scan

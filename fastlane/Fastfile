@@ -22,7 +22,6 @@ platform :ios do
     sh('git init')
     sh('git config user.name "WWDCScholars-bot"')
     sh('git config user.email "wwdcscholars@logicbit.nl"')
-    sh('git remote add origin "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/WWDCScholars-iOS.git"')
     # ensure_git_status_clean
     increment_build_number
 
@@ -75,7 +74,7 @@ platform :ios do
       message: "Version #{version}, Build #{build}\n[ci skip]"
     )
     # push_to_git_remote
-    sh ('git push --quiet origin > /dev/null 2>&1')
+    sh ('git push --quiet "https://$GH_TOKEN@github.com/WWDCScholars/WWDCScholars-iOS.git" > /dev/null 2>&1')
     slack(
       message: "Successfully deployed version *#{version}* (#{build})! :tim: :tada:"
     )

@@ -19,7 +19,7 @@ platform :ios do
   before_all do
     ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
 
-    sh('git init')
+    # sh('git init')
     sh('git config --global user.name "WWDCScholars-bot"')
     sh('git config --global user.email "wwdcscholars@logicbit.nl"')
     # sh('git remote set-url origin https://$GH_TOKEN@github.com/WWDCScholars/WWDCScholars-iOS.git')
@@ -74,7 +74,7 @@ platform :ios do
     commit_version_bump(
       message: "Version #{version}, Build #{build}\n[ci skip]"
     )
-    push_to_git_remote(remote: "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/WWDCScholars-iOS.git")
+    push_to_git_remote(remote: "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/WWDCScholars-iOS.git", remote_branch: ENV["TRAVIS_BRANCH"])
 
     # sh ('git push --quiet --mirror "https://$GH_TOKEN@github.com/WWDCScholars/WWDCScholars-iOS.git" > /dev/null 2>&1')
     slack(

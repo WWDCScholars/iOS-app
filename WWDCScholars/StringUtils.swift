@@ -30,4 +30,12 @@ extension String {
         
         return matches.count > 0
     }
+    
+    func isValidFacebookLink() -> Bool {
+        let matches = matchesForRegexInText("https?://(www\\.)?facebook.com/.(?:(?:\\w)*#!/)?(?:pages/)?(?:[\\w\\-]*/)*([\\w\\-\\.]*)", text: self)
+        print(matches)
+        
+        return matches.count > 0
+    }
+
 }

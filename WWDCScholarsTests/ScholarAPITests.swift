@@ -39,7 +39,7 @@ class ScholarAPITests: XCTestCase {
     }
     
     func testCShowScholars() {
-        XCTAssertEqual(scholarApi.dbManager.scholarCount(), 6)
+        XCTAssertEqual(scholarApi.dbManager.scholarCount(), 5)
     }
     
 }

@@ -42,7 +42,7 @@ class ScholarTests: XCTestCase {
         testScholar.email = "matthijs@logicbit.nl"
         testScholar.gender = .Male
         testScholar.numberOfTimesWWDCScholar = 1
-        testScholar.shortBio = "Hi! I'm Matt"
+        testScholar.shortBio = "Hi! I'm Matt. And this is a test scholar :D"
         
         dbManager.addScholar(testScholar)
         XCTAssertEqual(dbManager.scholarCount(), 1)
@@ -64,7 +64,7 @@ class ScholarTests: XCTestCase {
             XCTAssertTrue(testScholar.email == "matthijs@logicbit.nl")
             XCTAssertTrue(testScholar.gender == .Male)
             XCTAssertTrue(testScholar.numberOfTimesWWDCScholar == 1)
-            XCTAssertTrue(testScholar.shortBio == "Hi! I'm Matt")
+            XCTAssertTrue(testScholar.shortBio == "Hi! I'm Matt. And this is a test scholar :D")
             
         }
     }

@@ -26,21 +26,18 @@ extension String {
     
     func isValidGitHubLink() -> Bool {
         let matches = matchesForRegexInText("https?://(www\\.)?github.com\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]{2,})", text: self)
-        print(matches)
         
         return matches.count > 0
     }
     
     func isValidFacebookLink() -> Bool {
         let matches = matchesForRegexInText("https?://(www\\.)?facebook.com/.(?:(?:\\w)*#!/)?(?:pages/)?(?:[\\w\\-]*/)*([\\w\\-\\.]*)", text: self)
-        print(matches)
         
         return matches.count > 0
     }
     
     func isValidTwitterLink() -> Bool {
         let matches = matchesForRegexInText("https?://(www\\.)?twitter.com/\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]{2,})", text: self)
-        print(matches)
         
         return matches.count > 0
     }

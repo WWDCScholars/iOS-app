@@ -42,6 +42,7 @@
 		7BBA87781CBD4D040057E9AD /* WWDCEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA87761CBD4D040057E9AD /* WWDCEnum.swift */; };
 		7BBA877A1CBD4E240057E9AD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA87791CBD4E240057E9AD /* Location.swift */; };
 		7BBA877B1CBD4E240057E9AD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA87791CBD4E240057E9AD /* Location.swift */; };
+		7BBA877D1CBD4FA80057E9AD /* ScholarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA877C1CBD4FA80057E9AD /* ScholarTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		7BBA87731CBD4C900057E9AD /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		7BBA87761CBD4D040057E9AD /* WWDCEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWDCEnum.swift; sourceTree = "<group>"; };
 		7BBA87791CBD4E240057E9AD /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		7BBA877C1CBD4FA80057E9AD /* ScholarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 				7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */,
 				7B2AA6E11CBAE7530025EC7B /* Info.plist */,
 				7BBA87691CBD3A0E0057E9AD /* StringUtilTests.swift */,
+				7BBA877C1CBD4FA80057E9AD /* ScholarTests.swift */,
 			);
 			path = WWDCScholarsTests;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				7BBA876B1CBD3A670057E9AD /* StringUtils.swift in Sources */,
 				7BBA876F1CBD4ADB0057E9AD /* ScholarsAPI.swift in Sources */,
 				7BBA876A1CBD3A0E0057E9AD /* StringUtilTests.swift in Sources */,
+				7BBA877D1CBD4FA80057E9AD /* ScholarTests.swift in Sources */,
 				7B2AA6E01CBAE7530025EC7B /* WWDCScholarsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

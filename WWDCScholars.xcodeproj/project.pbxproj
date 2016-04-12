@@ -29,6 +29,9 @@
 		7B2AA6EE1CBAE75B0025EC7B /* WWDCScholarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6ED1CBAE75B0025EC7B /* WWDCScholarsUITests.swift */; };
 		7BBA87641CBB7F3A0057E9AD /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBA87621CBB7F3A0057E9AD /* Fabric.framework */; };
 		7BBA87651CBB7F3A0057E9AD /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBA87631CBB7F3A0057E9AD /* Crashlytics.framework */; };
+		7BBA87681CBD35430057E9AD /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA87671CBD35430057E9AD /* StringUtils.swift */; };
+		7BBA876A1CBD3A0E0057E9AD /* StringUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA87691CBD3A0E0057E9AD /* StringUtilTests.swift */; };
+		7BBA876B1CBD3A670057E9AD /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA87671CBD35430057E9AD /* StringUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,8 @@
 		7B2AA6EF1CBAE75B0025EC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BBA87621CBB7F3A0057E9AD /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		7BBA87631CBB7F3A0057E9AD /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		7BBA87671CBD35430057E9AD /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		7BBA87691CBD3A0E0057E9AD /* StringUtilTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtilTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +148,7 @@
 		2238841F1C8252D900A96752 /* WWDCScholars */ = {
 			isa = PBXGroup;
 			children = (
+				7BBA87661CBD352B0057E9AD /* Utils */,
 				223F5E8F1CB942B000E582C5 /* General */,
 				223F5E8B1CB9429200E582C5 /* Scholars */,
 				223F5E8C1CB9429B00E582C5 /* Blog */,
@@ -208,6 +214,7 @@
 			children = (
 				7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */,
 				7B2AA6E11CBAE7530025EC7B /* Info.plist */,
+				7BBA87691CBD3A0E0057E9AD /* StringUtilTests.swift */,
 			);
 			path = WWDCScholarsTests;
 			sourceTree = "<group>";
@@ -219,6 +226,14 @@
 				7B2AA6EF1CBAE75B0025EC7B /* Info.plist */,
 			);
 			path = WWDCScholarsUITests;
+			sourceTree = "<group>";
+		};
+		7BBA87661CBD352B0057E9AD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7BBA87671CBD35430057E9AD /* StringUtils.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				223884231C8252D900A96752 /* ScholarsViewController.swift in Sources */,
+				7BBA87681CBD35430057E9AD /* StringUtils.swift in Sources */,
 				223884211C8252D900A96752 /* AppDelegate.swift in Sources */,
 				22543B211CB7019A003F9422 /* AlumniViewController.swift in Sources */,
 				6EB723D61CB9B84D005A076F /* CreditsViewController.swift in Sources */,
@@ -390,6 +406,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BBA876B1CBD3A670057E9AD /* StringUtils.swift in Sources */,
+				7BBA876A1CBD3A0E0057E9AD /* StringUtilTests.swift in Sources */,
 				7B2AA6E01CBAE7530025EC7B /* WWDCScholarsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

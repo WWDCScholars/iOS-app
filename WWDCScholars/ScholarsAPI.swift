@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 class ScholarsAPI {
 
@@ -28,7 +27,7 @@ class ScholarsAPI {
      Loads scholars from the online database
      */
     func loadScholars(completionHandler: () -> Void) {
-//        Alamofire.request(.GET, "https://wwdcscholarsadmin.herokuapp.com/api/posts")
+//        request(.GET, "https://wwdcscholarsadmin.herokuapp.com/api/posts")
 //            .responseData() { response in
 //            if let data = response.result.value {
 //                print (NSString(data: data, encoding: NSUTF8StringEncoding))

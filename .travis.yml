@@ -18,3 +18,8 @@ email:
       # Feel free to add your email address here!
     on_success: change # default: change
     on_failure: always # default: always
+branches:
+  only:
+    - master
+    - beta
+    - release

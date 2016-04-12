@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */; };
 		22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */; };
-		22297D6F1CBA911F00BF5B41 /* EditDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D6E1CBA911F00BF5B41 /* EditDetailsViewController.swift */; };
 		223884211C8252D900A96752 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223884201C8252D900A96752 /* AppDelegate.swift */; };
 		223884231C8252D900A96752 /* ScholarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223884221C8252D900A96752 /* ScholarsViewController.swift */; };
 		2238842B1C8252D900A96752 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223884291C8252D900A96752 /* LaunchScreen.storyboard */; };
@@ -19,6 +18,8 @@
 		223F5E9B1CB9724000E582C5 /* tabBarDidSelectItem.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 223F5E981CB9709600E582C5 /* tabBarDidSelectItem.m4a */; };
 		22543B1F1CB70182003F9422 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B1E1CB70182003F9422 /* BlogViewController.swift */; };
 		22543B211CB7019A003F9422 /* AlumniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B201CB7019A003F9422 /* AlumniViewController.swift */; };
+		6E4DD6EC1CBD36AA00B08EE1 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */; };
+		6E4DD6EE1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */; };
 		6EB723CF1CB9B83B005A076F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB723CE1CB9B83B005A076F /* Main.storyboard */; };
 		6EB723D41CB9B84D005A076F /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB723D01CB9B84D005A076F /* Credit.swift */; };
 		6EB723D51CB9B84D005A076F /* Credits.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EB723D11CB9B84D005A076F /* Credits.plist */; };
@@ -54,7 +55,6 @@
 /* Begin PBXFileReference section */
 		22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
-		22297D6E1CBA911F00BF5B41 /* EditDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDetailsViewController.swift; sourceTree = "<group>"; };
 		2238841D1C8252D900A96752 /* WWDCScholars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDCScholars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		223884201C8252D900A96752 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		223884221C8252D900A96752 /* ScholarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarsViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +66,8 @@
 		223F5E991CB970EC00E582C5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		22543B1E1CB70182003F9422 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		22543B201CB7019A003F9422 /* AlumniViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumniViewController.swift; sourceTree = "<group>"; };
+		6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
+		6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotUploadCollectionViewCell.swift; sourceTree = "<group>"; };
 		6EB723CE1CB9B83B005A076F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6EB723D01CB9B84D005A076F /* Credit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 		6EB723D11CB9B84D005A076F /* Credits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Credits.plist; sourceTree = "<group>"; };
@@ -115,9 +117,8 @@
 		22297D631CBA8A2A00BF5B41 /* Edit Details */ = {
 			isa = PBXGroup;
 			children = (
-				22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */,
-				22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */,
-				22297D6E1CBA911F00BF5B41 /* EditDetailsViewController.swift */,
+				6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */,
+				6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */,
 			);
 			name = "Edit Details";
 			sourceTree = "<group>";
@@ -149,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				7BBA87661CBD352B0057E9AD /* Utils */,
+				6E4DD6EF1CBD475800B08EE1 /* Libraries */,
 				223F5E8F1CB942B000E582C5 /* General */,
 				223F5E8B1CB9429200E582C5 /* Scholars */,
 				223F5E8C1CB9429B00E582C5 /* Blog */,
@@ -207,6 +209,23 @@
 				223F5E981CB9709600E582C5 /* tabBarDidSelectItem.m4a */,
 			);
 			name = General;
+			sourceTree = "<group>";
+		};
+		6E4DD6EF1CBD475800B08EE1 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				6E4DD6F01CBD476200B08EE1 /* FloatLabelTextField */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		6E4DD6F01CBD476200B08EE1 /* FloatLabelTextField */ = {
+			isa = PBXGroup;
+			children = (
+				22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */,
+				22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */,
+			);
+			name = FloatLabelTextField;
 			sourceTree = "<group>";
 		};
 		7B2AA6DE1CBAE7530025EC7B /* WWDCScholarsTests */ = {
@@ -392,12 +411,13 @@
 				22543B211CB7019A003F9422 /* AlumniViewController.swift in Sources */,
 				6EB723D61CB9B84D005A076F /* CreditsViewController.swift in Sources */,
 				223F5E971CB95C3C00E582C5 /* ScholarsTabBarViewController.swift in Sources */,
-				22297D6F1CBA911F00BF5B41 /* EditDetailsViewController.swift in Sources */,
 				6EB723D41CB9B84D005A076F /* Credit.swift in Sources */,
+				6E4DD6EE1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift in Sources */,
 				22543B1F1CB70182003F9422 /* BlogViewController.swift in Sources */,
 				223F5E931CB9436200E582C5 /* Style.swift in Sources */,
 				22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */,
 				22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */,
+				6E4DD6EC1CBD36AA00B08EE1 /* EditProfileTableViewController.swift in Sources */,
 				6EB723D71CB9B84D005A076F /* CreditTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,7 +6,8 @@
 //  Copyright © 2016 WWDCScholars. All rights reserved.
 //
 
-enum Gender{
-    case Male
-    case Female
+enum Gender: Int{
+    case Unknown = 0
+    case Male = 1
+    case Female = 2
 }

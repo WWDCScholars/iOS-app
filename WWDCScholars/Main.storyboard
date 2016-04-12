@@ -466,7 +466,6 @@
         <!--Navigation Controller-->
         <scene sceneID="tTU-FL-LcI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4eK-XE-yhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qgE-kd-7qI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="p2x-R0-5HS">
@@ -480,6 +479,7 @@
                         <segue destination="l2Q-QU-Rdg" kind="relationship" relationship="rootViewController" id="5vV-wg-jk0"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4eK-XE-yhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2838" y="1487"/>
         </scene>
@@ -494,7 +494,7 @@
                         <sections>
                             <tableViewSection headerTitle="General" id="AFz-F7-je5">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="K6d-a6-SoG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="88" id="K6d-a6-SoG">
                                         <rect key="frame" x="0.0" y="114" width="600" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K6d-a6-SoG" id="7r2-0s-gFd">
@@ -502,7 +502,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXs-aH-3Lh">
-                                                    <rect key="frame" x="8" y="8" width="71" height="71"/>
+                                                    <rect key="frame" x="14" y="8" width="71" height="71"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="71" id="kdc-WZ-62z"/>
                                                         <constraint firstAttribute="height" constant="71" id="xdw-i5-M2X"/>
@@ -510,7 +510,7 @@
                                                     <state key="normal" title="Button" image="WWDCScholars Icon"/>
                                                 </button>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="POz-Il-qtq" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                    <rect key="frame" x="87" y="8" width="505" height="30"/>
+                                                    <rect key="frame" x="93" y="8" width="499" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="PEW-2p-Wxe"/>
                                                     </constraints>
@@ -524,12 +524,15 @@
                                                             <real key="value" value="-2"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="l2Q-QU-Rdg" id="TBt-95-hPN"/>
+                                                    </connections>
                                                 </textField>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Omf-9o-BQB">
-                                                    <rect key="frame" x="87" y="49" width="505" height="30"/>
+                                                    <rect key="frame" x="93" y="49" width="499" height="30"/>
                                                     <subviews>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NSd-5R-Gag" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="249" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="246" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                             <userDefinedRuntimeAttributes>
@@ -540,9 +543,12 @@
                                                                     <real key="value" value="-2"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="l2Q-QU-Rdg" id="vmY-5b-Tvx"/>
+                                                            </connections>
                                                         </textField>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City, Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EOs-aT-Eix" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                            <rect key="frame" x="257" y="0.0" width="248" height="30"/>
+                                                            <rect key="frame" x="254" y="0.0" width="245" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="8uE-lY-gVE"/>
                                                             </constraints>
@@ -556,6 +562,9 @@
                                                                     <real key="value" value="-2"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="l2Q-QU-Rdg" id="Esu-St-TZI"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
@@ -576,7 +585,7 @@
                                                 <constraint firstItem="Omf-9o-BQB" firstAttribute="top" secondItem="POz-Il-qtq" secondAttribute="bottom" constant="11" id="BvB-oW-x5a"/>
                                                 <constraint firstAttribute="trailing" secondItem="POz-Il-qtq" secondAttribute="trailing" constant="8" id="EEa-YH-d9A"/>
                                                 <constraint firstAttribute="bottom" secondItem="Omf-9o-BQB" secondAttribute="bottom" constant="8" id="Lcr-uM-xmZ"/>
-                                                <constraint firstItem="iXs-aH-3Lh" firstAttribute="leading" secondItem="7r2-0s-gFd" secondAttribute="leading" constant="8" id="OwG-Ld-gWh"/>
+                                                <constraint firstItem="iXs-aH-3Lh" firstAttribute="leading" secondItem="7r2-0s-gFd" secondAttribute="leading" constant="14" id="OwG-Ld-gWh"/>
                                                 <constraint firstItem="iXs-aH-3Lh" firstAttribute="top" secondItem="7r2-0s-gFd" secondAttribute="top" constant="8" id="Yw2-vI-42p"/>
                                                 <constraint firstItem="POz-Il-qtq" firstAttribute="leading" secondItem="iXs-aH-3Lh" secondAttribute="trailing" constant="8" id="cmr-MC-7qN"/>
                                                 <constraint firstAttribute="trailing" secondItem="Omf-9o-BQB" secondAttribute="trailing" constant="8" id="pRZ-9U-8n4"/>
@@ -588,31 +597,28 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Bio" footerTitle="Bio descriptions are limited to 250 characters" id="J5G-hm-A2w">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jJL-5x-W1g">
-                                        <rect key="frame" x="0.0" y="253" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="88" id="jJL-5x-W1g">
+                                        <rect key="frame" x="0.0" y="253" width="600" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jJL-5x-W1g" id="eK1-CC-2Y1">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Short Bio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jTR-cU-9Yb" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tna-9A-i2z" customClass="FloatLabelTextView" customModule="WWDCScholars" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="8" width="584" height="71"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
-                                                            <real key="value" value="2"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
-                                                            <real key="value" value="-2"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="l2Q-QU-Rdg" id="6vR-Rm-DQu"/>
+                                                    </connections>
+                                                </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="jTR-cU-9Yb" firstAttribute="leading" secondItem="eK1-CC-2Y1" secondAttribute="leading" constant="8" id="2PN-Gh-cs9"/>
-                                                <constraint firstAttribute="trailing" secondItem="jTR-cU-9Yb" secondAttribute="trailing" constant="8" id="Fyk-sx-ySS"/>
-                                                <constraint firstItem="jTR-cU-9Yb" firstAttribute="centerY" secondItem="eK1-CC-2Y1" secondAttribute="centerY" id="VJ4-uJ-546"/>
+                                                <constraint firstAttribute="bottom" secondItem="Tna-9A-i2z" secondAttribute="bottom" constant="8" id="0Xu-hl-qyf"/>
+                                                <constraint firstAttribute="trailing" secondItem="Tna-9A-i2z" secondAttribute="trailing" constant="8" id="IXw-AJ-VNu"/>
+                                                <constraint firstItem="Tna-9A-i2z" firstAttribute="top" secondItem="eK1-CC-2Y1" secondAttribute="top" constant="8" id="at0-oe-vha"/>
+                                                <constraint firstItem="Tna-9A-i2z" firstAttribute="leading" secondItem="eK1-CC-2Y1" secondAttribute="leading" constant="8" id="quN-RQ-tyH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -620,22 +626,22 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Contact" id="E4w-c6-AyI">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="N41-tr-wLe">
-                                        <rect key="frame" x="0.0" y="364" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="N41-tr-wLe">
+                                        <rect key="frame" x="0.0" y="408" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N41-tr-wLe" id="F3e-Xq-Qho">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mailIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Lht-Ty-BK4">
-                                                    <rect key="frame" x="8" y="8" width="27" height="27"/>
+                                                    <rect key="frame" x="14" y="13" width="27" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="2Ez-C8-PbS"/>
                                                         <constraint firstAttribute="width" constant="27" id="DCw-Bt-9Ss"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGV-uM-AQw" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                    <rect key="frame" x="43" y="7" width="549" height="30"/>
+                                                    <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Iu5-hO-D4a"/>
                                                     </constraints>
@@ -649,35 +655,38 @@
                                                             <real key="value" value="-2"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="l2Q-QU-Rdg" id="zYn-5b-uEZ"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="gGV-uM-AQw" secondAttribute="trailing" constant="8" id="4Ro-ES-Tix"/>
                                                 <constraint firstItem="gGV-uM-AQw" firstAttribute="centerY" secondItem="F3e-Xq-Qho" secondAttribute="centerY" id="7Cp-DK-yZe"/>
-                                                <constraint firstItem="Lht-Ty-BK4" firstAttribute="top" secondItem="F3e-Xq-Qho" secondAttribute="top" constant="8" id="DTn-TM-JWV"/>
+                                                <constraint firstItem="Lht-Ty-BK4" firstAttribute="top" secondItem="F3e-Xq-Qho" secondAttribute="top" constant="13" id="DTn-TM-JWV"/>
                                                 <constraint firstItem="gGV-uM-AQw" firstAttribute="leading" secondItem="Lht-Ty-BK4" secondAttribute="trailing" constant="8" id="I4j-g4-a7p"/>
-                                                <constraint firstItem="Lht-Ty-BK4" firstAttribute="leading" secondItem="F3e-Xq-Qho" secondAttribute="leading" constant="8" id="OJ2-WA-OXV"/>
-                                                <constraint firstAttribute="bottom" secondItem="Lht-Ty-BK4" secondAttribute="bottom" constant="8" id="U4D-W9-VJm"/>
+                                                <constraint firstItem="Lht-Ty-BK4" firstAttribute="leading" secondItem="F3e-Xq-Qho" secondAttribute="leading" constant="14" id="OJ2-WA-OXV"/>
+                                                <constraint firstAttribute="bottom" secondItem="Lht-Ty-BK4" secondAttribute="bottom" constant="13" id="U4D-W9-VJm"/>
                                                 <constraint firstItem="Lht-Ty-BK4" firstAttribute="centerY" secondItem="F3e-Xq-Qho" secondAttribute="centerY" id="wNg-fU-zTj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dce-Qj-rCz">
-                                        <rect key="frame" x="0.0" y="408" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="dce-Qj-rCz">
+                                        <rect key="frame" x="0.0" y="462" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dce-Qj-rCz" id="PhT-7G-fag">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitterIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="gzc-YG-IT1">
-                                                    <rect key="frame" x="8" y="8" width="27" height="27"/>
+                                                    <rect key="frame" x="14" y="13" width="27" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="NmG-d1-YWF"/>
                                                         <constraint firstAttribute="width" constant="27" id="ZxH-1d-xkq"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Twitter" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zOG-mP-60y" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                    <rect key="frame" x="43" y="7" width="549" height="30"/>
+                                                    <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="XaW-tf-SmT"/>
                                                     </constraints>
@@ -691,35 +700,38 @@
                                                             <real key="value" value="-2"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="l2Q-QU-Rdg" id="a82-sT-ihg"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="gzc-YG-IT1" firstAttribute="leading" secondItem="PhT-7G-fag" secondAttribute="leading" constant="8" id="9ra-d4-Dqj"/>
-                                                <constraint firstAttribute="bottom" secondItem="gzc-YG-IT1" secondAttribute="bottom" constant="8" id="Hsm-CB-VPP"/>
+                                                <constraint firstItem="gzc-YG-IT1" firstAttribute="leading" secondItem="PhT-7G-fag" secondAttribute="leading" constant="14" id="9ra-d4-Dqj"/>
+                                                <constraint firstAttribute="bottom" secondItem="gzc-YG-IT1" secondAttribute="bottom" constant="13" id="Hsm-CB-VPP"/>
                                                 <constraint firstItem="zOG-mP-60y" firstAttribute="leading" secondItem="gzc-YG-IT1" secondAttribute="trailing" constant="8" id="T21-Od-Ktn"/>
                                                 <constraint firstItem="gzc-YG-IT1" firstAttribute="centerY" secondItem="PhT-7G-fag" secondAttribute="centerY" id="aro-dS-jiB"/>
                                                 <constraint firstAttribute="trailing" secondItem="zOG-mP-60y" secondAttribute="trailing" constant="8" id="gE1-Gi-tVa"/>
-                                                <constraint firstItem="gzc-YG-IT1" firstAttribute="top" secondItem="PhT-7G-fag" secondAttribute="top" constant="8" id="wJS-gb-nRS"/>
+                                                <constraint firstItem="gzc-YG-IT1" firstAttribute="top" secondItem="PhT-7G-fag" secondAttribute="top" constant="13" id="wJS-gb-nRS"/>
                                                 <constraint firstItem="zOG-mP-60y" firstAttribute="centerY" secondItem="PhT-7G-fag" secondAttribute="centerY" id="wym-73-lOq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="t4R-WX-x7y">
-                                        <rect key="frame" x="0.0" y="452" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="t4R-WX-x7y">
+                                        <rect key="frame" x="0.0" y="516" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t4R-WX-x7y" id="9jC-Rf-JyY">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebookIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Q4X-fS-Hcx">
-                                                    <rect key="frame" x="8" y="8" width="27" height="27"/>
+                                                    <rect key="frame" x="14" y="13" width="27" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="77U-10-X9Y"/>
                                                         <constraint firstAttribute="width" constant="27" id="FCL-id-NZe"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Facebook" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Skb-5n-HOR" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                    <rect key="frame" x="43" y="7" width="549" height="30"/>
+                                                    <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="b7A-nL-a7Z"/>
                                                     </constraints>
@@ -733,35 +745,38 @@
                                                             <real key="value" value="-2"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="l2Q-QU-Rdg" id="GT8-O3-1gE"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Q4X-fS-Hcx" firstAttribute="leading" secondItem="9jC-Rf-JyY" secondAttribute="leading" constant="8" id="e0x-29-UGz"/>
-                                                <constraint firstItem="Q4X-fS-Hcx" firstAttribute="top" secondItem="9jC-Rf-JyY" secondAttribute="top" constant="8" id="e8c-x4-KpK"/>
+                                                <constraint firstItem="Q4X-fS-Hcx" firstAttribute="leading" secondItem="9jC-Rf-JyY" secondAttribute="leading" constant="14" id="e0x-29-UGz"/>
+                                                <constraint firstItem="Q4X-fS-Hcx" firstAttribute="top" secondItem="9jC-Rf-JyY" secondAttribute="top" constant="13" id="e8c-x4-KpK"/>
                                                 <constraint firstItem="Skb-5n-HOR" firstAttribute="leading" secondItem="Q4X-fS-Hcx" secondAttribute="trailing" constant="8" id="hgt-Fi-tuX"/>
                                                 <constraint firstItem="Q4X-fS-Hcx" firstAttribute="centerY" secondItem="9jC-Rf-JyY" secondAttribute="centerY" id="ixJ-xo-ThJ"/>
-                                                <constraint firstAttribute="bottom" secondItem="Q4X-fS-Hcx" secondAttribute="bottom" constant="8" id="jZJ-eo-HGG"/>
+                                                <constraint firstAttribute="bottom" secondItem="Q4X-fS-Hcx" secondAttribute="bottom" constant="13" id="jZJ-eo-HGG"/>
                                                 <constraint firstAttribute="trailing" secondItem="Skb-5n-HOR" secondAttribute="trailing" constant="8" id="rjr-Cd-qo4"/>
                                                 <constraint firstItem="Skb-5n-HOR" firstAttribute="centerY" secondItem="9jC-Rf-JyY" secondAttribute="centerY" id="zjO-Er-wfc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="IPp-0X-YEC">
-                                        <rect key="frame" x="0.0" y="496" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="IPp-0X-YEC">
+                                        <rect key="frame" x="0.0" y="570" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IPp-0X-YEC" id="ppj-so-lHP">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="amH-xl-uId">
-                                                    <rect key="frame" x="8" y="8" width="27" height="27"/>
+                                                    <rect key="frame" x="14" y="13" width="27" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="27" id="24j-fZ-hVh"/>
                                                         <constraint firstAttribute="height" constant="27" id="n9A-5H-Q8g"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="GitHub" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RkB-e5-9T3" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                    <rect key="frame" x="43" y="7" width="549" height="30"/>
+                                                    <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="nhB-Cm-K3S"/>
                                                     </constraints>
@@ -775,35 +790,38 @@
                                                             <real key="value" value="-2"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="l2Q-QU-Rdg" id="rF3-EU-Qg3"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="RkB-e5-9T3" firstAttribute="leading" secondItem="amH-xl-uId" secondAttribute="trailing" constant="8" id="9xN-Ig-ttX"/>
                                                 <constraint firstAttribute="trailing" secondItem="RkB-e5-9T3" secondAttribute="trailing" constant="8" id="OZ9-GA-L5L"/>
                                                 <constraint firstItem="RkB-e5-9T3" firstAttribute="centerY" secondItem="ppj-so-lHP" secondAttribute="centerY" id="Ucy-fn-FpJ"/>
-                                                <constraint firstItem="amH-xl-uId" firstAttribute="leading" secondItem="ppj-so-lHP" secondAttribute="leading" constant="8" id="Uj3-fZ-F7c"/>
-                                                <constraint firstAttribute="bottom" secondItem="amH-xl-uId" secondAttribute="bottom" constant="8" id="etX-JI-1vS"/>
-                                                <constraint firstItem="amH-xl-uId" firstAttribute="top" secondItem="ppj-so-lHP" secondAttribute="top" constant="8" id="se1-Qg-yiK"/>
+                                                <constraint firstItem="amH-xl-uId" firstAttribute="leading" secondItem="ppj-so-lHP" secondAttribute="leading" constant="14" id="Uj3-fZ-F7c"/>
+                                                <constraint firstAttribute="bottom" secondItem="amH-xl-uId" secondAttribute="bottom" constant="13" id="etX-JI-1vS"/>
+                                                <constraint firstItem="amH-xl-uId" firstAttribute="top" secondItem="ppj-so-lHP" secondAttribute="top" constant="13" id="se1-Qg-yiK"/>
                                                 <constraint firstItem="amH-xl-uId" firstAttribute="centerY" secondItem="ppj-so-lHP" secondAttribute="centerY" id="zv8-7G-xEm"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Wbn-Nn-b2k">
-                                        <rect key="frame" x="0.0" y="540" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="Wbn-Nn-b2k">
+                                        <rect key="frame" x="0.0" y="624" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wbn-Nn-b2k" id="rmx-R3-fbG">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedinIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="020-Bc-yNE">
-                                                    <rect key="frame" x="8" y="8" width="27" height="27"/>
+                                                    <rect key="frame" x="14" y="13" width="27" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="RzC-i0-NRf"/>
                                                         <constraint firstAttribute="width" constant="27" id="S7c-Ka-nGA"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="LinkedIn" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d8T-Sw-Ys8" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                    <rect key="frame" x="43" y="7" width="549" height="30"/>
+                                                    <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="qpf-Hv-mLX"/>
                                                     </constraints>
@@ -817,35 +835,38 @@
                                                             <real key="value" value="-2"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="l2Q-QU-Rdg" id="D5P-4F-l9z"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="020-Bc-yNE" firstAttribute="leading" secondItem="rmx-R3-fbG" secondAttribute="leading" constant="8" id="9Up-m3-4EB"/>
+                                                <constraint firstItem="020-Bc-yNE" firstAttribute="leading" secondItem="rmx-R3-fbG" secondAttribute="leading" constant="14" id="9Up-m3-4EB"/>
                                                 <constraint firstAttribute="trailing" secondItem="d8T-Sw-Ys8" secondAttribute="trailing" constant="8" id="AXD-Ax-Mz2"/>
-                                                <constraint firstAttribute="bottom" secondItem="020-Bc-yNE" secondAttribute="bottom" constant="8" id="BZe-Qn-T7t"/>
-                                                <constraint firstItem="020-Bc-yNE" firstAttribute="top" secondItem="rmx-R3-fbG" secondAttribute="top" constant="8" id="Dsi-YL-XTI"/>
+                                                <constraint firstAttribute="bottom" secondItem="020-Bc-yNE" secondAttribute="bottom" constant="13" id="BZe-Qn-T7t"/>
+                                                <constraint firstItem="020-Bc-yNE" firstAttribute="top" secondItem="rmx-R3-fbG" secondAttribute="top" constant="13" id="Dsi-YL-XTI"/>
                                                 <constraint firstItem="020-Bc-yNE" firstAttribute="centerY" secondItem="rmx-R3-fbG" secondAttribute="centerY" id="UFc-Ho-pFi"/>
                                                 <constraint firstItem="d8T-Sw-Ys8" firstAttribute="centerY" secondItem="rmx-R3-fbG" secondAttribute="centerY" id="uoK-Ca-wqk"/>
                                                 <constraint firstItem="d8T-Sw-Ys8" firstAttribute="leading" secondItem="020-Bc-yNE" secondAttribute="trailing" constant="8" id="zF9-Ag-AYe"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cpJ-mP-H57">
-                                        <rect key="frame" x="0.0" y="584" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="cpJ-mP-H57">
+                                        <rect key="frame" x="0.0" y="678" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cpJ-mP-H57" id="Dju-A0-bKz">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="websiteIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="R4C-89-mZM">
-                                                    <rect key="frame" x="8" y="8" width="27" height="27"/>
+                                                    <rect key="frame" x="14" y="13" width="27" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="WsG-B0-Ogu"/>
                                                         <constraint firstAttribute="width" constant="27" id="ngM-30-YjC"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eHn-TZ-3WT" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                    <rect key="frame" x="43" y="7" width="549" height="30"/>
+                                                    <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="ppe-kq-jvJ"/>
                                                     </constraints>
@@ -859,35 +880,38 @@
                                                             <real key="value" value="-2"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="l2Q-QU-Rdg" id="eoh-rT-uPm"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="eHn-TZ-3WT" firstAttribute="leading" secondItem="R4C-89-mZM" secondAttribute="trailing" constant="8" id="NaT-QZ-W8r"/>
                                                 <constraint firstItem="R4C-89-mZM" firstAttribute="centerY" secondItem="Dju-A0-bKz" secondAttribute="centerY" id="OSW-VB-a4m"/>
-                                                <constraint firstItem="R4C-89-mZM" firstAttribute="leading" secondItem="Dju-A0-bKz" secondAttribute="leading" constant="8" id="YpL-A7-gzu"/>
-                                                <constraint firstAttribute="bottom" secondItem="R4C-89-mZM" secondAttribute="bottom" constant="8" id="eUF-Dn-qek"/>
+                                                <constraint firstItem="R4C-89-mZM" firstAttribute="leading" secondItem="Dju-A0-bKz" secondAttribute="leading" constant="14" id="YpL-A7-gzu"/>
+                                                <constraint firstAttribute="bottom" secondItem="R4C-89-mZM" secondAttribute="bottom" constant="13" id="eUF-Dn-qek"/>
                                                 <constraint firstItem="eHn-TZ-3WT" firstAttribute="centerY" secondItem="Dju-A0-bKz" secondAttribute="centerY" id="r9o-PC-bIr"/>
-                                                <constraint firstItem="R4C-89-mZM" firstAttribute="top" secondItem="Dju-A0-bKz" secondAttribute="top" constant="8" id="tbE-J0-qpl"/>
+                                                <constraint firstItem="R4C-89-mZM" firstAttribute="top" secondItem="Dju-A0-bKz" secondAttribute="top" constant="13" id="tbE-J0-qpl"/>
                                                 <constraint firstAttribute="trailing" secondItem="eHn-TZ-3WT" secondAttribute="trailing" constant="8" id="xrZ-WE-8i2"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lFV-Jd-YH0">
-                                        <rect key="frame" x="0.0" y="628" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="lFV-Jd-YH0">
+                                        <rect key="frame" x="0.0" y="732" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lFV-Jd-YH0" id="UWu-ar-jnj">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appstoreIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Ndy-Nw-Vu1">
-                                                    <rect key="frame" x="8" y="8" width="27" height="27"/>
+                                                    <rect key="frame" x="14" y="13" width="27" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="27" id="X2X-LD-XT1"/>
                                                         <constraint firstAttribute="height" constant="27" id="slk-kT-4eM"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="App Store" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qzI-or-qUj" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                    <rect key="frame" x="43" y="7" width="549" height="30"/>
+                                                    <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="CFF-xD-oXc"/>
                                                     </constraints>
@@ -901,16 +925,19 @@
                                                             <real key="value" value="-2"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="l2Q-QU-Rdg" id="RTz-sR-bvS"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="Ndy-Nw-Vu1" secondAttribute="bottom" constant="8" id="JRo-ah-SbY"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ndy-Nw-Vu1" secondAttribute="bottom" constant="13" id="JRo-ah-SbY"/>
                                                 <constraint firstItem="Ndy-Nw-Vu1" firstAttribute="centerY" secondItem="UWu-ar-jnj" secondAttribute="centerY" id="KFi-RT-CNU"/>
-                                                <constraint firstItem="Ndy-Nw-Vu1" firstAttribute="leading" secondItem="UWu-ar-jnj" secondAttribute="leading" constant="8" id="N2e-HX-pAW"/>
+                                                <constraint firstItem="Ndy-Nw-Vu1" firstAttribute="leading" secondItem="UWu-ar-jnj" secondAttribute="leading" constant="14" id="N2e-HX-pAW"/>
                                                 <constraint firstAttribute="trailing" secondItem="qzI-or-qUj" secondAttribute="trailing" constant="8" id="Po9-ys-Is4"/>
                                                 <constraint firstItem="qzI-or-qUj" firstAttribute="centerY" secondItem="UWu-ar-jnj" secondAttribute="centerY" id="UPt-4e-PT9"/>
                                                 <constraint firstItem="qzI-or-qUj" firstAttribute="leading" secondItem="Ndy-Nw-Vu1" secondAttribute="trailing" constant="8" id="oOX-tF-yEm"/>
-                                                <constraint firstItem="Ndy-Nw-Vu1" firstAttribute="top" secondItem="UWu-ar-jnj" secondAttribute="top" constant="8" id="qlr-s9-TSy"/>
+                                                <constraint firstItem="Ndy-Nw-Vu1" firstAttribute="top" secondItem="UWu-ar-jnj" secondAttribute="top" constant="13" id="qlr-s9-TSy"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -918,22 +945,22 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Scholarship App" id="z1K-2i-3Wh">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="NM2-dT-iRA">
-                                        <rect key="frame" x="0.0" y="723" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="NM2-dT-iRA">
+                                        <rect key="frame" x="0.0" y="837" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NM2-dT-iRA" id="vjl-fw-FTF">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youTubeIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="kWA-9O-8w5">
-                                                    <rect key="frame" x="8" y="8" width="27" height="27"/>
+                                                    <rect key="frame" x="14" y="13" width="27" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="hje-q0-qhF"/>
                                                         <constraint firstAttribute="width" constant="27" id="hpf-wO-hbh"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YouTube video" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4yQ-Pl-BMT" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                    <rect key="frame" x="43" y="7" width="549" height="30"/>
+                                                    <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="yp8-OF-Ju9"/>
                                                     </constraints>
@@ -947,35 +974,38 @@
                                                             <real key="value" value="-2"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="l2Q-QU-Rdg" id="dXC-t2-u3e"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="4yQ-Pl-BMT" firstAttribute="centerY" secondItem="vjl-fw-FTF" secondAttribute="centerY" id="3q7-2p-m3B"/>
                                                 <constraint firstAttribute="trailing" secondItem="4yQ-Pl-BMT" secondAttribute="trailing" constant="8" id="7kv-Iq-T5o"/>
-                                                <constraint firstItem="kWA-9O-8w5" firstAttribute="leading" secondItem="vjl-fw-FTF" secondAttribute="leading" constant="8" id="cmM-Sm-Sc0"/>
+                                                <constraint firstItem="kWA-9O-8w5" firstAttribute="leading" secondItem="vjl-fw-FTF" secondAttribute="leading" constant="14" id="cmM-Sm-Sc0"/>
                                                 <constraint firstItem="kWA-9O-8w5" firstAttribute="centerY" secondItem="vjl-fw-FTF" secondAttribute="centerY" id="gPa-Zr-ecV"/>
-                                                <constraint firstItem="kWA-9O-8w5" firstAttribute="top" secondItem="vjl-fw-FTF" secondAttribute="top" constant="8" id="wRZ-ot-juz"/>
-                                                <constraint firstAttribute="bottom" secondItem="kWA-9O-8w5" secondAttribute="bottom" constant="8" id="ycS-hh-8np"/>
+                                                <constraint firstItem="kWA-9O-8w5" firstAttribute="top" secondItem="vjl-fw-FTF" secondAttribute="top" constant="13" id="wRZ-ot-juz"/>
+                                                <constraint firstAttribute="bottom" secondItem="kWA-9O-8w5" secondAttribute="bottom" constant="13" id="ycS-hh-8np"/>
                                                 <constraint firstItem="4yQ-Pl-BMT" firstAttribute="leading" secondItem="kWA-9O-8w5" secondAttribute="trailing" constant="8" id="zkd-Jt-3ha"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="BuD-fW-ipR">
-                                        <rect key="frame" x="0.0" y="767" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="BuD-fW-ipR">
+                                        <rect key="frame" x="0.0" y="891" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BuD-fW-ipR" id="xWp-ja-Eec">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="1Lw-bt-72M">
-                                                    <rect key="frame" x="8" y="8" width="27" height="27"/>
+                                                    <rect key="frame" x="14" y="13" width="27" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="27" id="VBk-Jc-TVF"/>
                                                         <constraint firstAttribute="height" constant="27" id="oXt-Tx-ifu"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="GitHub repo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tg2-Ai-yWH" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                    <rect key="frame" x="43" y="7" width="549" height="30"/>
+                                                    <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="o2X-Hx-2Sg"/>
                                                     </constraints>
@@ -989,16 +1019,19 @@
                                                             <real key="value" value="-2"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="l2Q-QU-Rdg" id="dNf-tg-Iak"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Tg2-Ai-yWH" firstAttribute="centerY" secondItem="xWp-ja-Eec" secondAttribute="centerY" id="8Cz-2W-OVg"/>
-                                                <constraint firstItem="1Lw-bt-72M" firstAttribute="top" secondItem="xWp-ja-Eec" secondAttribute="top" constant="8" id="NWA-zG-Zy1"/>
+                                                <constraint firstItem="1Lw-bt-72M" firstAttribute="top" secondItem="xWp-ja-Eec" secondAttribute="top" constant="13" id="NWA-zG-Zy1"/>
                                                 <constraint firstItem="1Lw-bt-72M" firstAttribute="centerY" secondItem="xWp-ja-Eec" secondAttribute="centerY" id="YGL-Gv-gBl"/>
                                                 <constraint firstItem="Tg2-Ai-yWH" firstAttribute="leading" secondItem="1Lw-bt-72M" secondAttribute="trailing" constant="8" id="bWh-nz-s6G"/>
                                                 <constraint firstAttribute="trailing" secondItem="Tg2-Ai-yWH" secondAttribute="trailing" constant="8" id="dmC-bb-IjG"/>
-                                                <constraint firstAttribute="bottom" secondItem="1Lw-bt-72M" secondAttribute="bottom" constant="8" id="ef7-Yc-bxM"/>
-                                                <constraint firstItem="1Lw-bt-72M" firstAttribute="leading" secondItem="xWp-ja-Eec" secondAttribute="leading" constant="8" id="ycX-Mx-DpH"/>
+                                                <constraint firstAttribute="bottom" secondItem="1Lw-bt-72M" secondAttribute="bottom" constant="13" id="ef7-Yc-bxM"/>
+                                                <constraint firstItem="1Lw-bt-72M" firstAttribute="leading" secondItem="xWp-ja-Eec" secondAttribute="leading" constant="14" id="ycX-Mx-DpH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1006,8 +1039,8 @@
                             </tableViewSection>
                             <tableViewSection footerTitle="Please upload screenshots from devices with screen sizes 4&quot; and above" id="ocj-ap-jbG">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="197" id="tNp-8p-5aQ">
-                                        <rect key="frame" x="0.0" y="847" width="600" height="197"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="197" id="tNp-8p-5aQ">
+                                        <rect key="frame" x="0.0" y="981" width="600" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tNp-8p-5aQ" id="SNv-pJ-xVu">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="196"/>
@@ -1127,12 +1160,12 @@
         <image name="Project Management" width="59" height="58"/>
         <image name="WWDCScholars Icon" width="155" height="155"/>
         <image name="Website" width="59" height="58"/>
-        <image name="appstoreIconSmall" width="44" height="44"/>
-        <image name="facebookIconSmall" width="44" height="44"/>
-        <image name="gitHubIconSmall" width="44" height="44"/>
+        <image name="appstoreIconSmall" width="27" height="27"/>
+        <image name="facebookIconSmall" width="27" height="27"/>
+        <image name="gitHubIconSmall" width="27" height="27"/>
         <image name="iOS" width="59" height="58"/>
-        <image name="linkedinIconSmall" width="44" height="44"/>
-        <image name="mailIconSmall" width="44" height="44"/>
+        <image name="linkedinIconSmall" width="27" height="27"/>
+        <image name="mailIconSmall" width="27" height="27"/>
         <image name="screenshotIconSmall" width="30" height="23"/>
         <image name="tabBarIconAlumni" width="25" height="25"/>
         <image name="tabBarIconAlumniFilled" width="25" height="25"/>
@@ -1142,9 +1175,9 @@
         <image name="tabBarIconCreditsFilled" width="25" height="25"/>
         <image name="tabBarIconScholars" width="25" height="25"/>
         <image name="tabBarIconScholarsFilled" width="25" height="25"/>
-        <image name="twitterIconSmall" width="44" height="44"/>
+        <image name="twitterIconSmall" width="27" height="27"/>
         <image name="watchOS" width="59" height="58"/>
-        <image name="websiteIconSmall" width="44" height="44"/>
-        <image name="youTubeIconSmall" width="62" height="44"/>
+        <image name="websiteIconSmall" width="27" height="27"/>
+        <image name="youTubeIconSmall" width="27" height="19"/>
     </resources>
 </document>

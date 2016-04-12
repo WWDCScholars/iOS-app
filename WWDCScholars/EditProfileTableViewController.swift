@@ -8,16 +8,28 @@
 
 import UIKit
 
-class EditProfileTableViewController: UITableViewController {
+class EditProfileTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet private weak var screenshotCollectionView: UICollectionView!
     
     let numberOfScreenshots = 4
     
     override func viewDidLoad() {
+        let dismissKeyboardRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EditProfileTableViewController.dismissKeyboard))
+        self.view.addGestureRecognizer(dismissKeyboardRecognizer)
+        
         self.styleUI()
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     // MARK: - UI
+    
+    internal func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
     private func styleUI() {
         self.title = "Edit Profile"

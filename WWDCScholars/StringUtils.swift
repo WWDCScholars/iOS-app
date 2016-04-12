@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias URL = String
+
 extension String {
     
     func matchesForRegexInText(regex: String!, text: String!) -> [String] {

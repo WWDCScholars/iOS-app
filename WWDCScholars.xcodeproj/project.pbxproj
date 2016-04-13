@@ -28,6 +28,7 @@
 		6EB723D91CB9B85B005A076F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB723D81CB9B85B005A076F /* Assets.xcassets */; };
 		6ED9264B1CBEF2FC0082FCFE /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9264A1CBEF2FC0082FCFE /* UIImage+Color.swift */; };
 		6ED9264F1CBEFECA0082FCFE /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9264E1CBEFECA0082FCFE /* iCarousel.m */; };
+		6ED926521CBF0BEE0082FCFE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED926511CBF0BEE0082FCFE /* MapKit.framework */; };
 		7B2AA6E01CBAE7530025EC7B /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */; };
 		7B2AA6EE1CBAE75B0025EC7B /* WWDCScholarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6ED1CBAE75B0025EC7B /* WWDCScholarsUITests.swift */; };
 		7BBA87641CBB7F3A0057E9AD /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBA87621CBB7F3A0057E9AD /* Fabric.framework */; };
@@ -138,6 +139,7 @@
 		6ED9264D1CBEFECA0082FCFE /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		6ED9264E1CBEFECA0082FCFE /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		6ED926501CBEFF100082FCFE /* WWDCScholars-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WWDCScholars-Bridging-Header.h"; sourceTree = "<group>"; };
+		6ED926511CBF0BEE0082FCFE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7B2AA6DD1CBAE7530025EC7B /* WWDCScholarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsTests.swift; sourceTree = "<group>"; };
 		7B2AA6E11CBAE7530025EC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ED926521CBF0BEE0082FCFE /* MapKit.framework in Frameworks */,
 				223F5E9A1CB970EC00E582C5 /* AVFoundation.framework in Frameworks */,
 				7BBA87651CBB7F3A0057E9AD /* Crashlytics.framework in Frameworks */,
 				7BBA87C51CBD641F0057E9AD /* RealmSwift.framework in Frameworks */,
@@ -388,6 +391,7 @@
 		7BBA87A21CBD5D680057E9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6ED926511CBF0BEE0082FCFE /* MapKit.framework */,
 				7BBA88231CBEA0E80057E9AD /* Timepiece-master */,
 				7BBA88221CBD8AD10057E9AD /* Alamofire */,
 				7BBA87C71CBD7A860057E9AD /* SwiftyJSON.swift */,

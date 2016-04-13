@@ -28,49 +28,97 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="WvE-ZH-Pzi"/>
                                 </connections>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gdy-v7-k9Z">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYj-Zb-Qv2" userLabel="Main View">
                                 <rect key="frame" x="0.0" y="114" width="600" height="437"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ctt-Bb-9hm">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ZZu-y7-2MY">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="yZt-KP-biG"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hyA-UG-CE0"/>
-                                </connections>
-                            </collectionView>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gdy-v7-k9Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="437"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ctt-Bb-9hm">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ZZu-y7-2MY">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="yZt-KP-biG"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="hyA-UG-CE0"/>
+                                        </connections>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="gdy-v7-k9Z" firstAttribute="top" secondItem="jYj-Zb-Qv2" secondAttribute="top" id="7va-Ym-BxU"/>
+                                    <constraint firstAttribute="trailing" secondItem="gdy-v7-k9Z" secondAttribute="trailing" id="Smw-hd-DHA"/>
+                                    <constraint firstAttribute="bottom" secondItem="gdy-v7-k9Z" secondAttribute="bottom" id="qt5-0g-lEc"/>
+                                    <constraint firstItem="gdy-v7-k9Z" firstAttribute="leading" secondItem="jYj-Zb-Qv2" secondAttribute="leading" id="vgj-vp-hhp"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-SD-dQp" userLabel="Map View">
+                                <rect key="frame" x="0.0" y="114" width="600" height="437"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" translatesAutoresizingMaskIntoConstraints="NO" id="gdM-SB-6xy">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="437"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="UVP-6A-7Uy"/>
+                                        </connections>
+                                    </mapView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gdM-SB-6xy" secondAttribute="trailing" id="5H6-Pf-kM6"/>
+                                    <constraint firstItem="gdM-SB-6xy" firstAttribute="top" secondItem="lmt-SD-dQp" secondAttribute="top" id="P5W-ib-57k"/>
+                                    <constraint firstAttribute="bottom" secondItem="gdM-SB-6xy" secondAttribute="bottom" id="cgu-UC-UWh"/>
+                                    <constraint firstItem="gdM-SB-6xy" firstAttribute="leading" secondItem="lmt-SD-dQp" secondAttribute="leading" id="iC5-jj-dnS"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="gdy-v7-k9Z" secondAttribute="trailing" id="5zp-fv-Rdj"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gdy-v7-k9Z" secondAttribute="bottom" id="BBO-0K-fSm"/>
-                            <constraint firstItem="gdy-v7-k9Z" firstAttribute="top" secondItem="fgQ-47-L3u" secondAttribute="bottom" id="Ecc-qJ-dni"/>
+                            <constraint firstItem="jYj-Zb-Qv2" firstAttribute="top" secondItem="fgQ-47-L3u" secondAttribute="bottom" id="2Sn-7P-Yef"/>
+                            <constraint firstItem="lmt-SD-dQp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JOb-pC-IsB"/>
                             <constraint firstItem="fgQ-47-L3u" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Jtn-Vf-ZtR"/>
+                            <constraint firstAttribute="trailing" secondItem="jYj-Zb-Qv2" secondAttribute="trailing" id="NUE-Fv-fUN"/>
+                            <constraint firstAttribute="bottom" secondItem="jYj-Zb-Qv2" secondAttribute="bottom" id="NXi-k7-HMh"/>
+                            <constraint firstAttribute="trailing" secondItem="lmt-SD-dQp" secondAttribute="trailing" id="SEb-9U-bIK"/>
+                            <constraint firstItem="lmt-SD-dQp" firstAttribute="top" secondItem="fgQ-47-L3u" secondAttribute="bottom" id="Zsc-g7-MZb"/>
                             <constraint firstItem="fgQ-47-L3u" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fGh-6l-McP"/>
-                            <constraint firstItem="gdy-v7-k9Z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fdm-FE-x0m"/>
+                            <constraint firstItem="jYj-Zb-Qv2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g9z-WU-Xgx"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jYj-Zb-Qv2" secondAttribute="bottom" id="nj8-4M-7dH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lmt-SD-dQp" secondAttribute="bottom" id="qca-RJ-BUh"/>
+                            <constraint firstItem="jYj-Zb-Qv2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="uXB-uv-TQv"/>
                             <constraint firstAttribute="trailing" secondItem="fgQ-47-L3u" secondAttribute="trailing" id="y1Q-HH-gQe"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="NXi-k7-HMh"/>
+                                <exclude reference="uXB-uv-TQv"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Scholars" id="c3k-PW-oYU">
-                        <barButtonItem key="rightBarButtonItem" image="mapIcon" id="yIw-0O-2lF"/>
+                        <barButtonItem key="rightBarButtonItem" image="mapIcon" id="yIw-0O-2lF">
+                            <connections>
+                                <action selector="mapButtonTapped:" destination="BYZ-38-t0r" id="Cbl-vQ-q1P"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="gdy-v7-k9Z" id="G6W-1l-Hu0"/>
                         <outlet property="extendedNavigationContainer" destination="fgQ-47-L3u" id="h8d-EO-ljq"/>
+                        <outlet property="mainView" destination="jYj-Zb-Qv2" id="0gH-uU-oZs"/>
+                        <outlet property="mapView" destination="lmt-SD-dQp" id="R0v-Yf-W9V"/>
                         <outlet property="yearCarousel" destination="fgQ-47-L3u" id="Gpf-Zw-h5C"/>
                     </connections>
                 </viewController>

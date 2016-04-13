@@ -22,3 +22,18 @@ extension UIButton {
         self.setTitleColor(UIColor.scholarsPurpleColor(), forState: UIControlState.Normal)
     }
 }
+
+extension UIView {
+    func applyExtendedNavigationBarContainerStyle() {
+        self.backgroundColor = UIColor.scholarsPurpleColor()
+    }
+}
+
+extension UIViewController {
+    func applyExtendedNavigationBarStyle() {
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.shadowImage = UIImage(named: "transparentPixel")
+        let colouredImage = UIImage.imageWithSize(CGSize(width: 1, height: 1), color: UIColor.scholarsPurpleColor())
+        self.navigationController?.navigationBar.setBackgroundImage(colouredImage, forBarMetrics: UIBarMetrics.Default)
+    }
+}

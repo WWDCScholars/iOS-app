@@ -19,29 +19,14 @@ class CreditTableViewCell: UITableViewCell {
     @IBOutlet weak var appleWatchImageView: UIImageView!
     
     func setIconVisibility(tasks: [String]) {
-        if !tasks.contains("iOS") {
-            iOSImageView.hidden = true
-        }
+        //This code is temporary until I think of a better implementation
         
-        if !tasks.contains("Web") {
-            webImageView.hidden = true
-        }
-        
-        if !tasks.contains("Project Management") {
-            projectManagementImageView.hidden = true
-        }
-        
-        if !tasks.contains("Database") {
-            databaseImageView.hidden = true
-        }
-        
-        if !tasks.contains("Design") {
-            designImageView.hidden = true
-        }
-        
-        if !tasks.contains("Apple Watch") {
-            appleWatchImageView.hidden = true
-        }
+        self.iOSImageView.hidden = !tasks.contains("iOS") ? true : false
+        self.webImageView.hidden = !tasks.contains("Web") ? true : false
+        self.projectManagementImageView.hidden = !tasks.contains("Project Management") ? true : false
+        self.databaseImageView.hidden = !tasks.contains("Database") ? true : false
+        self.designImageView.hidden = !tasks.contains("Design") ? true : false
+        self.appleWatchImageView.hidden = !tasks.contains("Apple Watch") ? true : false
     }
     
     override func awakeFromNib() {

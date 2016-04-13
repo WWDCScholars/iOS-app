@@ -9,36 +9,36 @@
 import UIKit
 
 class ScholarsViewController: UIViewController {
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var extendedNavigationContainer: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        viewSetup()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.styleUI()
     }
     
+    // MARK: - UI
     
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
-    func viewSetup(){
+    private func styleUI() {
         self.title = "Scholars"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.extendedNavigationContainer.applyExtendedNavigationBarContainerStyle()
+        self.applyExtendedNavigationBarStyle()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension ScholarsViewController: UICollectionViewDataSource {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
     }
 }

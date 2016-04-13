@@ -10,19 +10,32 @@ import UIKit
 import AVFoundation
 
 class ScholarsTabBarViewController: UITabBarController {
-
     var tapSoundEffect: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.tabBar.tintColor = UIColor.scholarsPurpleColor()
+        
+        self.styleUI()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    private func styleUI() {
+        self.tabBar.tintColor = UIColor.scholarsPurpleColor()
+        
+        let image = UIImage(named: "wwdcScholarsTabIcon")!
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+        button.setBackgroundImage(image, forState: UIControlState.Normal)
+        
+        let heightDifference = image.size.height - self.tabBar.frame.size.height
+        
+        if heightDifference < 0 {
+            button.center = self.tabBar.center
+        } else {
+            var center = self.tabBar.center
+            center.y = center.y - heightDifference / 2
+            button.center = center
+        }
+        
+        self.view.addSubview(button)
     }
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
@@ -35,18 +48,7 @@ class ScholarsTabBarViewController: UITabBarController {
             tapSoundEffect.volume = 0.1
             sound.play()
         } catch {
-            // Couldn't load file :(
+            print("Failed to load tab bar sound file")
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -34,7 +34,7 @@ class AlumniViewController: UIViewController {
     */
     
     func viewSetup(){
-        self.title = "Alumni"
+        self.title = "Chat"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
     

@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Scholars View Controller-->
+        <!--Data Source-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ScholarsViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,12 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgQ-47-L3u">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgQ-47-L3u" customClass="iCarousel">
                                 <rect key="frame" x="0.0" y="64" width="600" height="50"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Anf-Bf-WNM"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="n5c-kA-FHE"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="WvE-ZH-Pzi"/>
+                                </connections>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gdy-v7-k9Z">
                                 <rect key="frame" x="0.0" y="114" width="600" height="437"/>
@@ -61,17 +65,20 @@
                             <constraint firstAttribute="trailing" secondItem="fgQ-47-L3u" secondAttribute="trailing" id="y1Q-HH-gQe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="c3k-PW-oYU"/>
+                    <navigationItem key="navigationItem" title="Scholars" id="c3k-PW-oYU">
+                        <barButtonItem key="rightBarButtonItem" image="mapIcon" id="yIw-0O-2lF"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="gdy-v7-k9Z" id="G6W-1l-Hu0"/>
                         <outlet property="extendedNavigationContainer" destination="fgQ-47-L3u" id="h8d-EO-ljq"/>
+                        <outlet property="yearCarousel" destination="fgQ-47-L3u" id="Gpf-Zw-h5C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2029" y="-630"/>
         </scene>
-        <!--Blog View Controller-->
+        <!--Blog-->
         <scene sceneID="gLD-ie-YKb">
             <objects>
                 <viewController id="qiP-lR-jI2" customClass="BlogViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
@@ -84,16 +91,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jaZ-zn-ixZ"/>
+                    <navigationItem key="navigationItem" title="Blog" id="jaZ-zn-ixZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHL-1y-cIm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2029" y="76"/>
         </scene>
-        <!--Alumni View Controller-->
+        <!--Chat-->
         <scene sceneID="bAZ-9K-5ed">
             <objects>
-                <viewController id="nbF-qz-3hW" customClass="AlumniViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nbF-qz-3hW" customClass="ChatViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6UL-IK-bnb"/>
                         <viewControllerLayoutGuide type="bottom" id="zeS-OX-a7c"/>
@@ -103,13 +110,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Sua-Tg-f6R"/>
+                    <navigationItem key="navigationItem" title="Chat" id="Sua-Tg-f6R"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZE-kb-XF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2029" y="790"/>
         </scene>
-        <!--Credits View Controller-->
+        <!--Credits-->
         <scene sceneID="Ucg-To-7oc">
             <objects>
                 <viewController id="00G-Zd-ZWK" customClass="CreditsViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
@@ -417,7 +424,7 @@
                             <constraint firstAttribute="trailing" secondItem="FWN-KX-h1v" secondAttribute="trailing" id="lQ4-Si-X4W"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ER4-QY-MEO"/>
+                    <navigationItem key="navigationItem" title="Credits" id="ER4-QY-MEO"/>
                     <connections>
                         <outlet property="accessButton" destination="12L-zx-oH1" id="yrn-HT-Q1d"/>
                         <outlet property="submitButton" destination="hOU-bL-fOM" id="Wgz-BJ-7Mv"/>
@@ -1274,6 +1281,7 @@
         <image name="iOS" width="59" height="58"/>
         <image name="linkedinIconSmall" width="27" height="27"/>
         <image name="mailIconSmall" width="27" height="27"/>
+        <image name="mapIcon" width="33" height="33"/>
         <image name="screenshotIconSmall" width="30" height="23"/>
         <image name="tabBarIconBlog" width="25" height="25"/>
         <image name="tabBarIconBlogFilled" width="25" height="25"/>

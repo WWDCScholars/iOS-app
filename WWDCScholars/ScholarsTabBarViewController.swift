@@ -18,6 +18,8 @@ class ScholarsTabBarViewController: UITabBarController {
         self.styleUI()
     }
     
+    //MARK: - UI
+    
     private func styleUI() {
         self.tabBar.tintColor = UIColor.scholarsPurpleColor()
         

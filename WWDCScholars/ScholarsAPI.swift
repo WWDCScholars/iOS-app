@@ -67,6 +67,9 @@ class ScholarsAPI {
             newScholar.numberOfTimesWWDCScholar = numberOfTimesWWDCScholar
             newScholar.shortBio = shortBio
             newScholar.websiteURL = json["website"].string
+            newScholar.batchWWDC = batchWWDC.map { $0.string!}
+            newScholar.location = Location(name: location, longitude: longitude, latitude: latitude)
+            newScholar.birthday = birthday.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
             return newScholar
         }else {
             return nil

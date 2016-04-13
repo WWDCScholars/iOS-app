@@ -53,13 +53,38 @@ class Scholar: Object {
     /// A short description of him/herself
     dynamic var shortBio: String = ""
     
-    /// The location the scholar provided, CURRENTLY NOT SAVED!
-//    dynamic var location: Location?
+    /// Location details for easier saving
+    private dynamic var latitude: Double = 0
+    private dynamic var longitude: Double = 0
+    private dynamic var locationString: String = ""
+    /// The location the scholar provided
+    var location: Location {
+        get {
+            return Location(name: locationString, longitude: longitude, latitude: latitude)
+        }
+        
+        set {
+            latitude = newValue.latitude
+            longitude = newValue.longitude
+            locationString = newValue.name
+        }
+    }
     
     /// Number of times the scholar has been a WWDC Scholar
     dynamic var numberOfTimesWWDCScholar: Int = 0
-    /// Array of WWDC's the scholar has been to, CURRENTLY SAVED AS STRINGS
-//    dynamic var batchWWDC: List = List<String>()
+    /// String version of the batchWWDC, splitted by '|'
+    private dynamic var batchWWDCString: String = ""
+    /// Array of WWDC's the scholar has been to
+    var batchWWDC: [String] {
+        set {
+            batchWWDCString = newValue.joinWithSeparator("|")
+        }
+        
+        get {
+            let arr = batchWWDCString.componentsSeparatedByString("|")
+            return arr
+        }
+    }
     
     /// The URL of his/her iTunes (developer) account
     dynamic var iTunesURL: URL?
@@ -77,5 +102,9 @@ class Scholar: Object {
     
     override class func primaryKey() -> String {
         return "id"
+    }
+    
+    override static func ignoredProperties() -> [String] {
+        return ["batchWWDC", "location"]
     }
 }

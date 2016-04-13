@@ -8,16 +8,10 @@
 
 import Foundation
 
-class Location {
+struct Location {
     let name: String!
     let longitude: Double!
     let latitude: Double!
-    
-    init(name: String, longitude: Double, latitude: Double) {
-        self.name = name
-        self.longitude = longitude
-        self.latitude = latitude
-    }
     
     //todo? Switch to reverse geocoding using CoreLocation
 }

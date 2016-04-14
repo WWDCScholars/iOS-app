@@ -68,7 +68,7 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-SD-dQp" userLabel="Map View">
                                 <rect key="frame" x="0.0" y="114" width="600" height="437"/>
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" translatesAutoresizingMaskIntoConstraints="NO" id="gdM-SB-6xy">
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gdM-SB-6xy">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="437"/>
                                         <connections>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="UVP-6A-7Uy"/>

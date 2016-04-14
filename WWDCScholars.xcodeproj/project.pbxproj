@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22054C501CC0184B0008C4FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22054C4F1CC0184B0008C4FC /* LoginViewController.swift */; };
 		22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */; };
 		22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */; };
 		223884211C8252D900A96752 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223884201C8252D900A96752 /* AppDelegate.swift */; };
@@ -114,6 +115,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		22054C4F1CC0184B0008C4FC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		2238841D1C8252D900A96752 /* WWDCScholars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDCScholars.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				223884221C8252D900A96752 /* ScholarsViewController.swift */,
+				22054C4F1CC0184B0008C4FC /* LoginViewController.swift */,
 			);
 			name = Scholars;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				7BBA88201CBD8AC90057E9AD /* Upload.swift in Sources */,
 				7BBA87741CBD4C900057E9AD /* Gender.swift in Sources */,
 				7BBA88441CBEA0E80057E9AD /* NSCalendar+Timepiece.swift in Sources */,
+				22054C501CC0184B0008C4FC /* LoginViewController.swift in Sources */,
 				7BBA88141CBD8AC90057E9AD /* Manager.swift in Sources */,
 				22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */,
 				7BBA88211CBD8AC90057E9AD /* Validation.swift in Sources */,

@@ -71,5 +71,16 @@
 			<string>iOS</string>
 		</array>
 	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Grey Chen</string>
+		<key>Location</key>
+		<string>Beijing, China</string>
+		<key>Tasks</key>
+		<array>
+			<string>iOS</string>
+			<string>Design</string>
+		</array>
+	</dict>
 </array>
 </plist>

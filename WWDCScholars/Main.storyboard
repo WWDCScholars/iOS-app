@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Data Source-->
+        <!--Scholars-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ScholarsViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,17 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgQ-47-L3u" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="64" width="600" height="50"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Anf-Bf-WNM"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="n5c-kA-FHE"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="WvE-ZH-Pzi"/>
-                                </connections>
-                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-SD-dQp" userLabel="Map View">
                                 <rect key="frame" x="0.0" y="114" width="600" height="437"/>
                                 <subviews>
@@ -66,7 +55,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="170"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Andrew Walker" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-z3-2t2">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-z3-2t2">
                                                             <rect key="frame" x="0.0" y="0.0" width="140" height="170"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iS7-YN-mvh">
@@ -114,6 +103,99 @@
                                     <constraint firstItem="gdy-v7-k9Z" firstAttribute="leading" secondItem="jYj-Zb-Qv2" secondAttribute="leading" id="vgj-vp-hhp"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgQ-47-L3u">
+                                <rect key="frame" x="0.0" y="64" width="600" height="50"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B2q-nj-isb">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="KMG-FL-77v">
+                                            <size key="itemSize" width="600" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="yearCollectionViewCell" id="fLB-fn-lzc" customClass="YearCollectionViewCell" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omh-sb-n72">
+                                                            <rect key="frame" x="250" y="14" width="100" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="U67-2o-MWc"/>
+                                                                <constraint firstAttribute="width" constant="100" id="izX-8C-7kb"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstItem="Omh-sb-n72" firstAttribute="centerX" secondItem="fLB-fn-lzc" secondAttribute="centerX" id="8Bq-C5-WFf"/>
+                                                    <constraint firstItem="Omh-sb-n72" firstAttribute="centerY" secondItem="fLB-fn-lzc" secondAttribute="centerY" id="rDO-vT-Ww8"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="yearLabel" destination="Omh-sb-n72" id="zj8-Jc-sX8"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="29w-km-MBP"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="1IS-JF-ygk"/>
+                                        </connections>
+                                    </collectionView>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ij-aT-XNz">
+                                        <rect key="frame" x="180" y="0.0" width="240" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="8tX-wu-HSl"/>
+                                            <constraint firstAttribute="width" constant="240" id="v6A-HJ-pOY"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowRight" translatesAutoresizingMaskIntoConstraints="NO" id="Llh-Bj-LUB">
+                                        <rect key="frame" x="329" y="17" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="F2x-25-LPF"/>
+                                            <constraint firstAttribute="height" constant="15" id="J2F-fO-tYr"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowLeft" translatesAutoresizingMaskIntoConstraints="NO" id="mV4-nN-bsI">
+                                        <rect key="frame" x="256" y="17" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="Lei-r3-I05"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="PaY-ID-bHE"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="vlm-Co-ZTE"/>
+                                            <constraint firstAttribute="width" constant="15" id="wzz-zH-AeN"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="0ij-aT-XNz" firstAttribute="centerY" secondItem="fgQ-47-L3u" secondAttribute="centerY" id="9Or-vZ-oqU"/>
+                                    <constraint firstAttribute="height" constant="50" id="Anf-Bf-WNM"/>
+                                    <constraint firstItem="Llh-Bj-LUB" firstAttribute="centerY" secondItem="fgQ-47-L3u" secondAttribute="centerY" id="Bop-EW-pGk"/>
+                                    <constraint firstAttribute="trailing" secondItem="B2q-nj-isb" secondAttribute="trailing" id="GO2-W1-is8"/>
+                                    <constraint firstItem="0ij-aT-XNz" firstAttribute="leading" secondItem="mV4-nN-bsI" secondAttribute="trailing" constant="-91" id="O9B-rn-7Jr"/>
+                                    <constraint firstAttribute="bottom" secondItem="B2q-nj-isb" secondAttribute="bottom" id="RYp-dO-c1J"/>
+                                    <constraint firstItem="Llh-Bj-LUB" firstAttribute="leading" secondItem="0ij-aT-XNz" secondAttribute="trailing" constant="-91" id="cfE-Dq-caj"/>
+                                    <constraint firstItem="0ij-aT-XNz" firstAttribute="centerX" secondItem="fgQ-47-L3u" secondAttribute="centerX" id="d5z-uh-yhg"/>
+                                    <constraint firstItem="mV4-nN-bsI" firstAttribute="centerY" secondItem="fgQ-47-L3u" secondAttribute="centerY" id="oml-ZV-vWa"/>
+                                    <constraint firstItem="mV4-nN-bsI" firstAttribute="leading" secondItem="fgQ-47-L3u" secondAttribute="leading" constant="254" id="rPy-Af-xVb"/>
+                                    <constraint firstItem="B2q-nj-isb" firstAttribute="top" secondItem="fgQ-47-L3u" secondAttribute="top" id="w1C-rG-jVQ"/>
+                                    <constraint firstItem="B2q-nj-isb" firstAttribute="leading" secondItem="fgQ-47-L3u" secondAttribute="leading" id="wIe-qJ-6Xo"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="rPy-Af-xVb"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -146,11 +228,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="gdy-v7-k9Z" id="G6W-1l-Hu0"/>
                         <outlet property="extendedNavigationContainer" destination="fgQ-47-L3u" id="h8d-EO-ljq"/>
+                        <outlet property="leftArrowImageView" destination="mV4-nN-bsI" id="64h-HE-dw8"/>
                         <outlet property="mainView" destination="jYj-Zb-Qv2" id="0gH-uU-oZs"/>
                         <outlet property="mapView" destination="lmt-SD-dQp" id="R0v-Yf-W9V"/>
-                        <outlet property="yearCarousel" destination="fgQ-47-L3u" id="Gpf-Zw-h5C"/>
+                        <outlet property="rightArrowImageView" destination="Llh-Bj-LUB" id="w6t-Le-i0n"/>
+                        <outlet property="scholarsCollectionView" destination="gdy-v7-k9Z" id="NMK-IK-f4N"/>
+                        <outlet property="yearCollectionView" destination="B2q-nj-isb" id="pfX-JR-0Xz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1394,6 +1478,8 @@
         <image name="Project Management" width="59" height="58"/>
         <image name="Website" width="59" height="58"/>
         <image name="appstoreIconSmall" width="27" height="27"/>
+        <image name="arrowLeft" width="15" height="15"/>
+        <image name="arrowRight" width="15" height="15"/>
         <image name="facebookIconSmall" width="27" height="27"/>
         <image name="gitHubIconSmall" width="27" height="27"/>
         <image name="iOS" width="59" height="58"/>

@@ -20,6 +20,7 @@
 		22543B1F1CB70182003F9422 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B1E1CB70182003F9422 /* BlogViewController.swift */; };
 		22543B211CB7019A003F9422 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B201CB7019A003F9422 /* ChatViewController.swift */; };
 		6E1F069B1CC0332F00E464A0 /* ScholarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */; };
+		6E1F069D1CC045F400E464A0 /* YearCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */; };
 		6E4DD6EC1CBD36AA00B08EE1 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */; };
 		6E4DD6EE1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */; };
 		6EB723CF1CB9B83B005A076F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB723CE1CB9B83B005A076F /* Main.storyboard */; };
@@ -29,7 +30,6 @@
 		6EB723D71CB9B84D005A076F /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB723D31CB9B84D005A076F /* CreditTableViewCell.swift */; };
 		6EB723D91CB9B85B005A076F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB723D81CB9B85B005A076F /* Assets.xcassets */; };
 		6ED9264B1CBEF2FC0082FCFE /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9264A1CBEF2FC0082FCFE /* UIImage+Color.swift */; };
-		6ED9264F1CBEFECA0082FCFE /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9264E1CBEFECA0082FCFE /* iCarousel.m */; };
 		6ED926521CBF0BEE0082FCFE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED926511CBF0BEE0082FCFE /* MapKit.framework */; };
 		7B2AA6E01CBAE7530025EC7B /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */; };
 		7B2AA6EE1CBAE75B0025EC7B /* WWDCScholarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6ED1CBAE75B0025EC7B /* WWDCScholarsUITests.swift */; };
@@ -131,6 +131,7 @@
 		22543B1E1CB70182003F9422 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		22543B201CB7019A003F9422 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarCollectionViewCell.swift; sourceTree = "<group>"; };
+		6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotUploadCollectionViewCell.swift; sourceTree = "<group>"; };
 		6EB723CE1CB9B83B005A076F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -140,9 +141,6 @@
 		6EB723D31CB9B84D005A076F /* CreditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
 		6EB723D81CB9B85B005A076F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6ED9264A1CBEF2FC0082FCFE /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
-		6ED9264D1CBEFECA0082FCFE /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
-		6ED9264E1CBEFECA0082FCFE /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
-		6ED926501CBEFF100082FCFE /* WWDCScholars-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WWDCScholars-Bridging-Header.h"; sourceTree = "<group>"; };
 		6ED926511CBF0BEE0082FCFE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7B2AA6DD1CBAE7530025EC7B /* WWDCScholarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsTests.swift; sourceTree = "<group>"; };
@@ -236,7 +234,6 @@
 		223884141C8252D900A96752 = {
 			isa = PBXGroup;
 			children = (
-				6ED926501CBEFF100082FCFE /* WWDCScholars-Bridging-Header.h */,
 				7BBA87A21CBD5D680057E9AD /* Frameworks */,
 				2238841F1C8252D900A96752 /* WWDCScholars */,
 				7B2AA6DE1CBAE7530025EC7B /* WWDCScholarsTests */,
@@ -276,6 +273,7 @@
 				223884221C8252D900A96752 /* ScholarsViewController.swift */,
 				22054C4F1CC0184B0008C4FC /* LoginViewController.swift */,
 				6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */,
+				6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */,
 			);
 			name = Scholars;
 			sourceTree = "<group>";
@@ -332,16 +330,6 @@
 			path = WWDCScholars;
 			sourceTree = "<group>";
 		};
-		6ED9264C1CBEFECA0082FCFE /* iCarousel */ = {
-			isa = PBXGroup;
-			children = (
-				6ED9264D1CBEFECA0082FCFE /* iCarousel.h */,
-				6ED9264E1CBEFECA0082FCFE /* iCarousel.m */,
-			);
-			name = iCarousel;
-			path = WWDCScholars/iCarousel;
-			sourceTree = "<group>";
-		};
 		7B2AA6DE1CBAE7530025EC7B /* WWDCScholarsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,7 +377,6 @@
 		7BBA87A21CBD5D680057E9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6ED9264C1CBEFECA0082FCFE /* iCarousel */,
 				6E4DD6F01CBD476200B08EE1 /* FloatLabelTextField */,
 				6ED926511CBF0BEE0082FCFE /* MapKit.framework */,
 				7BBA88231CBEA0E80057E9AD /* Timepiece-master */,
@@ -645,6 +632,7 @@
 				7BBA87A01CBD5D220057E9AD /* DatabaseManager.swift in Sources */,
 				7BBA88201CBD8AC90057E9AD /* Upload.swift in Sources */,
 				7BBA87741CBD4C900057E9AD /* Gender.swift in Sources */,
+				6E1F069D1CC045F400E464A0 /* YearCollectionViewCell.swift in Sources */,
 				7BBA88441CBEA0E80057E9AD /* NSCalendar+Timepiece.swift in Sources */,
 				22054C501CC0184B0008C4FC /* LoginViewController.swift in Sources */,
 				7BBA88141CBD8AC90057E9AD /* Manager.swift in Sources */,
@@ -657,7 +645,6 @@
 				7BBA88121CBD8AC90057E9AD /* Download.swift in Sources */,
 				6EB723D71CB9B84D005A076F /* CreditTableViewCell.swift in Sources */,
 				6E1F069B1CC0332F00E464A0 /* ScholarCollectionViewCell.swift in Sources */,
-				6ED9264F1CBEFECA0082FCFE /* iCarousel.m in Sources */,
 				7BBA881E1CBD8AC90057E9AD /* Stream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -816,7 +803,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_development)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WWDCScholars-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -838,7 +825,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WWDCScholars-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

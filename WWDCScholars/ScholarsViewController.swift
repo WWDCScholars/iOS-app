@@ -9,29 +9,25 @@
 import UIKit
 
 class ScholarsViewController: UIViewController {
-    @IBOutlet weak var yearCarousel: iCarousel!
-    
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var yearCollectionView: UICollectionView!
+    @IBOutlet private weak var scholarsCollectionView: UICollectionView!
     @IBOutlet private weak var extendedNavigationContainer: UIView!
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var mapView: UIView!
+    @IBOutlet private weak var rightArrowImageView: UIImageView!
+    @IBOutlet private weak var leftArrowImageView: UIImageView!
     
     let years: [WWDC] = [.WWDC2011, .WWDC2012, .WWDC2013, .WWDC2014, .WWDC2015, .WWDC2016]
     var scholars: [Scholar] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.yearCarousel.type = .Linear
-        self.yearCarousel.bounces = false
-        self.yearCarousel.scrollSpeed = 0.5
-        self.yearCarousel.scrollToItemAtIndex(years.count - 1, animated: false)
         
         self.styleUI()
         
         ScholarsAPI.sharedInstance.loadScholars({
             self.scholars = DatabaseManager.sharedInstance.getAllScholars()
-            self.collectionView.reloadData()
+            self.scholarsCollectionView.reloadData()
         })
     }
     
@@ -42,6 +38,8 @@ class ScholarsViewController: UIViewController {
         
         self.extendedNavigationContainer.applyExtendedNavigationBarContainerStyle()
         self.applyExtendedNavigationBarStyle()
+        self.leftArrowImageView.tintColor = UIColor.transparentWhiteColor()
+        self.rightArrowImageView.tintColor = UIColor.transparentWhiteColor()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -61,78 +59,37 @@ class ScholarsViewController: UIViewController {
     }
 }
 
-// MARK: - iCarouselDataSource, iCarouselDelegate
-
-extension ScholarsViewController: iCarouselDataSource, iCarouselDelegate {
-    func numberOfItemsInCarousel(carousel: iCarousel) -> Int {
-        return self.years.count
-    }
-    
-    func carousel(carousel: iCarousel, viewForItemAtIndex index: Int, reusingView view: UIView?) -> UIView {
-        let year = self.years[index]
-        
-        let backgroundView = UIView()
-        let titleLabel = UILabel()
-        let leftArrowImageView = UIImageView()
-        let rightArrowImageView = UIImageView()
-        
-        backgroundView.frame = CGRect(x: 80, y: 0, width: self.view.frame.width - 160, height: 50)
-        
-        titleLabel.frame = CGRect(x: 0, y: 0, width: backgroundView.frame.width, height: 50)
-        titleLabel.text = year.rawValue
-        titleLabel.textAlignment = NSTextAlignment.Center
-        titleLabel.textColor = UIColor.whiteColor()
-        
-        let leftOrigin = CGPoint(x: titleLabel.center.x - 50, y: titleLabel.center.y - 7.5)
-        let leftSize = CGSize(width: 15, height: 15)
-        leftArrowImageView.frame = CGRect(origin: leftOrigin, size: leftSize)
-        leftArrowImageView.image = UIImage(named: "arrowLeft")
-        leftArrowImageView.tintColor = UIColor.transparentWhiteColor()
-        
-        let rightOrigin = CGPoint(x: titleLabel.center.x + 35, y: titleLabel.center.y - 7.5)
-        let rightSize = CGSize(width: 15, height: 15)
-        rightArrowImageView.frame = CGRect(origin: rightOrigin, size: rightSize)
-        rightArrowImageView.image = UIImage(named: "arrowRight")
-        rightArrowImageView.tintColor = UIColor.transparentWhiteColor()
-        
-        backgroundView.backgroundColor = UIColor.scholarsPurpleColor()
-        backgroundView.addSubview(titleLabel)
-        
-        if index != 0 {
-            backgroundView.addSubview(leftArrowImageView)
-        }
-        
-        if index != self.years.count - 1 {
-            backgroundView.addSubview(rightArrowImageView)
-        }
-        
-        return backgroundView
-    }
-    
-    func carousel(carousel: iCarousel, valueForOption option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
-        if option == .Spacing {
-            return value * 1.1
-        }
-        
-        return value
-    }
-}
-
 // MARK: - UICollectionViewDataSource
 
 extension ScholarsViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.scholars.count
+        if collectionView == self.scholarsCollectionView {
+            return self.scholars.count
+        } else if collectionView == self.yearCollectionView {
+            return self.years.count
+        }
+        
+        return 0
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("scholarCollectionViewCell", forIndexPath: indexPath) as! ScholarCollectionViewCell
-        let scholar = self.scholars[indexPath.item]
+        if collectionView == self.scholarsCollectionView {
+            let cell = self.scholarsCollectionView.dequeueReusableCellWithReuseIdentifier("scholarCollectionViewCell", forIndexPath: indexPath) as! ScholarCollectionViewCell
+            let scholar = self.scholars[indexPath.item]
+            
+            cell.nameLabel.text = scholar.fullName
+            cell.profileImageView.image = UIImage(named: "Matthijs Logemann")
+            
+            return cell
+        } else if collectionView == self.yearCollectionView {
+            let cell = self.yearCollectionView.dequeueReusableCellWithReuseIdentifier("yearCollectionViewCell", forIndexPath: indexPath) as! YearCollectionViewCell
+            
+            cell.yearLabel.text = self.years[indexPath.item].rawValue
+            
+            return cell
+        }
         
-        cell.nameLabel.text = scholar.fullName
-        cell.profileImageView.image = UIImage(named: "Matthijs Logemann")
-        
-        return cell
+        return UICollectionViewCell()
     }
 }
 
@@ -140,6 +97,12 @@ extension ScholarsViewController: UICollectionViewDataSource {
 
 extension ScholarsViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: (self.collectionView.frame.size.width / 3.0) - 8.0, height: 120.0)
-    }    
+        if collectionView == self.scholarsCollectionView {
+            return CGSize(width: (self.scholarsCollectionView.frame.size.width / 3.0) - 8.0, height: 120.0)
+        } else if collectionView == self.yearCollectionView {
+            return CGSize(width: self.yearCollectionView.frame.size.width, height: 50.0)
+        }
+        
+        return CGSize.zero
+    }
 }

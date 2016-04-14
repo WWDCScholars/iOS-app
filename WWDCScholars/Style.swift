@@ -13,6 +13,10 @@ extension UIColor {
         return UIColor(red: 118.0 / 255.0, green: 51.0 / 255.0, blue: 250.0 / 255.0, alpha: 1.0)
     }
     
+    class func transparentScholarsPurpleColor() -> UIColor {
+        return UIColor(red: 118.0 / 255.0, green: 51.0 / 255.0, blue: 250.0 / 255.0, alpha: 0.75)
+    }
+    
     class func transparentWhiteColor() -> UIColor {
         return UIColor(red: 255.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 0.75)
     }
@@ -24,6 +28,14 @@ extension UIButton {
         self.layer.borderColor = UIColor.scholarsPurpleColor().CGColor
         self.layer.borderWidth = 0.5
         self.setTitleColor(UIColor.scholarsPurpleColor(), forState: UIControlState.Normal)
+    }
+}
+
+extension UILabel {
+    func applyPurpleBackgroundStyle() {
+        self.backgroundColor = UIColor.transparentScholarsPurpleColor()
+        self.textColor = UIColor.whiteColor()
+        self.font = UIFont.systemFontOfSize(12)
     }
 }
 

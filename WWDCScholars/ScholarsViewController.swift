@@ -17,6 +17,7 @@ class ScholarsViewController: UIViewController {
     @IBOutlet private weak var mapView: UIView!
     
     let years: [WWDC] = [.WWDC2011, .WWDC2012, .WWDC2013, .WWDC2014, .WWDC2015, .WWDC2016]
+    var scholars: [Scholar] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,11 @@ class ScholarsViewController: UIViewController {
         self.yearCarousel.scrollToItemAtIndex(years.count - 1, animated: false)
         
         self.styleUI()
+        
+        ScholarsAPI.sharedInstance.loadScholars({
+            self.scholars = DatabaseManager.sharedInstance.getAllScholars()
+            self.collectionView.reloadData()
+        })
     }
     
     // MARK: - UI
@@ -116,10 +122,24 @@ extension ScholarsViewController: iCarouselDataSource, iCarouselDelegate {
 
 extension ScholarsViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return self.scholars.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("scholarCollectionViewCell", forIndexPath: indexPath) as! ScholarCollectionViewCell
+        let scholar = self.scholars[indexPath.item]
+        
+        cell.nameLabel.text = scholar.fullName
+        cell.profileImageView.image = UIImage(named: "Matthijs Logemann")
+        
+        return cell
     }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension ScholarsViewController: UICollectionViewDelegate {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: (self.collectionView.frame.size.width / 3.0) - 8.0, height: 120.0)
+    }    
 }

@@ -65,6 +65,8 @@ class ScholarsViewController: UIViewController {
     }
 }
 
+// MARK: - UIScrollViewDelegate
+
 extension ScholarsViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         //scholarsCollectionView page changed, update scholars list
@@ -124,7 +126,7 @@ extension ScholarsViewController: UICollectionViewDataSource {
 extension ScholarsViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         if collectionView == self.scholarsCollectionView {
-            return CGSize(width: (self.scholarsCollectionView.frame.size.width / 3.0) - 8.0, height: 120.0)
+            return CGSize(width: (self.scholarsCollectionView.frame.size.width / 3.0) - 8.0, height: 140.0)
         } else if collectionView == self.yearCollectionView {
             return CGSize(width: self.yearCollectionView.frame.size.width, height: 50.0)
         }

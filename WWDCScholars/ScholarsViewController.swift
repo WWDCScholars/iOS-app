@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum YearScrollDirection {
+    case Left
+    case Right
+}
+
 class ScholarsViewController: UIViewController {
     @IBOutlet private weak var yearCollectionView: UICollectionView!
     @IBOutlet private weak var scholarsCollectionView: UICollectionView!
@@ -24,6 +29,7 @@ class ScholarsViewController: UIViewController {
         super.viewDidLoad()
         
         self.styleUI()
+        self.scrollViewDidEndDecelerating(self.yearCollectionView)
         
         ScholarsAPI.sharedInstance.loadScholars({
             self.scholars = DatabaseManager.sharedInstance.getAllScholars()
@@ -56,6 +62,26 @@ class ScholarsViewController: UIViewController {
             self.mapView.hidden = true
             self.mainView.hidden = false
         }
+    }
+}
+
+extension ScholarsViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        //scholarsCollectionView page changed, update scholars list
+        
+        let currentIndex = Int(self.yearCollectionView.contentOffset.x / self.yearCollectionView.frame.size.width)
+        
+        UIView.animateWithDuration(0.2, animations: {
+            self.leftArrowImageView.alpha = currentIndex == 0 ? 0.0 : 1.0
+            self.rightArrowImageView.alpha = currentIndex == self.years.count - 1 ? 0.0 : 1.0
+        })
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        UIView.animateWithDuration(0.2, animations: {
+            self.leftArrowImageView.alpha = 0.0
+            self.rightArrowImageView.alpha = 0.0
+        })
     }
 }
 

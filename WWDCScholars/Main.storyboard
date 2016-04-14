@@ -667,7 +667,7 @@
                                                         <constraint firstAttribute="width" constant="71" id="kdc-WZ-62z"/>
                                                         <constraint firstAttribute="height" constant="71" id="xdw-i5-M2X"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button" image="WWDCScholars Icon"/>
+                                                    <state key="normal" title="Button" image="wwdcScholarsIcon"/>
                                                 </button>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="POz-Il-qtq" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
                                                     <rect key="frame" x="93" y="8" width="499" height="30"/>
@@ -1321,7 +1321,6 @@
         <image name="Database" width="59" height="58"/>
         <image name="Design" width="59" height="58"/>
         <image name="Project Management" width="59" height="58"/>
-        <image name="WWDCScholars Icon" width="83" height="83"/>
         <image name="Website" width="59" height="58"/>
         <image name="appstoreIconSmall" width="27" height="27"/>
         <image name="facebookIconSmall" width="27" height="27"/>

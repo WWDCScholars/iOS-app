@@ -256,7 +256,6 @@
 			children = (
 				7BBA876C1CBD4AA00057E9AD /* API */,
 				7BBA87661CBD352B0057E9AD /* Utils */,
-				6E4DD6EF1CBD475800B08EE1 /* Libraries */,
 				223F5E8F1CB942B000E582C5 /* General */,
 				223F5E8B1CB9429200E582C5 /* Scholars */,
 				223F5E8C1CB9429B00E582C5 /* Blog */,
@@ -317,15 +316,6 @@
 			name = General;
 			sourceTree = "<group>";
 		};
-		6E4DD6EF1CBD475800B08EE1 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				6ED9264C1CBEFECA0082FCFE /* iCarousel */,
-				6E4DD6F01CBD476200B08EE1 /* FloatLabelTextField */,
-			);
-			name = Libraries;
-			sourceTree = "<group>";
-		};
 		6E4DD6F01CBD476200B08EE1 /* FloatLabelTextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +323,7 @@
 				22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */,
 			);
 			name = FloatLabelTextField;
+			path = WWDCScholars;
 			sourceTree = "<group>";
 		};
 		6ED9264C1CBEFECA0082FCFE /* iCarousel */ = {
@@ -341,7 +332,8 @@
 				6ED9264D1CBEFECA0082FCFE /* iCarousel.h */,
 				6ED9264E1CBEFECA0082FCFE /* iCarousel.m */,
 			);
-			path = iCarousel;
+			name = iCarousel;
+			path = WWDCScholars/iCarousel;
 			sourceTree = "<group>";
 		};
 		7B2AA6DE1CBAE7530025EC7B /* WWDCScholarsTests */ = {
@@ -391,6 +383,8 @@
 		7BBA87A21CBD5D680057E9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6ED9264C1CBEFECA0082FCFE /* iCarousel */,
+				6E4DD6F01CBD476200B08EE1 /* FloatLabelTextField */,
 				6ED926511CBF0BEE0082FCFE /* MapKit.framework */,
 				7BBA88231CBEA0E80057E9AD /* Timepiece-master */,
 				7BBA88221CBD8AD10057E9AD /* Alamofire */,

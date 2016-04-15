@@ -5,6 +5,13 @@ We are currently working on our new iOS portfolio app for WWDCScholars.
 You can find out more information about us at our website: http://WWDCScholars.com or download our app at https://itunes.apple.com/us/app/scholars-of-wwdc/id999731893?mt=8
 
 * * *
+Q:Want to represent lots of annotations in a mapView ?
+
+<img src='./images/mapView.png' title='First UI' width='' alt='Video Walkthrough'/>
+
+A:We create an QTreeDemo Project that guides you how to incorporate QTree-objc in a Swift project.(https://github.com/WWDCScholars/QTreeDemo)
+
+* * *
 
 We have bold plans this year including consolidating all the previous batches of scholars known as WWDCStudents and add in the upcoming scholars of 2016.
 

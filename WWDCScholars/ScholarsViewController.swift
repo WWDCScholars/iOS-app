@@ -39,6 +39,7 @@ class ScholarsViewController: UIViewController {
             self.allScholars = DatabaseManager.sharedInstance.getAllScholars()
             
             self.getCurrentScholars()
+            self.scrollCollectionViewToIndexPath(self.years.count - 1)
         })
     }
     
@@ -83,6 +84,11 @@ class ScholarsViewController: UIViewController {
         }
         
         self.scholarsCollectionView.reloadData()
+    }
+    
+    private func scrollCollectionViewToIndexPath(index: Int) {
+        self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.Left, animated: false)
+        self.scrollViewDidEndDecelerating(self.yearCollectionView)
     }
 }
 

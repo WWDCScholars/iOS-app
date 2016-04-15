@@ -1,5 +1,5 @@
 //
-//  ScholarsAPI.swift
+//  ScholarsKit.swift
 //  WWDCScholars
 //
 //  Created by Matthijs Logemann on 12/04/16.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-class ScholarsAPI {
+class ScholarsKit {
 
     /// Server URL of the database (with API) where the scholar data is saved
     var scholarsServerURL = "http://wwdcscholarsadmin.herokuapp.com"
     
     /// Shared Instance of the ScholarAPI
-    static let sharedInstance = ScholarsAPI()
+    static let sharedInstance = ScholarsKit()
     
     let dbManager = DatabaseManager.sharedInstance
     

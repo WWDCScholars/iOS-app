@@ -49,7 +49,7 @@
 		7BBA87681CBD35430057E9AD /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA87671CBD35430057E9AD /* StringUtils.swift */; };
 		7BBA876A1CBD3A0E0057E9AD /* StringUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA87691CBD3A0E0057E9AD /* StringUtilTests.swift */; };
 		7BBA876B1CBD3A670057E9AD /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA87671CBD35430057E9AD /* StringUtils.swift */; };
-		7BBA876E1CBD4ADB0057E9AD /* ScholarsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA876D1CBD4ADB0057E9AD /* ScholarsAPI.swift */; };
+		7BBA876E1CBD4ADB0057E9AD /* ScholarsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA876D1CBD4ADB0057E9AD /* ScholarsKit.swift */; };
 		7BBA87711CBD4AE80057E9AD /* Scholar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA87701CBD4AE80057E9AD /* Scholar.swift */; };
 		7BBA87741CBD4C900057E9AD /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA87731CBD4C900057E9AD /* Gender.swift */; };
 		7BBA87751CBD4C900057E9AD /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA87731CBD4C900057E9AD /* Gender.swift */; };
@@ -175,7 +175,7 @@
 		7BBA87631CBB7F3A0057E9AD /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		7BBA87671CBD35430057E9AD /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		7BBA87691CBD3A0E0057E9AD /* StringUtilTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtilTests.swift; sourceTree = "<group>"; };
-		7BBA876D1CBD4ADB0057E9AD /* ScholarsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsAPI.swift; sourceTree = "<group>"; };
+		7BBA876D1CBD4ADB0057E9AD /* ScholarsKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsKit.swift; sourceTree = "<group>"; };
 		7BBA87701CBD4AE80057E9AD /* Scholar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scholar.swift; sourceTree = "<group>"; };
 		7BBA87731CBD4C900057E9AD /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		7BBA87761CBD4D040057E9AD /* WWDCEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWDCEnum.swift; sourceTree = "<group>"; };
@@ -409,7 +409,7 @@
 		7BBA876C1CBD4AA00057E9AD /* API */ = {
 			isa = PBXGroup;
 			children = (
-				7BBA876D1CBD4ADB0057E9AD /* ScholarsAPI.swift */,
+				7BBA876D1CBD4ADB0057E9AD /* ScholarsKit.swift */,
 				7BBA87701CBD4AE80057E9AD /* Scholar.swift */,
 				7BBA879F1CBD5D220057E9AD /* DatabaseManager.swift */,
 			);
@@ -647,7 +647,7 @@
 				223884231C8252D900A96752 /* ScholarsViewController.swift in Sources */,
 				7BBA881B1CBD8AC90057E9AD /* ResponseSerialization.swift in Sources */,
 				7BBA88151CBD8AC90057E9AD /* MultipartFormData.swift in Sources */,
-				7BBA876E1CBD4ADB0057E9AD /* ScholarsAPI.swift in Sources */,
+				7BBA876E1CBD4ADB0057E9AD /* ScholarsKit.swift in Sources */,
 				7BBA87C81CBD7A860057E9AD /* SwiftyJSON.swift in Sources */,
 				7BBA87681CBD35430057E9AD /* StringUtils.swift in Sources */,
 				7BBA88191CBD8AC90057E9AD /* Request.swift in Sources */,

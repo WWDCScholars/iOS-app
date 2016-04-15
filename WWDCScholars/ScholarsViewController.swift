@@ -34,7 +34,7 @@ class ScholarsViewController: UIViewController {
         self.scrollViewDidEndDecelerating(self.yearCollectionView)
         self.loadingView.startAnimating()
         
-        ScholarsAPI.sharedInstance.loadScholars({
+        ScholarsKit.sharedInstance.loadScholars({
             self.loadingView.stopAnimating()
             self.allScholars = DatabaseManager.sharedInstance.getAllScholars()
             

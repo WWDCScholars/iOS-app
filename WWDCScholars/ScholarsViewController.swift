@@ -24,7 +24,8 @@ class ScholarsViewController: UIViewController {
     @IBOutlet private weak var leftArrowImageView: UIImageView!
     
     let years: [WWDC] = [.WWDC2011, .WWDC2012, .WWDC2013, .WWDC2014, .WWDC2015, .WWDC2016]
-    var scholars: [Scholar] = []
+    var allScholars: [Scholar] = []
+    var currentScholars: [Scholar] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,9 @@ class ScholarsViewController: UIViewController {
         
         ScholarsAPI.sharedInstance.loadScholars({
             self.loadingView.stopAnimating()
-            self.scholars = DatabaseManager.sharedInstance.getAllScholars()
-            self.scholarsCollectionView.reloadData()
+            self.allScholars = DatabaseManager.sharedInstance.getAllScholars()
+            
+            self.getCurrentScholars(0)
         })
     }
     
@@ -66,6 +68,22 @@ class ScholarsViewController: UIViewController {
             self.mainView.hidden = false
         }
     }
+    
+    // MARK: - Private functions
+    
+    private func getCurrentScholars(index: Int) {
+        let currentYear = self.years[index]
+        
+        self.currentScholars.removeAll()
+        
+        for scholar in self.allScholars {
+            if scholar.batchWWDC.contains(currentYear.rawValue) {
+                self.currentScholars.append(scholar)
+            }
+        }
+        
+        self.scholarsCollectionView.reloadData()
+    }
 }
 
 // MARK: - UIScrollViewDelegate
@@ -75,6 +93,8 @@ extension ScholarsViewController: UIScrollViewDelegate {
         //scholarsCollectionView page changed, update scholars list
         
         let currentIndex = Int(self.yearCollectionView.contentOffset.x / self.yearCollectionView.frame.size.width)
+        
+        self.getCurrentScholars(currentIndex)
         
         UIView.animateWithDuration(0.2, animations: {
             self.leftArrowImageView.alpha = currentIndex == 0 ? 0.0 : 1.0
@@ -95,7 +115,7 @@ extension ScholarsViewController: UIScrollViewDelegate {
 extension ScholarsViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.scholarsCollectionView {
-            return self.scholars.count
+            return self.currentScholars.count
         } else if collectionView == self.yearCollectionView {
             return self.years.count
         }
@@ -106,7 +126,7 @@ extension ScholarsViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if collectionView == self.scholarsCollectionView {
             let cell = self.scholarsCollectionView.dequeueReusableCellWithReuseIdentifier("scholarCollectionViewCell", forIndexPath: indexPath) as! ScholarCollectionViewCell
-            let scholar = self.scholars[indexPath.item]
+            let scholar = self.currentScholars[indexPath.item]
             
             cell.nameLabel.text = scholar.fullName
             cell.profileImageView.af_setImageWithURL(NSURL(string: scholar.profilePicURL)!, imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)

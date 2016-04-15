@@ -67,7 +67,7 @@ extension ScholarDetailViewController: UITableViewDelegate {
 
 extension ScholarDetailViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -79,6 +79,12 @@ extension ScholarDetailViewController: UITableViewDataSource {
             cell.attendedLabel.text = "14, 15"
             
             return cell
+        } else if indexPath.item == 1 {
+            let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("bioTableViewCell") as! BioTableViewCell
+            
+            cell.contentLabel.text = currentScholar?.shortBio
+            
+            return cell
         }
         
         return UITableViewCell()
@@ -86,6 +92,8 @@ extension ScholarDetailViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.item == 0 {
+            return 70.0
+        } else if indexPath.item == 1 {
             return 70.0
         }
         

@@ -301,7 +301,7 @@
                         <viewControllerLayoutGuide type="bottom" id="KT5-pF-gXD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="iG8-3r-J4v">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eXa-qt-OoJ">
@@ -314,7 +314,7 @@
                                 </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wc2-gU-7gO">
-                                <rect key="frame" x="0.0" y="220" width="600" height="331"/>
+                                <rect key="frame" x="0.0" y="220" width="600" height="731"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scholar Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oD5-u3-Xnm">
                                         <rect key="frame" x="8" y="43" width="584" height="21"/>
@@ -335,7 +335,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M4r-gS-Ao6">
-                                        <rect key="frame" x="8" y="101" width="584" height="222"/>
+                                        <rect key="frame" x="8" y="101" width="584" height="622"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
@@ -514,6 +514,44 @@
                                                     <outlet property="countryLabel" destination="Ddp-lp-BkL" id="yim-Xb-qlZ"/>
                                                 </connections>
                                             </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bioTableViewCell" rowHeight="70" id="nqO-EA-qf1" customClass="BioTableViewCell" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="106" width="584" height="70"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nqO-EA-qf1" id="8qb-AQ-Hcj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="70"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5z-8S-Oz0">
+                                                            <rect key="frame" x="0.0" y="4" width="584" height="62"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2Q-XZ-RHv">
+                                                                    <rect key="frame" x="8" y="8" width="568" height="46"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="s2Q-XZ-RHv" secondAttribute="trailing" constant="8" id="6JI-M2-VVS"/>
+                                                                <constraint firstItem="s2Q-XZ-RHv" firstAttribute="leading" secondItem="i5z-8S-Oz0" secondAttribute="leading" constant="8" id="AOH-ne-3Wk"/>
+                                                                <constraint firstAttribute="bottom" secondItem="s2Q-XZ-RHv" secondAttribute="bottom" constant="8" id="UlX-Ix-Umd"/>
+                                                                <constraint firstItem="s2Q-XZ-RHv" firstAttribute="top" secondItem="i5z-8S-Oz0" secondAttribute="top" constant="8" id="yCC-Zw-D9h"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="i5z-8S-Oz0" firstAttribute="top" secondItem="8qb-AQ-Hcj" secondAttribute="top" constant="4" id="3RP-pP-QhJ"/>
+                                                        <constraint firstItem="i5z-8S-Oz0" firstAttribute="leading" secondItem="8qb-AQ-Hcj" secondAttribute="leading" id="QpH-9q-IP7"/>
+                                                        <constraint firstAttribute="trailing" secondItem="i5z-8S-Oz0" secondAttribute="trailing" id="buc-Hq-f1W"/>
+                                                        <constraint firstAttribute="bottom" secondItem="i5z-8S-Oz0" secondAttribute="bottom" constant="4" id="fNq-Ue-MKY"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outlet property="contentLabel" destination="s2Q-XZ-RHv" id="vdS-pK-9dH"/>
+                                                </connections>
+                                            </tableViewCell>
                                         </prototypes>
                                         <connections>
                                             <outlet property="dataSource" destination="Xz8-ge-7L5" id="Hks-1a-ov5"/>
@@ -576,6 +614,8 @@
                             <constraint firstItem="eXa-qt-OoJ" firstAttribute="leading" secondItem="iG8-3r-J4v" secondAttribute="leading" id="ipj-Hv-o8i"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="1000"/>
                     <connections>
                         <outlet property="detailsTableView" destination="M4r-gS-Ao6" id="X20-92-Qc8"/>
                         <outlet property="locationLabel" destination="lMc-qU-8MY" id="gxy-Bh-4jT"/>

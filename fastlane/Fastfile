@@ -76,7 +76,7 @@ platform :ios do
       message: "Successfully deployed version *#{version}* (#{build})! :tim: :tada:"
     )
 
-    git_pull
+    sh('git pull --rebase')
     commit_version_bump(
       message: "Version #{version}, Build #{build}\n[ci skip]"
     )

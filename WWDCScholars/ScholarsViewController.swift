@@ -15,6 +15,7 @@ enum YearScrollDirection {
 
 class ScholarsViewController: UIViewController {
     @IBOutlet private weak var yearCollectionView: UICollectionView!
+    @IBOutlet private weak var loadingView: ActivityIndicatorView!
     @IBOutlet private weak var scholarsCollectionView: UICollectionView!
     @IBOutlet private weak var extendedNavigationContainer: UIView!
     @IBOutlet private weak var mainView: UIView!
@@ -30,8 +31,10 @@ class ScholarsViewController: UIViewController {
         
         self.styleUI()
         self.scrollViewDidEndDecelerating(self.yearCollectionView)
+        self.loadingView.startAnimating()
         
         ScholarsAPI.sharedInstance.loadScholars({
+            self.loadingView.stopAnimating()
             self.scholars = DatabaseManager.sharedInstance.getAllScholars()
             self.scholarsCollectionView.reloadData()
         })

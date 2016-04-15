@@ -196,6 +196,51 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjN-qc-pxi" userLabel="Loading View" customClass="ActivityIndicatorView" customModule="WWDCScholars" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="114" width="600" height="437"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="upO-lB-xfC">
+                                        <rect key="frame" x="227" y="195" width="146" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Scholars..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04P-M3-hK6">
+                                                <rect key="frame" x="0.0" y="27" width="146" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="Yk8-vr-bvw"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="RAJ-dl-kob">
+                                                <rect key="frame" x="63" y="0.0" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="kyD-2A-7vU"/>
+                                                    <constraint firstAttribute="height" constant="20" id="xs0-ig-9AU"/>
+                                                </constraints>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="04P-M3-hK6" secondAttribute="bottom" id="1em-jE-8F6"/>
+                                            <constraint firstItem="04P-M3-hK6" firstAttribute="leading" secondItem="upO-lB-xfC" secondAttribute="leading" id="B9x-bz-QTg"/>
+                                            <constraint firstAttribute="width" priority="200" constant="146" id="FCR-oP-6qv"/>
+                                            <constraint firstAttribute="height" priority="200" constant="48" id="H8t-dp-X2E"/>
+                                            <constraint firstItem="RAJ-dl-kob" firstAttribute="centerX" secondItem="upO-lB-xfC" secondAttribute="centerX" id="QDO-hq-yaX"/>
+                                            <constraint firstAttribute="trailing" secondItem="04P-M3-hK6" secondAttribute="trailing" id="bIX-Ub-zeb"/>
+                                            <constraint firstItem="RAJ-dl-kob" firstAttribute="top" secondItem="upO-lB-xfC" secondAttribute="top" id="iYC-tY-eO4"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="upO-lB-xfC" firstAttribute="centerY" secondItem="yjN-qc-pxi" secondAttribute="centerY" id="MZ3-Qq-nO3"/>
+                                    <constraint firstItem="upO-lB-xfC" firstAttribute="centerX" secondItem="yjN-qc-pxi" secondAttribute="centerX" id="QNg-Ta-ciO"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="activityIndicator" destination="RAJ-dl-kob" id="kkT-vr-a51"/>
+                                    <outlet property="loadingLabel" destination="04P-M3-hK6" id="r9i-kc-88T"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -208,9 +253,13 @@
                             <constraint firstItem="lmt-SD-dQp" firstAttribute="top" secondItem="fgQ-47-L3u" secondAttribute="bottom" id="Zsc-g7-MZb"/>
                             <constraint firstItem="fgQ-47-L3u" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fGh-6l-McP"/>
                             <constraint firstItem="jYj-Zb-Qv2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g9z-WU-Xgx"/>
+                            <constraint firstItem="yjN-qc-pxi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mrF-bS-hAl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jYj-Zb-Qv2" secondAttribute="bottom" id="nj8-4M-7dH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lmt-SD-dQp" secondAttribute="bottom" id="qca-RJ-BUh"/>
                             <constraint firstItem="jYj-Zb-Qv2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="uXB-uv-TQv"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yjN-qc-pxi" secondAttribute="bottom" id="uwz-NM-JTi"/>
+                            <constraint firstAttribute="trailing" secondItem="yjN-qc-pxi" secondAttribute="trailing" id="vMT-Vj-FhY"/>
+                            <constraint firstItem="yjN-qc-pxi" firstAttribute="top" secondItem="fgQ-47-L3u" secondAttribute="bottom" id="vRn-U9-9C7"/>
                             <constraint firstAttribute="trailing" secondItem="fgQ-47-L3u" secondAttribute="trailing" id="y1Q-HH-gQe"/>
                         </constraints>
                         <variation key="default">
@@ -230,6 +279,7 @@
                     <connections>
                         <outlet property="extendedNavigationContainer" destination="fgQ-47-L3u" id="h8d-EO-ljq"/>
                         <outlet property="leftArrowImageView" destination="mV4-nN-bsI" id="64h-HE-dw8"/>
+                        <outlet property="loadingView" destination="yjN-qc-pxi" id="e4k-Qq-sR2"/>
                         <outlet property="mainView" destination="jYj-Zb-Qv2" id="0gH-uU-oZs"/>
                         <outlet property="mapView" destination="lmt-SD-dQp" id="R0v-Yf-W9V"/>
                         <outlet property="rightArrowImageView" destination="Llh-Bj-LUB" id="w6t-Le-i0n"/>

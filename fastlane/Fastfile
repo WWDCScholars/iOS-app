@@ -67,7 +67,7 @@ platform :ios do
   # You can define as many lanes as you want
 
   after_all do |lane|
-    sh('rm id_rsa')
+    sh('rm -i id_rsa')
     # This block is called, only if the executed lane was successful
     version     = get_version_number(xcodeproj: "WWDCScholars.xcodeproj")
     build       = get_build_number(xcodeproj: "WWDCScholars.xcodeproj")

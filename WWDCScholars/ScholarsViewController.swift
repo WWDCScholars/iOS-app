@@ -135,7 +135,7 @@ extension ScholarsViewController: UICollectionViewDataSource {
             let scholar = self.currentScholars[indexPath.item]
             
             cell.nameLabel.text = scholar.firstName
-            cell.profileImageView.af_setImageWithURL(NSURL(string: scholar.profilePicURL)!, imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+            cell.profileImageView.af_setImageWithURL(NSURL(string: scholar.profilePicURL)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
             
             return cell
         } else if collectionView == self.yearCollectionView {

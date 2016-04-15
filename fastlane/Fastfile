@@ -36,7 +36,7 @@ platform :ios do
 
   desc "Deploy a new bleeding-edge version to Crashlytics beta"
   lane :crashlytics do
-    match(git_url: "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/certificates.git", type: "appstore", readonly: true)
+    match(git_url: "https://github.com/WWDCScholars/certificates.git", type: "appstore", readonly: true)
     gym(scheme: "WWDCScholars")
     scan
     # crashlytics
@@ -45,7 +45,7 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :testflight do
-    match(git_url: "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/certificates.git", type: "appstore", readonly: true)
+    match(git_url: "https://@github.com/WWDCScholars/certificates.git", type: "appstore", readonly: true)
     gym(scheme: "WWDCScholars")
     scan
     pilot
@@ -56,7 +56,7 @@ platform :ios do
 
   desc "Deploy a new version to the App Store"
   lane :appstore do
-    match(git_url: "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/certificates.git", type: "appstore", readonly: true)
+    match(git_url: "https://github.com/WWDCScholars/certificates.git", type: "appstore", readonly: true)
     snapshot
     gym(scheme: "WWDCScholars") # Build your app - more options available
     scan
@@ -67,6 +67,7 @@ platform :ios do
   # You can define as many lanes as you want
 
   after_all do |lane|
+    sh('rm id_rsa')
     # This block is called, only if the executed lane was successful
     version     = get_version_number(xcodeproj: "WWDCScholars.xcodeproj")
     build       = get_build_number(xcodeproj: "WWDCScholars.xcodeproj")
@@ -79,7 +80,8 @@ platform :ios do
     commit_version_bump(
       message: "Version #{version}, Build #{build}\n[ci skip]"
     )
-    push_to_git_remote(remote: "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/WWDCScholars-iOS.git", remote_branch: ENV["TRAVIS_BRANCH"])
+
+    push_to_git_remote(remote: "https://github.com/WWDCScholars/WWDCScholars-iOS.git", remote_branch: ENV["TRAVIS_BRANCH"], force: true)
   end
 
   error do |lane, exception|

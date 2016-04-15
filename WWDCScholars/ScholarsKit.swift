@@ -27,7 +27,7 @@ class ScholarsKit {
      Loads scholars from the online database
      */
     func loadScholars(completionHandler: () -> Void) {
-        request(.GET, "https://wwdcscholarsadmin.herokuapp.com/api/posts")
+        request(.GET, "https://wwdcscholarsadmin.herokuapp.com/api/scholars")
             .responseString() { response in
             if let data = response.result.value {
                 print (data)

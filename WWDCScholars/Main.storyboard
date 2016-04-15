@@ -295,7 +295,7 @@
         <!--Scholar Detail View Controller-->
         <scene sceneID="cA7-ln-cpr">
             <objects>
-                <viewController id="Xz8-ge-7L5" customClass="ScholarDetailViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scholarDetailViewController" id="Xz8-ge-7L5" customClass="ScholarDetailViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I7c-HC-Kt5"/>
                         <viewControllerLayoutGuide type="bottom" id="KT5-pF-gXD"/>

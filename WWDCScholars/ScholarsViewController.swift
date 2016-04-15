@@ -34,6 +34,10 @@ class ScholarsViewController: UIViewController {
         self.scrollViewDidEndDecelerating(self.yearCollectionView)
         self.loadingView.startAnimating()
         
+        if self.traitCollection.forceTouchCapability == .Available {
+            self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+        }
+        
         ScholarsKit.sharedInstance.loadScholars({
             self.loadingView.stopAnimating()
             self.allScholars = DatabaseManager.sharedInstance.getAllScholars()
@@ -174,5 +178,26 @@ extension ScholarsViewController: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: indexPath)
+    }
+}
+
+extension ScholarsViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let previewViewController = storyboard?.instantiateViewControllerWithIdentifier("scholarDetailViewController") as? ScholarDetailViewController else {
+            return nil
+        }
+        
+        guard let indexPath = self.scholarsCollectionView.indexPathForItemAtPoint(self.scholarsCollectionView.convertPoint(location, fromCoordinateSpace: self.view)) else {
+            return nil
+        }
+        
+        previewViewController.currentScholar = self.currentScholars[indexPath.item]
+        previewViewController.preferredContentSize = CGSize.zero
+        
+        return previewViewController
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        self.showViewController(viewControllerToCommit, sender: self)
     }
 }

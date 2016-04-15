@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 
 class ScholarDetailViewController: UIViewController {
+    @IBOutlet private weak var detailsTableView: UITableView!
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
@@ -18,7 +19,7 @@ class ScholarDetailViewController: UIViewController {
     
     var currentScholar: Scholar?
     
-    override func viewDidLoad() {
+    override func viewDidLoad() {        
         self.styleUI()
         self.updateUI()
         self.configureMap()
@@ -52,5 +53,41 @@ class ScholarDetailViewController: UIViewController {
         self.locationLabel.text = currentScholar?.location.name
         self.nameLabel.text = currentScholar?.firstName
         self.profileImageView.af_setImageWithURL(NSURL(string: currentScholar!.profilePicURL)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension ScholarDetailViewController: UITableViewDelegate {
+    
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension ScholarDetailViewController: UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if indexPath.item == 0 {
+            let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("basicDetailsTableViewCell") as! BasicDetailsTableViewCell
+            
+            cell.ageLabel.text = String(currentScholar!.age)
+            cell.countryLabel.text = "Germany"
+            cell.attendedLabel.text = "14, 15"
+            
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.item == 0 {
+            return 70.0
+        }
+        
+        return 0.0
     }
 }

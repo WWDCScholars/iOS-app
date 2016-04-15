@@ -39,7 +39,7 @@ platform :ios do
     match(git_url: "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/certificates.git", type: "appstore", readonly: true)
     gym(scheme: "WWDCScholars")
     scan
-    crashlytics
+    # crashlytics
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
@@ -75,10 +75,10 @@ platform :ios do
       message: "Successfully deployed version *#{version}* (#{build})! :tim: :tada:"
     )
 
+    git_pull
     commit_version_bump(
       message: "Version #{version}, Build #{build}\n[ci skip]"
     )
-    git_pull
     push_to_git_remote(remote: "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/WWDCScholars-iOS.git", remote_branch: ENV["TRAVIS_BRANCH"])
   end
 

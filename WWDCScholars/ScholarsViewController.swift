@@ -38,7 +38,7 @@ class ScholarsViewController: UIViewController {
             self.loadingView.stopAnimating()
             self.allScholars = DatabaseManager.sharedInstance.getAllScholars()
             
-            self.getCurrentScholars(0)
+            self.getCurrentScholars()
         })
     }
     
@@ -71,7 +71,7 @@ class ScholarsViewController: UIViewController {
     
     // MARK: - Private functions
     
-    private func getCurrentScholars(index: Int) {
+    private func getCurrentScholars(index: Int = 0) {
         let currentYear = self.years[index]
         
         self.currentScholars.removeAll()
@@ -128,7 +128,7 @@ extension ScholarsViewController: UICollectionViewDataSource {
             let cell = self.scholarsCollectionView.dequeueReusableCellWithReuseIdentifier("scholarCollectionViewCell", forIndexPath: indexPath) as! ScholarCollectionViewCell
             let scholar = self.currentScholars[indexPath.item]
             
-            cell.nameLabel.text = scholar.fullName
+            cell.nameLabel.text = scholar.firstName
             cell.profileImageView.af_setImageWithURL(NSURL(string: scholar.profilePicURL)!, imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
             
             return cell

@@ -86,6 +86,8 @@ class Scholar: Object {
         }
     }
     
+    /// The URL of his/her profile picture
+    dynamic var profilePicURL: URL = ""
     /// The URL of his/her iTunes (developer) account
     dynamic var iTunesURL: URL?
     /// URL of his/her website (may be nil)

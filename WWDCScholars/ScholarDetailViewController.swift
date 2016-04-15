@@ -22,7 +22,6 @@ class ScholarDetailViewController: UIViewController {
     override func viewDidLoad() {        
         self.styleUI()
         self.updateUI()
-        self.configureMap()
     }
     
     // MARK: - UI
@@ -32,6 +31,8 @@ class ScholarDetailViewController: UIViewController {
         self.profileImageView.applyRoundedCorners()
         
         self.profileImageView.clipsToBounds = true
+        
+        self.configureMap()
     }
     
     // MARK: - Private functions

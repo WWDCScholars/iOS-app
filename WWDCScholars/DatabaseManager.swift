@@ -19,7 +19,7 @@ class DatabaseManager {
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
             // version (if you've never set a schema version before, the version is 0).
-            schemaVersion: 1,
+            schemaVersion: 2,
             
             // Set the block which will be called automatically when opening a Realm with
             // a schema version lower than the one set above

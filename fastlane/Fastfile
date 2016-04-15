@@ -71,16 +71,15 @@ platform :ios do
     version     = get_version_number(xcodeproj: "WWDCScholars.xcodeproj")
     build       = get_build_number(xcodeproj: "WWDCScholars.xcodeproj")
 
+    slack(
+      message: "Successfully deployed version *#{version}* (#{build})! :tim: :tada:"
+    )
+
     commit_version_bump(
       message: "Version #{version}, Build #{build}\n[ci skip]"
     )
     git_pull
-    push_to_git_remote(remote_branch: ENV["TRAVIS_BRANCH"])
-
-    # sh ('git push --quiet --mirror "https://$GH_TOKEN@github.com/WWDCScholars/WWDCScholars-iOS.git" > /dev/null 2>&1')
-    slack(
-      message: "Successfully deployed version *#{version}* (#{build})! :tim: :tada:"
-    )
+    push_to_git_remote(remote: "https://#{ENV['GH_TOKEN']}@github.com/WWDCScholars/WWDCScholars-iOS.git", remote_branch: ENV["TRAVIS_BRANCH"])
   end
 
   error do |lane, exception|

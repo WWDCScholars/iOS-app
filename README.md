@@ -7,7 +7,7 @@ You can find out more information about us at our website: http://WWDCScholars.c
 * * *
 Q:Want to represent lots of annotations in a mapView ?
 
-<img src='./images/mapView.png' title='First UI' width='' alt='Video Walkthrough'/>
+<img src='./images/mapView.gif' title='First UI' width='200px' alt='Video Walkthrough'/>
 
 A:We create an QTreeDemo Project that guides you how to incorporate QTree-objc in a Swift project.(https://github.com/WWDCScholars/QTreeDemo)
 

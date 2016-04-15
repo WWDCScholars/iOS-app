@@ -14,6 +14,13 @@ enum WWDC: String {
     case WWDC2012 = "2012"
     case WWDC2011 = "2011"
     
+    /**
+     Returns the enum value for the string returned by the webserver
+     
+     - parameter rawValue: String returned by the webserver
+     
+     - returns: Enum value of WWDC
+     */
     static func forRawValue(rawValue: String) -> WWDC{
         switch rawValue {
         case "WWDC16":

@@ -10,11 +10,11 @@ import UIKit
 
 extension UIColor {
     class func scholarsPurpleColor() -> UIColor {
-        return UIColor(red: 118.0 / 255.0, green: 51.0 / 255.0, blue: 250.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 65.0 / 255.0, green: 58.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0)
     }
     
     class func transparentScholarsPurpleColor() -> UIColor {
-        return UIColor(red: 118.0 / 255.0, green: 51.0 / 255.0, blue: 250.0 / 255.0, alpha: 0.75)
+        return UIColor(red: 65.0 / 255.0, green: 58.0 / 255.0, blue: 153.0 / 255.0, alpha: 0.75)
     }
     
     class func transparentWhiteColor() -> UIColor {

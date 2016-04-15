@@ -47,6 +47,10 @@ extension UIView {
     func applyExtendedNavigationBarContainerStyle() {
         self.backgroundColor = UIColor.scholarsPurpleColor()
     }
+    
+    func applyRoundedCorners() {
+        self.layer.cornerRadius = self.frame.width / 2
+    }
 }
 
 extension UIViewController {

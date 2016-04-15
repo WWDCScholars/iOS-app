@@ -78,7 +78,7 @@ class ScholarsViewController: UIViewController {
         self.currentScholars.removeAll()
         
         for scholar in self.allScholars {
-            if scholar.batchWWDC.contains(currentYear.rawValue) {
+            if scholar.batchWWDC.contains(currentYear) {
                 self.currentScholars.append(scholar)
             }
         }

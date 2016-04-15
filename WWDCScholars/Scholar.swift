@@ -75,13 +75,22 @@ class Scholar: Object {
     /// String version of the batchWWDC, splitted by '|'
     private dynamic var batchWWDCString: String = ""
     /// Array of WWDC's the scholar has been to
-    var batchWWDC: [String] {
+    var batchWWDC: [WWDC] {
         set {
-            batchWWDCString = newValue.joinWithSeparator("|")
+            var strArr: [String] = []
+            let arr: [WWDC] = newValue
+            for wwdc in arr {
+                strArr.append(wwdc.rawValue)
+            }
+            batchWWDCString = strArr.joinWithSeparator("|")
         }
         
         get {
-            let arr = batchWWDCString.componentsSeparatedByString("|")
+            let strArr = batchWWDCString.componentsSeparatedByString("|")
+            var arr: [WWDC] = []
+            for str in strArr {
+                arr.append(WWDC(rawValue: str)!)
+            }
             return arr
         }
     }

@@ -43,6 +43,15 @@ class ScholarsViewController: UIViewController {
         })
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == String(ScholarDetailViewController) {
+            if let indexPath = sender as? NSIndexPath {
+                let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
+                destinationViewController.currentScholar = self.currentScholars[indexPath.item]
+            }
+        }
+    }
+    
     // MARK: - UI
     
     private func styleUI() {
@@ -161,5 +170,9 @@ extension ScholarsViewController: UICollectionViewDelegate {
         }
         
         return CGSize.zero
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: indexPath)
     }
 }

@@ -30,14 +30,14 @@ platform :ios do
 
   desc "Runs all the tests"
   lane :test do
-    gym(scheme: "WWDCScholars")
+    gym(scheme: "WWDCScholars", silent: true)
     # scan
   end
 
   desc "Deploy a new bleeding-edge version to Crashlytics beta"
   lane :crashlytics do
     match(git_url: "git@github.com:WWDCScholars/certificates.git", type: "appstore", readonly: true)
-    gym(scheme: "WWDCScholars")
+    gym(scheme: "WWDCScholars", silent: true)
     scan
     # crashlytics
   end
@@ -46,7 +46,7 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
   lane :testflight do
     match(git_url: "git@github.com:WWDCScholars/certificates.git", type: "appstore", readonly: true)
-    gym(scheme: "WWDCScholars")
+    gym(scheme: "WWDCScholars", silent: true)
     scan
     pilot
 
@@ -58,7 +58,7 @@ platform :ios do
   lane :appstore do
     match(git_url: "git@github.com:WWDCScholars/certificates.git", type: "appstore", readonly: true)
     snapshot
-    gym(scheme: "WWDCScholars") # Build your app - more options available
+    gym(scheme: "WWDCScholars", silent: true) # Build your app - more options available
     scan
     deliver(force: true)
     # frameit

@@ -273,7 +273,7 @@
                         <barButtonItem key="leftBarButtonItem" image="barButtonItemIconAccountFilled" id="u0h-6e-AM3">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="R77-o8-Eiz" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="fxo-4P-gCx"/>
+                                <action selector="accountButtonTapped:" destination="BYZ-38-t0r" id="V30-Vl-SqH"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="mapIcon" id="yIw-0O-2lF">
@@ -287,6 +287,7 @@
                         <outlet property="extendedNavigationContainer" destination="fgQ-47-L3u" id="h8d-EO-ljq"/>
                         <outlet property="leftArrowImageView" destination="mV4-nN-bsI" id="64h-HE-dw8"/>
                         <outlet property="loadingView" destination="yjN-qc-pxi" id="e4k-Qq-sR2"/>
+                        <outlet property="loginBarButtonItem" destination="u0h-6e-AM3" id="7pS-tu-d2m"/>
                         <outlet property="mainView" destination="jYj-Zb-Qv2" id="0gH-uU-oZs"/>
                         <outlet property="mapView" destination="lmt-SD-dQp" id="R0v-Yf-W9V"/>
                         <outlet property="rightArrowImageView" destination="Llh-Bj-LUB" id="w6t-Le-i0n"/>
@@ -901,9 +902,6 @@
                                                             <exclude reference="o4Y-ET-8EH"/>
                                                         </mask>
                                                     </variation>
-                                                    <connections>
-                                                        <segue destination="qgE-kd-7qI" kind="presentation" id="Q5n-re-3Qz"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1268,7 +1266,7 @@
         <!--Navigation Controller-->
         <scene sceneID="tTU-FL-LcI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qgE-kd-7qI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="EditDetailsNC" automaticallyAdjustsScrollViewInsets="NO" id="qgE-kd-7qI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="p2x-R0-5HS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1981,7 +1979,7 @@
         <!--Delegate-->
         <scene sceneID="jwR-bg-Zry">
             <objects>
-                <viewController id="R77-o8-Eiz" customClass="SignInViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInVC" id="R77-o8-Eiz" customClass="SignInViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oHi-6l-oFL"/>
                         <viewControllerLayoutGuide type="bottom" id="EtP-hU-aYL"/>
@@ -2118,12 +2116,27 @@
                                                 <outletCollection property="gestureRecognizers" destination="VV0-Jd-Fem" appends="YES" id="W8N-OK-RvH"/>
                                             </connections>
                                         </scrollView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9A-zW-srM">
+                                            <rect key="frame" x="16" y="30" width="22" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="22" id="0qA-Na-cIl"/>
+                                                <constraint firstAttribute="height" constant="22" id="gCh-5P-KfO"/>
+                                            </constraints>
+                                            <state key="normal" image="xButtonIconFilled">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="closeButtonPressed:" destination="R77-o8-Eiz" eventType="touchUpInside" id="lYn-Fv-Tt2"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="NMf-1E-E78" firstAttribute="top" secondItem="uFT-m5-8Rf" secondAttribute="top" id="5T7-sb-0V0"/>
+                                        <constraint firstItem="q9A-zW-srM" firstAttribute="top" secondItem="uFT-m5-8Rf" secondAttribute="top" constant="30" id="ATn-yb-0OS"/>
                                         <constraint firstItem="NMf-1E-E78" firstAttribute="leading" secondItem="uFT-m5-8Rf" secondAttribute="leading" id="IGs-47-rB5"/>
                                         <constraint firstAttribute="bottom" secondItem="NMf-1E-E78" secondAttribute="bottom" id="Mpd-Xk-A9n"/>
                                         <constraint firstAttribute="trailing" secondItem="NMf-1E-E78" secondAttribute="trailing" id="fw5-d7-ThW"/>
+                                        <constraint firstItem="q9A-zW-srM" firstAttribute="leading" secondItem="uFT-m5-8Rf" secondAttribute="leading" constant="16" id="xpG-2t-rlI"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="dark"/>
@@ -2198,6 +2211,7 @@
         <image name="watchOS" width="59" height="58"/>
         <image name="websiteIconSmall" width="27" height="27"/>
         <image name="wwdcScholarsIcon" width="83" height="83"/>
+        <image name="xButtonIconFilled" width="22" height="22"/>
         <image name="youTubeIconSmall" width="27" height="19"/>
     </resources>
 </document>

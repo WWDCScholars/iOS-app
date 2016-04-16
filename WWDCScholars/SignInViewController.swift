@@ -38,8 +38,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         }
     }
     
+   
+    
     // MARK: Button
     @IBAction func signupButtonPressed(sender: AnyObject){
+        dismissSignInViewController()
+      
       /*  PFUser.logInWithUsernameInBackground(emailTextField.text, password: passwordTextField.text, block: { (user,error) in
             if error != nil {
                 self.dialogView.animation = "shake"
@@ -96,6 +100,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     }
     
     func dragDropBehavior(behavior: DragDropBehavior, viewDidDrop view: UIView) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func dismissSignInViewController(){
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

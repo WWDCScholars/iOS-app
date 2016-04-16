@@ -12,6 +12,8 @@ import AVFoundation
 class ScholarsTabBarViewController: UITabBarController {
     var tapSoundEffect: AVAudioPlayer!
     
+    var session = AVAudioSession.sharedInstance()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +43,12 @@ class ScholarsTabBarViewController: UITabBarController {
     }
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        do {
+           try session.setCategory(AVAudioSessionCategoryAmbient)
+        } catch {
+            print("Failed setting category")
+        }
+        
         let path = NSBundle.mainBundle().pathForResource("tabBarDidSelectItem.m4a", ofType: nil)!
         let url = NSURL(fileURLWithPath: path)
         

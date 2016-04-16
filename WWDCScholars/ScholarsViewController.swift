@@ -177,7 +177,9 @@ extension ScholarsViewController: UICollectionViewDelegate {
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: indexPath)
+        if collectionView == self.scholarsCollectionView {
+            self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: indexPath)
+        }
     }
 }
 

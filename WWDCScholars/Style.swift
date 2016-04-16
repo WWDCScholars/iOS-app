@@ -61,3 +61,19 @@ extension UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(colouredImage, forBarMetrics: UIBarMetrics.Default)
     }
 }
+
+extension UINavigationBar {
+    func applyExtendedNavigationBarStyle() {
+        self.translucent = false
+        self.shadowImage = UIImage(named: "transparentPixel")
+        let colouredImage = UIImage.imageWithSize(CGSize(width: 1, height: 1), color: UIColor.scholarsPurpleColor())
+        self.setBackgroundImage(colouredImage, forBarMetrics: UIBarMetrics.Default)
+    }
+    
+    static func applyNavigationBarStyle() {
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().translucent = false
+        UINavigationBar.appearance().backgroundColor = UIColor.scholarsPurpleColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    }
+}

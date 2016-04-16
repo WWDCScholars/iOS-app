@@ -23,10 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func styleUI() {
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().backgroundColor = UIColor.scholarsPurpleColor()
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        UINavigationBar.applyNavigationBarStyle()
     }
 
     func applicationWillResignActive(application: UIApplication) {

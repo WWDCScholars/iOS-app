@@ -143,15 +143,17 @@ extension CreditsViewController: UITableViewDelegate {
 extension CreditsViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         let viewController = storyboard?.instantiateViewControllerWithIdentifier("scholarDetailViewController") as? ScholarDetailViewController
-        let index = self.tableView.indexPathForRowAtPoint(self.tableView.convertPoint(location, fromCoordinateSpace: self.view))
+        let cellPosition = self.tableView.convertPoint(location, fromView: self.view)
+        let cellIndex = self.tableView.indexPathForRowAtPoint(cellPosition)
         
-        guard let previewViewController = viewController, indexPath = index else {
+        guard let previewViewController = viewController, indexPath = cellIndex, cell = self.tableView.cellForRowAtIndexPath(indexPath) else {
             return nil
         }
         
         let scholar = self.getScholar(indexPath)
         previewViewController.currentScholar = scholar
         previewViewController.preferredContentSize = CGSize.zero
+        previewingContext.sourceRect = self.view.convertRect(cell.frame, fromView: self.tableView)
         
         return previewViewController
     }

@@ -242,14 +242,17 @@ extension ScholarsViewController: UICollectionViewDelegate {
 extension ScholarsViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         let viewController = storyboard?.instantiateViewControllerWithIdentifier("scholarDetailViewController") as? ScholarDetailViewController
-        let index = self.scholarsCollectionView.indexPathForItemAtPoint(self.scholarsCollectionView.convertPoint(location, fromCoordinateSpace: self.view))
+        let cellPosition = self.scholarsCollectionView.convertPoint(location, fromView: self.view)
+        let cellIndex = self.scholarsCollectionView.indexPathForItemAtPoint(cellPosition)
         
-        guard let previewViewController = viewController, indexPath = index else {
+        guard let previewViewController = viewController, indexPath = cellIndex, cell = self.scholarsCollectionView.cellForItemAtIndexPath(indexPath) else {
             return nil
         }
         
-        previewViewController.currentScholar = self.currentScholars[indexPath.item]
+        let scholar = self.currentScholars[indexPath.item]
+        previewViewController.currentScholar = scholar
         previewViewController.preferredContentSize = CGSize.zero
+        previewingContext.sourceRect = self.view.convertRect(cell.frame, fromView: self.scholarsCollectionView)
         
         return previewViewController
     }

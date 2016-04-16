@@ -10,8 +10,8 @@ import UIKit
 
 class CreditsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var headerImageView: UIImageView!
-    @IBOutlet weak var ourTeamLabel: UILabel!
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var accessButton: UIButton!
     
     private var credits: [Credit] = []
     
@@ -48,8 +48,8 @@ class CreditsViewController: UIViewController {
     
     private func styleUI() {
         self.title = "Credits"
-        
-        self.ourTeamLabel.textColor = UIColor.scholarsPurpleColor()
+        self.submitButton.applyScholarsButtonStyle()
+        self.accessButton.applyScholarsButtonStyle()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -84,21 +84,5 @@ class CreditsViewController: UIViewController {
     
     func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         return 67
-    }
-}
-
-// MARK: - UIScrollViewDelegate
-
-extension CreditsViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        let imageViewHeight: CGFloat = 200.0
-        var imageViewFrame = CGRect(x: 0, y: 0, width: scrollView.bounds.width, height: imageViewHeight)
-        
-        if scrollView.contentOffset.y < imageViewHeight {
-            imageViewFrame.origin.y = scrollView.contentOffset.y
-            imageViewFrame.size.height = -scrollView.contentOffset.y + imageViewHeight
-        }
-        
-        self.headerImageView.frame = imageViewFrame
     }
 }

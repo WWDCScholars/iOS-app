@@ -43,6 +43,8 @@ class ScholarsTabBarViewController: UITabBarController {
     }
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+               
+        
         do {
            try session.setCategory(AVAudioSessionCategoryAmbient)
         } catch {

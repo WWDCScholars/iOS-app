@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22054C501CC0184B0008C4FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22054C4F1CC0184B0008C4FC /* LoginViewController.swift */; };
 		22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */; };
 		22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */; };
 		223884211C8252D900A96752 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223884201C8252D900A96752 /* AppDelegate.swift */; };
@@ -17,7 +16,6 @@
 		223F5E971CB95C3C00E582C5 /* ScholarsTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223F5E961CB95C3C00E582C5 /* ScholarsTabBarViewController.swift */; };
 		223F5E9A1CB970EC00E582C5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223F5E991CB970EC00E582C5 /* AVFoundation.framework */; };
 		223F5E9B1CB9724000E582C5 /* tabBarDidSelectItem.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 223F5E981CB9709600E582C5 /* tabBarDidSelectItem.m4a */; };
-		224355C71CC1D4AD001FFAD0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224355C61CC1D4AD001FFAD0 /* LoginViewController.swift */; };
 		224355C91CC1D565001FFAD0 /* SpringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224355C81CC1D565001FFAD0 /* SpringView.swift */; };
 		224355CB1CC1D576001FFAD0 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224355CA1CC1D576001FFAD0 /* DesignableTextField.swift */; };
 		224355CD1CC1D584001FFAD0 /* SpringButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224355CC1CC1D584001FFAD0 /* SpringButton.swift */; };
@@ -26,6 +24,9 @@
 		224355D31CC1D624001FFAD0 /* DragDropBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224355D21CC1D624001FFAD0 /* DragDropBehavior.swift */; };
 		22543B1F1CB70182003F9422 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B1E1CB70182003F9422 /* BlogViewController.swift */; };
 		22543B211CB7019A003F9422 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B201CB7019A003F9422 /* ChatViewController.swift */; };
+		22E2A6EF1CC1DA2400DF0578 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */; };
+		22E2A6F31CC1DBE300DF0578 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6F21CC1DBE300DF0578 /* Spring.swift */; };
+		22E2A6F51CC1DC2400DF0578 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6F41CC1DC2400DF0578 /* Misc.swift */; };
 		6E1F069B1CC0332F00E464A0 /* ScholarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */; };
 		6E1F069D1CC045F400E464A0 /* YearCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */; };
 		6E1F6D5D1CC1B2F2002D17DB /* BioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */; };
@@ -149,7 +150,6 @@
 		223F5E961CB95C3C00E582C5 /* ScholarsTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsTabBarViewController.swift; sourceTree = "<group>"; };
 		223F5E981CB9709600E582C5 /* tabBarDidSelectItem.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = tabBarDidSelectItem.m4a; sourceTree = "<group>"; };
 		223F5E991CB970EC00E582C5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		224355C61CC1D4AD001FFAD0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		224355C81CC1D565001FFAD0 /* SpringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringView.swift; sourceTree = "<group>"; };
 		224355CA1CC1D576001FFAD0 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		224355CC1CC1D584001FFAD0 /* SpringButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringButton.swift; sourceTree = "<group>"; };
@@ -158,6 +158,9 @@
 		224355D21CC1D624001FFAD0 /* DragDropBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragDropBehavior.swift; sourceTree = "<group>"; };
 		22543B1E1CB70182003F9422 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		22543B201CB7019A003F9422 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		22E2A6F21CC1DBE300DF0578 /* Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
+		22E2A6F41CC1DC2400DF0578 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioTableViewCell.swift; sourceTree = "<group>"; };
@@ -369,13 +372,15 @@
 		224355C51CC1D468001FFAD0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				22E2A6F21CC1DBE300DF0578 /* Spring.swift */,
+				22E2A6F41CC1DC2400DF0578 /* Misc.swift */,
+				22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */,
 				224355D21CC1D624001FFAD0 /* DragDropBehavior.swift */,
 				224355D01CC1D61B001FFAD0 /* SpringTextField.swift */,
 				224355CE1CC1D58C001FFAD0 /* SpringImageView.swift */,
 				224355CA1CC1D576001FFAD0 /* DesignableTextField.swift */,
 				224355CC1CC1D584001FFAD0 /* SpringButton.swift */,
 				224355C81CC1D565001FFAD0 /* SpringView.swift */,
-				224355C61CC1D4AD001FFAD0 /* LoginViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -699,6 +704,7 @@
 				7BBA87C81CBD7A860057E9AD /* SwiftyJSON.swift in Sources */,
 				7BBA87681CBD35430057E9AD /* StringUtils.swift in Sources */,
 				6EAD10BA1CC1907700E0A2A0 /* ScholarDetailViewController.swift in Sources */,
+				22E2A6F31CC1DBE300DF0578 /* Spring.swift in Sources */,
 				6EAD10BC1CC1A00800E0A2A0 /* BasicDetailsTableViewCell.swift in Sources */,
 				7BBA88191CBD8AC90057E9AD /* Request.swift in Sources */,
 				7BBA877A1CBD4E240057E9AD /* Location.swift in Sources */,
@@ -706,6 +712,7 @@
 				7BBA881D1CBD8AC90057E9AD /* ServerTrustPolicy.swift in Sources */,
 				223884211C8252D900A96752 /* AppDelegate.swift in Sources */,
 				7BBA88621CBEA1130057E9AD /* DateUtils.swift in Sources */,
+				22E2A6F51CC1DC2400DF0578 /* Misc.swift in Sources */,
 				7B4D51A01CC110A50072E114 /* UIImage+AlamofireImage.swift in Sources */,
 				7B4D519A1CC110A50072E114 /* ImageDownloader.swift in Sources */,
 				22543B211CB7019A003F9422 /* ChatViewController.swift in Sources */,
@@ -714,6 +721,7 @@
 				7B4D51A11CC110A50072E114 /* UIImageView+AlamofireImage.swift in Sources */,
 				7BBA88471CBEA0E80057E9AD /* NSDateComponents+Timepiece.swift in Sources */,
 				224355C91CC1D565001FFAD0 /* SpringView.swift in Sources */,
+				22E2A6EF1CC1DA2400DF0578 /* SignInViewController.swift in Sources */,
 				7BBA88421CBEA0E80057E9AD /* Duration.swift in Sources */,
 				7BBA88481CBEA0E80057E9AD /* NSTimeInterval+Timepiece.swift in Sources */,
 				7B4D519E1CC110A50072E114 /* Request+AlamofireImage.swift in Sources */,
@@ -734,10 +742,8 @@
 				7BBA87A01CBD5D220057E9AD /* DatabaseManager.swift in Sources */,
 				7BBA88201CBD8AC90057E9AD /* Upload.swift in Sources */,
 				7BBA87741CBD4C900057E9AD /* Gender.swift in Sources */,
-				224355C71CC1D4AD001FFAD0 /* LoginViewController.swift in Sources */,
 				6E1F069D1CC045F400E464A0 /* YearCollectionViewCell.swift in Sources */,
 				7BBA88441CBEA0E80057E9AD /* NSCalendar+Timepiece.swift in Sources */,
-				22054C501CC0184B0008C4FC /* LoginViewController.swift in Sources */,
 				7B4D51991CC110A50072E114 /* ImageCache.swift in Sources */,
 				7BBA88141CBD8AC90057E9AD /* Manager.swift in Sources */,
 				224355CF1CC1D58C001FFAD0 /* SpringImageView.swift in Sources */,

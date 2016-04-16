@@ -1,14 +1,14 @@
 //
 //  LoginViewController.swift
-//  WWDCScholars
+//  WWDC Scholars 2015
 //
-//  Created by Nikhil D'Souza on 5/25/15, reimported by Sam Eckert on 4/16/16
+//  Created by Nikhil D'Souza on 5/25/15.
 //  Copyright (c) 2015 WWDC-Scholars. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate, DragDropBehaviorDelegate {
+class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehaviorDelegate {
     
     @IBOutlet weak var passwordImageView: SpringImageView!
     @IBOutlet weak var emailImageView: SpringImageView!
@@ -55,6 +55,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, DragDropBehavi
                 //self.dismissViewControllerAnimated(true, completion: nil)
             }
         })*/
+        
+        print("Pressed Login")
     }
 
     

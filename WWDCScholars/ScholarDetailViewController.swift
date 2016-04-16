@@ -96,19 +96,3 @@ extension ScholarDetailViewController: UITableViewDataSource {
         }
     }
 }
-
-// MARK: - UIScrollViewDelegate
-
-extension ScholarDetailViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        let mapHeight: CGFloat = 156.0
-        var mapFrame = CGRect(x: 0, y: 0, width: scrollView.bounds.width, height: mapHeight)
-        
-        if scrollView.contentOffset.y < mapHeight {
-            mapFrame.origin.y = scrollView.contentOffset.y
-            mapFrame.size.height = -scrollView.contentOffset.y + mapHeight
-        }
-        
-        self.mapView.frame = mapFrame
-    }
-}

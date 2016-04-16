@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22054C501CC0184B0008C4FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22054C4F1CC0184B0008C4FC /* LoginViewController.swift */; };
 		22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */; };
 		22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */; };
+		2236F2971CC29EA500663957 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2236F2961CC29EA500663957 /* DesignableButton.swift */; };
+		2236F2991CC29EBD00663957 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2236F2981CC29EBD00663957 /* DesignableView.swift */; };
 		223884211C8252D900A96752 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223884201C8252D900A96752 /* AppDelegate.swift */; };
 		223884231C8252D900A96752 /* ScholarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223884221C8252D900A96752 /* ScholarsViewController.swift */; };
 		2238842B1C8252D900A96752 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223884291C8252D900A96752 /* LaunchScreen.storyboard */; };
@@ -17,8 +18,19 @@
 		223F5E971CB95C3C00E582C5 /* ScholarsTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223F5E961CB95C3C00E582C5 /* ScholarsTabBarViewController.swift */; };
 		223F5E9A1CB970EC00E582C5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223F5E991CB970EC00E582C5 /* AVFoundation.framework */; };
 		223F5E9B1CB9724000E582C5 /* tabBarDidSelectItem.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 223F5E981CB9709600E582C5 /* tabBarDidSelectItem.m4a */; };
+		224355C91CC1D565001FFAD0 /* SpringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224355C81CC1D565001FFAD0 /* SpringView.swift */; };
+		224355CB1CC1D576001FFAD0 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224355CA1CC1D576001FFAD0 /* DesignableTextField.swift */; };
+		224355CD1CC1D584001FFAD0 /* SpringButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224355CC1CC1D584001FFAD0 /* SpringButton.swift */; };
+		224355CF1CC1D58C001FFAD0 /* SpringImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224355CE1CC1D58C001FFAD0 /* SpringImageView.swift */; };
+		224355D11CC1D61B001FFAD0 /* SpringTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224355D01CC1D61B001FFAD0 /* SpringTextField.swift */; };
+		224355D31CC1D624001FFAD0 /* DragDropBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224355D21CC1D624001FFAD0 /* DragDropBehavior.swift */; };
 		22543B1F1CB70182003F9422 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B1E1CB70182003F9422 /* BlogViewController.swift */; };
 		22543B211CB7019A003F9422 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B201CB7019A003F9422 /* ChatViewController.swift */; };
+		22AA36691CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AA36681CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m */; };
+		22AA366C1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AA366B1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		22E2A6EF1CC1DA2400DF0578 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */; };
+		22E2A6F31CC1DBE300DF0578 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6F21CC1DBE300DF0578 /* Spring.swift */; };
+		22E2A6F51CC1DC2400DF0578 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6F41CC1DC2400DF0578 /* Misc.swift */; };
 		6E1F069B1CC0332F00E464A0 /* ScholarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */; };
 		6E1F069D1CC045F400E464A0 /* YearCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */; };
 		6E1F6D5D1CC1B2F2002D17DB /* BioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */; };
@@ -130,9 +142,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		22054C4F1CC0184B0008C4FC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
+		2236F2961CC29EA500663957 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		2236F2981CC29EBD00663957 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		2238841D1C8252D900A96752 /* WWDCScholars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDCScholars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		223884201C8252D900A96752 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		223884221C8252D900A96752 /* ScholarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarsViewController.swift; sourceTree = "<group>"; };
@@ -142,8 +155,22 @@
 		223F5E961CB95C3C00E582C5 /* ScholarsTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsTabBarViewController.swift; sourceTree = "<group>"; };
 		223F5E981CB9709600E582C5 /* tabBarDidSelectItem.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = tabBarDidSelectItem.m4a; sourceTree = "<group>"; };
 		223F5E991CB970EC00E582C5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		224355C81CC1D565001FFAD0 /* SpringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringView.swift; sourceTree = "<group>"; };
+		224355CA1CC1D576001FFAD0 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
+		224355CC1CC1D584001FFAD0 /* SpringButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringButton.swift; sourceTree = "<group>"; };
+		224355CE1CC1D58C001FFAD0 /* SpringImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringImageView.swift; sourceTree = "<group>"; };
+		224355D01CC1D61B001FFAD0 /* SpringTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringTextField.swift; sourceTree = "<group>"; };
+		224355D21CC1D624001FFAD0 /* DragDropBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragDropBehavior.swift; sourceTree = "<group>"; };
 		22543B1E1CB70182003F9422 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		22543B201CB7019A003F9422 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		22AA36661CC2765D0061FF09 /* WWDCScholars-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WWDCScholars-Bridging-Header.h"; sourceTree = "<group>"; };
+		22AA36671CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		22AA36681CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		22AA366A1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		22AA366B1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		22E2A6F21CC1DBE300DF0578 /* Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
+		22E2A6F41CC1DC2400DF0578 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioTableViewCell.swift; sourceTree = "<group>"; };
@@ -292,6 +319,7 @@
 				223F5E8C1CB9429B00E582C5 /* Blog */,
 				223F5E8D1CB942A100E582C5 /* Chat */,
 				223F5E8E1CB942A700E582C5 /* Credits */,
+				224355C51CC1D468001FFAD0 /* Login */,
 				22297D631CBA8A2A00BF5B41 /* Edit Details */,
 			);
 			path = WWDCScholars;
@@ -301,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				223884221C8252D900A96752 /* ScholarsViewController.swift */,
-				22054C4F1CC0184B0008C4FC /* LoginViewController.swift */,
 				6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */,
 				6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */,
 				6EAD10B61CC139EB00E0A2A0 /* ActivityIndicatorView.swift */,
@@ -349,6 +376,29 @@
 				223F5E981CB9709600E582C5 /* tabBarDidSelectItem.m4a */,
 			);
 			name = General;
+			sourceTree = "<group>";
+		};
+		224355C51CC1D468001FFAD0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				22AA36671CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.h */,
+				22AA36681CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m */,
+				22AA366A1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				22AA366B1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+				22E2A6F21CC1DBE300DF0578 /* Spring.swift */,
+				22E2A6F41CC1DC2400DF0578 /* Misc.swift */,
+				22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */,
+				224355D21CC1D624001FFAD0 /* DragDropBehavior.swift */,
+				224355D01CC1D61B001FFAD0 /* SpringTextField.swift */,
+				224355CE1CC1D58C001FFAD0 /* SpringImageView.swift */,
+				224355CA1CC1D576001FFAD0 /* DesignableTextField.swift */,
+				2236F2961CC29EA500663957 /* DesignableButton.swift */,
+				2236F2981CC29EBD00663957 /* DesignableView.swift */,
+				224355CC1CC1D584001FFAD0 /* SpringButton.swift */,
+				224355C81CC1D565001FFAD0 /* SpringView.swift */,
+				22AA36661CC2765D0061FF09 /* WWDCScholars-Bridging-Header.h */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		6E4DD6F01CBD476200B08EE1 /* FloatLabelTextField */ = {
@@ -660,6 +710,7 @@
 				7BBA881F1CBD8AC90057E9AD /* Timeline.swift in Sources */,
 				7BBA87711CBD4AE80057E9AD /* Scholar.swift in Sources */,
 				7BBA88161CBD8AC90057E9AD /* NetworkReachabilityManager.swift in Sources */,
+				224355D11CC1D61B001FFAD0 /* SpringTextField.swift in Sources */,
 				7BBA88491CBEA0E80057E9AD /* String+Timepiece.swift in Sources */,
 				223884231C8252D900A96752 /* ScholarsViewController.swift in Sources */,
 				7BBA881B1CBD8AC90057E9AD /* ResponseSerialization.swift in Sources */,
@@ -669,21 +720,29 @@
 				7BBA87C81CBD7A860057E9AD /* SwiftyJSON.swift in Sources */,
 				7BBA87681CBD35430057E9AD /* StringUtils.swift in Sources */,
 				6EAD10BA1CC1907700E0A2A0 /* ScholarDetailViewController.swift in Sources */,
+				22E2A6F31CC1DBE300DF0578 /* Spring.swift in Sources */,
 				6EAD10BC1CC1A00800E0A2A0 /* BasicDetailsTableViewCell.swift in Sources */,
+				22AA366C1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				7BBA88191CBD8AC90057E9AD /* Request.swift in Sources */,
 				7BBA877A1CBD4E240057E9AD /* Location.swift in Sources */,
 				7BBA88171CBD8AC90057E9AD /* Notifications.swift in Sources */,
 				7BBA881D1CBD8AC90057E9AD /* ServerTrustPolicy.swift in Sources */,
 				223884211C8252D900A96752 /* AppDelegate.swift in Sources */,
 				7BBA88621CBEA1130057E9AD /* DateUtils.swift in Sources */,
+				22E2A6F51CC1DC2400DF0578 /* Misc.swift in Sources */,
 				7B4D51A01CC110A50072E114 /* UIImage+AlamofireImage.swift in Sources */,
 				7B4D519A1CC110A50072E114 /* ImageDownloader.swift in Sources */,
 				22543B211CB7019A003F9422 /* ChatViewController.swift in Sources */,
+				224355CD1CC1D584001FFAD0 /* SpringButton.swift in Sources */,
+				2236F2971CC29EA500663957 /* DesignableButton.swift in Sources */,
 				7BBA88451CBEA0E80057E9AD /* NSCalendarUnit+Timepiece.swift in Sources */,
 				7B4D51A11CC110A50072E114 /* UIImageView+AlamofireImage.swift in Sources */,
 				7BBA88471CBEA0E80057E9AD /* NSDateComponents+Timepiece.swift in Sources */,
+				224355C91CC1D565001FFAD0 /* SpringView.swift in Sources */,
+				22E2A6EF1CC1DA2400DF0578 /* SignInViewController.swift in Sources */,
 				7BBA88421CBEA0E80057E9AD /* Duration.swift in Sources */,
 				7BBA88481CBEA0E80057E9AD /* NSTimeInterval+Timepiece.swift in Sources */,
+				22AA36691CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				7B4D519E1CC110A50072E114 /* Request+AlamofireImage.swift in Sources */,
 				7BBA88111CBD8AC90057E9AD /* Alamofire.swift in Sources */,
 				6EB723D61CB9B84D005A076F /* CreditsViewController.swift in Sources */,
@@ -693,6 +752,7 @@
 				6E4DD6EE1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift in Sources */,
 				22543B1F1CB70182003F9422 /* BlogViewController.swift in Sources */,
 				7BBA88461CBEA0E80057E9AD /* NSDate+Timepiece.swift in Sources */,
+				224355CB1CC1D576001FFAD0 /* DesignableTextField.swift in Sources */,
 				223F5E931CB9436200E582C5 /* Style.swift in Sources */,
 				7BBA881C1CBD8AC90057E9AD /* Result.swift in Sources */,
 				7BBA881A1CBD8AC90057E9AD /* Response.swift in Sources */,
@@ -700,15 +760,17 @@
 				7BBA88131CBD8AC90057E9AD /* Error.swift in Sources */,
 				7BBA87A01CBD5D220057E9AD /* DatabaseManager.swift in Sources */,
 				7BBA88201CBD8AC90057E9AD /* Upload.swift in Sources */,
+				2236F2991CC29EBD00663957 /* DesignableView.swift in Sources */,
 				7BBA87741CBD4C900057E9AD /* Gender.swift in Sources */,
 				6E1F069D1CC045F400E464A0 /* YearCollectionViewCell.swift in Sources */,
 				7BBA88441CBEA0E80057E9AD /* NSCalendar+Timepiece.swift in Sources */,
-				22054C501CC0184B0008C4FC /* LoginViewController.swift in Sources */,
 				7B4D51991CC110A50072E114 /* ImageCache.swift in Sources */,
 				7BBA88141CBD8AC90057E9AD /* Manager.swift in Sources */,
+				224355CF1CC1D58C001FFAD0 /* SpringImageView.swift in Sources */,
 				22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */,
 				7BBA88211CBD8AC90057E9AD /* Validation.swift in Sources */,
 				6ED9264B1CBEF2FC0082FCFE /* UIImage+Color.swift in Sources */,
+				224355D31CC1D624001FFAD0 /* DragDropBehavior.swift in Sources */,
 				7B4D519B1CC110A50072E114 /* ImageFilter.swift in Sources */,
 				22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */,
 				6EAD10B71CC139EB00E0A2A0 /* ActivityIndicatorView.swift in Sources */,
@@ -863,9 +925,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+<<<<<<< HEAD
+				CURRENT_PROJECT_VERSION = 45;
+=======
 				CURRENT_PROJECT_VERSION = 55;
+>>>>>>> master
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -877,7 +944,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_development)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "WWDCScholars/WWDCScholars-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -885,9 +953,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+<<<<<<< HEAD
+				CURRENT_PROJECT_VERSION = 45;
+=======
 				CURRENT_PROJECT_VERSION = 55;
+>>>>>>> master
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -899,7 +972,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "WWDCScholars/WWDCScholars-Bridging-Header.h";
 			};
 			name = Release;
 		};

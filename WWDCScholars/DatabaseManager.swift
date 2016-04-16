@@ -65,10 +65,11 @@ class DatabaseManager {
      - parameter scholar: Scholar which will be removed from the database
      */
     func removeScholar(scholar: Scholar) {
+        let fullName = scholar.fullName
         try! realm.write {
             realm.delete(scholar)
         }
-        print ("Removed \(scholar.fullName)")
+        print ("Removed \(fullName)")
     }
     
     /**

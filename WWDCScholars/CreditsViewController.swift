@@ -10,8 +10,8 @@ import UIKit
 
 class CreditsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var accessButton: UIButton!
+    @IBOutlet private weak var headerImageView: UIImageView!
+    @IBOutlet weak var ourTeamLabel: UILabel!
     
     private var credits: [Credit] = []
     
@@ -74,8 +74,8 @@ class CreditsViewController: UIViewController {
     
     private func styleUI() {
         self.title = "Credits"
-        self.submitButton.applyScholarsButtonStyle()
-        self.accessButton.applyScholarsButtonStyle()
+        
+        self.ourTeamLabel.textColor = UIColor.scholarsPurpleColor()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -128,3 +128,38 @@ extension CreditsViewController: UITableViewDataSource {
         return 67.0
     }
 }
+
+// MARK: - TableViewDelegate
+
+extension CreditsViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: indexPath)
+    }
+}
+
+// MARK: - UIViewControllerPreviewingDelegate
+
+extension CreditsViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let previewViewController = storyboard?.instantiateViewControllerWithIdentifier("scholarDetailViewController") as? ScholarDetailViewController else {
+            return nil
+        }
+        
+        let indexPath = self.tableView.indexPathForRowAtPoint(self.tableView.convertPoint(location, fromCoordinateSpace: self.view))
+        
+        guard let scholar = self.getScholar(indexPath!) else {
+            return nil
+        }
+        
+        previewViewController.currentScholar = scholar
+        previewViewController.preferredContentSize = CGSize.zero
+        
+        return previewViewController
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        self.showViewController(viewControllerToCommit, sender: self)
+    }
+}
+

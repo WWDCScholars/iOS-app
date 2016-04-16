@@ -1996,97 +1996,111 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMf-1E-E78" customClass="TPKeyboardAvoidingScrollView">
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMf-1E-E78" customClass="TPKeyboardAvoidingScrollView">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iXo-Y6-Fga" customClass="DesignableView" customModule="WWDCScholars" customModuleProvider="target">
-                                                    <rect key="frame" x="160" y="160" width="280" height="280"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCh-uy-vnI" userLabel="Content View">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wwdcScholarsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ot6-3I-pvY">
-                                                            <rect key="frame" x="115" y="19" width="50" height="50"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WWDC Scholars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ce6-YT-eK6">
-                                                            <rect key="frame" x="59" y="72" width="162" height="21"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="19"/>
-                                                            <color key="textColor" red="0.42352941179999998" green="0.30980392159999998" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Password" minimumFontSize="17" background="input-outline-active" translatesAutoresizingMaskIntoConstraints="NO" id="faf-TQ-mCU" customClass="DesignableTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                            <rect key="frame" x="15" y="167" width="250" height="30"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iXo-Y6-Fga" customClass="DesignableView" customModule="WWDCScholars" customModuleProvider="target">
+                                                            <rect key="frame" x="160" y="160" width="280" height="280"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wwdcScholarsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ot6-3I-pvY">
+                                                                    <rect key="frame" x="115" y="19" width="50" height="50"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WWDC Scholars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ce6-YT-eK6">
+                                                                    <rect key="frame" x="59" y="72" width="162" height="21"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="19"/>
+                                                                    <color key="textColor" red="0.42352941179999998" green="0.30980392159999998" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Password" minimumFontSize="17" background="input-outline-active" translatesAutoresizingMaskIntoConstraints="NO" id="faf-TQ-mCU" customClass="DesignableTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                                    <rect key="frame" x="15" y="167" width="250" height="30"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                                            <integer key="value" value="50"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                                            <integer key="value" value="10"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </textField>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtG-ol-PsD" customClass="DesignableButton" customModule="WWDCScholars" customModuleProvider="target">
+                                                                    <rect key="frame" x="15" y="221" width="250" height="44"/>
+                                                                    <color key="backgroundColor" red="0.42352941179999998" green="0.30980392159999998" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <state key="normal" title="Enter">
+                                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                            <integer key="value" value="3"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="signupButtonPressed:" destination="R77-o8-Eiz" eventType="touchUpInside" id="dXQ-68-KAf"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-key" translatesAutoresizingMaskIntoConstraints="NO" id="6Za-cG-jtR" customClass="SpringImageView" customModule="WWDCScholars" customModuleProvider="target">
+                                                                    <rect key="frame" x="30" y="164" width="25" height="25"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </imageView>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-user" translatesAutoresizingMaskIntoConstraints="NO" id="w5Y-9z-3YB" customClass="SpringImageView" customModule="WWDCScholars" customModuleProvider="target">
+                                                                    <rect key="frame" x="30" y="112" width="25" height="25"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </imageView>
+                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Scholar" minimumFontSize="17" background="input-outline-active" translatesAutoresizingMaskIntoConstraints="NO" id="zIT-lP-UMd" customClass="DesignableTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                                    <rect key="frame" x="15" y="103" width="250" height="44"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                                            <integer key="value" value="50"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                                            <integer key="value" value="10"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </textField>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="280" id="Ie3-Mf-Yt6"/>
+                                                                <constraint firstAttribute="width" constant="280" id="njY-JT-HV7"/>
+                                                            </constraints>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                                                    <integer key="value" value="50"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
                                                                 </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
-                                                                    <integer key="value" value="10"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </textField>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtG-ol-PsD" customClass="DesignableButton" customModule="WWDCScholars" customModuleProvider="target">
-                                                            <rect key="frame" x="15" y="221" width="250" height="44"/>
-                                                            <color key="backgroundColor" red="0.42352941179999998" green="0.30980392159999998" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <state key="normal" title="Enter">
-                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                            <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                     <integer key="value" value="3"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
-                                                            <connections>
-                                                                <action selector="signupButtonPressed:" destination="R77-o8-Eiz" eventType="touchUpInside" id="dXQ-68-KAf"/>
-                                                            </connections>
-                                                        </button>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-key" translatesAutoresizingMaskIntoConstraints="NO" id="6Za-cG-jtR" customClass="SpringImageView" customModule="WWDCScholars" customModuleProvider="target">
-                                                            <rect key="frame" x="30" y="164" width="25" height="25"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-user" translatesAutoresizingMaskIntoConstraints="NO" id="w5Y-9z-3YB" customClass="SpringImageView" customModule="WWDCScholars" customModuleProvider="target">
-                                                            <rect key="frame" x="30" y="112" width="25" height="25"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </imageView>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Scholar" minimumFontSize="17" background="input-outline-active" translatesAutoresizingMaskIntoConstraints="NO" id="zIT-lP-UMd" customClass="DesignableTextField" customModule="WWDCScholars" customModuleProvider="target">
-                                                            <rect key="frame" x="15" y="103" width="250" height="44"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                                                    <integer key="value" value="50"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
-                                                                    <integer key="value" value="10"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </textField>
+                                                        </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="280" id="Ie3-Mf-Yt6"/>
-                                                        <constraint firstAttribute="width" constant="280" id="njY-JT-HV7"/>
+                                                        <constraint firstItem="iXo-Y6-Fga" firstAttribute="centerY" secondItem="bCh-uy-vnI" secondAttribute="centerY" id="4xh-0R-oGO"/>
+                                                        <constraint firstItem="iXo-Y6-Fga" firstAttribute="centerX" secondItem="bCh-uy-vnI" secondAttribute="centerX" id="gFH-1X-VHv"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="5"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="3"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="iXo-Y6-Fga" secondAttribute="centerY" id="8US-ZY-7mF"/>
-                                                <constraint firstAttribute="centerX" secondItem="iXo-Y6-Fga" secondAttribute="centerX" id="cWK-n8-0fF"/>
+                                                <constraint firstItem="bCh-uy-vnI" firstAttribute="centerX" secondItem="NMf-1E-E78" secondAttribute="centerX" id="3ry-0o-Vff"/>
+                                                <constraint firstAttribute="bottom" secondItem="bCh-uy-vnI" secondAttribute="bottom" id="4s9-AI-Tp5"/>
+                                                <constraint firstItem="bCh-uy-vnI" firstAttribute="centerY" secondItem="NMf-1E-E78" secondAttribute="centerY" id="C31-dT-Yak"/>
+                                                <constraint firstAttribute="trailing" secondItem="bCh-uy-vnI" secondAttribute="trailing" id="GcL-kz-09n"/>
+                                                <constraint firstItem="bCh-uy-vnI" firstAttribute="leading" secondItem="NMf-1E-E78" secondAttribute="leading" id="mp3-9T-sT1"/>
+                                                <constraint firstItem="bCh-uy-vnI" firstAttribute="top" secondItem="NMf-1E-E78" secondAttribute="top" id="uYH-rm-i4k"/>
                                             </constraints>
                                             <variation key="heightClass=regular" ambiguous="YES">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>

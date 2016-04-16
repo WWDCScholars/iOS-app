@@ -32,7 +32,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-       // dialogView.animate()
+        dialogView.animate()
         if UIScreen.mainScreen().bounds.size.height == 480 {
             dialogView.transform = CGAffineTransformMakeScale(0.8, 0.8)
         }

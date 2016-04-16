@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.styleUI()
         
+        
         return true
     }
     

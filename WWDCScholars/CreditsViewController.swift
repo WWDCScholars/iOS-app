@@ -142,16 +142,14 @@ extension CreditsViewController: UITableViewDelegate {
 
 extension CreditsViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let previewViewController = storyboard?.instantiateViewControllerWithIdentifier("scholarDetailViewController") as? ScholarDetailViewController else {
+        let viewController = storyboard?.instantiateViewControllerWithIdentifier("scholarDetailViewController") as? ScholarDetailViewController
+        let index = self.tableView.indexPathForRowAtPoint(self.tableView.convertPoint(location, fromCoordinateSpace: self.view))
+        
+        guard let previewViewController = viewController, indexPath = index else {
             return nil
         }
         
-        let indexPath = self.tableView.indexPathForRowAtPoint(self.tableView.convertPoint(location, fromCoordinateSpace: self.view))
-        
-        guard let scholar = self.getScholar(indexPath!) else {
-            return nil
-        }
-        
+        let scholar = self.getScholar(indexPath)
         previewViewController.currentScholar = scholar
         previewViewController.preferredContentSize = CGSize.zero
         
@@ -162,4 +160,3 @@ extension CreditsViewController: UIViewControllerPreviewingDelegate {
         self.showViewController(viewControllerToCommit, sender: self)
     }
 }
-

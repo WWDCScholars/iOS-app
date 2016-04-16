@@ -22,10 +22,6 @@ class ScholarsViewController: UIViewController {
     @IBOutlet private weak var mapView: UIView!
     @IBOutlet private weak var rightArrowImageView: UIImageView!
     @IBOutlet private weak var leftArrowImageView: UIImageView!
-    @IBOutlet var loginBarButtonItem: UIBarButtonItem!
-    
-    var loggedIn = false
-
     
     let years: [WWDC] = [.WWDC2011, .WWDC2012, .WWDC2013, .WWDC2014, .WWDC2015, .WWDC2016]
     var allScholars: [Scholar] = []
@@ -33,10 +29,6 @@ class ScholarsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        let longPressGestureRecognizerLoginBarButtomItem = UILongPressGestureRecognizer(target: self, action: #selector(ScholarsViewController.showEditDetailsModal(_:)))
-        self.view.addGestureRecognizer(longPressGestureRecognizerLoginBarButtomItem)
         
         self.styleUI()
         self.scrollViewDidEndDecelerating(self.yearCollectionView)
@@ -64,28 +56,6 @@ class ScholarsViewController: UIViewController {
         }
     }
     
-    func showSignInModal() {
-       // let modalViewController = SignInViewController()
-        
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("SignInVC")
-
-        modalViewController.modalPresentationStyle = .OverCurrentContext
-        modalViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        presentViewController(modalViewController, animated: true, completion: nil )
-    }
-    
-    func showEditDetailsModal(longPressGestureRecognizerLoginBarButtomItem: UIGestureRecognizer) {
-        print("Long Press")
-        
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("EditDetailsNC")
-        
-        modalViewController.modalPresentationStyle = .FullScreen
-        modalViewController.modalTransitionStyle = .CoverVertical
-        self.presentViewController(modalViewController, animated: true, completion: nil )
-    }
-    
     // MARK: - UI
     
     private func styleUI() {
@@ -102,25 +72,7 @@ class ScholarsViewController: UIViewController {
     }
     
     // MARK: - IBAction
-    @IBAction func accountButtonTapped(sender: AnyObject) {
-        switch loggedIn {
-        case true:
-            // Code when logged in
-           // showEditDetailsModal()
-            break
-        case false:
-            // Code when logged out
-            showSignInModal()
-            
-            
-            break
-        }
-    }
     
-    
-    @IBAction func skipLoginViewController(sender: AnyObject) {
-        print("Long Press")
-    }
     @IBAction func mapButtonTapped(sender: AnyObject) {
         if self.mapView.hidden == true {
             self.mainView.hidden = true

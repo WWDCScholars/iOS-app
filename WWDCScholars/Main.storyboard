@@ -652,7 +652,7 @@
                                 </variation>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="b3f-aM-UIE" firstAttribute="leading" secondItem="iG8-3r-J4v" secondAttribute="leading" id="0B2-7f-3hf"/>
                             <constraint firstItem="pIy-Xy-Aq8" firstAttribute="height" secondItem="iG8-3r-J4v" secondAttribute="height" priority="250" constant="-113" id="Bf9-Rg-xmZ"/>

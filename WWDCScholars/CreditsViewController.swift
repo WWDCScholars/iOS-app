@@ -17,9 +17,24 @@ class CreditsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.traitCollection.forceTouchCapability == .Available {
+            self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+        }
 
         self.styleUI()
         self.getCredits()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == String(ScholarDetailViewController) {
+            if let indexPath = sender as? NSIndexPath {
+                if let scholar = self.getScholar(indexPath) {
+                    let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
+                    destinationViewController.currentScholar = scholar
+                }
+            }
+        }
     }
     
     // MARK: - Private Functions
@@ -29,8 +44,9 @@ class CreditsViewController: UIViewController {
             let scholarName = item["Name"] as! String
             let scholarLocation = item["Location"] as! String
             let scholarTasks = item["Tasks"] as! [String]
+            let scholarID = item["ID"] as! String
             
-            self.credits.append(Credit.getCredit(scholarName, location: scholarLocation, tasks: scholarTasks, image: scholarName))
+            self.credits.append(Credit.getCredit(scholarName, location: scholarLocation, tasks: scholarTasks, image: scholarName, id: scholarID))
         }
         
         self.tableView.reloadData()
@@ -44,6 +60,16 @@ class CreditsViewController: UIViewController {
         }
     }
     
+    private func getScholar(indexPath: NSIndexPath) -> Scholar? {
+        if let scholarID = self.credits[indexPath.item].id {
+            let scholar = DatabaseManager.sharedInstance.scholarForId(scholarID)
+            
+            return scholar
+        }
+        
+        return nil
+    }
+    
     // MARK: - UI
     
     private func styleUI() {
@@ -55,9 +81,27 @@ class CreditsViewController: UIViewController {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
-    
-    // MARK: - TableViewDataSource
-    
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension CreditsViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(scrollView: UIScrollView) {        
+        let imageViewHeight: CGFloat = 200.0
+        var imageViewFrame = CGRect(x: 0, y: 0, width: scrollView.bounds.width, height: imageViewHeight)
+        
+        if scrollView.contentOffset.y < imageViewHeight {
+            imageViewFrame.origin.y = scrollView.contentOffset.y
+            imageViewFrame.size.height = -scrollView.contentOffset.y + imageViewHeight
+        }
+        
+        self.headerImageView.frame = imageViewFrame
+    }
+}
+
+// MARK: - TableViewDataSource
+
+extension CreditsViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.credits.count > 0 ? self.credits.count : 0
     }
@@ -80,9 +124,7 @@ class CreditsViewController: UIViewController {
         return creditCell
     }
     
-    // MARK: - TableViewDelegate
-    
-    func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        return 67
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 67.0
     }
 }

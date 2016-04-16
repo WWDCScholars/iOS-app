@@ -1117,6 +1117,7 @@
                         <outlet property="accessButton" destination="12L-zx-oH1" id="yrn-HT-Q1d"/>
                         <outlet property="submitButton" destination="hOU-bL-fOM" id="Wgz-BJ-7Mv"/>
                         <outlet property="tableView" destination="FWN-KX-h1v" id="sGA-ZF-7SH"/>
+                        <segue destination="Xz8-ge-7L5" kind="show" identifier="ScholarDetailViewController" id="Yff-U6-LNC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njt-9R-oCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2214,4 +2215,7 @@
         <image name="xButtonIconFilled" width="22" height="22"/>
         <image name="youTubeIconSmall" width="27" height="19"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Yff-U6-LNC"/>
+    </inferredMetricsTieBreakers>
 </document>

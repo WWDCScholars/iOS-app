@@ -22,7 +22,6 @@ class ScholarDetailViewController: UIViewController {
     override func viewDidLoad() {        
         self.styleUI()
         self.updateUI()
-        self.configureMap()
     }
     
     // MARK: - UI
@@ -32,6 +31,8 @@ class ScholarDetailViewController: UIViewController {
         self.profileImageView.applyRoundedCorners()
         
         self.profileImageView.clipsToBounds = true
+        
+        self.configureMap()
     }
     
     // MARK: - Private functions
@@ -56,21 +57,16 @@ class ScholarDetailViewController: UIViewController {
     }
 }
 
-// MARK: - UICollectionViewDelegate
-
-extension ScholarDetailViewController: UITableViewDelegate {
-    
-}
-
 // MARK: - UICollectionViewDataSource
 
 extension ScholarDetailViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.item == 0 {
+        switch indexPath.item {
+        case 0:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("basicDetailsTableViewCell") as! BasicDetailsTableViewCell
             
             cell.ageLabel.text = String(currentScholar!.age)
@@ -78,16 +74,25 @@ extension ScholarDetailViewController: UITableViewDataSource {
             cell.attendedLabel.text = "14, 15"
             
             return cell
+        case 1:
+            let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("bioTableViewCell") as! BioTableViewCell
+            
+            cell.contentLabel.text = currentScholar?.shortBio
+            
+            return cell
+        default:
+            return UITableViewCell()
         }
-        
-        return UITableViewCell()
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.item == 0 {
+        switch indexPath.item {
+        case 0:
             return 70.0
+        case 1:
+            return 70.0
+        default:
+            return 0.0
         }
-        
-        return 0.0
     }
 }

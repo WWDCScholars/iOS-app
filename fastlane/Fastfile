@@ -76,10 +76,11 @@ platform :ios do
       message: "Successfully deployed version *#{version}* (#{build})! :tim: :tada:"
     )
 
-    sh('git pull --rebase')
     commit_version_bump(
       message: "Version #{version}, Build #{build}\n[ci skip]"
     )
+
+    sh('git pull --rebase')
 
     push_to_git_remote(remote: "git@github.com:WWDCScholars/WWDCScholars-iOS.git", remote_branch: ENV["TRAVIS_BRANCH"], force: true)
   end

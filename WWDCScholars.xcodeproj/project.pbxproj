@@ -21,6 +21,7 @@
 		22543B211CB7019A003F9422 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B201CB7019A003F9422 /* ChatViewController.swift */; };
 		6E1F069B1CC0332F00E464A0 /* ScholarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */; };
 		6E1F069D1CC045F400E464A0 /* YearCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */; };
+		6E1F6D5D1CC1B2F2002D17DB /* BioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */; };
 		6E4DD6EC1CBD36AA00B08EE1 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */; };
 		6E4DD6EE1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */; };
 		6EAD10B71CC139EB00E0A2A0 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD10B61CC139EB00E0A2A0 /* ActivityIndicatorView.swift */; };
@@ -145,6 +146,7 @@
 		22543B201CB7019A003F9422 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearCollectionViewCell.swift; sourceTree = "<group>"; };
+		6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioTableViewCell.swift; sourceTree = "<group>"; };
 		6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotUploadCollectionViewCell.swift; sourceTree = "<group>"; };
 		6EAD10B61CC139EB00E0A2A0 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 			children = (
 				6EAD10B91CC1907700E0A2A0 /* ScholarDetailViewController.swift */,
 				6EAD10BB1CC1A00800E0A2A0 /* BasicDetailsTableViewCell.swift */,
+				6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */,
 			);
 			name = Details;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				7BBA88491CBEA0E80057E9AD /* String+Timepiece.swift in Sources */,
 				223884231C8252D900A96752 /* ScholarsViewController.swift in Sources */,
 				7BBA881B1CBD8AC90057E9AD /* ResponseSerialization.swift in Sources */,
+				6E1F6D5D1CC1B2F2002D17DB /* BioTableViewCell.swift in Sources */,
 				7BBA88151CBD8AC90057E9AD /* MultipartFormData.swift in Sources */,
 				7BBA876E1CBD4ADB0057E9AD /* ScholarsKit.swift in Sources */,
 				7BBA87C81CBD7A860057E9AD /* SwiftyJSON.swift in Sources */,
@@ -861,7 +865,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 44;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -883,7 +887,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 44;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

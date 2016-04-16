@@ -109,23 +109,27 @@ class ScholarsViewController: UIViewController {
 
 extension ScholarsViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        //scholarsCollectionView page changed, update scholars list
-        
-        let currentIndex = Int(self.yearCollectionView.contentOffset.x / self.yearCollectionView.frame.size.width)
-        
-        self.getCurrentScholars(currentIndex)
-        
-        UIView.animateWithDuration(0.2, animations: {
-            self.leftArrowImageView.alpha = currentIndex == 0 ? 0.0 : 1.0
-            self.rightArrowImageView.alpha = currentIndex == self.years.count - 1 ? 0.0 : 1.0
-        })
+        if scrollView == self.yearCollectionView {
+            //scholarsCollectionView page changed, update scholars list
+            
+            let currentIndex = Int(self.yearCollectionView.contentOffset.x / self.yearCollectionView.frame.size.width)
+            
+            self.getCurrentScholars(currentIndex)
+            
+            UIView.animateWithDuration(0.2, animations: {
+                self.leftArrowImageView.alpha = currentIndex == 0 ? 0.0 : 1.0
+                self.rightArrowImageView.alpha = currentIndex == self.years.count - 1 ? 0.0 : 1.0
+            })
+        }
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        UIView.animateWithDuration(0.2, animations: {
-            self.leftArrowImageView.alpha = 0.0
-            self.rightArrowImageView.alpha = 0.0
-        })
+        if scrollView == self.yearCollectionView {
+            UIView.animateWithDuration(0.2, animations: {
+                self.leftArrowImageView.alpha = 0.0
+                self.rightArrowImageView.alpha = 0.0
+            })
+        }
     }
 }
 
@@ -151,6 +155,7 @@ extension ScholarsViewController: UICollectionViewDataSource {
             if scholar.profilePicURL != "" {
                 cell.profileImageView.af_setImageWithURL(NSURL(string: scholar.profilePicURL)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
             }
+            
             return cell
         } else if collectionView == self.yearCollectionView {
             let cell = self.yearCollectionView.dequeueReusableCellWithReuseIdentifier("yearCollectionViewCell", forIndexPath: indexPath) as! YearCollectionViewCell

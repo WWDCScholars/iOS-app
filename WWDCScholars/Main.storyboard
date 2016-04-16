@@ -794,7 +794,7 @@
                                                     </mask>
                                                 </variation>
                                             </imageView>
-                                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FWN-KX-h1v">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FWN-KX-h1v">
                                                 <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <view key="tableHeaderView" contentMode="scaleToFill" id="lpY-W5-buZ">
@@ -978,6 +978,7 @@
                         <outlet property="headerImageView" destination="pp6-9E-2db" id="FdU-vi-KZN"/>
                         <outlet property="ourTeamLabel" destination="Gmj-ll-ihB" id="nrS-h2-G58"/>
                         <outlet property="tableView" destination="FWN-KX-h1v" id="sGA-ZF-7SH"/>
+                        <segue destination="Xz8-ge-7L5" kind="show" identifier="ScholarDetailViewController" id="Yff-U6-LNC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njt-9R-oCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1871,4 +1872,7 @@
         <image name="wwdcScholarsIcon" width="83" height="83"/>
         <image name="youTubeIconSmall" width="27" height="19"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Yff-U6-LNC"/>
+    </inferredMetricsTieBreakers>
 </document>

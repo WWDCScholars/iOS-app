@@ -60,6 +60,19 @@ class DatabaseManager {
     }
     
     /**
+     Removes a scholar from the local Realm
+     
+     - parameter scholar: Scholar which will be removed from the database
+     */
+    func removeScholar(scholar: Scholar) {
+        let fullName = scholar.fullName
+        try! realm.write {
+            realm.delete(scholar)
+        }
+        print ("Removed \(fullName)")
+    }
+    
+    /**
      Gets a list of all scholars which are currently in the database
      
      - returns: List of scholars

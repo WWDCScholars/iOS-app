@@ -32,21 +32,39 @@ class ScholarsKit {
                 let json = JSON.parse(data)
                 print("JSON: \(json)")
                 if let array = json.array {
-                    self.parseScholars(array)
-                    completionHandler()
+                    self.parseScholars(array){
+                        completionHandler()
+                    }
                 }
             }
         }
     }
     
-    func parseScholars(jsonArr: [JSON]) {
+    private func removeRemovedScholarsOfJson(oldScholarIds: [String], currentLoadedIds: [String]){
+        let scholarsToBeRemoved = oldScholarIds.filter { !currentLoadedIds.contains($0) }
+        
+        for id in scholarsToBeRemoved {
+            if let scholar = DatabaseManager.sharedInstance.scholarForId(id){
+                DatabaseManager.sharedInstance.removeScholar(scholar)
+            }
+        }
+        
+        print ("Removed scholars with ids: \(scholarsToBeRemoved)")
+    }
+    
+    func parseScholars(jsonArr: [JSON], completionHandler: () -> Void) {
+        let oldScholarIds = dbManager.getAllScholars().map({ return $0.id })
+        var scholarIds:[String] = []
         for scholarJson in jsonArr {
             if let scholar = parseScholar(scholarJson) {
                 dbManager.addScholar(scholar)
+                scholarIds.append(scholar.id)
             }else {
                 print("Scholar (with id \(scholarJson["_id"].string)) missing items!")
             }
         }
+        removeRemovedScholarsOfJson(oldScholarIds, currentLoadedIds: scholarIds)
+        completionHandler()
     }
     
     func parseScholar(json: JSON) -> Scholar? {

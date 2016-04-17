@@ -95,7 +95,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
         case 0:
             return 70.0
         case 1:
-            return 70.0
+            return 110.0
         default:
             return 0.0
         }

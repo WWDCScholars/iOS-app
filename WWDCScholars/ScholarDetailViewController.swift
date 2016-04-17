@@ -61,7 +61,7 @@ class ScholarDetailViewController: UIViewController {
 
 extension ScholarDetailViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -85,6 +85,10 @@ extension ScholarDetailViewController: UITableViewDataSource {
             cell.contentLabel.text = currentScholar?.shortBio
             
             return cell
+        case 2:
+            let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("screenshotsTableViewCell") as! ScreenshotsTableViewCell
+            
+            return cell
         default:
             return UITableViewCell()
         }
@@ -96,6 +100,8 @@ extension ScholarDetailViewController: UITableViewDataSource {
             return 70.0
         case 1:
             return 110.0
+        case 2:
+            return 280.0
         default:
             return 0.0
         }

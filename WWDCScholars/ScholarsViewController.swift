@@ -8,11 +8,6 @@
 
 import UIKit
 
-enum YearScrollDirection {
-    case Left
-    case Right
-}
-
 class ScholarsViewController: UIViewController {
     @IBOutlet private weak var yearCollectionView: UICollectionView!
     @IBOutlet private weak var loadingView: ActivityIndicatorView!
@@ -22,18 +17,16 @@ class ScholarsViewController: UIViewController {
     @IBOutlet private weak var mapView: UIView!
     @IBOutlet private weak var rightArrowImageView: UIImageView!
     @IBOutlet private weak var leftArrowImageView: UIImageView!
-    @IBOutlet var loginBarButtonItem: UIBarButtonItem!
+    @IBOutlet private weak var loginBarButtonItem: UIBarButtonItem!
     
-    var loggedIn = false
-
+    private let years: [WWDC] = [.WWDC2011, .WWDC2012, .WWDC2013, .WWDC2014, .WWDC2015, .WWDC2016]
     
-    let years: [WWDC] = [.WWDC2011, .WWDC2012, .WWDC2013, .WWDC2014, .WWDC2015, .WWDC2016]
-    var allScholars: [Scholar] = []
-    var currentScholars: [Scholar] = []
+    private var allScholars: [Scholar] = []
+    private var currentScholars: [Scholar] = []
+    private var loggedIn = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         let longPressGestureRecognizerLoginBarButtomItem = UILongPressGestureRecognizer(target: self, action: #selector(ScholarsViewController.showEditDetailsModal(_:)))
         self.view.addGestureRecognizer(longPressGestureRecognizerLoginBarButtomItem)
@@ -64,28 +57,6 @@ class ScholarsViewController: UIViewController {
         }
     }
     
-    func showSignInModal() {
-       // let modalViewController = SignInViewController()
-        
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("SignInVC")
-
-        modalViewController.modalPresentationStyle = .OverCurrentContext
-        modalViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        presentViewController(modalViewController, animated: true, completion: nil )
-    }
-    
-    func showEditDetailsModal(longPressGestureRecognizerLoginBarButtomItem: UIGestureRecognizer) {
-        print("Long Press")
-        
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("EditDetailsNC")
-        
-        modalViewController.modalPresentationStyle = .FullScreen
-        modalViewController.modalTransitionStyle = .CoverVertical
-        self.presentViewController(modalViewController, animated: true, completion: nil )
-    }
-    
     // MARK: - UI
     
     private func styleUI() {
@@ -102,25 +73,11 @@ class ScholarsViewController: UIViewController {
     }
     
     // MARK: - IBAction
+    
     @IBAction func accountButtonTapped(sender: AnyObject) {
-        switch loggedIn {
-        case true:
-            // Code when logged in
-           // showEditDetailsModal()
-            break
-        case false:
-            // Code when logged out
-            showSignInModal()
-            
-            
-            break
-        }
+        self.loggedIn ? self.showEditDetailsModal() : self.showSignInModal()
     }
     
-    
-    @IBAction func skipLoginViewController(sender: AnyObject) {
-        print("Long Press")
-    }
     @IBAction func mapButtonTapped(sender: AnyObject) {
         if self.mapView.hidden == true {
             self.mainView.hidden = true
@@ -150,6 +107,30 @@ class ScholarsViewController: UIViewController {
     private func scrollCollectionViewToIndexPath(index: Int) {
         self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.Left, animated: false)
         self.scrollViewDidEndDecelerating(self.yearCollectionView)
+    }
+    
+    private func showSignInModal() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("SignInVC")
+        
+        modalViewController.modalPresentationStyle = .OverCurrentContext
+        modalViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        self.presentViewController(modalViewController, animated: true, completion: nil)
+    }
+    
+    private func showEditDetailsModal() {
+        
+    }
+    
+    // MARK: - Internal functions
+    
+    internal func showEditDetailsModal(longPressGestureRecognizerLoginBarButtomItem: UIGestureRecognizer) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("EditDetailsNC")
+        
+        modalViewController.modalPresentationStyle = .FullScreen
+        modalViewController.modalTransitionStyle = .CoverVertical
+        self.presentViewController(modalViewController, animated: true, completion: nil)
     }
 }
 

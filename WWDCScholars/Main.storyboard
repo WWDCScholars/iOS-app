@@ -100,8 +100,14 @@
                                     <constraint firstItem="gdy-v7-k9Z" firstAttribute="top" secondItem="jYj-Zb-Qv2" secondAttribute="top" id="7va-Ym-BxU"/>
                                     <constraint firstAttribute="trailing" secondItem="gdy-v7-k9Z" secondAttribute="trailing" constant="8" id="Smw-hd-DHA"/>
                                     <constraint firstAttribute="bottom" secondItem="gdy-v7-k9Z" secondAttribute="bottom" id="qt5-0g-lEc"/>
+                                    <constraint firstItem="gdy-v7-k9Z" firstAttribute="top" secondItem="jYj-Zb-Qv2" secondAttribute="top" id="riv-mL-tjz"/>
                                     <constraint firstItem="gdy-v7-k9Z" firstAttribute="leading" secondItem="jYj-Zb-Qv2" secondAttribute="leading" id="vgj-vp-hhp"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7va-Ym-BxU"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgQ-47-L3u">
                                 <rect key="frame" x="0.0" y="64" width="600" height="50"/>
@@ -2125,6 +2131,6 @@
         <image name="youTubeIconSmall" width="27" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yff-U6-LNC"/>
+        <segue reference="If2-0g-pPV"/>
     </inferredMetricsTieBreakers>
 </document>

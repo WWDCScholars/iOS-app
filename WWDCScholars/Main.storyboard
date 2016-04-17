@@ -414,7 +414,7 @@
                                                                                         <constraint firstItem="DOX-7g-D7r" firstAttribute="centerY" secondItem="dd5-vu-RLz" secondAttribute="centerY" id="olg-bK-BXb"/>
                                                                                     </constraints>
                                                                                 </view>
-                                                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="in2-F3-pr9">
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="in2-F3-pr9">
                                                                                     <rect key="frame" x="195" y="0.0" width="195" height="70"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-dA-hQT">
@@ -1932,7 +1932,7 @@
                                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                                                            <integer key="value" value="50"/>
+                                                                            <real key="value" value="10"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
                                                                             <integer key="value" value="10"/>
@@ -1944,7 +1944,7 @@
                                                                     <color key="backgroundColor" red="0.42352941179999998" green="0.30980392159999998" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <state key="normal" title="Enter">
+                                                                    <state key="normal" title="Sign in">
                                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </state>
                                                                     <userDefinedRuntimeAttributes>
@@ -1953,28 +1953,16 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
-                                                                        <action selector="signupButtonPressed:" destination="R77-o8-Eiz" eventType="touchUpInside" id="dXQ-68-KAf"/>
+                                                                        <action selector="signinButtonPressed:" destination="R77-o8-Eiz" eventType="touchUpInside" id="MGj-VW-qXh"/>
                                                                     </connections>
                                                                 </button>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-key" translatesAutoresizingMaskIntoConstraints="NO" id="6Za-cG-jtR" customClass="SpringImageView" customModule="WWDCScholars" customModuleProvider="target">
-                                                                    <rect key="frame" x="30" y="164" width="25" height="25"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </imageView>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-user" translatesAutoresizingMaskIntoConstraints="NO" id="w5Y-9z-3YB" customClass="SpringImageView" customModule="WWDCScholars" customModuleProvider="target">
-                                                                    <rect key="frame" x="30" y="112" width="25" height="25"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </imageView>
                                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Scholar" minimumFontSize="17" background="input-outline-active" translatesAutoresizingMaskIntoConstraints="NO" id="zIT-lP-UMd" customClass="DesignableTextField" customModule="WWDCScholars" customModuleProvider="target">
                                                                     <rect key="frame" x="15" y="103" width="250" height="44"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                                                            <integer key="value" value="50"/>
+                                                                            <real key="value" value="10"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
                                                                             <integer key="value" value="10"/>
@@ -1998,11 +1986,36 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ry2-8I-eyH" customClass="DesignableButton" customModule="WWDCScholars" customModuleProvider="target">
+                                                            <rect key="frame" x="175" y="548" width="250" height="44"/>
+                                                            <color key="backgroundColor" red="0.42352941179999998" green="0.30980392159999998" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="44" id="6Nr-5p-tj9"/>
+                                                                <constraint firstAttribute="width" constant="250" id="AHc-VT-0rA"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <state key="normal" title="No Account? Sign up!">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="signUpButtonPressed:" destination="R77-o8-Eiz" eventType="touchUpInside" id="aKi-sx-IP3"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="iXo-Y6-Fga" firstAttribute="centerY" secondItem="bCh-uy-vnI" secondAttribute="centerY" id="4xh-0R-oGO"/>
+                                                        <constraint firstItem="Ry2-8I-eyH" firstAttribute="centerX" secondItem="bCh-uy-vnI" secondAttribute="centerX" id="BRu-ba-8xx"/>
                                                         <constraint firstItem="iXo-Y6-Fga" firstAttribute="centerX" secondItem="bCh-uy-vnI" secondAttribute="centerX" id="gFH-1X-VHv"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Ry2-8I-eyH" secondAttribute="bottom" constant="8" id="uKf-l6-hca"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -2066,11 +2079,10 @@
                     </view>
                     <connections>
                         <outlet property="dialogView" destination="iXo-Y6-Fga" id="rzq-6O-sV4"/>
-                        <outlet property="emailImageView" destination="w5Y-9z-3YB" id="b7y-4g-wEw"/>
                         <outlet property="emailTextField" destination="zIT-lP-UMd" id="fpS-Xb-vfM"/>
-                        <outlet property="passwordImageView" destination="6Za-cG-jtR" id="5eF-Ke-OP9"/>
                         <outlet property="passwordTextField" destination="faf-TQ-mCU" id="lqS-fG-b8g"/>
-                        <outlet property="signupButton" destination="CtG-ol-PsD" id="hoD-m0-ZKT"/>
+                        <outlet property="signUpButton" destination="Ry2-8I-eyH" id="sCi-Oo-XQ2"/>
+                        <outlet property="signinButton" destination="CtG-ol-PsD" id="J3M-kw-f83"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJ6-1y-p7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2107,8 +2119,6 @@
         <image name="facebookIconSmall" width="27" height="27"/>
         <image name="gitHubIconSmall" width="27" height="27"/>
         <image name="iOS" width="59" height="58"/>
-        <image name="icon-key" width="25" height="25"/>
-        <image name="icon-user" width="25" height="25"/>
         <image name="input-outline-active" width="250" height="44"/>
         <image name="linkedinIconSmall" width="27" height="27"/>
         <image name="mailIconSmall" width="27" height="27"/>

@@ -15,9 +15,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     @IBOutlet weak var emailImageView: SpringImageView!
     
     @IBOutlet weak var dialogView: SpringView!
-    @IBOutlet weak var signupButton: SpringButton!
+    @IBOutlet weak var signinButton: SpringButton!
     @IBOutlet weak var emailTextField: DesignableTextField!
     @IBOutlet weak var passwordTextField: DesignableTextField!
+    @IBOutlet weak var signUpButton: SpringButton!
     var originalCenter: CGPoint!
     
     override func viewDidLoad() {
@@ -33,41 +34,50 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         dialogView.animate()
+        signUpButton.animate()
         if UIScreen.mainScreen().bounds.size.height == 480 {
             dialogView.transform = CGAffineTransformMakeScale(0.8, 0.8)
         }
     }
     
    
+    @IBAction func signinButtonPressed(sender: AnyObject) {
+        dismissSignInViewController()
+        
+        /*  PFUser.logInWithUsernameInBackground(emailTextField.text, password: passwordTextField.text, block: { (user,error) in
+         if error != nil {
+         self.dialogView.animation = "shake"
+         self.dialogView.animate()
+         //                var alert = UIAlertView(title: "Error", message: "There was a problem with the username and password you have entered. Please try again.", delegate: nil, cancelButtonTitle: "Ok")
+         //                alert.show()
+         } else {
+         self.passwordTextField.text = nil
+         self.emailTextField.text = nil
+         
+         self.dialogView.animation = "zoomOut"
+         self.dialogView.animate()
+         self.performSegueWithIdentifier("edit", sender: self)
+         //self.dismissViewControllerAnimated(true, completion: nil)
+         }
+         })*/
+        
+        print("Pressed Sign in")
+
+    }
     
     // MARK: Button
-    @IBAction func signupButtonPressed(sender: AnyObject){
-        dismissSignInViewController()
-      
-      /*  PFUser.logInWithUsernameInBackground(emailTextField.text, password: passwordTextField.text, block: { (user,error) in
-            if error != nil {
-                self.dialogView.animation = "shake"
-                self.dialogView.animate()
-                //                var alert = UIAlertView(title: "Error", message: "There was a problem with the username and password you have entered. Please try again.", delegate: nil, cancelButtonTitle: "Ok")
-                //                alert.show()
-            } else {
-                self.passwordTextField.text = nil
-                self.emailTextField.text = nil
-                
-                self.dialogView.animation = "zoomOut"
-                self.dialogView.animate()
-                self.performSegueWithIdentifier("edit", sender: self)
-                //self.dismissViewControllerAnimated(true, completion: nil)
-            }
-        })*/
-        
-        print("Pressed Login")
+    @IBAction func signUpButtonPressed(sender: AnyObject){
+        print("Pressed Sign Up")
+    
     }
 
     
     @IBAction func closeButtonPressed(sender: AnyObject) {
         dialogView.animation = "zoomOut"
         dialogView.animate()
+        
+        signUpButton.animation = "zoomOut"
+        signUpButton.animate()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -77,7 +87,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        if textField == emailTextField {
+       /* if textField == emailTextField {
             emailImageView.image = UIImage(named: "icon-user-active")
             emailImageView.animate()
         }
@@ -91,12 +101,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         }
         else {
             passwordImageView.image = UIImage(named: "icon-key")
-        }
+        }*/
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        emailImageView.image = UIImage(named: "icon-user")
-        passwordImageView.image = UIImage(named: "icon-key")
+       /* emailImageView.image = UIImage(named: "icon-user")
+        passwordImageView.image = UIImage(named: "icon-key")*/
     }
     
     func dragDropBehavior(behavior: DragDropBehavior, viewDidDrop view: UIView) {

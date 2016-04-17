@@ -39,4 +39,21 @@ enum WWDC: String {
             return .WWDC2016
         }
     }
+    
+    var shortVersion: String {
+        switch self {
+        case WWDC2016:
+            return "'16"
+        case WWDC2015:
+            return "'15"
+        case WWDC2014:
+            return "'14"
+        case WWDC2013:
+            return "'13"
+        case WWDC2012:
+            return "'12"
+        case WWDC2011:
+            return "'11"
+        }
+    }
 }

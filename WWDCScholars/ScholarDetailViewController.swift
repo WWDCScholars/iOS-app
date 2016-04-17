@@ -69,9 +69,14 @@ extension ScholarDetailViewController: UITableViewDataSource {
         case 0:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("basicDetailsTableViewCell") as! BasicDetailsTableViewCell
             
+            var attendedString = ""
+            for (index, batch) in currentScholar!.batchWWDC.enumerate() {
+                attendedString.appendContentsOf(index != currentScholar!.batchWWDC.count - 1 ? "\(batch.shortVersion), " : batch.shortVersion)
+            }
+            
             cell.ageLabel.text = String(currentScholar!.age)
             cell.countryLabel.text = "Germany"
-            cell.attendedLabel.text = "14, 15"
+            cell.attendedLabel.text = attendedString
             
             return cell
         case 1:

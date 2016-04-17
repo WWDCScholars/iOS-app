@@ -115,7 +115,7 @@ class ScholarsViewController: UIViewController {
         
         modalViewController.modalPresentationStyle = .OverCurrentContext
         modalViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        self.presentViewController(modalViewController, animated: true, completion: nil)
+        self.view.window?.rootViewController?.view.window?.rootViewController!.presentViewController(modalViewController, animated: true, completion: nil)
     }
     
     private func showEditDetailsModal() {

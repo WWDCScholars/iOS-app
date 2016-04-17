@@ -1956,7 +1956,7 @@
                                                                         <action selector="signinButtonPressed:" destination="R77-o8-Eiz" eventType="touchUpInside" id="MGj-VW-qXh"/>
                                                                     </connections>
                                                                 </button>
-                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Scholar" minimumFontSize="17" background="input-outline-active" translatesAutoresizingMaskIntoConstraints="NO" id="zIT-lP-UMd" customClass="DesignableTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" minimumFontSize="17" background="input-outline-active" translatesAutoresizingMaskIntoConstraints="NO" id="zIT-lP-UMd" customClass="DesignableTextField" customModule="WWDCScholars" customModuleProvider="target">
                                                                     <rect key="frame" x="15" y="103" width="250" height="44"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -1987,11 +1987,11 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ry2-8I-eyH" customClass="DesignableButton" customModule="WWDCScholars" customModuleProvider="target">
-                                                            <rect key="frame" x="175" y="548" width="250" height="44"/>
+                                                            <rect key="frame" x="200" y="552" width="200" height="35"/>
                                                             <color key="backgroundColor" red="0.42352941179999998" green="0.30980392159999998" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="44" id="6Nr-5p-tj9"/>
-                                                                <constraint firstAttribute="width" constant="250" id="AHc-VT-0rA"/>
+                                                                <constraint firstAttribute="height" constant="35" id="6Nr-5p-tj9"/>
+                                                                <constraint firstAttribute="width" constant="200" id="AHc-VT-0rA"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2015,7 +2015,7 @@
                                                         <constraint firstItem="iXo-Y6-Fga" firstAttribute="centerY" secondItem="bCh-uy-vnI" secondAttribute="centerY" id="4xh-0R-oGO"/>
                                                         <constraint firstItem="Ry2-8I-eyH" firstAttribute="centerX" secondItem="bCh-uy-vnI" secondAttribute="centerX" id="BRu-ba-8xx"/>
                                                         <constraint firstItem="iXo-Y6-Fga" firstAttribute="centerX" secondItem="bCh-uy-vnI" secondAttribute="centerX" id="gFH-1X-VHv"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Ry2-8I-eyH" secondAttribute="bottom" constant="8" id="uKf-l6-hca"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Ry2-8I-eyH" secondAttribute="bottom" constant="13" id="uKf-l6-hca"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -2141,6 +2141,6 @@
         <image name="youTubeIconSmall" width="27" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="If2-0g-pPV"/>
+        <segue reference="Yff-U6-LNC"/>
     </inferredMetricsTieBreakers>
 </document>

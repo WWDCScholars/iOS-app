@@ -109,6 +109,12 @@
 		7BBA88481CBEA0E80057E9AD /* NSTimeInterval+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA882F1CBEA0E80057E9AD /* NSTimeInterval+Timepiece.swift */; };
 		7BBA88491CBEA0E80057E9AD /* String+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA88301CBEA0E80057E9AD /* String+Timepiece.swift */; };
 		7BBA88621CBEA1130057E9AD /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA88611CBEA1130057E9AD /* DateUtils.swift */; };
+		C0B7FBAA1CC45C9700AD376C /* ClusterAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBA01CC45C9700AD376C /* ClusterAnnotationView.m */; };
+		C0B7FBAB1CC45C9700AD376C /* QCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBA21CC45C9700AD376C /* QCluster.m */; };
+		C0B7FBAC1CC45C9700AD376C /* QNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBA41CC45C9700AD376C /* QNode.m */; };
+		C0B7FBAD1CC45C9700AD376C /* QTree.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBA61CC45C9700AD376C /* QTree.m */; };
+		C0B7FBAE1CC45C9700AD376C /* QTreeGeometryUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBA81CC45C9700AD376C /* QTreeGeometryUtils.m */; };
+		C0B7FBB21CC45F6700AD376C /* ScholarAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBB11CC45F6700AD376C /* ScholarAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +255,19 @@
 		7BBA882F1CBEA0E80057E9AD /* NSTimeInterval+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSTimeInterval+Timepiece.swift"; path = "Sources/NSTimeInterval+Timepiece.swift"; sourceTree = "<group>"; };
 		7BBA88301CBEA0E80057E9AD /* String+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Timepiece.swift"; path = "Sources/String+Timepiece.swift"; sourceTree = "<group>"; };
 		7BBA88611CBEA1130057E9AD /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		C0B7FB9F1CC45C9700AD376C /* ClusterAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterAnnotationView.h; sourceTree = "<group>"; };
+		C0B7FBA01CC45C9700AD376C /* ClusterAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterAnnotationView.m; sourceTree = "<group>"; };
+		C0B7FBA11CC45C9700AD376C /* QCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCluster.h; sourceTree = "<group>"; };
+		C0B7FBA21CC45C9700AD376C /* QCluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCluster.m; sourceTree = "<group>"; };
+		C0B7FBA31CC45C9700AD376C /* QNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNode.h; sourceTree = "<group>"; };
+		C0B7FBA41CC45C9700AD376C /* QNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNode.m; sourceTree = "<group>"; };
+		C0B7FBA51CC45C9700AD376C /* QTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTree.h; sourceTree = "<group>"; };
+		C0B7FBA61CC45C9700AD376C /* QTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTree.m; sourceTree = "<group>"; };
+		C0B7FBA71CC45C9700AD376C /* QTreeGeometryUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTreeGeometryUtils.h; sourceTree = "<group>"; };
+		C0B7FBA81CC45C9700AD376C /* QTreeGeometryUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTreeGeometryUtils.m; sourceTree = "<group>"; };
+		C0B7FBA91CC45C9700AD376C /* QTreeInsertable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTreeInsertable.h; sourceTree = "<group>"; };
+		C0B7FBB01CC45D3700AD376C /* WWDCScholars-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "WWDCScholars-Bridging-Header.h"; path = "WWDCScholars/WWDCScholars-Bridging-Header.h"; sourceTree = "<group>"; };
+		C0B7FBB11CC45F6700AD376C /* ScholarAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				223884221C8252D900A96752 /* ScholarsViewController.swift */,
+				C0B7FBB11CC45F6700AD376C /* ScholarAnnotation.swift */,
 				6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */,
 				6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */,
 				6EAD10B61CC139EB00E0A2A0 /* ActivityIndicatorView.swift */,
@@ -498,11 +518,13 @@
 				7BBA88231CBEA0E80057E9AD /* Timepiece-master */,
 				7BBA88221CBD8AD10057E9AD /* Alamofire */,
 				7BBA87C71CBD7A860057E9AD /* SwiftyJSON.swift */,
+				C0B7FBB01CC45D3700AD376C /* WWDCScholars-Bridging-Header.h */,
 				7BBA87C11CBD641F0057E9AD /* Realm.framework */,
 				7BBA87C21CBD641F0057E9AD /* RealmSwift.framework */,
 				223F5E991CB970EC00E582C5 /* AVFoundation.framework */,
 				7BBA87621CBB7F3A0057E9AD /* Fabric.framework */,
 				7BBA87631CBB7F3A0057E9AD /* Crashlytics.framework */,
+				C0B7FBAF1CC45C9B00AD376C /* QTree */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -544,6 +566,24 @@
 				7BBA88301CBEA0E80057E9AD /* String+Timepiece.swift */,
 			);
 			path = "Timepiece-master";
+			sourceTree = "<group>";
+		};
+		C0B7FBAF1CC45C9B00AD376C /* QTree */ = {
+			isa = PBXGroup;
+			children = (
+				C0B7FB9F1CC45C9700AD376C /* ClusterAnnotationView.h */,
+				C0B7FBA01CC45C9700AD376C /* ClusterAnnotationView.m */,
+				C0B7FBA11CC45C9700AD376C /* QCluster.h */,
+				C0B7FBA21CC45C9700AD376C /* QCluster.m */,
+				C0B7FBA31CC45C9700AD376C /* QNode.h */,
+				C0B7FBA41CC45C9700AD376C /* QNode.m */,
+				C0B7FBA51CC45C9700AD376C /* QTree.h */,
+				C0B7FBA61CC45C9700AD376C /* QTree.m */,
+				C0B7FBA71CC45C9700AD376C /* QTreeGeometryUtils.h */,
+				C0B7FBA81CC45C9700AD376C /* QTreeGeometryUtils.m */,
+				C0B7FBA91CC45C9700AD376C /* QTreeInsertable.h */,
+			);
+			name = QTree;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -720,8 +760,10 @@
 				7BBA88491CBEA0E80057E9AD /* String+Timepiece.swift in Sources */,
 				223884231C8252D900A96752 /* ScholarsViewController.swift in Sources */,
 				7BBA881B1CBD8AC90057E9AD /* ResponseSerialization.swift in Sources */,
+				C0B7FBAE1CC45C9700AD376C /* QTreeGeometryUtils.m in Sources */,
 				6E1F6D5D1CC1B2F2002D17DB /* BioTableViewCell.swift in Sources */,
 				7BBA88151CBD8AC90057E9AD /* MultipartFormData.swift in Sources */,
+				C0B7FBAC1CC45C9700AD376C /* QNode.m in Sources */,
 				7BBA876E1CBD4ADB0057E9AD /* ScholarsKit.swift in Sources */,
 				7BBA87C81CBD7A860057E9AD /* SwiftyJSON.swift in Sources */,
 				7BBA87681CBD35430057E9AD /* StringUtils.swift in Sources */,
@@ -735,6 +777,7 @@
 				7BBA881D1CBD8AC90057E9AD /* ServerTrustPolicy.swift in Sources */,
 				223884211C8252D900A96752 /* AppDelegate.swift in Sources */,
 				7BBA88621CBEA1130057E9AD /* DateUtils.swift in Sources */,
+				C0B7FBAA1CC45C9700AD376C /* ClusterAnnotationView.m in Sources */,
 				22E2A6F51CC1DC2400DF0578 /* Misc.swift in Sources */,
 				7B4D51A01CC110A50072E114 /* UIImage+AlamofireImage.swift in Sources */,
 				7B4D519A1CC110A50072E114 /* ImageDownloader.swift in Sources */,
@@ -747,6 +790,7 @@
 				224355C91CC1D565001FFAD0 /* SpringView.swift in Sources */,
 				22E2A6EF1CC1DA2400DF0578 /* SignInViewController.swift in Sources */,
 				7BBA88421CBEA0E80057E9AD /* Duration.swift in Sources */,
+				C0B7FBAD1CC45C9700AD376C /* QTree.m in Sources */,
 				7BBA88481CBEA0E80057E9AD /* NSTimeInterval+Timepiece.swift in Sources */,
 				22AA36691CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				6E447DB31CC3E5D100014B12 /* ScreenshotsTableViewCell.swift in Sources */,
@@ -755,6 +799,7 @@
 				6EB723D61CB9B84D005A076F /* CreditsViewController.swift in Sources */,
 				223F5E971CB95C3C00E582C5 /* ScholarsTabBarViewController.swift in Sources */,
 				7BBA87771CBD4D040057E9AD /* WWDCEnum.swift in Sources */,
+				C0B7FBAB1CC45C9700AD376C /* QCluster.m in Sources */,
 				6EB723D41CB9B84D005A076F /* Credit.swift in Sources */,
 				6E4DD6EE1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift in Sources */,
 				22543B1F1CB70182003F9422 /* BlogViewController.swift in Sources */,
@@ -782,6 +827,7 @@
 				7B4D519B1CC110A50072E114 /* ImageFilter.swift in Sources */,
 				22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */,
 				6EAD10B71CC139EB00E0A2A0 /* ActivityIndicatorView.swift in Sources */,
+				C0B7FBB21CC45F6700AD376C /* ScholarAnnotation.swift in Sources */,
 				7B4D51981CC110A50072E114 /* Image.swift in Sources */,
 				6E4DD6EC1CBD36AA00B08EE1 /* EditProfileTableViewController.swift in Sources */,
 				7BBA88431CBEA0E80057E9AD /* Int+Timepiece.swift in Sources */,

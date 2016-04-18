@@ -15,7 +15,7 @@ A: It's easy to do with QTree! We've created an QTree Demo Project that will hel
 
 We have bold plans this year including consolidating all the previous batches of scholars known as WWDCStudents and add in the upcoming scholars of 2016.
 
-If you are a previous WWDCScholar or WWDCStudents and wants to contribute to this app, chat with us on [![Join the chat at https://gitter.im/WWDCScholars/WWDCScholars-iOS](https://badges.gitter.im/WWDCScholars/WWDCScholars-iOS.svg)](https://gitter.im/WWDCScholars/WWDCScholars-iOS?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+If you are a previous WWDCScholar or WWDCStudents and wants to contribute to this app, chat with us on [![Join the chat!](https://img.shields.io/badge/WWDCScholars-JOIN%20CHAT-604887.svg)](https://gitter.im/WWDCScholars/WWDCScholarsHQ)
 
 Our previous app for Batch 2015 is located in this repository - https://github.com/WWDCScholars/WWDC-Scholars-iOS-2015
 

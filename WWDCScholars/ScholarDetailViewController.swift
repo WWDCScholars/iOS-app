@@ -16,10 +16,11 @@ class ScholarDetailViewController: UIViewController {
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var profileImageView: UIImageView!
     @IBOutlet private weak var profileImageViewBackground: UIView!
+    @IBOutlet private weak var teamIconImageView: UIImageView!
     
     var currentScholar: Scholar?
     
-    override func viewDidLoad() {        
+    override func viewDidLoad() {
         self.styleUI()
         self.updateUI()
     }
@@ -49,11 +50,16 @@ class ScholarDetailViewController: UIViewController {
     }
     
     private func updateUI() {
-        self.title = currentScholar?.fullName
+        guard let scholar = self.currentScholar else {
+            return
+        }
         
-        self.locationLabel.text = currentScholar?.location.name
-        self.nameLabel.text = currentScholar?.firstName
-        self.profileImageView.af_setImageWithURL(NSURL(string: currentScholar!.profilePicURL)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+        self.title = scholar.fullName
+        
+        self.teamIconImageView.hidden = !CreditsManager.sharedInstance.checkForCredit(scholar)
+        self.locationLabel.text = scholar.location.name
+        self.nameLabel.text = scholar.firstName
+        self.profileImageView.af_setImageWithURL(NSURL(string: scholar.profilePicURL)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
     }
 }
 

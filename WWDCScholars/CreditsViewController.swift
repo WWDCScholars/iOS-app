@@ -13,8 +13,6 @@ class CreditsViewController: UIViewController {
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet weak var ourTeamLabel: UILabel!
     
-    private var credits: [Credit] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,51 +21,17 @@ class CreditsViewController: UIViewController {
         }
 
         self.styleUI()
-        self.getCredits()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == String(ScholarDetailViewController) {
             if let indexPath = sender as? NSIndexPath {
-                if let scholar = self.getScholar(indexPath) {
+                if let scholar = CreditsManager.sharedInstance.getScholar(indexPath) {
                     let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
                     destinationViewController.currentScholar = scholar
                 }
             }
         }
-    }
-    
-    // MARK: - Private Functions
-
-    private func creditsFromArray(items: NSArray) {
-        for item in items as! [NSDictionary] {
-            let scholarName = item["Name"] as! String
-            let scholarLocation = item["Location"] as! String
-            let scholarTasks = item["Tasks"] as! [String]
-            let scholarID = item["ID"] as! String
-            
-            self.credits.append(Credit.getCredit(scholarName, location: scholarLocation, tasks: scholarTasks, image: scholarName, id: scholarID))
-        }
-        
-        self.tableView.reloadData()
-    }
-    
-    private func getCredits() {
-        if let path = NSBundle.mainBundle().pathForResource("Credits", ofType: "plist"), array = NSArray(contentsOfFile: path) {
-            self.credits.removeAll()
-            
-            self.creditsFromArray(array)
-        }
-    }
-    
-    private func getScholar(indexPath: NSIndexPath) -> Scholar? {
-        if let scholarID = self.credits[indexPath.item].id {
-            let scholar = DatabaseManager.sharedInstance.scholarForId(scholarID)
-            
-            return scholar
-        }
-        
-        return nil
     }
     
     // MARK: - UI
@@ -103,12 +67,12 @@ extension CreditsViewController: UIScrollViewDelegate {
 
 extension CreditsViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.credits.count > 0 ? self.credits.count : 0
+        return CreditsManager.sharedInstance.credits.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let creditCell = self.tableView.dequeueReusableCellWithIdentifier("creditCell") as! CreditTableViewCell
-        let currentCredit = self.credits[indexPath.item]
+        let currentCredit = CreditsManager.sharedInstance.credits[indexPath.item]
         let creditNameText = NSMutableAttributedString(string: currentCredit.name)
         let creditLocationText = NSMutableAttributedString(string: " (\(currentCredit.location))")
         
@@ -150,7 +114,7 @@ extension CreditsViewController: UIViewControllerPreviewingDelegate {
             return nil
         }
         
-        let scholar = self.getScholar(indexPath)
+        let scholar = CreditsManager.sharedInstance.getScholar(indexPath)
         previewViewController.currentScholar = scholar
         previewViewController.preferredContentSize = CGSize.zero
         previewingContext.sourceRect = self.view.convertRect(cell.frame, fromView: self.tableView)

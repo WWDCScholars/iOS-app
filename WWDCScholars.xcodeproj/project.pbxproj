@@ -38,6 +38,7 @@
 		6E447DB31CC3E5D100014B12 /* ScreenshotsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E447DB21CC3E5D100014B12 /* ScreenshotsTableViewCell.swift */; };
 		6E4DD6EC1CBD36AA00B08EE1 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */; };
 		6E4DD6EE1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */; };
+		6E9DD6761CC5961F00433193 /* CreditsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9DD6751CC5961F00433193 /* CreditsManager.swift */; };
 		6EAD10B71CC139EB00E0A2A0 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD10B61CC139EB00E0A2A0 /* ActivityIndicatorView.swift */; };
 		6EAD10BA1CC1907700E0A2A0 /* ScholarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD10B91CC1907700E0A2A0 /* ScholarDetailViewController.swift */; };
 		6EAD10BC1CC1A00800E0A2A0 /* BasicDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD10BB1CC1A00800E0A2A0 /* BasicDetailsTableViewCell.swift */; };
@@ -186,6 +187,7 @@
 		6E447DB21CC3E5D100014B12 /* ScreenshotsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotsTableViewCell.swift; sourceTree = "<group>"; };
 		6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotUploadCollectionViewCell.swift; sourceTree = "<group>"; };
+		6E9DD6751CC5961F00433193 /* CreditsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsManager.swift; sourceTree = "<group>"; };
 		6EAD10B61CC139EB00E0A2A0 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		6EAD10B91CC1907700E0A2A0 /* ScholarDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarDetailViewController.swift; sourceTree = "<group>"; };
 		6EAD10BB1CC1A00800E0A2A0 /* BasicDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicDetailsTableViewCell.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 				6EB723D11CB9B84D005A076F /* Credits.plist */,
 				6EB723D21CB9B84D005A076F /* CreditsViewController.swift */,
 				6EB723D31CB9B84D005A076F /* CreditTableViewCell.swift */,
+				6E9DD6751CC5961F00433193 /* CreditsManager.swift */,
 			);
 			name = Credits;
 			sourceTree = "<group>";
@@ -781,6 +784,7 @@
 				22E2A6F51CC1DC2400DF0578 /* Misc.swift in Sources */,
 				7B4D51A01CC110A50072E114 /* UIImage+AlamofireImage.swift in Sources */,
 				7B4D519A1CC110A50072E114 /* ImageDownloader.swift in Sources */,
+				6E9DD6761CC5961F00433193 /* CreditsManager.swift in Sources */,
 				22543B211CB7019A003F9422 /* ChatViewController.swift in Sources */,
 				224355CD1CC1D584001FFAD0 /* SpringButton.swift in Sources */,
 				2236F2971CC29EA500663957 /* DesignableButton.swift in Sources */,

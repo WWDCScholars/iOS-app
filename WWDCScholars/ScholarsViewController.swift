@@ -10,6 +10,11 @@ import UIKit
 import MapKit
 import CoreLocation
 
+enum CurrentViewType {
+    case List
+    case Map
+}
+
 class ScholarsViewController: UIViewController {
     @IBOutlet private weak var yearCollectionView: UICollectionView!
     @IBOutlet private weak var loadingView: ActivityIndicatorView!
@@ -30,8 +35,8 @@ class ScholarsViewController: UIViewController {
     private var currentScholars: [Scholar] = []
     private var loggedIn = false
     private var isMapInitalized = false
-    private var myLocation : CLLocationCoordinate2D?
-    
+    private var myLocation: CLLocationCoordinate2D?
+    private var currentViewType: CurrentViewType = .List
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +55,6 @@ class ScholarsViewController: UIViewController {
         ScholarsKit.sharedInstance.loadScholars({
             self.loadingView.stopAnimating()
             self.allScholars = DatabaseManager.sharedInstance.getAllScholars()
-            self.addScholarToQTree()
             self.getCurrentScholars()
             self.scrollCollectionViewToIndexPath(self.years.count - 1)
         })
@@ -64,6 +68,7 @@ class ScholarsViewController: UIViewController {
             }
         }
     }
+    
     // MARK: - UI
     
     private func styleUI() {
@@ -73,7 +78,6 @@ class ScholarsViewController: UIViewController {
         self.applyExtendedNavigationBarStyle()
         self.leftArrowImageView.tintColor = UIColor.transparentWhiteColor()
         self.rightArrowImageView.tintColor = UIColor.transparentWhiteColor()
-        
     }
     
     private func initialzeMap() {
@@ -81,20 +85,20 @@ class ScholarsViewController: UIViewController {
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.requestWhenInUseAuthorization()
         } else {
-            myLocation = self.mapView.userLocation.coordinate as CLLocationCoordinate2D
+            self.myLocation = self.mapView.userLocation.coordinate as CLLocationCoordinate2D
         }
         
         let zoomRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: 38.8833, longitude: -77.0167), 10000000, 10000000)
         self.mapView.setRegion(zoomRegion, animated: true)
         self.mapView.showsUserLocation = true
         self.mapView.delegate = self
-        self.mapView.mapType = MKMapType.Standard
+        self.mapView.mapType = .Standard
         
         //The "Find me" button
-        let button = UIButton(type: UIButtonType.Custom)
-        button.frame = CGRectMake(UIScreen.mainScreen().bounds.width - 55, self.mapView.frame.size.height - 54, 50, 50)
+        let button = UIButton(type: .Custom)
+        button.frame = CGRect(x: UIScreen.mainScreen().bounds.width - 58, y: self.mapView.frame.size.height - 58, width: 50, height: 50)
         button.setImage(UIImage(named: "MyLocation"), forState: .Normal)
-        button.addTarget(self, action: #selector(ScholarsViewController.buttonAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(ScholarsViewController.buttonAction(_:)), forControlEvents: .TouchUpInside)
         button.layer.shadowOpacity = 0.5
         button.layer.shadowOffset = CGSizeMake(0.0, 0.0)
         button.layer.shadowRadius = 2.0
@@ -106,7 +110,7 @@ class ScholarsViewController: UIViewController {
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+        return .LightContent
     }
     
     // MARK: - IBAction
@@ -121,16 +125,19 @@ class ScholarsViewController: UIViewController {
             self.isMapInitalized = true
         }
         
-        if self.mapView.hidden == true && self.mainView.hidden == false {
-            self.mainView.hidden = true
-            self.mapView.hidden = false
-        } else {
-            self.mapView.hidden = true
-            self.mainView.hidden = false
-        }
+        self.switchView()
     }
     
     // MARK: - Private functions
+    
+    private func switchView() {
+        UIView.animateWithDuration(0.2, animations: {
+            self.mainView.alpha = self.currentViewType == .List ? 0.0 : 1.0
+            self.mapView.alpha = self.currentViewType == .Map ? 0.0 : 1.0
+        })
+        
+        self.currentViewType = self.currentViewType == .List ? .Map : .List
+    }
     
     private func getCurrentScholars(index: Int = 0) {
         let currentYear = self.years[index]
@@ -144,10 +151,13 @@ class ScholarsViewController: UIViewController {
         }
         
         self.scholarsCollectionView.reloadData()
+        self.addScholarToQTree()
     }
     
-    private func addScholarToQTree(){
-        for scholar in self.allScholars {
+    private func addScholarToQTree() {
+        self.qTree.cleanup()
+        
+        for scholar in self.currentScholars {
             let location = scholar.location
             let annotation = ScholarAnnotation(coordinate: CLLocationCoordinate2DMake(location.latitude, location.longitude), title: scholar.fullName, subtitle: location.name)
             self.qTree.insertObject(annotation)
@@ -315,7 +325,6 @@ extension ScholarsViewController: MKMapViewDelegate {
             annotationView!.cluster = annotation
             
             return annotationView
-            
         } else if annotation.isKindOfClass(ScholarAnnotation.classForCoder()) {
             var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier("ScholarAnnotation")
             
@@ -328,8 +337,6 @@ extension ScholarsViewController: MKMapViewDelegate {
                 pinView?.annotation = annotation
             }
             
-//            let imageView = UIImageView(image: UIImage(named: ""))
-//            pinView!.leftCalloutAccessoryView = imageView
             pinView?.image = UIImage(named: "scholarMapAnnotation")
             
             return pinView
@@ -338,32 +345,26 @@ extension ScholarsViewController: MKMapViewDelegate {
         return nil
     }
     
-    
-    func reloadAnnotations(){
-        if self.isViewLoaded() == false {
+    func reloadAnnotations() {
+        guard self.isViewLoaded() else {
             return
         }
         
-        //self.cacheImage?.removeAll(keepCapacity: false)
         let mapRegion = self.mapView.region
         let minNonClusteredSpan = min(mapRegion.span.latitudeDelta, mapRegion.span.longitudeDelta) / 5
         let objects = self.qTree.getObjectsInRegion(mapRegion, minNonClusteredSpan: minNonClusteredSpan) as NSArray
-        //println("objects")
         for object in objects {
             if object.isKindOfClass(QCluster) {
                 let c = object as? QCluster
                 let neighbours = self.qTree.neighboursForLocation((c?.coordinate)!, limitCount: NSInteger((c?.objectsCount)!)) as NSArray
                 for neighbour in neighbours {
-                    //println((nei.title)!!)
-                    
-                    let _ = self.allScholars.filter({
-                        return $0.fullName == (neighbour.title)!!
+                    let _ = self.currentScholars.filter({
+                        return $0.fullName == (neighbour.title)!
                     })
                 }
             } else {
-                //println((object.title)!!)
-                let _ = self.allScholars.filter({
-                    return $0.fullName == (object.title)!!
+                let _ = self.currentScholars.filter({
+                    return $0.fullName == (object.title)!
                 })
             }
         }

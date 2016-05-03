@@ -312,7 +312,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="1087"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIy-Xy-Aq8" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1400"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eXa-qt-OoJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="156"/>
@@ -324,7 +324,7 @@
                                                 </connections>
                                             </mapView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wc2-gU-7gO">
-                                                <rect key="frame" x="0.0" y="156" width="600" height="1044"/>
+                                                <rect key="frame" x="0.0" y="156" width="600" height="1244"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scholar Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oD5-u3-Xnm">
                                                         <rect key="frame" x="8" y="46" width="584" height="21"/>
@@ -345,7 +345,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M4r-gS-Ao6">
-                                                        <rect key="frame" x="8" y="104" width="584" height="932"/>
+                                                        <rect key="frame" x="8" y="104" width="584" height="1132"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="sectionIndexBackgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                                         <prototypes>
@@ -562,17 +562,17 @@
                                                                     <outlet property="contentLabel" destination="s2Q-XZ-RHv" id="vdS-pK-9dH"/>
                                                                 </connections>
                                                             </tableViewCell>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="screenshotsTableViewCell" rowHeight="280" id="Ttx-AP-73h" customClass="ScreenshotsTableViewCell" customModule="WWDCScholars" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="216" width="584" height="280"/>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="screenshotsTableViewCell" rowHeight="296" id="Ttx-AP-73h" customClass="ScreenshotsTableViewCell" customModule="WWDCScholars" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="216" width="584" height="296"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ttx-AP-73h" id="DRE-X7-yHT">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="280"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="296"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysQ-0V-odl">
-                                                                            <rect key="frame" x="0.0" y="4" width="584" height="272"/>
+                                                                            <rect key="frame" x="0.0" y="4" width="584" height="288"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWDC Application" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Le6-ns-lRO">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scholarship App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Le6-ns-lRO">
                                                                                     <rect key="frame" x="8" y="12" width="568" height="21"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="c0f-wC-BWR"/>
@@ -588,7 +588,7 @@
                                                                                     </variation>
                                                                                 </label>
                                                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V2E-9z-1rH">
-                                                                                    <rect key="frame" x="0.0" y="41" width="584" height="231"/>
+                                                                                    <rect key="frame" x="0.0" y="49" width="584" height="231"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="8" minimumInteritemSpacing="8" id="rDX-it-Id6">
                                                                                         <size key="itemSize" width="130" height="231"/>
@@ -645,10 +645,10 @@
                                                                             <constraints>
                                                                                 <constraint firstItem="V2E-9z-1rH" firstAttribute="leading" secondItem="ysQ-0V-odl" secondAttribute="leading" id="8ox-IF-U4B"/>
                                                                                 <constraint firstItem="Le6-ns-lRO" firstAttribute="leading" secondItem="ysQ-0V-odl" secondAttribute="leading" constant="8" id="Uia-EU-BSl"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="V2E-9z-1rH" secondAttribute="bottom" id="WXF-VY-Rdo"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="V2E-9z-1rH" secondAttribute="bottom" constant="8" id="WXF-VY-Rdo"/>
                                                                                 <constraint firstAttribute="trailing" secondItem="V2E-9z-1rH" secondAttribute="trailing" id="etf-YG-pjM"/>
                                                                                 <constraint firstItem="Le6-ns-lRO" firstAttribute="top" secondItem="ysQ-0V-odl" secondAttribute="top" constant="12" id="i6g-cp-DW6"/>
-                                                                                <constraint firstItem="V2E-9z-1rH" firstAttribute="top" secondItem="Le6-ns-lRO" secondAttribute="bottom" constant="8" id="jbX-MM-2xX"/>
+                                                                                <constraint firstItem="V2E-9z-1rH" firstAttribute="top" secondItem="Le6-ns-lRO" secondAttribute="bottom" constant="16" id="jbX-MM-2xX"/>
                                                                                 <constraint firstAttribute="trailing" secondItem="Le6-ns-lRO" secondAttribute="trailing" constant="8" id="qfQ-K7-vBW"/>
                                                                             </constraints>
                                                                         </view>
@@ -679,7 +679,7 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="oD5-u3-Xnm" secondAttribute="trailing" constant="8" id="2kS-QC-vTO"/>
                                                     <constraint firstAttribute="trailing" secondItem="NKq-2g-1bu" secondAttribute="trailing" constant="8" id="4UM-1w-suL"/>
@@ -766,7 +766,7 @@
                             <constraint firstItem="b3f-aM-UIE" firstAttribute="leading" secondItem="iG8-3r-J4v" secondAttribute="leading" id="0B2-7f-3hf"/>
                             <constraint firstItem="pIy-Xy-Aq8" firstAttribute="height" secondItem="iG8-3r-J4v" secondAttribute="height" priority="250" constant="-113" id="Bf9-Rg-xmZ"/>
                             <constraint firstItem="KT5-pF-gXD" firstAttribute="top" secondItem="b3f-aM-UIE" secondAttribute="bottom" id="DAK-gn-ITX"/>
-                            <constraint firstItem="pIy-Xy-Aq8" firstAttribute="height" secondItem="iG8-3r-J4v" secondAttribute="height" id="KXd-kW-aP0"/>
+                            <constraint firstItem="pIy-Xy-Aq8" firstAttribute="height" secondItem="iG8-3r-J4v" secondAttribute="height" constant="200" id="KXd-kW-aP0"/>
                             <constraint firstItem="KT5-pF-gXD" firstAttribute="top" secondItem="b3f-aM-UIE" secondAttribute="bottom" id="Kj6-qO-JfF"/>
                             <constraint firstItem="b3f-aM-UIE" firstAttribute="leading" secondItem="iG8-3r-J4v" secondAttribute="leading" id="Prv-ek-89r"/>
                             <constraint firstItem="b3f-aM-UIE" firstAttribute="top" secondItem="I7c-HC-Kt5" secondAttribute="bottom" id="Tqk-Ju-3Qv"/>
@@ -796,6 +796,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1200"/>
                     <connections>
+                        <outlet property="contentViewHeightConstraint" destination="KXd-kW-aP0" id="hgB-f9-fqA"/>
                         <outlet property="detailsTableView" destination="M4r-gS-Ao6" id="X20-92-Qc8"/>
                         <outlet property="locationLabel" destination="lMc-qU-8MY" id="gxy-Bh-4jT"/>
                         <outlet property="mapView" destination="eXa-qt-OoJ" id="qMr-V5-PuZ"/>

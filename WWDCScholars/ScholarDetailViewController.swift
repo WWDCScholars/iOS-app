@@ -17,6 +17,7 @@ class ScholarDetailViewController: UIViewController {
     @IBOutlet private weak var profileImageView: UIImageView!
     @IBOutlet private weak var profileImageViewBackground: UIView!
     @IBOutlet private weak var teamIconImageView: UIImageView!
+    @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
     
     var currentScholar: Scholar?
     
@@ -32,6 +33,10 @@ class ScholarDetailViewController: UIViewController {
         self.profileImageView.applyRoundedCorners()
         
         self.profileImageView.clipsToBounds = true
+        
+        self.detailsTableView.estimatedRowHeight = 80.0
+        self.detailsTableView.setNeedsLayout()
+        self.detailsTableView.layoutIfNeeded()
         
         self.configureMap()
     }
@@ -105,9 +110,9 @@ extension ScholarDetailViewController: UITableViewDataSource {
         case 0:
             return 70.0
         case 1:
-            return 110.0
+            return UITableViewAutomaticDimension
         case 2:
-            return 280.0
+            return 296.0
         default:
             return 0.0
         }

@@ -93,9 +93,7 @@ class DatabaseManager {
     
     func scholarsForWWDCBatch(wwdc: WWDC) -> Scholars {
         let predicate = NSPredicate(format: "batchWWDCString CONTAINS %@", wwdc.rawValue)
-        let scholars = Array(realm.objects(Scholar).filter(predicate))
-        print (scholars)
-        return scholars
+        return Array(realm.objects(Scholar).filter(predicate))
     }
     
     /**

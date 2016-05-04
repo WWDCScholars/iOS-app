@@ -73,11 +73,7 @@ class Scholar: Object {
     /// Number of times the scholar has been a WWDC Scholar
     dynamic var numberOfTimesWWDCScholar: Int = 0
     /// String version of the batchWWDC, splitted by '|'
-    private dynamic var batchWWDCString: String = "" {
-        didSet {
-            print(batchWWDC)
-        }
-    }
+    private dynamic var batchWWDCString: String = ""
     /// Array of WWDC's the scholar has been to
     var batchWWDC: [WWDC] {
         set {

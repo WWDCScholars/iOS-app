@@ -34,6 +34,10 @@ class ActivityIndicatorView: UIView {
         }
     }
     
+    func isAnimating() -> Bool {
+        return activityIndicator.isAnimating()
+    }
+    
     func stopAnimating() {
         self.layer.removeAllAnimations()
         self.hidden = false

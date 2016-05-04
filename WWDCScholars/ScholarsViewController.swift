@@ -30,8 +30,8 @@ class ScholarsViewController: UIViewController {
     private let locationManager = CLLocationManager()
     
     private lazy var qTree = QTree()
-    
-//    private var allScholars: [Scholar] = []
+
+    private var currentYear: WWDC = .WWDC2016
     private var currentScholars: [Scholar] = []
     private var loggedIn = false
     private var isMapInitalized = false
@@ -40,9 +40,6 @@ class ScholarsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.yearCollectionView.delegate = self
-        self.yearCollectionView.dataSource = self
         
         let longPressGestureRecognizerLoginBarButtomItem = UILongPressGestureRecognizer(target: self, action: #selector(ScholarsViewController.showEditDetailsModal(_:)))
         self.view.addGestureRecognizer(longPressGestureRecognizerLoginBarButtomItem)
@@ -55,18 +52,17 @@ class ScholarsViewController: UIViewController {
             self.registerForPreviewingWithDelegate(self, sourceView: self.view)
         }
         
+        currentYear = years[self.years.count-1]
+        
 //        ScholarsKit.sharedInstance.loadScholars({
-            self.loadingView.stopAnimating()
-//            self.allScholars = DatabaseManager.sharedInstance.getAllScholars()
-            self.getCurrentScholars(self.years.count - 2)
-            self.scrollCollectionViewToIndexPath(self.years.count - 1)
+        
 //        })
         
         ScholarsKit.sharedInstance.loadScholars({
-            self.loadingView.stopAnimating()
-//            self.allScholars = DatabaseManager.sharedInstance.getAllScholars()
-            self.getCurrentScholars(self.years.count - 1)
-            self.scrollCollectionViewToIndexPath(self.years.count - 1)
+            if self.loadingView.isAnimating() {
+                self.loadingView.stopAnimating()
+            }
+            self.getCurrentScholars()
         })
     }
     
@@ -119,6 +115,19 @@ class ScholarsViewController: UIViewController {
         self.mapView.addSubview(button)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if self.loadingView.isAnimating() {
+            self.loadingView.stopAnimating()
+        }
+        self.getCurrentScholars()
+        
+        let index = self.years.indexOf(currentYear)!
+        self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.Left, animated: false)
+        self.updateArrowsForIndex(index)
+    }
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
@@ -139,7 +148,6 @@ class ScholarsViewController: UIViewController {
     }
     
     // MARK: - Private functions
-    
     private func switchView() {
         UIView.animateWithDuration(0.2, animations: {
             self.mainView.alpha = self.currentViewType == .List ? 0.0 : 1.0
@@ -149,10 +157,8 @@ class ScholarsViewController: UIViewController {
         self.currentViewType = self.currentViewType == .List ? .Map : .List
     }
     
-    private func getCurrentScholars(index: Int = 0) {
-        let currentYear = self.years[index]
-        
-        self.currentScholars = DatabaseManager.sharedInstance.scholarsForWWDCBatch(currentYear)
+    private func getCurrentScholars() {
+        self.currentScholars = DatabaseManager.sharedInstance.scholarsForWWDCBatch(self.currentYear)
         
         self.scholarsCollectionView.reloadData()
         self.addScholarToQTree()
@@ -172,7 +178,7 @@ class ScholarsViewController: UIViewController {
 
     private func scrollCollectionViewToIndexPath(index: Int) {
         self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.Left, animated: false)
-//        self.scrollViewDidEndDecelerating(self.yearCollectionView)
+        self.scrollViewDidEndDecelerating(self.yearCollectionView)
     }
     
     private func showSignInModal() {
@@ -208,31 +214,36 @@ class ScholarsViewController: UIViewController {
 
 // MARK: - UIScrollViewDelegate
 
-//extension ScholarsViewController: UIScrollViewDelegate {
-//    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-//        if scrollView == self.yearCollectionView {
-//            //scholarsCollectionView page changed, update scholars list
-//            
-//            let currentIndex = Int(self.yearCollectionView.contentOffset.x / self.yearCollectionView.frame.size.width)
-//            
-////            self.getCurrentScholars(currentIndex-2)
-//            
-//            UIView.animateWithDuration(0.2, animations: {
-//                self.leftArrowImageView.alpha = currentIndex == 0 ? 0.0 : 1.0
-//                self.rightArrowImageView.alpha = currentIndex == self.years.count - 1 ? 0.0 : 1.0
-//            })
-//        }
-//    }
-//    
-//    func scrollViewDidScroll(scrollView: UIScrollView) {
-//        if scrollView == self.yearCollectionView {
-//            UIView.animateWithDuration(0.2, animations: {
-//                self.leftArrowImageView.alpha = 0.0
-//                self.rightArrowImageView.alpha = 0.0
-//            })
-//        }
-//    }
-//}
+extension ScholarsViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        if scrollView == self.yearCollectionView {
+            //scholarsCollectionView page changed, update scholars list
+            
+            let currentIndex = Int(self.yearCollectionView.contentOffset.x / self.view.frame.size.width)
+            self.currentYear = self.years[currentIndex]
+            
+            self.getCurrentScholars()
+            
+            updateArrowsForIndex(currentIndex)
+        }
+    }
+    
+    private func updateArrowsForIndex(currentIndex: Int) {
+        UIView.animateWithDuration(0.2, animations: {
+            self.leftArrowImageView.alpha = currentIndex == 0 ? 0.0 : 1.0
+            self.rightArrowImageView.alpha = currentIndex == self.years.count - 1 ? 0.0 : 1.0
+        })
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView == self.yearCollectionView {
+            UIView.animateWithDuration(0.2, animations: {
+                self.leftArrowImageView.alpha = 0.0
+                self.rightArrowImageView.alpha = 0.0
+            })
+        }
+    }
+}
 
 // MARK: - UICollectionViewDataSource
 

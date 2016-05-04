@@ -83,10 +83,10 @@ class WWDCScholarsUITests: XCTestCase {
         snapshot("4-Blog")
     }
     
-    func testChatScreen(){
-        XCUIApplication().tabBars.buttons["Chat"].tap()
-        snapshot("3-Chat")
-    }
+//    func testChatScreen(){
+//        XCUIApplication().tabBars.buttons["Chat"].tap()
+//        snapshot("3-Chat")
+//    }
     
     func testLoginScreen(){
         let app = XCUIApplication()

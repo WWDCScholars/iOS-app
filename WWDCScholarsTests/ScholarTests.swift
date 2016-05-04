@@ -36,8 +36,7 @@ class ScholarTests: XCTestCase {
         testScholar.id = "testScholar1"
         testScholar.firstName = "Matthijs"
         testScholar.lastName = "Logemann"
-        testScholar.age = 16
-        testScholar.birthday = NSDate()
+        testScholar.birthday = NSDate.date(year: 1999, month: 4, day: 27)
         testScholar.batchWWDC = [.WWDC2015]
         testScholar.email = "matthijs@logicbit.nl"
         testScholar.gender = .Male
@@ -58,8 +57,7 @@ class ScholarTests: XCTestCase {
             XCTAssertTrue(testScholar.firstName == "Matthijs")
             XCTAssertTrue(testScholar.lastName == "Logemann")
             XCTAssertTrue(testScholar.fullName == "Matthijs Logemann")
-            XCTAssertTrue(testScholar.age == 16)
-            //        testScholar.birthday = NSDate()
+            XCTAssertTrue(testScholar.age == 17)
             XCTAssertTrue(testScholar.batchWWDC == [.WWDC2015])
             XCTAssertTrue(testScholar.email == "matthijs@logicbit.nl")
             XCTAssertTrue(testScholar.gender == .Male)

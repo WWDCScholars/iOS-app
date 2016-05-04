@@ -20,7 +20,13 @@ class ScholarsTabBarViewController: UITabBarController {
         self.styleUI()
     }
     
-    //MARK: - UI
+    // MARK: - Internal
+    
+    internal func segueToIntro() {
+        self.performSegueWithIdentifier("IntroViewController", sender: nil)
+    }
+    
+    // MARK: - UI
     
     private func styleUI() {
         self.tabBar.tintColor = UIColor.scholarsPurpleColor()
@@ -28,6 +34,7 @@ class ScholarsTabBarViewController: UITabBarController {
         let image = UIImage(named: "wwdcScholarsTabIcon")!
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
         button.setBackgroundImage(image, forState: UIControlState.Normal)
+        button.addTarget(self, action: #selector(ScholarsTabBarViewController.segueToIntro), forControlEvents: .TouchUpInside)
         
         let heightDifference = image.size.height - self.tabBar.frame.size.height
         

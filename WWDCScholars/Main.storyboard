@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIZ-DC-Vqm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIZ-DC-Vqm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -810,7 +810,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HM3-f4-OGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2838" y="76"/>
+            <point key="canvasLocation" x="2806" y="446"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oN5-kV-qoP">
@@ -853,7 +853,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMh-io-EMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3650" y="-930"/>
+            <point key="canvasLocation" x="2806" y="-630"/>
         </scene>
         <!--Blog-->
         <scene sceneID="gLD-ie-YKb">
@@ -1115,7 +1115,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njt-9R-oCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2029" y="1487"/>
+            <point key="canvasLocation" x="2029" y="1587"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6j6-HL-ckh">
+            <objects>
+                <viewController id="Ket-f0-GSS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="us0-VW-mzo"/>
+                        <viewControllerLayoutGuide type="bottom" id="wan-xw-gpZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dl1-5u-c9Y">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yvo-8d-446" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-475" y="429"/>
         </scene>
         <!--Scholars Tab Bar View Controller-->
         <scene sceneID="52Z-xz-vgA">
@@ -1132,6 +1150,7 @@
                         <segue destination="9jZ-Hk-H9N" kind="relationship" relationship="viewControllers" id="Md7-aM-HbN"/>
                         <segue destination="AqM-9s-UAC" kind="relationship" relationship="viewControllers" id="nE5-jA-7rA"/>
                         <segue destination="Owr-WO-kOn" kind="relationship" relationship="viewControllers" id="ee4-To-k9Z"/>
+                        <segue destination="Ket-f0-GSS" kind="show" identifier="IntroViewController" id="Djt-KS-IXk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wkk-Oy-SFo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2200,6 +2219,6 @@
         <image name="youTubeIconSmall" width="27" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="If2-0g-pPV"/>
+        <segue reference="Yff-U6-LNC"/>
     </inferredMetricsTieBreakers>
 </document>

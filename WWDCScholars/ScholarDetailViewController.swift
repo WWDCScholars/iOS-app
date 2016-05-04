@@ -86,7 +86,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
             }
             
             cell.ageLabel.text = String(currentScholar!.age)
-            cell.countryLabel.text = "Germany"
+            cell.countryLabel.text = currentScholar!.location.name
             cell.attendedLabel.text = attendedString
             
             return cell

@@ -50,10 +50,9 @@ class ScholarsKit {
     }
     
     func parseScholar(json: JSON) -> Scholar? {
-        if let id = json["_id"].string, let latitude = json["latitude"].double, let longitude = json["longtitude"].double, let shortBio = json["shortBio"].string, let location = json["location"].string, let gender = json["gender"].string, let age = json["age"].int, let birthday = json["birthday"].string,let profilePic = json["profilePic"].string, let email = json["email"].string, let lastName = json["lastName"].string, let firstName = json["firstName"].string, let numberOfTimesWWDCScholar = json["numberOfTimesWWDCScholar"].int, let batchWWDC = json["batchWWDC"].array {
+        if let id = json["_id"].string, let latitude = json["latitude"].double, let longitude = json["longtitude"].double, let shortBio = json["shortBio"].string, let location = json["location"].string, let gender = json["gender"].string, let birthday = json["birthday"].string,let profilePic = json["profilePic"].string, let email = json["email"].string, let lastName = json["lastName"].string, let firstName = json["firstName"].string, let numberOfTimesWWDCScholar = json["numberOfTimesWWDCScholar"].int, let batchWWDC = json["batchWWDC"].array {
             let newScholar = Scholar()
             newScholar.id = id
-            newScholar.age = age
             newScholar.email = email
             newScholar.facebookURL = json["facebook"].string
             newScholar.firstName = firstName
@@ -67,7 +66,7 @@ class ScholarsKit {
             newScholar.websiteURL = json["website"].string
             newScholar.batchWWDC = batchWWDC.map { WWDC.forRawValue($0.string!) }
             newScholar.location = Location(name: location, longitude: longitude, latitude: latitude)
-            newScholar.birthday = birthday.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+            newScholar.birthday = birthday.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
             newScholar.profilePicURL = profilePic
             return newScholar
         }else {

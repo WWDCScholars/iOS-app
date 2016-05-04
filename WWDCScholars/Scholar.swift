@@ -46,9 +46,16 @@ class Scholar: Object {
     }
     
     /// The birthday of the scholar
-    dynamic var birthday: NSDate?
+    dynamic var birthday: NSDate = NSDate.today()
     /// The age of the scholar
-    dynamic var age: Int = 0
+    dynamic var age: Int {
+        let ageComponents = NSCalendar.currentCalendar().components(.Year,
+                                                fromDate: birthday,
+                                                toDate: NSDate(),
+                                                options: [])
+        let age = ageComponents.year
+        return age
+    }
     
     /// A short description of him/herself
     dynamic var shortBio: String = ""
@@ -116,6 +123,6 @@ class Scholar: Object {
     }
     
     override static func ignoredProperties() -> [String] {
-        return ["batchWWDC", "location"]
+        return ["batchWWDC", "location", "age"]
     }
 }

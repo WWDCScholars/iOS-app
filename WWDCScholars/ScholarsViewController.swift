@@ -31,7 +31,7 @@ class ScholarsViewController: UIViewController {
     
     private lazy var qTree = QTree()
     
-    private var allScholars: [Scholar] = []
+//    private var allScholars: [Scholar] = []
     private var currentScholars: [Scholar] = []
     private var loggedIn = false
     private var isMapInitalized = false
@@ -41,21 +41,31 @@ class ScholarsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.yearCollectionView.delegate = self
+        self.yearCollectionView.dataSource = self
+        
         let longPressGestureRecognizerLoginBarButtomItem = UILongPressGestureRecognizer(target: self, action: #selector(ScholarsViewController.showEditDetailsModal(_:)))
         self.view.addGestureRecognizer(longPressGestureRecognizerLoginBarButtomItem)
         
         self.styleUI()
-        self.scrollViewDidEndDecelerating(self.yearCollectionView)
+//        self.scrollViewDidEndDecelerating(self.yearCollectionView)
         self.loadingView.startAnimating()
         
         if self.traitCollection.forceTouchCapability == .Available {
             self.registerForPreviewingWithDelegate(self, sourceView: self.view)
         }
         
+//        ScholarsKit.sharedInstance.loadScholars({
+            self.loadingView.stopAnimating()
+//            self.allScholars = DatabaseManager.sharedInstance.getAllScholars()
+            self.getCurrentScholars(self.years.count - 2)
+            self.scrollCollectionViewToIndexPath(self.years.count - 1)
+//        })
+        
         ScholarsKit.sharedInstance.loadScholars({
             self.loadingView.stopAnimating()
-            self.allScholars = DatabaseManager.sharedInstance.getAllScholars()
-            self.getCurrentScholars()
+//            self.allScholars = DatabaseManager.sharedInstance.getAllScholars()
+            self.getCurrentScholars(self.years.count - 1)
             self.scrollCollectionViewToIndexPath(self.years.count - 1)
         })
     }
@@ -142,13 +152,7 @@ class ScholarsViewController: UIViewController {
     private func getCurrentScholars(index: Int = 0) {
         let currentYear = self.years[index]
         
-        self.currentScholars.removeAll()
-        
-        for scholar in self.allScholars {
-            if scholar.batchWWDC.contains(currentYear) {
-                self.currentScholars.append(scholar)
-            }
-        }
+        self.currentScholars = DatabaseManager.sharedInstance.scholarsForWWDCBatch(currentYear)
         
         self.scholarsCollectionView.reloadData()
         self.addScholarToQTree()
@@ -165,10 +169,10 @@ class ScholarsViewController: UIViewController {
         
         self.reloadAnnotations()
     }
-    
+
     private func scrollCollectionViewToIndexPath(index: Int) {
         self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.Left, animated: false)
-        self.scrollViewDidEndDecelerating(self.yearCollectionView)
+//        self.scrollViewDidEndDecelerating(self.yearCollectionView)
     }
     
     private func showSignInModal() {
@@ -204,31 +208,31 @@ class ScholarsViewController: UIViewController {
 
 // MARK: - UIScrollViewDelegate
 
-extension ScholarsViewController: UIScrollViewDelegate {
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        if scrollView == self.yearCollectionView {
-            //scholarsCollectionView page changed, update scholars list
-            
-            let currentIndex = Int(self.yearCollectionView.contentOffset.x / self.yearCollectionView.frame.size.width)
-            
-            self.getCurrentScholars(currentIndex)
-            
-            UIView.animateWithDuration(0.2, animations: {
-                self.leftArrowImageView.alpha = currentIndex == 0 ? 0.0 : 1.0
-                self.rightArrowImageView.alpha = currentIndex == self.years.count - 1 ? 0.0 : 1.0
-            })
-        }
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView == self.yearCollectionView {
-            UIView.animateWithDuration(0.2, animations: {
-                self.leftArrowImageView.alpha = 0.0
-                self.rightArrowImageView.alpha = 0.0
-            })
-        }
-    }
-}
+//extension ScholarsViewController: UIScrollViewDelegate {
+//    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+//        if scrollView == self.yearCollectionView {
+//            //scholarsCollectionView page changed, update scholars list
+//            
+//            let currentIndex = Int(self.yearCollectionView.contentOffset.x / self.yearCollectionView.frame.size.width)
+//            
+////            self.getCurrentScholars(currentIndex-2)
+//            
+//            UIView.animateWithDuration(0.2, animations: {
+//                self.leftArrowImageView.alpha = currentIndex == 0 ? 0.0 : 1.0
+//                self.rightArrowImageView.alpha = currentIndex == self.years.count - 1 ? 0.0 : 1.0
+//            })
+//        }
+//    }
+//    
+//    func scrollViewDidScroll(scrollView: UIScrollView) {
+//        if scrollView == self.yearCollectionView {
+//            UIView.animateWithDuration(0.2, animations: {
+//                self.leftArrowImageView.alpha = 0.0
+//                self.rightArrowImageView.alpha = 0.0
+//            })
+//        }
+//    }
+//}
 
 // MARK: - UICollectionViewDataSource
 
@@ -273,7 +277,7 @@ extension ScholarsViewController: UICollectionViewDelegate {
         if collectionView == self.scholarsCollectionView {
             return CGSize(width: (self.scholarsCollectionView.frame.size.width / 3.0) - 8.0, height: 140.0)
         } else if collectionView == self.yearCollectionView {
-            return CGSize(width: self.yearCollectionView.frame.size.width, height: 50.0)
+            return CGSize(width: self.view.bounds.width, height: 50.0)
         }
         
         return CGSize.zero
@@ -282,6 +286,8 @@ extension ScholarsViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if collectionView == self.scholarsCollectionView {
             self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: indexPath)
+        }else if collectionView == self.yearCollectionView{
+            print (indexPath.row)
         }
     }
 }

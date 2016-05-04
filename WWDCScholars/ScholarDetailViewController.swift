@@ -44,7 +44,10 @@ class ScholarDetailViewController: UIViewController {
     // MARK: - Private functions
     
     private func configureMap() {
-        self.mapView.userInteractionEnabled = false
+        self.mapView.zoomEnabled = false
+        self.mapView.scrollEnabled = false
+        self.mapView.rotateEnabled = false
+        self.mapView.pitchEnabled = false
         
         let camera = MKMapCamera()
         camera.altitude = 7500
@@ -86,7 +89,8 @@ extension ScholarDetailViewController: UITableViewDataSource {
             }
             
             cell.ageLabel.text = String(currentScholar!.age)
-            cell.countryLabel.text = currentScholar!.location.name
+            let locationArr = currentScholar!.location.name.characters.split(",").map(String.init)
+            cell.countryLabel.text = locationArr[locationArr.count-1]
             cell.attendedLabel.text = attendedString
             
             return cell

@@ -49,6 +49,9 @@ class WWDCScholarsUITests: XCTestCase {
         let exists = NSPredicate(format: "exists == 1")
         expectationForPredicate(exists, evaluatedWithObject: cell, handler: nil)
         waitForExpectationsWithTimeout(60, handler: nil)
+        
+        sleep(5)
+
         cell.tap()
 
         snapshot("2-ScholarDetail")
@@ -71,7 +74,7 @@ class WWDCScholarsUITests: XCTestCase {
         
         let app = XCUIApplication()
         app.tabBars.buttons["Credits"].tap()
-        app.scrollViews.otherElements.tables.staticTexts["Oliver Binns (London, UK)"]
+        app.scrollViews.otherElements.tables.staticTexts["Oliver Binns (London, UK)"].swipeUp()
         snapshot("6-Credits")
     }
     
@@ -98,6 +101,13 @@ class WWDCScholarsUITests: XCTestCase {
         let mapiconButton = app.navigationBars["Scholars"].buttons["mapIcon"]
         mapiconButton.tap()
         
+        addUIInterruptionMonitorWithDescription("Location Dialog") { (alert) -> Bool in
+            alert.buttons["Allow"].tap()
+            return true
+        }
+        
+        app.tap() // need to interact with the app for the handler to fire
+
         snapshot("1-Map")
 
     }

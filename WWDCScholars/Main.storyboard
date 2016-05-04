@@ -47,6 +47,7 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-z3-2t2">
                                                             <rect key="frame" x="0.0" y="0.0" width="140" height="170"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="profilePic"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iS7-YN-mvh">
                                                             <rect key="frame" x="0.0" y="140" width="140" height="30"/>

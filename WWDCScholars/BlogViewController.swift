@@ -9,36 +9,61 @@
 import UIKit
 
 class BlogViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+    
+    let exampleImages = [UIImage(named: "example1"),
+                         UIImage(named: "example2"),
+                         UIImage(named: "example3")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        viewSetup()
+        self.styleUI()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.scrollViewDidScroll(self.tableView)
     }
     
+    // MARK: - UI
     
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
-    func viewSetup(){
+    func styleUI() {
         self.title = "Blog"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+}
+
+extension BlogViewController: UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.exampleImages.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("blogPostTableViewCell") as! BlogPostTableViewCell
+        
+        cell.postImageView.image = self.exampleImages[indexPath.item]
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 280.0
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension BlogViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let visibleCells = self.tableView.visibleCells as! [BlogPostTableViewCell]
+        
+        for cell in visibleCells {
+            cell.cellOnTableView(self.tableView, view: self.view)
+        }
     }
 }

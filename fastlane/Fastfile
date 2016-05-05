@@ -34,11 +34,16 @@ platform :ios do
     # scan
   end
 
+  lane :screenshot do
+    snapshot(skip_open_summary: true, devices: ["iPhone 6"])
+  end
+  
   desc "Deploy a new bleeding-edge version to Crashlytics beta"
   lane :crashlytics do
     match(git_url: "git@github.com:WWDCScholars/certificates.git", type: "appstore", readonly: true)
     gym(scheme: "WWDCScholars", silent: true)
     scan
+    snapshot(skip_open_summary: true, devices: ["iPhone 6"])
     # crashlytics
   end
 

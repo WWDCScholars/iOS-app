@@ -11,9 +11,19 @@ sudo gem install fastlane
 fastlane ios test
 ```
 Runs all the tests
-### ios beta
+### ios screenshot
 ```
-fastlane ios beta
+fastlane ios screenshot
+```
+
+### ios crashlytics
+```
+fastlane ios crashlytics
+```
+Deploy a new bleeding-edge version to Crashlytics beta
+### ios testflight
+```
+fastlane ios testflight
 ```
 Submit a new Beta Build to Apple TestFlight
 

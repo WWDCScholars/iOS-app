@@ -9,9 +9,9 @@
 import UIKit
 
 class IntroViewController: UIViewController {
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var contentView: UIView!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var pageControl: UIPageControl!
+    @IBOutlet private weak var contentView: UIView!
     
     private let numberOfScreens: CGFloat = 6
     
@@ -22,12 +22,15 @@ class IntroViewController: UIViewController {
     private var first = "The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. We're not fond of rules. And we have no respect for the status quo."
     private var second = "You can quote us, disagree with us, glorify or vilify us. About the only thing you can't do is ignore us. Because we change things. We push the human race forward."
     private var third = "And while some may see us as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do."
+    private var lastContentOffset = CGPointZero
+    private var textState = 0
+    private var movingTimer: NSTimer?
     
     private var screenSize: CGSize {
         return UIScreen.mainScreen().bounds.size
     }
     
-    @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint! {
+    @IBOutlet private weak var contentViewWidthConstraint: NSLayoutConstraint! {
         didSet {
             self.contentViewWidthConstraint.constant = self.screenSize.width * self.numberOfScreens
         }
@@ -50,7 +53,9 @@ class IntroViewController: UIViewController {
         NSRunLoop.currentRunLoop().addTimer(self.movingTimer!, forMode: NSRunLoopCommonModes)
     }
     
-    func addObjects() {
+    // MARK: - Private functions
+    
+    private func addObjects() {
         self.addQuote()
         self.addParagraph(self.first, atIndex: 0)
         self.addParagraph(self.second, atIndex: 1)
@@ -61,7 +66,7 @@ class IntroViewController: UIViewController {
         self.objects.map() { $0.self.changeObjectToPosition(self.scrollView.contentOffset) }
     }
     
-    func addLogoObject() {
+    private func addLogoObject() {
         let imageView = UIImageView(image: UIImage(named: "wwdcScholarsIcon"))
         imageView.center = CGPoint(x: self.screenSize.width / 2, y: self.screenSize.height / 2)
         self.contentView.addSubview(imageView)
@@ -77,7 +82,7 @@ class IntroViewController: UIViewController {
         self.objects.append(logoObject)
     }
     
-    func addOthersElemts() {
+    private func addOthersElemts() {
         let imageView = UIImageView(image: UIImage(named: "wwdcTextImage"))
         imageView.center = CGPoint(x: self.screenSize.width * 5.5, y: self.screenSize.height / 1.4)
         self.contentView.addSubview(imageView)
@@ -92,7 +97,7 @@ class IntroViewController: UIViewController {
         let startButton = DesignableButton(frame: CGRectMake(0, 0, imageView.frame.width, imageView.frame.height))
         startButton.cornerRadius = 3
         startButton.center = CGPoint(x: self.screenSize.width * 5.5, y: self.screenSize.height / 1.2)
-        startButton.backgroundColor = UIColorFromRGB(0x6C4FA0)
+        startButton.backgroundColor = UIColor.scholarsPurpleColor()
         startButton.setTitle("Welcome", forState: .Normal)
         startButton.addTarget(self, action: #selector(IntroViewController.buttonAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         startButton.layer.cornerRadius = 3
@@ -113,7 +118,7 @@ class IntroViewController: UIViewController {
         self.view.addSubview(swipeLeftImageView)
     }
     
-    func animateSwipeImage(){
+    private func animateSwipeImage() {
         self.swipeLeftImageView.frame.origin.x = self.screenSize.width - 60
         self.swipeLeftImageView.alpha = 0.5
         
@@ -127,14 +132,7 @@ class IntroViewController: UIViewController {
         })
     }
     
-    func buttonAction(sender:UIButton!) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        
-        UserDefaults.hasOpenedApp = true
-    }
-
-    
-    func addQuote() {
+    private func addQuote() {
         let font = UIFont(name: "HelveticaNeue-Thin", size: 24)!
         let firstPartAttributes = AZTextFrameAttributes(string: "Here's ", font: font)
         let secondPartAttributes = AZTextFrameAttributes(string: "   the Crazy Ones", font: font)
@@ -174,7 +172,7 @@ class IntroViewController: UIViewController {
         self.objects.append(anotherQuoteObject)
     }
     
-    func addParagraph(value: String, atIndex index: Int) {
+    private func addParagraph(value: String, atIndex index: Int) {
         let label = UILabel(frame: CGRectMake(0, 0, self.screenSize.width - 16, self.screenSize.height))
         label.center =  CGPoint(x: self.screenSize.width * 0.5, y: 0)
         label.text = value
@@ -204,12 +202,8 @@ class IntroViewController: UIViewController {
         self.objects.append(labelObject)
     }
     
-    var lastContentOffset: CGPoint = CGPointZero
-    var textState = 0
-    var movingTimer: NSTimer?
-    
     @objc
-    func timerStep() {
+    private func timerStep() {
         if self.scrollView.contentOffset.x <= self.screenSize.width * (self.numberOfScreens - 2) {
             self.scrollView.panGestureRecognizer.enabled = false
             self.scrollView.panGestureRecognizer.enabled = true
@@ -223,6 +217,14 @@ class IntroViewController: UIViewController {
                 self.swipeLeftImageView.alpha = 0.5 - (self.scrollView.contentOffset.x - self.screenSize.width) / self.screenSize.width
             }
         }
+    }
+    
+    // MARK: - Internal functions
+    
+    internal func buttonAction(sender:UIButton!) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        UserDefaults.hasOpenedApp = true
     }
 }
 

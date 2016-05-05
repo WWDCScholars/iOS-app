@@ -51,6 +51,11 @@
 		6EBCAD191CDACE170056D1CF /* BlogPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBCAD181CDACE170056D1CF /* BlogPostTableViewCell.swift */; };
 		6ED9264B1CBEF2FC0082FCFE /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9264A1CBEF2FC0082FCFE /* UIImage+Color.swift */; };
 		6ED926521CBF0BEE0082FCFE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED926511CBF0BEE0082FCFE /* MapKit.framework */; };
+		6EEA891F1CDBE15B00245445 /* NSString+Morphing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA891C1CDBE15B00245445 /* NSString+Morphing.m */; };
+		6EEA89201CDBE15B00245445 /* TOMSMorphingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA891E1CDBE15B00245445 /* TOMSMorphingLabel.m */; };
+		6EEA89251CDBE21C00245445 /* AZTextHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA89221CDBE21C00245445 /* AZTextHeight.swift */; };
+		6EEA89261CDBE21C00245445 /* TutorialObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA89231CDBE21C00245445 /* TutorialObject.swift */; };
+		6EEA89271CDBE21C00245445 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA89241CDBE21C00245445 /* IntroViewController.swift */; };
 		7B2AA6E01CBAE7530025EC7B /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */; };
 		7B2AA6EE1CBAE75B0025EC7B /* WWDCScholarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6ED1CBAE75B0025EC7B /* WWDCScholarsUITests.swift */; };
 		7B447BA01CDA7233008BD069 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B447B9F1CDA7233008BD069 /* SnapshotHelper.swift */; };
@@ -202,6 +207,13 @@
 		6EBCAD181CDACE170056D1CF /* BlogPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostTableViewCell.swift; sourceTree = "<group>"; };
 		6ED9264A1CBEF2FC0082FCFE /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		6ED926511CBF0BEE0082FCFE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6EEA891B1CDBE15B00245445 /* NSString+Morphing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Morphing.h"; sourceTree = "<group>"; };
+		6EEA891C1CDBE15B00245445 /* NSString+Morphing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Morphing.m"; sourceTree = "<group>"; };
+		6EEA891D1CDBE15B00245445 /* TOMSMorphingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOMSMorphingLabel.h; sourceTree = "<group>"; };
+		6EEA891E1CDBE15B00245445 /* TOMSMorphingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOMSMorphingLabel.m; sourceTree = "<group>"; };
+		6EEA89221CDBE21C00245445 /* AZTextHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZTextHeight.swift; sourceTree = "<group>"; };
+		6EEA89231CDBE21C00245445 /* TutorialObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialObject.swift; sourceTree = "<group>"; };
+		6EEA89241CDBE21C00245445 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		7B2AA6DD1CBAE7530025EC7B /* WWDCScholarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsTests.swift; sourceTree = "<group>"; };
 		7B2AA6E11CBAE7530025EC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -340,6 +352,7 @@
 		2238841F1C8252D900A96752 /* WWDCScholars */ = {
 			isa = PBXGroup;
 			children = (
+				6EEA89211CDBE1F500245445 /* Intro */,
 				6EAD10B81CC1905F00E0A2A0 /* Details */,
 				7BBA876C1CBD4AA00057E9AD /* API */,
 				7BBA87661CBD352B0057E9AD /* Utils */,
@@ -455,6 +468,27 @@
 			name = Details;
 			sourceTree = "<group>";
 		};
+		6EEA891A1CDBE13D00245445 /* TOMSMorphingLabel */ = {
+			isa = PBXGroup;
+			children = (
+				6EEA891B1CDBE15B00245445 /* NSString+Morphing.h */,
+				6EEA891C1CDBE15B00245445 /* NSString+Morphing.m */,
+				6EEA891D1CDBE15B00245445 /* TOMSMorphingLabel.h */,
+				6EEA891E1CDBE15B00245445 /* TOMSMorphingLabel.m */,
+			);
+			name = TOMSMorphingLabel;
+			sourceTree = "<group>";
+		};
+		6EEA89211CDBE1F500245445 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				6EEA89221CDBE21C00245445 /* AZTextHeight.swift */,
+				6EEA89231CDBE21C00245445 /* TutorialObject.swift */,
+				6EEA89241CDBE21C00245445 /* IntroViewController.swift */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
 		7B2AA6DE1CBAE7530025EC7B /* WWDCScholarsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +555,7 @@
 		7BBA87A21CBD5D680057E9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6EEA891A1CDBE13D00245445 /* TOMSMorphingLabel */,
 				7B4D518C1CC110A50072E114 /* Source */,
 				6E4DD6F01CBD476200B08EE1 /* FloatLabelTextField */,
 				6ED926511CBF0BEE0082FCFE /* MapKit.framework */,
@@ -770,11 +805,14 @@
 				223884231C8252D900A96752 /* ScholarsViewController.swift in Sources */,
 				7BBA881B1CBD8AC90057E9AD /* ResponseSerialization.swift in Sources */,
 				C0B7FBAE1CC45C9700AD376C /* QTreeGeometryUtils.m in Sources */,
+				6EEA89201CDBE15B00245445 /* TOMSMorphingLabel.m in Sources */,
 				6E1F6D5D1CC1B2F2002D17DB /* BioTableViewCell.swift in Sources */,
 				7BBA88151CBD8AC90057E9AD /* MultipartFormData.swift in Sources */,
 				C0B7FBAC1CC45C9700AD376C /* QNode.m in Sources */,
 				7BBA876E1CBD4ADB0057E9AD /* ScholarsKit.swift in Sources */,
+				6EEA89261CDBE21C00245445 /* TutorialObject.swift in Sources */,
 				7BBA87C81CBD7A860057E9AD /* SwiftyJSON.swift in Sources */,
+				6EEA89251CDBE21C00245445 /* AZTextHeight.swift in Sources */,
 				7BBA87681CBD35430057E9AD /* StringUtils.swift in Sources */,
 				6EAD10BA1CC1907700E0A2A0 /* ScholarDetailViewController.swift in Sources */,
 				22E2A6F31CC1DBE300DF0578 /* Spring.swift in Sources */,
@@ -789,6 +827,7 @@
 				C0B7FBAA1CC45C9700AD376C /* ClusterAnnotationView.m in Sources */,
 				22E2A6F51CC1DC2400DF0578 /* Misc.swift in Sources */,
 				7B4D51A01CC110A50072E114 /* UIImage+AlamofireImage.swift in Sources */,
+				6EEA89271CDBE21C00245445 /* IntroViewController.swift in Sources */,
 				7B4D519A1CC110A50072E114 /* ImageDownloader.swift in Sources */,
 				6E9DD6761CC5961F00433193 /* CreditsManager.swift in Sources */,
 				22543B211CB7019A003F9422 /* ChatViewController.swift in Sources */,
@@ -837,6 +876,7 @@
 				6EBCAD191CDACE170056D1CF /* BlogPostTableViewCell.swift in Sources */,
 				7B4D519B1CC110A50072E114 /* ImageFilter.swift in Sources */,
 				22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */,
+				6EEA891F1CDBE15B00245445 /* NSString+Morphing.m in Sources */,
 				6EAD10B71CC139EB00E0A2A0 /* ActivityIndicatorView.swift in Sources */,
 				C0B7FBB21CC45F6700AD376C /* ScholarAnnotation.swift in Sources */,
 				7B4D51981CC110A50072E114 /* Image.swift in Sources */,

@@ -6,3 +6,4 @@
 #import "QTree.h"
 #import "QCluster.h"
 #import "ClusterAnnotationView.h"
+#import "TOMSMorphingLabel.h"

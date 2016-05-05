@@ -12,6 +12,7 @@ class BlogPostTableViewCell: UITableViewCell {
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var postAuthorLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var postDetailsContainerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,10 +23,15 @@ class BlogPostTableViewCell: UITableViewCell {
     // MARK: - UI
     
     private func styleUI() {
-        self.postImageView.clipsToBounds = true
-        self.postImageView.layer.masksToBounds = true
+        let blurEffect = UIBlurEffect(style: .Dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.postDetailsContainerView.bounds
+        blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        blurEffectView.alpha = 0.75
         
-        self.contentView.backgroundColor = UIColor.whiteColor()
+        self.postDetailsContainerView.addSubview(blurEffectView)
+        self.postDetailsContainerView.bringSubviewToFront(self.postTitleLabel)
+        self.postDetailsContainerView.bringSubviewToFront(self.postAuthorLabel)
     }
     
     // MARK: - Public Functions

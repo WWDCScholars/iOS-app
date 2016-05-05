@@ -45,23 +45,19 @@ class ScholarsViewController: UIViewController {
         self.view.addGestureRecognizer(longPressGestureRecognizerLoginBarButtomItem)
         
         self.styleUI()
-//        self.scrollViewDidEndDecelerating(self.yearCollectionView)
         self.loadingView.startAnimating()
         
         if self.traitCollection.forceTouchCapability == .Available {
             self.registerForPreviewingWithDelegate(self, sourceView: self.view)
         }
         
-        currentYear = years[self.years.count-1]
-        
-//        ScholarsKit.sharedInstance.loadScholars({
-        
-//        })
+        self.currentYear = years[self.years.count - 1]
         
         ScholarsKit.sharedInstance.loadScholars({
             if self.loadingView.isAnimating() {
                 self.loadingView.stopAnimating()
             }
+            
             self.getCurrentScholars()
         })
     }
@@ -121,10 +117,11 @@ class ScholarsViewController: UIViewController {
         if self.loadingView.isAnimating() {
             self.loadingView.stopAnimating()
         }
+        
         self.getCurrentScholars()
         
-        let index = self.years.indexOf(currentYear)!
-        self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.Left, animated: false)
+        let index = self.years.indexOf(self.currentYear)!
+        self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: .Left, animated: false)
         self.updateArrowsForIndex(index)
     }
     
@@ -148,6 +145,7 @@ class ScholarsViewController: UIViewController {
     }
     
     // MARK: - Private functions
+    
     private func switchView() {
         UIView.animateWithDuration(0.2, animations: {
             self.mainView.alpha = self.currentViewType == .List ? 0.0 : 1.0
@@ -223,8 +221,7 @@ extension ScholarsViewController: UIScrollViewDelegate {
             self.currentYear = self.years[currentIndex]
             
             self.getCurrentScholars()
-            
-            updateArrowsForIndex(currentIndex)
+            self.updateArrowsForIndex(currentIndex)
         }
     }
     
@@ -297,8 +294,8 @@ extension ScholarsViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if collectionView == self.scholarsCollectionView {
             self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: indexPath)
-        }else if collectionView == self.yearCollectionView{
-            print (indexPath.row)
+        } else if collectionView == self.yearCollectionView {
+            print(indexPath.row)
         }
     }
 }

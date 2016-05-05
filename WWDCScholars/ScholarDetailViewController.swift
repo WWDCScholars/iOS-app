@@ -102,7 +102,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
             return cell
         case 2:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("screenshotsTableViewCell") as! ScreenshotsTableViewCell
-            
+                        
             return cell
         default:
             return UITableViewCell()

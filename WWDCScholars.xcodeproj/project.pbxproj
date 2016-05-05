@@ -48,6 +48,7 @@
 		6EB723D61CB9B84D005A076F /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB723D21CB9B84D005A076F /* CreditsViewController.swift */; };
 		6EB723D71CB9B84D005A076F /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB723D31CB9B84D005A076F /* CreditTableViewCell.swift */; };
 		6EB723D91CB9B85B005A076F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB723D81CB9B85B005A076F /* Assets.xcassets */; };
+		6EBCAD191CDACE170056D1CF /* BlogPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBCAD181CDACE170056D1CF /* BlogPostTableViewCell.swift */; };
 		6ED9264B1CBEF2FC0082FCFE /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9264A1CBEF2FC0082FCFE /* UIImage+Color.swift */; };
 		6ED926521CBF0BEE0082FCFE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED926511CBF0BEE0082FCFE /* MapKit.framework */; };
 		7B2AA6E01CBAE7530025EC7B /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */; };
@@ -198,6 +199,7 @@
 		6EB723D21CB9B84D005A076F /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		6EB723D31CB9B84D005A076F /* CreditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
 		6EB723D81CB9B85B005A076F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6EBCAD181CDACE170056D1CF /* BlogPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostTableViewCell.swift; sourceTree = "<group>"; };
 		6ED9264A1CBEF2FC0082FCFE /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		6ED926511CBF0BEE0082FCFE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7B2AA6DD1CBAE7530025EC7B /* WWDCScholarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -368,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				22543B1E1CB70182003F9422 /* BlogViewController.swift */,
+				6EBCAD181CDACE170056D1CF /* BlogPostTableViewCell.swift */,
 			);
 			name = Blog;
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 				7BBA88211CBD8AC90057E9AD /* Validation.swift in Sources */,
 				6ED9264B1CBEF2FC0082FCFE /* UIImage+Color.swift in Sources */,
 				224355D31CC1D624001FFAD0 /* DragDropBehavior.swift in Sources */,
+				6EBCAD191CDACE170056D1CF /* BlogPostTableViewCell.swift in Sources */,
 				7B4D519B1CC110A50072E114 /* ImageFilter.swift in Sources */,
 				22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */,
 				6EAD10B71CC139EB00E0A2A0 /* ActivityIndicatorView.swift in Sources */,

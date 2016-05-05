@@ -23,6 +23,15 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2238841C1C8252D900A96752"
+            BuildableName = "WWDCScholars.app"
+            BlueprintName = "WWDCScholars"
+            ReferencedContainer = "container:WWDCScholars.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

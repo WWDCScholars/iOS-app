@@ -54,7 +54,7 @@ class WWDCScholarsUITests: XCTestCase {
 
         cell.tap()
 
-        snapshot("2-ScholarDetail")
+        snapshot("2-ScholarDetail", waitForLoadingIndicator: false)
     }
     
     func testScholarsOverviewScreen() {
@@ -67,7 +67,7 @@ class WWDCScholarsUITests: XCTestCase {
         let app = XCUIApplication()
         app.tabBars.buttons["Scholars"].tap()
         app.collectionViews.staticTexts["2016"].swipeRight()
-        snapshot("0-ScholarsOverview")
+        snapshot("0-ScholarsOverview", waitForLoadingIndicator: false)
     }
     
     func testCreditsScreen(){
@@ -75,24 +75,24 @@ class WWDCScholarsUITests: XCTestCase {
         let app = XCUIApplication()
         app.tabBars.buttons["Credits"].tap()
         app.scrollViews.otherElements.tables.staticTexts["Oliver Binns (London, UK)"].swipeUp()
-        snapshot("6-Credits")
+        snapshot("6-Credits", waitForLoadingIndicator: false)
     }
     
-//    func testBlogScreen(){
-//        XCUIApplication().tabBars.buttons["Blog"].tap()
-//        snapshot("4-Blog")
-//    }
+    func testBlogScreen(){
+        XCUIApplication().tabBars.buttons["Blog"].tap()
+        snapshot("4-Blog", waitForLoadingIndicator: false)
+    }
     
-//    func testChatScreen(){
-//        XCUIApplication().tabBars.buttons["Chat"].tap()
-//        snapshot("3-Chat")
-//    }
+    func testChatScreen(){
+        XCUIApplication().tabBars.buttons["Chat"].tap()
+        snapshot("3-Chat", waitForLoadingIndicator: false)
+    }
     
     func testLoginScreen(){
         let app = XCUIApplication()
         app.tabBars.buttons["Scholars"].tap()
         app.navigationBars["Scholars"].buttons["barButtonItemIconAccountFilled"].tap()
-        snapshot("7-Login")
+        snapshot("7-Login", waitForLoadingIndicator: false)
     }
     
     func testMapScreen(){
@@ -108,7 +108,7 @@ class WWDCScholarsUITests: XCTestCase {
         
         app.tap() // need to interact with the app for the handler to fire
 
-        snapshot("1-Map")
+        snapshot("1-Map", waitForLoadingIndicator: false)
 
     }
     

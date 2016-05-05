@@ -62,6 +62,12 @@ class ScholarsViewController: UIViewController {
         })
     }
     
+    override func viewDidAppear(animated: Bool) {
+        if !UserDefaults.hasOpenedApp {
+            self.performSegueWithIdentifier(String(IntroViewController), sender: nil)
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == String(ScholarDetailViewController) {
             if let indexPath = sender as? NSIndexPath {
@@ -99,7 +105,7 @@ class ScholarsViewController: UIViewController {
         //The "Find me" button
         let button = UIButton(type: .Custom)
         button.frame = CGRect(x: UIScreen.mainScreen().bounds.width - 58, y: self.mapView.frame.size.height - 58, width: 50, height: 50)
-        button.setImage(UIImage(named: "MyLocation"), forState: .Normal)
+        button.setImage(UIImage(named: "myLocation"), forState: .Normal)
         button.addTarget(self, action: #selector(ScholarsViewController.buttonAction(_:)), forControlEvents: .TouchUpInside)
         button.layer.shadowOpacity = 0.5
         button.layer.shadowOffset = CGSizeMake(0.0, 0.0)

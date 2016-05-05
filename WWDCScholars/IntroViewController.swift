@@ -129,6 +129,8 @@ class IntroViewController: UIViewController {
     
     func buttonAction(sender:UIButton!) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        
+        UserDefaults.hasOpenedApp = true
     }
 
     

@@ -23,7 +23,7 @@ class ScholarsTabBarViewController: UITabBarController {
     // MARK: - Internal
     
     internal func segueToIntro() {
-        self.performSegueWithIdentifier("IntroViewController", sender: nil)
+        self.performSegueWithIdentifier(String(IntroViewController), sender: nil)
     }
     
     // MARK: - UI

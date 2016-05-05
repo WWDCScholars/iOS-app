@@ -23,9 +23,9 @@ enum TutorialObjectAction: Equatable {
     
     var intValue: Int {
         switch self {
-        case let .ChangeAlpha(value: value):
+        case .ChangeAlpha(value: _):
             return 0
-        case let .Resize(size: value):
+        case .Resize(size: _):
             return 1
         }
     }
@@ -163,8 +163,10 @@ class TutorialObject {
         return actions[position] ?? []
     }
     
-    func changeObjectToPosition(var position: CGPoint) {
-        position.x += startPosition.x
+    func changeObjectToPosition(position: CGPoint) {
+        var newPosition = position
+        
+        newPosition.x += startPosition.x
         
         if needToRecalculateActions {
             recalculateActions()
@@ -177,10 +179,10 @@ class TutorialObject {
         
         var index = -1
         for point in points {
-            if point.x >= position.x {
+            if point.x >= newPosition.x {
                 break
             }
-            index++
+            index += 1
         }
         
         if index == -1 {
@@ -194,7 +196,7 @@ class TutorialObject {
         } else {
             let firstPoint = points[index]
             let secondPoint = points[index + 1]
-            let delta = 1 - (secondPoint.x - position.x) / (secondPoint.x - firstPoint.x)
+            let delta = 1 - (secondPoint.x - newPosition.x) / (secondPoint.x - firstPoint.x)
             
             object.center = CGPoint(x: firstPoint.x + (secondPoint.x - firstPoint.x) * delta, y: firstPoint.y + (secondPoint.y - firstPoint.y) * delta)
             

@@ -292,6 +292,7 @@
                         <outlet property="yearCollectionView" destination="B2q-nj-isb" id="pfX-JR-0Xz"/>
                         <segue destination="Xz8-ge-7L5" kind="show" identifier="ScholarDetailViewController" id="If2-0g-pPV"/>
                         <segue destination="Qzr-e9-s5U" kind="show" id="4is-YC-Q63"/>
+                        <segue destination="Ket-f0-GSS" kind="presentation" identifier="IntroViewController" id="UF7-DQ-LBe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -2385,6 +2386,7 @@
         <image name="youTubeIconSmall" width="27" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yff-U6-LNC"/>
+        <segue reference="UF7-DQ-LBe"/>
+        <segue reference="If2-0g-pPV"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -48,6 +48,8 @@ class IntroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.leftArrowImageView.alpha = 0.0
+
         self.addObjects()
         self.pageControl.numberOfPages = Int(self.numberOfScreens - 1)
     }
@@ -162,10 +164,13 @@ extension IntroViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if self.scrollView.contentOffset.x >= (self.screenSize.width * (self.numberOfScreens - 2)) + self.screenSize.width / 2 {
-            UserDefaults.hasOpenedApp = true
             
             self.modalTransitionStyle = .CrossDissolve
-            self.dismissViewControllerAnimated(true, completion: nil)
+            if UserDefaults.hasOpenedApp {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }else {
+                self.performSegueWithIdentifier(String(ScholarsTabBarViewController), sender: self)
+            }
         }
         
         self.updatePageControl()

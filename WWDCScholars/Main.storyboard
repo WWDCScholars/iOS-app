@@ -37,15 +37,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYj-Zb-Qv2" userLabel="Main View">
                                 <rect key="frame" x="0.0" y="114" width="600" height="437"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" placeholder="Search Scholars" translatesAutoresizingMaskIntoConstraints="NO" id="M21-50-eS2">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="v7y-Do-k5a"/>
-                                        </connections>
-                                    </searchBar>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gdy-v7-k9Z">
-                                        <rect key="frame" x="0.0" y="44" width="592" height="393"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="592" height="437"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="-8" maxY="0.0"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="Ctt-Bb-9hm">
@@ -102,10 +95,17 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="hyA-UG-CE0"/>
                                         </connections>
                                     </collectionView>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Scholars" translatesAutoresizingMaskIntoConstraints="NO" id="M21-50-eS2">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="v7y-Do-k5a"/>
+                                        </connections>
+                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="gdy-v7-k9Z" firstAttribute="top" secondItem="M21-50-eS2" secondAttribute="bottom" id="2GQ-ZP-ZHF"/>
+                                    <constraint firstItem="gdy-v7-k9Z" firstAttribute="top" secondItem="M21-50-eS2" secondAttribute="bottom" constant="-44" id="2GQ-ZP-ZHF"/>
                                     <constraint firstItem="gdy-v7-k9Z" firstAttribute="top" secondItem="jYj-Zb-Qv2" secondAttribute="top" id="7va-Ym-BxU"/>
                                     <constraint firstItem="M21-50-eS2" firstAttribute="top" secondItem="jYj-Zb-Qv2" secondAttribute="top" id="MfV-th-vMR"/>
                                     <constraint firstAttribute="trailing" secondItem="gdy-v7-k9Z" secondAttribute="trailing" constant="8" id="Smw-hd-DHA"/>

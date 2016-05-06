@@ -88,6 +88,8 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     // MARK: - UI
     
     private func configureUI() {
+        self.scholarsCollectionView.contentInset = UIEdgeInsets(top: 44.0, left: 0.0, bottom: 0.0, right: 0.0)
+        
         let longPressGestureRecognizerLoginBarButtomItem = UILongPressGestureRecognizer(target: self, action: #selector(ScholarsViewController.showEditDetailsModal(_:)))
         self.view.addGestureRecognizer(longPressGestureRecognizerLoginBarButtomItem)
      
@@ -333,7 +335,7 @@ extension ScholarsViewController: UIScrollViewDelegate {
                 self.rightArrowImageView.alpha = 0.0
             })
         } else if scrollView == self.scholarsCollectionView {
-            self.searchBar.frame.origin.y = -scrollView.contentOffset.y
+            self.searchBar.frame.origin.y = -scrollView.contentOffset.y - 44.0
         }
     }
 }

@@ -19,7 +19,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
 
         self.styleUI()
-                
+        
+        //UserDefaults.hasOpenedApp = false
+        
+        if let window = self.window{
+            
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            var contentVC: UIViewController?
+            
+            if UserDefaults.hasOpenedApp {
+                let mainViewController: ScholarsTabBarViewController = mainStoryboard.instantiateViewControllerWithIdentifier(String(ScholarsTabBarViewController)) as! ScholarsTabBarViewController
+                contentVC = mainViewController
+            }else{
+                let introViewController: IntroViewController = mainStoryboard.instantiateViewControllerWithIdentifier(String(IntroViewController)) as! IntroViewController
+                contentVC = introViewController
+            }
+            
+            // Make it a root controller
+            //
+            window.backgroundColor = UIColor.whiteColor()
+            window.rootViewController = contentVC
+            window.makeKeyAndVisible()
+        }
+        
         return true
     }
     

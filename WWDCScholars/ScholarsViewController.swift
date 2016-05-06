@@ -40,9 +40,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     private var isMapInitalized = false
     private var myLocation: CLLocationCoordinate2D?
     private var currentViewType: CurrentViewType = .List
-    
     private var mapViewVisible = false
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +100,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
             self.myLocation = self.mapView.userLocation.coordinate as CLLocationCoordinate2D
         }
         
-        let zoomRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: 38.8833, longitude: -77.0167), 10000000, 10000000)
+        let zoomRegion = MKCoordinateRegionMakeWithDistance(self.mapView.centerCoordinate, 10000000.0, 10000000.0)
         self.mapView.setRegion(zoomRegion, animated: true)
         self.mapView.showsUserLocation = true
         self.mapView.delegate = self
@@ -110,7 +108,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         
         //The "Find me" button
         let button = UIButton(type: .Custom)
-        button.frame = CGRect(x: UIScreen.mainScreen().bounds.width - 50, y: self.mapView.frame.size.height - 50, width: 33, height: 33)
+        button.frame = CGRect(x: UIScreen.mainScreen().bounds.width - 41, y: 8, width: 33, height: 33)
         button.setImage(UIImage(named: "locationButton"), forState: .Normal)
         button.addTarget(self, action: #selector(ScholarsViewController.buttonAction(_:)), forControlEvents: .TouchUpInside)
         button.layer.shadowOpacity = 0.5
@@ -118,7 +116,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         button.layer.shadowRadius = 2.0
         button.layer.cornerRadius = button.frame.width / 2.0
         button.layer.masksToBounds = true
-        button.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
+        button.backgroundColor = UIColor.scholarsPurpleColor()
         
         self.mapView.addSubview(button)
     }

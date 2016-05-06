@@ -66,12 +66,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         })
     }
     
-    override func viewDidAppear(animated: Bool) {
-        if !UserDefaults.hasOpenedApp {
-            self.performSegueWithIdentifier(String(IntroViewController), sender: nil)
-        }
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == String(ScholarDetailViewController) {
             if let indexPath = sender as? NSIndexPath {

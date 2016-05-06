@@ -24,7 +24,7 @@ public class DragDropBehavior : NSObject {
     @IBOutlet public var targetView : UIView! {
         didSet {
             if let targetView = targetView {
-                self.panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handleGesture:")
+                self.panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(DragDropBehavior.handleGesture(_:)))
                 targetView.addGestureRecognizer(self.panGestureRecognizer)
             }
         }
@@ -43,7 +43,7 @@ public class DragDropBehavior : NSObject {
         let boxLocation = sender.locationInView(targetView)
 
         if sender.state == UIGestureRecognizerState.Began {
-            animator.removeBehavior(snapBehavior)
+           // animator.removeBehavior(snapBehavior)
 
             let centerOffset = UIOffsetMake(boxLocation.x - CGRectGetMidX(targetView.bounds), boxLocation.y - CGRectGetMidY(targetView.bounds));
             attachmentBehavior = UIAttachmentBehavior(item: targetView, offsetFromCenter: centerOffset, attachedToAnchor: location)

@@ -117,16 +117,16 @@ class ScholarDetailViewController: UIViewController {
         
         self.title = scholar.fullName
         
+        self.setFavoriteImage(UserDefaults.favorites.contains(self.currentScholar!.id))
         self.teamIconImageView.hidden = !CreditsManager.sharedInstance.checkForCredit(scholar)
         self.locationLabel.text = scholar.location.name
         self.nameLabel.text = scholar.firstName + " " + scholar.lastName
         self.profileImageView.af_setImageWithURL(NSURL(string: scholar.profilePicURL)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
-        
-        if UserDefaults.favorites.contains(self.currentScholar!.id) {
-            self.favoritesButton.image = UIImage(named: "favouriteFilled")
-        } else {
-            self.favoritesButton.image = UIImage(named: "favouriteUnfilled")
-        }
+    }
+    
+    private func setFavoriteImage(filled: Bool) {
+        self.favoritesButton.image = UIImage(named: filled ? "favouriteFilled" : "favouriteUnfilled")
+        self.favoritesButton.tintColor = filled ? UIColor.goldColor() : UIColor.whiteColor()
     }
     
     // MARK: - IBActions
@@ -134,12 +134,12 @@ class ScholarDetailViewController: UIViewController {
     @IBAction func favoriteButtonTapped(sender: AnyObject) {
         let indexOfFavorite = UserDefaults.favorites.indexOf(self.currentScholar!.id)
         
+        self.setFavoriteImage(indexOfFavorite == nil)
+        
         if indexOfFavorite == nil {
             UserDefaults.favorites.append(self.currentScholar!.id)
-            self.favoritesButton.image = UIImage(named: "favouriteFilled")
         } else {
             UserDefaults.favorites.removeAtIndex(indexOfFavorite!)
-            self.favoritesButton.image = UIImage(named: "favouriteUnfilled")
         }
     }
 }

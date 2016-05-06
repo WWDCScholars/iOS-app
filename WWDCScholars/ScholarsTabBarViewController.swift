@@ -10,9 +10,8 @@ import UIKit
 import AVFoundation
 
 class ScholarsTabBarViewController: UITabBarController {
-    var tapSoundEffect: AVAudioPlayer!
-    
-    var session = AVAudioSession.sharedInstance()
+    private var tapSoundEffect: AVAudioPlayer!
+    private var session = AVAudioSession.sharedInstance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +50,6 @@ class ScholarsTabBarViewController: UITabBarController {
     }
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-               
-        
         do {
            try session.setCategory(AVAudioSessionCategoryAmbient)
         } catch {

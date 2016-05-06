@@ -79,8 +79,9 @@
 		<string>Stuttgart, Germany</string>
 		<key>Tasks</key>
 		<array>
-			<string>Design</string>
 			<string>iOS</string>
+			<string>Design</string>
+			<string>Apple Watch</string>
 		</array>
 	</dict>
 	<dict>

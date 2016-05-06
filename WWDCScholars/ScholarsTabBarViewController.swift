@@ -30,6 +30,7 @@ class ScholarsTabBarViewController: UITabBarController {
     
     private func styleUI() {
         self.tabBar.tintColor = UIColor.scholarsPurpleColor()
+        self.tabBar.items![2].enabled = false
         
         let image = UIImage(named: "wwdcScholarsTabIcon")!
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))

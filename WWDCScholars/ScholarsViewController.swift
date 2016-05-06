@@ -48,18 +48,8 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let longPressGestureRecognizerLoginBarButtomItem = UILongPressGestureRecognizer(target: self, action: #selector(ScholarsViewController.showEditDetailsModal(_:)))
-        self.view.addGestureRecognizer(longPressGestureRecognizerLoginBarButtomItem)
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ScholarsViewController.dismissKeyboard))
-        self.view.addGestureRecognizer(tapGestureRecognizer)
-        
+        self.configureUI()
         self.styleUI()
-        self.loadingView.startAnimating()
-        
-        if self.traitCollection.forceTouchCapability == .Available {
-            self.registerForPreviewingWithDelegate(self, sourceView: self.view)
-        }
         
         self.currentYear = years[self.years.count - 1]
         
@@ -76,7 +66,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         if segue.identifier == String(ScholarDetailViewController) {
             if let indexPath = sender as? NSIndexPath {
                 let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
-                destinationViewController.currentScholar = self.currentScholars[indexPath.item]
+                destinationViewController.currentScholar = self.searchBarActive ? self.searchResults[indexPath.item] as! Scholar : self.currentScholars[indexPath.item]
             }
         }
     }
@@ -97,6 +87,17 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     // MARK: - UI
     
+    private func configureUI() {
+        let longPressGestureRecognizerLoginBarButtomItem = UILongPressGestureRecognizer(target: self, action: #selector(ScholarsViewController.showEditDetailsModal(_:)))
+        self.view.addGestureRecognizer(longPressGestureRecognizerLoginBarButtomItem)
+     
+        self.loadingView.startAnimating()
+        
+        if self.traitCollection.forceTouchCapability == .Available {
+            self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+        }
+    }
+    
     private func styleUI() {
         self.title = "Scholars"
         
@@ -107,7 +108,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.rightArrowImageView.tintColor = UIColor.transparentWhiteColor()
     }
     
-    private func initialzeMap() {
+    private func configureMap() {
         // Map related
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.requestWhenInUseAuthorization()
@@ -122,25 +123,25 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.mapView.mapType = .Standard
         
         //The "Find me" button
-        let button = UIButton(type: .Custom)
-        button.frame = CGRect(x: UIScreen.mainScreen().bounds.width - 41, y: 8, width: 33, height: 33)
-        button.setImage(UIImage(named: "locationButton"), forState: .Normal)
-        button.addTarget(self, action: #selector(ScholarsViewController.buttonAction(_:)), forControlEvents: .TouchUpInside)
-        button.layer.shadowOpacity = 0.5
-        button.layer.shadowOffset = CGSizeMake(0.0, 0.0)
-        button.layer.shadowRadius = 2.0
-        button.layer.cornerRadius = button.frame.width / 2.0
-        button.layer.masksToBounds = true
-        button.backgroundColor = UIColor.scholarsPurpleColor()
+        let locateButton = UIButton(type: .Custom)
+        locateButton.frame = CGRect(x: UIScreen.mainScreen().bounds.width - 41, y: 8, width: 33, height: 33)
+        locateButton.setImage(UIImage(named: "locationButton"), forState: .Normal)
+        locateButton.addTarget(self, action: #selector(ScholarsViewController.locateButtonAction), forControlEvents: .TouchUpInside)
+        locateButton.layer.shadowOpacity = 0.5
+        locateButton.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+        locateButton.layer.shadowRadius = 2.0
+        locateButton.layer.cornerRadius = locateButton.frame.width / 2.0
+        locateButton.layer.masksToBounds = true
+        locateButton.backgroundColor = UIColor.scholarsPurpleColor()
         
-        self.mapView.addSubview(button)
+        self.mapView.addSubview(locateButton)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
     
-    // MARK: - IBAction
+    // MARK: - IBActions
     
     @IBAction func accountButtonTapped(sender: AnyObject) {
         self.loggedIn ? self.showEditDetailsModal() : self.showSignInModal()
@@ -160,7 +161,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         }
         
         if !self.isMapInitalized {
-            self.initialzeMap()
+            self.configureMap()
             self.isMapInitalized = true
         }
         
@@ -235,7 +236,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.presentViewController(viewController, animated: true, completion: nil)
     }
     
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+    internal func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -249,7 +250,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         }
     }
     
-    func safariViewControllerDidFinish(controller: SFSafariViewController) {
+    internal func safariViewControllerDidFinish(controller: SFSafariViewController) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -262,18 +263,17 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.presentViewController(modalViewController, animated: true, completion: nil)
     }
     
-    internal func buttonAction(sender: UIButton!) {
+    internal func locateButtonAction(sender: UIButton!) {
         let myLocation = self.mapView.userLocation.coordinate as CLLocationCoordinate2D
         let zoomRegion = MKCoordinateRegionMakeWithDistance(myLocation, 5000000, 5000000)
         self.mapView.setRegion(zoomRegion, animated: true)
     }
-    
-    internal func dismissKeyboard() {
-        self.cancelSearching()
-        self.scholarsCollectionView.reloadData()
-    }
-    
-    internal func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+}
+
+// MARK: - UISearchBarDelegate
+
+extension ScholarsViewController: UISearchBarDelegate {
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.characters.count > 0 {
             self.searchBarActive = true
             self.filterContentForSearchText(searchText)
@@ -284,21 +284,21 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         }
     }
     
-    internal func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         self.cancelSearching()
         self.scholarsCollectionView.reloadData()
     }
     
-    internal func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         self.searchBar!.setShowsCancelButton(true, animated: true)
     }
     
-    internal func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         self.searchBarActive = false
         self.searchBar!.setShowsCancelButton(false, animated: false)
     }
     
-    internal func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.searchBarActive = true
         self.view.endEditing(true)
     }
@@ -307,7 +307,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
 // MARK: - UIScrollViewDelegate
 
 extension ScholarsViewController: UIScrollViewDelegate {
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    internal func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         if scrollView == self.yearCollectionView {
             //scholarsCollectionView page changed, update scholars list
             
@@ -332,6 +332,8 @@ extension ScholarsViewController: UIScrollViewDelegate {
                 self.leftArrowImageView.alpha = 0.0
                 self.rightArrowImageView.alpha = 0.0
             })
+        } else if scrollView == self.scholarsCollectionView {
+            self.searchBar.frame.origin.y = -scrollView.contentOffset.y
         }
     }
 }
@@ -406,7 +408,7 @@ extension ScholarsViewController: UIViewControllerPreviewingDelegate {
             return nil
         }
         
-        let scholar = self.currentScholars[indexPath.item]
+        let scholar = self.searchBarActive ? self.searchResults[indexPath.item] as! Scholar : self.currentScholars[indexPath.item]
         previewViewController.currentScholar = scholar
         previewViewController.delegate = self
         previewViewController.preferredContentSize = CGSize.zero

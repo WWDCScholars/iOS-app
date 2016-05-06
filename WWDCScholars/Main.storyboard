@@ -312,7 +312,7 @@
                         <outlet property="mapView" destination="gdM-SB-6xy" id="33T-NI-dA7"/>
                         <outlet property="rightArrowImageView" destination="Llh-Bj-LUB" id="w6t-Le-i0n"/>
                         <outlet property="scholarsCollectionView" destination="gdy-v7-k9Z" id="NMK-IK-f4N"/>
-                        <outlet property="searchBar" destination="M21-50-eS2" id="vvl-iR-Y01"/>
+                        <outlet property="searchBar" destination="M21-50-eS2" id="5cc-3R-D22"/>
                         <outlet property="yearCollectionView" destination="B2q-nj-isb" id="pfX-JR-0Xz"/>
                         <segue destination="Xz8-ge-7L5" kind="show" identifier="ScholarDetailViewController" id="If2-0g-pPV"/>
                         <segue destination="Qzr-e9-s5U" kind="show" id="4is-YC-Q63"/>

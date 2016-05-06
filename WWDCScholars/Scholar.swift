@@ -98,7 +98,7 @@ class Scholar: Object {
             for str in strArr {
                 arr.append(WWDC(rawValue: str)!)
             }
-            return arr
+            return arr.reverse()
         }
     }
     

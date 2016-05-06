@@ -14,6 +14,8 @@ class IntroViewController: UIViewController {
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var getStartedLabel: UILabel!
+    @IBOutlet private weak var leftArrowImageView: UIImageView!
+    @IBOutlet private weak var rightArrowImageView: UIImageView!
     
     private let numberOfScreens: CGFloat = 6
     
@@ -22,7 +24,7 @@ class IntroViewController: UIViewController {
     private var third = "And while some may see us as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do."
     private var stopAnimation = false
     private var objects: [TutorialObject] = []
-    private var quoteLabel: TOMSMorphingLabel!
+    private var firstQuoteLabel: TOMSMorphingLabel!
     private var lastContentOffset = CGPointZero
     private var textState = 0
     private var movingTimer: NSTimer?
@@ -64,45 +66,18 @@ class IntroViewController: UIViewController {
         self.objects.map() { $0.self.changeObjectToPosition(self.scrollView.contentOffset) }
     }
     
-    private func addLogoObject() {
-        let imageView = UIImageView(image: UIImage(named: "wwdcScholarsIcon"))
-        imageView.center = CGPoint(x: self.screenSize.width / 2, y: self.screenSize.height / 2)
-        self.contentView.addSubview(imageView)
-        
-        let logoObject = TutorialObject(object: imageView)
-        logoObject.setPoints([CGPoint(x: 4.5, y: 0.85), CGPoint(x: 5.5, y: 0.35)])
-        
-        let bigLogoSize = self.screenSize.width - 100
-        let smallLogoSize = self.screenSize.width / 3
-        logoObject.addActionAtPosition(TutorialObjectAction.Resize(size: CGSize(width: smallLogoSize, height: smallLogoSize)), position: 0)
-        logoObject.addActionAtPosition(TutorialObjectAction.Resize(size: CGSize(width: bigLogoSize, height: bigLogoSize)), position: 1)
-        
-        self.objects.append(logoObject)
-    }
-    
     private func addSubQuote() {
-        let anotheQuoteLabel = UILabel(frame: CGRectMake(0, 0, self.screenSize.width - 32, 30))
-        anotheQuoteLabel.center = CGPoint(x: self.screenSize.width / 2, y: self.screenSize.height / 1.8)
-        anotheQuoteLabel.text = "- Steve Jobs"
-        anotheQuoteLabel.font = UIFont(name: "HelveticaNeue", size: 18)
-        anotheQuoteLabel.textColor = UIColor.whiteColor()
-        anotheQuoteLabel.textAlignment = .Right
-        self.contentView.addSubview(anotheQuoteLabel)
-    }
-    
-    func printFonts() {
-        let fontFamilyNames = UIFont.familyNames()
-        for familyName in fontFamilyNames {
-            print("------------------------------")
-            print("Font Family Name = [\(familyName)]")
-            let names = UIFont.fontNamesForFamilyName(familyName)
-            print("Font Names = [\(names)]")
-        }
+        let subQuoteLabel = UILabel(frame: CGRectMake(0, 0, self.screenSize.width - 32, 30))
+        subQuoteLabel.center = CGPoint(x: self.screenSize.width / 2, y: self.screenSize.height / 1.8)
+        subQuoteLabel.text = "- Steve Jobs"
+        subQuoteLabel.font = UIFont(name: "HelveticaNeue", size: 18)
+        subQuoteLabel.textColor = UIColor.whiteColor()
+        subQuoteLabel.textAlignment = .Right
+        
+        self.contentView.addSubview(subQuoteLabel)
     }
     
     private func addQuote() {
-        printFonts()
-        
         let font = UIFont(name: "HelveticaNeue-Medium", size: 24)!
         let firstPartAttributes = AZTextFrameAttributes(string: "Here's ", font: font)
         let secondPartAttributes = AZTextFrameAttributes(string: "   the Crazy Ones", font: font)
@@ -119,60 +94,60 @@ class IntroViewController: UIViewController {
         
         let coefficent = 0.5 - (defaultPartHeight / self.screenSize.height) / 2
         
-        self.quoteLabel = TOMSMorphingLabel(frame: CGRectMake(0, 0, firstWidth + 22, 30))
-        self.quoteLabel.font = font
-        self.quoteLabel.textColor = UIColor.whiteColor()
-        self.quoteLabel.center =  CGPoint(x: self.screenSize.width / 2 - self.screenSize.width * firstSpace, y: 0)
-        self.quoteLabel.text = "Here's to "
-        self.quoteLabel.textAlignment = .Right
-        self.contentView.addSubview(self.quoteLabel)
+        self.firstQuoteLabel = TOMSMorphingLabel(frame: CGRectMake(0, 0, firstWidth + 22, 30))
+        self.firstQuoteLabel.font = font
+        self.firstQuoteLabel.textColor = UIColor.whiteColor()
+        self.firstQuoteLabel.center =  CGPoint(x: self.screenSize.width / 2 - self.screenSize.width * firstSpace, y: 0)
+        self.firstQuoteLabel.text = "Here's to "
+        self.firstQuoteLabel.textAlignment = .Right
+        self.contentView.addSubview(self.firstQuoteLabel)
         
-        let quoteObject = TutorialObject(object: self.quoteLabel)
-        quoteObject.setPoints([CGPoint(x: 0.5 - firstSpace, y: 0.5), CGPoint(x: 1.5 - firstSpace, y: 0.5), CGPoint(x: 2.5 - firstSpace, y: coefficent), CGPoint(x: 3.5 - firstSpace, y: -0.1)])
-        self.objects.append(quoteObject)
+        let firstQuoteObject = TutorialObject(object: self.firstQuoteLabel)
+        firstQuoteObject.setPoints([CGPoint(x: 0.5 - firstSpace, y: 0.5), CGPoint(x: 1.5 - firstSpace, y: 0.5), CGPoint(x: 2.5 - firstSpace, y: coefficent), CGPoint(x: 3.5 - firstSpace, y: -0.1)])
+        self.objects.append(firstQuoteObject)
         
-        let anotherQuoteLabel = UILabel(frame: CGRectMake(0, 0, secondWidth, 30))
-        anotherQuoteLabel.center =  CGPoint(x: self.screenSize.width / 2 + self.screenSize.width * secondSpace, y: 0)
-        anotherQuoteLabel.text = "   the Crazy Ones"
-        anotherQuoteLabel.font = font
-        anotherQuoteLabel.textColor = UIColor.whiteColor()
-        anotherQuoteLabel.textAlignment = .Left
-        self.contentView.addSubview(anotherQuoteLabel)
+        let secondQuoteLabel = UILabel(frame: CGRectMake(0, 0, secondWidth, 30))
+        secondQuoteLabel.center =  CGPoint(x: self.screenSize.width / 2 + self.screenSize.width * secondSpace, y: 0)
+        secondQuoteLabel.text = "   the Crazy Ones"
+        secondQuoteLabel.font = font
+        secondQuoteLabel.textColor = UIColor.whiteColor()
+        secondQuoteLabel.textAlignment = .Left
+        self.contentView.addSubview(secondQuoteLabel)
         
-        let anotherQuoteObject = TutorialObject(object: anotherQuoteLabel)
-        anotherQuoteObject.setPoints([CGPoint(x: 0.5 + secondSpace, y: 0.5), CGPoint(x: 1.5 + secondSpace, y: 0.5), CGPoint(x: 2.5 + secondSpace, y: coefficent), CGPoint(x: 3.5 + secondSpace, y: -0.1)])
-        self.objects.append(anotherQuoteObject)
+        let secondQuoteObject = TutorialObject(object: secondQuoteLabel)
+        secondQuoteObject.setPoints([CGPoint(x: 0.5 + secondSpace, y: 0.5), CGPoint(x: 1.5 + secondSpace, y: 0.5), CGPoint(x: 2.5 + secondSpace, y: coefficent), CGPoint(x: 3.5 + secondSpace, y: -0.1)])
+        self.objects.append(secondQuoteObject)
     }
     
     private func addParagraph(value: String, atIndex index: Int) {
-        let label = UILabel(frame: CGRectMake(0, 0, self.screenSize.width - 16, self.screenSize.height))
-        label.center =  CGPoint(x: self.screenSize.width * 0.5, y: 0)
-        label.text = value
-        label.numberOfLines = 0
-        label.textColor = UIColor.whiteColor()
-        label.font = UIFont(name: "HelveticaNeue", size: 18)
-        label.textAlignment = .Center
-        self.contentView.addSubview(label)
+        let paragraphLabel = UILabel(frame: CGRectMake(0, 0, self.screenSize.width - 16, self.screenSize.height))
+        paragraphLabel.center =  CGPoint(x: self.screenSize.width * 0.5, y: 0)
+        paragraphLabel.text = value
+        paragraphLabel.numberOfLines = 0
+        paragraphLabel.textColor = UIColor.whiteColor()
+        paragraphLabel.font = UIFont(name: "HelveticaNeue", size: 18)
+        paragraphLabel.textAlignment = .Center
+        self.contentView.addSubview(paragraphLabel)
         
-        let labelObject = TutorialObject(object: label)
+        let paragraphLabelObject = TutorialObject(object: paragraphLabel)
         
         var points = [CGPoint(x: 1.5 + CGFloat(index), y: 0.9), CGPoint(x: 2.5 + CGFloat(index), y: 0.5), CGPoint(x: 3.5 + CGFloat(index), y: 0.1)]
         if index == 0 {
             points.removeAtIndex(0)
         }
-        labelObject.setPoints(points)
+        paragraphLabelObject.setPoints(points)
         
         if index == 0 {
-            labelObject.addActionAtPosition(TutorialObjectAction.ChangeAlpha(value: 1.0), position: 0)
-            labelObject.addActionAtPosition(TutorialObjectAction.ChangeAlpha(value: 0.1), position: 1)
-            labelObject.tag = 1
+            paragraphLabelObject.addActionAtPosition(TutorialObjectAction.ChangeAlpha(value: 1.0), position: 0)
+            paragraphLabelObject.addActionAtPosition(TutorialObjectAction.ChangeAlpha(value: 0.1), position: 1)
+            paragraphLabelObject.tag = 1
         } else {
-            labelObject.addActionAtPosition(TutorialObjectAction.ChangeAlpha(value: 0.1), position: 0)
-            labelObject.addActionAtPosition(TutorialObjectAction.ChangeAlpha(value: 1.0), position: 1)
-            labelObject.addActionAtPosition(TutorialObjectAction.ChangeAlpha(value: index == 2 ? 0.0 : 0.1), position: 2)
+            paragraphLabelObject.addActionAtPosition(TutorialObjectAction.ChangeAlpha(value: 0.1), position: 0)
+            paragraphLabelObject.addActionAtPosition(TutorialObjectAction.ChangeAlpha(value: 1.0), position: 1)
+            paragraphLabelObject.addActionAtPosition(TutorialObjectAction.ChangeAlpha(value: index == 2 ? 0.0 : 0.1), position: 2)
         }
         
-        self.objects.append(labelObject)
+        self.objects.append(paragraphLabelObject)
     }
 }
 
@@ -213,13 +188,13 @@ extension IntroViewController: UIScrollViewDelegate {
         }
         
         if scrollView.contentOffset.x > self.lastContentOffset.x && scrollView.contentOffset.x > self.screenSize.width * 0.5 {
-            if self.quoteLabel.text != "We are " {
-                self.quoteLabel.setText("We are ", withCompletionBlock: nil)
+            if self.firstQuoteLabel.text != "We are " {
+                self.firstQuoteLabel.setText("We are ", withCompletionBlock: nil)
                 self.stopAnimation = true
             }
         } else if scrollView.contentOffset.x < self.lastContentOffset.x && scrollView.contentOffset.x < self.screenSize.width * 0.5 {
-            if self.quoteLabel.text != "Here's to " {
-                self.quoteLabel.setText("Here's to ", withCompletionBlock: nil)
+            if self.firstQuoteLabel.text != "Here's to " {
+                self.firstQuoteLabel.setText("Here's to ", withCompletionBlock: nil)
             }
         }
         
@@ -241,6 +216,7 @@ extension IntroViewController: UIScrollViewDelegate {
             UIView.animateWithDuration(0.5, animations: {
                 self.pageControl.alpha = 1.0
                 self.getStartedLabel.alpha = 0.0
+                self.leftArrowImageView.alpha = pageNumber == 0 ? 0.0 : 1.0
             })
         }
     }

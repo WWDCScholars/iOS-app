@@ -1293,11 +1293,26 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leftChevron" translatesAutoresizingMaskIntoConstraints="NO" id="Yrq-t8-raL">
+                                <rect key="frame" x="40" y="561" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="SNJ-YL-VE6"/>
+                                    <constraint firstAttribute="height" constant="25" id="Sj9-JF-X9q"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightChevron" translatesAutoresizingMaskIntoConstraints="NO" id="GJO-N5-yNo">
+                                <rect key="frame" x="535" y="561" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="6HZ-M8-RNf"/>
+                                    <constraint firstAttribute="width" constant="25" id="bYk-Ex-JHR"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="nkJ-wz-Ank" firstAttribute="leading" secondItem="dl1-5u-c9Y" secondAttribute="leading" id="0W3-13-j0f"/>
                             <constraint firstItem="nkJ-wz-Ank" firstAttribute="top" secondItem="dl1-5u-c9Y" secondAttribute="top" id="5g8-zg-n1R"/>
+                            <constraint firstItem="wan-xw-gpZ" firstAttribute="top" secondItem="GJO-N5-yNo" secondAttribute="bottom" constant="14" id="6pm-Jp-2Y4"/>
                             <constraint firstAttribute="trailing" secondItem="nkJ-wz-Ank" secondAttribute="trailing" id="77T-Bu-C4a"/>
                             <constraint firstItem="ecr-7Q-amc" firstAttribute="top" secondItem="3Z2-1Q-pEK" secondAttribute="bottom" id="8ad-Hd-Ua1"/>
                             <constraint firstItem="Yx8-9C-ojC" firstAttribute="centerX" secondItem="dl1-5u-c9Y" secondAttribute="centerX" id="9aX-9Y-kFR"/>
@@ -1309,6 +1324,9 @@
                             <constraint firstItem="wan-xw-gpZ" firstAttribute="top" secondItem="nkJ-wz-Ank" secondAttribute="bottom" id="UCK-rK-4dd"/>
                             <constraint firstItem="3Z2-1Q-pEK" firstAttribute="top" secondItem="us0-VW-mzo" secondAttribute="bottom" id="Xf8-r8-9mS"/>
                             <constraint firstItem="ecr-7Q-amc" firstAttribute="centerX" secondItem="dl1-5u-c9Y" secondAttribute="centerX" id="bll-Zh-tqI"/>
+                            <constraint firstItem="wan-xw-gpZ" firstAttribute="top" secondItem="Yrq-t8-raL" secondAttribute="bottom" constant="14" id="cuc-jd-Vpo"/>
+                            <constraint firstAttribute="trailing" secondItem="GJO-N5-yNo" secondAttribute="trailing" constant="40" id="gPj-D9-PtM"/>
+                            <constraint firstItem="Yrq-t8-raL" firstAttribute="leading" secondItem="dl1-5u-c9Y" secondAttribute="leading" constant="40" id="tqn-aC-ta4"/>
                             <constraint firstItem="wan-xw-gpZ" firstAttribute="top" secondItem="3Z2-1Q-pEK" secondAttribute="bottom" id="yaF-mR-Drd"/>
                         </constraints>
                         <variation key="default">
@@ -1325,7 +1343,9 @@
                         <outlet property="contentViewHeightConstraint" destination="RYG-qc-Nou" id="ENV-4F-qsc"/>
                         <outlet property="contentViewWidthConstraint" destination="HQN-Po-rIX" id="nzc-vn-jlh"/>
                         <outlet property="getStartedLabel" destination="Yx8-9C-ojC" id="nBZ-ov-DwS"/>
+                        <outlet property="leftArrowImageView" destination="Yrq-t8-raL" id="rNV-RV-W8S"/>
                         <outlet property="pageControl" destination="ecr-7Q-amc" id="igb-XH-8Iy"/>
+                        <outlet property="rightArrowImageView" destination="GJO-N5-yNo" id="kGE-7C-HFa"/>
                         <outlet property="scrollView" destination="nkJ-wz-Ank" id="KK8-yn-aZA"/>
                     </connections>
                 </viewController>
@@ -2397,9 +2417,11 @@
         <image name="gitHubIconSmall" width="27" height="27"/>
         <image name="iOS" width="59" height="58"/>
         <image name="input-outline-active" width="250" height="44"/>
+        <image name="leftChevron" width="33" height="33"/>
         <image name="linkedinIconSmall" width="27" height="27"/>
         <image name="mailIconSmall" width="27" height="27"/>
         <image name="mapIcon" width="33" height="33"/>
+        <image name="rightChevron" width="33" height="33"/>
         <image name="screenshotIconSmall" width="30" height="23"/>
         <image name="tabBarIconBlog" width="25" height="25"/>
         <image name="tabBarIconBlogFilled" width="25" height="25"/>

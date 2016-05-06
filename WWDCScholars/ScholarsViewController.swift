@@ -10,13 +10,14 @@ import UIKit
 import MapKit
 import CoreLocation
 import SafariServices
+import MessageUI
 
 enum CurrentViewType {
     case List
     case Map
 }
 
-class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, ContactButtonDelegate {
+class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, ContactButtonDelegate {
     @IBOutlet private weak var yearCollectionView: UICollectionView!
     @IBOutlet private weak var loadingView: ActivityIndicatorView!
     @IBOutlet private weak var scholarsCollectionView: UICollectionView!
@@ -206,6 +207,20 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         viewController.delegate = self
         
         self.presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    internal func composeEmail(address: String) {
+        if MFMailComposeViewController.canSendMail() {
+            let viewController = MFMailComposeViewController()
+            viewController.mailComposeDelegate = self
+            viewController.setToRecipients([address])
+            
+            presentViewController(viewController, animated: true, completion: nil)
+        }
     }
     
     func safariViewControllerDidFinish(controller: SFSafariViewController) {

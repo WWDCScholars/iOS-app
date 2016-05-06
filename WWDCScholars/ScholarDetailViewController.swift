@@ -11,6 +11,7 @@ import MapKit
 
 protocol ContactButtonDelegate {
     func openContactURL(url: String)
+    func composeEmail(address: String)
 }
 
 class ScholarDetailViewController: UIViewController {
@@ -59,7 +60,7 @@ class ScholarDetailViewController: UIViewController {
         
         if let emailAddress = self.currentScholar?.email {
             let emailAction = UIPreviewAction(title: "Email", style: .Default) { (action, viewController) -> Void in
-                print(emailAddress)
+                self.delegate?.composeEmail(emailAddress)
             }
             
             actions.append(emailAction)

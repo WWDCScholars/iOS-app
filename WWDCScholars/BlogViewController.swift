@@ -48,8 +48,7 @@ extension BlogViewController: UITableViewDataSource {
         
         cell.postImageView.image = self.exampleImages[indexPath.item]
         
-        cell.clipsToBounds = true
-        cell.layer.cornerRadius = 7
+        
         
         return cell
     }

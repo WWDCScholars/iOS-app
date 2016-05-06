@@ -20,8 +20,8 @@ class UserDefaults {
         get {
             return NSUserDefaults.standardUserDefaults().objectForKey("favorites") as? [String] ?? []
         }
-        set(hasOpenedApp) {
-            NSUserDefaults.standardUserDefaults().setObject(hasOpenedApp, forKey: "favorites")
+        set(favorites) {
+            NSUserDefaults.standardUserDefaults().setObject(favorites, forKey: "favorites")
         }
     }
 }

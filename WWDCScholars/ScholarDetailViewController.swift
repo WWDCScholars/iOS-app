@@ -18,12 +18,31 @@ class ScholarDetailViewController: UIViewController {
     @IBOutlet private weak var profileImageViewBackground: UIView!
     @IBOutlet private weak var teamIconImageView: UIImageView!
     @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var favouritesButton: UIBarButtonItem!
     
     var currentScholar: Scholar?
     
     override func viewDidLoad() {
         self.styleUI()
         self.updateUI()
+    }
+    
+    // MARK: - UIPreviewActions
+    
+    override func previewActionItems() -> [UIPreviewActionItem] {
+        let indexOfFavourite = UserDefaults.favourites.indexOf(self.currentScholar!.id)
+        let actionTitle = indexOfFavourite == nil ? "Add to favourites" : "Remove from favourites"
+        let actionStyle: UIPreviewActionStyle = indexOfFavourite == nil ? .Default : .Destructive
+        
+        let favouriteAction = UIPreviewAction(title: actionTitle, style: actionStyle) { (action, viewController) -> Void in
+            if indexOfFavourite == nil {
+                UserDefaults.favourites.append(self.currentScholar!.id)
+            } else {
+                UserDefaults.favourites.removeAtIndex(indexOfFavourite!)
+            }
+        }
+        
+        return [favouriteAction]
     }
     
     // MARK: - UI
@@ -68,6 +87,26 @@ class ScholarDetailViewController: UIViewController {
         self.locationLabel.text = scholar.location.name
         self.nameLabel.text = scholar.firstName
         self.profileImageView.af_setImageWithURL(NSURL(string: scholar.profilePicURL)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+        
+        if UserDefaults.favourites.contains(self.currentScholar!.id) {
+            self.favouritesButton.image = UIImage(named: "favouriteFilled")
+        } else {
+            self.favouritesButton.image = UIImage(named: "favouriteUnfilled")
+        }
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func favouriteButtonTapped(sender: AnyObject) {
+        let indexOfFavourite = UserDefaults.favourites.indexOf(self.currentScholar!.id)
+        
+        if indexOfFavourite == nil {
+            UserDefaults.favourites.append(self.currentScholar!.id)
+            self.favouritesButton.image = UIImage(named: "favouriteFilled")
+        } else {
+            UserDefaults.favourites.removeAtIndex(indexOfFavourite!)
+            self.favouritesButton.image = UIImage(named: "favouriteUnfilled")
+        }
     }
 }
 

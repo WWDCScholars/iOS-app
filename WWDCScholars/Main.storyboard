@@ -299,7 +299,7 @@
             </objects>
             <point key="canvasLocation" x="2029" y="-630"/>
         </scene>
-        <!--Scholar Detail View Controller-->
+        <!--Name-->
         <scene sceneID="cA7-ln-cpr">
             <objects>
                 <viewController storyboardIdentifier="scholarDetailViewController" automaticallyAdjustsScrollViewInsets="NO" id="Xz8-ge-7L5" customClass="ScholarDetailViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
@@ -796,11 +796,20 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Name" id="cYp-c1-TQz">
+                        <barButtonItem key="rightBarButtonItem" image="favouriteUnfilled" style="plain" id="mAx-4v-WgU">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="favouriteButtonTapped:" destination="Xz8-ge-7L5" id="0vv-Yb-QtX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1200"/>
                     <connections>
                         <outlet property="contentViewHeightConstraint" destination="KXd-kW-aP0" id="hgB-f9-fqA"/>
                         <outlet property="detailsTableView" destination="M4r-gS-Ao6" id="X20-92-Qc8"/>
+                        <outlet property="favouritesButton" destination="mAx-4v-WgU" id="dDY-Ae-Q7H"/>
                         <outlet property="locationLabel" destination="lMc-qU-8MY" id="gxy-Bh-4jT"/>
                         <outlet property="mapView" destination="eXa-qt-OoJ" id="qMr-V5-PuZ"/>
                         <outlet property="nameLabel" destination="oD5-u3-Xnm" id="AmK-YS-wKO"/>
@@ -2414,6 +2423,7 @@
         <image name="creditsHeader" width="327" height="184"/>
         <image name="creditsHeaderGradient" width="125" height="30"/>
         <image name="facebookIconSmall" width="27" height="27"/>
+        <image name="favouriteUnfilled" width="22" height="21"/>
         <image name="gitHubIconSmall" width="27" height="27"/>
         <image name="iOS" width="59" height="58"/>
         <image name="input-outline-active" width="250" height="44"/>

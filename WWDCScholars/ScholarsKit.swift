@@ -28,9 +28,9 @@ class ScholarsKit {
         request(.GET, "https://wwdcscholarsadmin.herokuapp.com/api/scholars")
             .responseString() { response in
             if let data = response.result.value {
-                print (data)
+//                print (data)
                 let json = JSON.parse(data)
-                print("JSON: \(json)")
+//                print("JSON: \(json)")
                 if let array = json.array {
                     self.parseScholars(array)
                     completionHandler()

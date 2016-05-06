@@ -38,8 +38,6 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
     
     // MARK: - Internal functions
     
-    // MARK: - Internal functions
-    
     internal func openContactURL(url: String) {
         let viewController = SFSafariViewController(URL: NSURL(string: url)!)
         viewController.delegate = self
@@ -47,7 +45,7 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
         self.presentViewController(viewController, animated: true, completion: nil)
     }
     
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+    internal func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -61,7 +59,7 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
         }
     }
     
-    func safariViewControllerDidFinish(controller: SFSafariViewController) {
+    internal func safariViewControllerDidFinish(controller: SFSafariViewController) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
     

@@ -20,6 +20,7 @@ enum CurrentViewType {
 class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, ContactButtonDelegate {
     @IBOutlet private weak var yearCollectionView: UICollectionView!
     @IBOutlet private weak var loadingView: ActivityIndicatorView!
+    @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var scholarsCollectionView: UICollectionView!
     @IBOutlet private weak var extendedNavigationContainer: UIView!
     @IBOutlet private weak var mainView: UIView!
@@ -36,6 +37,8 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
 
     private var currentYear: WWDC = .WWDC2016
     private var currentScholars: [Scholar] = []
+    private var searchResults = NSArray()
+    private var searchBarActive = false
     private var loggedIn = false
     private var isMapInitalized = false
     private var myLocation: CLLocationCoordinate2D?
@@ -47,6 +50,9 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         
         let longPressGestureRecognizerLoginBarButtomItem = UILongPressGestureRecognizer(target: self, action: #selector(ScholarsViewController.showEditDetailsModal(_:)))
         self.view.addGestureRecognizer(longPressGestureRecognizerLoginBarButtomItem)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ScholarsViewController.dismissKeyboard))
+        self.view.addGestureRecognizer(tapGestureRecognizer)
         
         self.styleUI()
         self.loadingView.startAnimating()
@@ -75,11 +81,26 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if self.loadingView.isAnimating() {
+            self.loadingView.stopAnimating()
+        }
+        
+        self.getCurrentScholars()
+        
+        let index = self.years.indexOf(self.currentYear)!
+        self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: .Left, animated: false)
+        self.updateArrowsForIndex(index)
+    }
+    
     // MARK: - UI
     
     private func styleUI() {
         self.title = "Scholars"
         
+        self.searchBar.tintColor = UIColor.scholarsPurpleColor()
         self.extendedNavigationContainer.applyExtendedNavigationBarContainerStyle()
         self.applyExtendedNavigationBarStyle()
         self.leftArrowImageView.tintColor = UIColor.transparentWhiteColor()
@@ -115,20 +136,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.mapView.addSubview(button)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        if self.loadingView.isAnimating() {
-            self.loadingView.stopAnimating()
-        }
-        
-        self.getCurrentScholars()
-        
-        let index = self.years.indexOf(self.currentYear)!
-        self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: .Left, animated: false)
-        self.updateArrowsForIndex(index)
-    }
-    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
@@ -161,6 +168,17 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     }
     
     // MARK: - Private functions
+    
+    private func cancelSearching() {
+        self.searchBarActive = false
+        self.searchBar!.resignFirstResponder()
+        self.searchBar!.text = ""
+    }
+    
+    private func filterContentForSearchText(searchText: NSString) {
+        let resultPredicate = NSPredicate(format: "fullName contains[cd] %@", searchText)
+        self.searchResults = (self.currentScholars as NSArray).filteredArrayUsingPredicate(resultPredicate)
+    }
     
     private func switchView() {
         UIView.animateWithDuration(0.2, animations: {
@@ -249,6 +267,41 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         let zoomRegion = MKCoordinateRegionMakeWithDistance(myLocation, 5000000, 5000000)
         self.mapView.setRegion(zoomRegion, animated: true)
     }
+    
+    internal func dismissKeyboard() {
+        self.cancelSearching()
+        self.scholarsCollectionView.reloadData()
+    }
+    
+    internal func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.characters.count > 0 {
+            self.searchBarActive = true
+            self.filterContentForSearchText(searchText)
+            self.scholarsCollectionView.reloadData()
+        } else {
+            self.searchBarActive = false
+            self.scholarsCollectionView.reloadData()
+        }
+    }
+    
+    internal func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        self.cancelSearching()
+        self.scholarsCollectionView.reloadData()
+    }
+    
+    internal func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.searchBar!.setShowsCancelButton(true, animated: true)
+    }
+    
+    internal func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        self.searchBarActive = false
+        self.searchBar!.setShowsCancelButton(false, animated: false)
+    }
+    
+    internal func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.searchBarActive = true
+        self.view.endEditing(true)
+    }
 }
 
 // MARK: - UIScrollViewDelegate
@@ -288,7 +341,7 @@ extension ScholarsViewController: UIScrollViewDelegate {
 extension ScholarsViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.scholarsCollectionView {
-            return self.currentScholars.count
+            return self.searchBarActive ? self.searchResults.count : self.currentScholars.count
         } else if collectionView == self.yearCollectionView {
             return self.years.count
         }
@@ -299,7 +352,7 @@ extension ScholarsViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if collectionView == self.scholarsCollectionView {
             let cell = self.scholarsCollectionView.dequeueReusableCellWithReuseIdentifier("scholarCollectionViewCell", forIndexPath: indexPath) as! ScholarCollectionViewCell
-            let scholar = self.currentScholars[indexPath.item]
+            let scholar = self.searchBarActive ? self.searchResults[indexPath.item] as! Scholar : self.currentScholars[indexPath.item]
             
             cell.nameLabel.text = scholar.firstName
             if scholar.profilePicURL != "" {

@@ -20,10 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.styleUI()
         
-        //UserDefaults.hasOpenedApp = false
-        
-        if let window = self.window{
-            
+        if let window = self.window {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
             var contentVC: UIViewController?
@@ -31,13 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if UserDefaults.hasOpenedApp {
                 let mainViewController: ScholarsTabBarViewController = mainStoryboard.instantiateViewControllerWithIdentifier(String(ScholarsTabBarViewController)) as! ScholarsTabBarViewController
                 contentVC = mainViewController
-            }else{
+            } else {
                 let introViewController: IntroViewController = mainStoryboard.instantiateViewControllerWithIdentifier(String(IntroViewController)) as! IntroViewController
                 contentVC = introViewController
             }
             
             // Make it a root controller
-            //
+
             window.backgroundColor = UIColor.whiteColor()
             window.rootViewController = contentVC
             window.makeKeyAndVisible()

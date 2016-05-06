@@ -119,7 +119,7 @@ class ScholarDetailViewController: UIViewController {
         
         self.teamIconImageView.hidden = !CreditsManager.sharedInstance.checkForCredit(scholar)
         self.locationLabel.text = scholar.location.name
-        self.nameLabel.text = scholar.firstName
+        self.nameLabel.text = scholar.firstName + " " + scholar.lastName
         self.profileImageView.af_setImageWithURL(NSURL(string: scholar.profilePicURL)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
         
         if UserDefaults.favorites.contains(self.currentScholar!.id) {

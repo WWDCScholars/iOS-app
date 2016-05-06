@@ -110,15 +110,15 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         
         //The "Find me" button
         let button = UIButton(type: .Custom)
-        button.frame = CGRect(x: UIScreen.mainScreen().bounds.width - 58, y: self.mapView.frame.size.height - 58, width: 50, height: 50)
-        button.setImage(UIImage(named: "myLocation"), forState: .Normal)
+        button.frame = CGRect(x: UIScreen.mainScreen().bounds.width - 50, y: self.mapView.frame.size.height - 50, width: 33, height: 33)
+        button.setImage(UIImage(named: "locationButton"), forState: .Normal)
         button.addTarget(self, action: #selector(ScholarsViewController.buttonAction(_:)), forControlEvents: .TouchUpInside)
         button.layer.shadowOpacity = 0.5
         button.layer.shadowOffset = CGSizeMake(0.0, 0.0)
         button.layer.shadowRadius = 2.0
         button.layer.cornerRadius = button.frame.width / 2.0
         button.layer.masksToBounds = true
-        button.backgroundColor = UIColor.whiteColor()
+        button.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
         
         self.mapView.addSubview(button)
     }

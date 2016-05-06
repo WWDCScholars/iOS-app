@@ -1254,18 +1254,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="3Z2-1Q-pEK">
+                                <rect key="frame" x="0.0" y="-20" width="867" height="620"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkJ-wz-Ank">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgA-Y7-S4c">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="600" id="HQN-Po-rIX"/>
                                             <constraint firstAttribute="height" constant="600" id="RYG-qc-Nou"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="bgA-Y7-S4c" secondAttribute="trailing" id="0jd-gr-ILS"/>
                                     <constraint firstItem="bgA-Y7-S4c" firstAttribute="top" secondItem="nkJ-wz-Ank" secondAttribute="top" id="HVP-pt-rV0"/>
@@ -1285,12 +1289,26 @@
                             <constraint firstItem="nkJ-wz-Ank" firstAttribute="leading" secondItem="dl1-5u-c9Y" secondAttribute="leading" id="0W3-13-j0f"/>
                             <constraint firstItem="nkJ-wz-Ank" firstAttribute="top" secondItem="dl1-5u-c9Y" secondAttribute="top" id="5g8-zg-n1R"/>
                             <constraint firstAttribute="trailing" secondItem="nkJ-wz-Ank" secondAttribute="trailing" id="77T-Bu-C4a"/>
+                            <constraint firstItem="ecr-7Q-amc" firstAttribute="top" secondItem="3Z2-1Q-pEK" secondAttribute="bottom" id="8ad-Hd-Ua1"/>
+                            <constraint firstAttribute="trailing" secondItem="3Z2-1Q-pEK" secondAttribute="trailing" constant="-267" id="CCZ-7C-thd"/>
                             <constraint firstItem="wan-xw-gpZ" firstAttribute="top" secondItem="ecr-7Q-amc" secondAttribute="bottom" constant="8" id="IBj-59-LvE"/>
+                            <constraint firstItem="3Z2-1Q-pEK" firstAttribute="top" secondItem="us0-VW-mzo" secondAttribute="bottom" constant="-20" id="IVt-Bw-Uar"/>
+                            <constraint firstItem="3Z2-1Q-pEK" firstAttribute="leading" secondItem="dl1-5u-c9Y" secondAttribute="leading" id="L6a-xs-8pf"/>
                             <constraint firstItem="wan-xw-gpZ" firstAttribute="top" secondItem="nkJ-wz-Ank" secondAttribute="bottom" id="UCK-rK-4dd"/>
+                            <constraint firstItem="3Z2-1Q-pEK" firstAttribute="top" secondItem="us0-VW-mzo" secondAttribute="bottom" id="Xf8-r8-9mS"/>
                             <constraint firstItem="ecr-7Q-amc" firstAttribute="centerX" secondItem="dl1-5u-c9Y" secondAttribute="centerX" id="bll-Zh-tqI"/>
+                            <constraint firstItem="wan-xw-gpZ" firstAttribute="top" secondItem="3Z2-1Q-pEK" secondAttribute="bottom" id="yaF-mR-Drd"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Xf8-r8-9mS"/>
+                                <exclude reference="8ad-Hd-Ua1"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="backgroundImageView" destination="3Z2-1Q-pEK" id="qpt-NY-c7P"/>
                         <outlet property="contentView" destination="bgA-Y7-S4c" id="4bc-Ac-skD"/>
                         <outlet property="contentViewHeightConstraint" destination="RYG-qc-Nou" id="ENV-4F-qsc"/>
                         <outlet property="contentViewWidthConstraint" destination="HQN-Po-rIX" id="nzc-vn-jlh"/>
@@ -2358,6 +2376,7 @@
         <image name="appstoreIconSmall" width="27" height="27"/>
         <image name="arrowLeft" width="15" height="15"/>
         <image name="arrowRight" width="15" height="15"/>
+        <image name="backgroundImage" width="859" height="482"/>
         <image name="barButtonItemIconAccountFilled" width="22" height="22"/>
         <image name="creditsHeader" width="327" height="184"/>
         <image name="creditsHeaderGradient" width="125" height="30"/>

@@ -12,6 +12,7 @@ class IntroViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var pageControl: UIPageControl!
     @IBOutlet private weak var contentView: UIView!
+    @IBOutlet private weak var backgroundImageView: UIImageView!
     
     private let numberOfScreens: CGFloat = 6
     
@@ -91,16 +92,18 @@ class IntroViewController: UIViewController {
         anotheQuoteLabel.center = CGPoint(x: self.screenSize.width / 2, y: self.screenSize.height / 1.8)
         anotheQuoteLabel.text = "- Steve Jobs"
         anotheQuoteLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 18)
+        anotheQuoteLabel.textColor = UIColor.whiteColor()
         anotheQuoteLabel.textAlignment = .Right
         self.contentView.addSubview(anotheQuoteLabel)
         
-        let startButton = DesignableButton(frame: CGRectMake(0, 0, imageView.frame.width, imageView.frame.height))
+        let startButton = DesignableButton(frame: CGRectMake(0, 0, imageView.frame.width, 45))
         startButton.cornerRadius = 3
         startButton.center = CGPoint(x: self.screenSize.width * 5.5, y: self.screenSize.height / 1.2)
-        startButton.backgroundColor = UIColor.scholarsPurpleColor()
+        startButton.backgroundColor = UIColor.whiteColor()
+        startButton.setTitleColor(UIColor.scholarsPurpleColor(), forState: .Normal)
         startButton.setTitle("Welcome", forState: .Normal)
         startButton.addTarget(self, action: #selector(IntroViewController.buttonAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        startButton.layer.cornerRadius = 3
+        startButton.layer.cornerRadius = 4
         self.contentView.addSubview(startButton)
         
         self.swipeLeftImageView = UIImageView(frame: CGRectMake(self.screenSize.width - 60, self.screenSize.height - 120, 50, 100))
@@ -151,6 +154,7 @@ class IntroViewController: UIViewController {
         
         self.quoteLabel = TOMSMorphingLabel(frame: CGRectMake(0, 0, firstWidth + 22, 30))
         self.quoteLabel.font = font
+        self.quoteLabel.textColor = UIColor.whiteColor()
         self.quoteLabel.center =  CGPoint(x: self.screenSize.width / 2 - self.screenSize.width * firstSpace, y: 0)
         self.quoteLabel.text = "Here's to "
         self.quoteLabel.textAlignment = .Right
@@ -164,6 +168,7 @@ class IntroViewController: UIViewController {
         anotheQuoteLabel.center =  CGPoint(x: self.screenSize.width / 2 + self.screenSize.width * secondSpace, y: 0)
         anotheQuoteLabel.text = "   the Crazy Ones"
         anotheQuoteLabel.font = font
+        anotheQuoteLabel.textColor = UIColor.whiteColor()
         anotheQuoteLabel.textAlignment = .Left
         self.contentView.addSubview(anotheQuoteLabel)
         
@@ -177,6 +182,7 @@ class IntroViewController: UIViewController {
         label.center =  CGPoint(x: self.screenSize.width * 0.5, y: 0)
         label.text = value
         label.numberOfLines = 0
+        label.textColor = UIColor.whiteColor()
         label.font = UIFont(name: "HelveticaNeue-Thin", size: 18)
         label.textAlignment = .Center
         self.contentView.addSubview(label)
@@ -239,6 +245,9 @@ extension IntroViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         self.updatePageControl()
+        
+        self.backgroundImageView.frame.origin.x = -self.scrollView.contentOffset.x / 6
+        print(self.scrollView.contentOffset.x)
         
         var firstLabel: UILabel?
         self.objects.map() {

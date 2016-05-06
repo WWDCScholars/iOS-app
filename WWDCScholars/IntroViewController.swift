@@ -13,16 +13,16 @@ class IntroViewController: UIViewController {
     @IBOutlet private weak var pageControl: UIPageControl!
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var backgroundImageView: UIImageView!
+    @IBOutlet private weak var getStartedLabel: UILabel!
     
     private let numberOfScreens: CGFloat = 6
     
-    private var swipeLeftImageView: UIImageView!
-    private var stopAnimation = false
-    private var objects: [TutorialObject] = []
-    private var quoteLabel: TOMSMorphingLabel!
     private var first = "The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. We're not fond of rules. And we have no respect for the status quo."
     private var second = "You can quote us, disagree with us, glorify or vilify us. About the only thing you can't do is ignore us. Because we change things. We push the human race forward."
     private var third = "And while some may see us as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do."
+    private var stopAnimation = false
+    private var objects: [TutorialObject] = []
+    private var quoteLabel: TOMSMorphingLabel!
     private var lastContentOffset = CGPointZero
     private var textState = 0
     private var movingTimer: NSTimer?
@@ -47,22 +47,19 @@ class IntroViewController: UIViewController {
         super.viewDidLoad()
         
         self.addObjects()
-        
-        self.pageControl.numberOfPages = Int(self.numberOfScreens)
-        self.movingTimer = NSTimer(timeInterval: 6.0, target: self, selector: #selector(IntroViewController.timerStep), userInfo: nil, repeats: true)
-        
-        NSRunLoop.currentRunLoop().addTimer(self.movingTimer!, forMode: NSRunLoopCommonModes)
+        self.pageControl.numberOfPages = Int(self.numberOfScreens - 1)
     }
     
     // MARK: - Private functions
     
     private func addObjects() {
+        self.getStartedLabel.font = UIFont(name: "HelveticaNeue", size: 14)
+        
         self.addQuote()
         self.addParagraph(self.first, atIndex: 0)
         self.addParagraph(self.second, atIndex: 1)
         self.addParagraph(self.third, atIndex: 2)
-        self.addLogoObject()
-        self.addOthersElemts()
+        self.addSubQuote()
         
         self.objects.map() { $0.self.changeObjectToPosition(self.scrollView.contentOffset) }
     }
@@ -83,63 +80,33 @@ class IntroViewController: UIViewController {
         self.objects.append(logoObject)
     }
     
-    private func addOthersElemts() {
-        let imageView = UIImageView(image: UIImage(named: "wwdcTextImage"))
-        imageView.center = CGPoint(x: self.screenSize.width * 5.5, y: self.screenSize.height / 1.4)
-        self.contentView.addSubview(imageView)
-        
+    private func addSubQuote() {
         let anotheQuoteLabel = UILabel(frame: CGRectMake(0, 0, self.screenSize.width - 32, 30))
         anotheQuoteLabel.center = CGPoint(x: self.screenSize.width / 2, y: self.screenSize.height / 1.8)
         anotheQuoteLabel.text = "- Steve Jobs"
-        anotheQuoteLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 18)
+        anotheQuoteLabel.font = UIFont(name: "HelveticaNeue", size: 18)
         anotheQuoteLabel.textColor = UIColor.whiteColor()
         anotheQuoteLabel.textAlignment = .Right
         self.contentView.addSubview(anotheQuoteLabel)
-        
-        let startButton = DesignableButton(frame: CGRectMake(0, 0, imageView.frame.width, 45))
-        startButton.cornerRadius = 3
-        startButton.center = CGPoint(x: self.screenSize.width * 5.5, y: self.screenSize.height / 1.2)
-        startButton.backgroundColor = UIColor.whiteColor()
-        startButton.setTitleColor(UIColor.scholarsPurpleColor(), forState: .Normal)
-        startButton.setTitle("Welcome", forState: .Normal)
-        startButton.addTarget(self, action: #selector(IntroViewController.buttonAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        startButton.layer.cornerRadius = 4
-        self.contentView.addSubview(startButton)
-        
-        self.swipeLeftImageView = UIImageView(frame: CGRectMake(self.screenSize.width - 60, self.screenSize.height - 120, 50, 100))
-        self.swipeLeftImageView.image = UIImage(named: "swipeLeft")
-        self.swipeLeftImageView.contentMode = .ScaleAspectFit
-        self.swipeLeftImageView.alpha = 0.50
-        UIView.animateWithDuration(2.0, delay: 2.0, options: .CurveEaseInOut, animations: {
-            self.swipeLeftImageView.frame.origin.x = 10
-            self.swipeLeftImageView.alpha = 0.0
-            }, completion: { _ in
-                if self.movingTimer != nil && !self.stopAnimation {
-                    self.animateSwipeImage()
-                }
-        })
-        self.view.addSubview(swipeLeftImageView)
     }
     
-    private func animateSwipeImage() {
-        self.swipeLeftImageView.frame.origin.x = self.screenSize.width - 60
-        self.swipeLeftImageView.alpha = 0.5
-        
-        UIView.animateWithDuration(2.0, delay: 2.0, options: .CurveEaseInOut, animations: {
-            self.swipeLeftImageView.frame.origin.x = 10
-            self.swipeLeftImageView.alpha = 0.0
-            }, completion: { _ in
-                if self.movingTimer != nil && !self.stopAnimation {
-                    self.animateSwipeImage()
-                }
-        })
+    func printFonts() {
+        let fontFamilyNames = UIFont.familyNames()
+        for familyName in fontFamilyNames {
+            print("------------------------------")
+            print("Font Family Name = [\(familyName)]")
+            let names = UIFont.fontNamesForFamilyName(familyName)
+            print("Font Names = [\(names)]")
+        }
     }
     
     private func addQuote() {
-        let font = UIFont(name: "HelveticaNeue-Thin", size: 24)!
+        printFonts()
+        
+        let font = UIFont(name: "HelveticaNeue-Medium", size: 24)!
         let firstPartAttributes = AZTextFrameAttributes(string: "Here's ", font: font)
         let secondPartAttributes = AZTextFrameAttributes(string: "   the Crazy Ones", font: font)
-        let defaultPartAttributes = AZTextFrameAttributes(string: self.first + "\n\n", width: self.screenSize.width - 16, font: UIFont(name: "HelveticaNeue-Thin", size: 18)!)
+        let defaultPartAttributes = AZTextFrameAttributes(string: self.first + "\n\n", width: self.screenSize.width - 16, font: UIFont(name: "HelveticaNeue-Medium", size: 18)!)
         
         let firstWidth = AZTextFrame(attributes: firstPartAttributes).width
         let secondWidth = AZTextFrame(attributes: secondPartAttributes).width + 11
@@ -164,15 +131,15 @@ class IntroViewController: UIViewController {
         quoteObject.setPoints([CGPoint(x: 0.5 - firstSpace, y: 0.5), CGPoint(x: 1.5 - firstSpace, y: 0.5), CGPoint(x: 2.5 - firstSpace, y: coefficent), CGPoint(x: 3.5 - firstSpace, y: -0.1)])
         self.objects.append(quoteObject)
         
-        let anotheQuoteLabel = UILabel(frame: CGRectMake(0, 0, secondWidth, 30))
-        anotheQuoteLabel.center =  CGPoint(x: self.screenSize.width / 2 + self.screenSize.width * secondSpace, y: 0)
-        anotheQuoteLabel.text = "   the Crazy Ones"
-        anotheQuoteLabel.font = font
-        anotheQuoteLabel.textColor = UIColor.whiteColor()
-        anotheQuoteLabel.textAlignment = .Left
-        self.contentView.addSubview(anotheQuoteLabel)
+        let anotherQuoteLabel = UILabel(frame: CGRectMake(0, 0, secondWidth, 30))
+        anotherQuoteLabel.center =  CGPoint(x: self.screenSize.width / 2 + self.screenSize.width * secondSpace, y: 0)
+        anotherQuoteLabel.text = "   the Crazy Ones"
+        anotherQuoteLabel.font = font
+        anotherQuoteLabel.textColor = UIColor.whiteColor()
+        anotherQuoteLabel.textAlignment = .Left
+        self.contentView.addSubview(anotherQuoteLabel)
         
-        let anotherQuoteObject = TutorialObject(object: anotheQuoteLabel)
+        let anotherQuoteObject = TutorialObject(object: anotherQuoteLabel)
         anotherQuoteObject.setPoints([CGPoint(x: 0.5 + secondSpace, y: 0.5), CGPoint(x: 1.5 + secondSpace, y: 0.5), CGPoint(x: 2.5 + secondSpace, y: coefficent), CGPoint(x: 3.5 + secondSpace, y: -0.1)])
         self.objects.append(anotherQuoteObject)
     }
@@ -183,7 +150,7 @@ class IntroViewController: UIViewController {
         label.text = value
         label.numberOfLines = 0
         label.textColor = UIColor.whiteColor()
-        label.font = UIFont(name: "HelveticaNeue-Thin", size: 18)
+        label.font = UIFont(name: "HelveticaNeue", size: 18)
         label.textAlignment = .Center
         self.contentView.addSubview(label)
         
@@ -207,31 +174,6 @@ class IntroViewController: UIViewController {
         
         self.objects.append(labelObject)
     }
-    
-    @objc
-    private func timerStep() {
-        if self.scrollView.contentOffset.x <= self.screenSize.width * (self.numberOfScreens - 2) {
-            self.scrollView.panGestureRecognizer.enabled = false
-            self.scrollView.panGestureRecognizer.enabled = true
-            
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.scrollView.contentOffset = CGPoint(x: self.scrollView.contentOffset.x + self.screenSize.width, y: self.scrollView.contentOffset.y)
-            })
-            
-            if self.scrollView.contentOffset.x > self.screenSize.width * 1.0 {
-                print(0.5 - (self.scrollView.contentOffset.x - self.screenSize.width) / self.screenSize.width)
-                self.swipeLeftImageView.alpha = 0.5 - (self.scrollView.contentOffset.x - self.screenSize.width) / self.screenSize.width
-            }
-        }
-    }
-    
-    // MARK: - Internal functions
-    
-    internal func buttonAction(sender:UIButton!) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        
-        UserDefaults.hasOpenedApp = true
-    }
 }
 
 extension IntroViewController: UIScrollViewDelegate {
@@ -244,10 +186,16 @@ extension IntroViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        if self.scrollView.contentOffset.x >= (self.screenSize.width * (self.numberOfScreens - 2)) + self.screenSize.width / 2 {
+            UserDefaults.hasOpenedApp = true
+            
+            self.modalTransitionStyle = .CrossDissolve
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
         self.updatePageControl()
         
-        self.backgroundImageView.frame.origin.x = -self.scrollView.contentOffset.x / 6
-        print(self.scrollView.contentOffset.x)
+        self.backgroundImageView.frame.origin.x = -self.scrollView.contentOffset.x / self.numberOfScreens
         
         var firstLabel: UILabel?
         self.objects.map() {
@@ -261,7 +209,6 @@ extension IntroViewController: UIScrollViewDelegate {
         if let label = firstLabel {
             if self.scrollView.contentOffset.x > self.screenSize.width * 1.0 && self.scrollView.contentOffset.x < self.screenSize.width * 2.0 {
                 label.alpha = (scrollView.contentOffset.x - self.screenSize.width) / self.screenSize.width
-                self.swipeLeftImageView.alpha = 0.5 - (scrollView.contentOffset.x - self.screenSize.width) / self.screenSize.width
             }
         }
         
@@ -282,7 +229,20 @@ extension IntroViewController: UIScrollViewDelegate {
     func updatePageControl() {
         var pageNumber = Int(round((self.scrollView.contentOffset.x / self.screenSize.width)))
         pageNumber = min(max(0, pageNumber), Int(self.numberOfScreens - 1))
+        
         self.pageControl.currentPage = pageNumber
+        
+        if pageNumber >= 4 {
+            UIView.animateWithDuration(0.5, animations: {
+                self.pageControl.alpha = 0.0
+                self.getStartedLabel.alpha = 1.0
+            })
+        } else {
+            UIView.animateWithDuration(0.5, animations: {
+                self.pageControl.alpha = 1.0
+                self.getStartedLabel.alpha = 0.0
+            })
+        }
     }
 }
 

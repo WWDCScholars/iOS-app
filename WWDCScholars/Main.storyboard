@@ -1255,7 +1255,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="3Z2-1Q-pEK">
-                                <rect key="frame" x="0.0" y="-20" width="867" height="620"/>
+                                <rect key="frame" x="0.0" y="-20" width="900" height="620"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkJ-wz-Ank">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -1280,9 +1280,19 @@
                                     <outlet property="delegate" destination="Ket-f0-GSS" id="7Fo-1l-ivl"/>
                                 </connections>
                             </scrollView>
-                            <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ecr-7Q-amc">
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ecr-7Q-amc">
                                 <rect key="frame" x="280" y="555" width="39" height="37"/>
                             </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's get started..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yx8-9C-ojC">
+                                <rect key="frame" x="230" y="563" width="140" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="jGW-cg-mfZ"/>
+                                    <constraint firstAttribute="height" constant="21" id="r0Y-Ro-aRW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1290,7 +1300,9 @@
                             <constraint firstItem="nkJ-wz-Ank" firstAttribute="top" secondItem="dl1-5u-c9Y" secondAttribute="top" id="5g8-zg-n1R"/>
                             <constraint firstAttribute="trailing" secondItem="nkJ-wz-Ank" secondAttribute="trailing" id="77T-Bu-C4a"/>
                             <constraint firstItem="ecr-7Q-amc" firstAttribute="top" secondItem="3Z2-1Q-pEK" secondAttribute="bottom" id="8ad-Hd-Ua1"/>
-                            <constraint firstAttribute="trailing" secondItem="3Z2-1Q-pEK" secondAttribute="trailing" constant="-267" id="CCZ-7C-thd"/>
+                            <constraint firstItem="Yx8-9C-ojC" firstAttribute="centerX" secondItem="dl1-5u-c9Y" secondAttribute="centerX" id="9aX-9Y-kFR"/>
+                            <constraint firstItem="wan-xw-gpZ" firstAttribute="top" secondItem="Yx8-9C-ojC" secondAttribute="bottom" constant="16" id="Acv-DU-ClG"/>
+                            <constraint firstAttribute="trailing" secondItem="3Z2-1Q-pEK" secondAttribute="trailing" constant="-300" id="CCZ-7C-thd"/>
                             <constraint firstItem="wan-xw-gpZ" firstAttribute="top" secondItem="ecr-7Q-amc" secondAttribute="bottom" constant="8" id="IBj-59-LvE"/>
                             <constraint firstItem="3Z2-1Q-pEK" firstAttribute="top" secondItem="us0-VW-mzo" secondAttribute="bottom" constant="-20" id="IVt-Bw-Uar"/>
                             <constraint firstItem="3Z2-1Q-pEK" firstAttribute="leading" secondItem="dl1-5u-c9Y" secondAttribute="leading" id="L6a-xs-8pf"/>
@@ -1312,6 +1324,7 @@
                         <outlet property="contentView" destination="bgA-Y7-S4c" id="4bc-Ac-skD"/>
                         <outlet property="contentViewHeightConstraint" destination="RYG-qc-Nou" id="ENV-4F-qsc"/>
                         <outlet property="contentViewWidthConstraint" destination="HQN-Po-rIX" id="nzc-vn-jlh"/>
+                        <outlet property="getStartedLabel" destination="Yx8-9C-ojC" id="nBZ-ov-DwS"/>
                         <outlet property="pageControl" destination="ecr-7Q-amc" id="igb-XH-8Iy"/>
                         <outlet property="scrollView" destination="nkJ-wz-Ank" id="KK8-yn-aZA"/>
                     </connections>

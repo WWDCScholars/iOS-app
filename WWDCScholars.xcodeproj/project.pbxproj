@@ -219,7 +219,7 @@
 		6EEA89221CDBE21C00245445 /* AZTextHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZTextHeight.swift; sourceTree = "<group>"; };
 		6EEA89231CDBE21C00245445 /* TutorialObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialObject.swift; sourceTree = "<group>"; };
 		6EEA89241CDBE21C00245445 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
-		6EEA89291CDBFAF900245445 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		6EEA89291CDBFAF900245445 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserDefaults.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		7B2AA6DD1CBAE7530025EC7B /* WWDCScholarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsTests.swift; sourceTree = "<group>"; };
 		7B2AA6E11CBAE7530025EC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };

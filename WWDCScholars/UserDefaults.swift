@@ -16,12 +16,12 @@ class UserDefaults {
         }
     }
     
-    static var favourites: [String] {
+    static var favorites: [String] {
         get {
-            return NSUserDefaults.standardUserDefaults().objectForKey("favourites") as? [String] ?? []
+            return NSUserDefaults.standardUserDefaults().objectForKey("favorites") as? [String] ?? []
         }
         set(hasOpenedApp) {
-            NSUserDefaults.standardUserDefaults().setObject(hasOpenedApp, forKey: "favourites")
+            NSUserDefaults.standardUserDefaults().setObject(hasOpenedApp, forKey: "favorites")
         }
     }
 }

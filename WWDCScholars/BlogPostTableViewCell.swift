@@ -45,5 +45,6 @@ class BlogPostTableViewCell: UITableViewCell {
         var imageRect = self.postImageView.frame
         imageRect.origin.y = (-difference / 2) - move
         self.postImageView.frame = imageRect
+       
     }
 }

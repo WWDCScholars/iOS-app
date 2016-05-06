@@ -406,7 +406,7 @@
                                                                                         <constraint firstItem="DOX-7g-D7r" firstAttribute="centerY" secondItem="dd5-vu-RLz" secondAttribute="centerY" id="olg-bK-BXb"/>
                                                                                     </constraints>
                                                                                 </view>
-                                                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="in2-F3-pr9">
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="in2-F3-pr9">
                                                                                     <rect key="frame" x="195" y="0.0" width="195" height="70"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-dA-hQT">
@@ -2451,6 +2451,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="UF7-DQ-LBe"/>
-        <segue reference="If2-0g-pPV"/>
+        <segue reference="Yff-U6-LNC"/>
     </inferredMetricsTieBreakers>
 </document>

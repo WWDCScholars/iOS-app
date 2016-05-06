@@ -27,6 +27,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     @IBOutlet private weak var rightArrowImageView: UIImageView!
     @IBOutlet private weak var leftArrowImageView: UIImageView!
     @IBOutlet private weak var loginBarButtonItem: UIBarButtonItem!
+    @IBOutlet private weak var mapBarButtonItem: UIBarButtonItem!
     
     private let years: [WWDC] = [.WWDC2011, .WWDC2012, .WWDC2013, .WWDC2014, .WWDC2015, .WWDC2016]
     private let locationManager = CLLocationManager()
@@ -39,6 +40,9 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     private var isMapInitalized = false
     private var myLocation: CLLocationCoordinate2D?
     private var currentViewType: CurrentViewType = .List
+    
+    private var mapViewVisible = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,6 +148,18 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     }
     
     @IBAction func mapButtonTapped(sender: AnyObject) {
+        
+        switch mapViewVisible {
+        case false:
+            self.mapBarButtonItem.image = UIImage(named: "gridIcon")
+            mapViewVisible = true
+            break
+        case true:
+            self.mapBarButtonItem.image = UIImage(named: "mapIcon")
+            mapViewVisible = false
+            break
+        }
+        
         if !self.isMapInitalized {
             self.initialzeMap()
             self.isMapInitalized = true

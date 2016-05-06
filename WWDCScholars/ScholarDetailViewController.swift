@@ -23,7 +23,7 @@ class ScholarDetailViewController: UIViewController {
     @IBOutlet private weak var profileImageViewBackground: UIView!
     @IBOutlet private weak var teamIconImageView: UIImageView!
     @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var favouritesButton: UIBarButtonItem!
+    @IBOutlet private weak var favoritesButton: UIBarButtonItem!
     
     var currentScholar: Scholar?
     var delegate: ContactButtonDelegate?
@@ -123,9 +123,9 @@ class ScholarDetailViewController: UIViewController {
         self.profileImageView.af_setImageWithURL(NSURL(string: scholar.profilePicURL)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
         
         if UserDefaults.favorites.contains(self.currentScholar!.id) {
-            self.favouritesButton.image = UIImage(named: "favouriteFilled")
+            self.favoritesButton.image = UIImage(named: "favouriteFilled")
         } else {
-            self.favouritesButton.image = UIImage(named: "favouriteUnfilled")
+            self.favoritesButton.image = UIImage(named: "favouriteUnfilled")
         }
     }
     
@@ -136,10 +136,10 @@ class ScholarDetailViewController: UIViewController {
         
         if indexOfFavorite == nil {
             UserDefaults.favorites.append(self.currentScholar!.id)
-            self.favouritesButton.image = UIImage(named: "favouriteFilled")
+            self.favoritesButton.image = UIImage(named: "favouriteFilled")
         } else {
             UserDefaults.favorites.removeAtIndex(indexOfFavorite!)
-            self.favouritesButton.image = UIImage(named: "favouriteUnfilled")
+            self.favoritesButton.image = UIImage(named: "favouriteUnfilled")
         }
     }
 }

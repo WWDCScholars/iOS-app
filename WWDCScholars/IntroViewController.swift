@@ -48,6 +48,7 @@ class IntroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.scrollView.accessibilityIdentifier = "introScroll"
         self.leftArrowImageView.alpha = 0.0
 
         self.addObjects()

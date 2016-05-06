@@ -9,6 +9,10 @@
 import UIKit
 import MapKit
 
+protocol ContactButtonDelegate {
+    func openContactURL(url: String)
+}
+
 class ScholarDetailViewController: UIViewController {
     @IBOutlet private weak var detailsTableView: UITableView!
     @IBOutlet private weak var mapView: MKMapView!
@@ -21,6 +25,7 @@ class ScholarDetailViewController: UIViewController {
     @IBOutlet private weak var favouritesButton: UIBarButtonItem!
     
     var currentScholar: Scholar?
+    var delegate: ContactButtonDelegate?
     
     override func viewDidLoad() {
         self.styleUI()
@@ -30,19 +35,47 @@ class ScholarDetailViewController: UIViewController {
     // MARK: - UIPreviewActions
     
     override func previewActionItems() -> [UIPreviewActionItem] {
-        let indexOfFavourite = UserDefaults.favorites.indexOf(self.currentScholar!.id)
-        let actionTitle = indexOfFavourite == nil ? "Add to favorites" : "Remove from favorites"
-        let actionStyle: UIPreviewActionStyle = indexOfFavourite == nil ? .Default : .Destructive
+        let indexOfFavorite = UserDefaults.favorites.indexOf(self.currentScholar!.id)
+        let actionTitle = indexOfFavorite == nil ? "Add to favorites" : "Remove from favorites"
+        let actionStyle: UIPreviewActionStyle = indexOfFavorite == nil ? .Default : .Destructive
         
-        let favouriteAction = UIPreviewAction(title: actionTitle, style: actionStyle) { (action, viewController) -> Void in
-            if indexOfFavourite == nil {
+        let favoriteAction = UIPreviewAction(title: actionTitle, style: actionStyle) { (action, viewController) -> Void in
+            if indexOfFavorite == nil {
                 UserDefaults.favorites.append(self.currentScholar!.id)
             } else {
-                UserDefaults.favorites.removeAtIndex(indexOfFavourite!)
+                UserDefaults.favorites.removeAtIndex(indexOfFavorite!)
             }
         }
         
-        return [favouriteAction]
+        var actions: [UIPreviewAction] = []
+        
+        if let websiteURL = self.currentScholar?.websiteURL {
+            let websiteAction = UIPreviewAction(title: "Website", style: .Default) { (action, viewController) -> Void in
+                self.delegate?.openContactURL(websiteURL)
+            }
+            
+            actions.append(websiteAction)
+        }
+        
+        if let emailAddress = self.currentScholar?.email {
+            let emailAction = UIPreviewAction(title: "Email", style: .Default) { (action, viewController) -> Void in
+                print(emailAddress)
+            }
+            
+            actions.append(emailAction)
+        }
+        
+        if let linkedInURL = self.currentScholar?.linkedInURL {
+            let linkedInAction = UIPreviewAction(title: "LinkedIn", style: .Default) { (action, viewController) -> Void in
+                self.delegate?.openContactURL(linkedInURL)
+            }
+            
+            actions.append(linkedInAction)
+        }
+        
+        let socialActions = UIPreviewActionGroup(title: "Contact", style: .Default, actions: actions)
+        
+        return [socialActions, favoriteAction]
     }
     
     // MARK: - UI

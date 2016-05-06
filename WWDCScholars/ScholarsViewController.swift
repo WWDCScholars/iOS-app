@@ -9,13 +9,14 @@
 import UIKit
 import MapKit
 import CoreLocation
+import SafariServices
 
 enum CurrentViewType {
     case List
     case Map
 }
 
-class ScholarsViewController: UIViewController {
+class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, ContactButtonDelegate {
     @IBOutlet private weak var yearCollectionView: UICollectionView!
     @IBOutlet private weak var loadingView: ActivityIndicatorView!
     @IBOutlet private weak var scholarsCollectionView: UICollectionView!
@@ -200,6 +201,17 @@ class ScholarsViewController: UIViewController {
     
     // MARK: - Internal functions
     
+    internal func openContactURL(url: String) {
+        let viewController = SFSafariViewController(URL: NSURL(string: url)!)
+        viewController.delegate = self
+        
+        self.presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     internal func showEditDetailsModal(longPressGestureRecognizerLoginBarButtomItem: UIGestureRecognizer) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let modalViewController = storyboard.instantiateViewControllerWithIdentifier("EditDetailsNC")
@@ -320,6 +332,7 @@ extension ScholarsViewController: UIViewControllerPreviewingDelegate {
         
         let scholar = self.currentScholars[indexPath.item]
         previewViewController.currentScholar = scholar
+        previewViewController.delegate = self
         previewViewController.preferredContentSize = CGSize.zero
         previewingContext.sourceRect = self.view.convertRect(cell.frame, fromView: self.scholarsCollectionView)
         

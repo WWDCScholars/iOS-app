@@ -239,7 +239,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gdM-SB-6xy" firstAttribute="trailing" secondItem="yjN-qc-pxi" secondAttribute="trailing" id="2Fz-Dg-zcn"/>
                             <constraint firstItem="jYj-Zb-Qv2" firstAttribute="top" secondItem="fgQ-47-L3u" secondAttribute="bottom" id="2Sn-7P-Yef"/>
@@ -683,7 +683,7 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="oD5-u3-Xnm" secondAttribute="trailing" constant="8" id="2kS-QC-vTO"/>
                                                     <constraint firstAttribute="trailing" secondItem="NKq-2g-1bu" secondAttribute="trailing" constant="8" id="4UM-1w-suL"/>

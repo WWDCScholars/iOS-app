@@ -31,16 +31,8 @@ class CreditTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         self.scholarImageView.clipsToBounds = true
         self.scholarImageView.layer.cornerRadius = 7
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

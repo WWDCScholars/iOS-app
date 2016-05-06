@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import SafariServices
+import MessageUI
 
-class CreditsViewController: UIViewController {
+class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, ContactButtonDelegate {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet weak var ourTeamLabel: UILabel!
@@ -32,6 +34,35 @@ class CreditsViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    // MARK: - Internal functions
+    
+    // MARK: - Internal functions
+    
+    internal func openContactURL(url: String) {
+        let viewController = SFSafariViewController(URL: NSURL(string: url)!)
+        viewController.delegate = self
+        
+        self.presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    internal func composeEmail(address: String) {
+        if MFMailComposeViewController.canSendMail() {
+            let viewController = MFMailComposeViewController()
+            viewController.mailComposeDelegate = self
+            viewController.setToRecipients([address])
+            
+            presentViewController(viewController, animated: true, completion: nil)
+        }
+    }
+    
+    func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - UI
@@ -116,6 +147,7 @@ extension CreditsViewController: UIViewControllerPreviewingDelegate {
         
         let scholar = CreditsManager.sharedInstance.getScholar(indexPath)
         previewViewController.currentScholar = scholar
+        previewViewController.delegate = self
         previewViewController.preferredContentSize = CGSize.zero
         previewingContext.sourceRect = self.view.convertRect(cell.frame, fromView: self.tableView)
         

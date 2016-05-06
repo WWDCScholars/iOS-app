@@ -31,6 +31,8 @@
 		22E2A6EF1CC1DA2400DF0578 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */; };
 		22E2A6F31CC1DBE300DF0578 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6F21CC1DBE300DF0578 /* Spring.swift */; };
 		22E2A6F51CC1DC2400DF0578 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6F41CC1DC2400DF0578 /* Misc.swift */; };
+		22E937B71CDCE4F300A2BEBE /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E937B61CDCE4F300A2BEBE /* SafariServices.framework */; };
+		22E937B91CDCE82500A2BEBE /* SignUpSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E937B81CDCE82500A2BEBE /* SignUpSafariViewController.swift */; };
 		6E1F069B1CC0332F00E464A0 /* ScholarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */; };
 		6E1F069D1CC045F400E464A0 /* YearCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */; };
 		6E1F6D5D1CC1B2F2002D17DB /* BioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */; };
@@ -188,6 +190,8 @@
 		22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		22E2A6F21CC1DBE300DF0578 /* Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
 		22E2A6F41CC1DC2400DF0578 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		22E937B61CDCE4F300A2BEBE /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		22E937B81CDCE82500A2BEBE /* SignUpSafariViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpSafariViewController.swift; sourceTree = "<group>"; };
 		6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioTableViewCell.swift; sourceTree = "<group>"; };
@@ -295,6 +299,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22E937B71CDCE4F300A2BEBE /* SafariServices.framework in Frameworks */,
 				6ED926521CBF0BEE0082FCFE /* MapKit.framework in Frameworks */,
 				223F5E9A1CB970EC00E582C5 /* AVFoundation.framework in Frameworks */,
 				7BBA87651CBB7F3A0057E9AD /* Crashlytics.framework in Frameworks */,
@@ -425,12 +430,13 @@
 		224355C51CC1D468001FFAD0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */,
+				22E937B81CDCE82500A2BEBE /* SignUpSafariViewController.swift */,
 				2236F2961CC29EA500663957 /* DesignableButton.swift */,
 				224355CA1CC1D576001FFAD0 /* DesignableTextField.swift */,
 				2236F2981CC29EBD00663957 /* DesignableView.swift */,
 				224355D21CC1D624001FFAD0 /* DragDropBehavior.swift */,
 				22E2A6F41CC1DC2400DF0578 /* Misc.swift */,
-				22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */,
 				22E2A6F21CC1DBE300DF0578 /* Spring.swift */,
 				224355CC1CC1D584001FFAD0 /* SpringButton.swift */,
 				224355CE1CC1D58C001FFAD0 /* SpringImageView.swift */,
@@ -582,6 +588,7 @@
 		7BBA87A21CBD5D680057E9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22E937B61CDCE4F300A2BEBE /* SafariServices.framework */,
 				6EEA891A1CDBE13D00245445 /* TOMSMorphingLabel */,
 				7B4D518C1CC110A50072E114 /* Source */,
 				6E4DD6F01CBD476200B08EE1 /* FloatLabelTextField */,
@@ -848,6 +855,7 @@
 				7BBA88191CBD8AC90057E9AD /* Request.swift in Sources */,
 				7BBA877A1CBD4E240057E9AD /* Location.swift in Sources */,
 				7BBA88171CBD8AC90057E9AD /* Notifications.swift in Sources */,
+				22E937B91CDCE82500A2BEBE /* SignUpSafariViewController.swift in Sources */,
 				7BBA881D1CBD8AC90057E9AD /* ServerTrustPolicy.swift in Sources */,
 				223884211C8252D900A96752 /* AppDelegate.swift in Sources */,
 				7BBA88621CBEA1130057E9AD /* DateUtils.swift in Sources */,

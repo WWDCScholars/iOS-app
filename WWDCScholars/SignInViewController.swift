@@ -1,12 +1,13 @@
 //
 //  LoginViewController.swift
-//  WWDC Scholars 2015
+//  WWDCScholars 2016
 //
-//  Created by Nikhil D'Souza on 5/25/15.
-//  Copyright (c) 2015 WWDC-Scholars. All rights reserved.
+//  Created by Sam Eckert on 15.4.16.
+//  Copyright (c) 2016 WWDCScholars. All rights reserved.
 //
 
 import UIKit
+import SafariServices
 
 class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehaviorDelegate {
     // Comment
@@ -69,7 +70,17 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     @IBAction func signUpButtonPressed(sender: AnyObject){
         print("Pressed Sign Up")
     
+        let url = NSURL(string: "http://wwdcscholarsform.herokuapp.com/addscholar")
+                
+        let signUpVC = SignUpSafariViewController(URL: url!)
+        
+        self.presentViewController(signUpVC, animated: true, completion: nil)
+    //  UIApplication.sharedApplication().statusBarStyle = .Default
+        
+        
     }
+    
+  
 
     
     @IBAction func closeButtonPressed(sender: AnyObject) {

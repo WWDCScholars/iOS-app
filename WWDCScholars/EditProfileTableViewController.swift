@@ -35,6 +35,16 @@ class EditProfileTableViewController: UITableViewController, UITextFieldDelegate
         self.styleUI()
     }
     
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text.rangeOfCharacterFromSet(NSCharacterSet.newlineCharacterSet()) != nil {
+            textView.resignFirstResponder()
+            
+            return false
+        }
+        
+        return true
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         switch textField {
         case self.firstNameTextField:

@@ -20,10 +20,10 @@ enum CurrentViewType {
 class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, ContactButtonDelegate {
     @IBOutlet private weak var yearCollectionView: UICollectionView!
     @IBOutlet private weak var loadingView: ActivityIndicatorView!
-    @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var scholarsCollectionView: UICollectionView!
     @IBOutlet private weak var extendedNavigationContainer: UIView!
     @IBOutlet private weak var mainView: UIView!
+    @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var rightArrowImageView: UIImageView!
     @IBOutlet private weak var leftArrowImageView: UIImageView!
@@ -45,7 +45,8 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     private var currentViewType: CurrentViewType = .List
     private var mapViewVisible = false
     private var searchText = ""
-    
+    private var searchBarBoundsY:CGFloat?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,11 +87,23 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.updateArrowsForIndex(index)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.scholarsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
+        self.scholarsCollectionView.setContentOffset(CGPointZero, animated: true)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        cancelSearching()
+    }
+    
     // MARK: - UI
     
     private func configureUI() {
-        self.scholarsCollectionView.contentInset = UIEdgeInsets(top: 44.0, left: 0.0, bottom: 0.0, right: 0.0)
-        
+        self.searchBarBoundsY = (self.navigationController?.navigationBar.frame.size.height)! + UIApplication.sharedApplication().statusBarFrame.size.height
+//        addObservers()
+
         let longPressGestureRecognizerLoginBarButtomItem = UILongPressGestureRecognizer(target: self, action: #selector(ScholarsViewController.showEditDetailsModal(_:)))
         self.view.addGestureRecognizer(longPressGestureRecognizerLoginBarButtomItem)
      
@@ -173,10 +186,14 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     // MARK: - Private functions
     
-    private func cancelSearching() {
+    private func cancelSearching(setOffset: Bool = false) {
         self.searchBarActive = false
         self.searchBar!.resignFirstResponder()
         self.searchBar!.text = ""
+        self.scholarsCollectionView.reloadData()
+        if setOffset {
+            self.scholarsCollectionView.setContentOffset(CGPointZero, animated: true)
+        }
     }
     
     private func filterContentForSearchText() {
@@ -298,8 +315,7 @@ extension ScholarsViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        self.cancelSearching()
-        self.scholarsCollectionView.reloadData()
+        self.cancelSearching(true)
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {

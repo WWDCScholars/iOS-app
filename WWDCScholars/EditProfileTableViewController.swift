@@ -142,7 +142,7 @@ extension EditProfileTableViewController: UICollectionViewDataSource {
 extension EditProfileTableViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.profileImageButton.contentMode = .ScaleAspectFit
+            self.profileImageButton.imageView?.contentMode = .ScaleAspectFill
             self.profileImageButton.setImage(pickedImage, forState: .Normal)
         }
         

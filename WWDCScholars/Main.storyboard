@@ -1595,7 +1595,7 @@
                                                         <constraint firstAttribute="width" constant="71" id="kdc-WZ-62z"/>
                                                         <constraint firstAttribute="height" constant="71" id="xdw-i5-M2X"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button" image="wwdcScholarsIcon"/>
+                                                    <state key="normal" image="wwdcScholarsIcon"/>
                                                     <connections>
                                                         <action selector="uploadProfileImageButtonTapped:" destination="l2Q-QU-Rdg" eventType="touchUpInside" id="6e2-8q-zee"/>
                                                     </connections>

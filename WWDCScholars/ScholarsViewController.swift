@@ -89,13 +89,15 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.scholarsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
-        self.scholarsCollectionView.setContentOffset(CGPointZero, animated: true)
+        if !searchBarActive {
+            self.scholarsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
+            self.scholarsCollectionView.setContentOffset(CGPointZero, animated: true)
+        }
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        cancelSearching()
+//        cancelSearching()
     }
     
     // MARK: - UI
@@ -344,6 +346,8 @@ extension ScholarsViewController: UIScrollViewDelegate {
             self.currentYear = self.years[currentIndex]
             
             self.getCurrentScholars()
+            self.scholarsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
+            self.scholarsCollectionView.setContentOffset(CGPointZero, animated: true)
             self.updateArrowsForIndex(currentIndex)
         }
     }

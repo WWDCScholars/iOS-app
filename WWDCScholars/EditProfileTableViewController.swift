@@ -11,6 +11,19 @@ import UIKit
 class EditProfileTableViewController: UITableViewController, UITextFieldDelegate, UINavigationControllerDelegate {
     @IBOutlet private weak var screenshotCollectionView: UICollectionView!
     @IBOutlet private weak var profileImageButton: UIButton!
+    @IBOutlet private weak var firstNameTextField: FloatLabelTextField!
+    @IBOutlet private weak var secondNameTextField: FloatLabelTextField!
+    @IBOutlet private weak var ageTextField: FloatLabelTextField!
+    @IBOutlet private weak var bioTextView: FloatLabelTextView!
+    @IBOutlet private weak var emailTextField: FloatLabelTextField!
+    @IBOutlet private weak var twitterTextField: FloatLabelTextField!
+    @IBOutlet private weak var facebookTextField: FloatLabelTextField!
+    @IBOutlet private weak var githubTextField: FloatLabelTextField!
+    @IBOutlet private weak var linkedinTextField: FloatLabelTextField!
+    @IBOutlet private weak var websiteTextField: FloatLabelTextField!
+    @IBOutlet private weak var appStoreTextField: FloatLabelTextField!
+    @IBOutlet private weak var youtubeTextField: FloatLabelTextField!
+    @IBOutlet private weak var appGithubTextField: FloatLabelTextField!
     
     private let numberOfScreenshots = 4
     private let imagePicker = UIImagePickerController()
@@ -23,9 +36,32 @@ class EditProfileTableViewController: UITableViewController, UITextFieldDelegate
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        switch textField {
+        case self.firstNameTextField:
+            self.secondNameTextField.becomeFirstResponder()
+        case self.secondNameTextField:
+            self.ageTextField.becomeFirstResponder()
+        case self.emailTextField:
+            self.twitterTextField.becomeFirstResponder()
+        case self.twitterTextField:
+            self.facebookTextField.becomeFirstResponder()
+        case self.facebookTextField:
+            self.githubTextField.becomeFirstResponder()
+        case self.githubTextField:
+            self.linkedinTextField.becomeFirstResponder()
+        case self.linkedinTextField:
+            self.websiteTextField.becomeFirstResponder()
+        case self.websiteTextField:
+            self.appStoreTextField.becomeFirstResponder()
+        case self.appStoreTextField:
+            self.youtubeTextField.becomeFirstResponder()
+        case self.youtubeTextField:
+            self.appGithubTextField.becomeFirstResponder()
+        default:
+            self.view.endEditing(true)
+        }
         
-        return false
+        return true
     }
     
     // MARK: - UI
@@ -46,13 +82,13 @@ class EditProfileTableViewController: UITableViewController, UITextFieldDelegate
     // MARK: - IBActions
     
     @IBAction func uploadProfileImageButtonTapped(sender: AnyObject) {
-        let actionSheet = UIAlertController(title: "Upload Profile Image", message: nil, preferredStyle: .ActionSheet)
+        let actionSheet = UIAlertController(title: "Update Profile Image", message: nil, preferredStyle: .ActionSheet)
         
-        let uploadAction = UIAlertAction(title: "Import from photo library", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+        let uploadAction = UIAlertAction(title: "Photo Library", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
             self.imagePicker.sourceType = .PhotoLibrary
             self.presentViewController(self.imagePicker, animated: true, completion: nil)
         })
-        let takePhotoAction = UIAlertAction(title: "Take new photo", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
             self.imagePicker.sourceType = .Camera
             self.presentViewController(self.imagePicker, animated: true, completion: nil)
         })

@@ -171,6 +171,7 @@ extension IntroViewController: UIScrollViewDelegate {
                 self.dismissViewControllerAnimated(true, completion: nil)
             }else {
                 self.performSegueWithIdentifier(String(ScholarsTabBarViewController), sender: self)
+                UserDefaults.hasOpenedApp = true
             }
         }
         

@@ -28,6 +28,7 @@ class IntroViewController: UIViewController {
     private var lastContentOffset = CGPointZero
     private var textState = 0
     private var movingTimer: NSTimer?
+    private var didDoMyThing = false
     
     private var screenSize: CGSize {
         return UIScreen.mainScreen().bounds.size
@@ -167,11 +168,15 @@ extension IntroViewController: UIScrollViewDelegate {
         if self.scrollView.contentOffset.x >= (self.screenSize.width * (self.numberOfScreens - 2)) + self.screenSize.width / 2 {
             
             self.modalTransitionStyle = .CrossDissolve
+            
+            if !didDoMyThing {
+                didDoMyThing = true
             if UserDefaults.hasOpenedApp {
                 self.dismissViewControllerAnimated(true, completion: nil)
             }else {
                 self.performSegueWithIdentifier(String(ScholarsTabBarViewController), sender: self)
                 UserDefaults.hasOpenedApp = true
+            }
             }
         }
         

@@ -1403,7 +1403,7 @@
                         <outlet property="pageControl" destination="ecr-7Q-amc" id="igb-XH-8Iy"/>
                         <outlet property="rightArrowImageView" destination="GJO-N5-yNo" id="kGE-7C-HFa"/>
                         <outlet property="scrollView" destination="nkJ-wz-Ank" id="KK8-yn-aZA"/>
-                        <segue destination="wIZ-DC-Vqm" kind="presentation" identifier="ScholarsTabBarViewController" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="8SG-oh-DEi"/>
+                        <segue destination="wIZ-DC-Vqm" kind="presentation" identifier="ScholarsTabBarViewController" modalTransitionStyle="crossDissolve" id="8SG-oh-DEi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvo-8d-446" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,6 +11,8 @@ import UIKit
 class BlogViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    var posts: [BlogPost]!
+    
     let exampleImages = [UIImage(named: "example1"),
                          UIImage(named: "example2"),
                          UIImage(named: "example3")]
@@ -20,11 +22,14 @@ class BlogViewController: UIViewController {
         
         self.styleUI()
         
-        print ("HI! \(DatabaseManager.sharedInstance.getAllBlogPosts())")
+        posts = DatabaseManager.sharedInstance.getAllBlogPosts()
 
         
         BlogKit.sharedInstance.loadPosts() {
-            print ("HI! \(DatabaseManager.sharedInstance.getAllBlogPosts())")
+            self.posts = DatabaseManager.sharedInstance.getAllBlogPosts()
+            print ("HI! \(self.posts)")
+
+            self.tableView.reloadData()
 //            if self.loadingView.isAnimating() {
 //                self.loadingView.stopAnimating()
 //            }
@@ -52,15 +57,19 @@ class BlogViewController: UIViewController {
 
 extension BlogViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.exampleImages.count
+        return self.posts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("blogPostTableViewCell") as! BlogPostTableViewCell
         
-        cell.postImageView.image = self.exampleImages[indexPath.item]
+        let post = self.posts[indexPath.row]
         
-        
+        if let imgUrl = NSURL(string: post.imageUrl) {
+            cell.postImageView.af_setImageWithURL(imgUrl)
+        }
+        cell.postTitleLabel.text = post.title
+        cell.postAuthorLabel.text = post.scholarName
         
         return cell
     }

@@ -60,10 +60,10 @@ class BlogKit {
             newPost.email = email
             newPost.content = content
             newPost.title = title
-            newPost.scholarLink = scholarLink //todo is optional?
+            newPost.scholarLink = scholarLink.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":") //todo is optional?
             newPost.scholarName = scholarName
-            newPost.imageUrl = image
-            newPost.videoLink = videoLink
+            newPost.imageUrl = image.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+            newPost.videoLink = videoLink.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
             newPost.updatedAt = updatedAt.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
             newPost.createdAt = createdAt.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
             newPost.tags = json["tags"].array!.map({return $0.string!})

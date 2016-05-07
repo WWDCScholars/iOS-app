@@ -44,6 +44,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     private var myLocation: CLLocationCoordinate2D?
     private var currentViewType: CurrentViewType = .List
     private var mapViewVisible = false
+    private var searchText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,9 +179,11 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.searchBar!.text = ""
     }
     
-    private func filterContentForSearchText(searchText: NSString) {
-        let resultPredicate = NSPredicate(format: "fullName contains[cd] %@", searchText)
+    private func filterContentForSearchText() {
+        let resultPredicate = NSPredicate(format: "fullName contains[cd] %@", self.searchText)
         self.searchResults = (self.currentScholars as NSArray).filteredArrayUsingPredicate(resultPredicate)
+        
+        self.scholarsCollectionView.reloadData()
     }
     
     private func switchView() {
@@ -190,12 +193,19 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         })
         
         self.currentViewType = self.currentViewType == .List ? .Map : .List
+        
+        self.cancelSearching()
     }
     
     private func getCurrentScholars() {
         self.currentScholars = DatabaseManager.sharedInstance.scholarsForWWDCBatch(self.currentYear)
         
-        self.scholarsCollectionView.reloadData()
+        if self.searchBarActive {
+            self.filterContentForSearchText()
+        } else {
+            self.scholarsCollectionView.reloadData()
+        }
+        
         self.addScholarToQTree()
     }
     
@@ -276,10 +286,11 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
 
 extension ScholarsViewController: UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchText = searchText
+        
         if searchText.characters.count > 0 {
             self.searchBarActive = true
-            self.filterContentForSearchText(searchText)
-            self.scholarsCollectionView.reloadData()
+            self.filterContentForSearchText()
         } else {
             self.searchBarActive = false
             self.scholarsCollectionView.reloadData()
@@ -296,7 +307,7 @@ extension ScholarsViewController: UISearchBarDelegate {
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        self.searchBarActive = false
+//        self.searchBarActive = false
         self.searchBar!.setShowsCancelButton(false, animated: false)
     }
     
@@ -391,6 +402,8 @@ extension ScholarsViewController: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if collectionView == self.scholarsCollectionView {
+            self.view.endEditing(true)
+            
             self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: indexPath)
         } else if collectionView == self.yearCollectionView {
             print(indexPath.row)
@@ -420,6 +433,8 @@ extension ScholarsViewController: UIViewControllerPreviewingDelegate {
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        self.view.endEditing(true)
+        
         self.showViewController(viewControllerToCommit, sender: self)
     }
 }

@@ -104,7 +104,7 @@ class ScholarDetailViewController: UIViewController {
         
         let camera = MKMapCamera()
         camera.altitude = 7500
-        camera.centerCoordinate.latitude = currentScholar!.location.latitude
+        camera.centerCoordinate.latitude = currentScholar!.location.latitude - 0.013
         camera.centerCoordinate.longitude = currentScholar!.location.longitude
         
         self.mapView.setCamera(camera, animated: false)

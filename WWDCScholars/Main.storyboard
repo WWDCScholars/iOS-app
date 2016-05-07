@@ -1596,6 +1596,9 @@
                                                         <constraint firstAttribute="height" constant="71" id="xdw-i5-M2X"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="wwdcScholarsIcon"/>
+                                                    <connections>
+                                                        <action selector="uploadProfileImageTapped:" destination="l2Q-QU-Rdg" eventType="touchUpInside" id="OM6-he-oua"/>
+                                                    </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Omf-9o-BQB">
                                                     <rect key="frame" x="93" y="49" width="499" height="30"/>

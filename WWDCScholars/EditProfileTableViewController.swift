@@ -37,6 +37,24 @@ class EditProfileTableViewController: UITableViewController, UITextFieldDelegate
     
     // MARK: - IBActions
     
+    @IBAction func uploadProfileImageTapped(sender: AnyObject) {
+        let actionSheet = UIAlertController(title: "Upload Profile Image", message: nil, preferredStyle: .ActionSheet)
+        
+        let uploadAction = UIAlertAction(title: "Import from photo library", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+            
+        })
+        let takePhotoAction = UIAlertAction(title: "Take new photo", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+            
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        actionSheet.addAction(uploadAction)
+        actionSheet.addAction(takePhotoAction)
+        actionSheet.addAction(cancelAction)
+        
+        self.presentViewController(actionSheet, animated: true, completion: nil)
+    }
+    
     @IBAction func doneButtonTapped(sender: AnyObject) {
     }
 

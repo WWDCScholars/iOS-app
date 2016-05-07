@@ -72,6 +72,8 @@
 		7B4D519F1CC110A50072E114 /* UIButton+AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D51951CC110A50072E114 /* UIButton+AlamofireImage.swift */; };
 		7B4D51A01CC110A50072E114 /* UIImage+AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D51961CC110A50072E114 /* UIImage+AlamofireImage.swift */; };
 		7B4D51A11CC110A50072E114 /* UIImageView+AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D51971CC110A50072E114 /* UIImageView+AlamofireImage.swift */; };
+		7B7797511CDE681E0029675F /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7797501CDE681E0029675F /* BlogPost.swift */; };
+		7B7797531CDE697F0029675F /* BlogKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7797521CDE697F0029675F /* BlogKit.swift */; };
 		7BBA87641CBB7F3A0057E9AD /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBA87621CBB7F3A0057E9AD /* Fabric.framework */; };
 		7BBA87651CBB7F3A0057E9AD /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBA87631CBB7F3A0057E9AD /* Crashlytics.framework */; };
 		7BBA87681CBD35430057E9AD /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA87671CBD35430057E9AD /* StringUtils.swift */; };
@@ -238,6 +240,8 @@
 		7B4D51951CC110A50072E114 /* UIButton+AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+AlamofireImage.swift"; sourceTree = "<group>"; };
 		7B4D51961CC110A50072E114 /* UIImage+AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+AlamofireImage.swift"; sourceTree = "<group>"; };
 		7B4D51971CC110A50072E114 /* UIImageView+AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+AlamofireImage.swift"; sourceTree = "<group>"; };
+		7B7797501CDE681E0029675F /* BlogPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
+		7B7797521CDE697F0029675F /* BlogKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogKit.swift; sourceTree = "<group>"; };
 		7BBA87621CBB7F3A0057E9AD /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		7BBA87631CBB7F3A0057E9AD /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		7BBA87671CBD35430057E9AD /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
@@ -580,7 +584,9 @@
 			isa = PBXGroup;
 			children = (
 				7BBA87701CBD4AE80057E9AD /* Scholar.swift */,
+				7B7797501CDE681E0029675F /* BlogPost.swift */,
 				7BBA876D1CBD4ADB0057E9AD /* ScholarsKit.swift */,
+				7B7797521CDE697F0029675F /* BlogKit.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -855,6 +861,7 @@
 				7BBA88191CBD8AC90057E9AD /* Request.swift in Sources */,
 				7BBA877A1CBD4E240057E9AD /* Location.swift in Sources */,
 				7BBA88171CBD8AC90057E9AD /* Notifications.swift in Sources */,
+				7B7797511CDE681E0029675F /* BlogPost.swift in Sources */,
 				22E937B91CDCE82500A2BEBE /* SignUpSafariViewController.swift in Sources */,
 				7BBA881D1CBD8AC90057E9AD /* ServerTrustPolicy.swift in Sources */,
 				223884211C8252D900A96752 /* AppDelegate.swift in Sources */,
@@ -914,6 +921,7 @@
 				6EEA891F1CDBE15B00245445 /* NSString+Morphing.m in Sources */,
 				6EAD10B71CC139EB00E0A2A0 /* ActivityIndicatorView.swift in Sources */,
 				C0B7FBB21CC45F6700AD376C /* ScholarAnnotation.swift in Sources */,
+				7B7797531CDE697F0029675F /* BlogKit.swift in Sources */,
 				6EEA892A1CDBFAF900245445 /* UserDefaults.swift in Sources */,
 				7B4D51981CC110A50072E114 /* Image.swift in Sources */,
 				6E4DD6EC1CBD36AA00B08EE1 /* EditProfileTableViewController.swift in Sources */,

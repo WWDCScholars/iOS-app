@@ -19,6 +19,15 @@ class BlogViewController: UIViewController {
         super.viewDidLoad()
         
         self.styleUI()
+        
+        BlogKit.sharedInstance.loadPosts() {
+            print ("HI! \(DatabaseManager.sharedInstance.getAllBlogPosts())")
+//            if self.loadingView.isAnimating() {
+//                self.loadingView.stopAnimating()
+//            }
+            
+        }
+
     }
     
     override func viewDidLayoutSubviews() {

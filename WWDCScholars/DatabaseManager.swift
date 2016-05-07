@@ -97,6 +97,28 @@ class DatabaseManager {
     }
     
     /**
+     Add a blogpost to the local database (or Realm)
+     
+     - parameter post: The blog post to add
+     */
+    func addBlogPost(post: BlogPost) {
+        try! realm.write {
+            realm.add(post, update: true) // Don't add the blog post if it already exists
+        }
+        print ("Added post \"\(post.title)\"")
+    }
+    
+    /**
+     Gets a list of all BlogPosts which are currently in the database
+     
+     - returns: List of BlogPosts
+     */
+    func getAllBlogPosts() -> [BlogPost] {
+        let posts = realm.objects(BlogPost)
+        return Array(posts)
+    }
+    
+    /**
      Removes all scholars from the current Realm. Use with caution!
      */
     func deleteAllScholars() {

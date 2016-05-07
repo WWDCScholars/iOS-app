@@ -1589,7 +1589,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXs-aH-3Lh">
+                                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXs-aH-3Lh">
                                                     <rect key="frame" x="14" y="8" width="71" height="71"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="71" id="kdc-WZ-62z"/>
@@ -1597,7 +1597,7 @@
                                                     </constraints>
                                                     <state key="normal" title="Button" image="wwdcScholarsIcon"/>
                                                     <connections>
-                                                        <action selector="uploadProfileImageTapped:" destination="l2Q-QU-Rdg" eventType="touchUpInside" id="OM6-he-oua"/>
+                                                        <action selector="uploadProfileImageButtonTapped:" destination="l2Q-QU-Rdg" eventType="touchUpInside" id="6e2-8q-zee"/>
                                                     </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Omf-9o-BQB">
@@ -2253,6 +2253,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1200"/>
                     <connections>
+                        <outlet property="profileImageButton" destination="iXs-aH-3Lh" id="MpH-fW-MJc"/>
                         <outlet property="screenshotCollectionView" destination="y6c-ld-Tb5" id="h8l-f3-Q4W"/>
                     </connections>
                 </tableViewController>

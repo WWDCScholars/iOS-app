@@ -346,8 +346,9 @@ extension ScholarsViewController: UIScrollViewDelegate {
             self.currentYear = self.years[currentIndex]
             
             self.getCurrentScholars()
-            self.scholarsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
-            self.scholarsCollectionView.setContentOffset(CGPointZero, animated: true)
+            
+            self.cancelSearching(true)
+
             self.updateArrowsForIndex(currentIndex)
         }
     }

@@ -144,7 +144,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         
         //The "Find me" button
         let locateButton = UIButton(type: .Custom)
-        locateButton.frame = CGRect(x: UIScreen.mainScreen().bounds.width - 41, y: 8, width: 33, height: 33)
+        locateButton.frame = CGRect(x: UIScreen.mainScreen().bounds.width - 45, y: UIScreen.mainScreen().bounds.height - 210, width: 33, height: 33)
         locateButton.setImage(UIImage(named: "locationButton"), forState: .Normal)
         locateButton.addTarget(self, action: #selector(ScholarsViewController.locateButtonAction), forControlEvents: .TouchUpInside)
         locateButton.layer.shadowOpacity = 0.5

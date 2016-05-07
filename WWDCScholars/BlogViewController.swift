@@ -20,6 +20,9 @@ class BlogViewController: UIViewController {
         
         self.styleUI()
         
+        print ("HI! \(DatabaseManager.sharedInstance.getAllBlogPosts())")
+
+        
         BlogKit.sharedInstance.loadPosts() {
             print ("HI! \(DatabaseManager.sharedInstance.getAllBlogPosts())")
 //            if self.loadingView.isAnimating() {

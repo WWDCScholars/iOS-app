@@ -66,7 +66,7 @@ class BlogKit {
             newPost.videoLink = videoLink
             newPost.updatedAt = updatedAt.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
             newPost.createdAt = createdAt.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
-
+            newPost.tags = json["tags"].array!.map({return $0.string!})
             return newPost
         }else {
             return nil

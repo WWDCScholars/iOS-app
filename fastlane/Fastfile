@@ -81,11 +81,11 @@ platform :ios do
       message: "Successfully deployed version *#{version}* (#{build})! :tim: :tada:"
     )
 
-    commit_version_bump(
+    git_commit(
       message: "Version #{version}, Build #{build}\n[ci skip]"
     )
 
-    git_commit # Commit snapshot files and stuff
+    # git_commit # Commit snapshot files and stuff
 
     sh('git pull --rebase')
 

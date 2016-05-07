@@ -89,8 +89,10 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        self.scholarsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
+
         if !searchBarActive {
-            self.scholarsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
             self.scholarsCollectionView.setContentOffset(CGPointZero, animated: true)
         }
     }

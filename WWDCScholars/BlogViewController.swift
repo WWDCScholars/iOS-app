@@ -75,7 +75,7 @@ extension BlogViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 280.0
+        return self.view.bounds.width/16*9
     }
 }
 

@@ -87,6 +87,8 @@ class EditProfileTableViewController: UITableViewController, UITextFieldDelegate
         
         self.imagePicker.delegate = self
         self.imagePicker.allowsEditing = false
+        self.imagePicker.navigationBar.translucent = false
+        self.imagePicker.navigationBar.barTintColor = UIColor.scholarsPurpleColor()
         
         self.profileImageButton.imageView!.layer.cornerRadius = self.profileImageButton.frame.width / 2
     }
@@ -144,6 +146,10 @@ extension EditProfileTableViewController: UIImagePickerControllerDelegate {
             self.profileImageButton.setImage(pickedImage, forState: .Normal)
         }
         
-        dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

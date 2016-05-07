@@ -40,6 +40,8 @@ class EditProfileTableViewController: UITableViewController, UITextFieldDelegate
             textView.resignFirstResponder()
             
             return false
+        } else if textView.text.length - range.length + text.length >= 250 {
+            return false
         }
         
         return true

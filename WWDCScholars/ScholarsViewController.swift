@@ -45,8 +45,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     private var currentViewType: CurrentViewType = .List
     private var mapViewVisible = false
     private var searchText = ""
-    private var searchBarBoundsY:CGFloat?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,34 +79,16 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
             self.loadingView.stopAnimating()
         }
         
-        self.getCurrentScholars()
-        
         let index = self.years.indexOf(self.currentYear)!
         self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: .Left, animated: false)
         self.updateArrowsForIndex(index)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        self.scholarsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
-
-        if !searchBarActive {
-            self.scholarsCollectionView.setContentOffset(CGPointZero, animated: true)
-        }
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-//        cancelSearching()
-    }
-    
     // MARK: - UI
     
     private func configureUI() {
-        self.searchBarBoundsY = (self.navigationController?.navigationBar.frame.size.height)! + UIApplication.sharedApplication().statusBarFrame.size.height
-//        addObservers()
-
+        self.scholarsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
+        
         let longPressGestureRecognizerLoginBarButtomItem = UILongPressGestureRecognizer(target: self, action: #selector(ScholarsViewController.showEditDetailsModal(_:)))
         self.view.addGestureRecognizer(longPressGestureRecognizerLoginBarButtomItem)
      
@@ -129,7 +110,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     }
     
     private func configureMap() {
-        // Map related
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.requestWhenInUseAuthorization()
         } else {
@@ -195,9 +175,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.searchBar!.resignFirstResponder()
         self.searchBar!.text = ""
         self.scholarsCollectionView.reloadData()
-        if setOffset {
-            self.scholarsCollectionView.setContentOffset(CGPointZero, animated: true)
-        }
     }
     
     private func filterContentForSearchText() {
@@ -327,8 +304,7 @@ extension ScholarsViewController: UISearchBarDelegate {
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-//        self.searchBarActive = false
-        self.searchBar!.setShowsCancelButton(false, animated: false)
+        self.searchBar!.setShowsCancelButton(false, animated: true)
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -348,9 +324,6 @@ extension ScholarsViewController: UIScrollViewDelegate {
             self.currentYear = self.years[currentIndex]
             
             self.getCurrentScholars()
-            
-            self.cancelSearching(true)
-
             self.updateArrowsForIndex(currentIndex)
         }
     }
@@ -532,12 +505,5 @@ extension ScholarsViewController: MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         self.reloadAnnotations()
-    }
-}
-
-extension UIScrollView {
-    func scrollToTop() {
-        let desiredOffset = CGPoint(x: 0, y: -contentInset.top)
-        setContentOffset(desiredOffset, animated: true)
     }
 }

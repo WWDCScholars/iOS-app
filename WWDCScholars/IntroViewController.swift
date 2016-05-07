@@ -67,7 +67,7 @@ class IntroViewController: UIViewController {
         self.addParagraph(self.third, atIndex: 2)
         self.addSubQuote()
         
-        self.objects.map() { $0.self.changeObjectToPosition(self.scrollView.contentOffset) }
+        _ = self.objects.map() { $0.self.changeObjectToPosition(self.scrollView.contentOffset) }
     }
     
     private func addSubQuote() {
@@ -185,7 +185,7 @@ extension IntroViewController: UIScrollViewDelegate {
         self.backgroundImageView.frame.origin.x = -self.scrollView.contentOffset.x / self.numberOfScreens
         
         var firstLabel: UILabel?
-        self.objects.map() {
+        _ = self.objects.map() {
             tutorialObject -> () in
             if tutorialObject.tag == 1 {
                 firstLabel = tutorialObject.object as? UILabel

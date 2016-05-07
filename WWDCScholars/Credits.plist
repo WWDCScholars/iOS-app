@@ -13,6 +13,7 @@
 		<array>
 			<string>Database</string>
 			<string>iOS</string>
+			<string>Project Management</string>
 			<string>Apple Watch</string>
 		</array>
 	</dict>
@@ -79,8 +80,9 @@
 		<string>Stuttgart, Germany</string>
 		<key>Tasks</key>
 		<array>
-			<string>iOS</string>
 			<string>Design</string>
+			<string>iOS</string>
+			<string>Project Management</string>
 			<string>Apple Watch</string>
 		</array>
 	</dict>

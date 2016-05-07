@@ -37,7 +37,7 @@ platform :ios do
   lane :screenshot do
     snapshot(skip_open_summary: true, devices: ["iPhone 6"])
   end
-  
+
   desc "Deploy a new bleeding-edge version to Crashlytics beta"
   lane :crashlytics do
     match(git_url: "git@github.com:WWDCScholars/certificates.git", type: "appstore", readonly: true)
@@ -85,9 +85,12 @@ platform :ios do
       message: "Version #{version}, Build #{build}\n[ci skip]"
     )
 
+    git_commit # Commit snapshot files and stuff
+
     sh('git pull --rebase')
 
     push_to_git_remote(remote: "git@github.com:WWDCScholars/WWDCScholars-iOS.git", remote_branch: ENV["TRAVIS_BRANCH"], force: true)
+
   end
 
   error do |lane, exception|

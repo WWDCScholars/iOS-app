@@ -8,12 +8,14 @@
 
 import UIKit
 
-class EditProfileTableViewController: UITableViewController, UINavigationControllerDelegate {
+class EditProfileTableViewController: UITableViewController, UINavigationControllerDelegate, CLLocationManagerDelegate {
     @IBOutlet private weak var screenshotCollectionView: UICollectionView!
     @IBOutlet private weak var profileImageButton: UIButton!
+    @IBOutlet private weak var locationChangeButton: UIButton!
     @IBOutlet private weak var firstNameTextField: FloatLabelTextField!
     @IBOutlet private weak var secondNameTextField: FloatLabelTextField!
     @IBOutlet private weak var ageTextField: FloatLabelTextField!
+    @IBOutlet private weak var locationTextField: FloatLabelTextField!
     @IBOutlet private weak var bioTextView: FloatLabelTextView!
     @IBOutlet private weak var emailTextField: FloatLabelTextField!
     @IBOutlet private weak var twitterTextField: FloatLabelTextField!
@@ -27,12 +29,27 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     
     private let numberOfScreenshots = 4
     private let imagePicker = UIImagePickerController()
+    private let locationManager = CLLocationManager()
+    private var myLocation: CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         let dismissKeyboardRecognizer = UITapGestureRecognizer(target: self, action: #selector(EditProfileTableViewController.dismissKeyboard))
         self.view.addGestureRecognizer(dismissKeyboardRecognizer)
         
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        
         self.styleUI()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == String(LocationSelectViewController) {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let destinationViewController = navigationController.topViewController as! LocationSelectViewController
+            destinationViewController.passedLocation = self.myLocation
+        }
     }
     
     // MARK: - UI
@@ -44,12 +61,26 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     private func styleUI() {
         self.title = "Edit Profile"
         
+        self.locationChangeButton.setTitleColor(UIColor.scholarsPurpleColor(), forState: .Normal)
+
         self.imagePicker.delegate = self
         self.imagePicker.allowsEditing = false
         self.imagePicker.navigationBar.translucent = false
         self.imagePicker.navigationBar.barTintColor = UIColor.scholarsPurpleColor()
         
         self.profileImageButton.imageView!.layer.cornerRadius = self.profileImageButton.frame.width / 2
+    }
+    
+    // MARK: - Internal functions
+    
+    internal func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.myLocation = manager.location?.coordinate
+        
+        LocationManager.sharedInstance.getLocationDetails(manager.location!.coordinate, completion: {(locationDetails) -> Void in
+            self.locationTextField.text = ("\(locationDetails.locality), \(locationDetails.country)")
+            
+            self.locationManager.stopUpdatingLocation()
+        })
     }
     
     // MARK: - IBActions
@@ -75,10 +106,15 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     }
     
     @IBAction func doneButtonTapped(sender: AnyObject) {
+        
     }
 
     @IBAction func cancelButtonTapped(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func selectLocationButtonTapped(sender: AnyObject) {
+        self.performSegueWithIdentifier(String(LocationSelectViewController), sender: nil)
     }
 }
 

@@ -8,7 +8,12 @@
 
 import UIKit
 
-class EditProfileTableViewController: UITableViewController, UINavigationControllerDelegate, CLLocationManagerDelegate, LocationSelectedDelegate {
+enum ImageUploadType {
+    case Profile
+    case Screenshot
+}
+
+class EditProfileTableViewController: UITableViewController, UINavigationControllerDelegate, CLLocationManagerDelegate, LocationSelectedDelegate, ScreenshotImportDelegate {
     @IBOutlet private weak var screenshotCollectionView: UICollectionView!
     @IBOutlet private weak var profileImageButton: UIButton!
     @IBOutlet private weak var locationChangeButton: UIButton!
@@ -27,10 +32,13 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     @IBOutlet private weak var youtubeTextField: FloatLabelTextField!
     @IBOutlet private weak var appGithubTextField: FloatLabelTextField!
     
-    private let numberOfScreenshots = 4
     private let imagePicker = UIImagePickerController()
     private let locationManager = CLLocationManager()
+    
     private var myLocation: CLLocationCoordinate2D?
+    private var screenshotUploadIndex = 0
+    private var imageUploadType: ImageUploadType = .Profile
+    private var screenshots: [UIImage?] = [UIImage(), UIImage(), UIImage(), UIImage()]
     
     override func viewDidLoad() {
         let dismissKeyboardRecognizer = UITapGestureRecognizer(target: self, action: #selector(EditProfileTableViewController.dismissKeyboard))
@@ -69,6 +77,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.imagePicker.navigationBar.translucent = false
         self.imagePicker.navigationBar.barTintColor = UIColor.scholarsPurpleColor()
         
+        self.profileImageButton.imageView?.contentMode = .ScaleAspectFill
         self.profileImageButton.imageView!.layer.cornerRadius = self.profileImageButton.frame.width / 2
     }
     
@@ -88,9 +97,19 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         })
     }
     
+    internal func importNewScreenshot(index: Int) {
+        self.imagePicker.sourceType = .PhotoLibrary
+        self.imageUploadType = .Screenshot
+        self.screenshotUploadIndex = index
+        
+        self.presentViewController(self.imagePicker, animated: true, completion: nil)
+    }
+    
     // MARK: - IBActions
     
     @IBAction func uploadProfileImageButtonTapped(sender: AnyObject) {
+        self.imageUploadType = .Profile
+        
         let actionSheet = UIAlertController(title: "Update Profile Image", message: nil, preferredStyle: .ActionSheet)
         
         let uploadAction = UIAlertAction(title: "Photo Library", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
@@ -127,13 +146,18 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
 
 extension EditProfileTableViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.numberOfScreenshots
+        return self.screenshots.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("screenshotUploadCollectionViewCell", forIndexPath: indexPath) as! ScreenshotUploadCollectionViewCell
         
         cell.tag = indexPath.item
+        cell.delegate = self
+        
+        if indexPath.item < self.screenshots.count {
+            cell.uploadButton.setImage(self.screenshots[indexPath.item], forState: .Normal)
+        }
         
         return cell
     }
@@ -144,8 +168,15 @@ extension EditProfileTableViewController: UICollectionViewDataSource {
 extension EditProfileTableViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.profileImageButton.imageView?.contentMode = .ScaleAspectFill
-            self.profileImageButton.setImage(pickedImage, forState: .Normal)
+            switch self.imageUploadType {
+            case .Profile:
+                self.profileImageButton.setImage(pickedImage, forState: .Normal)
+            case .Screenshot:
+                self.screenshots.removeAtIndex(self.screenshotUploadIndex)
+                self.screenshots.insert(pickedImage, atIndex: self.screenshotUploadIndex)
+                
+                self.screenshotCollectionView.reloadData()
+            }
         }
         
         self.dismissViewControllerAnimated(true, completion: nil)

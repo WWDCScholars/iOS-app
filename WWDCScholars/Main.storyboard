@@ -2176,10 +2176,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection footerTitle="Please upload screenshots from devices with screen sizes 4&quot; and above" id="ocj-ap-jbG">
+                            <tableViewSection headerTitle="Screenshots" footerTitle="Please upload screenshots from devices with screen sizes 4&quot; and above" id="ocj-ap-jbG">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="232" id="tNp-8p-5aQ">
-                                        <rect key="frame" x="0.0" y="1025" width="600" height="232"/>
+                                        <rect key="frame" x="0.0" y="1040" width="600" height="232"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tNp-8p-5aQ" id="SNv-pJ-xVu">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="231"/>
@@ -2234,8 +2234,11 @@
                                                                             <constraint firstAttribute="width" constant="120" id="nhw-Vr-9lK"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOg-S1-sgT">
+                                                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOg-S1-sgT">
                                                                         <rect key="frame" x="0.0" y="0.0" width="130" height="231"/>
+                                                                        <state key="normal">
+                                                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="uploadButtonTapped:" destination="o82-za-C0I" eventType="touchUpInside" id="aDm-Ae-7ub"/>
                                                                         </connections>
@@ -2250,6 +2253,7 @@
                                                             <connections>
                                                                 <outlet property="iconImageView" destination="vK5-tW-v6c" id="Sow-7F-woP"/>
                                                                 <outlet property="titleTextLabel" destination="5cp-Kd-nDS" id="pXC-Ce-poG"/>
+                                                                <outlet property="uploadButton" destination="xOg-S1-sgT" id="9NH-Lm-azQ"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>

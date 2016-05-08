@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditProfileTableViewController: UITableViewController, UITextFieldDelegate, UINavigationControllerDelegate {
+class EditProfileTableViewController: UITableViewController, UINavigationControllerDelegate {
     @IBOutlet private weak var screenshotCollectionView: UICollectionView!
     @IBOutlet private weak var profileImageButton: UIButton!
     @IBOutlet private weak var firstNameTextField: FloatLabelTextField!
@@ -33,47 +33,6 @@ class EditProfileTableViewController: UITableViewController, UITextFieldDelegate
         self.view.addGestureRecognizer(dismissKeyboardRecognizer)
         
         self.styleUI()
-    }
-    
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        if text.rangeOfCharacterFromSet(NSCharacterSet.newlineCharacterSet()) != nil {
-            textView.resignFirstResponder()
-            
-            return false
-        } else if textView.text.length - range.length + text.length >= 250 {
-            return false
-        }
-        
-        return true
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        switch textField {
-        case self.firstNameTextField:
-            self.secondNameTextField.becomeFirstResponder()
-        case self.secondNameTextField:
-            self.ageTextField.becomeFirstResponder()
-        case self.emailTextField:
-            self.twitterTextField.becomeFirstResponder()
-        case self.twitterTextField:
-            self.facebookTextField.becomeFirstResponder()
-        case self.facebookTextField:
-            self.githubTextField.becomeFirstResponder()
-        case self.githubTextField:
-            self.linkedinTextField.becomeFirstResponder()
-        case self.linkedinTextField:
-            self.websiteTextField.becomeFirstResponder()
-        case self.websiteTextField:
-            self.appStoreTextField.becomeFirstResponder()
-        case self.appStoreTextField:
-            self.youtubeTextField.becomeFirstResponder()
-        case self.youtubeTextField:
-            self.appGithubTextField.becomeFirstResponder()
-        default:
-            self.view.endEditing(true)
-        }
-        
-        return true
     }
     
     // MARK: - UI
@@ -151,5 +110,58 @@ extension EditProfileTableViewController: UIImagePickerControllerDelegate {
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+// MARK: - UITextViewDelegate
+
+extension EditProfileTableViewController: UITextViewDelegate {
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text.rangeOfCharacterFromSet(NSCharacterSet.newlineCharacterSet()) != nil {
+            textView.resignFirstResponder()
+            
+            return false
+        } else if textView.text.length - range.length + text.length > 250 {
+            return false
+        }
+        
+        return true
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        self.tableView.footerViewForSection(NSIndexPath(forRow: 0, inSection: 1).section)?.textLabel?.text = "Bio descriptions are limited to 250 characters (\(250 - textView.text.length) remaining)"
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension EditProfileTableViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        switch textField {
+        case self.firstNameTextField:
+            self.secondNameTextField.becomeFirstResponder()
+        case self.secondNameTextField:
+            self.ageTextField.becomeFirstResponder()
+        case self.emailTextField:
+            self.twitterTextField.becomeFirstResponder()
+        case self.twitterTextField:
+            self.facebookTextField.becomeFirstResponder()
+        case self.facebookTextField:
+            self.githubTextField.becomeFirstResponder()
+        case self.githubTextField:
+            self.linkedinTextField.becomeFirstResponder()
+        case self.linkedinTextField:
+            self.websiteTextField.becomeFirstResponder()
+        case self.websiteTextField:
+            self.appStoreTextField.becomeFirstResponder()
+        case self.appStoreTextField:
+            self.youtubeTextField.becomeFirstResponder()
+        case self.youtubeTextField:
+            self.appGithubTextField.becomeFirstResponder()
+        default:
+            self.view.endEditing(true)
+        }
+        
+        return true
     }
 }

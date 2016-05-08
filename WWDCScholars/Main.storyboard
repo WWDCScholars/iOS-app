@@ -430,7 +430,7 @@
                                                                                         <constraint firstItem="DOX-7g-D7r" firstAttribute="centerY" secondItem="dd5-vu-RLz" secondAttribute="centerY" id="olg-bK-BXb"/>
                                                                                     </constraints>
                                                                                 </view>
-                                                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="in2-F3-pr9">
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="in2-F3-pr9">
                                                                                     <rect key="frame" x="195" y="0.0" width="194" height="70"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-dA-hQT">
@@ -474,7 +474,7 @@
                                                                                         <constraint firstItem="iMA-dA-hQT" firstAttribute="centerX" secondItem="in2-F3-pr9" secondAttribute="centerX" id="hmb-Yd-Wcb"/>
                                                                                     </constraints>
                                                                                 </view>
-                                                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YSG-Qq-NES">
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSG-Qq-NES">
                                                                                     <rect key="frame" x="389" y="0.0" width="195" height="70"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCL-L9-LaH">
@@ -1675,7 +1675,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Bio" footerTitle="Bio descriptions are limited to 250 characters" id="J5G-hm-A2w">
+                            <tableViewSection headerTitle="Bio" footerTitle="Bio descriptions are limited to 250 characters (250 remaining)   " id="J5G-hm-A2w">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="88" id="jJL-5x-W1g">
                                         <rect key="frame" x="0.0" y="253" width="600" height="88"/>

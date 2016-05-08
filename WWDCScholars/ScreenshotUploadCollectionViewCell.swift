@@ -20,4 +20,8 @@ class ScreenshotUploadCollectionViewCell: UICollectionViewCell {
         self.titleTextLabel.textColor = UIColor.scholarsPurpleColor()
         self.iconImageView.tintColor = UIColor.scholarsPurpleColor()
     }
+    
+    @IBAction func uploadButtonTapped(sender: AnyObject) {
+        print(self.tag)
+    }
 }

@@ -11,9 +11,8 @@
 		<string>Maarn, Netherlands</string>
 		<key>Tasks</key>
 		<array>
-			<string>Database</string>
 			<string>iOS</string>
-			<string>Project Management</string>
+			<string>Database</string>
 			<string>Apple Watch</string>
 		</array>
 	</dict>
@@ -28,6 +27,7 @@
 		<array>
 			<string>iOS</string>
 			<string>Design</string>
+			<string>Apple Watch</string>
 		</array>
 	</dict>
 	<dict>
@@ -40,7 +40,6 @@
 		<key>Tasks</key>
 		<array>
 			<string>Web</string>
-			<string>iOS</string>
 		</array>
 	</dict>
 	<dict>
@@ -53,8 +52,8 @@
 		<key>Tasks</key>
 		<array>
 			<string>iOS</string>
-			<string>Project Management</string>
 			<string>Database</string>
+			<string>Project Management</string>
 			<string>Web</string>
 		</array>
 	</dict>
@@ -68,7 +67,6 @@
 		<key>Tasks</key>
 		<array>
 			<string>Design</string>
-			<string>iOS</string>
 		</array>
 	</dict>
 	<dict>
@@ -82,7 +80,7 @@
 		<array>
 			<string>Design</string>
 			<string>iOS</string>
-			<string>Project Management</string>
+			<string>Marketing</string>
 			<string>Apple Watch</string>
 		</array>
 	</dict>

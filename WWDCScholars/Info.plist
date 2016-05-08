@@ -92,7 +92,7 @@
 			<key>UIApplicationShortcutItemSubtitle</key>
 			<string>Some subTitle</string>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>favouriteUnfilled</string>
+			<string>favouriteFilled</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemTitle</key>
@@ -102,7 +102,7 @@
 			<key>UIApplicationShortcutItemSubtitle</key>
 			<string>Some subTitle</string>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>tabBarIconBlog</string>
+			<string>tabBarIconBlogFilled</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemTitle</key>
@@ -112,7 +112,7 @@
 			<key>UIApplicationShortcutItemSubtitle</key>
 			<string>Some subTitle</string>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>tabBarIconChat</string>
+			<string>tabBarIconChatFilled</string>
 		</dict>
 	</array>
 </dict>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditProfileTableViewController: UITableViewController, UINavigationControllerDelegate, CLLocationManagerDelegate {
+class EditProfileTableViewController: UITableViewController, UINavigationControllerDelegate, CLLocationManagerDelegate, LocationSelectedDelegate {
     @IBOutlet private weak var screenshotCollectionView: UICollectionView!
     @IBOutlet private weak var profileImageButton: UIButton!
     @IBOutlet private weak var locationChangeButton: UIButton!
@@ -49,6 +49,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
             let navigationController = segue.destinationViewController as! UINavigationController
             let destinationViewController = navigationController.topViewController as! LocationSelectViewController
             destinationViewController.passedLocation = self.myLocation
+            destinationViewController.delegate = self
         }
     }
     
@@ -76,7 +77,11 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     internal func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.myLocation = manager.location?.coordinate
         
-        LocationManager.sharedInstance.getLocationDetails(manager.location!.coordinate, completion: {(locationDetails) -> Void in
+        self.updateLocation(self.myLocation!)
+    }
+    
+    internal func updateLocation(location: CLLocationCoordinate2D) {
+        LocationManager.sharedInstance.getLocationDetails(location, completion: {(locationDetails) -> Void in
             self.locationTextField.text = ("\(locationDetails.locality), \(locationDetails.country)")
             
             self.locationManager.stopUpdatingLocation()

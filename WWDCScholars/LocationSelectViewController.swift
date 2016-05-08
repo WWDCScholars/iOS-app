@@ -9,6 +9,10 @@
 import UIKit
 import MapKit
 
+protocol LocationSelectedDelegate {
+    func updateLocation(location: CLLocationCoordinate2D)
+}
+
 class LocationSelectViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet private weak var mapView: MKMapView!
     
@@ -20,6 +24,7 @@ class LocationSelectViewController: UIViewController, UISearchBarDelegate {
     private var pinAnnotationView: MKPinAnnotationView!
     
     var passedLocation: CLLocationCoordinate2D?
+    var delegate: LocationSelectedDelegate?
     
     override func viewDidLoad() {
         self.addAnnotation(self.passedLocation!)
@@ -49,7 +54,7 @@ class LocationSelectViewController: UIViewController, UISearchBarDelegate {
         self.localSearch = MKLocalSearch(request: self.localSearchRequest)
         self.localSearch.startWithCompletionHandler {(localSearchResponse, error) -> Void in
             if localSearchResponse == nil {
-                let alertController = UIAlertController(title: nil, message: "Location Not Found", preferredStyle: .Alert)
+                let alertController = UIAlertController(title: nil, message: "Location not found", preferredStyle: .Alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
                 
                 self.presentViewController(alertController, animated: true, completion: nil)
@@ -75,12 +80,18 @@ class LocationSelectViewController: UIViewController, UISearchBarDelegate {
             if self.mapView.annotations.count > 0 {
                 self.mapView.removeAnnotation(self.mapView.annotations.first!)
             }
-
+            
             self.mapView.addAnnotation(annotation)
         })
     }
     
     // MARK: - IBActions
+    
+    @IBAction func doneButtonTapped(sender: AnyObject) {
+        self.delegate?.updateLocation(self.mapView.annotations.first!.coordinate)
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func cancelButtonTapped(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)

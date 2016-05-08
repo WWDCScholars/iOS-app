@@ -2342,7 +2342,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="done" id="rGV-Zo-xX0"/>
+                            <barButtonItem systemItem="done" id="rGV-Zo-xX0">
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="AZj-5T-eHk" id="pM3-UB-ihu"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem systemItem="search" id="3FL-Sj-SNa">
                                 <connections>
                                     <action selector="searchButtonTapped:" destination="AZj-5T-eHk" id="UJs-AW-lfj"/>

@@ -11,6 +11,7 @@
 		<string>Maarn, Netherlands</string>
 		<key>Tasks</key>
 		<array>
+			<string>Project Management</string>
 			<string>iOS</string>
 			<string>Database</string>
 			<string>Apple Watch</string>
@@ -59,6 +60,22 @@
 	</dict>
 	<dict>
 		<key>ID</key>
+		<string>56fc3b1ba5ac14970921ad78</string>
+		<key>Name</key>
+		<string>Sam Eckert</string>
+		<key>Location</key>
+		<string>Stuttgart, Germany</string>
+		<key>Tasks</key>
+		<array>
+			<string>Project Management</string>
+			<string>Design</string>
+			<string>iOS</string>
+			<string>Marketing</string>
+			<string>Apple Watch</string>
+		</array>
+	</dict>
+	<dict>
+		<key>ID</key>
 		<string>56fc2c8e5840978d849822ba</string>
 		<key>Name</key>
 		<string>Nicola Giancecchi</string>
@@ -67,21 +84,6 @@
 		<key>Tasks</key>
 		<array>
 			<string>Design</string>
-		</array>
-	</dict>
-	<dict>
-		<key>ID</key>
-		<string>56fc3b1ba5ac14970921ad78</string>
-		<key>Name</key>
-		<string>Sam Eckert</string>
-		<key>Location</key>
-		<string>Stuttgart, Germany</string>
-		<key>Tasks</key>
-		<array>
-			<string>Design</string>
-			<string>iOS</string>
-			<string>Marketing</string>
-			<string>Apple Watch</string>
 		</array>
 	</dict>
 	<dict>

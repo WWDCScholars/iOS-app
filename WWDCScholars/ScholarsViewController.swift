@@ -366,8 +366,10 @@ extension ScholarsViewController: UICollectionViewDataSource {
             let scholar = self.searchBarActive ? self.searchResults[indexPath.item] as! Scholar : self.currentScholars[indexPath.item]
             
             cell.nameLabel.text = scholar.firstName
-            if scholar.profilePicURL != "" {
-                cell.profileImageView.af_setImageWithURL(NSURL(string: scholar.profilePicURL)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+            if let profilePicURL = NSURL(string: scholar.profilePicURL) {
+                cell.profileImageView.af_setImageWithURL(profilePicURL, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+            }else {
+                print("\(scholar.fullName) has no profile pic or URL is wrong! (URL: \(scholar.profilePicURL)")
             }
             
             return cell

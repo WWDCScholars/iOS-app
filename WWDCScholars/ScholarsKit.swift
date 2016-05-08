@@ -54,20 +54,25 @@ class ScholarsKit {
             let newScholar = Scholar()
             newScholar.id = id
             newScholar.email = email
-            newScholar.facebookURL = json["facebook"].string
+            newScholar.facebookURL = json["facebook"].string?.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+
             newScholar.firstName = firstName
             newScholar.lastName = lastName
-            newScholar.githubURL = json["github"].string
+            newScholar.githubURL = json["github"].string?.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
             newScholar.gender = (gender == "Male") ? .Male : .Female
-            newScholar.iTunesURL = json["itunes"].string
-            newScholar.linkedInURL = json["linkedin"].string
+            newScholar.iTunesURL = json["itunes"].string?.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+
+            newScholar.linkedInURL = json["linkedin"].string?.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+
             newScholar.numberOfTimesWWDCScholar = numberOfTimesWWDCScholar
             newScholar.shortBio = shortBio
-            newScholar.websiteURL = json["website"].string
+            newScholar.websiteURL = json["website"].string?.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+
             newScholar.batchWWDC = batchWWDC.map { WWDC.forRawValue($0.string!) }
             newScholar.location = Location(name: location, longitude: longitude, latitude: latitude)
             newScholar.birthday = birthday.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
-            newScholar.profilePicURL = profilePic
+            newScholar.profilePicURL = profilePic.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+
             return newScholar
         }else {
             return nil

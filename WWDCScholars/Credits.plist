@@ -11,9 +11,9 @@
 		<string>Maarn, Netherlands</string>
 		<key>Tasks</key>
 		<array>
-			<string>Database</string>
-			<string>iOS</string>
 			<string>Project Management</string>
+			<string>iOS</string>
+			<string>Database</string>
 			<string>Apple Watch</string>
 		</array>
 	</dict>
@@ -28,6 +28,7 @@
 		<array>
 			<string>iOS</string>
 			<string>Design</string>
+			<string>Apple Watch</string>
 		</array>
 	</dict>
 	<dict>
@@ -40,7 +41,6 @@
 		<key>Tasks</key>
 		<array>
 			<string>Web</string>
-			<string>iOS</string>
 		</array>
 	</dict>
 	<dict>
@@ -53,9 +53,25 @@
 		<key>Tasks</key>
 		<array>
 			<string>iOS</string>
-			<string>Project Management</string>
 			<string>Database</string>
+			<string>Project Management</string>
 			<string>Web</string>
+		</array>
+	</dict>
+	<dict>
+		<key>ID</key>
+		<string>56fc3b1ba5ac14970921ad78</string>
+		<key>Name</key>
+		<string>Sam Eckert</string>
+		<key>Location</key>
+		<string>Stuttgart, Germany</string>
+		<key>Tasks</key>
+		<array>
+			<string>Project Management</string>
+			<string>Design</string>
+			<string>iOS</string>
+			<string>Marketing</string>
+			<string>Apple Watch</string>
 		</array>
 	</dict>
 	<dict>
@@ -68,22 +84,6 @@
 		<key>Tasks</key>
 		<array>
 			<string>Design</string>
-			<string>iOS</string>
-		</array>
-	</dict>
-	<dict>
-		<key>ID</key>
-		<string>56fc3b1ba5ac14970921ad78</string>
-		<key>Name</key>
-		<string>Sam Eckert</string>
-		<key>Location</key>
-		<string>Stuttgart, Germany</string>
-		<key>Tasks</key>
-		<array>
-			<string>Design</string>
-			<string>iOS</string>
-			<string>Project Management</string>
-			<string>Apple Watch</string>
 		</array>
 	</dict>
 	<dict>
@@ -96,7 +96,6 @@
 		<key>Tasks</key>
 		<array>
 			<string>iOS</string>
-			<string>Design</string>
 		</array>
 	</dict>
 </array>

@@ -30,7 +30,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>80</string>
+	<string>90</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -72,5 +72,48 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>My Profile</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenMyProfile</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Some subTitle</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>barButtonItemIconAccountFilled</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Favorites</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenFavorites</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Some subTitle</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>favouriteFilled</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Blog</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenBlog</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Some subTitle</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>tabBarIconBlogFilled</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Chat</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenChat</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Some subTitle</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>tabBarIconChatFilled</string>
+		</dict>
+	</array>
 </dict>
 </plist>

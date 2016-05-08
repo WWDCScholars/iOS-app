@@ -8,43 +8,117 @@
 
 import UIKit
 
-class EditProfileTableViewController: UITableViewController, UITextFieldDelegate {
+enum ImageUploadType {
+    case Profile
+    case Screenshot
+}
+
+class EditProfileTableViewController: UITableViewController, UINavigationControllerDelegate, CLLocationManagerDelegate, LocationSelectedDelegate, ScreenshotImportDelegate {
     @IBOutlet private weak var screenshotCollectionView: UICollectionView!
+    @IBOutlet private weak var profileImageButton: UIButton!
+    @IBOutlet private weak var locationChangeButton: UIButton!
+    @IBOutlet private weak var firstNameTextField: FloatLabelTextField!
+    @IBOutlet private weak var secondNameTextField: FloatLabelTextField!
+    @IBOutlet private weak var ageTextField: FloatLabelTextField!
+    @IBOutlet private weak var locationTextField: FloatLabelTextField!
+    @IBOutlet private weak var bioTextView: FloatLabelTextView!
+    @IBOutlet private weak var emailTextField: FloatLabelTextField!
+    @IBOutlet private weak var twitterTextField: FloatLabelTextField!
+    @IBOutlet private weak var facebookTextField: FloatLabelTextField!
+    @IBOutlet private weak var githubTextField: FloatLabelTextField!
+    @IBOutlet private weak var linkedinTextField: FloatLabelTextField!
+    @IBOutlet private weak var websiteTextField: FloatLabelTextField!
+    @IBOutlet private weak var appStoreTextField: FloatLabelTextField!
+    @IBOutlet private weak var youtubeTextField: FloatLabelTextField!
+    @IBOutlet private weak var appGithubTextField: FloatLabelTextField!
     
-    let numberOfScreenshots = 4
+    private let imagePicker = UIImagePickerController()
+    private let locationManager = CLLocationManager()
+    
+    private var myLocation: CLLocationCoordinate2D?
+    private var screenshotUploadIndex = 0
+    private var imageUploadType: ImageUploadType = .Profile
+    private var screenshots: [UIImage?] = [UIImage(), UIImage(), UIImage(), UIImage()]
     
     override func viewDidLoad() {
-        let dismissKeyboardRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EditProfileTableViewController.dismissKeyboard))
+        let dismissKeyboardRecognizer = UITapGestureRecognizer(target: self, action: #selector(EditProfileTableViewController.dismissKeyboard))
         self.view.addGestureRecognizer(dismissKeyboardRecognizer)
+        
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
         
         self.styleUI()
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == String(LocationSelectViewController) {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let destinationViewController = navigationController.topViewController as! LocationSelectViewController
+            destinationViewController.passedLocation = self.myLocation
+            destinationViewController.delegate = self
+        }
     }
     
     // MARK: - UI
     
     internal func dismissKeyboard() {
-        view.endEditing(true)
+        self.view.endEditing(true)
     }
     
     private func styleUI() {
         self.title = "Edit Profile"
+        
+        self.locationChangeButton.setTitleColor(UIColor.scholarsPurpleColor(), forState: .Normal)
+
+        self.imagePicker.delegate = self
+        self.imagePicker.allowsEditing = false
+        self.imagePicker.navigationBar.translucent = false
+        self.imagePicker.navigationBar.barTintColor = UIColor.scholarsPurpleColor()
+        
+        self.profileImageButton.imageView?.contentMode = .ScaleAspectFill
+        self.profileImageButton.imageView!.layer.cornerRadius = self.profileImageButton.frame.width / 2
+    }
+    
+    // MARK: - Internal functions
+    
+    internal func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.myLocation = manager.location?.coordinate
+        
+        self.updateLocation(self.myLocation!)
+    }
+    
+    internal func updateLocation(location: CLLocationCoordinate2D) {
+        LocationManager.sharedInstance.getLocationDetails(location, completion: {(locationDetails) -> Void in
+            self.locationTextField.text = ("\(locationDetails.locality), \(locationDetails.country)")
+            
+            self.locationManager.stopUpdatingLocation()
+        })
+    }
+    
+    internal func importNewScreenshot(index: Int) {
+        self.imagePicker.sourceType = .PhotoLibrary
+        self.imageUploadType = .Screenshot
+        self.screenshotUploadIndex = index
+        
+        self.presentViewController(self.imagePicker, animated: true, completion: nil)
     }
     
     // MARK: - IBActions
     
-    @IBAction func uploadProfileImageTapped(sender: AnyObject) {
-        let actionSheet = UIAlertController(title: "Upload Profile Image", message: nil, preferredStyle: .ActionSheet)
+    @IBAction func uploadProfileImageButtonTapped(sender: AnyObject) {
+        self.imageUploadType = .Profile
         
-        let uploadAction = UIAlertAction(title: "Import from photo library", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-            
+        let actionSheet = UIAlertController(title: "Update Profile Image", message: nil, preferredStyle: .ActionSheet)
+        
+        let uploadAction = UIAlertAction(title: "Photo Library", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+            self.imagePicker.sourceType = .PhotoLibrary
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
         })
-        let takePhotoAction = UIAlertAction(title: "Take new photo", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-            
+        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+            self.imagePicker.sourceType = .Camera
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         
@@ -56,10 +130,15 @@ class EditProfileTableViewController: UITableViewController, UITextFieldDelegate
     }
     
     @IBAction func doneButtonTapped(sender: AnyObject) {
+        
     }
 
     @IBAction func cancelButtonTapped(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func selectLocationButtonTapped(sender: AnyObject) {
+        self.performSegueWithIdentifier(String(LocationSelectViewController), sender: nil)
     }
 }
 
@@ -67,12 +146,96 @@ class EditProfileTableViewController: UITableViewController, UITextFieldDelegate
 
 extension EditProfileTableViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.numberOfScreenshots
+        return self.screenshots.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("screenshotUploadCollectionViewCell", forIndexPath: indexPath) as! ScreenshotUploadCollectionViewCell
         
+        cell.tag = indexPath.item
+        cell.delegate = self
+        
+        if indexPath.item < self.screenshots.count {
+            cell.uploadButton.setImage(self.screenshots[indexPath.item], forState: .Normal)
+        }
+        
         return cell
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+
+extension EditProfileTableViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            switch self.imageUploadType {
+            case .Profile:
+                self.profileImageButton.setImage(pickedImage, forState: .Normal)
+            case .Screenshot:
+                self.screenshots.removeAtIndex(self.screenshotUploadIndex)
+                self.screenshots.insert(pickedImage, atIndex: self.screenshotUploadIndex)
+                
+                self.screenshotCollectionView.reloadData()
+            }
+        }
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+// MARK: - UITextViewDelegate
+
+extension EditProfileTableViewController: UITextViewDelegate {
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text.rangeOfCharacterFromSet(NSCharacterSet.newlineCharacterSet()) != nil {
+            textView.resignFirstResponder()
+            
+            return false
+        } else if textView.text.length - range.length + text.length > 250 {
+            return false
+        }
+        
+        return true
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        self.tableView.footerViewForSection(NSIndexPath(forRow: 0, inSection: 1).section)?.textLabel?.text = "Bio descriptions are limited to 250 characters (\(250 - textView.text.length) remaining)"
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension EditProfileTableViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        switch textField {
+        case self.firstNameTextField:
+            self.secondNameTextField.becomeFirstResponder()
+        case self.secondNameTextField:
+            self.ageTextField.becomeFirstResponder()
+        case self.emailTextField:
+            self.twitterTextField.becomeFirstResponder()
+        case self.twitterTextField:
+            self.facebookTextField.becomeFirstResponder()
+        case self.facebookTextField:
+            self.githubTextField.becomeFirstResponder()
+        case self.githubTextField:
+            self.linkedinTextField.becomeFirstResponder()
+        case self.linkedinTextField:
+            self.websiteTextField.becomeFirstResponder()
+        case self.websiteTextField:
+            self.appStoreTextField.becomeFirstResponder()
+        case self.appStoreTextField:
+            self.youtubeTextField.becomeFirstResponder()
+        case self.youtubeTextField:
+            self.appGithubTextField.becomeFirstResponder()
+        default:
+            self.view.endEditing(true)
+        }
+        
+        return true
     }
 }

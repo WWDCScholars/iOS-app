@@ -40,6 +40,8 @@
 		6E447DB31CC3E5D100014B12 /* ScreenshotsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E447DB21CC3E5D100014B12 /* ScreenshotsTableViewCell.swift */; };
 		6E4DD6EC1CBD36AA00B08EE1 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */; };
 		6E4DD6EE1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */; };
+		6E51E2751CDED4C00095FD38 /* LocationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E51E2741CDED4C00095FD38 /* LocationSelectViewController.swift */; };
+		6E51E2791CDEE6A40095FD38 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E51E2781CDEE6A40095FD38 /* LocationManager.swift */; };
 		6E9DD6761CC5961F00433193 /* CreditsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9DD6751CC5961F00433193 /* CreditsManager.swift */; };
 		6EAD10B71CC139EB00E0A2A0 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD10B61CC139EB00E0A2A0 /* ActivityIndicatorView.swift */; };
 		6EAD10BA1CC1907700E0A2A0 /* ScholarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD10B91CC1907700E0A2A0 /* ScholarDetailViewController.swift */; };
@@ -201,6 +203,8 @@
 		6E447DB21CC3E5D100014B12 /* ScreenshotsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotsTableViewCell.swift; sourceTree = "<group>"; };
 		6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotUploadCollectionViewCell.swift; sourceTree = "<group>"; };
+		6E51E2741CDED4C00095FD38 /* LocationSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectViewController.swift; sourceTree = "<group>"; };
+		6E51E2781CDEE6A40095FD38 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6E9DD6751CC5961F00433193 /* CreditsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsManager.swift; sourceTree = "<group>"; };
 		6EAD10B61CC139EB00E0A2A0 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		6EAD10B91CC1907700E0A2A0 /* ScholarDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarDetailViewController.swift; sourceTree = "<group>"; };
@@ -335,6 +339,7 @@
 			children = (
 				6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */,
 				6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */,
+				6E51E2741CDED4C00095FD38 /* LocationSelectViewController.swift */,
 			);
 			name = "Edit Details";
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 				6E9DD6751CC5961F00433193 /* CreditsManager.swift */,
 				7BBA879F1CBD5D220057E9AD /* DatabaseManager.swift */,
 				6EEA89291CDBFAF900245445 /* UserDefaults.swift */,
+				6E51E2781CDEE6A40095FD38 /* LocationManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -905,6 +911,7 @@
 				7BBA87A01CBD5D220057E9AD /* DatabaseManager.swift in Sources */,
 				7BBA88201CBD8AC90057E9AD /* Upload.swift in Sources */,
 				2236F2991CC29EBD00663957 /* DesignableView.swift in Sources */,
+				6E51E2791CDEE6A40095FD38 /* LocationManager.swift in Sources */,
 				7BBA87741CBD4C900057E9AD /* Gender.swift in Sources */,
 				6E1F069D1CC045F400E464A0 /* YearCollectionViewCell.swift in Sources */,
 				7BBA88441CBEA0E80057E9AD /* NSCalendar+Timepiece.swift in Sources */,
@@ -931,6 +938,7 @@
 				6EB723D71CB9B84D005A076F /* CreditTableViewCell.swift in Sources */,
 				6E1F069B1CC0332F00E464A0 /* ScholarCollectionViewCell.swift in Sources */,
 				7BBA881E1CBD8AC90057E9AD /* Stream.swift in Sources */,
+				6E51E2751CDED4C00095FD38 /* LocationSelectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1078,7 +1086,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 80;
+				CURRENT_PROJECT_VERSION = 90;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1102,7 +1110,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 80;
+				CURRENT_PROJECT_VERSION = 90;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

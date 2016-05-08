@@ -11,12 +11,13 @@ import UIKit
 class CreditTableViewCell: UITableViewCell {
     @IBOutlet weak var scholarImageView: UIImageView!
     @IBOutlet weak var scholarNameLabel: UILabel!
-    @IBOutlet weak var iOSImageView: UIImageView!
-    @IBOutlet weak var webImageView: UIImageView!
-    @IBOutlet weak var projectManagementImageView: UIImageView!
-    @IBOutlet weak var databaseImageView: UIImageView!
-    @IBOutlet weak var designImageView: UIImageView!
-    @IBOutlet weak var appleWatchImageView: UIImageView!
+    @IBOutlet private weak var iOSImageView: UIImageView!
+    @IBOutlet private weak var webImageView: UIImageView!
+    @IBOutlet private weak var projectManagementImageView: UIImageView!
+    @IBOutlet private weak var databaseImageView: UIImageView!
+    @IBOutlet private weak var designImageView: UIImageView!
+    @IBOutlet private weak var appleWatchImageView: UIImageView!
+    @IBOutlet private weak var marketingImageView: UIImageView!
     
     func setIconVisibility(tasks: [String]) {
         //This code is temporary until I think of a better implementation
@@ -27,6 +28,7 @@ class CreditTableViewCell: UITableViewCell {
         self.databaseImageView.hidden = !tasks.contains("Database") ? true : false
         self.designImageView.hidden = !tasks.contains("Design") ? true : false
         self.appleWatchImageView.hidden = !tasks.contains("Apple Watch") ? true : false
+        self.marketingImageView.hidden = !tasks.contains("Marketing") ? true : false
     }
     
     override func awakeFromNib() {

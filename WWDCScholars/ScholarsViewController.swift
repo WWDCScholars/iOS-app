@@ -43,7 +43,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     private var isMapInitalized = false
     private var myLocation: CLLocationCoordinate2D?
     private var currentViewType: CurrentViewType = .List
-    private var mapViewVisible = false
     private var searchText = ""
     
     override func viewDidLoad() {
@@ -148,18 +147,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     }
     
     @IBAction func mapButtonTapped(sender: AnyObject) {
-        
-        switch mapViewVisible {
-        case false:
-            self.mapBarButtonItem.image = UIImage(named: "gridIcon")
-            mapViewVisible = true
-            break
-        case true:
-            self.mapBarButtonItem.image = UIImage(named: "mapIcon")
-            mapViewVisible = false
-            break
-        }
-        
         if !self.isMapInitalized {
             self.configureMap()
             self.isMapInitalized = true
@@ -186,6 +173,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     private func switchView() {
         UIView.animateWithDuration(0.2, animations: {
+            self.mapBarButtonItem.image = UIImage(named: self.currentViewType == . List ? "gridIcon" : "mapIcon")
             self.mainView.alpha = self.currentViewType == .List ? 0.0 : 1.0
             self.mapView.alpha = self.currentViewType == .Map ? 0.0 : 1.0
         })
@@ -368,7 +356,7 @@ extension ScholarsViewController: UICollectionViewDataSource {
             cell.nameLabel.text = scholar.firstName
             if let profilePicURL = NSURL(string: scholar.profilePicURL) {
                 cell.profileImageView.af_setImageWithURL(profilePicURL, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
-            }else {
+            } else {
                 print("\(scholar.fullName) has no profile pic or URL is wrong! (URL: \(scholar.profilePicURL)")
             }
             

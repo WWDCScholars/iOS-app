@@ -37,7 +37,7 @@ class ScholarDetailViewController: UIViewController {
     
     override func previewActionItems() -> [UIPreviewActionItem] {
         let indexOfFavorite = UserDefaults.favorites.indexOf(self.currentScholar!.id)
-        let actionTitle = indexOfFavorite == nil ? "Add to favorites" : "Remove from favorites"
+        let actionTitle = indexOfFavorite == nil ? "Add to saved" : "Remove from saved"
         let actionStyle: UIPreviewActionStyle = indexOfFavorite == nil ? .Default : .Destructive
         
         let favoriteAction = UIPreviewAction(title: actionTitle, style: actionStyle) { (action, viewController) -> Void in

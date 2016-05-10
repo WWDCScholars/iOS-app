@@ -30,7 +30,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     @IBOutlet private weak var loginBarButtonItem: UIBarButtonItem!
     @IBOutlet private weak var mapBarButtonItem: UIBarButtonItem!
     
-    private let years: [WWDC] = [.WWDC2011, .WWDC2012, .WWDC2013, .WWDC2014, .WWDC2015, .WWDC2016]
+    private let years: [WWDC] = [.WWDC2011, .WWDC2012, .WWDC2013, .WWDC2014, .WWDC2015, .WWDC2016, .Saved]
     private let locationManager = CLLocationManager()
     
     private lazy var qTree = QTree()
@@ -51,7 +51,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.configureUI()
         self.styleUI()
         
-        self.currentYear = years[self.years.count - 1]
+        self.currentYear = years[self.years.count - 2]
         
         ScholarsKit.sharedInstance.loadScholars({
             if self.loadingView.isAnimating() {
@@ -184,7 +184,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     }
     
     private func getCurrentScholars() {
-        self.currentScholars = DatabaseManager.sharedInstance.scholarsForWWDCBatch(self.currentYear)
+        self.currentScholars = self.currentYear == .Saved ? self.getFavorites() : DatabaseManager.sharedInstance.scholarsForWWDCBatch(self.currentYear)
         
         if self.searchBarActive {
             self.filterContentForSearchText()
@@ -193,6 +193,16 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         }
         
         self.addScholarToQTree()
+    }
+    
+    private func getFavorites() -> [Scholar] {
+        var favorites: [Scholar] = []
+        
+        for scholarID in UserDefaults.favorites {
+            favorites.append(DatabaseManager.sharedInstance.scholarForId(scholarID)!)
+        }
+        
+        return favorites
     }
     
     private func addScholarToQTree() {

@@ -199,7 +199,9 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         var favorites: [Scholar] = []
         
         for scholarID in UserDefaults.favorites {
-            favorites.append(DatabaseManager.sharedInstance.scholarForId(scholarID)!)
+            if let scholar = DatabaseManager.sharedInstance.scholarForId(scholarID) {
+                favorites.append(scholar)
+            }
         }
         
         return favorites

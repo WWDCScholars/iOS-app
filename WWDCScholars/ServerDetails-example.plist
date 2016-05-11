@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>File-Description</key>
+	<string>You need a ServerDetails.plist in order to run the app. If the file is missing, the app will crash with a fatalError. This is an example file! You need at least the keys below this line to run the app:</string>
 	<key>serverUrl</key>
 	<string>ENTER SERVER URL HERE</string>
 	<key>serverAPIKey</key>

@@ -23,6 +23,8 @@ branches:
   - release
 before_install:
 - openssl aes-256-cbc -K $encrypted_22d783a40343_key -iv $encrypted_22d783a40343_iv
+  -in ServerDetails.plist.enc -out WWDCScholars/ServerDetails.plist -d
+- openssl aes-256-cbc -K $encrypted_22d783a40343_key -iv $encrypted_22d783a40343_iv
   -in id_rsa.enc -out id_rsa -d
 - chmod 600 id_rsa
 - mv id_rsa ~/.ssh/id_rsa

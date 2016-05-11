@@ -75,6 +75,7 @@ class ScholarsKit {
 
             return newScholar
         }else {
+//            print (json)
             return nil
         }
     }

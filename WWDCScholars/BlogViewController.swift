@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class BlogViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -50,6 +51,18 @@ class BlogViewController: UIViewController {
         self.title = "Blog"
     }
     
+    @IBAction func addPostAction(sender: AnyObject) {
+            print("Pressed Sign Up")
+            
+            let url = NSURL(string: "http://wwdcscholarsform.herokuapp.com/addpost")
+            
+            let signUpVC = BlogPostSafariViewController(URL: url!)
+            
+            self.presentViewController(signUpVC, animated: true, completion: nil)
+            //  UIApplication.sharedApplication().statusBarStyle = .Default
+            
+
+    }
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }

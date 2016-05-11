@@ -435,8 +435,8 @@
 				223884201C8252D900A96752 /* AppDelegate.swift */,
 				6EB723CE1CB9B83B005A076F /* Main.storyboard */,
 				223F5E961CB95C3C00E582C5 /* ScholarsTabBarViewController.swift */,
-				6EEA892E1CDBFCD200245445 /* Supporting Files */,
 				7B296DBF1CE3C14400C4BA75 /* ServerDetails.plist */,
+				6EEA892E1CDBFCD200245445 /* Supporting Files */,
 			);
 			name = General;
 			sourceTree = "<group>";

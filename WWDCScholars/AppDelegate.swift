@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let serverAPIKey = dict["serverAPIKey"] as? String
             
             if let serverUrl = serverUrl, serverAPIKey = serverAPIKey {
-                if serverUrl == "ENTER SERVER URL HERE" || serverAPIKey == "ENTER SERVER URL HERE"{
+                if serverUrl == "ENTER SERVER URL HERE" || serverAPIKey == "ENTER SERVER API KEY HERE"{
                     fatalError("No server data entered in the 'ServerDetails.plist' file. Make sure you are using the correct keys.")
                 }else{
                     ApiBase.setServerDetails(serverUrl, serverAPIKey: serverAPIKey)

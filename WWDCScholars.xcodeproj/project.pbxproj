@@ -61,6 +61,8 @@
 		6EEA89261CDBE21C00245445 /* TutorialObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA89231CDBE21C00245445 /* TutorialObject.swift */; };
 		6EEA89271CDBE21C00245445 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA89241CDBE21C00245445 /* IntroViewController.swift */; };
 		6EEA892A1CDBFAF900245445 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA89291CDBFAF900245445 /* UserDefaults.swift */; };
+		7B296DC21CE3C18300C4BA75 /* ApiBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B296DC11CE3C18300C4BA75 /* ApiBase.swift */; };
+		7B296DC31CE3C60700C4BA75 /* ServerDetails.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B296DBF1CE3C14400C4BA75 /* ServerDetails.plist */; };
 		7B2AA6E01CBAE7530025EC7B /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */; };
 		7B2AA6EE1CBAE75B0025EC7B /* WWDCScholarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6ED1CBAE75B0025EC7B /* WWDCScholarsUITests.swift */; };
 		7B447BA01CDA7233008BD069 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B447B9F1CDA7233008BD069 /* SnapshotHelper.swift */; };
@@ -226,6 +228,8 @@
 		6EEA89231CDBE21C00245445 /* TutorialObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialObject.swift; sourceTree = "<group>"; };
 		6EEA89241CDBE21C00245445 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		6EEA89291CDBFAF900245445 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserDefaults.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		7B296DBF1CE3C14400C4BA75 /* ServerDetails.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerDetails.plist; sourceTree = "<group>"; };
+		7B296DC11CE3C18300C4BA75 /* ApiBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiBase.swift; sourceTree = "<group>"; };
 		7B2AA6DD1CBAE7530025EC7B /* WWDCScholarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsTests.swift; sourceTree = "<group>"; };
 		7B2AA6E11CBAE7530025EC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -432,6 +436,7 @@
 				6EB723CE1CB9B83B005A076F /* Main.storyboard */,
 				223F5E961CB95C3C00E582C5 /* ScholarsTabBarViewController.swift */,
 				6EEA892E1CDBFCD200245445 /* Supporting Files */,
+				7B296DBF1CE3C14400C4BA75 /* ServerDetails.plist */,
 			);
 			name = General;
 			sourceTree = "<group>";
@@ -593,6 +598,7 @@
 				7B7797501CDE681E0029675F /* BlogPost.swift */,
 				7BBA876D1CBD4ADB0057E9AD /* ScholarsKit.swift */,
 				7B7797521CDE697F0029675F /* BlogKit.swift */,
+				7B296DC11CE3C18300C4BA75 /* ApiBase.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -785,6 +791,7 @@
 			files = (
 				7B4D519C1CC110A50072E114 /* Info-tvOS.plist in Resources */,
 				2238842B1C8252D900A96752 /* LaunchScreen.storyboard in Resources */,
+				7B296DC31CE3C60700C4BA75 /* ServerDetails.plist in Resources */,
 				223F5E9B1CB9724000E582C5 /* tabBarDidSelectItem.m4a in Resources */,
 				6EB723D51CB9B84D005A076F /* Credits.plist in Resources */,
 				6EB723CF1CB9B83B005A076F /* Main.storyboard in Resources */,
@@ -850,6 +857,7 @@
 				7BBA88491CBEA0E80057E9AD /* String+Timepiece.swift in Sources */,
 				223884231C8252D900A96752 /* ScholarsViewController.swift in Sources */,
 				7BBA881B1CBD8AC90057E9AD /* ResponseSerialization.swift in Sources */,
+				7B296DC21CE3C18300C4BA75 /* ApiBase.swift in Sources */,
 				C0B7FBAE1CC45C9700AD376C /* QTreeGeometryUtils.m in Sources */,
 				6EEA89201CDBE15B00245445 /* TOMSMorphingLabel.m in Sources */,
 				6E1F6D5D1CC1B2F2002D17DB /* BioTableViewCell.swift in Sources */,

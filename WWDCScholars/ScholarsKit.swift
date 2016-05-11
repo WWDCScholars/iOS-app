@@ -8,24 +8,21 @@
 
 import Foundation
 
-class ScholarsKit {
+class ScholarsKit: ApiBase {
 
-    /// Server URL of the database (with API) where the scholar data is saved
-    var scholarsServerURL = "http://wwdcscholarsadmin.herokuapp.com"
-    
     /// Shared Instance of the ScholarAPI
     static let sharedInstance = ScholarsKit()
     
     let dbManager = DatabaseManager.sharedInstance
     
-    private init() {
+    private override init() {
     }
     
     /**
      Loads scholars from the online database
      */
     func loadScholars(completionHandler: () -> Void) {
-        request(.GET, "https://wwdcscholarsadmin.herokuapp.com/api/scholars")
+        request(.GET, "\(self.serverUrl)/api/scholars/\(self.apiKey)")
             .responseString() { response in
             if let data = response.result.value {
 //                print (data)

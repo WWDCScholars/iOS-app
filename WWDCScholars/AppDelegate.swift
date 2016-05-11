@@ -31,6 +31,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        var keys: NSDictionary?
+        
+        if let path = NSBundle.mainBundle().pathForResource("ServerDetails", ofType: "plist") {
+            keys = NSDictionary(contentsOfFile: path)
+        }else{
+            fatalError("File 'ServerDetails.plist' not found: Please create a ServerDetails.plist, add the server details to it and add it to the target")
+        }
+        
+        if let dict = keys {
+            let serverUrl = dict["serverUrl"] as? String
+            let serverAPIKey = dict["serverAPIKey"] as? String
+            
+            if let serverUrl = serverUrl, serverAPIKey = serverAPIKey {
+                if serverUrl == "ENTER SERVER URL HERE" || serverAPIKey == "ENTER SERVER URL HERE"{
+                    fatalError("No server data entered in the 'ServerDetails.plist' file. Make sure you are using the correct keys.")
+                }else{
+                    ApiBase.setServerDetails(serverUrl, serverAPIKey: serverAPIKey)
+                }
+            }else{
+                fatalError("Server data entered in the 'ServerDetails.plist' file missing keys. Make sure you are using the correct keys.")
+            }
+        }else{
+            fatalError("No server data entered in the 'ServerDetails.plist' file. Make sure you are using the correct keys.")
+        }
+        
         CreditsManager.sharedInstance.getCredits()
         Fabric.with([Crashlytics.self])
         

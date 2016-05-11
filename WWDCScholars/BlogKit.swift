@@ -7,19 +7,19 @@
 //
 
 import Foundation
-class BlogKit {
+class BlogKit: ApiBase {
     static let sharedInstance = BlogKit()
     
     let dbManager = DatabaseManager.sharedInstance
     
-    private init() {
+    private override init() {
     }
     
     /**
      Loads scholars from the online database
      */
     func loadPosts(completionHandler: () -> Void) {
-        request(.GET, "https://wwdcscholarsadmin.herokuapp.com/api/posts")
+        request(.GET, "\(self.serverUrl)/api/posts/\(self.apiKey)")
             .responseString() { response in
                 if let data = response.result.value {
                     //                print (data)

@@ -92,6 +92,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     internal func updateLocation(location: CLLocationCoordinate2D) {
         LocationManager.sharedInstance.getLocationDetails(location, completion: {(locationDetails) -> Void in
             self.locationTextField.text = ("\(locationDetails.locality), \(locationDetails.country)")
+            self.myLocation = location
             
             self.locationManager.stopUpdatingLocation()
         })

@@ -27,7 +27,7 @@ class LocationSelectViewController: UIViewController, UISearchBarDelegate {
     var delegate: LocationSelectedDelegate?
     
     override func viewDidLoad() {
-        self.addAnnotation(self.passedLocation!)
+        self.addAnnotation(self.passedLocation)
         
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(LocationSelectViewController.longPressGestureActivated(_:)))
         self.mapView.addGestureRecognizer(longPressGestureRecognizer)
@@ -69,7 +69,11 @@ class LocationSelectViewController: UIViewController, UISearchBarDelegate {
     
     // MARK: - Private functions
     
-    private func addAnnotation(coordinates: CLLocationCoordinate2D) {
+    private func addAnnotation(coordinates: CLLocationCoordinate2D?) {
+        guard let coordinates = coordinates else {
+            return
+        }
+        
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinates
         

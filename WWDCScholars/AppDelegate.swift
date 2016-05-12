@@ -29,13 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         var keys: NSDictionary?
         
         if let path = NSBundle.mainBundle().pathForResource("ServerDetails", ofType: "plist") {
             keys = NSDictionary(contentsOfFile: path)
-        }else{
+        } else {
             fatalError("File 'ServerDetails.plist' not found: Please create a ServerDetails.plist, add the server details to it and add it to the target")
         }
         
@@ -46,13 +45,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let serverUrl = serverUrl, serverAPIKey = serverAPIKey {
                 if serverUrl == "ENTER SERVER URL HERE" || serverAPIKey == "ENTER SERVER API KEY HERE"{
                     fatalError("No server data entered in the 'ServerDetails.plist' file. Make sure you are using the correct keys.")
-                }else{
+                } else {
                     ApiBase.setServerDetails(serverUrl, serverAPIKey: serverAPIKey)
                 }
-            }else{
+            } else {
                 fatalError("Server data entered in the 'ServerDetails.plist' file missing keys. Make sure you are using the correct keys.")
             }
-        }else{
+        } else {
             fatalError("No server data entered in the 'ServerDetails.plist' file. Make sure you are using the correct keys.")
         }
         

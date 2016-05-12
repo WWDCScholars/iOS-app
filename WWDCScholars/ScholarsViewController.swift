@@ -292,9 +292,30 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     }
     
     internal func locateButtonAction(sender: UIButton!) {
-        let myLocation = self.mapView.userLocation.coordinate as CLLocationCoordinate2D
-        let zoomRegion = MKCoordinateRegionMakeWithDistance(myLocation, 5000000, 5000000)
-        self.mapView.setRegion(zoomRegion, animated: true)
+        if CLLocationManager.locationServicesEnabled() {
+            switch(CLLocationManager.authorizationStatus()) {
+            case .NotDetermined, .Restricted, .Denied:
+                let controller = UIAlertController(title: "Enable Location Services", message: "To view your current location, please first enable location services. This can be done from within your device's settings.", preferredStyle: .Alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+                controller.addAction(cancelAction)
+                
+                let jumpToSettingsAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
+                    let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
+                    if let url = settingsUrl {
+                        UIApplication.sharedApplication().openURL(url)
+                    }
+                }
+                
+                controller.addAction(jumpToSettingsAction)
+                
+                self.presentViewController(controller, animated: true, completion: nil)
+            case .AuthorizedAlways, .AuthorizedWhenInUse:
+                let myLocation = self.mapView.userLocation.coordinate as CLLocationCoordinate2D
+                let zoomRegion = MKCoordinateRegionMakeWithDistance(myLocation, 5000000, 5000000)
+                self.mapView.setRegion(zoomRegion, animated: true)
+            }
+        }
     }
 }
 

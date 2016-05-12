@@ -65,10 +65,13 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == String(ScholarDetailViewController) {
+            let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
+            destinationViewController.delegate = self
+            
             if let indexPath = sender as? NSIndexPath {
-                let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
-                destinationViewController.delegate = self
                 destinationViewController.currentScholar = self.searchBarActive ? self.searchResults[indexPath.item] as! Scholar : self.currentScholars[indexPath.item]
+            } else if let scholarID = sender as? String {
+                destinationViewController.currentScholar = DatabaseManager.sharedInstance.scholarForId(scholarID)
             }
         }
     }
@@ -226,7 +229,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         
         for scholar in self.currentScholars {
             let location = scholar.location
-            let annotation = ScholarAnnotation(coordinate: CLLocationCoordinate2DMake(location.latitude, location.longitude), title: scholar.fullName, subtitle: location.name)
+            let annotation = ScholarAnnotation(coordinate: CLLocationCoordinate2DMake(location.latitude, location.longitude), title: scholar.fullName, subtitle: location.name, id: scholar.id)
             self.qTree.insertObject(annotation)
         }
         
@@ -521,5 +524,13 @@ extension ScholarsViewController: MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         self.reloadAnnotations()
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if view.isKindOfClass(MKAnnotationView.classForCoder()) {
+            let annotation = view.annotation as! ScholarAnnotation
+            
+            self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: annotation.id)
+        }
     }
 }

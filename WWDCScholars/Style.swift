@@ -25,6 +25,10 @@ extension UIColor {
         return UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 0.75)
     }
     
+    class func mediumTextColor() -> UIColor {
+        return UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 0.50)
+    }
+    
     class func goldColor() -> UIColor {
         return UIColor(red: 255.0 / 255.0, green: 192.0 / 255.0, blue: 103.0 / 255.0, alpha: 1.0)
     }

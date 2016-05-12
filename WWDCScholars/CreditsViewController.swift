@@ -10,7 +10,7 @@ import UIKit
 import SafariServices
 import MessageUI
 
-class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, ContactButtonDelegate {
+class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet weak var ourTeamLabel: UILabel!
@@ -37,6 +37,10 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
     }
     
     // MARK: - Internal functions
+    
+    internal func refreshScholarsWithNewFavorite() {
+        print("New favorite added")
+    }
     
     internal func openContactURL(url: String) {
         let viewController = SFSafariViewController(URL: NSURL(string: url)!)

@@ -9,9 +9,10 @@
 import UIKit
 import MapKit
 
-protocol ContactButtonDelegate {
+protocol QuickActionsDelegate {
     func openContactURL(url: String)
     func composeEmail(address: String)
+    func refreshScholarsWithNewFavorite()
 }
 
 class ScholarDetailViewController: UIViewController {
@@ -26,7 +27,7 @@ class ScholarDetailViewController: UIViewController {
     @IBOutlet private weak var favoritesButton: UIBarButtonItem!
     
     var currentScholar: Scholar?
-    var delegate: ContactButtonDelegate?
+    var delegate: QuickActionsDelegate?
     
     override func viewDidLoad() {
         self.styleUI()
@@ -45,6 +46,8 @@ class ScholarDetailViewController: UIViewController {
                 UserDefaults.favorites.append(self.currentScholar!.id)
             } else {
                 UserDefaults.favorites.removeAtIndex(indexOfFavorite!)
+                
+                self.delegate?.refreshScholarsWithNewFavorite()
             }
         }
         

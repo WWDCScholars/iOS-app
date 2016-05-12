@@ -17,7 +17,7 @@ enum CurrentViewType {
     case Map
 }
 
-class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, ContactButtonDelegate {
+class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate {
     @IBOutlet private weak var yearCollectionView: UICollectionView!
     @IBOutlet private weak var loadingView: ActivityIndicatorView!
     @IBOutlet private weak var scholarsCollectionView: UICollectionView!
@@ -32,6 +32,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     private let years: [WWDC] = [.WWDC2011, .WWDC2012, .WWDC2013, .WWDC2014, .WWDC2015, .WWDC2016, .Saved]
     private let locationManager = CLLocationManager()
+    private let noContentLabel = UILabel()
     
     private lazy var qTree = QTree()
 
@@ -74,10 +75,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if self.loadingView.isAnimating() {
-            self.loadingView.stopAnimating()
-        }
-        
         let index = self.years.indexOf(self.currentYear)!
         self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: .Left, animated: false)
         self.updateArrowsForIndex(index)
@@ -96,6 +93,12 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         if self.traitCollection.forceTouchCapability == .Available {
             self.registerForPreviewingWithDelegate(self, sourceView: self.view)
         }
+        
+        let frame = self.view.frame
+        self.noContentLabel.text = "Looks like there's no Scholars here yet!"
+        self.noContentLabel.frame = CGRect(x: frame.origin.x + 8.0, y: -100.0, width: frame.width - 16.0, height: frame.height)
+        self.noContentLabel.textColor = UIColor.mediumTextColor()
+        self.noContentLabel.textAlignment = .Center
     }
     
     private func styleUI() {
@@ -192,6 +195,12 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
             self.scholarsCollectionView.reloadData()
         }
         
+        if self.currentScholars.count == 0 && !self.noContentLabel.isDescendantOfView(self.scholarsCollectionView) {
+            self.scholarsCollectionView.addSubview(self.noContentLabel)
+        } else if self.currentScholars.count > 0 {
+            self.noContentLabel.removeFromSuperview()
+        }
+        
         self.addScholarToQTree()
     }
     
@@ -238,6 +247,10 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     }
     
     // MARK: - Internal functions
+    
+    internal func refreshScholarsWithNewFavorite() {
+        self.getCurrentScholars()
+    }
     
     internal func openContactURL(url: String) {
         let viewController = SFSafariViewController(URL: NSURL(string: url)!)

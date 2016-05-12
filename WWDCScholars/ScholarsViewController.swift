@@ -97,7 +97,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         
         let frame = self.view.frame
         self.noContentLabel.text = "Looks like there's no Scholars here yet!"
-        self.noContentLabel.frame = CGRect(x: frame.origin.x + 8.0, y: -100.0, width: frame.width - 16.0, height: frame.height)
+        self.noContentLabel.frame = CGRect(x: frame.origin.x + 16.0, y: -100.0, width: frame.width - 24.0, height: frame.height)
         self.noContentLabel.textColor = UIColor.mediumTextColor()
         self.noContentLabel.textAlignment = .Center
     }

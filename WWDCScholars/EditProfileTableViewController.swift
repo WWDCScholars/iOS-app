@@ -105,6 +105,37 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.presentViewController(self.imagePicker, animated: true, completion: nil)
     }
     
+    // MARK: - Private functions
+    
+    private func updateProfileImageIfFaceDetected(importedImage: UIImage) {
+        let image = CIImage(CGImage: importedImage.CGImage!)
+        
+        let options = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
+        let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: options)
+        
+        let faces = faceDetector.featuresInImage(image)
+        
+        if faces.first != nil {
+            self.profileImageButton.setImage(importedImage, forState: .Normal)
+        } else {
+            self.presentConfirmationCheck(importedImage)
+        }
+    }
+    
+    private func presentConfirmationCheck(importedImage: UIImage) {
+        let alertController = UIAlertController(title: "No face detected", message: "Are you sure this is an image of you? We strongly encourage profile-style images.", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let confirmAction = UIAlertAction(title: "I'm Sure!", style: .Default) { (action) in
+            self.profileImageButton.setImage(importedImage, forState: .Normal)
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     // MARK: - IBActions
     
     @IBAction func uploadProfileImageButtonTapped(sender: AnyObject) {
@@ -167,10 +198,12 @@ extension EditProfileTableViewController: UICollectionViewDataSource {
 
 extension EditProfileTableViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             switch self.imageUploadType {
             case .Profile:
-                self.profileImageButton.setImage(pickedImage, forState: .Normal)
+                self.updateProfileImageIfFaceDetected(pickedImage)
             case .Screenshot:
                 self.screenshots.removeAtIndex(self.screenshotUploadIndex)
                 self.screenshots.insert(pickedImage, atIndex: self.screenshotUploadIndex)
@@ -178,8 +211,6 @@ extension EditProfileTableViewController: UIImagePickerControllerDelegate {
                 self.screenshotCollectionView.reloadData()
             }
         }
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {

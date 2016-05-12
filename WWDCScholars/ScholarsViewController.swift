@@ -85,9 +85,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     private func configureUI() {
         self.scholarsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
-        
-        let longPressGestureRecognizerLoginBarButtomItem = UILongPressGestureRecognizer(target: self, action: #selector(ScholarsViewController.showEditDetailsModal(_:)))
-        self.view.addGestureRecognizer(longPressGestureRecognizerLoginBarButtomItem)
      
         self.loadingView.startAnimating()
         
@@ -250,10 +247,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.view.window?.rootViewController?.view.window?.rootViewController!.presentViewController(modalViewController, animated: true, completion: nil)
     }
     
-    private func showEditDetailsModal() {
-        
-    }
-    
     // MARK: - Internal functions
     
     internal func refreshScholarsWithNewFavorite() {
@@ -285,8 +278,8 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    internal func showEditDetailsModal(longPressGestureRecognizerLoginBarButtomItem: UIGestureRecognizer) {
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    internal func showEditDetailsModal() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let modalViewController = storyboard.instantiateViewControllerWithIdentifier("EditDetailsNC")
         
         modalViewController.modalPresentationStyle = .FullScreen

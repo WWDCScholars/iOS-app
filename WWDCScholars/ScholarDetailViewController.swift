@@ -147,6 +147,15 @@ class ScholarDetailViewController: UIViewController {
         
         self.delegate?.refreshScholarsWithNewFavorite()
     }
+    
+    @IBAction func editProfileButtonTapped(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("EditDetailsNC")
+        
+        modalViewController.modalPresentationStyle = .FullScreen
+        modalViewController.modalTransitionStyle = .CoverVertical
+        self.presentViewController(modalViewController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UICollectionViewDataSource

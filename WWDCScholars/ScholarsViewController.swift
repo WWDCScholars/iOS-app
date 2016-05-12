@@ -67,6 +67,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         if segue.identifier == String(ScholarDetailViewController) {
             if let indexPath = sender as? NSIndexPath {
                 let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
+                destinationViewController.delegate = self
                 destinationViewController.currentScholar = self.searchBarActive ? self.searchResults[indexPath.item] as! Scholar : self.currentScholars[indexPath.item]
             }
         }
@@ -160,11 +161,18 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     // MARK: - Private functions
     
+    private func reloadScholarsCollectionViewWithAnimation() {
+        UIView.transitionWithView(self.scholarsCollectionView, duration: 0.2, options: .TransitionCrossDissolve, animations: {
+            self.scholarsCollectionView.reloadData()
+            }, completion: nil)
+    }
+    
     private func cancelSearching(setOffset: Bool = false) {
         self.searchBarActive = false
         self.searchBar!.resignFirstResponder()
         self.searchBar!.text = ""
-        self.scholarsCollectionView.reloadData()
+        
+        self.reloadScholarsCollectionViewWithAnimation()
     }
     
     private func filterContentForSearchText() {
@@ -192,7 +200,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         if self.searchBarActive {
             self.filterContentForSearchText()
         } else {
-            self.scholarsCollectionView.reloadData()
+            self.reloadScholarsCollectionViewWithAnimation()
         }
         
         if self.currentScholars.count == 0 && !self.noContentLabel.isDescendantOfView(self.scholarsCollectionView) {

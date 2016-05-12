@@ -144,6 +144,8 @@ class ScholarDetailViewController: UIViewController {
         } else {
             UserDefaults.favorites.removeAtIndex(indexOfFavorite!)
         }
+        
+        self.delegate?.refreshScholarsWithNewFavorite()
     }
 }
 

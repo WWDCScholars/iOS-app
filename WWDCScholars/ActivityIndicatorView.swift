@@ -21,7 +21,7 @@ class ActivityIndicatorView: UIView {
     // MARK: - UI
     
     private func styleUI() {
-        self.loadingLabel.textColor = UIColor.transparentBlackColor()
+        self.loadingLabel.textColor = UIColor.mediumTextColor()
     }
     
     func startAnimating() {

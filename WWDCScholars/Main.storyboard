@@ -1186,39 +1186,39 @@
                                                                                 <constraint firstAttribute="width" constant="20" id="j5n-Al-8x9"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Website" translatesAutoresizingMaskIntoConstraints="NO" id="Mvk-0Z-0A9">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Project Management" translatesAutoresizingMaskIntoConstraints="NO" id="d3q-Ej-Tmf">
                                                                             <rect key="frame" x="24" y="0.0" width="20" height="20"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="20" id="2oa-kZ-8eP"/>
-                                                                                <constraint firstAttribute="width" constant="20" id="N4x-zM-OXn"/>
-                                                                            </constraints>
-                                                                        </imageView>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Project Management" translatesAutoresizingMaskIntoConstraints="NO" id="d3q-Ej-Tmf">
-                                                                            <rect key="frame" x="48" y="0.0" width="20" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="20" id="dTh-0h-fmF"/>
                                                                                 <constraint firstAttribute="height" constant="20" id="pSC-ZH-QoX"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Database" translatesAutoresizingMaskIntoConstraints="NO" id="Z1c-wJ-ktB">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Website" translatesAutoresizingMaskIntoConstraints="NO" id="Mvk-0Z-0A9">
+                                                                            <rect key="frame" x="48" y="0.0" width="20" height="20"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="20" id="2oa-kZ-8eP"/>
+                                                                                <constraint firstAttribute="width" constant="20" id="N4x-zM-OXn"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="watchOS" translatesAutoresizingMaskIntoConstraints="NO" id="d4Y-Jd-b8p">
                                                                             <rect key="frame" x="72" y="0.0" width="20" height="20"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="20" id="SYP-qj-T55"/>
+                                                                                <constraint firstAttribute="width" constant="20" id="nvH-bi-ehE"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Database" translatesAutoresizingMaskIntoConstraints="NO" id="Z1c-wJ-ktB">
+                                                                            <rect key="frame" x="96" y="0.0" width="20" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="20" id="GkP-3t-8Gg"/>
                                                                                 <constraint firstAttribute="height" constant="20" id="WvJ-R8-m0n"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Design" translatesAutoresizingMaskIntoConstraints="NO" id="c7Y-05-2oR">
-                                                                            <rect key="frame" x="96" y="0.0" width="20" height="20"/>
+                                                                            <rect key="frame" x="120" y="0.0" width="20" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="20" id="GL3-za-d5m"/>
                                                                                 <constraint firstAttribute="height" constant="20" id="H87-Si-lAC"/>
-                                                                            </constraints>
-                                                                        </imageView>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watchOS" translatesAutoresizingMaskIntoConstraints="NO" id="d4Y-Jd-b8p">
-                                                                            <rect key="frame" x="120" y="0.0" width="20" height="20"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="20" id="SYP-qj-T55"/>
-                                                                                <constraint firstAttribute="width" constant="20" id="nvH-bi-ehE"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marketing" translatesAutoresizingMaskIntoConstraints="NO" id="Xa4-LB-3AE">

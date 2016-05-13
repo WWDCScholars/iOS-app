@@ -13,7 +13,7 @@ protocol LocationSelectedDelegate {
     func updateLocation(location: CLLocationCoordinate2D)
 }
 
-class LocationSelectViewController: UIViewController, UISearchBarDelegate {
+class LocationSelectViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
     @IBOutlet private weak var mapView: MKMapView!
     
     private var searchController: UISearchController!
@@ -31,6 +31,17 @@ class LocationSelectViewController: UIViewController, UISearchBarDelegate {
         
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(LocationSelectViewController.longPressGestureActivated(_:)))
         self.mapView.addGestureRecognizer(longPressGestureRecognizer)
+    }
+    
+    // MARK: - Annotations
+    
+    func mapView(aMapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        pinView.animatesDrop = true
+        pinView.canShowCallout = true
+        pinView.pinTintColor = UIColor.scholarsPurpleColor()
+        
+        return pinView
     }
     
     // MARK: - Internal functions
@@ -86,6 +97,7 @@ class LocationSelectViewController: UIViewController, UISearchBarDelegate {
             }
             
             self.mapView.addAnnotation(annotation)
+            self.mapView.selectAnnotation(annotation, animated: true)
         })
     }
     

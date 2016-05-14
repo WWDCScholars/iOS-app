@@ -1186,21 +1186,21 @@
                                                                                 <constraint firstAttribute="width" constant="20" id="j5n-Al-8x9"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Project Management" translatesAutoresizingMaskIntoConstraints="NO" id="d3q-Ej-Tmf">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Project Management" translatesAutoresizingMaskIntoConstraints="NO" id="d3q-Ej-Tmf">
                                                                             <rect key="frame" x="24" y="0.0" width="20" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="20" id="dTh-0h-fmF"/>
                                                                                 <constraint firstAttribute="height" constant="20" id="pSC-ZH-QoX"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Website" translatesAutoresizingMaskIntoConstraints="NO" id="Mvk-0Z-0A9">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Website" translatesAutoresizingMaskIntoConstraints="NO" id="Mvk-0Z-0A9">
                                                                             <rect key="frame" x="48" y="0.0" width="20" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="2oa-kZ-8eP"/>
                                                                                 <constraint firstAttribute="width" constant="20" id="N4x-zM-OXn"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="watchOS" translatesAutoresizingMaskIntoConstraints="NO" id="d4Y-Jd-b8p">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watchOS" translatesAutoresizingMaskIntoConstraints="NO" id="d4Y-Jd-b8p">
                                                                             <rect key="frame" x="72" y="0.0" width="20" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="SYP-qj-T55"/>

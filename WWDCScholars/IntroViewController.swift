@@ -169,14 +169,15 @@ extension IntroViewController: UIScrollViewDelegate {
             
             self.modalTransitionStyle = .CrossDissolve
             
-            if !didDoMyThing {
-                didDoMyThing = true
-            if UserDefaults.hasOpenedApp {
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }else {
-                self.performSegueWithIdentifier(String(ScholarsTabBarViewController), sender: self)
-                UserDefaults.hasOpenedApp = true
-            }
+            if !self.didDoMyThing {
+                self.didDoMyThing = true
+                
+                if UserDefaults.hasOpenedApp {
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                } else {
+                    self.performSegueWithIdentifier(String(ScholarsTabBarViewController), sender: self)
+                    UserDefaults.hasOpenedApp = true
+                }
             }
         }
         

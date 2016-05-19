@@ -98,7 +98,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.noContentLabel.textAlignment = .Center
         
         self.refreshControl = UIRefreshControl()
-        self.refreshControl.bounds = CGRect(x: self.refreshControl.bounds.origin.x, y: -40.0, width: self.refreshControl.bounds.size.width, height: self.refreshControl.bounds.size.height)
+        self.refreshControl.bounds = CGRect(x: self.refreshControl.bounds.origin.x + 4.0, y: -40.0, width: self.refreshControl.bounds.size.width, height: self.refreshControl.bounds.size.height)
         self.refreshControl.addTarget(self, action: #selector(ScholarsViewController.loadData), forControlEvents: .ValueChanged)
         self.scholarsCollectionView.addSubview(self.refreshControl)
     }

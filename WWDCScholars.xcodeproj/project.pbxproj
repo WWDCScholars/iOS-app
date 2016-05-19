@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220091691CE660830045BD09 /* ServerDetails.plist in Resources */ = {isa = PBXBuildFile; fileRef = 220091681CE660830045BD09 /* ServerDetails.plist */; };
 		22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */; };
 		22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */; };
 		2236F2971CC29EA500663957 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2236F2961CC29EA500663957 /* DesignableButton.swift */; };
@@ -29,6 +30,7 @@
 		22671A641CE3D19F0055F91B /* BlogPostSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22671A631CE3D19F0055F91B /* BlogPostSafariViewController.swift */; };
 		22AA36691CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AA36681CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m */; };
 		22AA366C1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AA366B1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		22BFE2C01CEE0829002CB549 /* BlogPostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE2BF1CEE0829002CB549 /* BlogPostDetailViewController.swift */; };
 		22E2A6EF1CC1DA2400DF0578 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */; };
 		22E2A6F31CC1DBE300DF0578 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6F21CC1DBE300DF0578 /* Spring.swift */; };
 		22E2A6F51CC1DC2400DF0578 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6F41CC1DC2400DF0578 /* Misc.swift */; };
@@ -64,7 +66,6 @@
 		6EEA89271CDBE21C00245445 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA89241CDBE21C00245445 /* IntroViewController.swift */; };
 		6EEA892A1CDBFAF900245445 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA89291CDBFAF900245445 /* UserDefaults.swift */; };
 		7B296DC21CE3C18300C4BA75 /* ApiBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B296DC11CE3C18300C4BA75 /* ApiBase.swift */; };
-		7B296DC31CE3C60700C4BA75 /* ServerDetails.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B296DBF1CE3C14400C4BA75 /* ServerDetails.plist */; };
 		7B2AA6E01CBAE7530025EC7B /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */; };
 		7B2AA6EE1CBAE75B0025EC7B /* WWDCScholarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6ED1CBAE75B0025EC7B /* WWDCScholarsUITests.swift */; };
 		7B447BA01CDA7233008BD069 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B447B9F1CDA7233008BD069 /* SnapshotHelper.swift */; };
@@ -169,6 +170,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		220091681CE660830045BD09 /* ServerDetails.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerDetails.plist; sourceTree = "<group>"; };
 		22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		2236F2961CC29EA500663957 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		22AA36681CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		22AA366A1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		22AA366B1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		22BFE2BF1CEE0829002CB549 /* BlogPostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostDetailViewController.swift; sourceTree = "<group>"; };
 		22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		22E2A6F21CC1DBE300DF0578 /* Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
 		22E2A6F41CC1DC2400DF0578 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
@@ -232,7 +235,6 @@
 		6EEA89231CDBE21C00245445 /* TutorialObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialObject.swift; sourceTree = "<group>"; };
 		6EEA89241CDBE21C00245445 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		6EEA89291CDBFAF900245445 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserDefaults.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		7B296DBF1CE3C14400C4BA75 /* ServerDetails.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerDetails.plist; sourceTree = "<group>"; };
 		7B296DC11CE3C18300C4BA75 /* ApiBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiBase.swift; sourceTree = "<group>"; };
 		7B2AA6DD1CBAE7530025EC7B /* WWDCScholarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsTests.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 				6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */,
 				223884221C8252D900A96752 /* ScholarsViewController.swift */,
 				6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */,
+				220091681CE660830045BD09 /* ServerDetails.plist */,
 			);
 			name = Scholars;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				6EBCAD181CDACE170056D1CF /* BlogPostTableViewCell.swift */,
 				22543B1E1CB70182003F9422 /* BlogViewController.swift */,
 				22671A631CE3D19F0055F91B /* BlogPostSafariViewController.swift */,
+				22BFE2BF1CEE0829002CB549 /* BlogPostDetailViewController.swift */,
 			);
 			name = Blog;
 			sourceTree = "<group>";
@@ -440,7 +444,6 @@
 				223884201C8252D900A96752 /* AppDelegate.swift */,
 				6EB723CE1CB9B83B005A076F /* Main.storyboard */,
 				223F5E961CB95C3C00E582C5 /* ScholarsTabBarViewController.swift */,
-				7B296DBF1CE3C14400C4BA75 /* ServerDetails.plist */,
 				6EEA892E1CDBFCD200245445 /* Supporting Files */,
 			);
 			name = General;
@@ -797,7 +800,7 @@
 			files = (
 				7B4D519C1CC110A50072E114 /* Info-tvOS.plist in Resources */,
 				2238842B1C8252D900A96752 /* LaunchScreen.storyboard in Resources */,
-				7B296DC31CE3C60700C4BA75 /* ServerDetails.plist in Resources */,
+				220091691CE660830045BD09 /* ServerDetails.plist in Resources */,
 				223F5E9B1CB9724000E582C5 /* tabBarDidSelectItem.m4a in Resources */,
 				6EB723D51CB9B84D005A076F /* Credits.plist in Resources */,
 				6EB723CF1CB9B83B005A076F /* Main.storyboard in Resources */,
@@ -893,6 +896,7 @@
 				7B4D519A1CC110A50072E114 /* ImageDownloader.swift in Sources */,
 				6E9DD6761CC5961F00433193 /* CreditsManager.swift in Sources */,
 				22543B211CB7019A003F9422 /* ChatViewController.swift in Sources */,
+				22BFE2C01CEE0829002CB549 /* BlogPostDetailViewController.swift in Sources */,
 				224355CD1CC1D584001FFAD0 /* SpringButton.swift in Sources */,
 				2236F2971CC29EA500663957 /* DesignableButton.swift in Sources */,
 				7BBA88451CBEA0E80057E9AD /* NSCalendarUnit+Timepiece.swift in Sources */,

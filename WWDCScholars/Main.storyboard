@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIZ-DC-Vqm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIZ-DC-Vqm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -20,7 +20,7 @@
         <!--Scholars-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ScholarsViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ScholarsViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -49,7 +49,7 @@
                                             <inset key="sectionInset" minX="8" minY="8" maxX="0.0" maxY="8"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="scholarCollectionViewCell" id="ZZu-y7-2MY" customClass="ScholarCollectionViewCell" customModule="WWDCScholars" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="scholarCollectionViewCell" id="ZZu-y7-2MY" customClass="ScholarCollectionViewCell" customModule="Scholars" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="8" width="140" height="170"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -136,7 +136,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="yearCollectionViewCell" id="fLB-fn-lzc" customClass="YearCollectionViewCell" customModule="WWDCScholars" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="yearCollectionViewCell" id="fLB-fn-lzc" customClass="YearCollectionViewCell" customModule="Scholars" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -216,7 +216,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjN-qc-pxi" userLabel="Loading View" customClass="ActivityIndicatorView" customModule="WWDCScholars" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjN-qc-pxi" userLabel="Loading View" customClass="ActivityIndicatorView" customModule="Scholars" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="114" width="600" height="437"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="upO-lB-xfC">
@@ -327,7 +327,7 @@
         <!--Name-->
         <scene sceneID="cA7-ln-cpr">
             <objects>
-                <viewController storyboardIdentifier="scholarDetailViewController" automaticallyAdjustsScrollViewInsets="NO" id="Xz8-ge-7L5" customClass="ScholarDetailViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scholarDetailViewController" automaticallyAdjustsScrollViewInsets="NO" id="Xz8-ge-7L5" customClass="ScholarDetailViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I7c-HC-Kt5"/>
                         <viewControllerLayoutGuide type="bottom" id="KT5-pF-gXD"/>
@@ -377,7 +377,7 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="sectionIndexBackgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="basicDetailsTableViewCell" rowHeight="78" id="aJz-DP-fd1" customClass="BasicDetailsTableViewCell" customModule="WWDCScholars" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="basicDetailsTableViewCell" rowHeight="78" id="aJz-DP-fd1" customClass="BasicDetailsTableViewCell" customModule="Scholars" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="584" height="78"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aJz-DP-fd1" id="Og7-BS-REb">
@@ -432,7 +432,7 @@
                                                                                     </constraints>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="in2-F3-pr9">
-                                                                                    <rect key="frame" x="195" y="0.0" width="194" height="70"/>
+                                                                                    <rect key="frame" x="195" y="0.0" width="195" height="70"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-dA-hQT">
                                                                                             <rect key="frame" x="66" y="12" width="62" height="45"/>
@@ -476,7 +476,7 @@
                                                                                     </constraints>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSG-Qq-NES">
-                                                                                    <rect key="frame" x="389" y="0.0" width="195" height="70"/>
+                                                                                    <rect key="frame" x="390" y="0.0" width="195" height="70"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCL-L9-LaH">
                                                                                             <rect key="frame" x="62" y="12" width="71" height="45"/>
@@ -552,7 +552,7 @@
                                                                     <outlet property="countryLabel" destination="Ddp-lp-BkL" id="yim-Xb-qlZ"/>
                                                                 </connections>
                                                             </tableViewCell>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bioTableViewCell" rowHeight="110" id="nqO-EA-qf1" customClass="BioTableViewCell" customModule="WWDCScholars" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bioTableViewCell" rowHeight="110" id="nqO-EA-qf1" customClass="BioTableViewCell" customModule="Scholars" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="106" width="584" height="110"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nqO-EA-qf1" id="8qb-AQ-Hcj">
@@ -590,7 +590,7 @@
                                                                     <outlet property="contentLabel" destination="s2Q-XZ-RHv" id="vdS-pK-9dH"/>
                                                                 </connections>
                                                             </tableViewCell>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="screenshotsTableViewCell" rowHeight="296" id="Ttx-AP-73h" customClass="ScreenshotsTableViewCell" customModule="WWDCScholars" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="screenshotsTableViewCell" rowHeight="296" id="Ttx-AP-73h" customClass="ScreenshotsTableViewCell" customModule="Scholars" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="216" width="584" height="296"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ttx-AP-73h" id="DRE-X7-yHT">
@@ -625,7 +625,7 @@
                                                                                         <inset key="sectionInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                                                                     </collectionViewFlowLayout>
                                                                                     <cells>
-                                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="screenshotsCollectionViewCell" id="a6C-13-w3a" customClass="ScreenshotsCollectionViewCell" customModule="WWDCScholars" customModuleProvider="target">
+                                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="screenshotsCollectionViewCell" id="a6C-13-w3a" customClass="ScreenshotsCollectionViewCell" customModule="Scholars" customModuleProvider="target">
                                                                                             <rect key="frame" x="8" y="0.0" width="130" height="231"/>
                                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -852,7 +852,133 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HM3-f4-OGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2806" y="446"/>
+            <point key="canvasLocation" x="3590" y="-630"/>
+        </scene>
+        <!--Blog Post Detail View Controller-->
+        <scene sceneID="38G-Bq-mZb">
+            <objects>
+                <viewController id="AFw-0k-ZS9" customClass="BlogPostDetailViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vbY-m6-b9B"/>
+                        <viewControllerLayoutGuide type="bottom" id="cbB-es-u3v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8eh-7i-OGq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6x-GT-Ut9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGa-5Q-HIY">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example1" translatesAutoresizingMaskIntoConstraints="NO" id="cEB-YV-chw">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="cEB-YV-chw" secondAttribute="height" multiplier="375:211" id="S9P-Tr-9XU"/>
+                                                    <constraint firstAttribute="height" constant="211" id="vFW-Iq-lHd"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="S9P-Tr-9XU"/>
+                                                    </mask>
+                                                </variation>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditsHeaderGradient" translatesAutoresizingMaskIntoConstraints="NO" id="gK6-Pp-k3W">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="211" id="KFz-LA-vsz"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This label currently represents a pretty long title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjh-LF-CFh">
+                                                <rect key="frame" x="14" y="118" width="353" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="BZK-SH-ulw"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QMJ-t5-LiR">
+                                                <rect key="frame" x="8" y="240" width="359" height="427"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Published on 06/08/2016 by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBX-gU-o4U">
+                                                <rect key="frame" x="13" y="220" width="192" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="192" id="Uf4-ah-NqR"/>
+                                                    <constraint firstAttribute="height" constant="21" id="vod-1J-EHW"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpq-uf-hKr">
+                                                <rect key="frame" x="213" y="215" width="117" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="f0T-Gn-FiB"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="Author name"/>
+                                                <connections>
+                                                    <action selector="authorButtonPressed:" destination="AFw-0k-ZS9" eventType="touchUpInside" id="J0b-XK-flF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="WBX-gU-o4U" firstAttribute="top" secondItem="gK6-Pp-k3W" secondAttribute="bottom" constant="9" id="7wG-tX-Rdh"/>
+                                            <constraint firstItem="gK6-Pp-k3W" firstAttribute="leading" secondItem="iGa-5Q-HIY" secondAttribute="leading" id="BOV-Rr-UTk"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tjh-LF-CFh" secondAttribute="trailing" constant="8" id="Hzt-eO-WXQ"/>
+                                            <constraint firstItem="cEB-YV-chw" firstAttribute="top" secondItem="iGa-5Q-HIY" secondAttribute="top" id="Il1-CM-XID"/>
+                                            <constraint firstItem="gpq-uf-hKr" firstAttribute="leading" secondItem="WBX-gU-o4U" secondAttribute="trailing" constant="8" id="JK5-m3-UNm"/>
+                                            <constraint firstItem="gpq-uf-hKr" firstAttribute="top" secondItem="gK6-Pp-k3W" secondAttribute="bottom" constant="4" id="O2p-FO-kIO"/>
+                                            <constraint firstItem="Tjh-LF-CFh" firstAttribute="top" secondItem="iGa-5Q-HIY" secondAttribute="top" constant="118" id="QUg-Ue-BnR"/>
+                                            <constraint firstItem="gK6-Pp-k3W" firstAttribute="top" secondItem="iGa-5Q-HIY" secondAttribute="top" id="TP8-c0-kN6"/>
+                                            <constraint firstAttribute="trailing" secondItem="gK6-Pp-k3W" secondAttribute="trailing" id="dVZ-P6-Ts5"/>
+                                            <constraint firstItem="cEB-YV-chw" firstAttribute="leading" secondItem="iGa-5Q-HIY" secondAttribute="leading" id="dta-Az-4aq"/>
+                                            <constraint firstAttribute="bottom" secondItem="QMJ-t5-LiR" secondAttribute="bottom" id="eR0-s9-Ycg"/>
+                                            <constraint firstAttribute="trailing" secondItem="cEB-YV-chw" secondAttribute="trailing" id="o3O-ur-6ZF"/>
+                                            <constraint firstAttribute="trailing" secondItem="QMJ-t5-LiR" secondAttribute="trailing" constant="8" id="u17-tg-0oR"/>
+                                            <constraint firstItem="QMJ-t5-LiR" firstAttribute="leading" secondItem="iGa-5Q-HIY" secondAttribute="leading" constant="8" id="wIa-Qb-cEy"/>
+                                            <constraint firstItem="WBX-gU-o4U" firstAttribute="leading" secondItem="iGa-5Q-HIY" secondAttribute="leading" constant="13" id="xBX-UG-r35"/>
+                                            <constraint firstItem="Tjh-LF-CFh" firstAttribute="leading" secondItem="iGa-5Q-HIY" secondAttribute="leading" constant="14" id="y2F-08-TUf"/>
+                                            <constraint firstItem="QMJ-t5-LiR" firstAttribute="top" secondItem="Tjh-LF-CFh" secondAttribute="bottom" constant="42" id="zw5-gg-lF9"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="iGa-5Q-HIY" secondAttribute="bottom" id="L3d-nU-OaX"/>
+                                    <constraint firstAttribute="trailing" secondItem="iGa-5Q-HIY" secondAttribute="trailing" id="W4h-sD-9hn"/>
+                                    <constraint firstItem="iGa-5Q-HIY" firstAttribute="leading" secondItem="u6x-GT-Ut9" secondAttribute="leading" id="Y4U-c3-0nv"/>
+                                    <constraint firstItem="iGa-5Q-HIY" firstAttribute="top" secondItem="u6x-GT-Ut9" secondAttribute="top" id="YzD-d9-p5L"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iGa-5Q-HIY" firstAttribute="width" secondItem="8eh-7i-OGq" secondAttribute="width" id="MKD-Jz-yoz"/>
+                            <constraint firstAttribute="trailing" secondItem="u6x-GT-Ut9" secondAttribute="trailing" id="Ukq-zn-dDv"/>
+                            <constraint firstItem="u6x-GT-Ut9" firstAttribute="leading" secondItem="8eh-7i-OGq" secondAttribute="leading" id="kvV-fg-EzY"/>
+                            <constraint firstItem="u6x-GT-Ut9" firstAttribute="top" secondItem="8eh-7i-OGq" secondAttribute="top" id="nVw-IC-3lf"/>
+                            <constraint firstAttribute="bottom" secondItem="u6x-GT-Ut9" secondAttribute="bottom" id="t54-Pz-C2s"/>
+                            <constraint firstItem="iGa-5Q-HIY" firstAttribute="height" secondItem="8eh-7i-OGq" secondAttribute="height" id="z7O-9o-4p5"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="authorButton" destination="gpq-uf-hKr" id="Pyv-e0-HrX"/>
+                        <outlet property="headerImageView" destination="cEB-YV-chw" id="w0y-Wl-rxB"/>
+                        <outlet property="postTextView" destination="QMJ-t5-LiR" id="c5D-yz-84a"/>
+                        <outlet property="postTitleLabel" destination="Tjh-LF-CFh" id="Ajd-az-zqX"/>
+                        <outlet property="publishedDateLabel" destination="WBX-gU-o4U" id="tBL-RK-Jfc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZlS-HI-K7W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2806.5" y="75.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oN5-kV-qoP">
@@ -900,7 +1026,7 @@
         <!--Blog-->
         <scene sceneID="gLD-ie-YKb">
             <objects>
-                <viewController id="qiP-lR-jI2" customClass="BlogViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qiP-lR-jI2" customClass="BlogViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="emh-Oi-Mqj"/>
                         <viewControllerLayoutGuide type="bottom" id="50g-W2-a5o"/>
@@ -913,14 +1039,14 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="blogPostTableViewCell" rowHeight="326" id="Sqm-n8-W4v" customClass="BlogPostTableViewCell" customModule="WWDCScholars" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="blogPostTableViewCell" rowHeight="326" id="Sqm-n8-W4v" customClass="BlogPostTableViewCell" customModule="Scholars" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="326"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sqm-n8-W4v" id="LXU-2O-SIU">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="325"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="325.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5i-Vq-liw">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5i-Vq-liw">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="316"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example1" translatesAutoresizingMaskIntoConstraints="NO" id="nXC-9f-owr">
@@ -935,7 +1061,7 @@
                                                                 </mask>
                                                             </variation>
                                                         </imageView>
-                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u5N-zp-vXQ">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5N-zp-vXQ">
                                                             <rect key="frame" x="0.0" y="250" width="600" height="66"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6o-me-9So">
@@ -1000,7 +1126,7 @@
                                                         </mask>
                                                     </variation>
                                                 </view>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EzO-04-TlO">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EzO-04-TlO">
                                                     <rect key="frame" x="0.0" y="316" width="600" height="10"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -1037,6 +1163,7 @@
                                             <outlet property="postDetailsContainerView" destination="u5N-zp-vXQ" id="mEi-fy-lKo"/>
                                             <outlet property="postImageView" destination="nXC-9f-owr" id="GBb-B7-0by"/>
                                             <outlet property="postTitleLabel" destination="4Tq-Jy-Mp6" id="T0x-L8-VtP"/>
+                                            <segue destination="AFw-0k-ZS9" kind="show" id="tld-pe-hIW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1073,7 +1200,7 @@
         <!--Chat-->
         <scene sceneID="bAZ-9K-5ed">
             <objects>
-                <viewController id="nbF-qz-3hW" customClass="ChatViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nbF-qz-3hW" customClass="ChatViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6UL-IK-bnb"/>
                         <viewControllerLayoutGuide type="bottom" id="zeS-OX-a7c"/>
@@ -1092,7 +1219,7 @@
         <!--Credits-->
         <scene sceneID="Ucg-To-7oc">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="00G-Zd-ZWK" customClass="CreditsViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="00G-Zd-ZWK" customClass="CreditsViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Buy-2P-zQv"/>
                         <viewControllerLayoutGuide type="bottom" id="YLy-zA-eGt"/>
@@ -1154,7 +1281,7 @@
                                                     </constraints>
                                                 </view>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="creditCell" rowHeight="67" id="QWf-Jd-M0G" customClass="CreditTableViewCell" customModule="WWDCScholars" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="creditCell" rowHeight="67" id="QWf-Jd-M0G" customClass="CreditTableViewCell" customModule="Scholars" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="171" width="600" height="67"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QWf-Jd-M0G" id="xfW-AG-Pl1">
@@ -1324,7 +1451,7 @@
         <!--Intro View Controller-->
         <scene sceneID="6j6-HL-ckh">
             <objects>
-                <viewController storyboardIdentifier="IntroViewController" id="Ket-f0-GSS" customClass="IntroViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IntroViewController" id="Ket-f0-GSS" customClass="IntroViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="us0-VW-mzo"/>
                         <viewControllerLayoutGuide type="bottom" id="wan-xw-gpZ"/>
@@ -1436,7 +1563,7 @@
         <!--Scholars Tab Bar View Controller-->
         <scene sceneID="52Z-xz-vgA">
             <objects>
-                <tabBarController storyboardIdentifier="ScholarsTabBarViewController" automaticallyAdjustsScrollViewInsets="NO" id="wIZ-DC-Vqm" customClass="ScholarsTabBarViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="ScholarsTabBarViewController" automaticallyAdjustsScrollViewInsets="NO" id="wIZ-DC-Vqm" customClass="ScholarsTabBarViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="89r-IU-lIg">
                         <autoresizingMask key="autoresizingMask"/>
@@ -1597,7 +1724,7 @@
         <!--Edit Profile-->
         <scene sceneID="vmC-KX-Qxw">
             <objects>
-                <tableViewController id="l2Q-QU-Rdg" customClass="EditProfileTableViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="l2Q-QU-Rdg" customClass="EditProfileTableViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="OAL-Ua-DIL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1606,10 +1733,10 @@
                             <tableViewSection headerTitle="General" id="AFz-F7-je5">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="132" id="K6d-a6-SoG">
-                                        <rect key="frame" x="0.0" y="114" width="600" height="132"/>
+                                        <rect key="frame" x="0.0" y="113.5" width="600" height="132"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K6d-a6-SoG" id="7r2-0s-gFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="131"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="131.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXs-aH-3Lh">
@@ -1626,7 +1753,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Q7y-iO-mM2">
                                                     <rect key="frame" x="93" y="8" width="499" height="30"/>
                                                     <subviews>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kOz-CM-8bA" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kOz-CM-8bA" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="246" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
@@ -1642,7 +1769,7 @@
                                                                 <outlet property="delegate" destination="l2Q-QU-Rdg" id="Ibh-UC-Rta"/>
                                                             </connections>
                                                         </textField>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QYr-Xy-O8n" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QYr-Xy-O8n" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                             <rect key="frame" x="254" y="0.0" width="245" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
@@ -1663,7 +1790,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="GeD-ZV-uiB"/>
                                                     </constraints>
                                                 </stackView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j0p-Mx-k4f" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j0p-Mx-k4f" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="93" y="51" width="499" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Wv5-Wy-XZm"/>
@@ -1682,7 +1809,7 @@
                                                         <outlet property="delegate" destination="l2Q-QU-Rdg" id="MtP-zX-3nQ"/>
                                                     </connections>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AxZ-O1-Cim" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AxZ-O1-Cim" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="93" y="93" width="421" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="499" id="963-Sn-Wv7"/>
@@ -1748,13 +1875,13 @@
                             <tableViewSection headerTitle="Bio" footerTitle="Bio descriptions are limited to 250 characters (250 remaining)   " id="J5G-hm-A2w">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="88" id="jJL-5x-W1g">
-                                        <rect key="frame" x="0.0" y="297" width="600" height="88"/>
+                                        <rect key="frame" x="0.0" y="295.5" width="600" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jJL-5x-W1g" id="eK1-CC-2Y1">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="87.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tna-9A-i2z" customClass="FloatLabelTextView" customModule="WWDCScholars" customModuleProvider="target">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tna-9A-i2z" customClass="FloatLabelTextView" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="584" height="71"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1780,10 +1907,10 @@
                             <tableViewSection headerTitle="Contact" id="E4w-c6-AyI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="N41-tr-wLe">
-                                        <rect key="frame" x="0.0" y="452" width="600" height="54"/>
+                                        <rect key="frame" x="0.0" y="450" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N41-tr-wLe" id="F3e-Xq-Qho">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mailIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Lht-Ty-BK4">
@@ -1793,7 +1920,7 @@
                                                         <constraint firstAttribute="width" constant="27" id="DCw-Bt-9Ss"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGV-uM-AQw" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGV-uM-AQw" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Iu5-hO-D4a"/>
@@ -1825,10 +1952,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="dce-Qj-rCz">
-                                        <rect key="frame" x="0.0" y="506" width="600" height="54"/>
+                                        <rect key="frame" x="0.0" y="504" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dce-Qj-rCz" id="PhT-7G-fag">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitterIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="gzc-YG-IT1">
@@ -1838,7 +1965,7 @@
                                                         <constraint firstAttribute="width" constant="27" id="ZxH-1d-xkq"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Twitter" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zOG-mP-60y" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Twitter" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zOG-mP-60y" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="XaW-tf-SmT"/>
@@ -1870,10 +1997,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="t4R-WX-x7y">
-                                        <rect key="frame" x="0.0" y="560" width="600" height="54"/>
+                                        <rect key="frame" x="0.0" y="558" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t4R-WX-x7y" id="9jC-Rf-JyY">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebookIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Q4X-fS-Hcx">
@@ -1883,7 +2010,7 @@
                                                         <constraint firstAttribute="width" constant="27" id="FCL-id-NZe"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Facebook" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Skb-5n-HOR" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Facebook" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Skb-5n-HOR" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="b7A-nL-a7Z"/>
@@ -1915,10 +2042,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="IPp-0X-YEC">
-                                        <rect key="frame" x="0.0" y="614" width="600" height="54"/>
+                                        <rect key="frame" x="0.0" y="612" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IPp-0X-YEC" id="ppj-so-lHP">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="amH-xl-uId">
@@ -1928,7 +2055,7 @@
                                                         <constraint firstAttribute="height" constant="27" id="n9A-5H-Q8g"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="GitHub" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RkB-e5-9T3" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="GitHub" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RkB-e5-9T3" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="nhB-Cm-K3S"/>
@@ -1960,10 +2087,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="Wbn-Nn-b2k">
-                                        <rect key="frame" x="0.0" y="668" width="600" height="54"/>
+                                        <rect key="frame" x="0.0" y="666" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wbn-Nn-b2k" id="rmx-R3-fbG">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedinIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="020-Bc-yNE">
@@ -1973,7 +2100,7 @@
                                                         <constraint firstAttribute="width" constant="27" id="S7c-Ka-nGA"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="LinkedIn" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d8T-Sw-Ys8" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="LinkedIn" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d8T-Sw-Ys8" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="qpf-Hv-mLX"/>
@@ -2005,10 +2132,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="cpJ-mP-H57">
-                                        <rect key="frame" x="0.0" y="722" width="600" height="54"/>
+                                        <rect key="frame" x="0.0" y="720" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cpJ-mP-H57" id="Dju-A0-bKz">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="websiteIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="R4C-89-mZM">
@@ -2018,7 +2145,7 @@
                                                         <constraint firstAttribute="width" constant="27" id="ngM-30-YjC"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eHn-TZ-3WT" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eHn-TZ-3WT" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="ppe-kq-jvJ"/>
@@ -2050,10 +2177,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="lFV-Jd-YH0">
-                                        <rect key="frame" x="0.0" y="776" width="600" height="54"/>
+                                        <rect key="frame" x="0.0" y="774" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lFV-Jd-YH0" id="UWu-ar-jnj">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appstoreIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Ndy-Nw-Vu1">
@@ -2063,7 +2190,7 @@
                                                         <constraint firstAttribute="height" constant="27" id="slk-kT-4eM"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="App Store" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qzI-or-qUj" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="App Store" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qzI-or-qUj" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="CFF-xD-oXc"/>
@@ -2099,10 +2226,10 @@
                             <tableViewSection headerTitle="Scholarship App" id="z1K-2i-3Wh">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="NM2-dT-iRA">
-                                        <rect key="frame" x="0.0" y="881" width="600" height="54"/>
+                                        <rect key="frame" x="0.0" y="878" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NM2-dT-iRA" id="vjl-fw-FTF">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youTubeIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="kWA-9O-8w5">
@@ -2112,7 +2239,7 @@
                                                         <constraint firstAttribute="width" constant="27" id="hpf-wO-hbh"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YouTube video" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4yQ-Pl-BMT" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YouTube video" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4yQ-Pl-BMT" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="yp8-OF-Ju9"/>
@@ -2144,10 +2271,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="BuD-fW-ipR">
-                                        <rect key="frame" x="0.0" y="935" width="600" height="54"/>
+                                        <rect key="frame" x="0.0" y="932" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BuD-fW-ipR" id="xWp-ja-Eec">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHubIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="1Lw-bt-72M">
@@ -2157,7 +2284,7 @@
                                                         <constraint firstAttribute="height" constant="27" id="oXt-Tx-ifu"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="GitHub repo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tg2-Ai-yWH" customClass="FloatLabelTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="GitHub repo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tg2-Ai-yWH" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="o2X-Hx-2Sg"/>
@@ -2193,10 +2320,10 @@
                             <tableViewSection headerTitle="Screenshots" footerTitle="Please upload screenshots from devices with screen sizes 4&quot; and above" id="ocj-ap-jbG">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="232" id="tNp-8p-5aQ">
-                                        <rect key="frame" x="0.0" y="1040" width="600" height="232"/>
+                                        <rect key="frame" x="0.0" y="1036" width="600" height="232"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tNp-8p-5aQ" id="SNv-pJ-xVu">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="231"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="231.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y6c-ld-Tb5">
@@ -2209,7 +2336,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="screenshotUploadCollectionViewCell" id="o82-za-C0I" customClass="ScreenshotUploadCollectionViewCell" customModule="WWDCScholars" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="screenshotUploadCollectionViewCell" id="o82-za-C0I" customClass="ScreenshotUploadCollectionViewCell" customModule="Scholars" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="130" height="231"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -2335,7 +2462,7 @@
         <!--Select Location-->
         <scene sceneID="kbN-C3-h5I">
             <objects>
-                <viewController id="AZj-5T-eHk" customClass="LocationSelectViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AZj-5T-eHk" customClass="LocationSelectViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fa0-v4-QqR"/>
                         <viewControllerLayoutGuide type="bottom" id="l7S-iP-fU6"/>
@@ -2415,7 +2542,7 @@
         <!--Delegate-->
         <scene sceneID="jwR-bg-Zry">
             <objects>
-                <viewController storyboardIdentifier="SignInVC" id="R77-o8-Eiz" customClass="SignInViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInVC" id="R77-o8-Eiz" customClass="SignInViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oHi-6l-oFL"/>
                         <viewControllerLayoutGuide type="bottom" id="EtP-hU-aYL"/>
@@ -2436,7 +2563,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCh-uy-vnI" userLabel="Content View">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iXo-Y6-Fga" customClass="DesignableView" customModule="WWDCScholars" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iXo-Y6-Fga" customClass="DesignableView" customModule="Scholars" customModuleProvider="target">
                                                             <rect key="frame" x="160" y="160" width="280" height="280"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wwdcScholarsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ot6-3I-pvY">
@@ -2448,7 +2575,7 @@
                                                                     <color key="textColor" red="0.42352941179999998" green="0.30980392159999998" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Password" minimumFontSize="17" background="input-outline-active" translatesAutoresizingMaskIntoConstraints="NO" id="faf-TQ-mCU" customClass="DesignableTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Password" minimumFontSize="17" background="input-outline-active" translatesAutoresizingMaskIntoConstraints="NO" id="faf-TQ-mCU" customClass="DesignableTextField" customModule="Scholars" customModuleProvider="target">
                                                                     <rect key="frame" x="15" y="167" width="250" height="30"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
@@ -2461,7 +2588,7 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </textField>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtG-ol-PsD" customClass="DesignableButton" customModule="WWDCScholars" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtG-ol-PsD" customClass="DesignableButton" customModule="Scholars" customModuleProvider="target">
                                                                     <rect key="frame" x="15" y="221" width="250" height="44"/>
                                                                     <color key="backgroundColor" red="0.42352941179999998" green="0.30980392159999998" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -2478,7 +2605,7 @@
                                                                         <action selector="signinButtonPressed:" destination="R77-o8-Eiz" eventType="touchUpInside" id="MGj-VW-qXh"/>
                                                                     </connections>
                                                                 </button>
-                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" background="input-outline-active" translatesAutoresizingMaskIntoConstraints="NO" id="zIT-lP-UMd" customClass="DesignableTextField" customModule="WWDCScholars" customModuleProvider="target">
+                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" background="input-outline-active" translatesAutoresizingMaskIntoConstraints="NO" id="zIT-lP-UMd" customClass="DesignableTextField" customModule="Scholars" customModuleProvider="target">
                                                                     <rect key="frame" x="15" y="103" width="250" height="44"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -2508,7 +2635,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ry2-8I-eyH" customClass="DesignableButton" customModule="WWDCScholars" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ry2-8I-eyH" customClass="DesignableButton" customModule="Scholars" customModuleProvider="target">
                                                             <rect key="frame" x="200" y="552" width="200" height="35"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
@@ -2615,7 +2742,7 @@
                         <segue destination="I6J-gG-ua8" kind="unwind" unwindAction="unwindToViewController:" id="fDa-3j-yP0"/>
                     </connections>
                 </tapGestureRecognizer>
-                <customObject id="p78-ML-gRA" customClass="DragDropBehavior" customModule="WWDCScholars" customModuleProvider="target">
+                <customObject id="p78-ML-gRA" customClass="DragDropBehavior" customModule="Scholars" customModuleProvider="target">
                     <connections>
                         <outlet property="delegate" destination="R77-o8-Eiz" id="Oqn-JP-IxL"/>
                         <outlet property="referenceView" destination="bnu-eo-mT7" id="Snp-ST-zgL"/>

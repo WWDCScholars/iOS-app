@@ -32,6 +32,10 @@ extension UIColor {
     class func goldColor() -> UIColor {
         return UIColor(red: 255.0 / 255.0, green: 192.0 / 255.0, blue: 103.0 / 255.0, alpha: 1.0)
     }
+    
+    class func standardGreyColor() -> UIColor {
+        return UIColor(red: 238.0 / 255.0, green: 238.0 / 255.0, blue: 238.0 / 255.0, alpha: 1.0)
+    }
 }
 
 extension UIButton {

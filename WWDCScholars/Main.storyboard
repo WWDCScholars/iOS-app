@@ -38,7 +38,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYj-Zb-Qv2" userLabel="Main View">
                                 <rect key="frame" x="0.0" y="114" width="600" height="437"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gdy-v7-k9Z">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gdy-v7-k9Z" customClass="NoJumpRefreshCollectionView" customModule="Scholars" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="592" height="437"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="-8" maxY="0.0"/>
@@ -274,7 +274,7 @@
                         <outlet property="mainView" destination="jYj-Zb-Qv2" id="0gH-uU-oZs"/>
                         <outlet property="mapBarButtonItem" destination="yIw-0O-2lF" id="vXs-qp-ofR"/>
                         <outlet property="mapView" destination="gdM-SB-6xy" id="33T-NI-dA7"/>
-                        <outlet property="scholarsCollectionView" destination="gdy-v7-k9Z" id="NMK-IK-f4N"/>
+                        <outlet property="scholarsCollectionView" destination="gdy-v7-k9Z" id="C8s-DD-Ab7"/>
                         <outlet property="searchBar" destination="M21-50-eS2" id="5cc-3R-D22"/>
                         <outlet property="yearCollectionView" destination="B2q-nj-isb" id="pfX-JR-0Xz"/>
                         <segue destination="Xz8-ge-7L5" kind="show" identifier="ScholarDetailViewController" id="If2-0g-pPV"/>
@@ -825,17 +825,17 @@
                         <viewControllerLayoutGuide type="bottom" id="cbB-es-u3v"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8eh-7i-OGq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6x-GT-Ut9">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGa-5Q-HIY">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example1" translatesAutoresizingMaskIntoConstraints="NO" id="cEB-YV-chw">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="211"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="cEB-YV-chw" secondAttribute="height" multiplier="375:211" id="S9P-Tr-9XU"/>
                                                     <constraint firstAttribute="height" constant="211" id="vFW-Iq-lHd"/>
@@ -847,13 +847,13 @@
                                                 </variation>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditsHeaderGradient" translatesAutoresizingMaskIntoConstraints="NO" id="gK6-Pp-k3W">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="211"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="211" id="KFz-LA-vsz"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This label currently represents a pretty long title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjh-LF-CFh">
-                                                <rect key="frame" x="14" y="118" width="353" height="80"/>
+                                                <rect key="frame" x="14" y="118" width="578" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="BZK-SH-ulw"/>
                                                 </constraints>
@@ -861,7 +861,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QMJ-t5-LiR">
-                                                <rect key="frame" x="8" y="240" width="359" height="427"/>
+                                                <rect key="frame" x="8" y="240" width="584" height="360"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -929,7 +929,6 @@
                             <constraint firstItem="iGa-5Q-HIY" firstAttribute="height" secondItem="8eh-7i-OGq" secondAttribute="height" id="z7O-9o-4p5"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="authorButton" destination="gpq-uf-hKr" id="Pyv-e0-HrX"/>
                         <outlet property="headerImageView" destination="cEB-YV-chw" id="w0y-Wl-rxB"/>
@@ -940,7 +939,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlS-HI-K7W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2806.5" y="75.5"/>
+            <point key="canvasLocation" x="2806" y="76"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oN5-kV-qoP">

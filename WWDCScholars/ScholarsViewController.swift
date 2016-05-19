@@ -20,7 +20,7 @@ enum CurrentViewType {
 class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate {
     @IBOutlet private weak var yearCollectionView: UICollectionView!
     @IBOutlet private weak var loadingView: ActivityIndicatorView!
-    @IBOutlet private weak var scholarsCollectionView: UICollectionView!
+    @IBOutlet private weak var scholarsCollectionView: NoJumpRefreshCollectionView!
     @IBOutlet private weak var extendedNavigationContainer: UIView!
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var searchBar: UISearchBar!
@@ -44,26 +44,16 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     private var currentViewType: CurrentViewType = .List
     private var searchText = ""
     private var selectedYearRow: NSIndexPath?
+    private var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.configureUI()
-        self.styleUI()
-        
         self.currentYear = years[self.years.count - 2]
         
-        ScholarsKit.sharedInstance.loadScholars({
-            if self.loadingView.isAnimating() {
-                self.loadingView.stopAnimating()
-            }
-            
-            for (index, scholar) in DatabaseManager.sharedInstance.getAllScholars().enumerate() {
-                SpotlightManager.sharedInstance.indexScholar(scholar, atIndex: index)
-            }
-            
-            self.getCurrentScholars()
-        })
+        self.configureUI()
+        self.styleUI()
+        self.loadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -85,6 +75,8 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         let index = self.years.indexOf(self.currentYear)!
         self.selectedYearRow = NSIndexPath(forItem: index, inSection: 0)
         self.scrollCollectionViewToIndexPath(index, animated: false)
+        
+        self.refreshControl.superview?.sendSubviewToBack(self.refreshControl)
     }
     
     // MARK: - UI
@@ -104,6 +96,11 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.noContentLabel.textColor = UIColor.mediumTextColor()
         self.noContentLabel.numberOfLines = 0
         self.noContentLabel.textAlignment = .Center
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.bounds = CGRect(x: self.refreshControl.bounds.origin.x, y: -40.0, width: self.refreshControl.bounds.size.width, height: self.refreshControl.bounds.size.height)
+        self.refreshControl.addTarget(self, action: #selector(ScholarsViewController.loadData), forControlEvents: .ValueChanged)
+        self.scholarsCollectionView.addSubview(self.refreshControl)
     }
     
     private func styleUI() {
@@ -212,6 +209,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         }
         
         self.addScholarToQTree()
+        self.refreshControl.endRefreshing()
     }
     
     private func getFavorites() -> [Scholar] {
@@ -252,6 +250,20 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     }
     
     // MARK: - Internal functions
+    
+    internal func loadData() {
+        ScholarsKit.sharedInstance.loadScholars({
+            if self.loadingView.isAnimating() {
+                self.loadingView.stopAnimating()
+            }
+            
+            for (index, scholar) in DatabaseManager.sharedInstance.getAllScholars().enumerate() {
+                SpotlightManager.sharedInstance.indexScholar(scholar, atIndex: index)
+            }
+            
+            self.getCurrentScholars()
+        })
+    }
     
     internal func refreshScholarsWithNewFavorite() {
         self.getCurrentScholars()

@@ -25,8 +25,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var mapView: MKMapView!
-    @IBOutlet private weak var rightArrowImageView: UIImageView!
-    @IBOutlet private weak var leftArrowImageView: UIImageView!
     @IBOutlet private weak var loginBarButtonItem: UIBarButtonItem!
     @IBOutlet private weak var mapBarButtonItem: UIBarButtonItem!
     
@@ -45,6 +43,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     private var myLocation: CLLocationCoordinate2D?
     private var currentViewType: CurrentViewType = .List
     private var searchText = ""
+    private var selectedYearRow: NSIndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,8 +83,8 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         super.viewDidLayoutSubviews()
         
         let index = self.years.indexOf(self.currentYear)!
-        self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: .Left, animated: false)
-        self.updateArrowsForIndex(index)
+        self.selectedYearRow = NSIndexPath(forItem: index, inSection: 0)
+        self.scrollCollectionViewToIndexPath(index, animated: false)
     }
     
     // MARK: - UI
@@ -113,8 +112,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.searchBar.tintColor = UIColor.scholarsPurpleColor()
         self.extendedNavigationContainer.applyExtendedNavigationBarContainerStyle()
         self.applyExtendedNavigationBarStyle()
-        self.leftArrowImageView.tintColor = UIColor.transparentWhiteColor()
-        self.rightArrowImageView.tintColor = UIColor.transparentWhiteColor()
     }
     
     private func configureMap() {
@@ -241,9 +238,8 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.reloadAnnotations()
     }
 
-    private func scrollCollectionViewToIndexPath(index: Int) {
-        self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.Left, animated: false)
-        self.scrollViewDidEndDecelerating(self.yearCollectionView)
+    private func scrollCollectionViewToIndexPath(index: Int, animated: Bool) {
+        self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: .CenteredHorizontally, animated: animated)
     }
     
     private func showSignInModal() {
@@ -356,40 +352,6 @@ extension ScholarsViewController: UISearchBarDelegate {
     }
 }
 
-// MARK: - UIScrollViewDelegate
-
-extension ScholarsViewController: UIScrollViewDelegate {
-    internal func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        if scrollView == self.yearCollectionView {
-            //scholarsCollectionView page changed, update scholars list
-            
-            let currentIndex = Int(self.yearCollectionView.contentOffset.x / self.view.frame.size.width)
-            self.currentYear = self.years[currentIndex]
-            
-            self.getCurrentScholars()
-            self.updateArrowsForIndex(currentIndex)
-        }
-    }
-    
-    private func updateArrowsForIndex(currentIndex: Int) {
-        UIView.animateWithDuration(0.2, animations: {
-            self.leftArrowImageView.alpha = currentIndex == 0 ? 0.0 : 1.0
-            self.rightArrowImageView.alpha = currentIndex == self.years.count - 1 ? 0.0 : 1.0
-        })
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView == self.yearCollectionView {
-            UIView.animateWithDuration(0.2, animations: {
-                self.leftArrowImageView.alpha = 0.0
-                self.rightArrowImageView.alpha = 0.0
-            })
-        } else if scrollView == self.scholarsCollectionView {
-            self.searchBar.frame.origin.y = -scrollView.contentOffset.y - 44.0
-        }
-    }
-}
-
 // MARK: - UICollectionViewDataSource
 
 extension ScholarsViewController: UICollectionViewDataSource {
@@ -419,12 +381,23 @@ extension ScholarsViewController: UICollectionViewDataSource {
         } else if collectionView == self.yearCollectionView {
             let cell = self.yearCollectionView.dequeueReusableCellWithReuseIdentifier("yearCollectionViewCell", forIndexPath: indexPath) as! YearCollectionViewCell
             
+            cell.yearLabel.font = indexPath == self.selectedYearRow ? UIFont.boldSystemFontOfSize(15.5) : UIFont.systemFontOfSize(14.0)
             cell.yearLabel.text = self.years[indexPath.item].rawValue
             
             return cell
         }
         
         return UICollectionViewCell()
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension ScholarsViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView == self.scholarsCollectionView {
+            self.searchBar.frame.origin.y = -scrollView.contentOffset.y - 44.0
+        }
     }
 }
 
@@ -435,7 +408,7 @@ extension ScholarsViewController: UICollectionViewDelegate {
         if collectionView == self.scholarsCollectionView {
             return CGSize(width: (self.scholarsCollectionView.frame.size.width / 3.0) - 8.0, height: 140.0)
         } else if collectionView == self.yearCollectionView {
-            return CGSize(width: self.view.bounds.width, height: 50.0)
+            return CGSize(width: 75.0, height: 50.0)
         }
         
         return CGSize.zero
@@ -447,7 +420,23 @@ extension ScholarsViewController: UICollectionViewDelegate {
             
             self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: indexPath)
         } else if collectionView == self.yearCollectionView {
-            print(indexPath.row)
+            let cell = self.yearCollectionView.cellForItemAtIndexPath(indexPath) as! YearCollectionViewCell
+            
+            var indexPaths: [NSIndexPath] = []
+            if let previous = self.selectedYearRow {
+                indexPaths = [indexPath, previous]
+            } else {
+                indexPaths = [indexPath]
+            }
+            
+            self.selectedYearRow = indexPath
+            
+            if indexPaths.first != indexPaths.last {
+                self.yearCollectionView.reloadItemsAtIndexPaths(indexPaths)
+                self.scrollCollectionViewToIndexPath(indexPath.item, animated: true)
+                self.currentYear = WWDC(rawValue: cell.yearLabel.text!)!
+                self.getCurrentScholars()
+            }
         }
     }
 }

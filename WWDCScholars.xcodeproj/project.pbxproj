@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		220091691CE660830045BD09 /* ServerDetails.plist in Resources */ = {isa = PBXBuildFile; fileRef = 220091681CE660830045BD09 /* ServerDetails.plist */; };
 		22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */; };
 		22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */; };
 		2236F2971CC29EA500663957 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2236F2961CC29EA500663957 /* DesignableButton.swift */; };
@@ -36,6 +35,7 @@
 		22E2A6F51CC1DC2400DF0578 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6F41CC1DC2400DF0578 /* Misc.swift */; };
 		22E937B71CDCE4F300A2BEBE /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E937B61CDCE4F300A2BEBE /* SafariServices.framework */; };
 		22E937B91CDCE82500A2BEBE /* SignUpSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E937B81CDCE82500A2BEBE /* SignUpSafariViewController.swift */; };
+		6E08859C1CEE6AE900E375BB /* ServerDetails.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E08859B1CEE6AE900E375BB /* ServerDetails.plist */; };
 		6E1F069B1CC0332F00E464A0 /* ScholarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */; };
 		6E1F069D1CC045F400E464A0 /* YearCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */; };
 		6E1F6D5D1CC1B2F2002D17DB /* BioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */; };
@@ -170,7 +170,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		220091681CE660830045BD09 /* ServerDetails.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerDetails.plist; sourceTree = "<group>"; };
 		22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		2236F2961CC29EA500663957 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
@@ -204,6 +203,7 @@
 		22E2A6F41CC1DC2400DF0578 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		22E937B61CDCE4F300A2BEBE /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		22E937B81CDCE82500A2BEBE /* SignUpSafariViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpSafariViewController.swift; sourceTree = "<group>"; };
+		6E08859B1CEE6AE900E375BB /* ServerDetails.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerDetails.plist; sourceTree = "<group>"; };
 		6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioTableViewCell.swift; sourceTree = "<group>"; };
@@ -403,7 +403,7 @@
 				6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */,
 				223884221C8252D900A96752 /* ScholarsViewController.swift */,
 				6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */,
-				220091681CE660830045BD09 /* ServerDetails.plist */,
+				6E08859B1CEE6AE900E375BB /* ServerDetails.plist */,
 			);
 			name = Scholars;
 			sourceTree = "<group>";
@@ -800,7 +800,7 @@
 			files = (
 				7B4D519C1CC110A50072E114 /* Info-tvOS.plist in Resources */,
 				2238842B1C8252D900A96752 /* LaunchScreen.storyboard in Resources */,
-				220091691CE660830045BD09 /* ServerDetails.plist in Resources */,
+				6E08859C1CEE6AE900E375BB /* ServerDetails.plist in Resources */,
 				223F5E9B1CB9724000E582C5 /* tabBarDidSelectItem.m4a in Resources */,
 				6EB723D51CB9B84D005A076F /* Credits.plist in Resources */,
 				6EB723CF1CB9B83B005A076F /* Main.storyboard in Resources */,

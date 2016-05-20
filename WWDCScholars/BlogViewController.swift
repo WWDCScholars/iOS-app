@@ -17,6 +17,9 @@ class BlogViewController: UIViewController {
     let exampleImages = [UIImage(named: "example1"),
                          UIImage(named: "example2"),
                          UIImage(named: "example3")]
+    let exampleTitles = ["Planning Your Week at WWDC", "Things You Must Visit in San Francisco", "Tips for Preparing for WWDC 2016"]
+    let exampleAuthors = ["Andrew Walker", "Oliver Binns", "Sam Eckert"]
+    let exampleDates = ["23/02/2015", "10/04/2016", "08/12/2015"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,19 +73,24 @@ class BlogViewController: UIViewController {
 
 extension BlogViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.posts.count
+        return self.exampleImages.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("blogPostTableViewCell") as! BlogPostTableViewCell
         
-        let post = self.posts[indexPath.row]
+//        let post = self.posts[indexPath.row]
+//        
+//        if let imgUrl = NSURL(string: post.imageUrl) {
+//            cell.postImageView.af_setImageWithURL(imgUrl)
+//        }
+//        cell.postTitleLabel.text = post.title
+//        cell.postAuthorLabel.text = post.scholarName
         
-        if let imgUrl = NSURL(string: post.imageUrl) {
-            cell.postImageView.af_setImageWithURL(imgUrl)
-        }
-        cell.postTitleLabel.text = post.title
-        cell.postAuthorLabel.text = post.scholarName
+        cell.postImageView.image = self.exampleImages[indexPath.item]
+        cell.postDateLabel.text = self.exampleDates[indexPath.item]
+        cell.postTitleLabel.text = self.exampleTitles[indexPath.item]
+        cell.postAuthorLabel.text = self.exampleAuthors[indexPath.item]
         
         return cell
     }

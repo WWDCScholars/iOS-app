@@ -13,6 +13,8 @@ class BlogPostTableViewCell: UITableViewCell {
     @IBOutlet weak var postAuthorLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postDetailsContainerView: UIView!
+    @IBOutlet weak var postDateLabel: UILabel!
+    @IBOutlet weak var detailsStackView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +33,7 @@ class BlogPostTableViewCell: UITableViewCell {
         
         self.postDetailsContainerView.addSubview(blurEffectView)
         self.postDetailsContainerView.bringSubviewToFront(self.postTitleLabel)
-        self.postDetailsContainerView.bringSubviewToFront(self.postAuthorLabel)
+        self.postDetailsContainerView.bringSubviewToFront(self.detailsStackView)
     }
     
     // MARK: - Public Functions
@@ -39,7 +41,7 @@ class BlogPostTableViewCell: UITableViewCell {
     func cellOnTableView(tableView: UITableView, view: UIView) {
         let rectInSuperview = tableView.convertRect(self.frame, toView: view)
         let distanceFromCenter = CGRectGetHeight(view.frame) / 2 - CGRectGetMinY(rectInSuperview)
-        let difference = (CGRectGetHeight(self.postImageView.frame) - CGRectGetHeight(self.frame)) - 40.0
+        let difference = (CGRectGetHeight(self.postImageView.frame) - CGRectGetHeight(self.frame))
         let move = (distanceFromCenter / CGRectGetHeight(view.frame)) * difference
         
         var imageRect = self.postImageView.frame

@@ -1205,7 +1205,6 @@
                                             <outlet property="postDetailsContainerView" destination="u5N-zp-vXQ" id="mEi-fy-lKo"/>
                                             <outlet property="postImageView" destination="nXC-9f-owr" id="GBb-B7-0by"/>
                                             <outlet property="postTitleLabel" destination="4Tq-Jy-Mp6" id="T0x-L8-VtP"/>
-                                            <segue destination="J2d-vr-eiO" kind="show" id="pzi-Tp-cwG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1233,6 +1232,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="rlT-8m-Dnl" id="Fg6-Uv-VQv"/>
+                        <segue destination="J2d-vr-eiO" kind="show" identifier="BlogPostDetailViewController" id="Hzs-Ef-xu9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHL-1y-cIm" userLabel="First Responder" sceneMemberID="firstResponder"/>

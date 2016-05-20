@@ -18,8 +18,23 @@ class BlogPostDetailViewController: UIViewController {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var webView: UIWebView!
     
+    var currentPost: BlogPost!
+    
     override func viewDidLoad() {
         self.styleUI()
+        self.configureUI()
+    }
+    
+    private func configureUI() {
+        self.titleLabel.text = self.currentPost.title
+        self.authorLabel.text = self.currentPost.scholarName
+        
+        var tagsString = ""
+        for (index, tag) in self.currentPost!.tags.enumerate() {
+            tagsString.appendContentsOf(index != self.currentPost!.tags.count - 1 ? "\(tag), " : tag)
+        }
+        self.tagsLabel.text = tagsString
+        self.dateLabel.text = String(self.currentPost.createdAt)
     }
     
     private func styleUI() {

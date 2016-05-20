@@ -107,8 +107,8 @@ class ScholarDetailViewController: UIViewController {
         
         let camera = MKMapCamera()
         camera.altitude = 7500
-        camera.centerCoordinate.latitude = currentScholar!.location.latitude - 0.013
-        camera.centerCoordinate.longitude = currentScholar!.location.longitude
+        camera.centerCoordinate.latitude = self.currentScholar!.location.latitude - 0.013
+        camera.centerCoordinate.longitude = self.currentScholar!.location.longitude
         
         self.mapView.setCamera(camera, animated: false)
     }
@@ -171,12 +171,12 @@ extension ScholarDetailViewController: UITableViewDataSource {
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("basicDetailsTableViewCell") as! BasicDetailsTableViewCell
             
             var attendedString = ""
-            for (index, batch) in currentScholar!.batchWWDC.enumerate() {
-                attendedString.appendContentsOf(index != currentScholar!.batchWWDC.count - 1 ? "\(batch.shortVersion), " : batch.shortVersion)
+            for (index, batch) in self.currentScholar!.batchWWDC.enumerate() {
+                attendedString.appendContentsOf(index != self.currentScholar!.batchWWDC.count - 1 ? "\(batch.shortVersion), " : batch.shortVersion)
             }
             
-            cell.ageLabel.text = String(currentScholar!.age)
-            let locationArr = currentScholar!.location.name.characters.split(",").map(String.init)
+            cell.ageLabel.text = String(self.currentScholar!.age)
+            let locationArr = self.currentScholar!.location.name.characters.split(",").map(String.init)
             cell.countryLabel.text = locationArr[locationArr.count-1]
             cell.attendedLabel.text = attendedString
             
@@ -184,7 +184,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
         case 1:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("bioTableViewCell") as! BioTableViewCell
             
-            cell.contentLabel.text = currentScholar?.shortBio
+            cell.contentLabel.text = self.currentScholar?.shortBio
             
             return cell
         case 2:

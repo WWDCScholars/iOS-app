@@ -12,7 +12,7 @@ import SafariServices
 class BlogViewController: UIViewController {
     @IBOutlet private weak var tableView: NoJumpRefreshTableView!
     
-    private var posts: [BlogPost]!
+    private var posts: [BlogPost] = []
     private var refreshControl: UIRefreshControl!
     private let exampleImages = [UIImage(named: "example1"), UIImage(named: "example2"), UIImage(named: "example3")]
     private let exampleTitles = ["Planning Your Week at WWDC", "Things You Must Visit in San Francisco", "Tips for Preparing for WWDC 2016"]
@@ -25,17 +25,10 @@ class BlogViewController: UIViewController {
         self.styleUI()
         self.addRefreshControl()
         
-        posts = DatabaseManager.sharedInstance.getAllBlogPosts()
-        
         BlogKit.sharedInstance.loadPosts() {
             self.posts = DatabaseManager.sharedInstance.getAllBlogPosts()
-            print ("HI! \(self.posts)")
-
-            self.tableView.reloadData()
-//            if self.loadingView.isAnimating() {
-//                self.loadingView.stopAnimating()
-//            }
             
+            self.tableView.reloadData()
         }
     }
     
@@ -73,55 +66,44 @@ class BlogViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func addPostAction(sender: AnyObject) {
-            print("Pressed Sign Up")
+        let url = NSURL(string: "http://wwdcscholarsform.herokuapp.com/addpost")
+        let viewController = BlogPostSafariViewController(URL: url!)
             
-            let url = NSURL(string: "http://wwdcscholarsform.herokuapp.com/addpost")
-            
-            let signUpVC = BlogPostSafariViewController(URL: url!)
-            
-            self.presentViewController(signUpVC, animated: true, completion: nil)
-            //  UIApplication.sharedApplication().statusBarStyle = .Default
-            
-
+        self.presentViewController(viewController, animated: true, completion: nil)
     }
 }
 
 extension BlogViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.exampleImages.count
+        return self.posts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("blogPostTableViewCell") as! BlogPostTableViewCell
+        let post = self.posts[indexPath.row]
         
-//        let post = self.posts[indexPath.row]
-//        
-//        if let imgUrl = NSURL(string: post.imageUrl) {
-//            cell.postImageView.af_setImageWithURL(imgUrl)
-//        }
-//        cell.postTitleLabel.text = post.title
-//        cell.postAuthorLabel.text = post.scholarName
+        let authorString = "written by \(post.scholarName)" as NSString
+        let attributedAuthorString = NSMutableAttributedString(string: authorString as String)
         
-        let welcomeLabelString = "written by \(self.exampleAuthors[indexPath.item])" as NSString
-        let attributedString1 = NSMutableAttributedString(string: welcomeLabelString as String)
+        let firstAttribute = [NSForegroundColorAttributeName: UIColor.mediumWhiteTextColor()]
+        attributedAuthorString.addAttributes(firstAttribute, range: authorString.rangeOfString("written by"))
         
-        let firstAttribute1 = [NSForegroundColorAttributeName: UIColor.mediumWhiteTextColor()]
-        attributedString1.addAttributes(firstAttribute1, range: welcomeLabelString.rangeOfString("written by"))
+        let secondAttribute = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        attributedAuthorString.addAttributes(secondAttribute, range: authorString.rangeOfString("\(post.scholarName)"))
         
-        let secondAttribute1 = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        attributedString1.addAttributes(secondAttribute1, range: welcomeLabelString.rangeOfString("\(self.exampleAuthors[indexPath.item])"))
+        cell.postAuthorLabel.attributedText = attributedAuthorString
+        cell.postDateLabel.text = String(post.updatedAt)
+        cell.postTitleLabel.text = post.title
         
-        cell.postAuthorLabel.attributedText = attributedString1
-        
-        cell.postImageView.image = self.exampleImages[indexPath.item]
-        cell.postDateLabel.text = self.exampleDates[indexPath.item]
-        cell.postTitleLabel.text = self.exampleTitles[indexPath.item]
+        if let imgUrl = NSURL(string: post.imageUrl) {
+            cell.postImageView.af_setImageWithURL(imgUrl)
+        }
         
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return self.view.bounds.width/16*9
+        return self.view.bounds.width / 16.0 * 9.0
     }
 }
 

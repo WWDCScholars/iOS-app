@@ -35,9 +35,12 @@ class BlogPostDetailViewController: UIViewController {
         }
         self.tagsLabel.text = tagsString
         self.dateLabel.text = String(self.currentPost.createdAt)
+        self.webView.loadHTMLString(self.currentPost.content, baseURL: nil)
     }
     
     private func styleUI() {
+        self.title = "Blog Post"
+        
         self.authorProfileImageView.applyRoundedCorners()
         self.authorProfileImageViewBackground.applyRoundedCorners()
     }

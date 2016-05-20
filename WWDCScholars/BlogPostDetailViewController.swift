@@ -37,6 +37,8 @@ class BlogPostDetailViewController: UIViewController {
         self.tagsLabel.text = tagsString
         self.dateLabel.text = String(self.currentPost.createdAt)
         self.webView.loadHTMLString(self.currentPost.content, baseURL: nil)
+        
+        self.headerImageView.af_setImageWithURL(NSURL(string: self.currentPost.imageUrl)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
     }
     
     private func styleUI() {

@@ -861,7 +861,7 @@
         <!--Blog Post Detail View Controller-->
         <scene sceneID="c3j-UB-9hK">
             <objects>
-                <viewController id="J2d-vr-eiO" customClass="BlogPostDetailViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="blogPostDetailViewController" id="J2d-vr-eiO" customClass="BlogPostDetailViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bog-Fp-ott"/>
                         <viewControllerLayoutGuide type="bottom" id="Dg4-8J-QMA"/>

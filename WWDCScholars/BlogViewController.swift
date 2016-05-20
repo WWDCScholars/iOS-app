@@ -62,6 +62,7 @@ class BlogViewController: UIViewController {
         self.testPosts.append(testPost3)
         
         self.styleUI()
+        self.configureUI()
         self.addRefreshControl()
         
         BlogKit.sharedInstance.loadPosts() {
@@ -92,6 +93,12 @@ class BlogViewController: UIViewController {
     
     private func styleUI() {
         self.title = "Blog"
+    }
+    
+    private func configureUI() {
+        if self.traitCollection.forceTouchCapability == .Available {
+            self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+        }
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -171,5 +178,32 @@ extension BlogViewController: UIScrollViewDelegate {
         for cell in visibleCells {
             cell.cellOnTableView(self.tableView, view: self.view)
         }
+    }
+}
+
+// MARK: - UIViewControllerPreviewingDelegate
+
+extension BlogViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        let viewController = storyboard?.instantiateViewControllerWithIdentifier("blogPostDetailViewController") as? BlogPostDetailViewController
+        let cellPosition = self.tableView.convertPoint(location, fromView: self.view)
+        let cellIndex = self.tableView.indexPathForRowAtPoint(cellPosition)
+        
+        guard let previewViewController = viewController, indexPath = cellIndex, cell = self.tableView.cellForRowAtIndexPath(indexPath) else {
+            return nil
+        }
+        
+        let post = self.testPosts[indexPath.item]
+        previewViewController.currentPost = post
+        previewViewController.preferredContentSize = CGSize.zero
+        previewingContext.sourceRect = self.view.convertRect(cell.frame, fromView: self.tableView)
+        
+        return previewViewController
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        self.view.endEditing(true)
+        
+        self.showViewController(viewControllerToCommit, sender: self)
     }
 }

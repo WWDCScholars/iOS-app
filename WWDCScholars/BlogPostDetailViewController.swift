@@ -17,6 +17,7 @@ class BlogPostDetailViewController: UIViewController {
     @IBOutlet private weak var tagsLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var webView: UIWebView!
+    @IBOutlet private weak var scrollView: UIScrollView!
     
     var currentPost: BlogPost!
     
@@ -43,6 +44,22 @@ class BlogPostDetailViewController: UIViewController {
         
         self.authorProfileImageView.applyRoundedCorners()
         self.authorProfileImageViewBackground.applyRoundedCorners()
+    }
+}
+
+extension BlogPostDetailViewController: UIWebViewDelegate {
+    func webViewDidFinishLoad(webView: UIWebView) {
+        var frame = webView.frame
+        frame.size.height = 1.0
+        webView.frame = frame
+        
+        let fittingSize = webView.sizeThatFits(.zero)
+        frame.size = fittingSize
+        webView.frame = frame
+        
+        print(webView.frame.size.height)
+        
+        self.scrollView.contentSize.height = self.webView.frame.origin.y + self.webView.frame.height - 40.0
     }
 }
 

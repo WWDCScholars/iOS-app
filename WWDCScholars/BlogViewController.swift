@@ -51,7 +51,7 @@ class BlogViewController: UIViewController {
         testPost3.title = "The Labs and Sessions You Should Be Attending"
         testPost3.createdAt = NSDate()
         testPost3.updatedAt = NSDate()
-        testPost3.imageUrl = "https://fortunedotcom.files.wordpress.com/2015/06/wwdc-1-of-1-2.jpg?quality=80"
+        testPost3.imageUrl = "https://devimages.apple.com.edgekey.net/wwdc/images/wwdc16-schedule-sessions.jpg"
         testPost3.scholarLink = ""
         testPost3.tags = ["Events", "Tips"]
         testPost3.videoLink = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"

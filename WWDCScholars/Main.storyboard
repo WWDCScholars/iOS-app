@@ -1036,8 +1036,8 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z4f-hS-8Wm">
                                                                     <rect key="frame" x="8" y="37" width="584" height="21"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DsQ-XS-vJq">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="112" height="21"/>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DsQ-XS-vJq">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="99" height="21"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="iNP-hj-a32">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
@@ -1046,16 +1046,16 @@
                                                                                         <constraint firstAttribute="width" constant="21" id="s6z-Fa-cui"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uus-cu-6UI">
-                                                                                    <rect key="frame" x="29" y="0.0" width="83" height="21"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uus-cu-6UI">
+                                                                                    <rect key="frame" x="26" y="0.0" width="73" height="21"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                             </subviews>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="bottom" secondItem="iNP-hj-a32" secondAttribute="bottom" id="4Xn-SE-ZtA"/>
-                                                                                <constraint firstItem="uus-cu-6UI" firstAttribute="leading" secondItem="iNP-hj-a32" secondAttribute="trailing" constant="8" id="6gH-HA-jpu"/>
+                                                                                <constraint firstItem="uus-cu-6UI" firstAttribute="leading" secondItem="iNP-hj-a32" secondAttribute="trailing" constant="5" id="6gH-HA-jpu"/>
                                                                                 <constraint firstItem="uus-cu-6UI" firstAttribute="top" secondItem="DsQ-XS-vJq" secondAttribute="top" id="JZ6-kQ-8Gs"/>
                                                                                 <constraint firstItem="uus-cu-6UI" firstAttribute="leading" secondItem="iNP-hj-a32" secondAttribute="trailing" id="SjE-3w-QmE"/>
                                                                                 <constraint firstItem="iNP-hj-a32" firstAttribute="leading" secondItem="DsQ-XS-vJq" secondAttribute="leading" id="Sm5-HB-YAm"/>
@@ -1069,39 +1069,12 @@
                                                                                 </mask>
                                                                             </variation>
                                                                         </stackView>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="e1s-n7-KuQ">
-                                                                            <rect key="frame" x="485" y="0.0" width="99" height="21"/>
-                                                                            <subviews>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Vb5-Rf-g17">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="21" id="1gA-wd-EnS"/>
-                                                                                        <constraint firstAttribute="width" constant="21" id="VeT-jM-xE0"/>
-                                                                                    </constraints>
-                                                                                </imageView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKl-XE-vQJ">
-                                                                                    <rect key="frame" x="29" y="0.0" width="70" height="21"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                            <constraints>
-                                                                                <constraint firstItem="vKl-XE-vQJ" firstAttribute="leading" secondItem="Vb5-Rf-g17" secondAttribute="trailing" id="3jI-3K-qWp"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="Vb5-Rf-g17" secondAttribute="bottom" id="6jH-Eh-ugz"/>
-                                                                                <constraint firstItem="Vb5-Rf-g17" firstAttribute="leading" secondItem="e1s-n7-KuQ" secondAttribute="leading" id="NQ8-5z-ZD7"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="vKl-XE-vQJ" secondAttribute="bottom" id="PJb-Fd-PzH"/>
-                                                                                <constraint firstItem="vKl-XE-vQJ" firstAttribute="leading" secondItem="Vb5-Rf-g17" secondAttribute="trailing" constant="8" id="Qw3-99-yth"/>
-                                                                                <constraint firstItem="Vb5-Rf-g17" firstAttribute="top" secondItem="e1s-n7-KuQ" secondAttribute="top" id="VGv-F6-iPA"/>
-                                                                                <constraint firstItem="vKl-XE-vQJ" firstAttribute="top" secondItem="e1s-n7-KuQ" secondAttribute="top" id="W6c-wJ-Q5Z"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="vKl-XE-vQJ" secondAttribute="trailing" id="eXE-eI-CA7"/>
-                                                                            </constraints>
-                                                                            <variation key="default">
-                                                                                <mask key="constraints">
-                                                                                    <exclude reference="3jI-3K-qWp"/>
-                                                                                </mask>
-                                                                            </variation>
-                                                                        </stackView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKl-XE-vQJ">
+                                                                            <rect key="frame" x="523" y="0.0" width="61" height="21"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
@@ -2811,10 +2784,9 @@
         <image name="tabBarIconCreditsFilled" width="25" height="25"/>
         <image name="tabBarIconScholars" width="25" height="25"/>
         <image name="tabBarIconScholarsFilled" width="25" height="25"/>
-        <image name="timeIcon" width="33" height="33"/>
         <image name="transparentPixel" width="1" height="1"/>
         <image name="twitterIconSmall" width="27" height="27"/>
-        <image name="userIcon" width="22" height="22"/>
+        <image name="userIcon" width="29" height="29"/>
         <image name="watchOS" width="59" height="58"/>
         <image name="websiteIconSmall" width="27" height="27"/>
         <image name="wwdcScholarsIcon" width="83" height="83"/>

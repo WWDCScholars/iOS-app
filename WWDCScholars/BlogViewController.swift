@@ -19,7 +19,7 @@ class BlogViewController: UIViewController {
                          UIImage(named: "example3")]
     let exampleTitles = ["Planning Your Week at WWDC", "Things You Must Visit in San Francisco", "Tips for Preparing for WWDC 2016"]
     let exampleAuthors = ["Andrew Walker", "Oliver Binns", "Sam Eckert"]
-    let exampleDates = ["23/02/2015", "10/04/2016", "08/12/2015"]
+    let exampleDates = ["2d ago", "3d ago", "5d ago"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,10 +87,20 @@ extension BlogViewController: UITableViewDataSource {
 //        cell.postTitleLabel.text = post.title
 //        cell.postAuthorLabel.text = post.scholarName
         
+        let welcomeLabelString = "written by \(self.exampleAuthors[indexPath.item])" as NSString
+        let attributedString1 = NSMutableAttributedString(string: welcomeLabelString as String)
+        
+        let firstAttribute1 = [NSForegroundColorAttributeName: UIColor.mediumWhiteTextColor()]
+        attributedString1.addAttributes(firstAttribute1, range: welcomeLabelString.rangeOfString("written by"))
+        
+        let secondAttribute1 = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        attributedString1.addAttributes(secondAttribute1, range: welcomeLabelString.rangeOfString("\(self.exampleAuthors[indexPath.item])"))
+        
+        cell.postAuthorLabel.attributedText = attributedString1
+        
         cell.postImageView.image = self.exampleImages[indexPath.item]
         cell.postDateLabel.text = self.exampleDates[indexPath.item]
         cell.postTitleLabel.text = self.exampleTitles[indexPath.item]
-        cell.postAuthorLabel.text = self.exampleAuthors[indexPath.item]
         
         return cell
     }

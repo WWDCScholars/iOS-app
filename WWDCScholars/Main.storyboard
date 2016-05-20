@@ -858,10 +858,10 @@
             </objects>
             <point key="canvasLocation" x="2806" y="-630"/>
         </scene>
-        <!--View Controller-->
+        <!--Blog Post Detail View Controller-->
         <scene sceneID="c3j-UB-9hK">
             <objects>
-                <viewController id="J2d-vr-eiO" sceneMemberID="viewController">
+                <viewController id="J2d-vr-eiO" customClass="BlogPostDetailViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bog-Fp-ott"/>
                         <viewControllerLayoutGuide type="bottom" id="Dg4-8J-QMA"/>
@@ -997,6 +997,9 @@
                                     <constraint firstItem="Zgs-Xv-ttD" firstAttribute="leading" secondItem="NdQ-cc-I2w" secondAttribute="leading" id="ccb-H0-pdP"/>
                                     <constraint firstItem="Zgs-Xv-ttD" firstAttribute="top" secondItem="NdQ-cc-I2w" secondAttribute="top" id="fJX-3g-tka"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="J2d-vr-eiO" id="7bf-pC-HnO"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
@@ -1009,6 +1012,16 @@
                             <constraint firstItem="Zgs-Xv-ttD" firstAttribute="height" secondItem="5wN-hZ-pd4" secondAttribute="height" priority="250" id="vOu-rr-FAg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="authorLabel" destination="68k-2l-S0F" id="TN9-hj-S1W"/>
+                        <outlet property="authorProfileImageView" destination="5Uf-w7-grn" id="Uf2-Rr-6mn"/>
+                        <outlet property="authorProfileImageViewBackground" destination="hgy-KK-wp2" id="t65-1T-tQg"/>
+                        <outlet property="dateLabel" destination="buk-nf-6WL" id="9gr-vz-71f"/>
+                        <outlet property="headerImageView" destination="2oC-KN-56K" id="Av1-zp-qhZ"/>
+                        <outlet property="tagsLabel" destination="Q58-gp-KgZ" id="I4T-vE-JyA"/>
+                        <outlet property="titleLabel" destination="3zT-3l-QCi" id="uYD-g5-r25"/>
+                        <outlet property="webView" destination="sJ5-fu-VQm" id="3Kg-I8-gAD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bK-Ei-yWi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

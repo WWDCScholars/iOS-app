@@ -9,49 +9,30 @@
 import UIKit
 
 class BlogPostDetailViewController: UIViewController {
-
-    @IBOutlet var headerImageView: UIImageView!
-    @IBOutlet var postTitleLabel: UILabel!
-    @IBOutlet var postTextView: UITextView!
-    @IBOutlet var publishedDateLabel: UILabel!
-    @IBOutlet var authorButton: UIButton!
+    @IBOutlet private weak var headerImageView: UIImageView!
+    @IBOutlet private weak var authorProfileImageView: UIImageView!
+    @IBOutlet private weak var authorProfileImageViewBackground: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var authorLabel: UILabel!
+    @IBOutlet private weak var tagsLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var webView: UIWebView!
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-        authorButton.sizeToFit()
-        postTitleLabel.adjustsFontSizeToFitWidth = true
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.styleUI()
     }
     
-    @IBAction func authorButtonPressed(sender: AnyObject) {
+    private func styleUI() {
+        self.authorProfileImageView.applyRoundedCorners()
+        self.authorProfileImageViewBackground.applyRoundedCorners()
     }
-
-    // MARK: - UIScrollViewDelegate
-  
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension BlogPostDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         print("scrollViewDidScroll")
         
-        let imageViewHeight: CGFloat = 211.0
+        let imageViewHeight: CGFloat = 156.0
         var imageViewFrame = CGRect(x: 0, y: 0, width: scrollView.bounds.width, height: imageViewHeight)
         
         if scrollView.contentOffset.y < imageViewHeight {

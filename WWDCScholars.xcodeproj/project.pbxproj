@@ -58,6 +58,7 @@
 		6EB723D71CB9B84D005A076F /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB723D31CB9B84D005A076F /* CreditTableViewCell.swift */; };
 		6EB723D91CB9B85B005A076F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB723D81CB9B85B005A076F /* Assets.xcassets */; };
 		6EBCAD191CDACE170056D1CF /* BlogPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBCAD181CDACE170056D1CF /* BlogPostTableViewCell.swift */; };
+		6ECBC33C1CEF5642006AA8F0 /* NoJumpRefreshTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBC33B1CEF5642006AA8F0 /* NoJumpRefreshTableView.swift */; };
 		6ED9264B1CBEF2FC0082FCFE /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9264A1CBEF2FC0082FCFE /* UIImage+Color.swift */; };
 		6ED926521CBF0BEE0082FCFE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED926511CBF0BEE0082FCFE /* MapKit.framework */; };
 		6EEA891F1CDBE15B00245445 /* NSString+Morphing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA891C1CDBE15B00245445 /* NSString+Morphing.m */; };
@@ -227,6 +228,7 @@
 		6EB723D31CB9B84D005A076F /* CreditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
 		6EB723D81CB9B85B005A076F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6EBCAD181CDACE170056D1CF /* BlogPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostTableViewCell.swift; sourceTree = "<group>"; };
+		6ECBC33B1CEF5642006AA8F0 /* NoJumpRefreshTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoJumpRefreshTableView.swift; sourceTree = "<group>"; };
 		6ED9264A1CBEF2FC0082FCFE /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		6ED926511CBF0BEE0082FCFE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6EEA891B1CDBE15B00245445 /* NSString+Morphing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Morphing.h"; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 			children = (
 				223F5E921CB9436200E582C5 /* Style.swift */,
 				6E08859D1CEE80B000E375BB /* NoJumpRefreshCollectionView.swift */,
+				6ECBC33B1CEF5642006AA8F0 /* NoJumpRefreshTableView.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -866,6 +869,7 @@
 				7BBA87711CBD4AE80057E9AD /* Scholar.swift in Sources */,
 				7BBA88161CBD8AC90057E9AD /* NetworkReachabilityManager.swift in Sources */,
 				224355D11CC1D61B001FFAD0 /* SpringTextField.swift in Sources */,
+				6ECBC33C1CEF5642006AA8F0 /* NoJumpRefreshTableView.swift in Sources */,
 				7BBA88491CBEA0E80057E9AD /* String+Timepiece.swift in Sources */,
 				223884231C8252D900A96752 /* ScholarsViewController.swift in Sources */,
 				7BBA881B1CBD8AC90057E9AD /* ResponseSerialization.swift in Sources */,

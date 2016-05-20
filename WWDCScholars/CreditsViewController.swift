@@ -70,9 +70,7 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
     // MARK: - UI
     
     private func styleUI() {
-        self.title = "Credits"
-        
-        self.ourTeamLabel.textColor = UIColor.scholarsPurpleColor()
+        self.title = "Credits"        
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -122,7 +120,7 @@ extension CreditsViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 67.0
+        return 75.0
     }
 }
 

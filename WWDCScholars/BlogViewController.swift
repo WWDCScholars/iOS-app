@@ -10,24 +10,22 @@ import UIKit
 import SafariServices
 
 class BlogViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: NoJumpRefreshTableView!
     
-    var posts: [BlogPost]!
-    
-    let exampleImages = [UIImage(named: "example1"),
-                         UIImage(named: "example2"),
-                         UIImage(named: "example3")]
-    let exampleTitles = ["Planning Your Week at WWDC", "Things You Must Visit in San Francisco", "Tips for Preparing for WWDC 2016"]
-    let exampleAuthors = ["Andrew Walker", "Oliver Binns", "Sam Eckert"]
-    let exampleDates = ["2d ago", "3d ago", "5d ago"]
+    private var posts: [BlogPost]!
+    private var refreshControl: UIRefreshControl!
+    private let exampleImages = [UIImage(named: "example1"), UIImage(named: "example2"), UIImage(named: "example3")]
+    private let exampleTitles = ["Planning Your Week at WWDC", "Things You Must Visit in San Francisco", "Tips for Preparing for WWDC 2016"]
+    private let exampleAuthors = ["Andrew Walker", "Oliver Binns", "Sam Eckert"]
+    private let exampleDates = ["2d ago", "3d ago", "5d ago"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.styleUI()
+        self.addRefreshControl()
         
         posts = DatabaseManager.sharedInstance.getAllBlogPosts()
-
         
         BlogKit.sharedInstance.loadPosts() {
             self.posts = DatabaseManager.sharedInstance.getAllBlogPosts()
@@ -39,20 +37,40 @@ class BlogViewController: UIViewController {
 //            }
             
         }
-
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         self.scrollViewDidScroll(self.tableView)
+        self.refreshControl.superview?.sendSubviewToBack(self.refreshControl)
     }
     
     // MARK: - UI
     
-    func styleUI() {
+    private func styleUI() {
         self.title = "Blog"
     }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
+    // MARK: - Private functions
+    
+    private func addRefreshControl() {
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.addTarget(self, action: #selector(BlogViewController.loadData), forControlEvents: .ValueChanged)
+        self.tableView.addSubview(self.refreshControl)
+    }
+    
+    // MARK: - Internal functions
+    
+    internal func loadData() {
+        self.refreshControl.endRefreshing()
+    }
+    
+    // MARK: - IBActions
     
     @IBAction func addPostAction(sender: AnyObject) {
             print("Pressed Sign Up")
@@ -65,9 +83,6 @@ class BlogViewController: UIViewController {
             //  UIApplication.sharedApplication().statusBarStyle = .Default
             
 
-    }
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
     }
 }
 

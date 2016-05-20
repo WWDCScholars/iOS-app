@@ -9,13 +9,13 @@
 import UIKit
 
 class BlogPostTableViewCell: UITableViewCell {
-    @IBOutlet weak var postTitleLabel: UILabel!
-    @IBOutlet weak var postAuthorLabel: UILabel!
+    @IBOutlet weak var postTitleLabel: UILabel! 
+    @IBOutlet weak var postAuthorLabel: UILabel! 
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postDetailsContainerView: UIView!
     @IBOutlet weak var postDateLabel: UILabel!
     @IBOutlet weak var detailsStackView: UIStackView!
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -34,6 +34,8 @@ class BlogPostTableViewCell: UITableViewCell {
         self.postDetailsContainerView.addSubview(blurEffectView)
         self.postDetailsContainerView.bringSubviewToFront(self.postTitleLabel)
         self.postDetailsContainerView.bringSubviewToFront(self.detailsStackView)
+        
+        self.postDateLabel.textColor = UIColor.mediumWhiteTextColor()
     }
     
     // MARK: - Public Functions

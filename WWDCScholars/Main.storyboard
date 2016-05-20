@@ -1266,7 +1266,7 @@
                                                                 </mask>
                                                             </variation>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet the team who developed this year's app!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRN-ft-s7z">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet the WWDCScholars team!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRN-ft-s7z">
                                                             <rect key="frame" x="8" y="46" width="568" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="pfa-CE-IxJ"/>
@@ -1427,7 +1427,7 @@
                                 <constraints>
                                     <constraint firstItem="lJF-k8-fBG" firstAttribute="leading" secondItem="sm6-Vm-Y09" secondAttribute="leading" id="0cT-Ej-LHc"/>
                                     <constraint firstAttribute="trailing" secondItem="lJF-k8-fBG" secondAttribute="trailing" id="Q7v-Aq-UGr"/>
-                                    <constraint firstAttribute="bottom" secondItem="lJF-k8-fBG" secondAttribute="bottom" constant="21" id="dKs-nf-ghe"/>
+                                    <constraint firstAttribute="bottom" secondItem="lJF-k8-fBG" secondAttribute="bottom" constant="13" id="dKs-nf-ghe"/>
                                     <constraint firstItem="lJF-k8-fBG" firstAttribute="top" secondItem="sm6-Vm-Y09" secondAttribute="top" id="mhC-fi-ugB"/>
                                 </constraints>
                                 <connections>

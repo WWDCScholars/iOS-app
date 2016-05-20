@@ -19,6 +19,9 @@ class BlogPostDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        authorButton.sizeToFit()
+        postTitleLabel.adjustsFontSizeToFitWidth = true
     }
 
     override func didReceiveMemoryWarning() {

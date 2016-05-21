@@ -94,7 +94,7 @@ class BlogPostDetailViewController: UIViewController {
 //            tagsString.appendContentsOf(index != self.currentPost!.tags.count - 1 ? "\(tag), " : tag)
 //        }
 //        self.tagsLabel.text = tagsString
-        self.dateLabel.text = String(self.currentPost.createdAt)
+        self.dateLabel.text = DateManager.shortDateStringFromDate(self.currentPost.createdAt)
         self.webView.loadHTMLString(self.currentPost.content, baseURL: nil)
         
         self.headerImageView.af_setImageWithURL(NSURL(string: self.currentPost.imageUrl)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)

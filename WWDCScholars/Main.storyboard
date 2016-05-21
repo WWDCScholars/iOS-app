@@ -858,7 +858,7 @@
             </objects>
             <point key="canvasLocation" x="2806" y="-630"/>
         </scene>
-        <!--Blog Post Detail View Controller-->
+        <!--Blog Post-->
         <scene sceneID="c3j-UB-9hK">
             <objects>
                 <viewController storyboardIdentifier="blogPostDetailViewController" id="J2d-vr-eiO" customClass="BlogPostDetailViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
@@ -870,7 +870,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NdQ-cc-I2w">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NdQ-cc-I2w">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgs-Xv-ttD">
@@ -882,8 +882,8 @@
                                                     <constraint firstAttribute="height" constant="156" id="5FQ-tH-j2V"/>
                                                 </constraints>
                                             </imageView>
-                                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sJ5-fu-VQm">
-                                                <rect key="frame" x="8" y="247" width="584" height="190"/>
+                                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJ5-fu-VQm">
+                                                <rect key="frame" x="8" y="247" width="584" height="345"/>
                                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="J2d-vr-eiO" id="Ngn-z4-Kyf"/>
@@ -980,7 +980,6 @@
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="CyX-Sd-iYs"/>
-                                                <exclude reference="lKc-QX-7u1"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -1006,6 +1005,9 @@
                             <constraint firstItem="Zgs-Xv-ttD" firstAttribute="height" secondItem="5wN-hZ-pd4" secondAttribute="height" priority="250" id="vOu-rr-FAg"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Blog Post" id="4Id-I8-zVr"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="authorLabel" destination="haq-mE-f6u" id="iEo-Q6-Khc"/>
                         <outlet property="authorProfileImageView" destination="5Uf-w7-grn" id="Uf2-Rr-6mn"/>

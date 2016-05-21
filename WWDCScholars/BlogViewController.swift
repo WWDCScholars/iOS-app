@@ -189,14 +189,16 @@ extension BlogViewController: UIViewControllerPreviewingDelegate {
         let cellPosition = self.tableView.convertPoint(location, fromView: self.view)
         let cellIndex = self.tableView.indexPathForRowAtPoint(cellPosition)
         
-        guard let previewViewController = viewController, indexPath = cellIndex, cell = self.tableView.cellForRowAtIndexPath(indexPath) else {
+        guard let previewViewController = viewController, indexPath = cellIndex, cell = self.tableView.cellForRowAtIndexPath(indexPath) as? BlogPostTableViewCell else {
             return nil
         }
         
         let post = self.testPosts[indexPath.item]
+        let bounds = CGRect(origin: cell.postImageView.bounds.origin, size: CGSize(width: cell.postImageView.bounds.width, height: cell.postImageView.bounds.height - 50.0))
+        
         previewViewController.currentPost = post
         previewViewController.preferredContentSize = CGSize.zero
-        previewingContext.sourceRect = self.view.convertRect(cell.frame, fromView: self.tableView)
+        previewingContext.sourceRect = self.view.convertRect(bounds, fromView: cell)
         
         return previewViewController
     }

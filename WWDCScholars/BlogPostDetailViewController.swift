@@ -34,7 +34,7 @@ class BlogPostDetailViewController: UIViewController {
         for (index, tag) in self.currentPost!.tags.enumerate() {
             tagsString.appendContentsOf(index != self.currentPost!.tags.count - 1 ? "\(tag), " : tag)
         }
-        self.tagsLabel.text = tagsString
+//        self.tagsLabel.text = tagsString
         self.dateLabel.text = String(self.currentPost.createdAt)
         self.webView.loadHTMLString(self.currentPost.content, baseURL: nil)
         

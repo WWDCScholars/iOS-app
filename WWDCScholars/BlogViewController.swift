@@ -148,7 +148,7 @@ extension BlogViewController: UITableViewDataSource {
         attributedAuthorString.addAttributes(secondAttribute, range: authorString.rangeOfString("\(post.scholarName)"))
         
         cell.postAuthorLabel.attributedText = attributedAuthorString
-        cell.postDateLabel.text = String(post.updatedAt)
+        cell.postDateLabel.text = DateManager.shortDateStringFromDate(post.createdAt)
         cell.postTitleLabel.text = post.title
         
         if let imgUrl = NSURL(string: post.imageUrl) {

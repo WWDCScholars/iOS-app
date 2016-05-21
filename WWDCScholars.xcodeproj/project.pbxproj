@@ -59,6 +59,7 @@
 		6EB723D91CB9B85B005A076F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB723D81CB9B85B005A076F /* Assets.xcassets */; };
 		6EBCAD191CDACE170056D1CF /* BlogPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBCAD181CDACE170056D1CF /* BlogPostTableViewCell.swift */; };
 		6ECBC33C1CEF5642006AA8F0 /* NoJumpRefreshTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBC33B1CEF5642006AA8F0 /* NoJumpRefreshTableView.swift */; };
+		6ECBC33E1CEFDC7F006AA8F0 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBC33D1CEFDC7F006AA8F0 /* DateManager.swift */; };
 		6ED9264B1CBEF2FC0082FCFE /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9264A1CBEF2FC0082FCFE /* UIImage+Color.swift */; };
 		6ED926521CBF0BEE0082FCFE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED926511CBF0BEE0082FCFE /* MapKit.framework */; };
 		6EEA891F1CDBE15B00245445 /* NSString+Morphing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA891C1CDBE15B00245445 /* NSString+Morphing.m */; };
@@ -191,7 +192,7 @@
 		224355CE1CC1D58C001FFAD0 /* SpringImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringImageView.swift; sourceTree = "<group>"; };
 		224355D01CC1D61B001FFAD0 /* SpringTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringTextField.swift; sourceTree = "<group>"; };
 		224355D21CC1D624001FFAD0 /* DragDropBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragDropBehavior.swift; sourceTree = "<group>"; };
-		22543B1E1CB70182003F9422 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
+		22543B1E1CB70182003F9422 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		22543B201CB7019A003F9422 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		22671A631CE3D19F0055F91B /* BlogPostSafariViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostSafariViewController.swift; sourceTree = "<group>"; };
 		22AA36661CC2765D0061FF09 /* WWDCScholars-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WWDCScholars-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -229,6 +230,7 @@
 		6EB723D81CB9B85B005A076F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6EBCAD181CDACE170056D1CF /* BlogPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostTableViewCell.swift; sourceTree = "<group>"; };
 		6ECBC33B1CEF5642006AA8F0 /* NoJumpRefreshTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoJumpRefreshTableView.swift; sourceTree = "<group>"; };
+		6ECBC33D1CEFDC7F006AA8F0 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		6ED9264A1CBEF2FC0082FCFE /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		6ED926511CBF0BEE0082FCFE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6EEA891B1CDBE15B00245445 /* NSString+Morphing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Morphing.h"; sourceTree = "<group>"; };
@@ -352,8 +354,8 @@
 			isa = PBXGroup;
 			children = (
 				6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */,
-				6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */,
 				6E51E2741CDED4C00095FD38 /* LocationSelectViewController.swift */,
+				6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */,
 			);
 			name = "Edit Details";
 			sourceTree = "<group>";
@@ -406,8 +408,8 @@
 				C0B7FBB11CC45F6700AD376C /* ScholarAnnotation.swift */,
 				6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */,
 				223884221C8252D900A96752 /* ScholarsViewController.swift */,
-				6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */,
 				6E08859B1CEE6AE900E375BB /* ServerDetails.plist */,
+				6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */,
 			);
 			name = Scholars;
 			sourceTree = "<group>";
@@ -415,10 +417,10 @@
 		223F5E8C1CB9429B00E582C5 /* Blog */ = {
 			isa = PBXGroup;
 			children = (
+				22BFE2BF1CEE0829002CB549 /* BlogPostDetailViewController.swift */,
+				22671A631CE3D19F0055F91B /* BlogPostSafariViewController.swift */,
 				6EBCAD181CDACE170056D1CF /* BlogPostTableViewCell.swift */,
 				22543B1E1CB70182003F9422 /* BlogViewController.swift */,
-				22671A631CE3D19F0055F91B /* BlogPostSafariViewController.swift */,
-				22BFE2BF1CEE0829002CB549 /* BlogPostDetailViewController.swift */,
 			);
 			name = Blog;
 			sourceTree = "<group>";
@@ -456,13 +458,13 @@
 		224355C51CC1D468001FFAD0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */,
-				22E937B81CDCE82500A2BEBE /* SignUpSafariViewController.swift */,
 				2236F2961CC29EA500663957 /* DesignableButton.swift */,
 				224355CA1CC1D576001FFAD0 /* DesignableTextField.swift */,
 				2236F2981CC29EBD00663957 /* DesignableView.swift */,
 				224355D21CC1D624001FFAD0 /* DragDropBehavior.swift */,
 				22E2A6F41CC1DC2400DF0578 /* Misc.swift */,
+				22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */,
+				22E937B81CDCE82500A2BEBE /* SignUpSafariViewController.swift */,
 				22E2A6F21CC1DBE300DF0578 /* Spring.swift */,
 				224355CC1CC1D584001FFAD0 /* SpringButton.swift */,
 				224355CE1CC1D58C001FFAD0 /* SpringImageView.swift */,
@@ -524,9 +526,10 @@
 			children = (
 				6E9DD6751CC5961F00433193 /* CreditsManager.swift */,
 				7BBA879F1CBD5D220057E9AD /* DatabaseManager.swift */,
-				6EEA89291CDBFAF900245445 /* UserDefaults.swift */,
+				6ECBC33D1CEFDC7F006AA8F0 /* DateManager.swift */,
 				6E51E2781CDEE6A40095FD38 /* LocationManager.swift */,
 				6E251F691CE6C4C100F9ADFC /* SpotlightManager.swift */,
+				6EEA89291CDBFAF900245445 /* UserDefaults.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -534,9 +537,9 @@
 		6EEA892C1CDBFC8800245445 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				223F5E921CB9436200E582C5 /* Style.swift */,
 				6E08859D1CEE80B000E375BB /* NoJumpRefreshCollectionView.swift */,
 				6ECBC33B1CEF5642006AA8F0 /* NoJumpRefreshTableView.swift */,
+				223F5E921CB9436200E582C5 /* Style.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -609,11 +612,11 @@
 		7BBA876C1CBD4AA00057E9AD /* API */ = {
 			isa = PBXGroup;
 			children = (
-				7BBA87701CBD4AE80057E9AD /* Scholar.swift */,
-				7B7797501CDE681E0029675F /* BlogPost.swift */,
-				7BBA876D1CBD4ADB0057E9AD /* ScholarsKit.swift */,
-				7B7797521CDE697F0029675F /* BlogKit.swift */,
 				7B296DC11CE3C18300C4BA75 /* ApiBase.swift */,
+				7B7797521CDE697F0029675F /* BlogKit.swift */,
+				7B7797501CDE681E0029675F /* BlogPost.swift */,
+				7BBA87701CBD4AE80057E9AD /* Scholar.swift */,
+				7BBA876D1CBD4ADB0057E9AD /* ScholarsKit.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -621,21 +624,21 @@
 		7BBA87A21CBD5D680057E9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				22E937B61CDCE4F300A2BEBE /* SafariServices.framework */,
-				6EEA891A1CDBE13D00245445 /* TOMSMorphingLabel */,
-				7B4D518C1CC110A50072E114 /* Source */,
+				7BBA88221CBD8AD10057E9AD /* Alamofire */,
+				223F5E991CB970EC00E582C5 /* AVFoundation.framework */,
+				7BBA87631CBB7F3A0057E9AD /* Crashlytics.framework */,
+				7BBA87621CBB7F3A0057E9AD /* Fabric.framework */,
 				6E4DD6F01CBD476200B08EE1 /* FloatLabelTextField */,
 				6ED926511CBF0BEE0082FCFE /* MapKit.framework */,
-				7BBA88231CBEA0E80057E9AD /* Timepiece-master */,
-				7BBA88221CBD8AD10057E9AD /* Alamofire */,
-				7BBA87C71CBD7A860057E9AD /* SwiftyJSON.swift */,
-				C0B7FBB01CC45D3700AD376C /* WWDCScholars-Bridging-Header.h */,
+				C0B7FBAF1CC45C9B00AD376C /* QTree */,
 				7BBA87C11CBD641F0057E9AD /* Realm.framework */,
 				7BBA87C21CBD641F0057E9AD /* RealmSwift.framework */,
-				223F5E991CB970EC00E582C5 /* AVFoundation.framework */,
-				7BBA87621CBB7F3A0057E9AD /* Fabric.framework */,
-				7BBA87631CBB7F3A0057E9AD /* Crashlytics.framework */,
-				C0B7FBAF1CC45C9B00AD376C /* QTree */,
+				22E937B61CDCE4F300A2BEBE /* SafariServices.framework */,
+				7B4D518C1CC110A50072E114 /* Source */,
+				7BBA87C71CBD7A860057E9AD /* SwiftyJSON.swift */,
+				7BBA88231CBEA0E80057E9AD /* Timepiece-master */,
+				6EEA891A1CDBE13D00245445 /* TOMSMorphingLabel */,
+				C0B7FBB01CC45D3700AD376C /* WWDCScholars-Bridging-Header.h */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -926,6 +929,7 @@
 				6EB723D41CB9B84D005A076F /* Credit.swift in Sources */,
 				6E4DD6EE1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift in Sources */,
 				22543B1F1CB70182003F9422 /* BlogViewController.swift in Sources */,
+				6ECBC33E1CEFDC7F006AA8F0 /* DateManager.swift in Sources */,
 				7BBA88461CBEA0E80057E9AD /* NSDate+Timepiece.swift in Sources */,
 				224355CB1CC1D576001FFAD0 /* DesignableTextField.swift in Sources */,
 				6E447DB11CC3E4FE00014B12 /* ScreenshotsCollectionViewCell.swift in Sources */,

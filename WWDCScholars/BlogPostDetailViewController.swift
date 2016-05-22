@@ -12,7 +12,7 @@ import SafariServices
 
 class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate {
     @IBOutlet private weak var headerImageView: UIImageView!
-    @IBOutlet private weak var authorProfileImageView: UIImageView!
+    @IBOutlet private weak var authorProfileImageButton: UIButton!
     @IBOutlet private weak var authorProfileImageViewBackground: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var tagsLabel: UILabel!
@@ -155,7 +155,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         self.dateLabel.text = DateManager.shortDateStringFromDate(self.currentPost.createdAt)
         
         self.headerImageView.af_setImageWithURL(NSURL(string: self.currentPost.imageUrl)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
-        self.authorProfileImageView.af_setImageWithURL(NSURL(string: self.currentPostAuthor!.profilePicURL)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+        self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: self.currentPostAuthor!.profilePicURL)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
     }
     
     private func styleUI() {
@@ -165,9 +165,11 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         self.authorButton.contentHorizontalAlignment = .Left
         self.authorButton.setTitleColor(UIColor.scholarsPurpleColor(), forState: .Normal)
         
-        self.authorProfileImageView.applyRoundedCorners()
+        self.authorProfileImageButton.applyRoundedCorners()
         self.authorProfileImageViewBackground.applyRoundedCorners()
     }
+    
+    // MARK: - IBActions
     
     @IBAction func authorNameButtonTapped(sender: AnyObject) {
         self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: nil)

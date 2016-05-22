@@ -194,6 +194,8 @@ extension ScholarDetailViewController: UITableViewDataSource {
             return cell
         case 2:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("screenshotsTableViewCell") as! ScreenshotsTableViewCell
+            
+            cell.screenshots = self.currentScholar!.screenshots
                         
             return cell
         default:

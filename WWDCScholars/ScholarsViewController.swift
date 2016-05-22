@@ -95,7 +95,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         }
         
         let frame = self.view.frame
-        self.noContentLabel.text = "Looks like there's no Scholars here yet!"
+        self.noContentLabel.text = "Looks like there are no scholars here (yet)!"
         self.noContentLabel.frame = CGRect(x: frame.origin.x + 16.0, y: -100.0, width: frame.width - 32.0, height: frame.height)
         self.noContentLabel.textColor = UIColor.mediumBlackTextColor()
         self.noContentLabel.numberOfLines = 0

@@ -136,8 +136,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         locateButton.layer.shadowOpacity = 0.5
         locateButton.layer.shadowOffset = CGSizeMake(0.0, 0.0)
         locateButton.layer.shadowRadius = 2.0
-        locateButton.layer.cornerRadius = locateButton.frame.width / 2.0
-        locateButton.layer.masksToBounds = true
+        locateButton.applyRoundedCorners()
         locateButton.backgroundColor = UIColor.scholarsPurpleColor()
         
         self.mapView.addSubview(locateButton)

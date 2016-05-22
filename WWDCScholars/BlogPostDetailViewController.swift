@@ -21,10 +21,14 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet weak var authorButton: UIButton!
     
+    private var titleView = UIScrollView()
+    private var titleViewLabel = UILabel()
+    private var titleViewOverlayLabel = UILabel()
+    private var currentPostAuthor: Scholar? {
+        return DatabaseManager.sharedInstance.scholarForId(self.currentPost.id)
+    }
+    
     var currentPost: BlogPost!
-    var titleView = UIScrollView()
-    var titleViewLabel = UILabel()
-    var titleViewOverlayLabel = UILabel()
     
     override func viewDidLoad() {
         self.styleUI()
@@ -53,7 +57,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         "</style> \n" +
         "</head> \n" +
         "<body>%@</body> \n" +
-        "</html>", UIFont.preferredFontForTextStyle(UIFontTextStyleBody).fontName, UIFont.preferredFontForTextStyle(UIFontTextStyleBody).pointSize-2, self.currentPost.content);
+        "</html>", UIFont.preferredFontForTextStyle(UIFontTextStyleBody).fontName, UIFont.preferredFontForTextStyle(UIFontTextStyleBody).pointSize-2, self.currentPost.content)
         
         self.webView.loadHTMLString(body as String, baseURL: nil)
     }
@@ -151,6 +155,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         self.dateLabel.text = DateManager.shortDateStringFromDate(self.currentPost.createdAt)
         
         self.headerImageView.af_setImageWithURL(NSURL(string: self.currentPost.imageUrl)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+        self.authorProfileImageView.af_setImageWithURL(NSURL(string: self.currentPostAuthor!.profilePicURL)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
     }
     
     private func styleUI() {

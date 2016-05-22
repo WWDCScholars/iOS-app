@@ -19,6 +19,10 @@ class ScholarsTabBarViewController: UITabBarController {
         self.styleUI()
     }
     
+    func openScholarDetail(id: String) {
+        ((self.viewControllers![0] as! UINavigationController).viewControllers[0] as! ScholarsViewController) .openScholarDetail(id)
+    }
+    
     // MARK: - Internal
     
     internal func segueToIntro() {

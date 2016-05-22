@@ -62,7 +62,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         if segue.identifier == String(ScholarDetailViewController) {
             let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
             destinationViewController.delegate = self
-            destinationViewController.currentScholar = DatabaseManager.sharedInstance.scholarForId(self.currentPost.id)
+            destinationViewController.setScholar(self.currentPost.id)
         }
     }
     
@@ -219,7 +219,7 @@ extension BlogPostDetailViewController: UIViewControllerPreviewingDelegate {
             return nil
         }
         
-        previewViewController.currentScholar = DatabaseManager.sharedInstance.scholarForId(self.currentPost.id)
+        previewViewController.setScholar(self.currentPost.id)
         previewViewController.delegate = self
         previewViewController.preferredContentSize = CGSize.zero
         previewingContext.sourceRect = self.authorButton.frame

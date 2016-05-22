@@ -2,11 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-    </dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -26,10 +21,13 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string>None</string>
+			<string>com.wwdcscholars.URLScheme</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>wwdcscholars</string>
 				<string>WWDCScholars</string>
 			</array>
 		</dict>
@@ -52,8 +50,56 @@
 	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Find Scholar&apos;s location relative to you</string>
+	<string>Find Scholar's location relative to you</string>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>barButtonItemIconAccountFilled</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Some subTitle</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>My Profile</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenMyProfile</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>favouriteFilled</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Some subTitle</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Favorites</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenFavorites</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>tabBarIconBlogFilled</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Some subTitle</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Blog</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenBlog</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>tabBarIconChatFilled</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Some subTitle</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Chat</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenChat</string>
+		</dict>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -77,48 +123,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIApplicationShortcutItems</key>
-	<array>
-		<dict>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>My Profile</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenMyProfile</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Some subTitle</string>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>barButtonItemIconAccountFilled</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Favorites</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenFavorites</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Some subTitle</string>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>favouriteFilled</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Blog</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenBlog</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Some subTitle</string>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>tabBarIconBlogFilled</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Chat</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenChat</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Some subTitle</string>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>tabBarIconChatFilled</string>
-		</dict>
-	</array>
 </dict>
 </plist>

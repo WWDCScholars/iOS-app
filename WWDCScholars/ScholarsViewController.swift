@@ -62,9 +62,9 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
             destinationViewController.delegate = self
             
             if let indexPath = sender as? NSIndexPath {
-                destinationViewController.currentScholar = self.searchBarActive ? self.searchResults[indexPath.item] as! Scholar : self.currentScholars[indexPath.item]
+                destinationViewController.setScholar(self.searchBarActive ? (self.searchResults[indexPath.item] as! Scholar).id : self.currentScholars[indexPath.item].id)
             } else if let scholarID = sender as? String {
-                destinationViewController.currentScholar = DatabaseManager.sharedInstance.scholarForId(scholarID)
+                destinationViewController.setScholar(scholarID)
             }
         }
     }
@@ -77,6 +77,10 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.scrollCollectionViewToIndexPath(index, animated: false)
         
         self.refreshControl.superview?.sendSubviewToBack(self.refreshControl)
+    }
+    
+    func openScholarDetail(id: String) {
+        self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: id)
     }
     
     // MARK: - UI
@@ -466,7 +470,7 @@ extension ScholarsViewController: UIViewControllerPreviewingDelegate {
         }
         
         let scholar = self.searchBarActive ? self.searchResults[indexPath.item] as! Scholar : self.currentScholars[indexPath.item]
-        previewViewController.currentScholar = scholar
+        previewViewController.setScholar(scholar.id)
         previewViewController.delegate = self
         previewViewController.preferredContentSize = CGSize.zero
         previewingContext.sourceRect = self.view.convertRect(cell.frame, fromView: self.scholarsCollectionView)

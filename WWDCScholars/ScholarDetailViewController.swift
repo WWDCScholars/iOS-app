@@ -26,10 +26,15 @@ class ScholarDetailViewController: UIViewController {
     @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var favoritesButton: UIBarButtonItem!
     
-    var currentScholar: Scholar?
+    private var currentScholar: Scholar?
     var delegate: QuickActionsDelegate?
     
-    override func viewDidLoad() {
+    func setScholar(id: String) {
+        currentScholar = DatabaseManager.sharedInstance.scholarForId(id)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         self.styleUI()
         self.updateUI()
     }

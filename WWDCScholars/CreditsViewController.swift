@@ -28,9 +28,9 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == String(ScholarDetailViewController) {
             if let indexPath = sender as? NSIndexPath {
-                if let scholar = CreditsManager.sharedInstance.getScholar(indexPath) {
+                if let scholarId = CreditsManager.sharedInstance.getScholarId(indexPath) {
                     let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
-                    destinationViewController.currentScholar = scholar
+                    destinationViewController.setScholar(scholarId)
                 }
             }
         }
@@ -141,8 +141,9 @@ extension CreditsViewController: UIViewControllerPreviewingDelegate {
             return nil
         }
         
-        let scholar = CreditsManager.sharedInstance.getScholar(indexPath)
-        previewViewController.currentScholar = scholar
+        if let scholarId = CreditsManager.sharedInstance.getScholarId(indexPath) {
+            previewViewController.setScholar(scholarId)
+        }
         previewViewController.delegate = self
         previewViewController.preferredContentSize = CGSize.zero
         previewingContext.sourceRect = self.view.convertRect(cell.frame, fromView: self.tableView)

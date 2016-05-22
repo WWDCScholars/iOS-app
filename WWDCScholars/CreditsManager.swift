@@ -23,11 +23,9 @@ class CreditsManager {
         }
     }
     
-    func getScholar(indexPath: NSIndexPath) -> Scholar? {
+    func getScholarId(indexPath: NSIndexPath) -> String? {
         if let scholarID = self.credits[indexPath.item].id {
-            let scholar = DatabaseManager.sharedInstance.scholarForId(scholarID)
-            
-            return scholar
+            return scholarID
         }
         
         return nil

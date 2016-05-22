@@ -46,7 +46,16 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.webView.loadHTMLString(self.currentPost.content, baseURL: nil)
+        let body = NSString(format:"<html> \n" +
+        "<head> \n" +
+        "<style type=\"text/css\"> \n" +
+        "body {font-family: \"%@\"; font-size: %f;}\n" +
+        "</style> \n" +
+        "</head> \n" +
+        "<body>%@</body> \n" +
+        "</html>", UIFont.preferredFontForTextStyle(UIFontTextStyleBody).fontName, UIFont.preferredFontForTextStyle(UIFontTextStyleBody).pointSize-2, self.currentPost.content);
+        
+        self.webView.loadHTMLString(body as String, baseURL: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

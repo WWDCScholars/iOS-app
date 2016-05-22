@@ -131,7 +131,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
         if url.host == "scholar" {
             //todo check if id exists
-            let scholarDetailVC = ScholarDetailViewController()
+//            let scholarDetailVC = ScholarDetailViewController()
+//            scholarDetailVC.setScholar(url.lastPathComponent!)
+//            print (self.window?.rootViewController)
+            (self.window?.rootViewController as! ScholarsTabBarViewController).openScholarDetail(url.lastPathComponent!)
+//            self.window?.rootViewController?.presentViewController(scholarDetailVC, animated: true, completion: nil)
             scholarDetailVC.setScholar(url.lastPathComponent!)
             print (self.window?.rootViewController)
             (self.window?.rootViewController as! ScholarsTabBarViewController).openScholarDetail(url.lastPathComponent!)

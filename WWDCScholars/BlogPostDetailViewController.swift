@@ -42,8 +42,12 @@ class BlogPostDetailViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        self.webViewDidFinishLoad(self.webView)
+        super.viewDidLayoutSubviews()
+        
+        self.webView.loadHTMLString(self.currentPost.content, baseURL: nil)
     }
+    
+    // MARK: - Private functions
     
     private func removeTitleView() {
         self.titleViewOverlayLabel.removeFromSuperview()
@@ -95,7 +99,6 @@ class BlogPostDetailViewController: UIViewController {
 //        }
 //        self.tagsLabel.text = tagsString
         self.dateLabel.text = DateManager.shortDateStringFromDate(self.currentPost.createdAt)
-        self.webView.loadHTMLString(self.currentPost.content, baseURL: nil)
         
         self.headerImageView.af_setImageWithURL(NSURL(string: self.currentPost.imageUrl)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
     }
@@ -109,6 +112,8 @@ class BlogPostDetailViewController: UIViewController {
     }
 }
 
+// MARK: - UIWebViewDelegate
+
 extension BlogPostDetailViewController: UIWebViewDelegate {
     func webViewDidFinishLoad(webView: UIWebView) {
         var frame = webView.frame
@@ -117,11 +122,13 @@ extension BlogPostDetailViewController: UIWebViewDelegate {
         
         let fittingSize = webView.sizeThatFits(.zero)
         frame.size = fittingSize
-        webView.frame = frame
+        webView.frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: frame.height - 1.0)
         
         self.scrollView.contentSize.height = self.webView.frame.origin.y + self.webView.frame.height - 40.0
     }
 }
+
+// MARK: - UIScrollViewDelegate
 
 extension BlogPostDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {

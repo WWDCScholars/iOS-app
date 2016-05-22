@@ -131,17 +131,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
         if url.host == "scholar" {
             //todo check if id exists
-//            let scholarDetailVC = ScholarDetailViewController()
-//            scholarDetailVC.setScholar(url.lastPathComponent!)
-//            print (self.window?.rootViewController)
             (self.window?.rootViewController as! ScholarsTabBarViewController).openScholarDetail(url.lastPathComponent!)
-//            self.window?.rootViewController?.presentViewController(scholarDetailVC, animated: true, completion: nil)
-            scholarDetailVC.setScholar(url.lastPathComponent!)
-            print (self.window?.rootViewController)
-            (self.window?.rootViewController as! ScholarsTabBarViewController).openScholarDetail(url.lastPathComponent!)
-//            self.window?.rootViewController?.presentViewController(scholarDetailVC, animated: true, completion: nil)
-        }else if url.host == "scholar" {
-            
+        }else if url.host == "post" {
+            (self.window?.rootViewController as! ScholarsTabBarViewController).openScholarDetail(url.lastPathComponent!) // todo Open blog, not scholar
         }
         
         return true

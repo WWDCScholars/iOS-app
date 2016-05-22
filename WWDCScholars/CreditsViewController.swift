@@ -38,10 +38,6 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
     
     // MARK: - Internal functions
     
-    internal func refreshScholarsWithNewFavorite() {
-        print("New favorite added")
-    }
-    
     internal func openContactURL(url: String) {
         let viewController = SFSafariViewController(URL: NSURL(string: url)!)
         viewController.delegate = self
@@ -59,7 +55,7 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
             viewController.mailComposeDelegate = self
             viewController.setToRecipients([address])
             
-            presentViewController(viewController, animated: true, completion: nil)
+            self.presentViewController(viewController, animated: true, completion: nil)
         }
     }
     

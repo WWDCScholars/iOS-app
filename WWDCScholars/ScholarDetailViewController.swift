@@ -9,10 +9,10 @@
 import UIKit
 import MapKit
 
-protocol QuickActionsDelegate {
+@objc protocol QuickActionsDelegate {
     func openContactURL(url: String)
     func composeEmail(address: String)
-    func refreshScholarsWithNewFavorite()
+    optional func refreshScholarsWithNewFavorite()
 }
 
 class ScholarDetailViewController: UIViewController {
@@ -47,7 +47,7 @@ class ScholarDetailViewController: UIViewController {
             } else {
                 UserDefaults.favorites.removeAtIndex(indexOfFavorite!)
                 
-                self.delegate?.refreshScholarsWithNewFavorite()
+                self.delegate?.refreshScholarsWithNewFavorite!()
             }
         }
         
@@ -145,7 +145,7 @@ class ScholarDetailViewController: UIViewController {
             UserDefaults.favorites.removeAtIndex(indexOfFavorite!)
         }
         
-        self.delegate?.refreshScholarsWithNewFavorite()
+        self.delegate?.refreshScholarsWithNewFavorite!()
     }
     
     @IBAction func editProfileButtonTapped(sender: AnyObject) {

@@ -19,7 +19,7 @@ class BlogViewController: UIViewController {
         super.viewDidLoad()
         
         let testPost1 = BlogPost()
-        testPost1.id = "123"
+        testPost1.id = "56fc25ee5840978d849822b3"
         testPost1.scholarName = "Andrew Walker"
         testPost1.email = "me@andrewnwalker.com"
         testPost1.title = "Preparing for WWDC"
@@ -32,7 +32,7 @@ class BlogViewController: UIViewController {
         testPost1.content = "<html><head><title>View the Source of This Page</title></head><body><h1>How to View the Source of This Page</h1><p>If you go to your web browser's View menu, you will see an option that allows you to see the source code behind a web page.</p><p>When the web was first taking off this was a very popular way for people to learn how web pages had been built.</p><p>Today, people still often view the source of pages to learn how a web page has been built.</p><h1>How to View the Source of This Page</h1><p>If you go to your web browser's View menu, you will see an option that allows you to see the source code behind a web page.</p><p>When the web was first taking off this was a very popular way for people to learn how web pages had been built.</p><p>Today, people still often view the source of pages to learn how a web page has been built.</p><h1>How to View the Source of This Page</h1><p>If you go to your web browser's View menu, you will see an option that allows you to see the source code behind a web page.</p><p>When the web was first taking off this was a very popular way for people to learn how web pages had been built.</p><p>Today, people still often view the source of pages to learn how a web page has been built.</p></body></html>"
         
         let testPost2 = BlogPost()
-        testPost2.id = "456"
+        testPost2.id = "56fc24dc5840978d849822b2"
         testPost2.scholarName = "Oliver Binns"
         testPost2.email = "me@andrewnwalker.com"
         testPost2.title = "Tips for Making the Most of Your Trip"
@@ -45,7 +45,7 @@ class BlogViewController: UIViewController {
         testPost2.content = "<html><head><title>Text</title></head><body><h1>The Story in the Book</h1><h2>Chapter 1</h2><p>Molly had been staring out of her window for about an hour now. On her desk, lying between the copies of <i>Nature</i>, <i>New Scientist</i>, and all the other scientific journals her work had appeared in, was a well thumbed copy of <cite>On The Road</cite>. It had been Molly's favourite book since college, and the longer she spent in these four walls the more she felt she needed to be free.</p><p>She had spent the last ten years in this room, sitting under a poster with an Oscar Wilde quote proclaiming that <q>Work is the refuge of people who have nothing better to do</q>. Although many considered her pioneering work, unraveling the secrets of the llama <abbr title=\"Deoxyribonucleic acid\">DNA</abbr>, to be an outstanding achievement, Molly <em>did</em> think she had something better to do.</p></body></html>"
         
         let testPost3 = BlogPost()
-        testPost3.id = "789"
+        testPost3.id = "56fc3b1ba5ac14970921ad78"
         testPost3.scholarName = "Sam Eckert"
         testPost3.email = "me@andrewnwalker.com"
         testPost3.title = "The Labs and Sessions You Should Be Attending"

@@ -286,7 +286,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
             viewController.mailComposeDelegate = self
             viewController.setToRecipients([address])
             
-            presentViewController(viewController, animated: true, completion: nil)
+            self.presentViewController(viewController, animated: true, completion: nil)
         }
     }
     

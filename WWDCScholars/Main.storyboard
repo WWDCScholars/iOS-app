@@ -297,7 +297,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3f-aM-UIE">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b3f-aM-UIE">
                                 <rect key="frame" x="0.0" y="64" width="600" height="1087"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIy-Xy-Aq8" userLabel="Content View">
@@ -923,12 +923,14 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CcI-Zs-MjA">
                                                         <rect key="frame" x="0.0" y="60" width="501" height="15"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Author Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haq-mE-f6u">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwC-B9-BQm">
                                                                 <rect key="frame" x="0.0" y="0.0" width="440" height="15"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                                <state key="normal" title="Button"/>
+                                                                <connections>
+                                                                    <action selector="authorNameButtonTapped:" destination="J2d-vr-eiO" eventType="touchUpInside" id="xph-cm-RDu"/>
+                                                                </connections>
+                                                            </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A82-eS-Ke1">
                                                                 <rect key="frame" x="440" y="0.0" width="61" height="15"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -937,14 +939,13 @@
                                                             </label>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="haq-mE-f6u" secondAttribute="bottom" id="4RQ-hW-7zY"/>
                                                             <constraint firstAttribute="bottom" secondItem="A82-eS-Ke1" secondAttribute="bottom" id="Enw-gU-hfX"/>
-                                                            <constraint firstItem="A82-eS-Ke1" firstAttribute="leading" secondItem="haq-mE-f6u" secondAttribute="trailing" id="FoX-8R-idV"/>
                                                             <constraint firstItem="A82-eS-Ke1" firstAttribute="top" secondItem="CcI-Zs-MjA" secondAttribute="top" id="UWJ-qP-MTZ"/>
-                                                            <constraint firstItem="A82-eS-Ke1" firstAttribute="leading" secondItem="haq-mE-f6u" secondAttribute="trailing" id="hAb-KK-JH2"/>
-                                                            <constraint firstItem="haq-mE-f6u" firstAttribute="leading" secondItem="CcI-Zs-MjA" secondAttribute="leading" id="r2O-E0-hci"/>
+                                                            <constraint firstAttribute="bottom" secondItem="vwC-B9-BQm" secondAttribute="bottom" id="UZ1-19-TBS"/>
+                                                            <constraint firstItem="vwC-B9-BQm" firstAttribute="leading" secondItem="CcI-Zs-MjA" secondAttribute="leading" id="bWF-59-7lq"/>
+                                                            <constraint firstItem="vwC-B9-BQm" firstAttribute="top" secondItem="CcI-Zs-MjA" secondAttribute="top" id="bgu-zv-BFg"/>
+                                                            <constraint firstItem="A82-eS-Ke1" firstAttribute="leading" secondItem="vwC-B9-BQm" secondAttribute="trailing" id="gEg-9G-AnE"/>
                                                             <constraint firstAttribute="trailing" secondItem="A82-eS-Ke1" secondAttribute="trailing" id="u4L-TK-FMf"/>
-                                                            <constraint firstItem="haq-mE-f6u" firstAttribute="top" secondItem="CcI-Zs-MjA" secondAttribute="top" id="wsA-Py-Fbe"/>
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
@@ -1009,7 +1010,7 @@
                     <navigationItem key="navigationItem" title="Blog Post" id="4Id-I8-zVr"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="authorLabel" destination="haq-mE-f6u" id="iEo-Q6-Khc"/>
+                        <outlet property="authorButton" destination="vwC-B9-BQm" id="iFH-a9-PHX"/>
                         <outlet property="authorProfileImageView" destination="5Uf-w7-grn" id="Uf2-Rr-6mn"/>
                         <outlet property="authorProfileImageViewBackground" destination="hgy-KK-wp2" id="t65-1T-tQg"/>
                         <outlet property="dateLabel" destination="A82-eS-Ke1" id="ptg-vh-H6j"/>
@@ -1017,6 +1018,7 @@
                         <outlet property="scrollView" destination="NdQ-cc-I2w" id="sj0-zw-kOH"/>
                         <outlet property="titleLabel" destination="Kx5-ha-Lfc" id="0Cr-LL-38w"/>
                         <outlet property="webView" destination="sJ5-fu-VQm" id="3Kg-I8-gAD"/>
+                        <segue destination="Xz8-ge-7L5" kind="show" identifier="ScholarDetailViewController" id="R68-HX-fbp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bK-Ei-yWi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2857,7 +2859,7 @@
         <image name="youTubeIconSmall" width="27" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="R68-HX-fbp"/>
         <segue reference="UF7-DQ-LBe"/>
-        <segue reference="Yff-U6-LNC"/>
     </inferredMetricsTieBreakers>
 </document>

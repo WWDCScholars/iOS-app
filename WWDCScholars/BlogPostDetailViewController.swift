@@ -7,17 +7,19 @@
 //
 
 import UIKit
+import MessageUI
+import SafariServices
 
-class BlogPostDetailViewController: UIViewController {
+class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate {
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet private weak var authorProfileImageView: UIImageView!
     @IBOutlet private weak var authorProfileImageViewBackground: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var authorLabel: UILabel!
     @IBOutlet private weak var tagsLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var webView: UIWebView!
     @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet weak var authorButton: UIButton!
     
     var currentPost: BlogPost!
     var titleView = UIScrollView()
@@ -45,6 +47,41 @@ class BlogPostDetailViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         self.webView.loadHTMLString(self.currentPost.content, baseURL: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == String(ScholarDetailViewController) {
+            let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
+            destinationViewController.delegate = self
+            destinationViewController.currentScholar = DatabaseManager.sharedInstance.scholarForId(self.currentPost.id)
+        }
+    }
+    
+    // MARK: - Internal functions
+    
+    internal func openContactURL(url: String) {
+        let viewController = SFSafariViewController(URL: NSURL(string: url)!)
+        viewController.delegate = self
+        
+        self.presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    internal func composeEmail(address: String) {
+        if MFMailComposeViewController.canSendMail() {
+            let viewController = MFMailComposeViewController()
+            viewController.mailComposeDelegate = self
+            viewController.setToRecipients([address])
+            
+            self.presentViewController(viewController, animated: true, completion: nil)
+        }
+    }
+    
+    internal func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    internal func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - Private functions
@@ -90,8 +127,12 @@ class BlogPostDetailViewController: UIViewController {
     }
     
     private func configureUI() {
+        if self.traitCollection.forceTouchCapability == .Available {
+            self.registerForPreviewingWithDelegate(self, sourceView: self.authorButton)
+        }
+        
         self.titleLabel.text = self.currentPost.title
-        self.authorLabel.text = self.currentPost.scholarName
+        self.authorButton.setTitle(self.currentPost.scholarName, forState: .Normal)
         
 //        var tagsString = ""
 //        for (index, tag) in self.currentPost!.tags.enumerate() {
@@ -107,8 +148,15 @@ class BlogPostDetailViewController: UIViewController {
         self.webView.scrollView.scrollEnabled = false
         self.webView.scrollView.bounces = false
         
+        self.authorButton.contentHorizontalAlignment = .Left
+        self.authorButton.setTitleColor(UIColor.scholarsPurpleColor(), forState: .Normal)
+        
         self.authorProfileImageView.applyRoundedCorners()
         self.authorProfileImageViewBackground.applyRoundedCorners()
+    }
+    
+    @IBAction func authorNameButtonTapped(sender: AnyObject) {
+        self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: nil)
     }
 }
 
@@ -149,5 +197,28 @@ extension BlogPostDetailViewController: UIScrollViewDelegate {
         let contentOffset: CGPoint = CGPointMake(0.0, min(scrollView.contentOffset.y - imageViewHeight - (self.titleLabel.frame.height / 2.0) + 22.0, 44.0))
         self.titleView.contentOffset.y = contentOffset.y
         self.titleViewOverlayLabel.alpha = -((self.titleView.contentOffset.y) / 25.0)
+    }
+}
+
+// MARK: - UIViewControllerPreviewingDelegate
+
+extension BlogPostDetailViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        let viewController = storyboard?.instantiateViewControllerWithIdentifier("scholarDetailViewController") as? ScholarDetailViewController
+        
+        guard let previewViewController = viewController else {
+            return nil
+        }
+        
+        previewViewController.currentScholar = DatabaseManager.sharedInstance.scholarForId(self.currentPost.id)
+        previewViewController.delegate = self
+        previewViewController.preferredContentSize = CGSize.zero
+        previewingContext.sourceRect = self.authorButton.frame
+        
+        return previewViewController
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        self.showViewController(viewControllerToCommit, sender: self)
     }
 }

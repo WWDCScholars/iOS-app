@@ -128,6 +128,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+        if url.host == "scholar" {
+            //todo check if id exists
+            let scholarDetailVC = ScholarDetailViewController()
+            scholarDetailVC.setScholar(url.lastPathComponent!)
+            print (self.window?.rootViewController)
+            (self.window?.rootViewController as! ScholarsTabBarViewController).openScholarDetail(url.lastPathComponent!)
+//            self.window?.rootViewController?.presentViewController(scholarDetailVC, animated: true, completion: nil)
+        }else if url.host == "scholar" {
+            
+        }
+        
+        return true
+    }
+    
     private func styleUI() {
         UINavigationBar.applyNavigationBarStyle()
     }

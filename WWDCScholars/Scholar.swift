@@ -116,13 +116,33 @@ class Scholar: Object {
     dynamic var facebookURL: URL?
     
     /// Array of screenshots of their Scholar app
-//    dynamic var screenshots: [URL] = []
+    private dynamic var screenshotsString: String = ""
+    /// Array of screenshots
+    var screenshots: [URL] {
+        set {
+            var strArr: [String] = []
+            let arr: [URL] = newValue
+            for wwdc in arr {
+                strArr.append(wwdc)
+            }
+            screenshotsString = strArr.joinWithSeparator("|")
+        }
+        
+        get {
+            let strArr = screenshotsString.componentsSeparatedByString("|")
+            var arr: [URL] = []
+            for str in strArr {
+                arr.append(str)
+            }
+            return arr.reverse()
+        }
+    }
     
     override class func primaryKey() -> String {
         return "id"
     }
     
     override static func ignoredProperties() -> [String] {
-        return ["batchWWDC", "location", "age"]
+        return ["batchWWDC", "location", "age", "screenshots"]
     }
 }

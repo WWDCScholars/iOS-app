@@ -70,6 +70,23 @@ class ScholarsKit: ApiBase {
             newScholar.birthday = birthday.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
             newScholar.profilePicURL = profilePic.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
 
+            var screenshots: [URL] = []
+            
+            if let screenshot = json["screenshotOne"].string {
+                screenshots.append(screenshot)
+            }
+            if let screenshot = json["screenshotTwo"].string {
+                screenshots.append(screenshot)
+            }
+            if let screenshot = json["screenshotThree"].string {
+                screenshots.append(screenshot)
+            }
+            if let screenshot = json["screenshotFour"].string {
+                screenshots.append(screenshot)
+            }
+            
+            newScholar.screenshots = screenshots
+            
             return newScholar
         }else {
 //            print (json)

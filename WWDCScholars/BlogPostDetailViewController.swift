@@ -29,7 +29,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     private var titleView = UIScrollView()
     private var titleViewLabel = UILabel()
     private var titleViewOverlayLabel = UILabel()
-    private var buttonTypeTapped: AuthorButtonType!
+    private var buttonTypeTapped: AuthorButtonType = .Image
     private var currentPostAuthor: Scholar? {
         return DatabaseManager.sharedInstance.scholarForId(self.currentPost.id)
     }

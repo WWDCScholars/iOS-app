@@ -892,7 +892,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgy-KK-wp2">
                                                 <rect key="frame" x="8" y="164" width="75" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMX-6u-a7M">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMX-6u-a7M">
                                                         <rect key="frame" x="3" y="3" width="69" height="69"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="69" id="oNq-O5-DJ3"/>
@@ -900,6 +900,7 @@
                                                         </constraints>
                                                         <connections>
                                                             <action selector="authorNameButtonTapped:" destination="J2d-vr-eiO" eventType="touchUpInside" id="VkL-dT-Cy2"/>
+                                                            <action selector="authorNameButtonTouched:" destination="J2d-vr-eiO" eventType="touchDown" id="0Le-Rp-fz0"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -932,6 +933,7 @@
                                                                 <state key="normal" title="Button"/>
                                                                 <connections>
                                                                     <action selector="authorNameButtonTapped:" destination="J2d-vr-eiO" eventType="touchUpInside" id="xph-cm-RDu"/>
+                                                                    <action selector="authorNameButtonTouched:" destination="J2d-vr-eiO" eventType="touchDown" id="BCr-Bw-oZE"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A82-eS-Ke1">

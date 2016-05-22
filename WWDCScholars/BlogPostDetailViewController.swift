@@ -10,6 +10,11 @@ import UIKit
 import MessageUI
 import SafariServices
 
+enum AuthorButtonType {
+    case Image
+    case Text
+}
+
 class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate {
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet private weak var authorProfileImageButton: UIButton!
@@ -24,6 +29,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     private var titleView = UIScrollView()
     private var titleViewLabel = UILabel()
     private var titleViewOverlayLabel = UILabel()
+    private var buttonTypeTapped: AuthorButtonType!
     private var currentPostAuthor: Scholar? {
         return DatabaseManager.sharedInstance.scholarForId(self.currentPost.id)
     }
@@ -142,6 +148,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     private func configureUI() {
         if self.traitCollection.forceTouchCapability == .Available {
             self.registerForPreviewingWithDelegate(self, sourceView: self.authorButton)
+            self.registerForPreviewingWithDelegate(self, sourceView: self.authorProfileImageButton)
         }
         
         self.titleLabel.text = self.currentPost.title
@@ -173,6 +180,10 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     
     @IBAction func authorNameButtonTapped(sender: AnyObject) {
         self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: nil)
+    }
+    
+    @IBAction func authorNameButtonTouched(sender: AnyObject) {
+        self.buttonTypeTapped = sender.tag == 0 ? .Text : .Image
     }
 }
 
@@ -229,7 +240,7 @@ extension BlogPostDetailViewController: UIViewControllerPreviewingDelegate {
         previewViewController.setScholar(self.currentPost.id)
         previewViewController.delegate = self
         previewViewController.preferredContentSize = CGSize.zero
-        previewingContext.sourceRect = self.authorButton.frame
+        previewingContext.sourceRect = self.buttonTypeTapped == .Text ? self.authorButton.frame : self.authorProfileImageButton.bounds
         
         return previewViewController
     }

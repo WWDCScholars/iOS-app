@@ -432,11 +432,11 @@
 		223884141C8252D900A96752 = {
 			isa = PBXGroup;
 			children = (
-				2270E0071CF3293200C88C2E /* WWDCScholars watchOS App */,
-				2270E0161CF3293200C88C2E /* WWDCScholars watchOS App Extension */,
 				7BBA87A21CBD5D680057E9AD /* Frameworks */,
 				2238841E1C8252D900A96752 /* Products */,
 				2238841F1C8252D900A96752 /* WWDCScholars */,
+				2270E0071CF3293200C88C2E /* WWDCScholars watchOS App */,
+				2270E0161CF3293200C88C2E /* WWDCScholars watchOS App Extension */,
 				7B2AA6DE1CBAE7530025EC7B /* WWDCScholarsTests */,
 				7B2AA6EC1CBAE75B0025EC7B /* WWDCScholarsUITests */,
 			);

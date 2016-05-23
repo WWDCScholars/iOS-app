@@ -53,7 +53,6 @@
 		<string>Manila, Philippines</string>
 		<key>Tasks</key>
 		<array>
-			<string>iOS</string>
 			<string>Database</string>
 			<string>Project Management</string>
 			<string>Web</string>
@@ -73,30 +72,6 @@
 			<string>iOS</string>
 			<string>Marketing</string>
 			<string>Apple Watch</string>
-		</array>
-	</dict>
-	<dict>
-		<key>ID</key>
-		<string>56fc2c8e5840978d849822ba</string>
-		<key>Name</key>
-		<string>Nicola Giancecchi</string>
-		<key>Location</key>
-		<string>San Marino, SMR</string>
-		<key>Tasks</key>
-		<array>
-			<string>Design</string>
-		</array>
-	</dict>
-	<dict>
-		<key>ID</key>
-		<string>56fc31c9a5ac14970921ad6f</string>
-		<key>Name</key>
-		<string>Grey Chen</string>
-		<key>Location</key>
-		<string>Beijing, China</string>
-		<key>Tasks</key>
-		<array>
-			<string>iOS</string>
 		</array>
 	</dict>
 </array>

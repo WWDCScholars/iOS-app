@@ -297,7 +297,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b3f-aM-UIE">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3f-aM-UIE">
                                 <rect key="frame" x="0.0" y="64" width="600" height="1087"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIy-Xy-Aq8" userLabel="Content View">
@@ -1270,11 +1270,11 @@
                         <viewControllerLayoutGuide type="bottom" id="YLy-zA-eGt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sTT-xf-zDR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sm6-Vm-Y09">
-                                <rect key="frame" x="0.0" y="64" width="600" height="687"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="1087"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJF-k8-fBG">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
@@ -1345,6 +1345,40 @@
                                                         <constraint firstItem="Y3d-Gq-9Ke" firstAttribute="leading" secondItem="lpY-W5-buZ" secondAttribute="leading" id="Jks-qE-mce"/>
                                                     </constraints>
                                                 </view>
+                                                <view key="tableFooterView" contentMode="scaleToFill" id="c1e-X3-iax">
+                                                    <rect key="frame" x="0.0" y="186" width="600" height="122"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cp6-7C-iS3">
+                                                            <rect key="frame" x="16" y="16" width="568" height="90"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="xUb-oc-Jys"/>
+                                                            </constraints>
+                                                            <string key="text">Many thanks to everyone who has contributed this year and in previous years. We are also very grateful for the invaluable advice and support provided by Apple!</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="xUb-oc-Jys"/>
+                                                                </mask>
+                                                            </variation>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="cp6-7C-iS3" secondAttribute="trailing" constant="16" id="BxD-fY-FQB"/>
+                                                        <constraint firstItem="cp6-7C-iS3" firstAttribute="leading" secondItem="c1e-X3-iax" secondAttribute="leading" constant="16" id="EfZ-CR-YM0"/>
+                                                        <constraint firstAttribute="bottom" secondItem="cp6-7C-iS3" secondAttribute="bottom" constant="16" id="df7-hv-VgF"/>
+                                                        <constraint firstItem="cp6-7C-iS3" firstAttribute="top" secondItem="c1e-X3-iax" secondAttribute="top" constant="8" id="fzs-Tb-DPA"/>
+                                                        <constraint firstItem="cp6-7C-iS3" firstAttribute="top" secondItem="c1e-X3-iax" secondAttribute="top" constant="16" id="hGp-Wf-RPI"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="fzs-Tb-DPA"/>
+                                                        </mask>
+                                                    </variation>
+                                                </view>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="creditCell" rowHeight="67" id="QWf-Jd-M0G" customClass="CreditTableViewCell" customModule="Scholars" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="119" width="600" height="67"/>
@@ -1361,7 +1395,7 @@
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="21" id="cfP-2e-O1j"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Andrew Walker" translatesAutoresizingMaskIntoConstraints="NO" id="Erb-OD-E2R">
@@ -1372,60 +1406,60 @@
                                                                             </constraints>
                                                                         </imageView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="P2x-QR-WCu">
-                                                                            <rect key="frame" x="75" y="39" width="164" height="20"/>
+                                                                            <rect key="frame" x="75" y="37" width="178" height="22"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iOS" translatesAutoresizingMaskIntoConstraints="NO" id="ex6-oS-ekg">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="height" constant="20" id="LDU-pV-LWP"/>
-                                                                                        <constraint firstAttribute="width" constant="20" id="j5n-Al-8x9"/>
+                                                                                        <constraint firstAttribute="height" constant="22" id="LDU-pV-LWP"/>
+                                                                                        <constraint firstAttribute="width" constant="22" id="j5n-Al-8x9"/>
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Project Management" translatesAutoresizingMaskIntoConstraints="NO" id="d3q-Ej-Tmf">
-                                                                                    <rect key="frame" x="24" y="0.0" width="20" height="20"/>
+                                                                                    <rect key="frame" x="26" y="0.0" width="22" height="22"/>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="width" constant="20" id="dTh-0h-fmF"/>
-                                                                                        <constraint firstAttribute="height" constant="20" id="pSC-ZH-QoX"/>
+                                                                                        <constraint firstAttribute="width" constant="22" id="dTh-0h-fmF"/>
+                                                                                        <constraint firstAttribute="height" constant="22" id="pSC-ZH-QoX"/>
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Website" translatesAutoresizingMaskIntoConstraints="NO" id="Mvk-0Z-0A9">
-                                                                                    <rect key="frame" x="48" y="0.0" width="20" height="20"/>
+                                                                                    <rect key="frame" x="52" y="0.0" width="22" height="22"/>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="height" constant="20" id="2oa-kZ-8eP"/>
-                                                                                        <constraint firstAttribute="width" constant="20" id="N4x-zM-OXn"/>
+                                                                                        <constraint firstAttribute="height" constant="22" id="2oa-kZ-8eP"/>
+                                                                                        <constraint firstAttribute="width" constant="22" id="N4x-zM-OXn"/>
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watchOS" translatesAutoresizingMaskIntoConstraints="NO" id="d4Y-Jd-b8p">
-                                                                                    <rect key="frame" x="72" y="0.0" width="20" height="20"/>
+                                                                                    <rect key="frame" x="78" y="0.0" width="22" height="22"/>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="height" constant="20" id="SYP-qj-T55"/>
-                                                                                        <constraint firstAttribute="width" constant="20" id="nvH-bi-ehE"/>
+                                                                                        <constraint firstAttribute="height" constant="22" id="SYP-qj-T55"/>
+                                                                                        <constraint firstAttribute="width" constant="22" id="nvH-bi-ehE"/>
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Database" translatesAutoresizingMaskIntoConstraints="NO" id="Z1c-wJ-ktB">
-                                                                                    <rect key="frame" x="96" y="0.0" width="20" height="20"/>
+                                                                                    <rect key="frame" x="104" y="0.0" width="22" height="22"/>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="width" constant="20" id="GkP-3t-8Gg"/>
-                                                                                        <constraint firstAttribute="height" constant="20" id="WvJ-R8-m0n"/>
+                                                                                        <constraint firstAttribute="width" constant="22" id="GkP-3t-8Gg"/>
+                                                                                        <constraint firstAttribute="height" constant="22" id="WvJ-R8-m0n"/>
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Design" translatesAutoresizingMaskIntoConstraints="NO" id="c7Y-05-2oR">
-                                                                                    <rect key="frame" x="120" y="0.0" width="20" height="20"/>
+                                                                                    <rect key="frame" x="130" y="0.0" width="22" height="22"/>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="width" constant="20" id="GL3-za-d5m"/>
-                                                                                        <constraint firstAttribute="height" constant="20" id="H87-Si-lAC"/>
+                                                                                        <constraint firstAttribute="width" constant="22" id="GL3-za-d5m"/>
+                                                                                        <constraint firstAttribute="height" constant="22" id="H87-Si-lAC"/>
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marketing" translatesAutoresizingMaskIntoConstraints="NO" id="Xa4-LB-3AE">
-                                                                                    <rect key="frame" x="144" y="0.0" width="20" height="20"/>
+                                                                                    <rect key="frame" x="156" y="0.0" width="22" height="22"/>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="width" constant="20" id="7Q2-ny-OcJ"/>
-                                                                                        <constraint firstAttribute="height" constant="20" id="Tt7-i8-qAM"/>
+                                                                                        <constraint firstAttribute="width" constant="22" id="7Q2-ny-OcJ"/>
+                                                                                        <constraint firstAttribute="height" constant="22" id="Tt7-i8-qAM"/>
                                                                                     </constraints>
                                                                                 </imageView>
                                                                             </subviews>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="20" id="P4h-3P-z7m"/>
+                                                                                <constraint firstAttribute="height" constant="22" id="P4h-3P-z7m"/>
                                                                             </constraints>
                                                                         </stackView>
                                                                     </subviews>
@@ -1506,7 +1540,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Credits" id="ER4-QY-MEO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="800"/>
+                    <size key="freeformSize" width="600" height="1200"/>
                     <connections>
                         <outlet property="headerImageView" destination="pp6-9E-2db" id="FdU-vi-KZN"/>
                         <outlet property="ourTeamLabel" destination="Gmj-ll-ihB" id="nrS-h2-G58"/>
@@ -2865,6 +2899,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="UF7-DQ-LBe"/>
-        <segue reference="R68-HX-fbp"/>
+        <segue reference="Yff-U6-LNC"/>
     </inferredMetricsTieBreakers>
 </document>

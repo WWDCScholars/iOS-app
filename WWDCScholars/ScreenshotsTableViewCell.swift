@@ -9,6 +9,7 @@
 import UIKit
 
 class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, ImageTappedDelegate {
+    @IBOutlet private weak var segmentedControl: UISegmentedControl!
     @IBOutlet private weak var collectionView: UICollectionView!
     
     var screenshots: [URL] = []
@@ -17,10 +18,15 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
     override func awakeFromNib() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        
+        self.segmentedControl.applyScholarsSegmentedStyle()
     }
     
     func showFullScreenHeader(imageView: UIImageView) {
         self.delegate?.showFullScreenHeader(imageView)
+    }
+    
+    @IBAction func segmentedControlChanged(sender: AnyObject) {
     }
 }
 

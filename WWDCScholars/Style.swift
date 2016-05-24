@@ -42,6 +42,12 @@ extension UIColor {
     }
 }
 
+extension UISegmentedControl {
+    func applyScholarsSegmentedStyle() {
+        self.tintColor = UIColor.scholarsPurpleColor()
+    }
+}
+
 extension UIButton {
     func applyScholarsButtonStyle() {
         self.layer.cornerRadius = 7.0

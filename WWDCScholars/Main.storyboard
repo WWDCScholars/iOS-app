@@ -1263,16 +1263,24 @@
                                             <constraint firstAttribute="height" constant="30" id="Ru8-Bg-e9i"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="nbF-qz-3hW" id="7G8-Hw-0TW"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="42 Scholars Online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kab-j0-Izk">
-                                        <rect key="frame" x="8" y="42" width="200" height="16"/>
+                                        <rect key="frame" x="8" y="42" width="516" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="801-nD-ego"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="801-nD-ego"/>
+                                            </mask>
+                                        </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45K-41-Skw">
                                         <rect key="frame" x="532" y="8" width="60" height="46"/>
@@ -1280,12 +1288,16 @@
                                             <constraint firstAttribute="width" constant="60" id="YRy-56-XB4"/>
                                         </constraints>
                                         <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="sendButtonTapped:" destination="nbF-qz-3hW" eventType="touchUpInside" id="uJp-UI-3HP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="45K-41-Skw" firstAttribute="leading" secondItem="ipz-or-O9M" secondAttribute="trailing" constant="8" id="0ZO-MX-bI8"/>
                                     <constraint firstItem="ipz-or-O9M" firstAttribute="leading" secondItem="fhX-Hu-3Th" secondAttribute="leading" constant="8" id="82W-Zl-84e"/>
+                                    <constraint firstItem="45K-41-Skw" firstAttribute="leading" secondItem="kab-j0-Izk" secondAttribute="trailing" constant="8" id="EuX-9g-JYw"/>
                                     <constraint firstAttribute="height" constant="62" id="Kjp-9j-ma1"/>
                                     <constraint firstItem="kab-j0-Izk" firstAttribute="top" secondItem="ipz-or-O9M" secondAttribute="bottom" constant="4" id="Llc-FB-7Y0"/>
                                     <constraint firstItem="ipz-or-O9M" firstAttribute="top" secondItem="fhX-Hu-3Th" secondAttribute="top" constant="8" id="Pnm-j5-cbB"/>
@@ -1309,9 +1321,13 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="WB2-0Y-gHX" appends="YES" id="sYD-Vo-M5a"/>
+                                </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="TnL-Dp-Vmi" secondAttribute="trailing" id="00B-E8-hUd"/>
                             <constraint firstItem="fhX-Hu-3Th" firstAttribute="leading" secondItem="HGP-Vn-4VT" secondAttribute="leading" id="4ju-rb-MuV"/>
@@ -1324,10 +1340,18 @@
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="Sua-Tg-f6R"/>
                     <connections>
+                        <outlet property="containerView" destination="fhX-Hu-3Th" id="B1f-n8-aP5"/>
+                        <outlet property="containerViewBottomConstraint" destination="Hoz-dM-EMW" id="2K6-xR-wQc"/>
+                        <outlet property="messageTextField" destination="ipz-or-O9M" id="BBJ-Zx-Uhr"/>
                         <outlet property="sendButton" destination="45K-41-Skw" id="O0F-CB-ox9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZE-kb-XF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="WB2-0Y-gHX">
+                    <connections>
+                        <action selector="viewTapped:" destination="nbF-qz-3hW" id="um7-V9-UwX"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2029" y="790"/>
         </scene>

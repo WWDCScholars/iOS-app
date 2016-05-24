@@ -54,12 +54,14 @@ extension UIButton {
         self.layer.cornerRadius = 4.0
         self.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.backgroundColor = UIColor.scholarsPurpleColor()
+        self.enabled = true
     }
     
     func applyInactiveChatButtonStyle() {
         self.layer.cornerRadius = 4.0
         self.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.backgroundColor = UIColor.lightGrayColor()
+        self.enabled = false
     }
 }
 

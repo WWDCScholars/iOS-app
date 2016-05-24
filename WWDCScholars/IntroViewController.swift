@@ -277,7 +277,7 @@ extension IntroViewController: UIScrollViewDelegate {
                 self.getStartedLabel.alpha = 0.0
                 self.leftArrowButton.alpha = pageNumber == 0 ? 0.0 : 1.0
                 }, completion: { (value: Bool) in
-                    self.leftArrowButton.hidden = self.leftArrowButton.alpha == 0
+                    self.leftArrowButton.hidden = !value
             })
         }
     }

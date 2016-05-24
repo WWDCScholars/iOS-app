@@ -173,7 +173,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate {
 
 extension ScholarDetailViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -205,6 +205,12 @@ extension ScholarDetailViewController: UITableViewDataSource {
             cell.delegate = self
                         
             return cell
+        case 3:
+            let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("socialButtonsTableViewCell") as! SocialButtonsTableViewCell
+            
+            cell.setIconVisibility(self.currentScholar!)
+            
+            return cell
         default:
             return UITableViewCell()
         }
@@ -218,6 +224,8 @@ extension ScholarDetailViewController: UITableViewDataSource {
             return UITableViewAutomaticDimension
         case 2:
             return 348.0
+        case 3:
+            return 54.0
         default:
             return 0.0
         }

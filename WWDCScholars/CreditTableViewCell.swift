@@ -21,12 +21,12 @@ class CreditTableViewCell: UITableViewCell {
     func setIconVisibility(tasks: [String]) {
         //This code is temporary until I think of a better implementation
         
-        self.iOSImageView.hidden = !tasks.contains("iOS") ? true : false
-        self.webImageView.hidden = !tasks.contains("Web") ? true : false
-        self.projectManagementImageView.hidden = !tasks.contains("Project Management") ? true : false
-        self.databaseImageView.hidden = !tasks.contains("Database") ? true : false
-        self.designImageView.hidden = !tasks.contains("Design") ? true : false
-        self.appleWatchImageView.hidden = !tasks.contains("Apple Watch") ? true : false
+        self.iOSImageView.hidden = !tasks.contains("iOS")
+        self.webImageView.hidden = !tasks.contains("Web")
+        self.projectManagementImageView.hidden = !tasks.contains("Project Management")
+        self.databaseImageView.hidden = !tasks.contains("Database")
+        self.designImageView.hidden = !tasks.contains("Design")
+        self.appleWatchImageView.hidden = !tasks.contains("Apple Watch")
     }
     
     override func awakeFromNib() {

@@ -8,6 +8,24 @@
 
 import UIKit
 
+protocol ImageTappedDelegate {
+    func showFullScreenHeader(imageView: UIImageView)
+}
+
 class ScreenshotsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
+    
+    var delegate: ImageTappedDelegate?
+    
+    override func awakeFromNib() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ScreenshotsCollectionViewCell.showFullScreenHeader))
+        self.imageView.userInteractionEnabled = true
+        self.imageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    // MARK: - Internal functions
+    
+    internal func showFullScreenHeader() {
+        self.delegate?.showFullScreenHeader(self.imageView)
+    }
 }

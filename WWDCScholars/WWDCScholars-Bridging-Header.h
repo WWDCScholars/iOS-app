@@ -7,3 +7,5 @@
 #import "QCluster.h"
 #import "ClusterAnnotationView.h"
 #import "TOMSMorphingLabel.h"
+#import "JTSImageInfo.h"
+#import "JTSImageViewController.h"

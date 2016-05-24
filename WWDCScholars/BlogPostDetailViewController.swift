@@ -103,6 +103,10 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    internal func showFullScreenHeader() {
+        ImageManager.sharedInstance.expandImage(self.headerImageView, viewController: self)
+    }
+    
     // MARK: - Private functions
     
     private func removeTitleView() {
@@ -150,6 +154,10 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
             self.registerForPreviewingWithDelegate(self, sourceView: self.authorButton)
             self.registerForPreviewingWithDelegate(self, sourceView: self.authorProfileImageButton)
         }
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BlogPostDetailViewController.showFullScreenHeader))
+        self.headerImageView.userInteractionEnabled = true
+        self.headerImageView.addGestureRecognizer(tapGestureRecognizer)
         
         self.titleLabel.text = self.currentPost.title
         self.authorButton.setTitle(self.currentPost.scholarName, forState: .Normal)

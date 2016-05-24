@@ -15,7 +15,7 @@ import MapKit
     optional func refreshScholarsWithNewFavorite()
 }
 
-class ScholarDetailViewController: UIViewController {
+class ScholarDetailViewController: UIViewController, ImageTappedDelegate {
     @IBOutlet private weak var detailsTableView: UITableView!
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var nameLabel: UILabel!
@@ -137,6 +137,12 @@ class ScholarDetailViewController: UIViewController {
         self.favoritesButton.tintColor = filled ? UIColor.goldColor() : UIColor.whiteColor()
     }
     
+    // MARK: - Internal functions
+    
+    func showFullScreenHeader(imageView: UIImageView) {
+        ImageManager.sharedInstance.expandImage(imageView, viewController: self)
+    }
+    
     // MARK: - IBActions
     
     @IBAction func favoriteButtonTapped(sender: AnyObject) {
@@ -196,6 +202,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("screenshotsTableViewCell") as! ScreenshotsTableViewCell
             
             cell.screenshots = self.currentScholar!.screenshots
+            cell.delegate = self
                         
             return cell
         default:

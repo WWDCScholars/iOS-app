@@ -8,14 +8,19 @@
 
 import UIKit
 
-class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate {
+class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, ImageTappedDelegate {
     @IBOutlet private weak var collectionView: UICollectionView!
     
     var screenshots: [URL] = []
+    var delegate: ImageTappedDelegate?
     
     override func awakeFromNib() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+    }
+    
+    func showFullScreenHeader(imageView: UIImageView) {
+        self.delegate?.showFullScreenHeader(imageView)
     }
 }
 
@@ -33,6 +38,8 @@ extension ScreenshotsTableViewCell: UICollectionViewDataSource {
         if screenshot != nil {
             cell.imageView.af_setImageWithURL(screenshot!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
         }
+        
+        cell.delegate = self
         
         return cell
     }

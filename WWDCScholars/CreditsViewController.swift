@@ -21,6 +21,10 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
         if self.traitCollection.forceTouchCapability == .Available {
             self.registerForPreviewingWithDelegate(self, sourceView: self.view)
         }
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreditsViewController.showFullScreenHeader))
+        self.headerImageView.userInteractionEnabled = true
+        self.headerImageView.addGestureRecognizer(tapGestureRecognizer)
 
         self.styleUI()
     }
@@ -37,6 +41,10 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
     }
     
     // MARK: - Internal functions
+    
+    internal func showFullScreenHeader() {
+        ImageManager.sharedInstance.expandImage(self.headerImageView, viewController: self)
+    }
     
     internal func openContactURL(url: String) {
         let viewController = SFSafariViewController(URL: NSURL(string: url)!)

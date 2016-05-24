@@ -950,7 +950,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1200"/>
                     <connections>
-                        <outlet property="contentViewHeightConstraint" destination="KXd-kW-aP0" id="hgB-f9-fqA"/>
+                        <outlet property="contentSizeConstraint" destination="KXd-kW-aP0" id="IKx-4l-JwF"/>
                         <outlet property="detailsTableView" destination="M4r-gS-Ao6" id="X20-92-Qc8"/>
                         <outlet property="favoritesButton" destination="mAx-4v-WgU" id="p4K-Gb-vzc"/>
                         <outlet property="locationLabel" destination="lMc-qU-8MY" id="gxy-Bh-4jT"/>

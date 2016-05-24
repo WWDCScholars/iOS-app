@@ -18,6 +18,7 @@ import MessageUI
 }
 
 class ScholarDetailViewController: UIViewController, ImageTappedDelegate, SocialButtonDelegate, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate {
+    @IBOutlet private weak var contentSizeConstraint: NSLayoutConstraint!
     @IBOutlet private weak var detailsTableView: UITableView!
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var nameLabel: UILabel!
@@ -25,7 +26,6 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     @IBOutlet private weak var profileImageView: UIImageView!
     @IBOutlet private weak var profileImageViewBackground: UIView!
     @IBOutlet private weak var teamIconImageView: UIImageView!
-    @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var favoritesButton: UIBarButtonItem!
     
     private var currentScholar: Scholar?
@@ -44,6 +44,12 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         
         self.styleUI()
         self.updateUI()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.contentSizeConstraint.constant = self.detailsTableView.contentSize.height - 390.0
     }
     
     // MARK: - UIPreviewActions

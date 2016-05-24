@@ -31,12 +31,17 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     private var currentScholar: Scholar?
     var delegate: QuickActionsDelegate?
     
-    func setScholar(id: String) {
-        currentScholar = DatabaseManager.sharedInstance.scholarForId(id)
-    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let profileTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ScholarDetailViewController.profileImageTapped))
+        self.profileImageView.userInteractionEnabled = true
+        self.profileImageView.addGestureRecognizer(profileTapGestureRecognizer)
+        
+        let mapTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ScholarDetailViewController.convertMapToImage))
+        self.mapView.userInteractionEnabled = true
+        self.mapView.addGestureRecognizer(mapTapGestureRecognizer)
+        
         self.styleUI()
         self.updateUI()
     }
@@ -106,6 +111,27 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     
     // MARK: - Private functions
     
+    internal func convertMapToImage() {
+        let regularSize = self.mapView.frame.size
+        let viewWidth = self.view.frame.width
+        let viewHeight = self.view.frame.height
+        
+        self.mapView.frame.size = CGSize(width: viewWidth, height: viewHeight)
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: viewWidth, height: viewHeight), false, UIScreen.mainScreen().scale)
+        self.mapView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let imageView = UIImageView()
+        imageView.frame = self.mapView.frame
+        imageView.image = image
+        
+        self.mapView.frame.size = regularSize
+        
+        self.showFullScreenImage(imageView)
+    }
+    
     private func configureMap() {
         self.mapView.zoomEnabled = false
         self.mapView.scrollEnabled = false
@@ -141,7 +167,11 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     
     // MARK: - Internal functions
     
-    func showFullScreenHeader(imageView: UIImageView) {
+    internal func profileImageTapped() {
+        self.showFullScreenImage(self.profileImageView)
+    }
+    
+    internal func showFullScreenImage(imageView: UIImageView) {
         ImageManager.sharedInstance.expandImage(imageView, viewController: self)
     }
     
@@ -168,6 +198,10 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
             
             self.presentViewController(viewController, animated: true, completion: nil)
         }
+    }
+    
+    internal func setScholar(id: String) {
+        self.currentScholar = DatabaseManager.sharedInstance.scholarForId(id)
     }
     
     // MARK: - IBActions

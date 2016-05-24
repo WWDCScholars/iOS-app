@@ -22,7 +22,7 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
             self.registerForPreviewingWithDelegate(self, sourceView: self.view)
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreditsViewController.showFullScreenHeader))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreditsViewController.showFullScreenImage))
         self.headerImageView.userInteractionEnabled = true
         self.headerImageView.addGestureRecognizer(tapGestureRecognizer)
 
@@ -42,7 +42,7 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
     
     // MARK: - Internal functions
     
-    internal func showFullScreenHeader() {
+    internal func showFullScreenImage() {
         ImageManager.sharedInstance.expandImage(self.headerImageView, viewController: self)
     }
     

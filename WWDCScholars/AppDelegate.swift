@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         var keys: NSDictionary?
         
-        print ("Matt is awesome!") // 500st commit!!
+        print("Andrew is awesome!") // 500th commit!
         
         if let path = NSBundle.mainBundle().pathForResource("ServerDetails", ofType: "plist") {
             keys = NSDictionary(contentsOfFile: path)

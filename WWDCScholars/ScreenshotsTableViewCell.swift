@@ -22,8 +22,8 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         self.segmentedControl.applyScholarsSegmentedStyle()
     }
     
-    func showFullScreenHeader(imageView: UIImageView) {
-        self.delegate?.showFullScreenHeader(imageView)
+    internal func showFullScreenImage(imageView: UIImageView) {
+        self.delegate?.showFullScreenImage(imageView)
     }
     
     @IBAction func segmentedControlChanged(sender: AnyObject) {

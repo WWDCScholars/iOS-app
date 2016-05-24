@@ -217,7 +217,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
         case 1:
             return UITableViewAutomaticDimension
         case 2:
-            return 296.0
+            return 348.0
         default:
             return 0.0
         }

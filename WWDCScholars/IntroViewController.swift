@@ -55,6 +55,12 @@ class IntroViewController: UIViewController {
         self.scrollView.accessibilityIdentifier = "introScroll"
         self.leftArrowButton.alpha = 0.0
         
+        self.leftArrowButton.imageEdgeInsets = UIEdgeInsets(top: 18.0, left: 0.0, bottom: 18.0, right: 0.0)
+        self.leftArrowButton.imageView?.contentMode = .ScaleAspectFill
+        
+        self.rightArrowButton.imageEdgeInsets = UIEdgeInsets(top: 18.0, left: 0.0, bottom: 18.0, right: 0.0)
+        self.rightArrowButton.imageView?.contentMode = .ScaleAspectFill
+        
         self.addObjects()
         self.pageControl.numberOfPages = Int(self.numberOfScreens - 1)
     }
@@ -261,16 +267,17 @@ extension IntroViewController: UIScrollViewDelegate {
         self.pageControl.currentPage = pageNumber
         
         if pageNumber >= 4 {
-            UIView.animateWithDuration(0.5, animations: {
+            UIView.animateWithDuration(0.2, animations: {
                 self.pageControl.alpha = 0.0
                 self.getStartedLabel.alpha = 1.0
             })
         } else {
-            UIView.animateWithDuration(0.5, animations: {
+            UIView.animateWithDuration(0.2, animations: {
                 self.pageControl.alpha = 1.0
                 self.getStartedLabel.alpha = 0.0
                 self.leftArrowButton.alpha = pageNumber == 0 ? 0.0 : 1.0
-                self.leftArrowButton.hidden = self.leftArrowButton.alpha == 0
+                }, completion: { (value: Bool) in
+                    self.leftArrowButton.hidden = self.leftArrowButton.alpha == 0
             })
         }
     }

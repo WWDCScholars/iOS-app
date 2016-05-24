@@ -28,7 +28,6 @@ class CreditTableViewCell: UITableViewCell {
         self.databaseImageView.hidden = !tasks.contains("Database") ? true : false
         self.designImageView.hidden = !tasks.contains("Design") ? true : false
         self.appleWatchImageView.hidden = !tasks.contains("Apple Watch") ? true : false
-        self.marketingImageView.hidden = !tasks.contains("Marketing") ? true : false
     }
     
     override func awakeFromNib() {

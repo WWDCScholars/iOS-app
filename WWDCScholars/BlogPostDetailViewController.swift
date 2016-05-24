@@ -60,6 +60,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         "<head> \n" +
         "<style type=\"text/css\"> \n" +
         "body {font-family: \"%@\"; font-size: %f;}\n" +
+        "img {max-width: \(self.view.frame.width - 32.0)px;}\n" +
         "</style> \n" +
         "</head> \n" +
         "<body>%@</body> \n" +

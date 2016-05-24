@@ -17,7 +17,6 @@ class CreditTableViewCell: UITableViewCell {
     @IBOutlet private weak var databaseImageView: UIImageView!
     @IBOutlet private weak var designImageView: UIImageView!
     @IBOutlet private weak var appleWatchImageView: UIImageView!
-    @IBOutlet private weak var marketingImageView: UIImageView!
     
     func setIconVisibility(tasks: [String]) {
         //This code is temporary until I think of a better implementation

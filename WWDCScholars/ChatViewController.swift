@@ -9,6 +9,8 @@
 import UIKit
 
 class ChatViewController: UIViewController {
+    @IBOutlet private weak var sendButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,7 +21,8 @@ class ChatViewController: UIViewController {
     
     private func styleUI() {
         self.title = "Chat"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    
+        self.sendButton.applyInactiveChatButtonStyle()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

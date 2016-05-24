@@ -44,10 +44,22 @@ extension UIColor {
 
 extension UIButton {
     func applyScholarsButtonStyle() {
-        self.layer.cornerRadius = 7
+        self.layer.cornerRadius = 7.0
         self.layer.borderColor = UIColor.scholarsPurpleColor().CGColor
         self.layer.borderWidth = 0.5
-        self.setTitleColor(UIColor.scholarsPurpleColor(), forState: UIControlState.Normal)
+        self.setTitleColor(UIColor.scholarsPurpleColor(), forState: .Normal)
+    }
+    
+    func applyActiveChatButtonStyle() {
+        self.layer.cornerRadius = 4.0
+        self.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.backgroundColor = UIColor.scholarsPurpleColor()
+    }
+    
+    func applyInactiveChatButtonStyle() {
+        self.layer.cornerRadius = 4.0
+        self.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.backgroundColor = UIColor.lightGrayColor()
     }
 }
 

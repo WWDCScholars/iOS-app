@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol SocialButtonDelegate {
+    func openURL(url: String)
+    func composeEmail(address: String)
+}
+
 class SocialButtonsTableViewCell: UITableViewCell {
     @IBOutlet private weak var iconsView: UIView!
     @IBOutlet weak var twitterImageView: UIButton!
@@ -18,10 +23,42 @@ class SocialButtonsTableViewCell: UITableViewCell {
     @IBOutlet weak var websiteImageView: UIButton!
     @IBOutlet weak var appStoreImageView: UIButton!
     
-    func setIconVisibility(scholar: Scholar) {
+    var delegate: SocialButtonDelegate?
+    var scholar: Scholar!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        linkedInImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.linkedInTapped), forControlEvents: .TouchUpInside)
+        githubImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.gitHubTapped), forControlEvents: .TouchUpInside)
+        websiteImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.websiteTapped), forControlEvents: .TouchUpInside)
+        emailImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.emailTapped), forControlEvents: .TouchUpInside)
+    }
+    
+    // MARK: - Internal functions
+    
+    internal func linkedInTapped() {
+        self.delegate?.openURL(scholar.linkedInURL!)
+    }
+    
+    internal func gitHubTapped() {
+        self.delegate?.openURL(scholar.githubURL!)
+    }
+    
+    internal func websiteTapped() {
+        self.delegate?.openURL(scholar.websiteURL!)
+    }
+    
+    internal func emailTapped() {
+        self.delegate?.composeEmail(self.scholar.email)
+    }
+    
+    // MARK: - Public functions
+    
+    func setIconVisibility() {
         self.linkedInImageView.hidden = scholar.linkedInURL == nil
         self.facebookImageView.hidden = scholar.facebookURL == nil
-        self.githubImageView.hidden = scholar.facebookURL == nil
+        self.githubImageView.hidden = scholar.githubURL == nil
         self.websiteImageView.hidden = scholar.websiteURL == nil
         self.appStoreImageView.hidden = scholar.iTunesURL == nil
         

@@ -8,6 +8,8 @@
 
 import UIKit
 import MapKit
+import SafariServices
+import MessageUI
 
 @objc protocol QuickActionsDelegate {
     func openContactURL(url: String)
@@ -15,7 +17,7 @@ import MapKit
     optional func refreshScholarsWithNewFavorite()
 }
 
-class ScholarDetailViewController: UIViewController, ImageTappedDelegate {
+class ScholarDetailViewController: UIViewController, ImageTappedDelegate, SocialButtonDelegate, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate {
     @IBOutlet private weak var detailsTableView: UITableView!
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var nameLabel: UILabel!
@@ -143,6 +145,31 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate {
         ImageManager.sharedInstance.expandImage(imageView, viewController: self)
     }
     
+    func openURL(url: String) {
+        let viewController = SFSafariViewController(URL: NSURL(string: url)!)
+        viewController.delegate = self
+        
+        self.presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    internal func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    internal func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    internal func composeEmail(address: String) {
+        if MFMailComposeViewController.canSendMail() {
+            let viewController = MFMailComposeViewController()
+            viewController.mailComposeDelegate = self
+            viewController.setToRecipients([address])
+            
+            self.presentViewController(viewController, animated: true, completion: nil)
+        }
+    }
+    
     // MARK: - IBActions
     
     @IBAction func favoriteButtonTapped(sender: AnyObject) {
@@ -208,7 +235,9 @@ extension ScholarDetailViewController: UITableViewDataSource {
         case 3:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("socialButtonsTableViewCell") as! SocialButtonsTableViewCell
             
-            cell.setIconVisibility(self.currentScholar!)
+            cell.scholar = self.currentScholar!
+            cell.delegate = self
+            cell.setIconVisibility()
             
             return cell
         default:

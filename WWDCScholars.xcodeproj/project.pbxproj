@@ -56,6 +56,20 @@
 		6E51E2751CDED4C00095FD38 /* LocationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E51E2741CDED4C00095FD38 /* LocationSelectViewController.swift */; };
 		6E51E2791CDEE6A40095FD38 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E51E2781CDEE6A40095FD38 /* LocationManager.swift */; };
 		6E6E42121CF3F07E0089B963 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6E42111CF3F07E0089B963 /* ImageManager.swift */; };
+		6E7952871CF640E100160B26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E7952861CF640E100160B26 /* GoogleService-Info.plist */; };
+		6E7952881CF640E100160B26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E7952861CF640E100160B26 /* GoogleService-Info.plist */; };
+		6E7952891CF640E100160B26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E7952861CF640E100160B26 /* GoogleService-Info.plist */; };
+		6E79528A1CF640E100160B26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E7952861CF640E100160B26 /* GoogleService-Info.plist */; };
+		6E79528B1CF640E100160B26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E7952861CF640E100160B26 /* GoogleService-Info.plist */; };
+		6E79528D1CF6418C00160B26 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79528C1CF6418C00160B26 /* Firebase.framework */; };
+		6E79528E1CF6418C00160B26 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79528C1CF6418C00160B26 /* Firebase.framework */; };
+		6E79528F1CF6418C00160B26 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79528C1CF6418C00160B26 /* Firebase.framework */; };
+		6E7952901CF6418C00160B26 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79528C1CF6418C00160B26 /* Firebase.framework */; };
+		6E7952921CF641E300160B26 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952911CF641E300160B26 /* libc++.tbd */; };
+		6E7952941CF641F500160B26 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952931CF641F500160B26 /* libicucore.tbd */; };
+		6E7952961CF641FF00160B26 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952951CF641FF00160B26 /* CFNetwork.framework */; };
+		6E7952981CF6420700160B26 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952971CF6420700160B26 /* Security.framework */; };
+		6E79529A1CF6421100160B26 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952991CF6421100160B26 /* SystemConfiguration.framework */; };
 		6E9DD6761CC5961F00433193 /* CreditsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9DD6751CC5961F00433193 /* CreditsManager.swift */; };
 		6EA83F161CF3E99B00E261F7 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA83F0B1CF3E99B00E261F7 /* JTSAnimatedGIFUtility.m */; };
 		6EA83F171CF3E99B00E261F7 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA83F0D1CF3E99B00E261F7 /* JTSImageInfo.m */; };
@@ -290,6 +304,13 @@
 		6E51E2741CDED4C00095FD38 /* LocationSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectViewController.swift; sourceTree = "<group>"; };
 		6E51E2781CDEE6A40095FD38 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6E6E42111CF3F07E0089B963 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		6E7952861CF640E100160B26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6E79528C1CF6418C00160B26 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		6E7952911CF641E300160B26 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		6E7952931CF641F500160B26 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		6E7952951CF641FF00160B26 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6E7952971CF6420700160B26 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6E7952991CF6421100160B26 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6E9DD6751CC5961F00433193 /* CreditsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsManager.swift; sourceTree = "<group>"; };
 		6EA83F0A1CF3E99B00E261F7 /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSAnimatedGIFUtility.h; sourceTree = "<group>"; };
 		6EA83F0B1CF3E99B00E261F7 /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSAnimatedGIFUtility.m; sourceTree = "<group>"; };
@@ -407,6 +428,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E79529A1CF6421100160B26 /* SystemConfiguration.framework in Frameworks */,
+				6E7952981CF6420700160B26 /* Security.framework in Frameworks */,
+				6E7952961CF641FF00160B26 /* CFNetwork.framework in Frameworks */,
+				6E7952941CF641F500160B26 /* libicucore.tbd in Frameworks */,
+				6E7952921CF641E300160B26 /* libc++.tbd in Frameworks */,
 				22E937B71CDCE4F300A2BEBE /* SafariServices.framework in Frameworks */,
 				6ED926521CBF0BEE0082FCFE /* MapKit.framework in Frameworks */,
 				223F5E9A1CB970EC00E582C5 /* AVFoundation.framework in Frameworks */,
@@ -414,6 +440,7 @@
 				7BBA87C51CBD641F0057E9AD /* RealmSwift.framework in Frameworks */,
 				7BBA87641CBB7F3A0057E9AD /* Fabric.framework in Frameworks */,
 				7BBA87C31CBD641F0057E9AD /* Realm.framework in Frameworks */,
+				6E79528D1CF6418C00160B26 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +448,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E7952901CF6418C00160B26 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +456,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E79528E1CF6418C00160B26 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +464,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E79528F1CF6418C00160B26 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +714,7 @@
 		6EEA892E1CDBFCD200245445 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6E7952861CF640E100160B26 /* GoogleService-Info.plist */,
 				6EB723D81CB9B85B005A076F /* Assets.xcassets */,
 				2238842C1C8252D900A96752 /* Info.plist */,
 				223884291C8252D900A96752 /* LaunchScreen.storyboard */,
@@ -761,6 +792,12 @@
 		7BBA87A21CBD5D680057E9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E7952991CF6421100160B26 /* SystemConfiguration.framework */,
+				6E7952971CF6420700160B26 /* Security.framework */,
+				6E7952951CF641FF00160B26 /* CFNetwork.framework */,
+				6E7952931CF641F500160B26 /* libicucore.tbd */,
+				6E7952911CF641E300160B26 /* libc++.tbd */,
+				6E79528C1CF6418C00160B26 /* Firebase.framework */,
 				6EA83F091CF3E99B00E261F7 /* JTSImageViewController */,
 				7BBA88221CBD8AD10057E9AD /* Alamofire */,
 				223F5E991CB970EC00E582C5 /* AVFoundation.framework */,
@@ -995,6 +1032,7 @@
 			files = (
 				7B4D519C1CC110A50072E114 /* Info-tvOS.plist in Resources */,
 				2238842B1C8252D900A96752 /* LaunchScreen.storyboard in Resources */,
+				6E7952871CF640E100160B26 /* GoogleService-Info.plist in Resources */,
 				6E08859C1CEE6AE900E375BB /* ServerDetails.plist in Resources */,
 				223F5E9B1CB9724000E582C5 /* tabBarDidSelectItem.m4a in Resources */,
 				6EB723D51CB9B84D005A076F /* Credits.plist in Resources */,
@@ -1010,6 +1048,7 @@
 			files = (
 				2270E00C1CF3293200C88C2E /* Assets.xcassets in Resources */,
 				2270E00A1CF3293200C88C2E /* Interface.storyboard in Resources */,
+				6E79528A1CF640E100160B26 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1018,6 +1057,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2270E01C1CF3293200C88C2E /* Assets.xcassets in Resources */,
+				6E79528B1CF640E100160B26 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1025,6 +1065,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E7952881CF640E100160B26 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1032,6 +1073,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E7952891CF640E100160B26 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1438,6 +1480,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "WWDCScholars watchOS App Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension";
@@ -1453,6 +1499,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "WWDCScholars watchOS App Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension";
@@ -1504,6 +1554,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WWDCScholarsUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1518,6 +1572,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WWDCScholarsUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

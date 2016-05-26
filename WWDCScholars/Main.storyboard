@@ -393,7 +393,7 @@
                                                                                         <constraint firstItem="DOX-7g-D7r" firstAttribute="centerY" secondItem="dd5-vu-RLz" secondAttribute="centerY" id="olg-bK-BXb"/>
                                                                                     </constraints>
                                                                                 </view>
-                                                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="in2-F3-pr9">
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="in2-F3-pr9">
                                                                                     <rect key="frame" x="195" y="0.0" width="195" height="70"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-dA-hQT">
@@ -3010,15 +3010,15 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ry2-8I-eyH" customClass="DesignableButton" customModule="Scholars" customModuleProvider="target">
-                                                            <rect key="frame" x="200" y="552" width="200" height="35"/>
+                                                            <rect key="frame" x="190" y="552" width="220" height="35"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="6Nr-5p-tj9"/>
-                                                                <constraint firstAttribute="width" constant="200" id="AHc-VT-0rA"/>
+                                                                <constraint firstAttribute="width" constant="220" id="AHc-VT-0rA"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <state key="normal" title="No Account? Sign up!">
+                                                            <state key="normal" title="Not in the database? Sign up!">
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <userDefinedRuntimeAttributes>
@@ -3168,6 +3168,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="UF7-DQ-LBe"/>
-        <segue reference="Yff-U6-LNC"/>
+        <segue reference="If2-0g-pPV"/>
     </inferredMetricsTieBreakers>
 </document>

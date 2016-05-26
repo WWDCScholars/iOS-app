@@ -69,23 +69,18 @@
 		6E7952BF1CF64D1A00160B26 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BA1CF64D1A00160B26 /* FirebaseAnalytics.framework */; };
 		6E7952C01CF64D1A00160B26 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BA1CF64D1A00160B26 /* FirebaseAnalytics.framework */; };
 		6E7952C11CF64D1A00160B26 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BA1CF64D1A00160B26 /* FirebaseAnalytics.framework */; };
-		6E7952C21CF64D1A00160B26 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BA1CF64D1A00160B26 /* FirebaseAnalytics.framework */; };
 		6E7952C31CF64D1A00160B26 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BB1CF64D1A00160B26 /* FirebaseInstanceID.framework */; };
 		6E7952C41CF64D1A00160B26 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BB1CF64D1A00160B26 /* FirebaseInstanceID.framework */; };
 		6E7952C51CF64D1A00160B26 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BB1CF64D1A00160B26 /* FirebaseInstanceID.framework */; };
-		6E7952C61CF64D1A00160B26 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BB1CF64D1A00160B26 /* FirebaseInstanceID.framework */; };
 		6E7952C71CF64D1A00160B26 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BC1CF64D1A00160B26 /* GoogleInterchangeUtilities.framework */; };
 		6E7952C81CF64D1A00160B26 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BC1CF64D1A00160B26 /* GoogleInterchangeUtilities.framework */; };
 		6E7952C91CF64D1A00160B26 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BC1CF64D1A00160B26 /* GoogleInterchangeUtilities.framework */; };
-		6E7952CA1CF64D1A00160B26 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BC1CF64D1A00160B26 /* GoogleInterchangeUtilities.framework */; };
 		6E7952CB1CF64D1A00160B26 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BD1CF64D1A00160B26 /* GoogleSymbolUtilities.framework */; };
 		6E7952CC1CF64D1A00160B26 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BD1CF64D1A00160B26 /* GoogleSymbolUtilities.framework */; };
 		6E7952CD1CF64D1A00160B26 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BD1CF64D1A00160B26 /* GoogleSymbolUtilities.framework */; };
-		6E7952CE1CF64D1A00160B26 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BD1CF64D1A00160B26 /* GoogleSymbolUtilities.framework */; };
 		6E7952CF1CF64D1A00160B26 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BE1CF64D1A00160B26 /* GoogleUtilities.framework */; };
 		6E7952D01CF64D1A00160B26 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BE1CF64D1A00160B26 /* GoogleUtilities.framework */; };
 		6E7952D11CF64D1A00160B26 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BE1CF64D1A00160B26 /* GoogleUtilities.framework */; };
-		6E7952D21CF64D1A00160B26 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952BE1CF64D1A00160B26 /* GoogleUtilities.framework */; };
 		6E9DD6761CC5961F00433193 /* CreditsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9DD6751CC5961F00433193 /* CreditsManager.swift */; };
 		6EA83F161CF3E99B00E261F7 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA83F0B1CF3E99B00E261F7 /* JTSAnimatedGIFUtility.m */; };
 		6EA83F171CF3E99B00E261F7 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA83F0D1CF3E99B00E261F7 /* JTSImageInfo.m */; };
@@ -474,11 +469,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E7952CA1CF64D1A00160B26 /* GoogleInterchangeUtilities.framework in Frameworks */,
-				6E7952C21CF64D1A00160B26 /* FirebaseAnalytics.framework in Frameworks */,
-				6E7952CE1CF64D1A00160B26 /* GoogleSymbolUtilities.framework in Frameworks */,
-				6E7952D21CF64D1A00160B26 /* GoogleUtilities.framework in Frameworks */,
-				6E7952C61CF64D1A00160B26 /* FirebaseInstanceID.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1584,7 +1574,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wwdcscholars.WWDCScholarsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WWDCScholars.app/WWDCScholars";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scholars.app/Scholars";
 			};
 			name = Debug;
 		};
@@ -1602,7 +1592,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wwdcscholars.WWDCScholarsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WWDCScholars.app/WWDCScholars";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scholars.app/Scholars";
 			};
 			name = Release;
 		};

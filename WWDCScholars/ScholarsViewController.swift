@@ -477,6 +477,7 @@ extension ScholarsViewController: UIViewControllerPreviewingDelegate {
         previewViewController.delegate = self
         previewViewController.preferredContentSize = CGSize.zero
         previewingContext.sourceRect = self.view.convertRect(cell.frame, fromView: self.scholarsCollectionView)
+        previewingContext.sourceView.layer.cornerRadius = 7
         
         return previewViewController
     }

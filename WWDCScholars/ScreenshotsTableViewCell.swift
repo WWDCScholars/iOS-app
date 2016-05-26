@@ -42,7 +42,7 @@ extension ScreenshotsTableViewCell: UICollectionViewDataSource {
         let screenshot = NSURL(string: self.screenshots[indexPath.item])
         
         if screenshot != nil {
-            cell.imageView.af_setImageWithURL(screenshot!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+            cell.imageView.af_setImageWithURL(screenshot!, placeholderImage: nil, imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
         }
         
         cell.delegate = self

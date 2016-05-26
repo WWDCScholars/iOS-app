@@ -1598,7 +1598,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="xUb-oc-Jys"/>
                                                             </constraints>
-                                                            <string key="text">Many thanks to everyone who has contributed this year and in previous years. We are also very grateful for the invaluable advice and support provided by Apple!</string>
+                                                            <string key="text">Many thanks to everyone who has contributed this year and in previous years. We are also very grateful for the invaluable advice and support provided by !</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -3168,6 +3168,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="UF7-DQ-LBe"/>
-        <segue reference="If2-0g-pPV"/>
+        <segue reference="Yff-U6-LNC"/>
     </inferredMetricsTieBreakers>
 </document>

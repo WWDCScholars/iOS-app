@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class ChatViewController: JSQMessagesViewController {
     private var messageReference: FIRDatabaseReference!
@@ -23,13 +24,13 @@ class ChatViewController: JSQMessagesViewController {
         self.senderDisplayName = "Andrew Walker"
         
         self.styleUI()
-        
-        self.addMessage("foo", text: "Hey!")
-        // messages sent from local sender
-        self.addMessage(senderId, text: "Yo!")
-        self.addMessage(senderId, text: "Test Message")
-        // animates the receiving of a new message on the view
         self.finishReceivingMessage()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.observeMessages()
     }
     
     // MARK: - UI
@@ -48,6 +49,17 @@ class ChatViewController: JSQMessagesViewController {
         let factory = JSQMessagesBubbleImageFactory()
         self.outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(UIColor.scholarsPurpleColor())
         self.incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
+    }
+    
+    private func observeMessages() {
+        let messagesQuery = self.messageReference.queryLimitedToLast(25)
+        messagesQuery.observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
+            let id = snapshot.value!["senderId"] as! String
+            let text = snapshot.value!["text"] as! String
+            
+            self.addMessage(id, text: text)
+            self.finishReceivingMessage()
+        }
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

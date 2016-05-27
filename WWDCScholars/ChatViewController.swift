@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class ChatViewController: JSQMessagesViewController {
-    private var ref: FIRDatabaseReference!
+    private var messageReference: FIRDatabaseReference!
     private var messages = [JSQMessage]()
     private var outgoingBubbleImageView: JSQMessagesBubbleImage!
     private var incomingBubbleImageView: JSQMessagesBubbleImage!
@@ -18,6 +18,7 @@ class ChatViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.messageReference = FIRDatabase.database().reference().child("messages")
         self.senderId = FIRAuth.auth()?.currentUser?.uid
         self.senderDisplayName = "Andrew Walker"
         
@@ -73,5 +74,28 @@ class ChatViewController: JSQMessagesViewController {
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
+    }
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as! JSQMessagesCollectionViewCell
+        let message = self.messages[indexPath.item]
+        
+        if message.senderId == self.senderId {
+            cell.textView!.textColor = UIColor.whiteColor()
+        } else {
+            cell.textView!.textColor = UIColor.blackColor()
+        }
+        
+        return cell
+    }
+    
+    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+        let itemRef = self.messageReference.childByAutoId()
+        let messageItem = ["text": text, "senderId": senderId]
+        itemRef.setValue(messageItem)
+        
+        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        
+        self.finishSendingMessage()
     }
 }

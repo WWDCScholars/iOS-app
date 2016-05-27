@@ -48,6 +48,23 @@ class ChatViewController: JSQMessagesViewController {
     
     // MARK: - UI
     
+    private func styleUI() {
+        self.title = "Chat"
+        
+        self.collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
+        self.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        
+        let factory = JSQMessagesBubbleImageFactory()
+        self.outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(UIColor.scholarsPurpleColor())
+        self.incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    // MARK: - Private functions
+    
     private func observeTyping() {
         let typingIndicatorRef = self.messageReference.child("typingIndicator")
         self.userIsTypingRef = typingIndicatorRef.child(self.senderId)
@@ -69,31 +86,18 @@ class ChatViewController: JSQMessagesViewController {
         self.messages.append(message)
     }
     
-    private func styleUI() {
-        self.title = "Chat"
-        
-        self.collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
-        self.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
-        
-        let factory = JSQMessagesBubbleImageFactory()
-        self.outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(UIColor.scholarsPurpleColor())
-        self.incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
-    }
-    
     private func observeMessages() {
         let messagesQuery = self.messageReference.queryLimitedToLast(25)
-        messagesQuery.observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
+        messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
             let id = snapshot.value!["senderId"] as! String
             let text = snapshot.value!["text"] as! String
             
             self.addMessage(id, text: text)
             self.finishReceivingMessage()
-        }
+        })
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
+    // MARK: - JSQMessagesViewController
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
         return self.messages[indexPath.item]
@@ -143,7 +147,7 @@ class ChatViewController: JSQMessagesViewController {
     
     override func textViewDidChange(textView: UITextView) {
         super.textViewDidChange(textView)
-
+        
         self.isTyping = textView.text != ""
     }
 }

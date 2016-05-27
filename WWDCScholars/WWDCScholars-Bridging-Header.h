@@ -10,3 +10,5 @@
 #import "JSQMessages.h"
 #import "Firebase.h"
 #import "JSQSystemSoundPlayer/JSQSystemSoundPlayer.h"
+#import "JTSImageInfo.h"
+#import "JTSImageViewController.h"

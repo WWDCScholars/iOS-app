@@ -32,7 +32,7 @@ class ChatViewController: JSQMessagesViewController {
         super.viewDidLoad()
         
         self.messageReference = FIRDatabase.database().reference().child("messages")
-        self.senderId = FIRAuth.auth()?.currentUser?.uid
+        self.senderId = FIRAuth.auth()?.currentUser?.uid ?? "unknown"
         self.senderDisplayName = "Andrew Walker"
         
         self.styleUI()

@@ -15,6 +15,18 @@ class ChatViewController: JSQMessagesViewController {
     private var messages = [JSQMessage]()
     private var outgoingBubbleImageView: JSQMessagesBubbleImage!
     private var incomingBubbleImageView: JSQMessagesBubbleImage!
+    private var usersTypingQuery: FIRDatabaseQuery!
+    private var userIsTypingRef: FIRDatabaseReference!
+    private var localTyping = false
+    private var isTyping: Bool {
+        get {
+            return self.localTyping
+        }
+        set {
+            self.localTyping = newValue
+            self.userIsTypingRef.setValue(newValue)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +43,26 @@ class ChatViewController: JSQMessagesViewController {
         super.viewDidAppear(animated)
         
         self.observeMessages()
+        self.observeTyping()
     }
     
     // MARK: - UI
+    
+    private func observeTyping() {
+        let typingIndicatorRef = self.messageReference.child("typingIndicator")
+        self.userIsTypingRef = typingIndicatorRef.child(self.senderId)
+        self.userIsTypingRef.onDisconnectRemoveValue()
+        
+        usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqualToValue(true)
+        usersTypingQuery.observeEventType(.Value) { (data: FIRDataSnapshot!) in
+            if data.childrenCount == 1 && self.isTyping {
+                return
+            }
+            
+            self.showTypingIndicator = data.childrenCount > 0
+            self.scrollToBottomAnimated(true)
+        }
+    }
     
     private func addMessage(id: String, text: String) {
         let message = JSQMessage(senderId: id, displayName: "Andrew Walker", text: text)
@@ -109,5 +138,12 @@ class ChatViewController: JSQMessagesViewController {
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         
         self.finishSendingMessage()
+        self.isTyping = false
+    }
+    
+    override func textViewDidChange(textView: UITextView) {
+        super.textViewDidChange(textView)
+
+        self.isTyping = textView.text != ""
     }
 }

@@ -35,6 +35,8 @@ class ChatViewController: JSQMessagesViewController {
         self.senderId = FIRAuth.auth()?.currentUser?.uid ?? "unknown"
         self.senderDisplayName = "Andrew Walker"
         
+        self.inputToolbar.contentView.leftBarButtonItem = nil
+        
         self.styleUI()
         self.finishReceivingMessage()
     }
@@ -55,6 +57,7 @@ class ChatViewController: JSQMessagesViewController {
         self.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
         
         let factory = JSQMessagesBubbleImageFactory()
+
         self.outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(UIColor.scholarsPurpleColor())
         self.incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     }

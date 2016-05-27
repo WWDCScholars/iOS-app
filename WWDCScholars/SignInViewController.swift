@@ -10,125 +10,82 @@ import UIKit
 import SafariServices
 
 class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehaviorDelegate {
-    // Comment
-   
-    @IBOutlet weak var passwordImageView: SpringImageView!
-    @IBOutlet weak var emailImageView: SpringImageView!
+    @IBOutlet private weak var passwordImageView: SpringImageView!
+    @IBOutlet private weak var emailImageView: SpringImageView!
+    @IBOutlet private weak var dialogView: SpringView!
+    @IBOutlet private weak var signinButton: SpringButton!
+    @IBOutlet private weak var emailTextField: DesignableTextField!
+    @IBOutlet private weak var passwordTextField: DesignableTextField!
+    @IBOutlet private weak var signUpButton: SpringButton!
     
-    @IBOutlet weak var dialogView: SpringView!
-    @IBOutlet weak var signinButton: SpringButton!
-    @IBOutlet weak var emailTextField: DesignableTextField!
-    @IBOutlet weak var passwordTextField: DesignableTextField!
-    @IBOutlet weak var signUpButton: SpringButton!
-    var originalCenter: CGPoint!
+    private var originalCenter: CGPoint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        originalCenter = view.center
+        self.styleUI()
         
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
-        
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-        dialogView.animate()
-        signUpButton.animate()
+        super.viewDidAppear(animated)
+        
+        self.dialogView.animate()
+        self.signUpButton.animate()
+        
         if UIScreen.mainScreen().bounds.size.height == 480 {
-            dialogView.transform = CGAffineTransformMakeScale(0.8, 0.8)
+            self.dialogView.transform = CGAffineTransformMakeScale(0.8, 0.8)
         }
     }
     
-   
-    @IBAction func signinButtonPressed(sender: AnyObject) {
-        dismissSignInViewController()
-        
-        /*  PFUser.logInWithUsernameInBackground(emailTextField.text, password: passwordTextField.text, block: { (user,error) in
-         if error != nil {
-         self.dialogView.animation = "shake"
-         self.dialogView.animate()
-         //                var alert = UIAlertView(title: "Error", message: "There was a problem with the username and password you have entered. Please try again.", delegate: nil, cancelButtonTitle: "Ok")
-         //                alert.show()
-         } else {
-         self.passwordTextField.text = nil
-         self.emailTextField.text = nil
-         
-         self.dialogView.animation = "zoomOut"
-         self.dialogView.animate()
-         self.performSegueWithIdentifier("edit", sender: self)
-         //self.dismissViewControllerAnimated(true, completion: nil)
-         }
-         })*/
-        
-        print("Pressed Sign in")
-
-    }
+    // MARK: - UI
     
-    // MARK: Button
-    @IBAction func signUpButtonPressed(sender: AnyObject){
-        print("Pressed Sign Up")
-    
-        let url = NSURL(string: "http://wwdcscholarsform.herokuapp.com/addscholar")
-                
-        let signUpVC = SignUpSafariViewController(URL: url!)
-        
-        self.presentViewController(signUpVC, animated: true, completion: nil)
-    //  UIApplication.sharedApplication().statusBarStyle = .Default
-        
-        
-    }
-    
-  
-
-    
-    @IBAction func closeButtonPressed(sender: AnyObject) {
-        dialogView.animation = "zoomOut"
-        dialogView.animate()
-        
-        signUpButton.animation = "zoomOut"
-        signUpButton.animate()
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    // MARK: UITextFieldDelegate
-    @IBAction func scrollViewPressed(sender: AnyObject) {
-        view.endEditing(true)
-    }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-       /* if textField == emailTextField {
-            emailImageView.image = UIImage(named: "icon-user-active")
-            emailImageView.animate()
-        }
-        else {
-            emailImageView.image = UIImage(named: "icon-user")
-        }
-        
-        if textField == passwordTextField {
-            passwordImageView.image = UIImage(named: "icon-key-active")
-            passwordImageView.animate()
-        }
-        else {
-            passwordImageView.image = UIImage(named: "icon-key")
-        }*/
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-       /* emailImageView.image = UIImage(named: "icon-user")
-        passwordImageView.image = UIImage(named: "icon-key")*/
-    }
-    
-    func dragDropBehavior(behavior: DragDropBehavior, viewDidDrop view: UIView) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func dismissSignInViewController(){
-        self.dismissViewControllerAnimated(true, completion: nil)
+    private func styleUI() {
+        self.originalCenter = self.view.center
     }
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    // MARK: - Internal functions
+    
+    internal func dismissSignInViewController() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func signinButtonPressed(sender: AnyObject) {
+        self.dismissSignInViewController()
+    }
+    
+    @IBAction func signUpButtonPressed(sender: AnyObject) {
+        let url = NSURL(string: "http://wwdcscholarsform.herokuapp.com/addscholar")
+        let viewController = SignUpSafariViewController(URL: url!)
+        
+        self.presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func closeButtonPressed(sender: AnyObject) {
+        self.dialogView.animation = "zoomOut"
+        self.dialogView.animate()
+        
+        self.signUpButton.animation = "zoomOut"
+        self.signUpButton.animate()
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func scrollViewPressed(sender: AnyObject) {
+        view.endEditing(true)
+    }
+    
+    // MARK: - DragDropBehavior
+    
+    func dragDropBehavior(behavior: DragDropBehavior, viewDidDrop view: UIView) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

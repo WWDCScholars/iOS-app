@@ -49,6 +49,7 @@
 		6E1F6D5D1CC1B2F2002D17DB /* BioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */; };
 		6E24BF331CF4B088002D00B2 /* SocialButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E24BF321CF4B088002D00B2 /* SocialButtonsTableViewCell.swift */; };
 		6E251F6A1CE6C4C100F9ADFC /* SpotlightManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E251F691CE6C4C100F9ADFC /* SpotlightManager.swift */; };
+		6E43D46E1CF8991F00D35A6F /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E43D46D1CF8991F00D35A6F /* FirebaseDatabase.framework */; };
 		6E447DB11CC3E4FE00014B12 /* ScreenshotsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E447DB01CC3E4FE00014B12 /* ScreenshotsCollectionViewCell.swift */; };
 		6E447DB31CC3E5D100014B12 /* ScreenshotsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E447DB21CC3E5D100014B12 /* ScreenshotsTableViewCell.swift */; };
 		6E4DD6EC1CBD36AA00B08EE1 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */; };
@@ -308,6 +309,7 @@
 		6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioTableViewCell.swift; sourceTree = "<group>"; };
 		6E24BF321CF4B088002D00B2 /* SocialButtonsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialButtonsTableViewCell.swift; sourceTree = "<group>"; };
 		6E251F691CE6C4C100F9ADFC /* SpotlightManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightManager.swift; sourceTree = "<group>"; };
+		6E43D46D1CF8991F00D35A6F /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
 		6E447DB01CC3E4FE00014B12 /* ScreenshotsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotsCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E447DB21CC3E5D100014B12 /* ScreenshotsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotsTableViewCell.swift; sourceTree = "<group>"; };
 		6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E43D46E1CF8991F00D35A6F /* FirebaseDatabase.framework in Frameworks */,
 				6E79529A1CF6421100160B26 /* SystemConfiguration.framework in Frameworks */,
 				6E7952981CF6420700160B26 /* Security.framework in Frameworks */,
 				6E7952961CF641FF00160B26 /* CFNetwork.framework in Frameworks */,
@@ -667,6 +670,7 @@
 			isa = PBXGroup;
 			children = (
 				6E7952D41CF64E3500160B26 /* Firebase.h */,
+				6E43D46D1CF8991F00D35A6F /* FirebaseDatabase.framework */,
 				6E7952BA1CF64D1A00160B26 /* FirebaseAnalytics.framework */,
 				6E7952BB1CF64D1A00160B26 /* FirebaseInstanceID.framework */,
 				6E7952BC1CF64D1A00160B26 /* GoogleInterchangeUtilities.framework */,

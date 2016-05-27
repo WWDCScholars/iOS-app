@@ -33,8 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         var keys: NSDictionary?
         
-        FIRApp.configure()
-        
         print("Andrew is awesome!") // 500th commit!
         
         if let path = NSBundle.mainBundle().pathForResource("ServerDetails", ofType: "plist") {
@@ -62,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         CreditsManager.sharedInstance.getCredits()
         Fabric.with([Crashlytics.self])
+        FIRApp.configure()
         
         self.styleUI()
         

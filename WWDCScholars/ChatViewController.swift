@@ -106,7 +106,10 @@ class ChatViewController: JSQMessagesViewController {
         self.messageObserverHandle = messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
             if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String {
                 self.addMessage(id, text: text)
-                JSQSystemSoundPlayer.jsq_playMessageReceivedSound()
+                
+                if id != self.senderId {
+                    JSQSystemSoundPlayer.jsq_playMessageReceivedSound()
+                }
 
                 self.finishReceivingMessage()
             }

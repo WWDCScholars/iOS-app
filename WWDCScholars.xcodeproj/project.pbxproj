@@ -156,6 +156,10 @@
 		7B4D519F1CC110A50072E114 /* UIButton+AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D51951CC110A50072E114 /* UIButton+AlamofireImage.swift */; };
 		7B4D51A01CC110A50072E114 /* UIImage+AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D51961CC110A50072E114 /* UIImage+AlamofireImage.swift */; };
 		7B4D51A11CC110A50072E114 /* UIImageView+AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D51971CC110A50072E114 /* UIImageView+AlamofireImage.swift */; };
+		7B709CEF1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */; };
+		7B709CF31CF8C795007F53F4 /* JSQSystemSoundPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */; };
+		7B709CF41CF8C795007F53F4 /* JSQSystemSoundPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B709CF51CF8C7D7007F53F4 /* JSQMessagesAssets.bundle in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6ED962291CF8B28800551E94 /* JSQMessagesAssets.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7B7797511CDE681E0029675F /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7797501CDE681E0029675F /* BlogPost.swift */; };
 		7B7797531CDE697F0029675F /* BlogKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7797521CDE697F0029675F /* BlogKit.swift */; };
 		7BBA87641CBB7F3A0057E9AD /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBA87621CBB7F3A0057E9AD /* Fabric.framework */; };
@@ -274,6 +278,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				7B709CF51CF8C7D7007F53F4 /* JSQMessagesAssets.bundle in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +290,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				7BBA87C41CBD641F0057E9AD /* Realm.framework in Embed Frameworks */,
+				7B709CF41CF8C795007F53F4 /* JSQSystemSoundPlayer.framework in Embed Frameworks */,
 				7BBA87C61CBD641F0057E9AD /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -501,6 +507,7 @@
 		7B4D51951CC110A50072E114 /* UIButton+AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+AlamofireImage.swift"; sourceTree = "<group>"; };
 		7B4D51961CC110A50072E114 /* UIImage+AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+AlamofireImage.swift"; sourceTree = "<group>"; };
 		7B4D51971CC110A50072E114 /* UIImageView+AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+AlamofireImage.swift"; sourceTree = "<group>"; };
+		7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSQSystemSoundPlayer.framework; sourceTree = "<group>"; };
 		7B7797501CDE681E0029675F /* BlogPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 		7B7797521CDE697F0029675F /* BlogKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogKit.swift; sourceTree = "<group>"; };
 		7BBA87621CBB7F3A0057E9AD /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -567,6 +574,7 @@
 				6ED962BB1CF8B3B300551E94 /* QuartzCore.framework in Frameworks */,
 				6E79E1B31CF8AAA000CCDD9D /* GoogleNetworkingUtilities.framework in Frameworks */,
 				6E43D47B1CF8A39A00D35A6F /* FirebaseDatabase.framework in Frameworks */,
+				7B709CEF1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework in Frameworks */,
 				6E79529A1CF6421100160B26 /* SystemConfiguration.framework in Frameworks */,
 				6E7952981CF6420700160B26 /* Security.framework in Frameworks */,
 				6E7952961CF641FF00160B26 /* CFNetwork.framework in Frameworks */,
@@ -577,6 +585,7 @@
 				6ED926521CBF0BEE0082FCFE /* MapKit.framework in Frameworks */,
 				223F5E9A1CB970EC00E582C5 /* AVFoundation.framework in Frameworks */,
 				7BBA87651CBB7F3A0057E9AD /* Crashlytics.framework in Frameworks */,
+				7B709CF31CF8C795007F53F4 /* JSQSystemSoundPlayer.framework in Frameworks */,
 				6E43D4771CF8A36500D35A6F /* GoogleInterchangeUtilities.framework in Frameworks */,
 				6E43D4781CF8A36500D35A6F /* GoogleSymbolUtilities.framework in Frameworks */,
 				7BBA87C51CBD641F0057E9AD /* RealmSwift.framework in Frameworks */,
@@ -1087,6 +1096,7 @@
 		7BBA87A21CBD5D680057E9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */,
 				6ED962BA1CF8B3B300551E94 /* QuartzCore.framework */,
 				6ED962271CF8B28800551E94 /* JSQMessagesViewController */,
 				6E43D46F1CF8A35B00D35A6F /* Firebase */,

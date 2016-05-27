@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import JSQMessagesViewController
 
 class ChatViewController: UIViewController {
     @IBOutlet private weak var messageTextField: UITextField!

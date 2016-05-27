@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import FirebaseAuth
 
 class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehaviorDelegate {
     @IBOutlet private weak var passwordImageView: SpringImageView!
@@ -22,6 +23,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        FIRAuth.auth()?.signInAnonymouslyWithCompletion() { (user, error) in
+            let isAnonymous = user!.anonymous
+            let userID = user!.uid
+            
+            print(userID)
+        }
         
         self.styleUI()
         

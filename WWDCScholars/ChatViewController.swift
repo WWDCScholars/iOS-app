@@ -20,6 +20,8 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.ref = FIRDatabase.database().reference()
+        
         self.styleUI()
         self.configureUI()
     }

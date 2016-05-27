@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
 class ChatViewController: UIViewController {
     @IBOutlet private weak var messageTextField: UITextField!
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var containerViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var sendButton: UIButton!
+    
+    private var ref: FIRDatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()

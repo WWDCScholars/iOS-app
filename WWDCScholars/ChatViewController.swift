@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import AdSupport
 
 class ChatViewController: JSQMessagesViewController {
     private var messageReference: FIRDatabaseReference!
@@ -28,11 +29,13 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
+    private var messageObserverHandle: UInt?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.messageReference = FIRDatabase.database().reference().child("messages")
-        self.senderId = FIRAuth.auth()?.currentUser?.uid ?? "unknown"
+        self.senderId = FIRAuth.auth()?.currentUser?.uid ?? ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
         self.senderDisplayName = "Andrew Walker"
         
         self.inputToolbar.contentView.leftBarButtonItem = nil
@@ -46,6 +49,15 @@ class ChatViewController: JSQMessagesViewController {
         
         self.observeMessages()
         self.observeTyping()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        let messagesQuery = self.messageReference.queryLimitedToLast(25)
+
+        if messageObserverHandle != nil {
+            messagesQuery.removeObserverWithHandle(messageObserverHandle!)
+        }
     }
     
     // MARK: - UI
@@ -91,9 +103,11 @@ class ChatViewController: JSQMessagesViewController {
     
     private func observeMessages() {
         let messagesQuery = self.messageReference.queryLimitedToLast(25)
-        messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
-            if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String {            
+        self.messageObserverHandle = messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String {
                 self.addMessage(id, text: text)
+                JSQSystemSoundPlayer.jsq_playMessageReceivedSound()
+
                 self.finishReceivingMessage()
             }
         })

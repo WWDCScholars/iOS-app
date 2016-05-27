@@ -165,7 +165,6 @@
 		7B709CEF1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */; };
 		7B709CF31CF8C795007F53F4 /* JSQSystemSoundPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */; };
 		7B709CF41CF8C795007F53F4 /* JSQSystemSoundPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7B709CF51CF8C7D7007F53F4 /* JSQMessagesAssets.bundle in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6ED962291CF8B28800551E94 /* JSQMessagesAssets.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7B7797511CDE681E0029675F /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7797501CDE681E0029675F /* BlogPost.swift */; };
 		7B7797531CDE697F0029675F /* BlogKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7797521CDE697F0029675F /* BlogKit.swift */; };
 		7BBA87641CBB7F3A0057E9AD /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBA87621CBB7F3A0057E9AD /* Fabric.framework */; };
@@ -276,17 +275,6 @@
 				2270E0201CF3293200C88C2E /* WWDCScholars watchOS App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2270E04E1CF3295100C88C2E /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				7B709CF51CF8C7D7007F53F4 /* JSQMessagesAssets.bundle in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7BBA879E1CBD5C8E0057E9AD /* Embed Frameworks */ = {
@@ -1233,7 +1221,6 @@
 				7BBA879E1CBD5C8E0057E9AD /* Embed Frameworks */,
 				7BBA87BC1CBD62DB0057E9AD /* ShellScript */,
 				2270E0281CF3293300C88C2E /* Embed Watch Content */,
-				2270E04E1CF3295100C88C2E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -1789,7 +1776,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 93;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1815,7 +1801,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 93;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

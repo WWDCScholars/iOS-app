@@ -38,8 +38,6 @@ class ChatViewController: JSQMessagesViewController {
         self.senderId = FIRAuth.auth()?.currentUser?.uid ?? ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
         self.senderDisplayName = "Andrew Walker"
         
-        self.inputToolbar.contentView.leftBarButtonItem = nil
-        
         self.styleUI()
         self.finishReceivingMessage()
     }
@@ -65,8 +63,12 @@ class ChatViewController: JSQMessagesViewController {
     private func styleUI() {
         self.title = "Chat"
         
-        self.collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
-        self.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        self.collectionView.collectionViewLayout.springinessEnabled = true
+        self.collectionView.collectionViewLayout.springResistanceFactor = 3000
+//        self.collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
+//        self.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        self.inputToolbar.contentView.leftBarButtonItem = nil
+
         
         let factory = JSQMessagesBubbleImageFactory()
 
@@ -137,7 +139,7 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
-        return nil
+        return JSQMessagesAvatarImageFactory.avatarImageWithUserInitials("ML", backgroundColor: UIColor.transparentScholarsPurpleColor(), textColor: UIColor.whiteColor(), font: UIFont.systemFontOfSize(15), diameter: 50)
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

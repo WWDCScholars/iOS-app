@@ -70,6 +70,13 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == String(ScholarDetailViewController) {
+            let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
+            destinationViewController.setScholar(sender as! String)
+        }
+    }
+    
     // MARK: - UI
     
     private func styleUI() {
@@ -250,6 +257,11 @@ class ChatViewController: JSQMessagesViewController {
         }
         
         return cell
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, didTapAvatarImageView avatarImageView: UIImageView!, atIndexPath indexPath: NSIndexPath!) {
+        let message = messages[indexPath.item]
+        self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: message.senderId)
     }
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {

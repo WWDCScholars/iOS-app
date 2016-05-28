@@ -34,9 +34,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         request(.GET, lookupURL)
             .responseString() { response in
                 if let data = response.result.value {
-                    let json = JSON.parse(data)
-                    print("JSON: \(json)")
-                    
+                    let json = JSON.parse(data)                    
                     if let results = json["results"].array {
                         for appJson in results {
                             let screenshots: JSON = appJson["screenshotUrls"]

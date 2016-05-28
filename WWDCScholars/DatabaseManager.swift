@@ -57,7 +57,7 @@ class DatabaseManager {
         try! realm.write {
             realm.add(scholar, update: true) // Don't add the scholar if he/she already exists
         }
-        print ("Added \(scholar.fullName)")
+        //print ("Added \(scholar.fullName)")  // Sorry but I don't care at all about this. I want a clean console, thx.
     }
     
     /**

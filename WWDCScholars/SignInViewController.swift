@@ -64,10 +64,35 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    internal func shakeSignInViewController() {
+        self.dialogView.animation = "shake"
+        self.dialogView.animate()
+    }
+    
     // MARK: - IBActions
     
     @IBAction func signinButtonPressed(sender: AnyObject) {
-        self.dismissSignInViewController()
+        if emailTextField.text == "" {
+            //todo: show error -> no email
+            shakeSignInViewController()
+            return
+        }
+        if passwordTextField.text == "" {
+            //todo: show error -> no password
+            shakeSignInViewController()
+            return
+        }
+
+        UserKit.sharedInstance.login(emailTextField.text!, password: passwordTextField.text!) { error in
+            if error == nil {
+                //todo "Logged in" dialog instead of loggin in again!
+                self.dismissSignInViewController()
+            }else {
+                self.shakeSignInViewController()
+            }
+        }
+        
+//
     }
     
     @IBAction func signUpButtonPressed(sender: AnyObject) {

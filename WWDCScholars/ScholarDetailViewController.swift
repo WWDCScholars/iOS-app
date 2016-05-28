@@ -28,6 +28,10 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     @IBOutlet private weak var teamIconImageView: UIImageView!
     @IBOutlet private weak var favoritesButton: UIBarButtonItem!
     
+    @IBOutlet var editProfileButton: UIBarButtonItem!
+    
+    var loggedInScholarString: NSString!
+    
     private var currentScholar: Scholar?
     var delegate: QuickActionsDelegate?
     
@@ -44,6 +48,8 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         
         self.styleUI()
         self.updateUI()
+        self.editButtonVisible()
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -299,6 +305,27 @@ extension ScholarDetailViewController: UITableViewDataSource {
             return 0.0
         }
     }
+    
+    func editButtonVisible() {
+        if UserKit.sharedInstance.loggedInScholar != nil {
+            loggedInScholarString = UserKit.sharedInstance.scholarId ?? "unknown"
+            
+            print(loggedInScholarString)
+            
+            if loggedInScholarString == currentScholar?.id {
+                // Show edit button
+                print("// Show edit button")
+            }else{
+                // Hide edit button
+                print("// Hide edit button")
+            }
+        }else{
+            // User not logged in
+            print("// User not logged in")
+        }
+    }
+    
+   
 }
 
 // MARK: - UIScrollViewDelegate

@@ -47,7 +47,7 @@ class ScholarsKit: ApiBase {
     }
     
     func parseScholar(json: JSON) -> Scholar? {
-        if let id = json["_id"].string, let latitude = json["latitude"].double, let longitude = json["longtitude"].double, let shortBio = json["shortBio"].string, let location = json["location"].string, let gender = json["gender"].string, let birthday = json["birthday"].string,let profilePic = json["profilePic"].string, let email = json["email"].string, let lastName = json["lastName"].string, let firstName = json["firstName"].string, let numberOfTimesWWDCScholar = json["numberOfTimesWWDCScholar"].int, let batchWWDC = json["batchWWDC"].array {
+        if let id = json["_id"].string, let latitude = json["latitude"].double, let longitude = json["longtitude"].double, let shortBio = json["shortBio"].string, let location = json["location"].string, let gender = json["gender"].string, let birthday = json["birthday"].string,let profilePic = json["profilePic2015"].string, let email = json["email"].string, let lastName = json["lastName"].string, let firstName = json["firstName"].string, let numberOfTimesWWDCScholar = json["numberOfTimesWWDCScholar"].int, let batchWWDC = json["batchWWDC"].array {
             let newScholar = Scholar()
             newScholar.id = id
             newScholar.email = email

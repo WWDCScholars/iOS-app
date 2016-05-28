@@ -33,6 +33,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     var loggedInScholarString: NSString!
     
     private var editBarButtonItem: UIBarButtonItem!
+    private var is2016 = true //TEMP VARIABLE
     
     private var currentScholar: Scholar?
     var delegate: QuickActionsDelegate?
@@ -284,6 +285,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("screenshotsTableViewCell") as! ScreenshotsTableViewCell
             
             cell.scholarshipScreenshots = self.currentScholar!.screenshots
+            cell.is2016 = self.is2016
             cell.delegate = self
                         
             return cell
@@ -307,7 +309,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
         case 1:
             return UITableViewAutomaticDimension
         case 2:
-            return 348.0
+            return self.is2016 ? 348.0 : 304.0
         case 3:
             return 54.0
         default:

@@ -16,12 +16,19 @@ enum ScreenshotType: Int {
 class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, ImageTappedDelegate {
     @IBOutlet private weak var segmentedControl: UISegmentedControl!
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionViewTopConstraint: NSLayoutConstraint!
     
     private var screenshotType: ScreenshotType = .Scholarship
     private var appStoreScreenshots: [URL] = []
     
     var scholarshipScreenshots: [URL] = []
     var delegate: ImageTappedDelegate?
+    var is2016: Bool = false {
+        didSet {
+            self.collectionViewTopConstraint.constant = self.is2016 == true ? 60.0 : 16.0
+            self.layoutIfNeeded()
+        }
+    }
     
     override func awakeFromNib() {
         self.collectionView.delegate = self

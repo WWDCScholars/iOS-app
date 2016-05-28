@@ -42,14 +42,14 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
                         let appStoreScreenshots = appJson["screenshotUrls"].array
                         
                         for screenshot in appStoreScreenshots! {
-                            self.screenshots.append(URL(screenshot.string))
+                            self.screenshots.append(URL(screenshot.string!))
                         }
+                        
+                        self.collectionView.reloadData()
                     }
                 }
             }
         }
-        
-        self.collectionView.reloadData()
     }
 }
 

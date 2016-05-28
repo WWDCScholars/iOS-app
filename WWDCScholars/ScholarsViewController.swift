@@ -212,7 +212,9 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         }
         
         self.addScholarToQTree()
-        self.refreshControl.endRefreshing()
+        if (self.refreshControl.refreshing){
+            self.refreshControl.endRefreshing()
+        }
     }
     
     private func getFavorites() -> [Scholar] {
@@ -259,13 +261,21 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
             if self.loadingView.isAnimating() {
                 self.loadingView.stopAnimating()
             }
-            
+
             for (index, scholar) in DatabaseManager.sharedInstance.getAllScholars().enumerate() {
                 SpotlightManager.sharedInstance.indexScholar(scholar, atIndex: index)
             }
             
             self.getCurrentScholars()
         })
+        
+        if ScholarsKit.sharedInstance.hasScholars() {
+        if self.loadingView.isAnimating() {
+            self.loadingView.stopAnimating()
+        }
+        self.getCurrentScholars()
+        }
+
     }
     
     internal func refreshScholarsWithNewFavorite() {

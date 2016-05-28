@@ -37,6 +37,10 @@ class ScholarsKit: ApiBase {
         }
     }
     
+    func hasScholars() -> Bool {
+        return dbManager.scholarCount() > 0
+    }
+    
     func parseScholars(jsonArr: [JSON]) {
         for scholarJson in jsonArr {
             if let scholar = parseScholar(scholarJson) {

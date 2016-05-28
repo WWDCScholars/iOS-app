@@ -562,6 +562,19 @@
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysQ-0V-odl">
                                                                             <rect key="frame" x="0.0" y="4" width="584" height="340"/>
                                                                             <subviews>
+                                                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tmo-tM-mm1">
+                                                                                    <rect key="frame" x="8" y="49" width="568" height="29"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="28" id="rwh-mr-Utv"/>
+                                                                                    </constraints>
+                                                                                    <segments>
+                                                                                        <segment title="Scholarship"/>
+                                                                                        <segment title="App Store"/>
+                                                                                    </segments>
+                                                                                    <connections>
+                                                                                        <action selector="segmentedControlChanged:" destination="Ttx-AP-73h" eventType="valueChanged" id="Ff1-7M-54H"/>
+                                                                                    </connections>
+                                                                                </segmentedControl>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Submissions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Le6-ns-lRO">
                                                                                     <rect key="frame" x="8" y="12" width="568" height="21"/>
                                                                                     <constraints>
@@ -579,7 +592,7 @@
                                                                                 </label>
                                                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V2E-9z-1rH">
                                                                                     <rect key="frame" x="0.0" y="93" width="584" height="231"/>
-                                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="231" id="frE-3I-8HA"/>
                                                                                     </constraints>
@@ -633,19 +646,6 @@
                                                                                         </collectionViewCell>
                                                                                     </cells>
                                                                                 </collectionView>
-                                                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tmo-tM-mm1">
-                                                                                    <rect key="frame" x="8" y="49" width="568" height="29"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="28" id="rwh-mr-Utv"/>
-                                                                                    </constraints>
-                                                                                    <segments>
-                                                                                        <segment title="Scholarship"/>
-                                                                                        <segment title="App Store"/>
-                                                                                    </segments>
-                                                                                    <connections>
-                                                                                        <action selector="segmentedControlChanged:" destination="Ttx-AP-73h" eventType="valueChanged" id="Ff1-7M-54H"/>
-                                                                                    </connections>
-                                                                                </segmentedControl>
                                                                             </subviews>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <constraints>

@@ -41,7 +41,7 @@ class ChatViewController: JSQMessagesViewController {
             return
         }
         
-        self.messageReference = FIRDatabase.database().reference().child("messages")
+        self.messageReference = FIRDatabase.database().reference().child("messages").child("general")
         
         self.senderId = "UNKNOWN"
         self.senderDisplayName = "*Not logged in*"

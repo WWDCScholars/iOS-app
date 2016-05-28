@@ -21,5 +21,6 @@ class ApiBase {
     class func setServerDetails(serverUrl: URL, serverAPIKey: String) {
         ScholarsKit.sharedInstance.setServerDetails(serverUrl, serverAPIKey: serverAPIKey)
         BlogKit.sharedInstance.setServerDetails(serverUrl, serverAPIKey: serverAPIKey)
+        UserKit.sharedInstance.setServerDetails(serverUrl, serverAPIKey: serverAPIKey)
     }
 }

@@ -28,8 +28,21 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
     
     @IBAction func segmentedControlChanged(sender: AnyObject) {
         let appStoreURL = "https://itunes.apple.com/gb/app/mouse-times-florida/id1021402097?mt=8"
-        let appID = String().matchesForRegexInText("([\\d]{10,})", text: appStoreURL)
-        let lookupURL = "http://itunes.apple.com/lookup?id=\(appID)"
+        let appID = String().matchesForRegexInText("([\\d]{10,})", text: appStoreURL).first
+        let lookupURL = "http://itunes.apple.com/lookup?id=\(appID!)"
+        
+        if let url = NSURL(string: lookupURL) {
+            if let data = try? NSData(contentsOfURL: url, options: []) {
+                let json = JSON(data: data)
+                let results: JSON = json["results"]
+                
+                for (index, object) in results.enumerate() {
+                    let screenshots: JSON = json[index]["screenshotUrls"]
+                    
+                    print(screenshots)
+                }
+            }
+        }
         
         self.screenshots = []
         self.collectionView.reloadData()

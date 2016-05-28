@@ -280,7 +280,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
         case 2:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("screenshotsTableViewCell") as! ScreenshotsTableViewCell
             
-            cell.screenshots = self.currentScholar!.screenshots
+            cell.scholarshipScreenshots = self.currentScholar!.screenshots
             cell.delegate = self
                         
             return cell

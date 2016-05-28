@@ -221,11 +221,6 @@ class ChatViewController: JSQMessagesViewController {
                 let nextMessage = self.messages[indexPath.item + 1]
                 if nextMessage.senderId == message.senderId {
                     cell.avatarImageView!.image = nil
-                    if indexPath.item - 1 > 0 {
-                        UIView.setAnimationsEnabled(false)
-                        collectionView.reloadItemsAtIndexPaths([NSIndexPath.init(forItem: indexPath.item - 1, inSection: indexPath.section)])
-                        UIView.setAnimationsEnabled(true)
-                    }
                 }else {
                     if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId){
                         if let imageUrl = NSURL(string: scholar.profilePicURL) {

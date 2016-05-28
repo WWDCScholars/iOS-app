@@ -27,6 +27,12 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
     }
     
     @IBAction func segmentedControlChanged(sender: AnyObject) {
+        let appStoreURL = "https://itunes.apple.com/gb/app/mouse-times-florida/id1021402097?mt=8"
+        let appID = String().matchesForRegexInText("([\\d]{10,})", text: appStoreURL)
+        let lookupURL = "http://itunes.apple.com/lookup?id=\(appID)"
+        
+        self.screenshots = []
+        self.collectionView.reloadData()
     }
 }
 

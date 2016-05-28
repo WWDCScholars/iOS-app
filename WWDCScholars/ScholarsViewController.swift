@@ -460,10 +460,6 @@ extension ScholarsViewController: UICollectionViewDelegate {
 
 extension ScholarsViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        
-        let cellBounds = ScholarCollectionViewCell()
-        previewingContext.sourceRect = cellBounds.layer.bounds
-
         let viewController = storyboard?.instantiateViewControllerWithIdentifier("scholarDetailViewController") as? ScholarDetailViewController
         let cellPosition = self.scholarsCollectionView.convertPoint(location, fromView: self.view)
         let cellIndex = self.scholarsCollectionView.indexPathForItemAtPoint(cellPosition)
@@ -477,7 +473,6 @@ extension ScholarsViewController: UIViewControllerPreviewingDelegate {
         previewViewController.delegate = self
         previewViewController.preferredContentSize = CGSize.zero
         previewingContext.sourceRect = self.view.convertRect(cell.frame, fromView: self.scholarsCollectionView)
-        previewingContext.sourceView.layer.cornerRadius = 7
         
         return previewViewController
     }

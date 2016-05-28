@@ -28,6 +28,7 @@ class ScholarsKit: ApiBase {
 //                print (data)
                 let json = JSON.parse(data)
 //                print("JSON: \(json)")
+                print ("loadScholars -- Loading scholars")
                 if let array = json.array {
                     self.parseScholars(array)
                     completionHandler()

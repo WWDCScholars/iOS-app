@@ -78,7 +78,7 @@ class ChatViewController: JSQMessagesViewController {
         self.collectionView.collectionViewLayout.springinessEnabled = true
         self.collectionView.collectionViewLayout.springResistanceFactor = 3000
 //        self.collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
-//        self.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        self.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
         self.inputToolbar.contentView.leftBarButtonItem = nil
 
         
@@ -146,7 +146,15 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
+        
         let message = self.messages[indexPath.item]
+        
+//        if indexPath.item - 1 > 0 {
+//            let prevMessage = self.messages[indexPath.item - 1]
+//            if prevMessage.senderId == message.senderId {
+//                return nil
+//            }
+//        }
         
         if message.senderId == self.senderId {
             return self.outgoingBubbleImageView
@@ -158,6 +166,13 @@ class ChatViewController: JSQMessagesViewController {
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
         let message = self.messages[indexPath.row]
         
+        if indexPath.item - 1 > 0 {
+            let prevMessage = self.messages[indexPath.item - 1]
+            if prevMessage.senderId == message.senderId {
+                return nil
+            }
+        }
+        
         if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId) {
             return JSQMessagesAvatarImageFactory.avatarImageWithUserInitials(scholar.initials, backgroundColor: UIColor.transparentScholarsPurpleColor(), textColor: UIColor.whiteColor(), font: UIFont.systemFontOfSize(15), diameter: 50)
         }else {
@@ -165,17 +180,73 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
+    override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
+        let message = messages[indexPath.item]
+        
+        if indexPath.item - 1 > 0 {
+            let prevMessage = self.messages[indexPath.item - 1]
+            if prevMessage.senderId == message.senderId {
+                return nil
+            }
+        }
+
+        if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId){
+            
+            return NSAttributedString(string: scholar.fullName)
+            
+        }
+        
+        return nil
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        let message = messages[indexPath.item]
+
+        if indexPath.item - 1 > 0 {
+            let prevMessage = self.messages[indexPath.item - 1]
+            if prevMessage.senderId == message.senderId {
+                return 0
+            }
+        }
+        
+        return (message.senderId == self.senderId) ? 0 : kJSQMessagesCollectionViewCellLabelHeightDefault
+    }
+    
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as! JSQMessagesCollectionViewCell
         let message = self.messages[indexPath.item]
         
-        if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId){
-            if let imageUrl = NSURL(string: scholar.profilePicURL) {
-                let imageFilter = RoundedCornersFilter(radius: 50)
-
-                cell.avatarImageView!.af_setImageWithURL(imageUrl, filter: imageFilter, imageTransition: .CrossDissolve(0.25))
+        if message.senderId != self.senderId {
+            if indexPath.item + 1 < messages.count {
+                let nextMessage = self.messages[indexPath.item + 1]
+                if nextMessage.senderId == message.senderId {
+                    cell.avatarImageView!.image = nil
+                    if indexPath.item - 1 > 0 {
+                        UIView.setAnimationsEnabled(false)
+                        collectionView.reloadItemsAtIndexPaths([NSIndexPath.init(forItem: indexPath.item - 1, inSection: indexPath.section)])
+                        UIView.setAnimationsEnabled(true)
+                    }
+                }else {
+                    if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId){
+                        if let imageUrl = NSURL(string: scholar.profilePicURL) {
+                            let imageFilter = RoundedCornersFilter(radius: 50)
+                            
+                            cell.avatarImageView!.af_setImageWithURL(imageUrl, filter: imageFilter, imageTransition: .CrossDissolve(0.25))
+                        }
+                    }
+                }
+            }else {
+                if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId){
+                    if let imageUrl = NSURL(string: scholar.profilePicURL) {
+                        let imageFilter = RoundedCornersFilter(radius: 50)
+                        
+                        cell.avatarImageView!.af_setImageWithURL(imageUrl, filter: imageFilter, imageTransition: .CrossDissolve(0.25))
+                    }
+                }
             }
         }
+        
+        
         
         if message.senderId == self.senderId {
             cell.textView!.textColor = UIColor.whiteColor()

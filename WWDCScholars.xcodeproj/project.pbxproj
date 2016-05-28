@@ -148,6 +148,8 @@
 		6EEA89261CDBE21C00245445 /* TutorialObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA89231CDBE21C00245445 /* TutorialObject.swift */; };
 		6EEA89271CDBE21C00245445 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA89241CDBE21C00245445 /* IntroViewController.swift */; };
 		6EEA892A1CDBFAF900245445 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA89291CDBFAF900245445 /* UserDefaults.swift */; };
+		7B0374F21CF9E51500DE1CED /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D2AB91CF9E453004C1697 /* CryptoSwift.framework */; };
+		7B0374F31CF9E51500DE1CED /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D2AB91CF9E453004C1697 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7B15E69F1CF91C4D00C4D7AD /* UserKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B15E69E1CF91C4D00C4D7AD /* UserKit.swift */; };
 		7B296DC21CE3C18300C4BA75 /* ApiBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B296DC11CE3C18300C4BA75 /* ApiBase.swift */; };
 		7B2AA6E01CBAE7530025EC7B /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */; };
@@ -239,6 +241,13 @@
 			remoteGlobalIDString = 2270E0051CF3293200C88C2E;
 			remoteInfo = "WWDCScholars watchOS App";
 		};
+		7B0374F41CF9E51500DE1CED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B0D2AB01CF9E453004C1697 /* CryptoSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 754BE45419693E190098E6F3;
+			remoteInfo = "CryptoSwift iOS";
+		};
 		7B0D2AB81CF9E453004C1697 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7B0D2AB01CF9E453004C1697 /* CryptoSwift.xcodeproj */;
@@ -322,6 +331,7 @@
 				7BBA87C41CBD641F0057E9AD /* Realm.framework in Embed Frameworks */,
 				7B709CF41CF8C795007F53F4 /* JSQSystemSoundPlayer.framework in Embed Frameworks */,
 				7BBA87C61CBD641F0057E9AD /* RealmSwift.framework in Embed Frameworks */,
+				7B0374F31CF9E51500DE1CED /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,6 +640,7 @@
 				223F5E9A1CB970EC00E582C5 /* AVFoundation.framework in Frameworks */,
 				7BBA87651CBB7F3A0057E9AD /* Crashlytics.framework in Frameworks */,
 				7B709CF31CF8C795007F53F4 /* JSQSystemSoundPlayer.framework in Frameworks */,
+				7B0374F21CF9E51500DE1CED /* CryptoSwift.framework in Frameworks */,
 				6E43D4771CF8A36500D35A6F /* GoogleInterchangeUtilities.framework in Frameworks */,
 				6E43D4781CF8A36500D35A6F /* GoogleSymbolUtilities.framework in Frameworks */,
 				7BBA87C51CBD641F0057E9AD /* RealmSwift.framework in Frameworks */,
@@ -1278,6 +1289,7 @@
 			);
 			dependencies = (
 				2270E01F1CF3293200C88C2E /* PBXTargetDependency */,
+				7B0374F51CF9E51500DE1CED /* PBXTargetDependency */,
 			);
 			name = WWDCScholars;
 			productName = WWDCScholars;
@@ -1747,6 +1759,11 @@
 			isa = PBXTargetDependency;
 			target = 2270E0051CF3293200C88C2E /* WWDCScholars watchOS App */;
 			targetProxy = 2270E01E1CF3293200C88C2E /* PBXContainerItemProxy */;
+		};
+		7B0374F51CF9E51500DE1CED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CryptoSwift iOS";
+			targetProxy = 7B0374F41CF9E51500DE1CED /* PBXContainerItemProxy */;
 		};
 		7B2AA6E31CBAE7530025EC7B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

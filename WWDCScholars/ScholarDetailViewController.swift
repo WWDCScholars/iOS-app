@@ -64,6 +64,14 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         self.contentSizeConstraint.constant = self.detailsTableView.contentSize.height - 390.0
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editProfile" {
+            let editVC = (segue.destinationViewController as! UINavigationController).viewControllers.first as! EditProfileTableViewController
+            
+            editVC.setScholar(self.currentScholar!.id)
+        }
+    }
+    
     // MARK: - UIPreviewActions
     
     override func previewActionItems() -> [UIPreviewActionItem] {
@@ -239,12 +247,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     }
     
     @IBAction func editProfileButtonTapped(sender: AnyObject) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("EditDetailsNC")
-        
-        modalViewController.modalPresentationStyle = .FullScreen
-        modalViewController.modalTransitionStyle = .CoverVertical
-        self.presentViewController(modalViewController, animated: true, completion: nil)
+        self.performSegueWithIdentifier("editProfile", sender: nil)
     }
 }
 

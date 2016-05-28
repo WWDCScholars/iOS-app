@@ -9,7 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
-import Firebase
+//import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

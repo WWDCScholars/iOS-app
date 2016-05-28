@@ -960,6 +960,7 @@
                         <outlet property="profileImageView" destination="nKC-al-NLf" id="iqy-NA-Ns8"/>
                         <outlet property="profileImageViewBackground" destination="23l-q1-tgf" id="Rso-BZ-PLp"/>
                         <outlet property="teamIconImageView" destination="NKq-2g-1bu" id="Poi-RY-DeA"/>
+                        <segue destination="qgE-kd-7qI" kind="presentation" identifier="editProfile" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="O9p-ND-h8u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HM3-f4-OGD" userLabel="First Responder" sceneMemberID="firstResponder"/>

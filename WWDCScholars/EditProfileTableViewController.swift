@@ -32,15 +32,17 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     @IBOutlet private weak var youtubeTextField: FloatLabelTextField!
     @IBOutlet private weak var appGithubTextField: FloatLabelTextField!
     
+    private var currentScholar: Scholar?
     private let imagePicker = UIImagePickerController()
     private let locationManager = CLLocationManager()
     
     private var myLocation: CLLocationCoordinate2D?
     private var screenshotUploadIndex = 0
     private var imageUploadType: ImageUploadType = .Profile
-    private var screenshots: [UIImage?] = [UIImage(), UIImage(), UIImage(), UIImage()]
+    private var screenshots: [UIImage?] = [nil, nil, nil, nil]
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         let dismissKeyboardRecognizer = UITapGestureRecognizer(target: self, action: #selector(EditProfileTableViewController.dismissKeyboard))
         self.view.addGestureRecognizer(dismissKeyboardRecognizer)
         
@@ -52,6 +54,29 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.styleUI()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard currentScholar != nil else {
+            print ("EditProfileTableViewController -- No scholar!")
+            return
+        }
+        
+        self.firstNameTextField.text = self.currentScholar?.firstName
+        self.secondNameTextField.text = self.currentScholar?.lastName
+        self.locationTextField.text = self.currentScholar?.location.name
+        self.bioTextView.text = self.currentScholar?.shortBio
+        self.emailTextField.text = self.currentScholar?.email
+        self.twitterTextField.text = self.currentScholar?.twitterURL
+        self.facebookTextField.text = self.currentScholar?.facebookURL
+        self.githubTextField.text = self.currentScholar?.githubURL
+        self.linkedinTextField.text = self.currentScholar?.linkedInURL
+        self.websiteTextField.text = self.currentScholar?.websiteURL
+        self.appStoreTextField.text = self.currentScholar?.iTunesURL
+//        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such field yet!
+        self.appGithubTextField.text = self.currentScholar?.twitterURL
+
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == String(LocationSelectViewController) {
             let navigationController = segue.destinationViewController as! UINavigationController
@@ -82,6 +107,10 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     }
     
     // MARK: - Internal functions
+    
+    internal func setScholar(id: String) {
+        self.currentScholar = DatabaseManager.sharedInstance.scholarForId(id)
+    }
     
     internal func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.myLocation = manager.location?.coordinate

@@ -66,6 +66,9 @@ class ScholarsKit: ApiBase {
 
             newScholar.linkedInURL = json["linkedin"].string?.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
 
+            newScholar.twitterURL = json["twitter"].string?.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+
+            
             newScholar.numberOfTimesWWDCScholar = numberOfTimesWWDCScholar
             newScholar.shortBio = shortBio
             newScholar.websiteURL = json["website"].string?.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")

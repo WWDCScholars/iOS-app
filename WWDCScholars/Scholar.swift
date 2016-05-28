@@ -118,6 +118,8 @@ class Scholar: Object {
     dynamic var githubURL: URL?
     /// URL to his/her Facebook page (may be nil)
     dynamic var facebookURL: URL?
+    /// URL of his/her website (may be nil)
+    dynamic var twitterURL: URL?
     
     /// Array of screenshots of their Scholar app
     private dynamic var screenshotsString: String = ""

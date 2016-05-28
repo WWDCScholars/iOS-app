@@ -61,11 +61,12 @@ class ChatViewController: JSQMessagesViewController {
         
         self.observeMessages()
         self.observeTyping()
+        self.loadOldMessages()
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        let messagesQuery = self.messageReference.queryLimitedToLast(25)
+        let messagesQuery = self.messageReference.queryOrderedByChild("dateSent")
 
         if messageObserverHandle != nil {
             messagesQuery.removeObserverWithHandle(messageObserverHandle!)
@@ -134,9 +135,25 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
+    private func loadOldMessages() {
+        self.messages = []
+        let messagesQuery = self.messageReference.queryLimitedToLast(50).queryOrderedByChild("dateSent")
+        messagesQuery.observeSingleEventOfType(.ChildAdded, withBlock: { snapshot in
+            if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String {
+                self.addMessage(id, text: text)
+                
+                if id != self.senderId {
+                    JSQSystemSoundPlayer.jsq_playMessageReceivedSound()
+                }
+                
+                self.finishReceivingMessageAnimated(false)
+            }
+        })
+    }
+    
     private func observeMessages() {
-        let messagesQuery = self.messageReference.queryLimitedToLast(25)
-        self.messageObserverHandle = messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
+        let messagesQuery = self.messageReference
+        self.messageObserverHandle = messagesQuery.queryOrderedByChild("dateSent").observeEventType(.ChildAdded, withBlock: { snapshot in
             if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String {
                 self.addMessage(id, text: text)
                 
@@ -279,7 +296,7 @@ class ChatViewController: JSQMessagesViewController {
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
         let itemRef = self.messageReference.childByAutoId()
-        let messageItem = ["text": text, "senderId": senderId]
+        let messageItem = ["text": text, "senderId": senderId, "dateSent": NSDate().timeIntervalSince1970 ]
         itemRef.setValue(messageItem)
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound()

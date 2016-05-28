@@ -16,6 +16,8 @@ class ChatViewController: JSQMessagesViewController {
     private var messages = [JSQMessage]()
     private var outgoingBubbleImageView: JSQMessagesBubbleImage!
     private var incomingBubbleImageView: JSQMessagesBubbleImage!
+    private var outgoingGroupBubbleImageView: JSQMessagesBubbleImage!
+    private var incomingGroupBubbleImageView: JSQMessagesBubbleImage!
     private var usersTypingQuery: FIRDatabaseQuery!
     private var userIsTypingRef: FIRDatabaseReference!
     private var localTyping = false
@@ -90,6 +92,11 @@ class ChatViewController: JSQMessagesViewController {
 
         
         let factory = JSQMessagesBubbleImageFactory()
+        let taillessFactory = JSQMessagesBubbleImageFactory.init(bubbleImage: UIImage.jsq_bubbleCompactTaillessImage(), capInsets: UIEdgeInsetsZero)
+
+        self.incomingGroupBubbleImageView = taillessFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
+        self.outgoingGroupBubbleImageView = taillessFactory.outgoingMessagesBubbleImageWithColor(UIColor.scholarsPurpleColor())
+
 
         self.outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(UIColor.scholarsPurpleColor())
         self.incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
@@ -156,12 +163,16 @@ class ChatViewController: JSQMessagesViewController {
         
         let message = self.messages[indexPath.item]
         
-//        if indexPath.item - 1 > 0 {
-//            let prevMessage = self.messages[indexPath.item - 1]
-//            if prevMessage.senderId == message.senderId {
-//                return nil
-//            }
-//        }
+        if indexPath.item + 1 < self.messages.count {
+            let nextMessage = self.messages[indexPath.item + 1]
+            if nextMessage.senderId == message.senderId {
+                if message.senderId == self.senderId {
+                    return self.outgoingGroupBubbleImageView
+                } else {
+                    return self.incomingGroupBubbleImageView
+                }
+            }
+        }
         
         if message.senderId == self.senderId {
             return self.outgoingBubbleImageView
@@ -221,6 +232,8 @@ class ChatViewController: JSQMessagesViewController {
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as! JSQMessagesCollectionViewCell
+        cell.messageBubbleTopLabel.textInsets = UIEdgeInsetsMake(0, 45, 0, 0)
+
         let message = self.messages[indexPath.item]
         
         if message.senderId != self.senderId {

@@ -31,17 +31,21 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         let appID = String().matchesForRegexInText("([\\d]{10,})", text: appStoreURL).first
         let lookupURL = "http://itunes.apple.com/lookup?id=\(appID!)"
         
-        if let url = NSURL(string: lookupURL) {
-            if let data = try? NSData(contentsOfURL: url, options: []) {
-                let json = JSON(data: data)
-                let results: JSON = json["results"]
-                
-                for (index, object) in results.enumerate() {
-                    let screenshots: JSON = json[index]["screenshotUrls"]
+        request(.GET, lookupURL)
+            .responseString() { response in
+                if let data = response.result.value {
+                    let json = JSON.parse(data)
+                    print("JSON: \(json)")
                     
-                    print(screenshots)
+                    if let results = json["results"].array {
+                        for appJson in results {
+                            let screenshots: JSON = appJson["screenshotUrls"]
+                        
+                            print(screenshots)
+                        }
+                    }
+                    
                 }
-            }
         }
         
         self.screenshots = []

@@ -39,6 +39,14 @@ class UserKit: ApiBase {
         }
     }
     
+    var loggedInScholar: Scholar? {
+        if let scholarId = scholarId {
+            return DatabaseManager.sharedInstance.scholarForId(scholarId)
+        }
+        
+        return nil
+    }
+    
     func login(email: String, password: String, completionHandler: ((error: NSError?) -> Void)? = nil) {
         if let encodedPassword = password.dataUsingEncoding(NSUTF8StringEncoding)?.sha256()?.toHexString() {
         

@@ -22,6 +22,10 @@ class Scholar: Object {
         return "\(firstName) \(lastName)"
     }
     
+    var initials: String {
+        return "\(firstName.characters.first!)\(lastName.characters.first!)"
+    }
+    
     /// The E-Mail address of the scholar
     dynamic var email: String = ""
     

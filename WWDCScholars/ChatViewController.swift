@@ -34,10 +34,22 @@ class ChatViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.messageReference = FIRDatabase.database().reference().child("messages")
-        self.senderId = FIRAuth.auth()?.currentUser?.uid ?? ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
-        self.senderDisplayName = "Andrew Walker"
+        if !UserKit.sharedInstance.isLoggedIn {
+            //todo: Show 'You need to login' screen
+            return
+        }
         
+        self.messageReference = FIRDatabase.database().reference().child("messages")
+        
+        self.senderId = "UNKNOWN"
+        self.senderDisplayName = "*Not logged in*"
+        
+        if let ourScholar = UserKit.sharedInstance.loggedInScholar {
+            self.senderId = UserKit.sharedInstance.scholarId ?? "unknown"
+            self.senderDisplayName = ourScholar.fullName
+            print (ourScholar.fullName)
+        
+        }
         self.styleUI()
         self.finishReceivingMessage()
     }
@@ -99,8 +111,13 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     private func addMessage(id: String, text: String) {
-        let message = JSQMessage(senderId: id, displayName: "Andrew Walker", text: text)
-        self.messages.append(message)
+        if let scholar = DatabaseManager.sharedInstance.scholarForId(id){
+            let message = JSQMessage(senderId: id, displayName: scholar.fullName, text: text)
+            self.messages.append(message)
+        }else {
+            //todo: reload scholars if scholar is missing in db
+            print ("addMessage -- Uhoh! no scholar found in db with id \(id)")
+        }
     }
     
     private func observeMessages() {
@@ -139,12 +156,26 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
-        return JSQMessagesAvatarImageFactory.avatarImageWithUserInitials("ML", backgroundColor: UIColor.transparentScholarsPurpleColor(), textColor: UIColor.whiteColor(), font: UIFont.systemFontOfSize(15), diameter: 50)
+        let message = self.messages[indexPath.row]
+        
+        if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId) {
+            return JSQMessagesAvatarImageFactory.avatarImageWithUserInitials(scholar.initials, backgroundColor: UIColor.transparentScholarsPurpleColor(), textColor: UIColor.whiteColor(), font: UIFont.systemFontOfSize(15), diameter: 50)
+        }else {
+            return JSQMessagesAvatarImageFactory.avatarImageWithUserInitials("UK", backgroundColor: UIColor.transparentScholarsPurpleColor(), textColor: UIColor.whiteColor(), font: UIFont.systemFontOfSize(15), diameter: 50)
+        }
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as! JSQMessagesCollectionViewCell
         let message = self.messages[indexPath.item]
+        
+        if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId){
+            if let imageUrl = NSURL(string: scholar.profilePicURL) {
+                let imageFilter = RoundedCornersFilter(radius: 50)
+
+                cell.avatarImageView!.af_setImageWithURL(imageUrl, filter: imageFilter, imageTransition: .CrossDissolve(0.25))
+            }
+        }
         
         if message.senderId == self.senderId {
             cell.textView!.textColor = UIColor.whiteColor()

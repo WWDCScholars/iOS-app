@@ -32,9 +32,15 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     
     var loggedInScholarString: NSString!
     
+    private var editBarButtonItem: UIBarButtonItem!
+    
     private var currentScholar: Scholar?
     var delegate: QuickActionsDelegate?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.editBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(ScholarDetailViewController.editProfileButtonTapped(_:)))
+    }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -307,20 +313,21 @@ extension ScholarDetailViewController: UITableViewDataSource {
     }
     
     func editButtonVisible() {
-        if UserKit.sharedInstance.loggedInScholar != nil {
+        if UserKit.sharedInstance.isLoggedIn {
             loggedInScholarString = UserKit.sharedInstance.scholarId ?? "unknown"
-            
-            print(loggedInScholarString)
             
             if loggedInScholarString == currentScholar?.id {
                 // Show edit button
+                self.navigationItem.rightBarButtonItems = [editBarButtonItem, favoritesButton]
                 print("// Show edit button")
             }else{
                 // Hide edit button
+                self.navigationItem.rightBarButtonItems = [favoritesButton]
                 print("// Hide edit button")
             }
         }else{
             // User not logged in
+            self.navigationItem.rightBarButtonItems = [favoritesButton]
             print("// User not logged in")
         }
     }

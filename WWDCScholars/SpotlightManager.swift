@@ -22,7 +22,7 @@ class SpotlightManager {
             if let error = error {
                 print("Indexing error: \(error.localizedDescription)")
             } else {
-//                print("Search item successfully indexed!") // Sorry but I don't care at all about this. I want a clean console, thx.
+                //Do nothing
             }
         }
     }

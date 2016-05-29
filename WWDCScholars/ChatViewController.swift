@@ -12,6 +12,8 @@ import UIKit
 import AdSupport
 
 class ChatViewController: JSQMessagesViewController {
+    @IBOutlet private weak var loadingContainerView: UIView!
+    
     private var messageReference: FIRDatabaseReference!
     private var messages = [JSQMessage]()
     private var outgoingBubbleImageView: JSQMessagesBubbleImage!
@@ -21,6 +23,8 @@ class ChatViewController: JSQMessagesViewController {
     private var usersTypingQuery: FIRDatabaseQuery!
     private var userIsTypingRef: FIRDatabaseReference!
     private var localTyping = false
+    private var loadingViewController: LoadingViewController!
+    private var messageObserverHandle: UInt?
     private var isTyping: Bool {
         get {
             return self.localTyping
@@ -30,8 +34,6 @@ class ChatViewController: JSQMessagesViewController {
             self.userIsTypingRef.setValue(newValue)
         }
     }
-    
-    private var messageObserverHandle: UInt?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +79,8 @@ class ChatViewController: JSQMessagesViewController {
         if segue.identifier == String(ScholarDetailViewController) {
             let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
             destinationViewController.setScholar(sender as! String)
+        } else if segue.identifier == String(LoadingViewController) {
+            self.loadingViewController = segue.destinationViewController as! LoadingViewController
         }
     }
     
@@ -84,6 +88,9 @@ class ChatViewController: JSQMessagesViewController {
     
     private func styleUI() {
         self.title = "Chat"
+        
+        self.loadingContainerView.hidden = false
+        self.loadingViewController.startAnimating()
         
         self.collectionView.collectionViewLayout.springinessEnabled = true
         self.collectionView.collectionViewLayout.springResistanceFactor = 3000
@@ -147,6 +154,9 @@ class ChatViewController: JSQMessagesViewController {
                 }
                 
                 self.finishReceivingMessageAnimated(false)
+                
+                self.loadingContainerView.hidden = true
+                self.loadingViewController.stopAnimating()
             }
         })
     }

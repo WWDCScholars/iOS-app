@@ -18,8 +18,8 @@ enum CurrentViewType {
 }
 
 class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate {
+    @IBOutlet private weak var loadingContainerView: UIView!
     @IBOutlet private weak var yearCollectionView: UICollectionView!
-    @IBOutlet private weak var loadingView: ActivityIndicatorView!
     @IBOutlet private weak var scholarsCollectionView: NoJumpRefreshCollectionView!
     @IBOutlet private weak var extendedNavigationContainer: UIView!
     @IBOutlet private weak var mainView: UIView!
@@ -37,6 +37,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     private var currentYear: WWDC = .WWDC2016
     private var currentScholars: [Scholar] = []
     private var searchResults = NSArray()
+    private var loadingViewController: LoadingViewController!
     private var searchBarActive = false
     private var loggedIn = false
     private var isMapInitalized = false
@@ -66,6 +67,8 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
             } else if let scholarID = sender as? String {
                 destinationViewController.setScholar(scholarID)
             }
+        } else if segue.identifier == String(LoadingViewController) {
+            self.loadingViewController = segue.destinationViewController as! LoadingViewController
         }
     }
     
@@ -88,7 +91,8 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     private func configureUI() {
         self.scholarsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
      
-        self.loadingView.startAnimating()
+        self.loadingContainerView.hidden = false
+        self.loadingViewController.startAnimating()
         
         if self.traitCollection.forceTouchCapability == .Available {
             self.registerForPreviewingWithDelegate(self, sourceView: self.view)
@@ -258,8 +262,9 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     internal func loadData() {
         ScholarsKit.sharedInstance.loadScholars({
-            if self.loadingView.isAnimating() {
-                self.loadingView.stopAnimating()
+            if self.loadingViewController.isAnimating() {
+                self.loadingContainerView.hidden = true
+                self.loadingViewController.stopAnimating()
             }
 
             for (index, scholar) in DatabaseManager.sharedInstance.getAllScholars().enumerate() {
@@ -270,8 +275,9 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         })
         
         if ScholarsKit.sharedInstance.hasScholars() {
-        if self.loadingView.isAnimating() {
-            self.loadingView.stopAnimating()
+        if self.loadingViewController.isAnimating() {
+            self.loadingContainerView.hidden = true
+            self.loadingViewController.stopAnimating()
         }
         self.getCurrentScholars()
         }

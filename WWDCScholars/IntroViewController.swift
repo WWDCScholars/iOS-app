@@ -95,9 +95,9 @@ class IntroViewController: UIViewController {
         let shadowView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width, 200))
         shadowView.backgroundColor = UIColor(white: 0, alpha: 0.15)
         shadowView.center = self.view.center
-        self.view.insertSubview(shadowView, aboveSubview: self.backgroundImageView)
+//        self.view.insertSubview(shadowView, aboveSubview: self.backgroundImageView)
         
-        addBlurArea(shadowView.frame, style: UIBlurEffectStyle.Light)
+//        addBlurArea(shadowView.frame, style: UIBlurEffectStyle.Light)
         addBlurArea(CGRectMake(0, self.view!.frame.size.height-58, self.view!.frame.size.width, 58), style: UIBlurEffectStyle.Light)
         
     }

@@ -286,6 +286,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
             
             cell.scholarshipScreenshots = self.currentScholar!.screenshots
             cell.is2016 = self.is2016
+            cell.setAppStoreURL(self.currentScholar?.appstoreSubmissionURL ?? "")
             cell.delegate = self
                         
             return cell

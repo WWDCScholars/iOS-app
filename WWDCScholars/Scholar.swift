@@ -144,6 +144,8 @@ class Scholar: Object {
         }
     }
     
+    dynamic var appstoreSubmissionURL: URL?
+    
     override class func primaryKey() -> String {
         return "id"
     }

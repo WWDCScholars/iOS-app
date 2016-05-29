@@ -30,6 +30,8 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         }
     }
     
+    private var appStoreURL = ""
+    
     override func awakeFromNib() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
@@ -39,12 +41,25 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         self.retrieveAppStoreScreenshots()
     }
     
+    func setAppStoreURL(url: URL) {
+        self.appStoreURL = url
+        guard self.appStoreURL != "" else {
+            return
+        }
+        retrieveAppStoreScreenshots() {
+            self.collectionView.reloadData()
+        }
+    }
+    
     internal func showFullScreenImage(imageView: UIImageView) {
         self.delegate?.showFullScreenImage(imageView)
     }
     
-    private func retrieveAppStoreScreenshots() {
-        let appStoreURL = "https://itunes.apple.com/gb/app/mouse-times-florida/id1021402097?mt=8"
+    private func retrieveAppStoreScreenshots(completionHandler: (() -> Void)? = nil) {
+        guard self.appStoreURL != "" else {
+            return
+        }
+        
         let appID = String().matchesForRegexInText("([\\d]{10,})", text: appStoreURL).first
         let lookupURL = "http://itunes.apple.com/lookup?id=\(appID!)"
         
@@ -58,6 +73,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
                             for screenshot in appStoreScreenshots {
                                 if let screenshotString = screenshot.string {
                                     self.appStoreScreenshots.append(URL(screenshotString))
+                                    completionHandler?()
                                 }
                             }
                         }

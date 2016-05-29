@@ -92,15 +92,9 @@ class IntroViewController: UIViewController {
         
         _ = self.objects.map() { $0.self.changeObjectToPosition(self.scrollView.contentOffset) }
         
-        let shadowView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width, 200))
-//        shadowView.backgroundColor = UIColor(white: 0, alpha: 0.15)
+        let shadowView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
+        shadowView.backgroundColor = UIColor(white: 0, alpha: 0.15)
         shadowView.center = self.view.center
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRectMake(0, -25, self.view.frame.size.width, 250)
-        gradientLayer.colors = [UIColor.clearColor().CGColor, UIColor(white: 0, alpha: 0.25).CGColor, UIColor(white: 0, alpha: 0.25).CGColor, UIColor.clearColor().CGColor]
-        gradientLayer.locations = [0.0, 0.2, 0.8, 1.0]
-        shadowView.layer.addSublayer(gradientLayer)
         
         self.view.insertSubview(shadowView, aboveSubview: self.backgroundImageView)
 

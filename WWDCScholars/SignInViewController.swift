@@ -28,6 +28,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
             let isAnonymous = user!.anonymous
             let userID = user!.uid
             
+            print(isAnonymous)
             print(userID)
         }
         

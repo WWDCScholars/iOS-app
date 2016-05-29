@@ -67,7 +67,7 @@ class ChatViewController: JSQMessagesViewController {
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        let messagesQuery = self.messageReference.queryOrderedByChild("dateSent")
+//        let messagesQuery = self.messageReference.queryOrderedByChild("dateSent")
 
 //        if messageObserverHandle != nil {
 //            messagesQuery.removeObserverWithHandle(messageObserverHandle!)

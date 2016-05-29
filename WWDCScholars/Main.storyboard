@@ -951,8 +951,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lfh-mV-A8q">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t1s-0a-mqc">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1s-0a-mqc">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -991,8 +991,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NdQ-cc-I2w">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NdQ-cc-I2w">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgs-Xv-ttD">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -1174,11 +1174,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="326"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5i-Vq-liw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="315"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5i-Vq-liw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="316"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="example1" translatesAutoresizingMaskIntoConstraints="NO" id="nXC-9f-owr">
-                                                            <rect key="frame" x="0.0" y="0.0" width="600" height="365"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example1" translatesAutoresizingMaskIntoConstraints="NO" id="nXC-9f-owr">
+                                                            <rect key="frame" x="0.0" y="0.0" width="600" height="366"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="nXC-9f-owr" secondAttribute="height" multiplier="16:9" id="O9A-oh-b1q"/>
                                                             </constraints>
@@ -1188,8 +1188,8 @@
                                                                 </mask>
                                                             </variation>
                                                         </imageView>
-                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u5N-zp-vXQ">
-                                                            <rect key="frame" x="0.0" y="249" width="600" height="66"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5N-zp-vXQ">
+                                                            <rect key="frame" x="0.0" y="250" width="600" height="66"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Tq-Jy-Mp6">
                                                                     <rect key="frame" x="8" y="8" width="584" height="21"/>
@@ -1290,8 +1290,8 @@
                                                         </mask>
                                                     </variation>
                                                 </view>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EzO-04-TlO">
-                                                    <rect key="frame" x="0.0" y="315" width="600" height="10"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EzO-04-TlO">
+                                                    <rect key="frame" x="0.0" y="316" width="600" height="10"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="10" id="tNK-kT-YaF"/>
@@ -3081,23 +3081,6 @@
             </objects>
             <point key="canvasLocation" x="2806" y="708.5"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="eca-sP-cJa">
-            <objects>
-                <viewController id="LvS-MC-29M" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Oho-St-vGj"/>
-                        <viewControllerLayoutGuide type="bottom" id="5cO-6G-ijU"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="58R-3d-fd4">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UmA-s2-RTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="Andrew Walker" width="133" height="133"/>
@@ -3139,8 +3122,8 @@
         <image name="youTubeIconSmall" width="27" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UF7-DQ-LBe"/>
-        <segue reference="If2-0g-pPV"/>
+        <segue reference="Djt-KS-IXk"/>
         <segue reference="TAa-8J-vou"/>
+        <segue reference="If2-0g-pPV"/>
     </inferredMetricsTieBreakers>
 </document>

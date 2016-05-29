@@ -69,20 +69,20 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         if segue.identifier == "editProfile" {
             let editVC = (segue.destinationViewController as! UINavigationController).viewControllers.first as! EditProfileTableViewController
             
-            editVC.setScholar(self.currentScholar!.id)
+            editVC.setScholar(self.currentScholar?.id ?? "")
         }
     }
     
     // MARK: - UIPreviewActions
     
     override func previewActionItems() -> [UIPreviewActionItem] {
-        let indexOfFavorite = UserDefaults.favorites.indexOf(self.currentScholar!.id)
+        let indexOfFavorite = UserDefaults.favorites.indexOf(self.currentScholar?.id ?? "")
         let actionTitle = indexOfFavorite == nil ? "Add to saved" : "Remove from saved"
         let actionStyle: UIPreviewActionStyle = indexOfFavorite == nil ? .Default : .Destructive
         
         let favoriteAction = UIPreviewAction(title: actionTitle, style: actionStyle) { (action, viewController) -> Void in
             if indexOfFavorite == nil {
-                UserDefaults.favorites.append(self.currentScholar!.id)
+                UserDefaults.favorites.append(self.currentScholar?.id ?? "")
             } else {
                 UserDefaults.favorites.removeAtIndex(indexOfFavorite!)
                 
@@ -160,6 +160,10 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     }
     
     private func configureMap() {
+        guard let scholar = self.currentScholar else {
+            return
+        }
+        
         self.mapView.zoomEnabled = false
         self.mapView.scrollEnabled = false
         self.mapView.rotateEnabled = false
@@ -167,8 +171,8 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         
         let camera = MKMapCamera()
         camera.altitude = 7500
-        camera.centerCoordinate.latitude = self.currentScholar!.location.latitude - 0.013
-        camera.centerCoordinate.longitude = self.currentScholar!.location.longitude
+        camera.centerCoordinate.latitude = scholar.location.latitude - 0.013
+        camera.centerCoordinate.longitude = scholar.location.longitude
         
         self.mapView.setCamera(camera, animated: false)
     }
@@ -180,7 +184,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         
         self.title = scholar.fullName
         
-        self.setFavoriteImage(UserDefaults.favorites.contains(self.currentScholar!.id))
+        self.setFavoriteImage(UserDefaults.favorites.contains(scholar.id))
         self.teamIconImageView.hidden = !CreditsManager.sharedInstance.checkForCredit(scholar)
         self.locationLabel.text = scholar.location.name
         self.nameLabel.text = scholar.firstName + " " + scholar.lastName
@@ -234,12 +238,12 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     // MARK: - IBActions
     
     @IBAction func favoriteButtonTapped(sender: AnyObject) {
-        let indexOfFavorite = UserDefaults.favorites.indexOf(self.currentScholar!.id)
+        let indexOfFavorite = UserDefaults.favorites.indexOf(self.currentScholar?.id ?? "")
         
         self.setFavoriteImage(indexOfFavorite == nil)
         
         if indexOfFavorite == nil {
-            UserDefaults.favorites.append(self.currentScholar!.id)
+            UserDefaults.favorites.append(self.currentScholar?.id ?? "")
         } else {
             UserDefaults.favorites.removeAtIndex(indexOfFavorite!)
         }
@@ -260,40 +264,45 @@ extension ScholarDetailViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        guard let scholar = self.currentScholar else {
+            return UITableViewCell()
+        }
+        
+        
         switch indexPath.item {
         case 0:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("basicDetailsTableViewCell") as! BasicDetailsTableViewCell
             
             var attendedString = ""
-            for (index, batch) in self.currentScholar!.batchWWDC.enumerate() {
-                attendedString.appendContentsOf(index != self.currentScholar!.batchWWDC.count - 1 ? "\(batch.shortVersion), " : batch.shortVersion)
+            for (index, batch) in scholar.batchWWDC.enumerate() {
+                attendedString.appendContentsOf(index != scholar.batchWWDC.count - 1 ? "\(batch.shortVersion), " : batch.shortVersion)
             }
             
-            cell.ageLabel.text = String(self.currentScholar!.age)
-            let locationArr = self.currentScholar!.location.name.characters.split(",").map(String.init)
-            cell.countryLabel.text = locationArr[locationArr.count-1]
+            cell.ageLabel.text = String(scholar.age)
+            let locationArr = scholar.location.name.characters.split(",").map(String.init)
+            cell.countryLabel.text = locationArr[locationArr.count - 1]
             cell.attendedLabel.text = attendedString
             
             return cell
         case 1:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("bioTableViewCell") as! BioTableViewCell
             
-            cell.contentLabel.text = self.currentScholar?.shortBio
+            cell.contentLabel.text = scholar.shortBio
             
             return cell
         case 2:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("screenshotsTableViewCell") as! ScreenshotsTableViewCell
             
-            cell.scholarshipScreenshots = self.currentScholar!.screenshots
-            cell.is2016 = self.is2016
-            cell.setAppStoreURL(self.currentScholar?.appstoreSubmissionURL ?? "")
+            cell.scholarshipScreenshots = scholar.screenshots
+            cell.is2016 = scholar.appstoreSubmissionURL != nil
+            cell.setAppStoreURL(scholar.appstoreSubmissionURL ?? "")
             cell.delegate = self
                         
             return cell
         case 3:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("socialButtonsTableViewCell") as! SocialButtonsTableViewCell
             
-            cell.scholar = self.currentScholar!
+            cell.scholar = scholar
             cell.delegate = self
             cell.setIconVisibility()
             
@@ -304,13 +313,17 @@ extension ScholarDetailViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        guard let scholar = self.currentScholar else {
+            return 0.0
+        }
+        
         switch indexPath.item {
         case 0:
             return 70.0
         case 1:
             return UITableViewAutomaticDimension
         case 2:
-            return self.is2016 ? 348.0 : 304.0
+            return scholar.appstoreSubmissionURL != nil ? 348.0 : 304.0
         case 3:
             return 54.0
         default:

@@ -20,6 +20,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
     
     private var screenshotType: ScreenshotType = .Scholarship
     private var appStoreScreenshots: [URL] = []
+    private var appStoreURL = ""
     
     var scholarshipScreenshots: [URL] = []
     var delegate: ImageTappedDelegate?
@@ -29,8 +30,6 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
             self.layoutIfNeeded()
         }
     }
-    
-    private var appStoreURL = ""
     
     override func awakeFromNib() {
         self.collectionView.delegate = self
@@ -47,7 +46,8 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         guard self.appStoreURL != "" else {
             return
         }
-        retrieveAppStoreScreenshots() {
+        
+        self.retrieveAppStoreScreenshots() {
             self.collectionView.reloadData()
         }
     }

@@ -43,6 +43,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
     
     func setAppStoreURL(url: URL) {
         self.appStoreURL = url
+        self.is2016 = (url == "") ? false : self.is2016
         guard self.appStoreURL != "" else {
             return
         }

@@ -16,6 +16,8 @@ import CoreSpotlight
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
+    var UserIsLoggedIn = false
+    
     // 3D Touch
     enum ShortcutIdentifier: String {
         case OpenMyProfile
@@ -34,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         var keys: NSDictionary?
         
-        print("Andrew is awesome!") // 500th commit!
+        print("Andrew & Sam are awesome!") // 500th commit!
         
         if let path = NSBundle.mainBundle().pathForResource("ServerDetails", ofType: "plist") {
             keys = NSDictionary(contentsOfFile: path)

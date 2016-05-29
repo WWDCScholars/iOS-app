@@ -39,7 +39,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     private var searchResults = NSArray()
     private var loadingViewController: LoadingViewController!
     private var searchBarActive = false
-    private var loggedIn = false
+    private var loggedIn: Bool!
     private var isMapInitalized = false
     private var myLocation: CLLocationCoordinate2D?
     private var currentViewType: CurrentViewType = .List
@@ -55,6 +55,8 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.configureUI()
         self.styleUI()
         self.loadData()
+        
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -153,7 +155,9 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     // MARK: - IBActions
     
     @IBAction func accountButtonTapped(sender: AnyObject) {
-        self.loggedIn ? self.showEditDetailsModal() : self.showSignInModal()
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.UserIsLoggedIn ? self.showEditDetailsModal() : self.showSignInModal()
     }
     
     @IBAction func mapButtonTapped(sender: AnyObject) {
@@ -320,6 +324,11 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         modalViewController.modalPresentationStyle = .FullScreen
         modalViewController.modalTransitionStyle = .CoverVertical
         self.presentViewController(modalViewController, animated: true, completion: nil)
+        
+        
+        // Data input:
+       // let editVC = (segue.destinationViewController as! UINavigationController).viewControllers.first as! EditProfileTableViewController
+      //  modalViewController.setScholar(UserKit.sharedInstance.scholarId ?? "unknown")
     }
     
     internal func locateButtonAction(sender: UIButton!) {

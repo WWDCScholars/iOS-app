@@ -87,6 +87,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
             if error == nil {
                 //todo "Logged in" dialog instead of loggin in again!
                 self.dismissSignInViewController()
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.UserIsLoggedIn = true
             }else {
                 self.shakeSignInViewController()
             }

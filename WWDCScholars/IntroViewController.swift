@@ -74,7 +74,7 @@ class IntroViewController: UIViewController {
         let container = UIView(frame: area)
         blurView.frame = CGRect(x: 0, y: 0, width: area.width, height: area.height)
         container.addSubview(blurView)
-        container.alpha = 0.8
+        container.alpha = 0.5
         self.view.insertSubview(container, aboveSubview: self.backgroundImageView)
     }
     
@@ -95,9 +95,9 @@ class IntroViewController: UIViewController {
         let shadowView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width, 200))
         shadowView.backgroundColor = UIColor(white: 0, alpha: 0.15)
         shadowView.center = self.view.center
-//        self.view.insertSubview(shadowView, aboveSubview: self.backgroundImageView)
+        self.view.insertSubview(shadowView, aboveSubview: self.backgroundImageView)
         
-//        addBlurArea(shadowView.frame, style: UIBlurEffectStyle.Light)
+        addBlurArea(self.view.frame, style: UIBlurEffectStyle.Light)
         addBlurArea(CGRectMake(0, self.view!.frame.size.height-58, self.view!.frame.size.width, 58), style: UIBlurEffectStyle.Light)
         
     }

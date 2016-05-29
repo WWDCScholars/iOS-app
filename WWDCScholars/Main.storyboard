@@ -354,7 +354,7 @@
                                                                                         <constraint firstItem="DOX-7g-D7r" firstAttribute="centerY" secondItem="dd5-vu-RLz" secondAttribute="centerY" id="olg-bK-BXb"/>
                                                                                     </constraints>
                                                                                 </view>
-                                                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="in2-F3-pr9">
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="in2-F3-pr9">
                                                                                     <rect key="frame" x="195" y="0.0" width="194" height="70"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-dA-hQT">
@@ -398,7 +398,7 @@
                                                                                         <constraint firstItem="iMA-dA-hQT" firstAttribute="centerX" secondItem="in2-F3-pr9" secondAttribute="centerX" id="hmb-Yd-Wcb"/>
                                                                                     </constraints>
                                                                                 </view>
-                                                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YSG-Qq-NES">
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSG-Qq-NES">
                                                                                     <rect key="frame" x="389" y="0.0" width="195" height="70"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCL-L9-LaH">
@@ -3026,6 +3026,10 @@
         <scene sceneID="4eV-87-0lh">
             <objects>
                 <viewController id="OkU-OR-ZBR" customClass="LoadingViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UsQ-gW-KxY"/>
+                        <viewControllerLayoutGuide type="bottom" id="dk1-aI-yah"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aml-ro-zPP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="437"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3081,6 +3085,10 @@
         <scene sceneID="eca-sP-cJa">
             <objects>
                 <viewController id="LvS-MC-29M" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Oho-St-vGj"/>
+                        <viewControllerLayoutGuide type="bottom" id="5cO-6G-ijU"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="58R-3d-fd4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

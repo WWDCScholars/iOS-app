@@ -30,18 +30,17 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     
     @IBOutlet var editProfileButton: UIBarButtonItem!
     
-    var loggedInScholarString: NSString!
-    
+    private var loggedInScholarString: NSString!
     private var editBarButtonItem: UIBarButtonItem!
-    private var is2016 = true //TEMP VARIABLE
-    
     private var currentScholar: Scholar?
+    
     var delegate: QuickActionsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.editBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(ScholarDetailViewController.editProfileButtonTapped(_:)))
+        self.editBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(ScholarDetailViewController.editProfileButtonTapped))
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -56,7 +55,6 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         self.styleUI()
         self.updateUI()
         self.editButtonVisible()
-
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -138,25 +136,18 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     
     // MARK: - Private functions
     
-    internal func convertMapToImage() {
-        let regularSize = self.mapView.frame.size
-        let viewWidth = self.view.frame.width
-        let viewHeight = self.view.frame.height
-        
-        self.mapView.frame.size = CGSize(width: viewWidth, height: viewHeight)
-        
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: viewWidth, height: viewHeight), false, UIScreen.mainScreen().scale)
-        self.mapView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        let imageView = UIImageView()
-        imageView.frame = self.mapView.frame
-        imageView.image = image
-        
-        self.mapView.frame.size = regularSize
-        
-        self.showFullScreenImage(imageView)
+    private func editButtonVisible() {
+        if UserKit.sharedInstance.isLoggedIn {
+            self.loggedInScholarString = UserKit.sharedInstance.scholarId ?? "unknown"
+            
+            if self.loggedInScholarString == self.currentScholar?.id {
+                self.navigationItem.rightBarButtonItems = [self.editBarButtonItem, self.favoritesButton]
+            } else {
+                self.navigationItem.rightBarButtonItems = [self.favoritesButton]
+            }
+        } else {
+            self.navigationItem.rightBarButtonItems = [self.favoritesButton]
+        }
     }
     
     private func configureMap() {
@@ -197,6 +188,27 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     }
     
     // MARK: - Internal functions
+    
+    internal func convertMapToImage() {
+        let regularSize = self.mapView.frame.size
+        let viewWidth = self.view.frame.width
+        let viewHeight = self.view.frame.height
+        
+        self.mapView.frame.size = CGSize(width: viewWidth, height: viewHeight)
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: viewWidth, height: viewHeight), false, UIScreen.mainScreen().scale)
+        self.mapView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let imageView = UIImageView()
+        imageView.frame = self.mapView.frame
+        imageView.image = image
+        
+        self.mapView.frame.size = regularSize
+        
+        self.showFullScreenImage(imageView)
+    }
     
     internal func profileImageTapped() {
         self.showFullScreenImage(self.profileImageView)
@@ -330,28 +342,6 @@ extension ScholarDetailViewController: UITableViewDataSource {
             return 0.0
         }
     }
-    
-    func editButtonVisible() {
-        if UserKit.sharedInstance.isLoggedIn {
-            loggedInScholarString = UserKit.sharedInstance.scholarId ?? "unknown"
-            
-            if loggedInScholarString == currentScholar?.id {
-                // Show edit button
-                self.navigationItem.rightBarButtonItems = [editBarButtonItem, favoritesButton]
-                print("// Show edit button")
-            }else{
-                // Hide edit button
-                self.navigationItem.rightBarButtonItems = [favoritesButton]
-                print("// Hide edit button")
-            }
-        }else{
-            // User not logged in
-            self.navigationItem.rightBarButtonItems = [favoritesButton]
-            print("// User not logged in")
-        }
-    }
-    
-   
 }
 
 // MARK: - UIScrollViewDelegate

@@ -36,13 +36,13 @@ class ScholarsTabBarViewController: UITabBarController {
         self.tabBar.items![2].enabled = false
         
         let image = UIImage(named: "wwdcScholarsTabIcon")!
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+        let button = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: image.size.width, height: image.size.height))
         button.setBackgroundImage(image, forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(ScholarsTabBarViewController.segueToIntro), forControlEvents: .TouchUpInside)
         
         let heightDifference = image.size.height - self.tabBar.frame.size.height
         
-        if heightDifference < 0 {
+        if heightDifference < 0.0 {
             button.center = self.tabBar.center
         } else {
             var center = self.tabBar.center

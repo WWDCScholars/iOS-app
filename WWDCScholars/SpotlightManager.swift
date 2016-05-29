@@ -27,8 +27,6 @@ class SpotlightManager {
         CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error: NSError?) -> Void in
             if let error = error {
                 print("Indexing error: \(error.localizedDescription)")
-            } else {
-                //Do nothing
             }
         }
     }

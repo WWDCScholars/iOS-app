@@ -32,10 +32,10 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     @IBOutlet private weak var youtubeTextField: FloatLabelTextField!
     @IBOutlet private weak var appGithubTextField: FloatLabelTextField!
     
-    private var currentScholar: Scholar?
     private let imagePicker = UIImagePickerController()
     private let locationManager = CLLocationManager()
     
+    private var currentScholar: Scholar?
     private var myLocation: CLLocationCoordinate2D?
     private var screenshotUploadIndex = 0
     private var imageUploadType: ImageUploadType = .Profile
@@ -52,15 +52,13 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.locationManager.startUpdatingLocation()
         
         self.styleUI()
-        
         self.setScholar(UserKit.sharedInstance.scholarId ?? "unknown")
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard currentScholar != nil else {
-            print ("EditProfileTableViewController -- No scholar!")
+        guard self.currentScholar != nil else {
             return
         }
         
@@ -75,7 +73,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.linkedinTextField.text = self.currentScholar?.linkedInURL
         self.websiteTextField.text = self.currentScholar?.websiteURL
         self.appStoreTextField.text = self.currentScholar?.iTunesURL
-//        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such field yet!
+//        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such property yet!
         self.appGithubTextField.text = self.currentScholar?.twitterURL
 
     }

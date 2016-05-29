@@ -43,7 +43,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         self.dialogView.animate()
         self.signUpButton.animate()
         
-        if UIScreen.mainScreen().bounds.size.height == 480 {
+        if UIScreen.mainScreen().bounds.size.height == 480.0 {
             self.dialogView.transform = CGAffineTransformMakeScale(0.8, 0.8)
         }
     }
@@ -72,29 +72,27 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     // MARK: - IBActions
     
     @IBAction func signinButtonPressed(sender: AnyObject) {
-        if emailTextField.text == "" {
+        if self.emailTextField.text == "" {
             //todo: show error -> no email
-            shakeSignInViewController()
+            self.shakeSignInViewController()
             return
         }
-        if passwordTextField.text == "" {
+        if self.passwordTextField.text == "" {
             //todo: show error -> no password
-            shakeSignInViewController()
+            self.shakeSignInViewController()
             return
         }
 
-        UserKit.sharedInstance.login(emailTextField.text!, password: passwordTextField.text!) { error in
+        UserKit.sharedInstance.login(self.emailTextField.text!, password: self.passwordTextField.text!) { error in
             if error == nil {
                 //todo "Logged in" dialog instead of loggin in again!
                 self.dismissSignInViewController()
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 appDelegate.UserIsLoggedIn = true
-            }else {
+            } else {
                 self.shakeSignInViewController()
             }
         }
-        
-//
     }
     
     @IBAction func signUpButtonPressed(sender: AnyObject) {
@@ -115,7 +113,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     }
     
     @IBAction func scrollViewPressed(sender: AnyObject) {
-        view.endEditing(true)
+        self.view.endEditing(true)
     }
     
     // MARK: - DragDropBehavior

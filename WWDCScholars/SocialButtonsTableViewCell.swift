@@ -29,24 +29,24 @@ class SocialButtonsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        linkedInImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.linkedInTapped), forControlEvents: .TouchUpInside)
-        githubImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.gitHubTapped), forControlEvents: .TouchUpInside)
-        websiteImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.websiteTapped), forControlEvents: .TouchUpInside)
-        emailImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.emailTapped), forControlEvents: .TouchUpInside)
+        self.linkedInImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.linkedInTapped), forControlEvents: .TouchUpInside)
+        self.githubImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.gitHubTapped), forControlEvents: .TouchUpInside)
+        self.websiteImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.websiteTapped), forControlEvents: .TouchUpInside)
+        self.emailImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.emailTapped), forControlEvents: .TouchUpInside)
     }
     
     // MARK: - Internal functions
     
     internal func linkedInTapped() {
-        self.delegate?.openURL(scholar.linkedInURL!)
+        self.delegate?.openURL(self.scholar.linkedInURL!)
     }
     
     internal func gitHubTapped() {
-        self.delegate?.openURL(scholar.githubURL!)
+        self.delegate?.openURL(self.scholar.githubURL!)
     }
     
     internal func websiteTapped() {
-        self.delegate?.openURL(scholar.websiteURL!)
+        self.delegate?.openURL(self.scholar.websiteURL!)
     }
     
     internal func emailTapped() {
@@ -56,11 +56,11 @@ class SocialButtonsTableViewCell: UITableViewCell {
     // MARK: - Public functions
     
     func setIconVisibility() {
-        self.linkedInImageView.hidden = scholar.linkedInURL == nil
-        self.facebookImageView.hidden = scholar.facebookURL == nil
-        self.githubImageView.hidden = scholar.githubURL == nil
-        self.websiteImageView.hidden = scholar.websiteURL == nil
-        self.appStoreImageView.hidden = scholar.iTunesURL == nil
+        self.linkedInImageView.hidden = self.scholar.linkedInURL == nil
+        self.facebookImageView.hidden = self.scholar.facebookURL == nil
+        self.githubImageView.hidden = self.scholar.githubURL == nil
+        self.websiteImageView.hidden = self.scholar.websiteURL == nil
+        self.appStoreImageView.hidden = self.scholar.iTunesURL == nil
         
         self.twitterImageView.hidden = true //Missing implementation
         self.emailImageView.hidden = false //Never hidden

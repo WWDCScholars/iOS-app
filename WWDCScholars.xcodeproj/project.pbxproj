@@ -559,7 +559,7 @@
 		7B4D51951CC110A50072E114 /* UIButton+AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+AlamofireImage.swift"; sourceTree = "<group>"; };
 		7B4D51961CC110A50072E114 /* UIImage+AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+AlamofireImage.swift"; sourceTree = "<group>"; };
 		7B4D51971CC110A50072E114 /* UIImageView+AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+AlamofireImage.swift"; sourceTree = "<group>"; };
-		7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSQSystemSoundPlayer.framework; sourceTree = "<group>"; };
+		7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQSystemSoundPlayer.framework; path = ../JSQSystemSoundPlayer.framework; sourceTree = "<group>"; };
 		7B7797501CDE681E0029675F /* BlogPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 		7B7797521CDE697F0029675F /* BlogKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogKit.swift; sourceTree = "<group>"; };
 		7BBA87621CBB7F3A0057E9AD /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -832,12 +832,12 @@
 			isa = PBXGroup;
 			children = (
 				6E43D47C1CF8A42500D35A6F /* Firebase.h */,
-				6E79E1B01CF8AAA000CCDD9D /* FirebaseAuth.framework */,
-				6E79E1B11CF8AAA000CCDD9D /* GoogleNetworkingUtilities.framework */,
-				6E43D47A1CF8A39A00D35A6F /* FirebaseDatabase.framework */,
 				6E43D4701CF8A36500D35A6F /* FirebaseAnalytics.framework */,
+				6E79E1B01CF8AAA000CCDD9D /* FirebaseAuth.framework */,
+				6E43D47A1CF8A39A00D35A6F /* FirebaseDatabase.framework */,
 				6E43D4711CF8A36500D35A6F /* FirebaseInstanceID.framework */,
 				6E43D4721CF8A36500D35A6F /* GoogleInterchangeUtilities.framework */,
+				6E79E1B11CF8AAA000CCDD9D /* GoogleNetworkingUtilities.framework */,
 				6E43D4731CF8A36500D35A6F /* GoogleSymbolUtilities.framework */,
 				6E43D4741CF8A36500D35A6F /* GoogleUtilities.framework */,
 			);
@@ -852,6 +852,56 @@
 			);
 			name = FloatLabelTextField;
 			path = WWDCScholars;
+			sourceTree = "<group>";
+		};
+		6E64F6BA1CFBAE11006CFE2E /* Apple */ = {
+			isa = PBXGroup;
+			children = (
+				223F5E991CB970EC00E582C5 /* AVFoundation.framework */,
+				6E7952951CF641FF00160B26 /* CFNetwork.framework */,
+				6E7952911CF641E300160B26 /* libc++.tbd */,
+				6E7952931CF641F500160B26 /* libicucore.tbd */,
+				6ED926511CBF0BEE0082FCFE /* MapKit.framework */,
+				6ED962BA1CF8B3B300551E94 /* QuartzCore.framework */,
+				22E937B61CDCE4F300A2BEBE /* SafariServices.framework */,
+				6E7952971CF6420700160B26 /* Security.framework */,
+				6E7952991CF6421100160B26 /* SystemConfiguration.framework */,
+			);
+			name = Apple;
+			sourceTree = "<group>";
+		};
+		6E64F6BF1CFBAE35006CFE2E /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				7BBA87C71CBD7A860057E9AD /* SwiftyJSON.swift */,
+			);
+			name = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		6E64F6C01CFBAE43006CFE2E /* CryptoSwift */ = {
+			isa = PBXGroup;
+			children = (
+				7B0D2AB01CF9E453004C1697 /* CryptoSwift.xcodeproj */,
+			);
+			name = CryptoSwift;
+			sourceTree = "<group>";
+		};
+		6E64F6C11CFBAE58006CFE2E /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				7BBA87631CBB7F3A0057E9AD /* Crashlytics.framework */,
+				7BBA87621CBB7F3A0057E9AD /* Fabric.framework */,
+			);
+			name = Fabric;
+			sourceTree = "<group>";
+		};
+		6E64F6C21CFBAE69006CFE2E /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				7BBA87C11CBD641F0057E9AD /* Realm.framework */,
+				7BBA87C21CBD641F0057E9AD /* RealmSwift.framework */,
+			);
+			name = Realm;
 			sourceTree = "<group>";
 		};
 		6EAD10B81CC1905F00E0A2A0 /* Details */ = {
@@ -875,6 +925,7 @@
 				6ED962391CF8B28800551E94 /* Controllers */,
 				6ED9623F1CF8B28800551E94 /* Factories */,
 				6ED9624A1CF8B28800551E94 /* JSQMessages.h */,
+				7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */,
 				6ED9624B1CF8B28800551E94 /* Layout */,
 				6ED962571CF8B28800551E94 /* Model */,
 				6ED9626E1CF8B28800551E94 /* Views */,
@@ -1069,10 +1120,10 @@
 				6E9DD6751CC5961F00433193 /* CreditsManager.swift */,
 				7BBA879F1CBD5D220057E9AD /* DatabaseManager.swift */,
 				6ECBC33D1CEFDC7F006AA8F0 /* DateManager.swift */,
+				6E6E42111CF3F07E0089B963 /* ImageManager.swift */,
 				6E51E2781CDEE6A40095FD38 /* LocationManager.swift */,
 				6E251F691CE6C4C100F9ADFC /* SpotlightManager.swift */,
 				6EEA89291CDBFAF900245445 /* UserDefaults.swift */,
-				6E6E42111CF3F07E0089B963 /* ImageManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -1181,29 +1232,18 @@
 		7BBA87A21CBD5D680057E9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7B0D2AB01CF9E453004C1697 /* CryptoSwift.xcodeproj */,
-				6ED962BD1CF8CAA300551E94 /* JTSImageViewController */,
-				7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */,
-				6ED962BA1CF8B3B300551E94 /* QuartzCore.framework */,
-				6ED962271CF8B28800551E94 /* JSQMessagesViewController */,
-				6E43D46F1CF8A35B00D35A6F /* Firebase */,
 				7BBA88221CBD8AD10057E9AD /* Alamofire */,
-				223F5E991CB970EC00E582C5 /* AVFoundation.framework */,
-				6E7952951CF641FF00160B26 /* CFNetwork.framework */,
-				7BBA87631CBB7F3A0057E9AD /* Crashlytics.framework */,
-				7BBA87621CBB7F3A0057E9AD /* Fabric.framework */,
+				6E64F6BA1CFBAE11006CFE2E /* Apple */,
+				6E64F6C01CFBAE43006CFE2E /* CryptoSwift */,
+				6E64F6C11CFBAE58006CFE2E /* Fabric */,
+				6E43D46F1CF8A35B00D35A6F /* Firebase */,
 				6E4DD6F01CBD476200B08EE1 /* FloatLabelTextField */,
-				6E7952911CF641E300160B26 /* libc++.tbd */,
-				6E7952931CF641F500160B26 /* libicucore.tbd */,
-				6ED926511CBF0BEE0082FCFE /* MapKit.framework */,
+				6ED962271CF8B28800551E94 /* JSQMessagesViewController */,
+				6ED962BD1CF8CAA300551E94 /* JTSImageViewController */,
 				C0B7FBAF1CC45C9B00AD376C /* QTree */,
-				7BBA87C11CBD641F0057E9AD /* Realm.framework */,
-				7BBA87C21CBD641F0057E9AD /* RealmSwift.framework */,
-				22E937B61CDCE4F300A2BEBE /* SafariServices.framework */,
-				6E7952971CF6420700160B26 /* Security.framework */,
+				6E64F6C21CFBAE69006CFE2E /* Realm */,
 				7B4D518C1CC110A50072E114 /* Source */,
-				7BBA87C71CBD7A860057E9AD /* SwiftyJSON.swift */,
-				6E7952991CF6421100160B26 /* SystemConfiguration.framework */,
+				6E64F6BF1CFBAE35006CFE2E /* SwiftyJSON */,
 				7BBA88231CBEA0E80057E9AD /* Timepiece-master */,
 				6EEA891A1CDBE13D00245445 /* TOMSMorphingLabel */,
 				C0B7FBB01CC45D3700AD376C /* WWDCScholars-Bridging-Header.h */,

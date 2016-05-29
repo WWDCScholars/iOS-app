@@ -16,7 +16,6 @@ class IntroViewController: UIViewController {
     @IBOutlet private weak var getStartedLabel: UILabel!
     @IBOutlet private weak var leftArrowImageView: UIImageView!
     @IBOutlet private weak var rightArrowImageView: UIImageView!
-    
     @IBOutlet private weak var leftArrowButton: UIButton!
     @IBOutlet private weak var rightArrowButton: UIButton!
     
@@ -30,9 +29,7 @@ class IntroViewController: UIViewController {
     private var firstQuoteLabel: TOMSMorphingLabel!
     private var lastContentOffset = CGPointZero
     private var textState = 0
-    private var movingTimer: NSTimer?
     private var didDoMyThing = false
-    
     private var screenSize: CGSize {
         return UIScreen.mainScreen().bounds.size
     }
@@ -98,10 +95,8 @@ class IntroViewController: UIViewController {
         
         self.view.insertSubview(shadowView, aboveSubview: self.backgroundImageView)
 
-        
-        addBlurArea(self.view.frame, style: UIBlurEffectStyle.Light)
-        addBlurArea(CGRectMake(0, self.view!.frame.size.height-58, self.view!.frame.size.width, 58), style: UIBlurEffectStyle.Light)
-        
+        self.addBlurArea(self.view.frame, style: UIBlurEffectStyle.Light)
+        self.addBlurArea(CGRectMake(0, self.view!.frame.size.height - 58.0, self.view!.frame.size.width, 58.0), style: .Light)
     }
     
     private func addSubQuote() {
@@ -175,9 +170,9 @@ class IntroViewController: UIViewController {
         var points = [CGPoint]()
         if index == 0 {
             points = [CGPoint(x: 1.5, y: 0.535), CGPoint(x: 2.5, y: 0.535), CGPoint(x: 2.5, y: 0.535)]
-        }else if index == 1 {
+        } else if index == 1 {
             points = [CGPoint(x: 3.5, y: 0.5), CGPoint(x: 3.5, y: 0.5), CGPoint(x: 3.5, y: 0.5)]
-        }else if index == 2 {
+        } else if index == 2 {
             points = [CGPoint(x: 4.5, y: 0.5), CGPoint(x: 5.5, y: 0.5), CGPoint(x: 5.5, y: 0.5)]
         }
         
@@ -204,14 +199,6 @@ class IntroViewController: UIViewController {
 }
 
 extension IntroViewController: UIScrollViewDelegate {
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        if let timer = self.movingTimer {
-            self.stopAnimation = true
-            timer.invalidate()
-            self.movingTimer = nil
-        }
-    }
-    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if self.scrollView.contentOffset.x >= (self.screenSize.width * (self.numberOfScreens - 2)) + self.screenSize.width / 2 {
             

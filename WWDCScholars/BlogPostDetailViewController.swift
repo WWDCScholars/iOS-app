@@ -57,15 +57,15 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         super.viewDidLayoutSubviews()
         
         let body = NSString(format:"<html> \n" +
-        "<head> \n" +
-        "<style type=\"text/css\"> \n" +
-        "body {font-family: \"%@\"; font-size: %f;}\n" +
-        "img {max-width: \(self.view.frame.width - 32.0)px; padding: 16px 0px 16px 0px;}\n" +
-        "h1, h2, h3, h4, h5, h6 {font-weight: normal;}\n" +
-        "</style> \n" +
-        "</head> \n" +
-        "<body>%@</body> \n" +
-        "</html>", UIFont.preferredFontForTextStyle(UIFontTextStyleBody).fontName, UIFont.preferredFontForTextStyle(UIFontTextStyleBody).pointSize-2, self.currentPost.content)
+            "<head>\n" +
+            "<style type=\"text/css\">\n" +
+            "body {font-family: \"%@\"; font-size: %f;}\n" +
+            "img {max-width: \(self.view.frame.width - 32.0)px; padding: 16px 0px 16px 0px;}\n" +
+            "h1, h2, h3, h4, h5, h6 {font-weight: normal;}\n" +
+            "</style>\n" +
+            "</head>\n" +
+            "<body>%@</body>\n" +
+            "</html>", UIFont.preferredFontForTextStyle(UIFontTextStyleBody).fontName, UIFont.preferredFontForTextStyle(UIFontTextStyleBody).pointSize - 2.0, self.currentPost.content)
         
         self.webView.loadHTMLString(body as String, baseURL: nil)
     }

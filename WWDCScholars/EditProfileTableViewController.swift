@@ -52,6 +52,8 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.locationManager.startUpdatingLocation()
         
         self.styleUI()
+        
+        self.setScholar(UserKit.sharedInstance.scholarId ?? "unknown")
     }
     
     override func viewWillAppear(animated: Bool) {

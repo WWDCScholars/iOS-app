@@ -55,24 +55,25 @@ class ChatViewController: JSQMessagesViewController {
         
         }
         self.styleUI()
-        self.finishReceivingMessage()
+//        self.finishReceivingMessage()
+        self.loadOldMessages(true)
+
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.observeMessages()
+//        self.observeMessages()
         self.observeTyping()
-        self.loadOldMessages()
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         let messagesQuery = self.messageReference.queryOrderedByChild("dateSent")
 
-        if messageObserverHandle != nil {
-            messagesQuery.removeObserverWithHandle(messageObserverHandle!)
-        }
+//        if messageObserverHandle != nil {
+//            messagesQuery.removeObserverWithHandle(messageObserverHandle!)
+//        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -92,6 +93,7 @@ class ChatViewController: JSQMessagesViewController {
         self.loadingContainerView.hidden = false
         self.loadingViewController.startAnimating()
         
+        self.automaticallyScrollsToMostRecentMessage = true
         self.collectionView.collectionViewLayout.springinessEnabled = true
         self.collectionView.collectionViewLayout.springResistanceFactor = 3000
 //        self.collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
@@ -132,9 +134,9 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
-    private func addMessage(id: String, text: String) {
+    private func addMessage(id: String, text: String, date: NSDate) {
         if let scholar = DatabaseManager.sharedInstance.scholarForId(id){
-            let message = JSQMessage(senderId: id, displayName: scholar.fullName, text: text)
+            let message = JSQMessage(senderId: id, senderDisplayName: scholar.fullName, date: date, text: text)
             self.messages.append(message)
         }else {
             //todo: reload scholars if scholar is missing in db
@@ -142,30 +144,34 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
-    private func loadOldMessages() {
+    private func loadOldMessages(startObserving: Bool = false) {
         self.messages = []
-        let messagesQuery = self.messageReference.queryLimitedToLast(50).queryOrderedByChild("dateSent")
-        messagesQuery.observeSingleEventOfType(.ChildAdded, withBlock: { snapshot in
-            if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String {
-                self.addMessage(id, text: text)
-                
-                if id != self.senderId {
-                    JSQSystemSoundPlayer.jsq_playMessageReceivedSound()
-                }
-                
-                self.finishReceivingMessageAnimated(false)
-                
-                self.loadingContainerView.hidden = true
-                self.loadingViewController.stopAnimating()
-            }
-        })
+//        let messagesQuery = self.messageReference.queryLimitedToLast(50).queryOrderedByChild("dateSent")
+//        messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
+//            if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String, let dateInt = snapshot.value!["dateSent"] as? NSTimeInterval {
+//                self.addMessage(id, text: text, date: NSDate(timeIntervalSince1970: dateInt))
+//                
+//                if id != self.senderId {
+//                    JSQSystemSoundPlayer.jsq_playMessageReceivedSound()
+//                }
+//                
+//                self.finishReceivingMessageAnimated(false)
+//                
+//                self.loadingContainerView.hidden = true
+//                self.loadingViewController.stopAnimating()
+//                
+//                if startObserving {
+                    self.observeMessages()
+//                }
+//            }
+//        })
     }
     
     private func observeMessages() {
-        let messagesQuery = self.messageReference
-        self.messageObserverHandle = messagesQuery.queryOrderedByChild("dateSent").observeEventType(.ChildAdded, withBlock: { snapshot in
-            if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String {
-                self.addMessage(id, text: text)
+        let messagesQuery = self.messageReference.queryOrderedByChild("dateSent").queryLimitedToLast(50)//.queryStartingAtValue(self.messages[self.messages.count-1].date.timeIntervalSince1970, childKey: "dateSent")
+        self.messageObserverHandle = messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String, let dateInt = snapshot.value!["dateSent"] as? NSTimeInterval  {
+                self.addMessage(id, text: text, date: NSDate(timeIntervalSince1970: dateInt))
                 
                 if id != self.senderId {
                     JSQSystemSoundPlayer.jsq_playMessageReceivedSound()

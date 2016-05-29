@@ -29,8 +29,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gdM-SB-6xy">
-                                <rect key="frame" x="0.0" y="114" width="600" height="437"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gdM-SB-6xy">
+                                <rect key="frame" x="0.0" y="49" width="600" height="502"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="UVP-6A-7Uy"/>
                                 </connections>
@@ -189,6 +189,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gdM-SB-6xy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2CK-NA-YAJ"/>
                             <constraint firstItem="jYj-Zb-Qv2" firstAttribute="top" secondItem="fgQ-47-L3u" secondAttribute="bottom" id="2Sn-7P-Yef"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rXv-DO-KA7" secondAttribute="bottom" id="50D-Qj-l9d"/>
                             <constraint firstItem="gdM-SB-6xy" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="8lH-TB-hYW"/>
@@ -198,6 +199,7 @@
                             <constraint firstAttribute="trailing" secondItem="jYj-Zb-Qv2" secondAttribute="trailing" id="NUE-Fv-fUN"/>
                             <constraint firstAttribute="bottom" secondItem="jYj-Zb-Qv2" secondAttribute="bottom" id="NXi-k7-HMh"/>
                             <constraint firstItem="rXv-DO-KA7" firstAttribute="top" secondItem="fgQ-47-L3u" secondAttribute="bottom" id="T9s-h3-Zae"/>
+                            <constraint firstItem="gdM-SB-6xy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="and-vJ-DBE"/>
                             <constraint firstItem="fgQ-47-L3u" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fGh-6l-McP"/>
                             <constraint firstItem="jYj-Zb-Qv2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g9z-WU-Xgx"/>
                             <constraint firstItem="gdM-SB-6xy" firstAttribute="leading" secondItem="jYj-Zb-Qv2" secondAttribute="leading" id="k0N-BH-TFF"/>

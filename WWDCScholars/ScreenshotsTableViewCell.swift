@@ -62,7 +62,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         }
         
         let appID = String().matchesForRegexInText("([\\d]{10,})", text: appStoreURL).first
-        let lookupURL = "http://itunes.apple.com/lookup?id=\(appID)"
+        let lookupURL = "http://itunes.apple.com/lookup?id=\(appID!)"
         
         request(.GET, lookupURL).responseString() { response in
             if let data = response.result.value {

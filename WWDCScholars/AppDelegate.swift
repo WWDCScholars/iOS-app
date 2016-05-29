@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
+import CoreSpotlight
 //import Firebase
 
 @UIApplicationMain
@@ -94,6 +95,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+        if userActivity.activityType == CSSearchableItemActionType {
+            if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+                (self.window?.rootViewController as! ScholarsTabBarViewController).openScholarDetail(uniqueIdentifier)
+            }
+        }
+        
+        return true
+    }
     
     // 3D Touch
     func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {

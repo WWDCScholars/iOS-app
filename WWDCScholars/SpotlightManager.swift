@@ -9,6 +9,12 @@
 import CoreSpotlight
 import MobileCoreServices
 
+extension Scholar {
+    internal var userActivityUserInfo: [NSObject: AnyObject] {
+        return ["id": self.id]
+    }
+}
+
 class SpotlightManager {
     static let sharedInstance = SpotlightManager()
     
@@ -17,7 +23,7 @@ class SpotlightManager {
         attributeSet.title = scholar.fullName
         attributeSet.contentDescription = scholar.shortBio
         
-        let item = CSSearchableItem(uniqueIdentifier: "\(atIndex)", domainIdentifier: "com.wwdcscholars", attributeSet: attributeSet)
+        let item = CSSearchableItem(uniqueIdentifier: scholar.userActivityUserInfo["id"] as? String, domainIdentifier: "com.wwdcscholars", attributeSet: attributeSet)
         CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error: NSError?) -> Void in
             if let error = error {
                 print("Indexing error: \(error.localizedDescription)")

@@ -14,9 +14,8 @@ import CoreSpotlight
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
-    
     var UserIsLoggedIn = false
+    var window: UIWindow?
     
     // 3D Touch
     enum ShortcutIdentifier: String {
@@ -29,14 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             guard let shortIdentifier = fullIdentifier.componentsSeparatedByString(".").last else {
                 return nil
             }
+            
             self.init(rawValue: shortIdentifier)
         }
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         var keys: NSDictionary?
-        
-        print("Andrew & Sam are awesome!") // 500th commit!
         
         if let path = NSBundle.mainBundle().pathForResource("ServerDetails", ofType: "plist") {
             keys = NSDictionary(contentsOfFile: path)
@@ -61,12 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("No server data entered in the 'ServerDetails.plist' file. Make sure you are using the correct keys.")
         }
         
-        CreditsManager.sharedInstance.getCredits()
-        Fabric.with([Crashlytics.self])
-        FIRApp.configure()
-        
-        self.styleUI()
-        
         if let window = self.window {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
@@ -90,9 +82,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 3D Touch
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
-            handleShortcut(shortcutItem)
+            self.handleShortcut(shortcutItem)
+            
             return false
         }
+        
+        CreditsManager.sharedInstance.getCredits()
+        Fabric.with([Crashlytics.self])
+        FIRApp.configure()
+        
+        self.styleUI()
         
         return true
     }
@@ -118,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
         
-        return selectTabBarItemForIdentifier(shortcutIdentifier)
+        return self.selectTabBarItemForIdentifier(shortcutIdentifier)
     }
     
     private func selectTabBarItemForIdentifier(identifier: ShortcutIdentifier) -> Bool {
@@ -126,14 +125,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
         
-        switch (identifier) {
+        switch identifier {
         case .OpenMyProfile:
             tabBarController.selectedIndex = 4
-            print("insert myProfileView")
             return true
         case .OpenFavorites:
             tabBarController.selectedIndex = 3
-            print("insert FavoriteView")
             return true
         case .OpenBlog:
             tabBarController.selectedIndex = 1
@@ -148,7 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if url.host == "scholar" {
             //todo check if id exists
             (self.window?.rootViewController as! ScholarsTabBarViewController).openScholarDetail(url.lastPathComponent!)
-        }else if url.host == "post" {
+        } else if url.host == "post" {
             (self.window?.rootViewController as! ScholarsTabBarViewController).openScholarDetail(url.lastPathComponent!) // todo Open blog, not scholar
         }
         
@@ -180,6 +177,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
 }
-

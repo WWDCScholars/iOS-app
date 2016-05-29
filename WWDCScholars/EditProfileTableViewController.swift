@@ -115,7 +115,9 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     internal func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.myLocation = manager.location?.coordinate
         
-        self.updateLocation(self.myLocation!)
+        if self.currentScholar?.location == nil {
+            self.updateLocation(self.myLocation!)
+        }
     }
     
     internal func updateLocation(location: CLLocationCoordinate2D) {

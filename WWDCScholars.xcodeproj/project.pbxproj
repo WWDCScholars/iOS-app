@@ -1141,8 +1141,8 @@
 		6EEA892E1CDBFCD200245445 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6E7952861CF640E100160B26 /* GoogleService-Info.plist */,
 				6EB723D81CB9B85B005A076F /* Assets.xcassets */,
+				6E7952861CF640E100160B26 /* GoogleService-Info.plist */,
 				2238842C1C8252D900A96752 /* Info.plist */,
 				223884291C8252D900A96752 /* LaunchScreen.storyboard */,
 				223F5E981CB9709600E582C5 /* tabBarDidSelectItem.m4a */,

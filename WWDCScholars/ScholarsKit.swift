@@ -93,6 +93,19 @@ class ScholarsKit: ApiBase {
                 screenshots.append(screenshot)
             }
             
+            if let screenshot = json["screenshotOne2015"].string {
+                screenshots.append(screenshot)
+            }
+            if let screenshot = json["screenshotTwo2015"].string {
+                screenshots.append(screenshot)
+            }
+            if let screenshot = json["screenshotThree2015"].string {
+                screenshots.append(screenshot)
+            }
+            if let screenshot = json["screenshotFour2015"].string {
+                screenshots.append(screenshot)
+            }
+            
             newScholar.screenshots = screenshots
             
             return newScholar

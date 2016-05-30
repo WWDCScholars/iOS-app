@@ -1978,8 +1978,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_development)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_development)";
+				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_development)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_development)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = WWDCScholars_watchOS_App_Extension;
 				INFOPLIST_FILE = "WWDCScholars watchOS App/Info.plist";
@@ -1997,8 +1997,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
+				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_appstore)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_appstore)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = WWDCScholars_watchOS_App_Extension;
 				INFOPLIST_FILE = "WWDCScholars watchOS App/Info.plist";

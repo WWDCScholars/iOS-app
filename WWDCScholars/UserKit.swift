@@ -23,7 +23,6 @@ class UserKit: ApiBase {
     
     var scholarId: String? {
         get {
-            return "56fc3b1ba5ac14970921ad78"
             if let scholarId = NSUserDefaults.standardUserDefaults().stringForKey("scholarId") {
                 if scholarId == "" {
                     return nil

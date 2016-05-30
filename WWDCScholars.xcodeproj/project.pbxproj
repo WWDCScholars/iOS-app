@@ -36,6 +36,7 @@
 		2270E0201CF3293200C88C2E /* WWDCScholars watchOS App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2270E0061CF3293200C88C2E /* WWDCScholars watchOS App.app */; };
 		22AA36691CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AA36681CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m */; };
 		22AA366C1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AA366B1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		22B608471CFC5E860042F558 /* loginSuccessful.aif in Resources */ = {isa = PBXBuildFile; fileRef = 22B608461CFC5E810042F558 /* loginSuccessful.aif */; };
 		22BFE2C01CEE0829002CB549 /* BlogPostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE2BF1CEE0829002CB549 /* BlogPostDetailViewController.swift */; };
 		22E2A6EF1CC1DA2400DF0578 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */; };
 		22E2A6F31CC1DBE300DF0578 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6F21CC1DBE300DF0578 /* Spring.swift */; };
@@ -374,6 +375,7 @@
 		22AA36681CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		22AA366A1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		22AA366B1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		22B608461CFC5E810042F558 /* loginSuccessful.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = loginSuccessful.aif; sourceTree = "<group>"; };
 		22BFE2BF1CEE0829002CB549 /* BlogPostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostDetailViewController.swift; sourceTree = "<group>"; };
 		22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		22E2A6F21CC1DBE300DF0578 /* Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
@@ -1139,6 +1141,7 @@
 		6EEA892E1CDBFCD200245445 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				22B608461CFC5E810042F558 /* loginSuccessful.aif */,
 				6EB723D81CB9B85B005A076F /* Assets.xcassets */,
 				6E7952861CF640E100160B26 /* GoogleService-Info.plist */,
 				2238842C1C8252D900A96752 /* Info.plist */,
@@ -1518,6 +1521,7 @@
 				6EB723CF1CB9B83B005A076F /* Main.storyboard in Resources */,
 				6ED962B41CF8B28800551E94 /* JSQMessagesLoadEarlierHeaderView.xib in Resources */,
 				6EB723D91CB9B85B005A076F /* Assets.xcassets in Resources */,
+				22B608471CFC5E860042F558 /* loginSuccessful.aif in Resources */,
 				6ED962AF1CF8B28800551E94 /* JSQMessagesCollectionViewCellOutgoing.xib in Resources */,
 				7B4D519D1CC110A50072E114 /* Info.plist in Resources */,
 				6ED962AD1CF8B28800551E94 /* JSQMessagesCollectionViewCellIncoming.xib in Resources */,

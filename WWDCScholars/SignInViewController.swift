@@ -9,6 +9,7 @@
 import UIKit
 import SafariServices
 import FirebaseAuth
+import AVFoundation
 
 class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehaviorDelegate {
     @IBOutlet private weak var passwordImageView: SpringImageView!
@@ -20,6 +21,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     @IBOutlet private weak var signUpButton: SpringButton!
     
     private var originalCenter: CGPoint!
+    
+    private var tapSoundEffect: AVAudioPlayer!
+    private var session = AVAudioSession.sharedInstance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,10 +93,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
                 //todo "Logged in" dialog instead of loggin in again!
                 self.dismissSignInViewController()
             } else {
+                self.playConfirmationSound()
                 self.shakeSignInViewController()
             }
         }
     }
+    
+   
     
     @IBAction func signUpButtonPressed(sender: AnyObject) {
         let url = NSURL(string: "http://wwdcscholarsform.herokuapp.com")
@@ -115,6 +122,23 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         self.view.endEditing(true)
     }
     
+    // MARK: - Private functions
+    
+     private func playConfirmationSound(){
+        let path = NSBundle.mainBundle().pathForResource("loginSuccessful.aif", ofType: nil)!
+        let url = NSURL(fileURLWithPath: path)
+        
+        do {
+            let sound = try AVAudioPlayer(contentsOfURL: url)
+            tapSoundEffect = sound
+           // tapSoundEffect.volume = 0.5
+            sound.play()
+            
+            print("Sound played")
+        } catch {
+            print("Failed to load confirmation sound file")
+        }
+    }
     // MARK: - DragDropBehavior
     
     func dragDropBehavior(behavior: DragDropBehavior, viewDidDrop view: UIView) {

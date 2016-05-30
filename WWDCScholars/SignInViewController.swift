@@ -95,7 +95,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     }
     
     @IBAction func signUpButtonPressed(sender: AnyObject) {
-        let url = NSURL(string: "http://wwdcscholarsform.herokuapp.com/addscholar")
+        let url = NSURL(string: "http://wwdcscholarsform.herokuapp.com")
         let viewController = SignUpSafariViewController(URL: url!)
         
         self.presentViewController(viewController, animated: true, completion: nil)

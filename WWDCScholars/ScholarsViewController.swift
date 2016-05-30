@@ -156,8 +156,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     @IBAction func accountButtonTapped(sender: AnyObject) {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.UserIsLoggedIn ? self.showEditDetailsModal() : self.showSignInModal()
+        UserKit.sharedInstance.isLoggedIn ? self.showEditDetailsModal() : self.showSignInModal()
     }
     
     @IBAction func mapButtonTapped(sender: AnyObject) {

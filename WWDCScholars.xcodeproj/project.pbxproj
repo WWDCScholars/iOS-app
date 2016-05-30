@@ -2015,8 +2015,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_development)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_development)";
+				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension_development)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension_development)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2036,8 +2036,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
+				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension_appstore)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension_appstore)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -80,4 +80,8 @@ class UserKit: ApiBase {
         }
     }
     
+    func logout(){
+        self.scholarId = nil
+    }
+    
 }

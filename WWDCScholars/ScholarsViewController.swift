@@ -344,7 +344,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     internal func logout(){
         print("User will be logged out here")
-       // UserKit.sharedInstance................
+        UserKit.sharedInstance.logout()
     }
     
     internal func locateButtonAction(sender: UIButton!) {

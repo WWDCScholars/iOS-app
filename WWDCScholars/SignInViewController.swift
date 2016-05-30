@@ -92,8 +92,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
             if error == nil {
                 //todo "Logged in" dialog instead of loggin in again!
                 self.dismissSignInViewController()
-            } else {
                 self.playConfirmationSound()
+            } else {
                 self.shakeSignInViewController()
             }
         }

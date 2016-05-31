@@ -104,7 +104,9 @@ class LocationSelectViewController: UIViewController, UISearchBarDelegate, MKMap
     // MARK: - IBActions
     
     @IBAction func doneButtonTapped(sender: AnyObject) {
-        self.delegate?.updateLocation(self.mapView.annotations.first!.coordinate)
+        if let coordinates = self.mapView.annotations.first?.coordinate {
+            self.delegate?.updateLocation(coordinates)
+        }
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

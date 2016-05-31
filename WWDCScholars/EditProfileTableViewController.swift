@@ -293,12 +293,15 @@ extension EditProfileTableViewController: UIImagePickerControllerDelegate {
 
 extension EditProfileTableViewController: UITextViewDelegate {
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        let character = text.cStringUsingEncoding(NSUTF8StringEncoding)!
+        let isBackSpace = strcmp(character, "\\b")
+        
         if text.rangeOfCharacterFromSet(NSCharacterSet.newlineCharacterSet()) != nil {
             textView.resignFirstResponder()
             
             return false
         } else if textView.text.length - range.length + text.length > self.bioMaxLength {
-            return false
+            return isBackSpace == -92
         }
         
         return true

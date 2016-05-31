@@ -2151,24 +2151,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="131"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tna-9A-i2z" customClass="FloatLabelTextView" customModule="Scholars" customModuleProvider="target">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9qa-zv-V07">
                                                     <rect key="frame" x="8" y="8" width="584" height="115"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Short Bio"/>
-                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <outlet property="delegate" destination="l2Q-QU-Rdg" id="6vR-Rm-DQu"/>
+                                                        <outlet property="delegate" destination="l2Q-QU-Rdg" id="js2-RT-qMP"/>
                                                     </connections>
                                                 </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="Tna-9A-i2z" secondAttribute="bottom" constant="8" id="0Xu-hl-qyf"/>
-                                                <constraint firstAttribute="trailing" secondItem="Tna-9A-i2z" secondAttribute="trailing" constant="8" id="IXw-AJ-VNu"/>
-                                                <constraint firstItem="Tna-9A-i2z" firstAttribute="top" secondItem="eK1-CC-2Y1" secondAttribute="top" constant="8" id="at0-oe-vha"/>
-                                                <constraint firstItem="Tna-9A-i2z" firstAttribute="leading" secondItem="eK1-CC-2Y1" secondAttribute="leading" constant="8" id="quN-RQ-tyH"/>
+                                                <constraint firstItem="9qa-zv-V07" firstAttribute="top" secondItem="eK1-CC-2Y1" secondAttribute="top" constant="8" id="7ZE-7F-Sz4"/>
+                                                <constraint firstItem="9qa-zv-V07" firstAttribute="leading" secondItem="eK1-CC-2Y1" secondAttribute="leading" constant="8" id="Cqv-QU-G2u"/>
+                                                <constraint firstAttribute="bottom" secondItem="9qa-zv-V07" secondAttribute="bottom" constant="8" id="puy-ql-Ibb"/>
+                                                <constraint firstAttribute="trailing" secondItem="9qa-zv-V07" secondAttribute="trailing" constant="8" id="wit-uG-Ozu"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -2708,7 +2706,7 @@
                         <outlet property="ageTextField" destination="j0p-Mx-k4f" id="Uij-BZ-Yny"/>
                         <outlet property="appGithubTextField" destination="Tg2-Ai-yWH" id="PbP-G2-U2h"/>
                         <outlet property="appStoreTextField" destination="qzI-or-qUj" id="oHl-ee-Ed5"/>
-                        <outlet property="bioTextView" destination="Tna-9A-i2z" id="1TG-0g-g93"/>
+                        <outlet property="bioTextView" destination="9qa-zv-V07" id="Lj9-4Q-dUe"/>
                         <outlet property="emailTextField" destination="gGV-uM-AQw" id="bwr-pN-7Ae"/>
                         <outlet property="facebookTextField" destination="Skb-5n-HOR" id="J52-8W-gLc"/>
                         <outlet property="firstNameTextField" destination="kOz-CM-8bA" id="umE-It-xik"/>

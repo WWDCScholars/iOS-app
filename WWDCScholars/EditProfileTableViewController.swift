@@ -21,8 +21,8 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     @IBOutlet private weak var secondNameTextField: FloatLabelTextField!
     @IBOutlet private weak var ageTextField: FloatLabelTextField!
     @IBOutlet private weak var locationTextField: FloatLabelTextField!
-    @IBOutlet private weak var bioTextView: FloatLabelTextView!
     @IBOutlet private weak var emailTextField: FloatLabelTextField!
+    @IBOutlet private weak var bioTextView: UITextView!
     @IBOutlet private weak var twitterTextField: FloatLabelTextField!
     @IBOutlet private weak var facebookTextField: FloatLabelTextField!
     @IBOutlet private weak var githubTextField: FloatLabelTextField!

@@ -120,8 +120,11 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         let toolBar = UIToolbar()
         toolBar.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: 44.0)
         toolBar.tintColor = UIColor.grayColor()
+        
         let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(EditProfileTableViewController.dismissDatePicker))
+        doneButton.tintColor = UIColor.scholarsPurpleColor()
         let space = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        
         toolBar.setItems([space, doneButton], animated: false)
         self.ageTextField.inputAccessoryView = toolBar
     }
@@ -130,7 +133,8 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     
     internal func dismissDatePicker() {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "dd/mm/yyyy"
+        formatter.dateStyle = .MediumStyle
+        formatter.timeStyle = .NoStyle
         
         self.ageTextField.text = formatter.stringFromDate(self.datePicker.date)
         self.ageTextField.resignFirstResponder()

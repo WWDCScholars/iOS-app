@@ -34,6 +34,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     
     private let imagePicker = UIImagePickerController()
     private let locationManager = CLLocationManager()
+    private let bioMaxLength = 300
     
     private var currentScholar: Scholar?
     private var myLocation: CLLocationCoordinate2D?
@@ -81,6 +82,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
             self.myLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == String(LocationSelectViewController) {
             let navigationController = segue.destinationViewController as! UINavigationController
@@ -88,6 +90,12 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
             destinationViewController.passedLocation = self.myLocation
             destinationViewController.delegate = self
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.textViewDidChange(self.bioTextView)
     }
     
     // MARK: - UI
@@ -289,7 +297,7 @@ extension EditProfileTableViewController: UITextViewDelegate {
             textView.resignFirstResponder()
             
             return false
-        } else if textView.text.length - range.length + text.length > 250 {
+        } else if textView.text.length - range.length + text.length > self.bioMaxLength {
             return false
         }
         
@@ -297,7 +305,7 @@ extension EditProfileTableViewController: UITextViewDelegate {
     }
     
     func textViewDidChange(textView: UITextView) {
-        self.tableView.footerViewForSection(NSIndexPath(forRow: 0, inSection: 1).section)?.textLabel?.text = "Bio descriptions are limited to 250 characters (\(250 - textView.text.length) remaining)"
+        self.tableView.footerViewForSection(NSIndexPath(forRow: 0, inSection: 1).section)?.textLabel?.text = "Bio descriptions are limited to \(self.bioMaxLength) characters (\(self.bioMaxLength - textView.text.length) remaining)"
     }
 }
 

@@ -156,8 +156,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     @IBAction func accountButtonTapped(sender: AnyObject) {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.UserIsLoggedIn ? self.showEditDetailsModal() : self.showSignInModal()
+        UserKit.sharedInstance.isLoggedIn ? self.showAccountAlertController() : self.showSignInModal()
     }
     
     @IBAction func mapButtonTapped(sender: AnyObject) {
@@ -262,6 +261,23 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.view.window?.rootViewController?.view.window?.rootViewController!.presentViewController(modalViewController, animated: true, completion: nil)
     }
     
+    private func showAccountAlertController(){
+        let accountAlertController = UIAlertController(title: "Account", message: UserKit.sharedInstance.loggedInScholar?.fullName, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let showEditDetailsAlertAction = UIAlertAction(title: "Edit Details", style: UIAlertActionStyle.Default) { (UIAlertAction) in
+            self.showEditDetailsModal()
+        }
+        let logoutAlertAction = UIAlertAction(title: "Log out", style: UIAlertActionStyle.Default) { (UIAlertAction) in
+            self.logout()
+        }
+        let cancelAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+        
+        accountAlertController.addAction(showEditDetailsAlertAction)
+        accountAlertController.addAction(logoutAlertAction)
+        accountAlertController.addAction(cancelAlertAction)
+        self.presentViewController(accountAlertController, animated: true, completion: nil)
+    }
+    
     // MARK: - Internal functions
     
     internal func loadData() {
@@ -324,11 +340,11 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         modalViewController.modalPresentationStyle = .FullScreen
         modalViewController.modalTransitionStyle = .CoverVertical
         self.presentViewController(modalViewController, animated: true, completion: nil)
-        
-        
-        // Data input:
-       // let editVC = (segue.destinationViewController as! UINavigationController).viewControllers.first as! EditProfileTableViewController
-      //  modalViewController.setScholar(UserKit.sharedInstance.scholarId ?? "unknown")
+    }
+    
+    internal func logout(){
+        print("User will be logged out here")
+        UserKit.sharedInstance.logout()
     }
     
     internal func locateButtonAction(sender: UIButton!) {

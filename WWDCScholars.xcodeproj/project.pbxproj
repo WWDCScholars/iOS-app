@@ -36,6 +36,7 @@
 		2270E0201CF3293200C88C2E /* WWDCScholars watchOS App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2270E0061CF3293200C88C2E /* WWDCScholars watchOS App.app */; };
 		22AA36691CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AA36681CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m */; };
 		22AA366C1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AA366B1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		22B608471CFC5E860042F558 /* loginSuccessful.aif in Resources */ = {isa = PBXBuildFile; fileRef = 22B608461CFC5E810042F558 /* loginSuccessful.aif */; };
 		22BFE2C01CEE0829002CB549 /* BlogPostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE2BF1CEE0829002CB549 /* BlogPostDetailViewController.swift */; };
 		22E2A6EF1CC1DA2400DF0578 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */; };
 		22E2A6F31CC1DBE300DF0578 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6F21CC1DBE300DF0578 /* Spring.swift */; };
@@ -165,7 +166,6 @@
 		7B4D51A01CC110A50072E114 /* UIImage+AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D51961CC110A50072E114 /* UIImage+AlamofireImage.swift */; };
 		7B4D51A11CC110A50072E114 /* UIImageView+AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D51971CC110A50072E114 /* UIImageView+AlamofireImage.swift */; };
 		7B709CEF1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */; };
-		7B709CF31CF8C795007F53F4 /* JSQSystemSoundPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */; };
 		7B709CF41CF8C795007F53F4 /* JSQSystemSoundPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7B7797511CDE681E0029675F /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7797501CDE681E0029675F /* BlogPost.swift */; };
 		7B7797531CDE697F0029675F /* BlogKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7797521CDE697F0029675F /* BlogKit.swift */; };
@@ -375,6 +375,7 @@
 		22AA36681CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		22AA366A1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		22AA366B1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		22B608461CFC5E810042F558 /* loginSuccessful.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = loginSuccessful.aif; sourceTree = "<group>"; };
 		22BFE2BF1CEE0829002CB549 /* BlogPostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostDetailViewController.swift; sourceTree = "<group>"; };
 		22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		22E2A6F21CC1DBE300DF0578 /* Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
@@ -638,7 +639,6 @@
 				6ED926521CBF0BEE0082FCFE /* MapKit.framework in Frameworks */,
 				223F5E9A1CB970EC00E582C5 /* AVFoundation.framework in Frameworks */,
 				7BBA87651CBB7F3A0057E9AD /* Crashlytics.framework in Frameworks */,
-				7B709CF31CF8C795007F53F4 /* JSQSystemSoundPlayer.framework in Frameworks */,
 				7B0374F21CF9E51500DE1CED /* CryptoSwift.framework in Frameworks */,
 				6E43D4771CF8A36500D35A6F /* GoogleInterchangeUtilities.framework in Frameworks */,
 				6E43D4781CF8A36500D35A6F /* GoogleSymbolUtilities.framework in Frameworks */,
@@ -1141,6 +1141,7 @@
 		6EEA892E1CDBFCD200245445 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				22B608461CFC5E810042F558 /* loginSuccessful.aif */,
 				6EB723D81CB9B85B005A076F /* Assets.xcassets */,
 				6E7952861CF640E100160B26 /* GoogleService-Info.plist */,
 				2238842C1C8252D900A96752 /* Info.plist */,
@@ -1414,7 +1415,7 @@
 					New,
 				);
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = WWDCScholars;
 				TargetAttributes = {
 					2238841C1C8252D900A96752 = {
@@ -1520,6 +1521,7 @@
 				6EB723CF1CB9B83B005A076F /* Main.storyboard in Resources */,
 				6ED962B41CF8B28800551E94 /* JSQMessagesLoadEarlierHeaderView.xib in Resources */,
 				6EB723D91CB9B85B005A076F /* Assets.xcassets in Resources */,
+				22B608471CFC5E860042F558 /* loginSuccessful.aif in Resources */,
 				6ED962AF1CF8B28800551E94 /* JSQMessagesCollectionViewCellOutgoing.xib in Resources */,
 				7B4D519D1CC110A50072E114 /* Info.plist in Resources */,
 				6ED962AD1CF8B28800551E94 /* JSQMessagesCollectionViewCellIncoming.xib in Resources */,
@@ -1925,8 +1927,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_development)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_development)";
 				CURRENT_PROJECT_VERSION = 93;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1951,8 +1953,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
 				CURRENT_PROJECT_VERSION = 93;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1976,8 +1978,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_development)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_development)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = WWDCScholars_watchOS_App_Extension;
 				INFOPLIST_FILE = "WWDCScholars watchOS App/Info.plist";
@@ -1995,8 +1997,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_appstore)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_appstore)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = WWDCScholars_watchOS_App_Extension;
 				INFOPLIST_FILE = "WWDCScholars watchOS App/Info.plist";
@@ -2013,6 +2015,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension_development)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension_development)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2032,6 +2036,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension_appstore)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension_appstore)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

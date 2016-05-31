@@ -14,7 +14,6 @@ import CoreSpotlight
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var UserIsLoggedIn = false
     var window: UIWindow?
     
     // 3D Touch

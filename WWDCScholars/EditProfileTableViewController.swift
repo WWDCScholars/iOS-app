@@ -75,7 +75,10 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.appStoreTextField.text = self.currentScholar?.iTunesURL
 //        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such property yet!
         self.appGithubTextField.text = self.currentScholar?.twitterURL
-
+        
+        if let location = self.currentScholar?.location {
+            self.myLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        }
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == String(LocationSelectViewController) {
@@ -113,9 +116,8 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     }
     
     internal func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.myLocation = manager.location?.coordinate
-        
         if self.currentScholar?.location == nil {
+            self.myLocation = manager.location?.coordinate
             self.updateLocation(self.myLocation!)
         }
     }

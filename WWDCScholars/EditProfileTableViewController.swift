@@ -40,6 +40,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     private var screenshotUploadIndex = 0
     private var imageUploadType: ImageUploadType = .Profile
     private var screenshots: [UIImage?] = [nil, nil, nil, nil]
+    private var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,9 +108,33 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         
         self.profileImageButton.imageView?.contentMode = .ScaleAspectFill
         self.profileImageButton.imageView!.layer.cornerRadius = self.profileImageButton.frame.width / 2
+        
+        self.configureDatePicker()
+    }
+    
+    private func configureDatePicker() {
+        self.datePicker = UIDatePicker()
+        self.datePicker.datePickerMode = .Date
+        self.ageTextField.inputView = self.datePicker
+        
+        let toolBar = UIToolbar()
+        toolBar.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: 44.0)
+        toolBar.tintColor = UIColor.grayColor()
+        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(EditProfileTableViewController.dismissDatePicker))
+        let space = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        toolBar.setItems([space, doneButton], animated: false)
+        self.ageTextField.inputAccessoryView = toolBar
     }
     
     // MARK: - Internal functions
+    
+    internal func dismissDatePicker() {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd/mm/yyyy"
+        
+        self.ageTextField.text = formatter.stringFromDate(self.datePicker.date)
+        self.ageTextField.resignFirstResponder()
+    }
     
     internal func setScholar(id: String) {
         self.currentScholar = DatabaseManager.sharedInstance.scholarForId(id)

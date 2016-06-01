@@ -104,6 +104,8 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.view.endEditing(true)
     }
     
+    
+    //FOR BAR BUTTON ON TOP OF THE NAV BAR - PROFILE and MAP
     private func styleUI() {
         self.title = "Edit Profile"
         
@@ -112,7 +114,12 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.imagePicker.delegate = self
         self.imagePicker.allowsEditing = false
         self.imagePicker.navigationBar.translucent = false
+        
+        //Style using Scholars Purple Color
         self.imagePicker.navigationBar.barTintColor = UIColor.scholarsPurpleColor()
+        
+        //Style using new Color (WWDC16)
+//        self.imagePicker.navigationBar.barTintColor = UIColor.wwdc16LighterBackground()
         
         self.profileImageButton.imageView?.contentMode = .ScaleAspectFill
         self.profileImageButton.imageView!.layer.cornerRadius = self.profileImageButton.frame.width / 2

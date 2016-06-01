@@ -118,9 +118,6 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         //Style using Scholars Purple Color
         self.imagePicker.navigationBar.barTintColor = UIColor.scholarsPurpleColor()
         
-        //Style using new Color (WWDC16)
-//        self.imagePicker.navigationBar.barTintColor = UIColor.wwdc16LighterBackground()
-        
         self.profileImageButton.imageView?.contentMode = .ScaleAspectFill
         self.profileImageButton.imageView!.layer.cornerRadius = self.profileImageButton.frame.width / 2
         

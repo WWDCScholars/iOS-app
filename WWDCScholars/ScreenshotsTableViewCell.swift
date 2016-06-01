@@ -62,6 +62,12 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         }
         
         let appID = String().matchesForRegexInText("([\\d]{10,})", text: appStoreURL).first
+		
+		if(appID == nil){
+			print("App Store URL is shortened version, impossible to retrieve APP ID, consider changing this? ", appStoreURL)
+			return;
+		}
+		
         let lookupURL = "http://itunes.apple.com/lookup?id=\(appID!)"
         
         request(.GET, lookupURL).responseString() { response in

@@ -56,14 +56,14 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Find Scholar's location relative to you</string>
+	<string>Find Scholar&apos;s location relative to you</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>barButtonItemIconAccountFilled</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Some subTitle</string>
+			<string>Showcase yourself!</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>My Profile</string>
 			<key>UIApplicationShortcutItemType</key>
@@ -73,9 +73,9 @@
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>favouriteFilled</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Some subTitle</string>
+			<string>Scholars you have saved</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Favorites</string>
+			<string>Saved Scholars</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenFavorites</string>
 		</dict>
@@ -83,7 +83,7 @@
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>tabBarIconBlogFilled</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Some subTitle</string>
+			<string>Check out new posts</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Blog</string>
 			<key>UIApplicationShortcutItemType</key>
@@ -93,7 +93,7 @@
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>tabBarIconChatFilled</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Some subTitle</string>
+			<string>Chat with others</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Chat</string>
 			<key>UIApplicationShortcutItemType</key>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RjV-CS-n2w">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -8,6 +8,7 @@
         <!--Scholars-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ScholarsViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -131,7 +132,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="75" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omh-sb-n72">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omh-sb-n72">
                                                             <rect key="frame" x="-13" y="14" width="101" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="U67-2o-MWc"/>
@@ -231,7 +232,6 @@
                         <segue destination="Ket-f0-GSS" kind="presentation" identifier="IntroViewController" id="UF7-DQ-LBe"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1782" y="-628"/>
         </scene>
@@ -427,6 +427,7 @@
         <!--Scholars-->
         <scene sceneID="SjI-7H-bJC">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P5b-nX-yIJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="UINavigationController-RjV-CS-n2w" automaticallyAdjustsScrollViewInsets="NO" id="RjV-CS-n2w" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Scholars" image="tabBarIconScholars" selectedImage="tabBarIconScholarsFilled" id="2i0-9Z-xy7"/>
                     <toolbarItems/>
@@ -443,7 +444,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="MNc-io-EzW"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P5b-nX-yIJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1107" y="-628"/>
         </scene>

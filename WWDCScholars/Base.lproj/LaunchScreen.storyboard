@@ -1,62 +1,145 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="sm2-v4-PUW">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="twC-yz-amR">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController id="7VJ-96-diB" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                        <viewControllerLayoutGuide type="top" id="i2h-77-12Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="J6O-J3-x5i"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="lvo-mv-bvM">
+                    <view key="view" contentMode="scaleToFill" id="kpf-2J-jmr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="I7G-zS-b5T">
+                        <barButtonItem key="leftBarButtonItem" image="barButtonItemIconAccountFilled" id="h2p-4z-LoF">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="mapIcon" id="sRP-gl-8OC">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1s1-TZ-CSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1709" y="-172"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qiZ-G6-Zbz">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jyi-sw-Jw4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Oc8-D6-y0B" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" selectedImage="tabBarIconScholarsFilled" id="Oyg-HO-KUm"/>
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6CH-bc-dxK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7VJ-96-diB" kind="relationship" relationship="rootViewController" id="lgH-QH-fPh"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1083" y="-172"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="nDe-lr-K7x">
+            <objects>
+                <tabBarController storyboardIdentifier="ScholarsTabBarViewController" automaticallyAdjustsScrollViewInsets="NO" id="sm2-v4-PUW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="yKl-xU-xtJ">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Oc8-D6-y0B" kind="relationship" relationship="viewControllers" id="SFq-dB-qYh"/>
+                        <segue destination="0Sh-Y1-B0H" kind="relationship" relationship="viewControllers" id="5ni-DG-D3w"/>
+                        <segue destination="0mi-ff-l4f" kind="relationship" relationship="viewControllers" id="Nde-wM-N7H"/>
+                        <segue destination="t0V-1s-QNA" kind="relationship" relationship="viewControllers" id="GGL-j2-lDL"/>
+                        <segue destination="w5r-L9-51c" kind="relationship" relationship="viewControllers" id="3Yi-1M-0UJ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t4Y-F4-BIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-93" y="-289"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="HBp-RU-3Nr">
+            <objects>
+                <viewController id="0mi-ff-l4f" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h7S-xA-RXg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sa2-Rp-cNf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RYA-W3-bQT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgO-02-lq5">
-                                <rect key="frame" x="210" y="556" width="181" height="34"/>
-                                <string key="text">Proudly made by scholars from
-all around the world!</string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty Center Tab" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1G-lG-vyv">
+                                <rect key="frame" x="231" y="289" width="138" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chT-uH-xHd">
-                                <rect key="frame" x="182" y="265" width="237" height="41"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="WWDC">
-                                        <attributes>
-                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="34" name="HelveticaNeue-Medium"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Scholars">
-                                        <attributes>
-                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="34" name="HelveticaNeue-Thin"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="chT-uH-xHd" secondAttribute="centerX" id="FHv-dg-N8W"/>
-                            <constraint firstAttribute="bottom" secondItem="NgO-02-lq5" secondAttribute="bottom" constant="10" id="KO3-dV-0vC"/>
-                            <constraint firstAttribute="centerY" secondItem="chT-uH-xHd" secondAttribute="centerY" constant="15" id="Z4b-kc-G0N"/>
-                            <constraint firstAttribute="centerX" secondItem="NgO-02-lq5" secondAttribute="centerX" id="fEb-dw-KQR"/>
+                            <constraint firstItem="d1G-lG-vyv" firstAttribute="centerX" secondItem="RYA-W3-bQT" secondAttribute="centerX" id="Jfm-Lv-253"/>
+                            <constraint firstItem="d1G-lG-vyv" firstAttribute="centerY" secondItem="RYA-W3-bQT" secondAttribute="centerY" id="kkO-zo-Fao"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="transparentPixel" selectedImage="transparentPixel" id="Qd0-Lg-KMH"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s5x-nd-3sE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="-547" y="511"/>
+        </scene>
+        <!--UINavigationController-EFS-Va-uZI-->
+        <scene sceneID="TDb-g8-SzW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Blog" referencedIdentifier="UINavigationController-EFS-Va-uZI" id="0Sh-Y1-B0H" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Mko-ZT-i0X"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JTo-Cb-9dE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="488.5" y="-298"/>
+        </scene>
+        <!--Credits-->
+        <scene sceneID="2HM-VT-GaD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Credits" id="w5r-L9-51c" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="7m6-4K-Ln8"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gg6-xK-EUW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="401.5" y="-127"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="ylp-Qe-YFN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" id="t0V-1s-QNA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Yz0-yg-GBK"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8PE-oK-nLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="396.5" y="-210"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="barButtonItemIconAccountFilled" width="22" height="22"/>
+        <image name="mapIcon" width="22" height="22"/>
+        <image name="tabBarIconScholarsFilled" width="25" height="25"/>
+        <image name="transparentPixel" width="1" height="1"/>
+    </resources>
 </document>

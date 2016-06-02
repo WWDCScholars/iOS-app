@@ -33,13 +33,6 @@
 		22543B1F1CB70182003F9422 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B1E1CB70182003F9422 /* BlogViewController.swift */; };
 		22543B211CB7019A003F9422 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B201CB7019A003F9422 /* ChatViewController.swift */; };
 		22671A641CE3D19F0055F91B /* BlogPostSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22671A631CE3D19F0055F91B /* BlogPostSafariViewController.swift */; };
-		2270E00A1CF3293200C88C2E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2270E0081CF3293200C88C2E /* Interface.storyboard */; };
-		2270E00C1CF3293200C88C2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2270E00B1CF3293200C88C2E /* Assets.xcassets */; };
-		2270E0131CF3293200C88C2E /* WWDCScholars watchOS App Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2270E0121CF3293200C88C2E /* WWDCScholars watchOS App Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2270E0181CF3293200C88C2E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2270E0171CF3293200C88C2E /* InterfaceController.swift */; };
-		2270E01A1CF3293200C88C2E /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2270E0191CF3293200C88C2E /* ExtensionDelegate.swift */; };
-		2270E01C1CF3293200C88C2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2270E01B1CF3293200C88C2E /* Assets.xcassets */; };
-		2270E0201CF3293200C88C2E /* WWDCScholars watchOS App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2270E0061CF3293200C88C2E /* WWDCScholars watchOS App.app */; };
 		22AA36691CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AA36681CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m */; };
 		22AA366C1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AA366B1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		22B608471CFC5E860042F558 /* loginSuccessful.aif in Resources */ = {isa = PBXBuildFile; fileRef = 22B608461CFC5E810042F558 /* loginSuccessful.aif */; };
@@ -72,8 +65,6 @@
 		6E7952871CF640E100160B26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E7952861CF640E100160B26 /* GoogleService-Info.plist */; };
 		6E7952881CF640E100160B26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E7952861CF640E100160B26 /* GoogleService-Info.plist */; };
 		6E7952891CF640E100160B26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E7952861CF640E100160B26 /* GoogleService-Info.plist */; };
-		6E79528A1CF640E100160B26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E7952861CF640E100160B26 /* GoogleService-Info.plist */; };
-		6E79528B1CF640E100160B26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E7952861CF640E100160B26 /* GoogleService-Info.plist */; };
 		6E7952921CF641E300160B26 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952911CF641E300160B26 /* libc++.tbd */; };
 		6E7952941CF641F500160B26 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952931CF641F500160B26 /* libicucore.tbd */; };
 		6E7952961CF641FF00160B26 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952951CF641FF00160B26 /* CFNetwork.framework */; };
@@ -233,20 +224,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2270E0141CF3293200C88C2E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 223884151C8252D900A96752 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2270E0111CF3293200C88C2E;
-			remoteInfo = "WWDCScholars watchOS App Extension";
-		};
-		2270E01E1CF3293200C88C2E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 223884151C8252D900A96752 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2270E0051CF3293200C88C2E;
-			remoteInfo = "WWDCScholars watchOS App";
-		};
 		7B0374F41CF9E51500DE1CED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7B0D2AB01CF9E453004C1697 /* CryptoSwift.xcodeproj */;
@@ -306,24 +283,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2270E0261CF3293300C88C2E /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				2270E0131CF3293200C88C2E /* WWDCScholars watchOS App Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2270E0281CF3293300C88C2E /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				2270E0201CF3293200C88C2E /* WWDCScholars watchOS App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,15 +338,6 @@
 		22543B1E1CB70182003F9422 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		22543B201CB7019A003F9422 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		22671A631CE3D19F0055F91B /* BlogPostSafariViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostSafariViewController.swift; sourceTree = "<group>"; };
-		2270E0061CF3293200C88C2E /* WWDCScholars watchOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WWDCScholars watchOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2270E0091CF3293200C88C2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		2270E00B1CF3293200C88C2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2270E00D1CF3293200C88C2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2270E0121CF3293200C88C2E /* WWDCScholars watchOS App Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WWDCScholars watchOS App Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2270E0171CF3293200C88C2E /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		2270E0191CF3293200C88C2E /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		2270E01B1CF3293200C88C2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2270E01D1CF3293200C88C2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22AA36661CC2765D0061FF09 /* WWDCScholars-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WWDCScholars-Bridging-Header.h"; sourceTree = "<group>"; };
 		22AA36671CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		22AA36681CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
@@ -663,13 +619,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2270E00F1CF3293200C88C2E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7B2AA6DA1CBAE7530025EC7B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -704,8 +653,6 @@
 				7BBA87A21CBD5D680057E9AD /* Frameworks */,
 				2238841E1C8252D900A96752 /* Products */,
 				2238841F1C8252D900A96752 /* WWDCScholars */,
-				2270E0071CF3293200C88C2E /* WWDCScholars watchOS App */,
-				2270E0161CF3293200C88C2E /* WWDCScholars watchOS App Extension */,
 				7B2AA6DE1CBAE7530025EC7B /* WWDCScholarsTests */,
 				7B2AA6EC1CBAE75B0025EC7B /* WWDCScholarsUITests */,
 			);
@@ -717,8 +664,6 @@
 				2238841D1C8252D900A96752 /* Scholars.app */,
 				7B2AA6DD1CBAE7530025EC7B /* WWDCScholarsTests.xctest */,
 				7B2AA6EB1CBAE75B0025EC7B /* WWDCScholarsUITests.xctest */,
-				2270E0061CF3293200C88C2E /* WWDCScholars watchOS App.app */,
-				2270E0121CF3293200C88C2E /* WWDCScholars watchOS App Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -822,27 +767,6 @@
 				22AA366B1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 			);
 			name = Login;
-			sourceTree = "<group>";
-		};
-		2270E0071CF3293200C88C2E /* WWDCScholars watchOS App */ = {
-			isa = PBXGroup;
-			children = (
-				2270E0081CF3293200C88C2E /* Interface.storyboard */,
-				2270E00B1CF3293200C88C2E /* Assets.xcassets */,
-				2270E00D1CF3293200C88C2E /* Info.plist */,
-			);
-			path = "WWDCScholars watchOS App";
-			sourceTree = "<group>";
-		};
-		2270E0161CF3293200C88C2E /* WWDCScholars watchOS App Extension */ = {
-			isa = PBXGroup;
-			children = (
-				2270E0171CF3293200C88C2E /* InterfaceController.swift */,
-				2270E0191CF3293200C88C2E /* ExtensionDelegate.swift */,
-				2270E01B1CF3293200C88C2E /* Assets.xcassets */,
-				2270E01D1CF3293200C88C2E /* Info.plist */,
-			);
-			path = "WWDCScholars watchOS App Extension";
 			sourceTree = "<group>";
 		};
 		6E43D46F1CF8A35B00D35A6F /* Firebase */ = {
@@ -1345,47 +1269,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				2270E01F1CF3293200C88C2E /* PBXTargetDependency */,
 				7B0374F51CF9E51500DE1CED /* PBXTargetDependency */,
 			);
 			name = WWDCScholars;
 			productName = WWDCScholars;
 			productReference = 2238841D1C8252D900A96752 /* Scholars.app */;
 			productType = "com.apple.product-type.application";
-		};
-		2270E0051CF3293200C88C2E /* WWDCScholars watchOS App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2270E0271CF3293300C88C2E /* Build configuration list for PBXNativeTarget "WWDCScholars watchOS App" */;
-			buildPhases = (
-				2270E0041CF3293200C88C2E /* Resources */,
-				2270E0261CF3293300C88C2E /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2270E0151CF3293200C88C2E /* PBXTargetDependency */,
-			);
-			name = "WWDCScholars watchOS App";
-			productName = "WWDCScholars watchOS App";
-			productReference = 2270E0061CF3293200C88C2E /* WWDCScholars watchOS App.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		2270E0111CF3293200C88C2E /* WWDCScholars watchOS App Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2270E0251CF3293300C88C2E /* Build configuration list for PBXNativeTarget "WWDCScholars watchOS App Extension" */;
-			buildPhases = (
-				2270E00E1CF3293200C88C2E /* Sources */,
-				2270E00F1CF3293200C88C2E /* Frameworks */,
-				2270E0101CF3293200C88C2E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "WWDCScholars watchOS App Extension";
-			productName = "WWDCScholars watchOS App Extension";
-			productReference = 2270E0121CF3293200C88C2E /* WWDCScholars watchOS App Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
 		};
 		7B2AA6DC1CBAE7530025EC7B /* WWDCScholarsTests */ = {
 			isa = PBXNativeTarget;
@@ -1439,12 +1328,6 @@
 					2238841C1C8252D900A96752 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
-					2270E0051CF3293200C88C2E = {
-						CreatedOnToolsVersion = 7.3.1;
-					};
-					2270E0111CF3293200C88C2E = {
-						CreatedOnToolsVersion = 7.3.1;
-					};
 					7B2AA6DC1CBAE7530025EC7B = {
 						CreatedOnToolsVersion = 7.3;
 						TestTargetID = 2238841C1C8252D900A96752;
@@ -1477,8 +1360,6 @@
 				2238841C1C8252D900A96752 /* WWDCScholars */,
 				7B2AA6DC1CBAE7530025EC7B /* WWDCScholarsTests */,
 				7B2AA6EA1CBAE75B0025EC7B /* WWDCScholarsUITests */,
-				2270E0051CF3293200C88C2E /* WWDCScholars watchOS App */,
-				2270E0111CF3293200C88C2E /* WWDCScholars watchOS App Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -1549,25 +1430,6 @@
 				6ED962AD1CF8B28800551E94 /* JSQMessagesCollectionViewCellIncoming.xib in Resources */,
 				0E93C3AC1CFFD4D100E366DC /* EditDetails.storyboard in Resources */,
 				0E93C3A61CFFD16B00E366DC /* Credits.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2270E0041CF3293200C88C2E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2270E00C1CF3293200C88C2E /* Assets.xcassets in Resources */,
-				2270E00A1CF3293200C88C2E /* Interface.storyboard in Resources */,
-				6E79528A1CF640E100160B26 /* GoogleService-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2270E0101CF3293200C88C2E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2270E01C1CF3293200C88C2E /* Assets.xcassets in Resources */,
-				6E79528B1CF640E100160B26 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1777,15 +1639,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2270E00E1CF3293200C88C2E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2270E01A1CF3293200C88C2E /* ExtensionDelegate.swift in Sources */,
-				2270E0181CF3293200C88C2E /* InterfaceController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7B2AA6D91CBAE7530025EC7B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1814,16 +1667,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2270E0151CF3293200C88C2E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2270E0111CF3293200C88C2E /* WWDCScholars watchOS App Extension */;
-			targetProxy = 2270E0141CF3293200C88C2E /* PBXContainerItemProxy */;
-		};
-		2270E01F1CF3293200C88C2E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2270E0051CF3293200C88C2E /* WWDCScholars watchOS App */;
-			targetProxy = 2270E01E1CF3293200C88C2E /* PBXContainerItemProxy */;
-		};
 		7B0374F51CF9E51500DE1CED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CryptoSwift iOS";
@@ -1848,14 +1691,6 @@
 				2238842A1C8252D900A96752 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		2270E0081CF3293200C88C2E /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2270E0091CF3293200C88C2E /* Base */,
-			);
-			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1951,8 +1786,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-                CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_development)";
-                "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_development)";
+				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_development)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_development)";
 				CURRENT_PROJECT_VERSION = 93;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1977,8 +1812,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-                CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
-                "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
+				CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
 				CURRENT_PROJECT_VERSION = 93;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1994,86 +1829,6 @@
 				PROVISIONING_PROFILE = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WWDCScholars/WWDCScholars-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = module.modulemap;
-			};
-			name = Release;
-		};
-		2270E0211CF3293300C88C2E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ANALYZER_NONNULL = YES;
-                CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_development)";
-                "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_development)";
-                EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				IBSC_MODULE = WWDCScholars_watchOS_App_Extension;
-				INFOPLIST_FILE = "WWDCScholars watchOS App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Debug;
-		};
-		2270E0221CF3293300C88C2E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ANALYZER_NONNULL = YES;
-                CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_appstore)";
-                "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_appstore)";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				IBSC_MODULE = WWDCScholars_watchOS_App_Extension;
-				INFOPLIST_FILE = "WWDCScholars watchOS App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Release;
-		};
-		2270E0231CF3293300C88C2E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-                CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension_development)";
-                "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension_development)";
-                FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = "WWDCScholars watchOS App Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Debug;
-		};
-		2270E0241CF3293300C88C2E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = "WWDCScholars watchOS App Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
 		};
@@ -2165,24 +1920,6 @@
 			buildConfigurations = (
 				223884301C8252D900A96752 /* Debug */,
 				223884311C8252D900A96752 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2270E0251CF3293300C88C2E /* Build configuration list for PBXNativeTarget "WWDCScholars watchOS App Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2270E0231CF3293300C88C2E /* Debug */,
-				2270E0241CF3293300C88C2E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2270E0271CF3293300C88C2E /* Build configuration list for PBXNativeTarget "WWDCScholars watchOS App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2270E0211CF3293300C88C2E /* Debug */,
-				2270E0221CF3293300C88C2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

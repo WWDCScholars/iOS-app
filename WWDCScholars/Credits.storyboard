@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Owr-WO-kOn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Owr-WO-kOn">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -149,7 +149,7 @@
                                                                             </constraints>
                                                                         </imageView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="P2x-QR-WCu">
-                                                                            <rect key="frame" x="75" y="37" width="152" height="22"/>
+                                                                            <rect key="frame" x="75" y="37" width="178" height="22"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iOS" translatesAutoresizingMaskIntoConstraints="NO" id="ex6-oS-ekg">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
@@ -193,6 +193,13 @@
                                                                                         <constraint firstAttribute="height" constant="22" id="H87-Si-lAC"/>
                                                                                     </constraints>
                                                                                 </imageView>
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marketing" translatesAutoresizingMaskIntoConstraints="NO" id="K8N-qt-XJo">
+                                                                                    <rect key="frame" x="156" y="0.0" width="22" height="22"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="22" id="eit-FD-rdb"/>
+                                                                                        <constraint firstAttribute="height" constant="22" id="nIX-ER-ylr"/>
+                                                                                    </constraints>
+                                                                                </imageView>
                                                                             </subviews>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="22" id="P4h-3P-z7m"/>
@@ -225,6 +232,7 @@
                                                             <outlet property="databaseImageView" destination="Z1c-wJ-ktB" id="WIB-D9-CTM"/>
                                                             <outlet property="designImageView" destination="c7Y-05-2oR" id="sLW-uZ-YSL"/>
                                                             <outlet property="iOSImageView" destination="ex6-oS-ekg" id="Drk-fu-eDa"/>
+                                                            <outlet property="marketingImageView" destination="K8N-qt-XJo" id="Ir3-2X-ISD"/>
                                                             <outlet property="projectManagementImageView" destination="d3q-Ej-Tmf" id="JBp-Jh-Jef"/>
                                                             <outlet property="scholarImageView" destination="Erb-OD-E2R" id="ONE-Tn-HBn"/>
                                                             <outlet property="scholarNameLabel" destination="hxF-PQ-1sO" id="d9X-oN-8xJ"/>
@@ -323,6 +331,7 @@
         <image name="Andrew Walker" width="133" height="133"/>
         <image name="Database" width="22" height="22"/>
         <image name="Design" width="22" height="22"/>
+        <image name="Marketing" width="22" height="22"/>
         <image name="Project Management" width="22" height="23"/>
         <image name="Website" width="22" height="22"/>
         <image name="creditsHeader" width="327" height="184"/>

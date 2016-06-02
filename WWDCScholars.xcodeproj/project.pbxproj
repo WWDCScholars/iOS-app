@@ -1951,8 +1951,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+                CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_development)";
+                "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_development)";
 				CURRENT_PROJECT_VERSION = 93;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1977,8 +1977,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+                CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
+                "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015_appstore)";
 				CURRENT_PROJECT_VERSION = 93;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2002,9 +2002,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+                CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_development)";
+                "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_development)";
+                EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = WWDCScholars_watchOS_App_Extension;
 				INFOPLIST_FILE = "WWDCScholars watchOS App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015.watchkitapp";
@@ -2021,8 +2021,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+                CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_appstore)";
+                "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp_appstore)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = WWDCScholars_watchOS_App_Extension;
 				INFOPLIST_FILE = "WWDCScholars watchOS App/Info.plist";
@@ -2039,9 +2039,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
+                CODE_SIGN_IDENTITY = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension_development)";
+                "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(sigh_com.wwdcscholars.WWDC-Scholars-2015.watchkitapp.watchkitextension_development)";
+                FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);

@@ -30,12 +30,12 @@
             </objects>
             <point key="canvasLocation" x="1709" y="-172"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Scholars-->
         <scene sceneID="qiZ-G6-Zbz">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyi-sw-Jw4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Oc8-D6-y0B" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="tabBarIconScholarsFilled" id="Oyg-HO-KUm"/>
+                    <tabBarItem key="tabBarItem" title="Scholars" image="tabBarIconScholarsFilled" selectedImage="tabBarIconScholarsFilled" id="Oyg-HO-KUm"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -61,6 +61,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="yKl-xU-xtJ">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Oc8-D6-y0B" kind="relationship" relationship="viewControllers" id="SFq-dB-qYh"/>

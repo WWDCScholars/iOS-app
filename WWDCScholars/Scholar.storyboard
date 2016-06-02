@@ -422,7 +422,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvo-8d-446" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-415" y="329"/>
+            <point key="canvasLocation" x="529" y="149"/>
         </scene>
         <!--Scholars-->
         <scene sceneID="SjI-7H-bJC">
@@ -520,7 +520,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="ScholarsTabBarViewController" storyboardName="Main" referencedIdentifier="ScholarsTabBarViewController" id="NcP-c3-AAH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iId-0x-6pN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140.5" y="335"/>
+            <point key="canvasLocation" x="1064.5" y="143"/>
         </scene>
     </scenes>
     <resources>

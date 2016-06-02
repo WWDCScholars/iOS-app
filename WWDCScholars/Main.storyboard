@@ -127,7 +127,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="EditDetailsNC" storyboardName="EditDetails" referencedIdentifier="EditDetailsNC" id="Dlu-Ig-O9X" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KwW-6t-rUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2029" y="-1715"/>
+            <point key="canvasLocation" x="973" y="78"/>
         </scene>
         <!--SignInVC-->
         <scene sceneID="ygx-4o-T1X">
@@ -135,7 +135,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="SignInVC" storyboardName="EditDetails" referencedIdentifier="SignInVC" id="jRd-et-rQp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iu9-Ry-5yq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1317" y="-1715"/>
+            <point key="canvasLocation" x="851.5" y="78"/>
         </scene>
     </scenes>
     <resources>

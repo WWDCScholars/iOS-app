@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E93C39E1CFFCF8C00E366DC /* ScholarDetailVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93C39D1CFFCF8C00E366DC /* ScholarDetailVC.storyboard */; };
+		0E93C3A41CFFD04B00E366DC /* Blog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93C3A31CFFD04B00E366DC /* Blog.storyboard */; };
+		0E93C3A61CFFD16B00E366DC /* Credits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93C3A51CFFD16B00E366DC /* Credits.storyboard */; };
+		0E93C3A81CFFD2CE00E366DC /* Scholar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93C3A71CFFD2CE00E366DC /* Scholar.storyboard */; };
+		0E93C3AA1CFFD40200E366DC /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93C3A91CFFD40200E366DC /* Chat.storyboard */; };
+		0E93C3AC1CFFD4D100E366DC /* EditDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93C3AB1CFFD4D100E366DC /* EditDetails.storyboard */; };
 		22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */; };
 		22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */; };
 		2236F2971CC29EA500663957 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2236F2961CC29EA500663957 /* DesignableButton.swift */; };
@@ -339,6 +345,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E93C39D1CFFCF8C00E366DC /* ScholarDetailVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScholarDetailVC.storyboard; sourceTree = "<group>"; };
+		0E93C3A31CFFD04B00E366DC /* Blog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Blog.storyboard; sourceTree = "<group>"; };
+		0E93C3A51CFFD16B00E366DC /* Credits.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Credits.storyboard; sourceTree = "<group>"; };
+		0E93C3A71CFFD2CE00E366DC /* Scholar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scholar.storyboard; sourceTree = "<group>"; };
+		0E93C3A91CFFD40200E366DC /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		0E93C3AB1CFFD4D100E366DC /* EditDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditDetails.storyboard; sourceTree = "<group>"; };
 		22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		2236F2961CC29EA500663957 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
@@ -681,6 +693,7 @@
 				6E4DD6EB1CBD36AA00B08EE1 /* EditProfileTableViewController.swift */,
 				6E51E2741CDED4C00095FD38 /* LocationSelectViewController.swift */,
 				6E4DD6ED1CBD3F1800B08EE1 /* ScreenshotUploadCollectionViewCell.swift */,
+				0E93C3AB1CFFD4D100E366DC /* EditDetails.storyboard */,
 			);
 			name = "Edit Details";
 			sourceTree = "<group>";
@@ -750,6 +763,7 @@
 				22671A631CE3D19F0055F91B /* BlogPostSafariViewController.swift */,
 				6EBCAD181CDACE170056D1CF /* BlogPostTableViewCell.swift */,
 				22543B1E1CB70182003F9422 /* BlogViewController.swift */,
+				0E93C3A31CFFD04B00E366DC /* Blog.storyboard */,
 			);
 			name = Blog;
 			sourceTree = "<group>";
@@ -758,6 +772,7 @@
 			isa = PBXGroup;
 			children = (
 				22543B201CB7019A003F9422 /* ChatViewController.swift */,
+				0E93C3A91CFFD40200E366DC /* Chat.storyboard */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -765,6 +780,7 @@
 		223F5E8E1CB942A700E582C5 /* Credits */ = {
 			isa = PBXGroup;
 			children = (
+				0E93C3A51CFFD16B00E366DC /* Credits.storyboard */,
 				6EB723D01CB9B84D005A076F /* Credit.swift */,
 				6EB723D11CB9B84D005A076F /* Credits.plist */,
 				6EB723D21CB9B84D005A076F /* CreditsViewController.swift */,
@@ -778,6 +794,7 @@
 			children = (
 				223884201C8252D900A96752 /* AppDelegate.swift */,
 				6EB723CE1CB9B83B005A076F /* Main.storyboard */,
+				0E93C3A71CFFD2CE00E366DC /* Scholar.storyboard */,
 				223F5E961CB95C3C00E582C5 /* ScholarsTabBarViewController.swift */,
 				6EEA892E1CDBFCD200245445 /* Supporting Files */,
 			);
@@ -913,6 +930,7 @@
 				6E447DB01CC3E4FE00014B12 /* ScreenshotsCollectionViewCell.swift */,
 				6E447DB21CC3E5D100014B12 /* ScreenshotsTableViewCell.swift */,
 				6E24BF321CF4B088002D00B2 /* SocialButtonsTableViewCell.swift */,
+				0E93C39D1CFFCF8C00E366DC /* ScholarDetailVC.storyboard */,
 			);
 			name = Details;
 			sourceTree = "<group>";
@@ -1520,11 +1538,17 @@
 				6EB723D51CB9B84D005A076F /* Credits.plist in Resources */,
 				6EB723CF1CB9B83B005A076F /* Main.storyboard in Resources */,
 				6ED962B41CF8B28800551E94 /* JSQMessagesLoadEarlierHeaderView.xib in Resources */,
+				0E93C3AA1CFFD40200E366DC /* Chat.storyboard in Resources */,
+				0E93C3A41CFFD04B00E366DC /* Blog.storyboard in Resources */,
+				0E93C3A81CFFD2CE00E366DC /* Scholar.storyboard in Resources */,
 				6EB723D91CB9B85B005A076F /* Assets.xcassets in Resources */,
 				22B608471CFC5E860042F558 /* loginSuccessful.aif in Resources */,
 				6ED962AF1CF8B28800551E94 /* JSQMessagesCollectionViewCellOutgoing.xib in Resources */,
+				0E93C39E1CFFCF8C00E366DC /* ScholarDetailVC.storyboard in Resources */,
 				7B4D519D1CC110A50072E114 /* Info.plist in Resources */,
 				6ED962AD1CF8B28800551E94 /* JSQMessagesCollectionViewCellIncoming.xib in Resources */,
+				0E93C3AC1CFFD4D100E366DC /* EditDetails.storyboard in Resources */,
+				0E93C3A61CFFD16B00E366DC /* Credits.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AqM-9s-UAC">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Chat-->
+        <scene sceneID="bAZ-9K-5ed">
+            <objects>
+                <viewController id="nbF-qz-3hW" customClass="ChatViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6UL-IK-bnb"/>
+                        <viewControllerLayoutGuide type="bottom" id="zeS-OX-a7c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HGP-Vn-4VT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0Z-qB-2Bn">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <connections>
+                                    <segue destination="42Q-DI-DSS" kind="embed" identifier="LoadingViewController" id="SHz-X5-3VX"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="t0Z-qB-2Bn" firstAttribute="leading" secondItem="HGP-Vn-4VT" secondAttribute="leading" id="Ub1-Ar-qNY"/>
+                            <constraint firstAttribute="trailing" secondItem="t0Z-qB-2Bn" secondAttribute="trailing" id="baR-Pk-AJf"/>
+                            <constraint firstItem="t0Z-qB-2Bn" firstAttribute="top" secondItem="6UL-IK-bnb" secondAttribute="bottom" id="ehy-Tu-c5s"/>
+                            <constraint firstItem="zeS-OX-a7c" firstAttribute="top" secondItem="t0Z-qB-2Bn" secondAttribute="bottom" id="v4K-aI-h0M"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chat" id="Sua-Tg-f6R"/>
+                    <connections>
+                        <outlet property="loadingContainerView" destination="t0Z-qB-2Bn" id="ei2-6F-p6b"/>
+                        <segue destination="z7X-cv-lvg" kind="show" identifier="ScholarDetailViewController" id="E66-Gl-hWW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YZE-kb-XF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1525" y="748"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="rjb-JE-T2C">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AqM-9s-UAC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Chat" image="tabBarIconChat" selectedImage="tabBarIconChatFilled" id="N0X-nF-0aJ"/>
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eQr-4h-nU2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nbF-qz-3hW" kind="relationship" relationship="rootViewController" id="cbc-28-mf0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bc1-pC-e3r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="845" y="748"/>
+        </scene>
+        <!--scholarDetailViewController-->
+        <scene sceneID="mkb-uL-MLU">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="scholarDetailViewController" storyboardName="ScholarDetailVC" referencedIdentifier="scholarDetailViewController" id="z7X-cv-lvg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0tF-AP-JMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2020.5" y="810"/>
+        </scene>
+        <!--UIViewController-OkU-OR-ZBR-->
+        <scene sceneID="RVO-W7-gyh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Scholar" referencedIdentifier="UIViewController-OkU-OR-ZBR" id="42Q-DI-DSS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3bu-Uj-ZAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2029.5" y="676"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabBarIconChat" width="25" height="25"/>
+        <image name="tabBarIconChatFilled" width="25" height="25"/>
+    </resources>
+</document>

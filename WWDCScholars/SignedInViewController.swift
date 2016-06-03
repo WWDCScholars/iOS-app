@@ -13,7 +13,7 @@ protocol EditDetailsDelegate {
 }
 
 class SignedInViewController: UIViewController, DragDropBehaviorDelegate {
-    @IBOutlet private weak var dialogView: DesignableView!
+    @IBOutlet private weak var dialogView: SpringView!
 
     private var originalCenter: CGPoint!
     

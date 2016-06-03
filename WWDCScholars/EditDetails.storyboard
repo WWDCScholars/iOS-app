@@ -1042,6 +1042,9 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iXo-Y6-Fga" customClass="DesignableView" customModule="Scholars" customModuleProvider="target">
                                                             <rect key="frame" x="160" y="160" width="280" height="281"/>
                                                             <subviews>
+                                                                <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sKf-F1-E1c">
+                                                                    <rect key="frame" x="130" y="232" width="20" height="20"/>
+                                                                </activityIndicatorView>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wwdcScholarsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ot6-3I-pvY">
                                                                     <rect key="frame" x="115" y="16" width="50" height="50"/>
                                                                 </imageView>
@@ -1055,19 +1058,6 @@
                                                                     <rect key="frame" x="16" y="175" width="248" height="30"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                                                            <real key="value" value="10"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
-                                                                            <integer key="value" value="10"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </textField>
-                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" background="input-outline-active" translatesAutoresizingMaskIntoConstraints="NO" id="zIT-lP-UMd" customClass="DesignableTextField" customModule="Scholars" customModuleProvider="target">
-                                                                    <rect key="frame" x="16" y="108" width="248" height="44"/>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
                                                                             <real key="value" value="10"/>
@@ -1094,6 +1084,19 @@
                                                                         <action selector="signinButtonPressed:" destination="R77-o8-Eiz" eventType="touchUpInside" id="MGj-VW-qXh"/>
                                                                     </connections>
                                                                 </button>
+                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" background="input-outline-active" translatesAutoresizingMaskIntoConstraints="NO" id="zIT-lP-UMd" customClass="DesignableTextField" customModule="Scholars" customModuleProvider="target">
+                                                                    <rect key="frame" x="16" y="108" width="248" height="44"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                                            <real key="value" value="10"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                                            <integer key="value" value="10"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
@@ -1203,6 +1206,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="sKf-F1-E1c" id="Jld-1a-Kuh"/>
                         <outlet property="dialogView" destination="iXo-Y6-Fga" id="rzq-6O-sV4"/>
                         <outlet property="emailTextField" destination="zIT-lP-UMd" id="fpS-Xb-vfM"/>
                         <outlet property="passwordTextField" destination="faf-TQ-mCU" id="lqS-fG-b8g"/>

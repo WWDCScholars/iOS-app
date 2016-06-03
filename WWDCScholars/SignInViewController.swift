@@ -17,6 +17,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     @IBOutlet private weak var emailTextField: DesignableTextField!
     @IBOutlet private weak var passwordTextField: DesignableTextField!
     @IBOutlet private weak var signUpButton: SpringButton!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     private var originalCenter: CGPoint!
     
@@ -57,6 +58,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         self.originalCenter = self.view.center
     }
     
+    private func animateSignInButton(hidden: Bool) {
+        UIView.animateWithDuration(0.2, animations: {
+            self.signinButton.alpha = CGFloat(!hidden)
+            self.activityIndicator.alpha = CGFloat(hidden)
+        })
+    }
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
@@ -75,23 +83,19 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     // MARK: - IBActions
     
     @IBAction func signinButtonPressed(sender: AnyObject) {
-        if self.emailTextField.text == "" {
-            //todo: show error -> no email
-            self.shakeSignInViewController()
-            return
-        }
-        if self.passwordTextField.text == "" {
-            //todo: show error -> no password
+        self.animateSignInButton(true)
+        
+        if self.emailTextField.text == "" || self.passwordTextField.text == "" {
             self.shakeSignInViewController()
             return
         }
         
         UserKit.sharedInstance.login(self.emailTextField.text!, password: self.passwordTextField.text!) { error in
             if error == nil {
-                //todo "Logged in" dialog instead of loggin in again!
                 self.dismissSignInViewController()
                 self.playConfirmationSound()
             } else {
+                self.animateSignInButton(false)
                 self.shakeSignInViewController()
             }
         }

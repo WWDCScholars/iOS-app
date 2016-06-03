@@ -309,7 +309,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
             cell.is2016 = scholar.appstoreSubmissionURL != nil
             cell.setAppStoreURL(scholar.appstoreSubmissionURL ?? "")
             cell.delegate = self
-                        
+            
             return cell
         case 3:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("socialButtonsTableViewCell") as! SocialButtonsTableViewCell

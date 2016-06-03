@@ -9,13 +9,13 @@
 import UIKit
 
 class BlogPostTableViewCell: UITableViewCell {
-    @IBOutlet weak var postTitleLabel: UILabel! 
-    @IBOutlet weak var postAuthorLabel: UILabel! 
+    @IBOutlet weak var postTitleLabel: UILabel!
+    @IBOutlet weak var postAuthorLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postDetailsContainerView: UIView!
     @IBOutlet weak var postDateLabel: UILabel!
     @IBOutlet weak var detailsStackView: UIStackView!
-        
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

@@ -40,31 +40,31 @@ public class SpringTextField: UITextField, Springable {
     @IBInspectable public var curve: String = ""
     public var opacity: CGFloat = 1
     public var animateFrom: Bool = false
-
+    
     lazy private var spring : Spring = Spring(self)
-
+    
     override public func awakeFromNib() {
         super.awakeFromNib()
         self.spring.customAwakeFromNib()
     }
-
+    
     override public func didMoveToWindow() {
         super.didMoveToWindow()
         self.spring.customDidMoveToWindow()
     }
-
+    
     public func animate() {
         self.spring.animate()
     }
-
+    
     public func animateNext(completion: () -> ()) {
         self.spring.animateNext(completion)
     }
-
+    
     public func animateTo() {
         self.spring.animateTo()
     }
-
+    
     public func animateToNext(completion: () -> ()) {
         self.spring.animateToNext(completion)
     }

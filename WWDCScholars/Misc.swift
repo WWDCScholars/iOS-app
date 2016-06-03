@@ -24,7 +24,7 @@ import UIKit
 
 public extension String {
     public var length: Int { return self.characters.count }
-
+    
     public func toURL() -> NSURL? {
         return NSURL(string: self)
     }
@@ -73,7 +73,7 @@ public extension UIColor {
             let index = hex.startIndex.advancedBy(1)
             hex         = hex.substringFromIndex(index)
         }
-
+        
         let scanner = NSScanner(string: hex)
         var hexValue: CUnsignedLongLong = 0
         if scanner.scanHexLongLong(&hexValue) {

@@ -12,7 +12,7 @@ import SafariServices
 class BlogPostSafariViewController: SFSafariViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.tintColor = UIColor.scholarsPurpleColor()
     }
 }

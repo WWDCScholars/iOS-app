@@ -18,7 +18,7 @@ class ScreenshotUploadCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var uploadButton: UIButton!
     
     var delegate: ScreenshotImportDelegate?
-
+    
     override func awakeFromNib() {
         self.styleUI()
     }

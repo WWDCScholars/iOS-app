@@ -80,7 +80,7 @@ class TutorialObject {
     var object: UIView!
     private(set) var points: [CGPoint] = []
     var tag = 0
-
+    
     private(set) var size: CGSize = CGSizeZero
     private var startPosition: CGPoint = CGPointZero
     

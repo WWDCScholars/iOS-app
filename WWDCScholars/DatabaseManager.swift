@@ -26,12 +26,12 @@ class DatabaseManager {
             // a schema version lower than the one set above
             migrationBlock: { migration, oldSchemaVersion in
                 // We haven’t migrated anything yet, so oldSchemaVersion == 0
-//                if (oldSchemaVersion == 3) {
-                    // Nothing to do!
-                    // Realm will automatically detect new properties and removed properties
-                    // And will update the schema on disk automatically
-                    migration.deleteData("Scholar")
-//                }
+                //                if (oldSchemaVersion == 3) {
+                // Nothing to do!
+                // Realm will automatically detect new properties and removed properties
+                // And will update the schema on disk automatically
+                migration.deleteData("Scholar")
+                //                }
         })
         
         realm = try! Realm(configuration: config)

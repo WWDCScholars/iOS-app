@@ -164,11 +164,11 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         self.titleLabel.text = self.currentPost.title
         self.authorButton.setTitle(self.currentPost.scholarName, forState: .Normal)
         
-//        var tagsString = ""
-//        for (index, tag) in self.currentPost!.tags.enumerate() {
-//            tagsString.appendContentsOf(index != self.currentPost!.tags.count - 1 ? "\(tag), " : tag)
-//        }
-//        self.tagsLabel.text = tagsString
+        //        var tagsString = ""
+        //        for (index, tag) in self.currentPost!.tags.enumerate() {
+        //            tagsString.appendContentsOf(index != self.currentPost!.tags.count - 1 ? "\(tag), " : tag)
+        //        }
+        //        self.tagsLabel.text = tagsString
         self.dateLabel.text = DateManager.shortDateStringFromDate(self.currentPost.createdAt)
         
         self.headerImageView.af_setImageWithURL(NSURL(string: self.currentPost.imageUrl)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)

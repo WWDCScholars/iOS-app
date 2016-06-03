@@ -75,7 +75,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.linkedinTextField.text = self.currentScholar?.linkedInURL
         self.websiteTextField.text = self.currentScholar?.websiteURL
         self.appStoreTextField.text = self.currentScholar?.iTunesURL
-//        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such property yet!
+        //        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such property yet!
         self.appGithubTextField.text = self.currentScholar?.twitterURL
         
         if let location = self.currentScholar?.location {
@@ -110,7 +110,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.title = "Edit Profile"
         
         self.locationChangeButton.setTitleColor(UIColor.scholarsPurpleColor(), forState: .Normal)
-
+        
         self.imagePicker.delegate = self
         self.imagePicker.allowsEditing = false
         self.imagePicker.navigationBar.translucent = false
@@ -238,7 +238,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     @IBAction func doneButtonTapped(sender: AnyObject) {
         
     }
-
+    
     @IBAction func cancelButtonTapped(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

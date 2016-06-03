@@ -31,7 +31,7 @@ class CreditsManager {
         return nil
     }
     
-    func checkForCredit(scholar: Scholar) -> Bool {        
+    func checkForCredit(scholar: Scholar) -> Bool {
         for credit in self.credits {
             if scholar.id == credit.id {
                 return true

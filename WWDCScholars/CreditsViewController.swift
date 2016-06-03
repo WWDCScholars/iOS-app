@@ -25,7 +25,7 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreditsViewController.showFullScreenImage))
         self.headerImageView.userInteractionEnabled = true
         self.headerImageView.addGestureRecognizer(tapGestureRecognizer)
-
+        
         self.styleUI()
     }
     
@@ -74,7 +74,7 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
     // MARK: - UI
     
     private func styleUI() {
-        self.title = "Credits"        
+        self.title = "Credits"
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -85,7 +85,7 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
 // MARK: - UIScrollViewDelegate
 
 extension CreditsViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(scrollView: UIScrollView) {        
+    func scrollViewDidScroll(scrollView: UIScrollView) {
         let imageViewHeight: CGFloat = 200.0
         var imageViewFrame = CGRect(x: 0, y: 0, width: scrollView.bounds.width, height: imageViewHeight)
         

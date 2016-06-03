@@ -54,7 +54,7 @@ class AZTextFrame {
     private let attributes: AZTextFrameAttributes
     private(set) var width: CGFloat = 0
     private(set) var height: CGFloat = 0
-
+    
     init(attributes: AZTextFrameAttributes) {
         self.attributes = attributes
         calculate()

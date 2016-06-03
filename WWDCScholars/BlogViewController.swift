@@ -69,7 +69,7 @@ class BlogViewController: UIViewController {
         testPost4.tags = ["Cats", "Saturday"]
         testPost4.videoLink = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         testPost4.content = "<html><head><title>Caturday!</title></head><body><h1>This Cat Looks Grumpy</h1><img src='https://pbs.twimg.com/profile_images/616542814319415296/McCTpH_E.jpg'/><p>Yup, you are right. It looks grumpy enough. But that cat of yours looks even grumpier. </p></p><img src='http://cdn.grumpycats.com/wp-content/uploads/2016/02/12654647_974282002607537_7798179861389974677_n-758x758.jpg'/><p>Yup, my cat is the grummpiest of them all. Look a it's ferocious eyes.</p><h1>This cat Looks Cute</h1><img src='http://m-static.flikie.com/ImageData/WallPapers/bf74e98693fa423e8dc6c3c48b113e89.jpg'/><p>Yup! It looks like it will pass the cuteness meter.</p><p>Today, people still love cats whether grumpy or not. They just love them. Happy Caturday!</p></body></html>"
-
+        
         
         self.testPosts.append(testPost1)
         self.testPosts.append(testPost2)
@@ -139,7 +139,7 @@ class BlogViewController: UIViewController {
     @IBAction func addPostAction(sender: AnyObject) {
         let url = NSURL(string: "http://wwdcscholarsform.herokuapp.com/addpost")
         let viewController = BlogPostSafariViewController(URL: url!)
-            
+        
         self.presentViewController(viewController, animated: true, completion: nil)
     }
 }

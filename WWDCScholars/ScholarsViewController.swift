@@ -33,7 +33,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     private let noContentLabel = UILabel()
     
     private lazy var qTree = QTree()
-
+    
     private var currentYear: WWDC = .WWDC2016
     private var currentScholars: [Scholar] = []
     private var searchResults = NSArray()
@@ -55,8 +55,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.configureUI()
         self.styleUI()
         self.loadData()
-        
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -92,7 +90,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     private func configureUI() {
         self.scholarsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
-     
+        
         self.loadingContainerView.hidden = false
         self.loadingViewController.startAnimating()
         
@@ -155,7 +153,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     // MARK: - IBActions
     
     @IBAction func accountButtonTapped(sender: AnyObject) {
-        
         UserKit.sharedInstance.isLoggedIn ? self.showAccountAlertController() : self.showSignInModal()
     }
     
@@ -247,7 +244,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         
         self.reloadAnnotations()
     }
-
+    
     private func scrollCollectionViewToIndexPath(index: Int, animated: Bool) {
         self.yearCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: .CenteredHorizontally, animated: animated)
     }
@@ -286,7 +283,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
                 self.loadingContainerView.hidden = true
                 self.loadingViewController.stopAnimating()
             }
-
+            
             for (index, scholar) in DatabaseManager.sharedInstance.getAllScholars().enumerate() {
                 SpotlightManager.sharedInstance.indexScholar(scholar, atIndex: index)
             }
@@ -295,13 +292,14 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         })
         
         if ScholarsKit.sharedInstance.hasScholars() {
-        if self.loadingViewController.isAnimating() {
-            self.loadingContainerView.hidden = true
-            self.loadingViewController.stopAnimating()
+            if self.loadingViewController.isAnimating() {
+                self.loadingContainerView.hidden = true
+                self.loadingViewController.stopAnimating()
+            }
+            
+            self.getCurrentScholars()
         }
-        self.getCurrentScholars()
-        }
-
+        
     }
     
     internal func refreshScholarsWithNewFavorite() {

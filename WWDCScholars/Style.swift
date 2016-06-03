@@ -114,7 +114,7 @@ extension UINavigationBar {
     func applyExtendedNavigationBarStyle() {
         self.translucent = false
         self.shadowImage = UIImage(named: "transparentPixel")
-       
+        
         //Styling using Scholars Purple
         let colouredImage = UIImage.imageWithSize(CGSize(width: 1, height: 1), color: UIColor.scholarsPurpleColor())
         
@@ -124,10 +124,10 @@ extension UINavigationBar {
     static func applyNavigationBarStyle() {
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().translucent = false
-
+        
         //Styling using Scholars Purple
         UINavigationBar.appearance().backgroundColor = UIColor.scholarsPurpleColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-    
+        
     }
 }

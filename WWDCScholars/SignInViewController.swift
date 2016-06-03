@@ -87,7 +87,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
             self.shakeSignInViewController()
             return
         }
-
+        
         UserKit.sharedInstance.login(self.emailTextField.text!, password: self.passwordTextField.text!) { error in
             if error == nil {
                 //todo "Logged in" dialog instead of loggin in again!
@@ -99,7 +99,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         }
     }
     
-   
+    
     
     @IBAction func signUpButtonPressed(sender: AnyObject) {
         let url = NSURL(string: "http://wwdcscholarsform.herokuapp.com")
@@ -124,14 +124,14 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     
     // MARK: - Private functions
     
-     private func playConfirmationSound(){
+    private func playConfirmationSound(){
         let path = NSBundle.mainBundle().pathForResource("loginSuccessful.aif", ofType: nil)!
         let url = NSURL(fileURLWithPath: path)
         
         do {
             let sound = try AVAudioPlayer(contentsOfURL: url)
             tapSoundEffect = sound
-           // tapSoundEffect.volume = 0.5
+            // tapSoundEffect.volume = 0.5
             sound.play()
             
             print("Sound played")

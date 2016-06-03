@@ -12,7 +12,7 @@ import RealmSwift
 class Scholar: Object {
     /// The ID of the scholar
     dynamic var id: String = ""
-
+    
     /// The first name of the scholar
     dynamic var firstName: String = ""
     /// The last name of the scholar
@@ -54,9 +54,9 @@ class Scholar: Object {
     /// The age of the scholar
     dynamic var age: Int {
         let ageComponents = NSCalendar.currentCalendar().components(.Year,
-                                                fromDate: birthday,
-                                                toDate: NSDate(),
-                                                options: [])
+                                                                    fromDate: birthday,
+                                                                    toDate: NSDate(),
+                                                                    options: [])
         let age = ageComponents.year
         return age
     }

@@ -51,7 +51,7 @@ class BlogPost : Object {
             return arr.reverse()
         }
     }
-
+    
     override class func primaryKey() -> String {
         return "id"
     }

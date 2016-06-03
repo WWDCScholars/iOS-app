@@ -64,7 +64,7 @@ public class DragDropBehavior : NSObject {
             if translation.y > 100 {
                 animator.removeAllBehaviors()
                 
-                var gravity = UIGravityBehavior(items: [targetView])
+                let gravity = UIGravityBehavior(items: [targetView])
                 gravity.gravityDirection = CGVectorMake(0, 10)
                 animator.addBehavior(gravity)
                 

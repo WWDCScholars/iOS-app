@@ -187,12 +187,12 @@ class TutorialObject {
         
         if index == -1 {
             object.center = points[0]
-            let currentActions = actionsAtPosition(0)
-            currentActions.map({ $0.applyAction(self.object) })
+            //let currentActions = actionsAtPosition(0)
+            //currentActions.map({ $0.applyAction(self.object) })
         } else if index + 1 == points.count {
             object.center = points[points.count - 1]
-            let currentActions = actionsAtPosition(index)
-            currentActions.map({ $0.applyAction(self.object) })
+            //let currentActions = actionsAtPosition(index)
+            //currentActions.map({ $0.applyAction(self.object) })
         } else {
             let firstPoint = points[index]
             let secondPoint = points[index + 1]

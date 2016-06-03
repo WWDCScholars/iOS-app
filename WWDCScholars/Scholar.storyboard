@@ -8,7 +8,6 @@
         <!--Scholars-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ScholarsViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -132,8 +131,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="75" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omh-sb-n72">
-                                                            <rect key="frame" x="-13" y="14" width="101" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omh-sb-n72">
+                                                            <rect key="frame" x="-12.5" y="14" width="100" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="U67-2o-MWc"/>
                                                                 <constraint firstAttribute="width" constant="100" id="izX-8C-7kb"/>
@@ -228,10 +227,11 @@
                         <outlet property="searchBar" destination="M21-50-eS2" id="5cc-3R-D22"/>
                         <outlet property="yearCollectionView" destination="B2q-nj-isb" id="pfX-JR-0Xz"/>
                         <segue destination="z7X-cv-lvg" kind="show" identifier="ScholarDetailViewController" id="If2-0g-pPV"/>
-                        <segue destination="Qzr-e9-s5U" kind="show" id="4is-YC-Q63"/>
+                        <segue destination="Qzr-e9-s5U" kind="show" identifier="ViewController" id="4is-YC-Q63"/>
                         <segue destination="Ket-f0-GSS" kind="presentation" identifier="IntroViewController" id="UF7-DQ-LBe"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1782" y="-628"/>
         </scene>
@@ -427,7 +427,6 @@
         <!--Scholars-->
         <scene sceneID="SjI-7H-bJC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P5b-nX-yIJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="UINavigationController-RjV-CS-n2w" automaticallyAdjustsScrollViewInsets="NO" id="RjV-CS-n2w" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Scholars" image="tabBarIconScholars" selectedImage="tabBarIconScholarsFilled" id="2i0-9Z-xy7"/>
                     <toolbarItems/>
@@ -444,6 +443,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="MNc-io-EzW"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P5b-nX-yIJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1107" y="-628"/>
         </scene>

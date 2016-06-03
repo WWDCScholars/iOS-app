@@ -17,7 +17,7 @@ enum CurrentViewType {
     case Map
 }
 
-class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate {
+class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate, EditDetailsDelegate {
     @IBOutlet private weak var loadingContainerView: UIView!
     @IBOutlet private weak var yearCollectionView: UICollectionView!
     @IBOutlet private weak var scholarsCollectionView: NoJumpRefreshCollectionView!
@@ -250,7 +250,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     }
     
     private func showSignInModal() {
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "EditDetails", bundle: nil)
         let modalViewController = storyboard.instantiateViewControllerWithIdentifier("SignInVC")
         
         modalViewController.modalPresentationStyle = .OverCurrentContext
@@ -259,23 +259,25 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     }
     
     private func showAccountAlertController(){
-        let accountAlertController = UIAlertController(title: "Account", message: UserKit.sharedInstance.loggedInScholar?.fullName, preferredStyle: UIAlertControllerStyle.Alert)
+        let storyboard = UIStoryboard(name: "EditDetails", bundle: nil)
+        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("SignedInVC") as! SignedInViewController
         
-        let showEditDetailsAlertAction = UIAlertAction(title: "Edit Details", style: UIAlertActionStyle.Default) { (UIAlertAction) in
-            self.showEditDetailsModal()
-        }
-        let logoutAlertAction = UIAlertAction(title: "Log out", style: UIAlertActionStyle.Default) { (UIAlertAction) in
-            self.logout()
-        }
-        let cancelAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-        
-        accountAlertController.addAction(showEditDetailsAlertAction)
-        accountAlertController.addAction(logoutAlertAction)
-        accountAlertController.addAction(cancelAlertAction)
-        self.presentViewController(accountAlertController, animated: true, completion: nil)
+        modalViewController.delegate = self
+        modalViewController.modalPresentationStyle = .OverCurrentContext
+        modalViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        self.view.window?.rootViewController?.view.window?.rootViewController!.presentViewController(modalViewController, animated: true, completion: nil)
     }
     
     // MARK: - Internal functions
+    
+    internal func presentEditDetailsViewController() {
+        let storyboard = UIStoryboard(name: "EditDetails", bundle: nil)
+        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("EditDetailsNC")
+        
+        modalViewController.modalPresentationStyle = .FullScreen
+        modalViewController.modalTransitionStyle = .CoverVertical
+        self.presentViewController(modalViewController, animated: true, completion: nil)
+    }
     
     internal func loadData() {
         ScholarsKit.sharedInstance.loadScholars({
@@ -329,20 +331,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     internal func safariViewControllerDidFinish(controller: SFSafariViewController) {
         controller.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    internal func showEditDetailsModal() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("EditDetailsNC")
-        
-        modalViewController.modalPresentationStyle = .FullScreen
-        modalViewController.modalTransitionStyle = .CoverVertical
-        self.presentViewController(modalViewController, animated: true, completion: nil)
-    }
-    
-    internal func logout(){
-        print("User will be logged out here")
-        UserKit.sharedInstance.logout()
     }
     
     internal func locateButtonAction(sender: UIButton!) {

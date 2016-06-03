@@ -12,8 +12,6 @@ import FirebaseAuth
 import AVFoundation
 
 class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehaviorDelegate {
-    @IBOutlet private weak var passwordImageView: SpringImageView!
-    @IBOutlet private weak var emailImageView: SpringImageView!
     @IBOutlet private weak var dialogView: SpringView!
     @IBOutlet private weak var signinButton: SpringButton!
     @IBOutlet private weak var emailTextField: DesignableTextField!
@@ -99,8 +97,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         }
     }
     
-    
-    
     @IBAction func signUpButtonPressed(sender: AnyObject) {
         let url = NSURL(string: "http://wwdcscholarsform.herokuapp.com")
         let viewController = SignUpSafariViewController(URL: url!)
@@ -139,6 +135,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
             print("Failed to load confirmation sound file")
         }
     }
+    
     // MARK: - DragDropBehavior
     
     func dragDropBehavior(behavior: DragDropBehavior, viewDidDrop view: UIView) {

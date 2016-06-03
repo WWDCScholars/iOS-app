@@ -140,6 +140,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         }
     }
     
+    private func textFieldDidEndEditing(textField: UITextField) {
+        
+    }
+    
     // MARK: - DragDropBehavior
     
     func dragDropBehavior(behavior: DragDropBehavior, viewDidDrop view: UIView) {

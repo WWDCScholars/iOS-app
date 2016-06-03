@@ -23,11 +23,14 @@ class SignedInViewController: UIViewController, DragDropBehaviorDelegate {
         super.viewDidLoad()
         
         self.styleUI()
-        self.dialogView.animate()
         
         if UIScreen.mainScreen().bounds.size.height == 480.0 {
             self.dialogView.transform = CGAffineTransformMakeScale(0.8, 0.8)
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.dialogView.animate()
     }
     
     // MARK: - UI

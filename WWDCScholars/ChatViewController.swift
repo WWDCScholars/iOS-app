@@ -33,7 +33,7 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
-    var chatIdentifier: String!
+    var chatItem: ChatRoom!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,7 @@ class ChatViewController: JSQMessagesViewController {
             return
         }
         
-        self.messageReference = FIRDatabase.database().reference().child("messages").child(self.chatIdentifier)
+        self.messageReference = FIRDatabase.database().reference().child("messages").child(self.chatItem.identifier)
         
         self.senderId = "UNKNOWN"
         self.senderDisplayName = "*Not logged in*"
@@ -88,7 +88,7 @@ class ChatViewController: JSQMessagesViewController {
     // MARK: - UI
     
     private func styleUI() {
-        self.title = "Chat"
+        self.title = self.chatItem.name
         
         self.loadingContainerView.hidden = false
         self.loadingViewController.startAnimating()

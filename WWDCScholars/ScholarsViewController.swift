@@ -95,7 +95,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.loadingViewController.startAnimating()
         
         if self.traitCollection.forceTouchCapability == .Available {
-            self.registerForPreviewingWithDelegate(self, sourceView: self.mainView)
+            self.registerForPreviewingWithDelegate(self, sourceView: self.view)
         }
         
         let frame = self.view.frame

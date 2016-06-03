@@ -20,7 +20,14 @@ class ChatListViewController: UIViewController {
             self.registerForPreviewingWithDelegate(self, sourceView: self.view)
         }
         
+
         self.styleUI()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if (tableView.indexPathForSelectedRow != nil){
+            self.tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: true)
+        }
     }
     
     private func styleUI() {

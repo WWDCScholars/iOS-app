@@ -293,7 +293,7 @@ extension EditProfileTableViewController: UIImagePickerControllerDelegate {
             case .Profile:
                 self.updateProfileImageIfFaceDetected(pickedImage)
             case .Screenshot:
-                self.screenshots[self.screenshotUploadIndex] = nil
+                self.screenshots[self.screenshotUploadIndex] = pickedImage
                 
                 self.screenshotCollectionView.reloadData()
             }

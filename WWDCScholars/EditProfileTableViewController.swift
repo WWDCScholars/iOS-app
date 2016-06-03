@@ -60,27 +60,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard self.currentScholar != nil else {
-            return
-        }
-        
-        self.firstNameTextField.text = self.currentScholar?.firstName
-        self.secondNameTextField.text = self.currentScholar?.lastName
-        self.locationTextField.text = self.currentScholar?.location.name
-        self.bioTextView.text = self.currentScholar?.shortBio
-        self.emailTextField.text = self.currentScholar?.email
-        self.twitterTextField.text = self.currentScholar?.twitterURL
-        self.facebookTextField.text = self.currentScholar?.facebookURL
-        self.githubTextField.text = self.currentScholar?.githubURL
-        self.linkedinTextField.text = self.currentScholar?.linkedInURL
-        self.websiteTextField.text = self.currentScholar?.websiteURL
-        self.appStoreTextField.text = self.currentScholar?.iTunesURL
-        //        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such property yet!
-        self.appGithubTextField.text = self.currentScholar?.twitterURL
-        
-        if let location = self.currentScholar?.location {
-            self.myLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-        }
+        self.populateFields()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -104,8 +84,6 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.view.endEditing(true)
     }
     
-    
-    //FOR BAR BUTTON ON TOP OF THE NAV BAR - PROFILE and MAP
     private func styleUI() {
         self.title = "Edit Profile"
         
@@ -115,7 +93,6 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.imagePicker.allowsEditing = false
         self.imagePicker.navigationBar.translucent = false
         
-        //Style using Scholars Purple Color
         self.imagePicker.navigationBar.barTintColor = UIColor.scholarsPurpleColor()
         
         self.profileImageButton.imageView?.contentMode = .ScaleAspectFill
@@ -181,6 +158,34 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     }
     
     // MARK: - Private functions
+    
+    private func populateFields() {
+        guard self.currentScholar != nil else {
+            return
+        }
+        
+        self.firstNameTextField.text = self.currentScholar?.firstName
+        self.secondNameTextField.text = self.currentScholar?.lastName
+        self.locationTextField.text = self.currentScholar?.location.name
+        self.bioTextView.text = self.currentScholar?.shortBio
+        self.emailTextField.text = self.currentScholar?.email
+        self.twitterTextField.text = self.currentScholar?.twitterURL
+        self.facebookTextField.text = self.currentScholar?.facebookURL
+        self.githubTextField.text = self.currentScholar?.githubURL
+        self.linkedinTextField.text = self.currentScholar?.linkedInURL
+        self.websiteTextField.text = self.currentScholar?.websiteURL
+        self.appStoreTextField.text = self.currentScholar?.iTunesURL
+        //        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such property yet!
+        self.appGithubTextField.text = self.currentScholar?.twitterURL
+        
+        if let imageString = self.currentScholar?.profilePicURL, imageURL = NSURL(string: imageString) {
+            self.profileImageButton.af_setImageForState(.Normal, URL: imageURL, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
+        }
+        
+        if let location = self.currentScholar?.location {
+            self.myLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        }
+    }
     
     private func updateProfileImageIfFaceDetected(importedImage: UIImage) {
         let image = CIImage(CGImage: importedImage.CGImage!)

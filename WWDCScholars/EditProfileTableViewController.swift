@@ -42,6 +42,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     private var imageUploadType: ImageUploadType = .Profile
     private var screenshots: [UIImage?] = [nil, nil, nil, nil]
     private var datePicker: UIDatePicker!
+    private var hasData = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,13 +55,16 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.locationManager.startUpdatingLocation()
         
         self.styleUI()
+        self.populateFields()
         self.setScholar(UserKit.sharedInstance.scholarId ?? "unknown")
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.populateFields()
+        if !self.hasData {
+            self.populateFields()
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -193,6 +197,8 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         if let imageURL = NSURL(string: self.currentScholar!.profilePicURL) {
             self.profileImageButton.af_setImageForState(.Normal, URL: imageURL, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
         }
+        
+        self.hasData = true
     }
     
     private func updateProfileImageIfFaceDetected(importedImage: UIImage) {

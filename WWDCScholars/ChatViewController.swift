@@ -33,6 +33,8 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
+    var chatIdentifier: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,7 +43,7 @@ class ChatViewController: JSQMessagesViewController {
             return
         }
         
-        self.messageReference = FIRDatabase.database().reference().child("messages").child("general")
+        self.messageReference = FIRDatabase.database().reference().child("messages").child(self.chatIdentifier)
         
         self.senderId = "UNKNOWN"
         self.senderDisplayName = "*Not logged in*"

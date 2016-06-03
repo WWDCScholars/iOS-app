@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AqM-9s-UAC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AqM-9s-UAC">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -40,7 +40,75 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZE-kb-XF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1525" y="748"/>
+            <point key="canvasLocation" x="2281" y="748"/>
+        </scene>
+        <!--Chat List View Controller-->
+        <scene sceneID="4Ur-PB-XhP">
+            <objects>
+                <viewController id="R47-kq-tjz" customClass="ChatListViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9d1-ML-tK4"/>
+                        <viewControllerLayoutGuide type="bottom" id="E4h-L6-p7l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sFc-EG-t4X">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yuh-qG-6aL">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatTableViewCell" id="beT-e6-GLb" customClass="ChatTableViewCell" customModule="Scholars" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="beT-e6-GLb" id="21y-vH-GtS">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="681-Cb-HBg">
+                                                    <rect key="frame" x="8" y="11" width="584" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="516-iW-Qu8"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="681-Cb-HBg" firstAttribute="centerY" secondItem="21y-vH-GtS" secondAttribute="centerY" id="IKt-Ka-CMZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="681-Cb-HBg" secondAttribute="trailing" constant="8" id="fwJ-ht-dbz"/>
+                                                <constraint firstItem="681-Cb-HBg" firstAttribute="leading" secondItem="21y-vH-GtS" secondAttribute="leading" constant="8" id="trP-J7-u7z"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="681-Cb-HBg" id="aO3-D2-z9D"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="R47-kq-tjz" id="Olx-LI-1RK"/>
+                                    <outlet property="delegate" destination="R47-kq-tjz" id="88K-KR-jKG"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Yuh-qG-6aL" firstAttribute="leading" secondItem="sFc-EG-t4X" secondAttribute="leading" id="N5b-zi-TOZ"/>
+                            <constraint firstAttribute="trailing" secondItem="Yuh-qG-6aL" secondAttribute="trailing" id="O5z-lj-QYh"/>
+                            <constraint firstItem="Yuh-qG-6aL" firstAttribute="top" secondItem="9d1-ML-tK4" secondAttribute="bottom" id="VpW-oJ-4In"/>
+                            <constraint firstItem="E4h-L6-p7l" firstAttribute="top" secondItem="Yuh-qG-6aL" secondAttribute="bottom" id="gHk-3P-qH9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YlQ-cV-lOo"/>
+                    <connections>
+                        <outlet property="tableView" destination="Yuh-qG-6aL" id="dUA-N9-XHD"/>
+                        <segue destination="nbF-qz-3hW" kind="show" identifier="ChatViewController" id="nzK-Rg-OLd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kEh-Lh-kaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1567" y="748"/>
         </scene>
         <!--Chat-->
         <scene sceneID="rjb-JE-T2C">
@@ -58,7 +126,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="nbF-qz-3hW" kind="relationship" relationship="rootViewController" id="cbc-28-mf0"/>
+                        <segue destination="R47-kq-tjz" kind="relationship" relationship="rootViewController" id="uYX-lZ-Vxf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bc1-pC-e3r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -71,7 +139,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="scholarDetailViewController" storyboardName="ScholarDetailVC" referencedIdentifier="scholarDetailViewController" id="z7X-cv-lvg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tF-AP-JMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2020.5" y="810"/>
+            <point key="canvasLocation" x="2861.5" y="837"/>
         </scene>
         <!--UIViewController-OkU-OR-ZBR-->
         <scene sceneID="RVO-W7-gyh">
@@ -79,7 +147,7 @@
                 <viewControllerPlaceholder storyboardName="Scholar" referencedIdentifier="UIViewController-OkU-OR-ZBR" id="42Q-DI-DSS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bu-Uj-ZAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2029.5" y="676"/>
+            <point key="canvasLocation" x="2861.5" y="659"/>
         </scene>
     </scenes>
     <resources>

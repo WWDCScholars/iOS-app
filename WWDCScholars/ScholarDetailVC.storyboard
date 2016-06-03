@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -114,7 +114,7 @@
                                                                                     </constraints>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="in2-F3-pr9">
-                                                                                    <rect key="frame" x="195" y="0.0" width="194" height="70"/>
+                                                                                    <rect key="frame" x="195" y="0.0" width="195" height="70"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-dA-hQT">
                                                                                             <rect key="frame" x="66" y="12" width="62" height="45"/>
@@ -158,10 +158,10 @@
                                                                                     </constraints>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSG-Qq-NES">
-                                                                                    <rect key="frame" x="389" y="0.0" width="195" height="70"/>
+                                                                                    <rect key="frame" x="390" y="0.0" width="195" height="70"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCL-L9-LaH">
-                                                                                            <rect key="frame" x="62" y="12" width="71" height="45"/>
+                                                                                            <rect key="frame" x="61" y="12" width="71" height="45"/>
                                                                                             <subviews>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attended" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjw-pu-j0W">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="71" height="21"/>
@@ -217,6 +217,11 @@
                                                                                 <constraint firstItem="in2-F3-pr9" firstAttribute="leading" secondItem="dd5-vu-RLz" secondAttribute="trailing" id="v7U-Js-AUB"/>
                                                                                 <constraint firstAttribute="bottom" secondItem="in2-F3-pr9" secondAttribute="bottom" id="wyx-is-Ifc"/>
                                                                             </constraints>
+                                                                            <variation key="default">
+                                                                                <mask key="constraints">
+                                                                                    <exclude reference="BJw-di-KVP"/>
+                                                                                </mask>
+                                                                            </variation>
                                                                         </stackView>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -667,7 +672,7 @@
                                     <action selector="editProfileButtonTapped:" destination="Xz8-ge-7L5" id="6rj-ZF-usG"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="favouriteUnfilled" style="plain" id="mAx-4v-WgU">
+                            <barButtonItem image="favouriteUnfilled" id="mAx-4v-WgU">
                                 <color key="tintColor" red="1" green="0.75294117647058822" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="favoriteButtonTapped:" destination="Xz8-ge-7L5" id="GDV-88-88c"/>

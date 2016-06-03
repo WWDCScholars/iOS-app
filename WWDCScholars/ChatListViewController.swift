@@ -9,7 +9,7 @@
 import UIKit
 
 class ChatListViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     private var chatItems = ChatRoom.getChatItems()
     
@@ -20,7 +20,6 @@ class ChatListViewController: UIViewController {
             self.registerForPreviewingWithDelegate(self, sourceView: self.view)
         }
         
-
         self.styleUI()
     }
     
@@ -28,10 +27,6 @@ class ChatListViewController: UIViewController {
         if (tableView.indexPathForSelectedRow != nil){
             self.tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: true)
         }
-    }
-    
-    private func styleUI() {
-        self.title = "Chat"
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -43,7 +38,15 @@ class ChatListViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Private functions
+    
+    private func styleUI() {
+        self.title = "Chat"
+    }
 }
+
+// MARK: - UITableViewDataSource
 
 extension ChatListViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,6 +60,8 @@ extension ChatListViewController: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: - UITableViewDelegate
 
 extension ChatListViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

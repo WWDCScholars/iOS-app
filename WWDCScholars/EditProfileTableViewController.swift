@@ -175,15 +175,23 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.linkedinTextField.text = self.currentScholar?.linkedInURL
         self.websiteTextField.text = self.currentScholar?.websiteURL
         self.appStoreTextField.text = self.currentScholar?.iTunesURL
-        //        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such property yet!
+//        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such property yet!
         self.appGithubTextField.text = self.currentScholar?.twitterURL
         
-        if let imageString = self.currentScholar?.profilePicURL, imageURL = NSURL(string: imageString) {
-            self.profileImageButton.af_setImageForState(.Normal, URL: imageURL, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
+        self.myLocation = CLLocationCoordinate2D(latitude: self.currentScholar!.location.latitude, longitude: self.currentScholar!.location.longitude)
+        
+        for (index, screenshot) in self.currentScholar!.screenshots.enumerate() {
+            request(.GET, screenshot).responseImage { response in
+                if let image = response.result.value {
+                    self.screenshots[index] = image
+                    
+                    self.screenshotCollectionView.reloadData()
+                }
+            }
         }
         
-        if let location = self.currentScholar?.location {
-            self.myLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        if let imageURL = NSURL(string: self.currentScholar!.profilePicURL) {
+            self.profileImageButton.af_setImageForState(.Normal, URL: imageURL, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
         }
     }
     
@@ -285,8 +293,7 @@ extension EditProfileTableViewController: UIImagePickerControllerDelegate {
             case .Profile:
                 self.updateProfileImageIfFaceDetected(pickedImage)
             case .Screenshot:
-                self.screenshots.removeAtIndex(self.screenshotUploadIndex)
-                self.screenshots.insert(pickedImage, atIndex: self.screenshotUploadIndex)
+                self.screenshots[self.screenshotUploadIndex] = nil
                 
                 self.screenshotCollectionView.reloadData()
             }

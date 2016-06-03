@@ -64,6 +64,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         
         if !self.hasData {
             self.populateFields()
+            self.configureDatePicker()
         }
     }
     
@@ -101,8 +102,6 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         
         self.profileImageButton.imageView?.contentMode = .ScaleAspectFill
         self.profileImageButton.imageView!.layer.cornerRadius = self.profileImageButton.frame.width / 2
-        
-        self.configureDatePicker()
     }
     
     private func configureDatePicker() {
@@ -120,16 +119,16 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         
         toolBar.setItems([space, doneButton], animated: false)
         self.ageTextField.inputAccessoryView = toolBar
+        
+        if let date = self.currentScholar?.birthday {
+            self.datePicker.setDate(date, animated: false)
+        }
     }
     
     // MARK: - Internal functions
     
     internal func dismissDatePicker() {
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = .MediumStyle
-        formatter.timeStyle = .NoStyle
-        
-        self.ageTextField.text = formatter.stringFromDate(self.datePicker.date)
+        self.ageTextField.text = DateManager.shortDateStringFromDate(self.datePicker.date)
         self.ageTextField.resignFirstResponder()
     }
     
@@ -181,6 +180,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.appStoreTextField.text = self.currentScholar?.iTunesURL
 //        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such property yet!
         self.appGithubTextField.text = self.currentScholar?.twitterURL
+        self.ageTextField.text = DateManager.shortDateStringFromDate(self.currentScholar!.birthday)
         
         self.myLocation = CLLocationCoordinate2D(latitude: self.currentScholar!.location.latitude, longitude: self.currentScholar!.location.longitude)
         

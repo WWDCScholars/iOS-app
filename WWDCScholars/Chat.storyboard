@@ -7,7 +7,7 @@
         <!--Chat-->
         <scene sceneID="bAZ-9K-5ed">
             <objects>
-                <viewController id="nbF-qz-3hW" customClass="ChatViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chatViewController" id="nbF-qz-3hW" customClass="ChatViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6UL-IK-bnb"/>
                         <viewControllerLayoutGuide type="bottom" id="zeS-OX-a7c"/>

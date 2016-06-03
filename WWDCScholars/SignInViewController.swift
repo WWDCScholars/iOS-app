@@ -87,6 +87,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         
         if self.emailTextField.text == "" || self.passwordTextField.text == "" {
             self.shakeSignInViewController()
+            self.animateSignInButton(false)
+
             return
         }
         

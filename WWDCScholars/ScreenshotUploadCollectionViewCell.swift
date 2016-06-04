@@ -13,6 +13,7 @@ protocol ScreenshotImportDelegate {
 }
 
 class ScreenshotUploadCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var iconView: UIView!
     @IBOutlet weak var titleTextLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var uploadButton: UIButton!

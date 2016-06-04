@@ -278,6 +278,7 @@ extension EditProfileTableViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("screenshotUploadCollectionViewCell", forIndexPath: indexPath) as! ScreenshotUploadCollectionViewCell
         
         cell.tag = indexPath.item
+        cell.iconView.hidden = self.screenshots[indexPath.item] != nil
         cell.delegate = self
         
         if indexPath.item < self.screenshots.count {

@@ -12,6 +12,12 @@ class LoadingViewController: UIViewController {
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var loadingLabel: UILabel!
     
+    var loadingMessage: String? {
+        didSet {
+            self.loadingLabel.text = self.loadingMessage
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

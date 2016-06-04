@@ -11,9 +11,6 @@ import UIKit
 class ChatListViewController: UIViewController, SignInDelegate {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var notLoggedInView: UIView!
-    @IBAction func logInButtonAction(sender: AnyObject) {
-        showSignInModal()
-    }
     
     private var chatItems = ChatRoom.getChatItems()
     
@@ -61,6 +58,12 @@ class ChatListViewController: UIViewController, SignInDelegate {
     
     internal func userSignedIn() {
         self.notLoggedInView.hidden = UserKit.sharedInstance.isLoggedIn
+    }
+    
+    // MARK: IBActions
+    
+    @IBAction func logInButtonAction(sender: AnyObject) {
+        self.showSignInModal()
     }
 }
 

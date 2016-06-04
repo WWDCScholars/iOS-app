@@ -13,7 +13,6 @@ import MessageUI
 class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var headerImageView: UIImageView!
-    @IBOutlet weak var ourTeamLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

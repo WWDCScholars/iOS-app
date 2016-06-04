@@ -37,7 +37,6 @@ class SocialButtonsTableViewCell: UITableViewCell {
         self.websiteImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.websiteTapped), forControlEvents: .TouchUpInside)
         self.emailImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.emailTapped), forControlEvents: .TouchUpInside)
         self.appStoreImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.appStoreTapped), forControlEvents: .TouchUpInside)
-        
     }
     
     // MARK: - Internal functions
@@ -117,28 +116,3 @@ class SocialButtonsTableViewCell: UITableViewCell {
         self.emailImageView.hidden = false //Never hidden
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

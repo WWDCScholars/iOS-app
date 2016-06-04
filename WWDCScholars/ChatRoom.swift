@@ -12,9 +12,7 @@ struct ChatRoom {
     let name: String
     let identifier: String
     
-    static func getChatItems() -> [ChatRoom] {
-        let chatItems: [ChatRoom] = []
-        
+    static func getChatItems() -> [ChatRoom] {        
         let general = ChatRoom(name: "General", identifier: "general")
         let random = ChatRoom(name: "Random", identifier: "random")
         let meetups = ChatRoom(name: "Meetups", identifier: "meetups")

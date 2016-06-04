@@ -17,7 +17,6 @@ enum AuthorButtonType {
 
 class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate {
     @IBOutlet private weak var headerImageView: UIImageView!
-    @IBOutlet var headerImageViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var authorProfileImageButton: UIButton!
     @IBOutlet private weak var authorProfileImageViewBackground: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
@@ -25,9 +24,8 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var webView: UIWebView!
     @IBOutlet private weak var scrollView: UIScrollView!
-    @IBOutlet weak var authorButton: UIButton!
+    @IBOutlet private weak var authorButton: UIButton!
     
-    private var headerImageHeight : CGFloat = 156
     private var titleView = UIScrollView()
     private var titleViewLabel = UILabel()
     private var titleViewOverlayLabel = UILabel()
@@ -166,27 +164,9 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         
         self.titleLabel.text = self.currentPost.title
         self.authorButton.setTitle(self.currentPost.scholarName, forState: .Normal)
-        
-        //        var tagsString = ""
-        //        for (index, tag) in self.currentPost!.tags.enumerate() {
-        //            tagsString.appendContentsOf(index != self.currentPost!.tags.count - 1 ? "\(tag), " : tag)
-        //        }
-        //        self.tagsLabel.text = tagsString
         self.dateLabel.text = DateManager.shortDateStringFromDate(self.currentPost.createdAt)
         
-        self.headerImageView.af_setImageWithURL(NSURL(string: self.currentPost.headerImage)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false, completion:  { response in
-            var scaledImageHeight = self.heightForImage(response.result.value!, scaledToWidth: self.view.frame.size.width)
-            if scaledImageHeight > self.view.frame.size.height/1.5 {
-                scaledImageHeight /= 2
-            }
-            self.headerImageHeight = scaledImageHeight
-            self.headerImageViewConstraint.constant = self.headerImageHeight
-            self.view.layoutIfNeeded()
-            UIView.animateWithDuration(0.5) {
-                self.view.layoutIfNeeded()
-            }
-        })
-        
+        self.headerImageView.af_setImageWithURL(NSURL(string: self.currentPost.headerImage)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false, completion: nil)
         self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: self.currentPostAuthor!.profilePicURL)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
     }
     
@@ -200,14 +180,6 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         self.authorProfileImageButton.applyRoundedCorners()
         self.authorProfileImageViewBackground.applyRoundedCorners()
     }
-    
-    private func heightForImage (sourceImage:UIImage, scaledToWidth: CGFloat) -> CGFloat {
-        let oldWidth = sourceImage.size.width
-        let scaleFactor = scaledToWidth / oldWidth
-        let newHeight = sourceImage.size.height * scaleFactor
-        
-        return newHeight
-    }
 
     // MARK: - IBActions
     
@@ -218,13 +190,11 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     @IBAction func authorNameButtonTouched(sender: AnyObject) {
         self.buttonTypeTapped = sender.tag == 0 ? .Text : .Image
     }
-    
 }
 
 // MARK: - UIWebViewDelegate
 
 extension BlogPostDetailViewController: UIWebViewDelegate {
-   
     func webViewDidFinishLoad(webView: UIWebView) {
         var frame = webView.frame
         frame.size.height = 1.0
@@ -236,7 +206,6 @@ extension BlogPostDetailViewController: UIWebViewDelegate {
         
         self.scrollView.contentSize.height = self.webView.frame.origin.y + self.webView.frame.height - 40.0
     }
-    
 }
 
 // MARK: - UIScrollViewDelegate
@@ -246,7 +215,7 @@ extension BlogPostDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         // HeaderImageView
         
-        let imageViewHeight: CGFloat = headerImageHeight
+        let imageViewHeight: CGFloat = 156.0
         var imageViewFrame = CGRect(x: 0.0, y: 0.0, width: scrollView.bounds.width, height: imageViewHeight)
         
         if scrollView.contentOffset.y < imageViewHeight {
@@ -288,24 +257,4 @@ extension BlogPostDetailViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
         self.showViewController(viewControllerToCommit, sender: self)
     }
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

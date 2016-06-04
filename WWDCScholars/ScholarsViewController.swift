@@ -47,6 +47,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     private var searchText = ""
     private var selectedYearRow: NSIndexPath?
     private var refreshControl: UIRefreshControl!
+    private var registeredPeekView: UIViewControllerPreviewing!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +59,9 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
 
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(true)
-        appDelegate.year = ""
+        
+        self.appDelegate.year = ""
     }
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == String(ScholarDetailViewController) {
@@ -80,8 +81,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
   
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        if (appDelegate.year == "saved") {
+        if self.appDelegate.year == "saved" {
             self.currentYear = years[self.years.count - 1]
         } else {
             self.currentYear = years[self.years.count - 2]
@@ -104,10 +104,11 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.scholarsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
         
         self.loadingContainerView.hidden = false
+        self.loadingViewController.loadingMessage = "Loading Scholars..."
         self.loadingViewController.startAnimating()
         
         if self.traitCollection.forceTouchCapability == .Available {
-            self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+            self.registeredPeekView = self.registerForPreviewingWithDelegate(self, sourceView: self.view)
         }
         
         let frame = self.view.frame
@@ -144,7 +145,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.mapView.delegate = self
         self.mapView.mapType = .Standard
         
-        //The "Find me" button
         let locateButton = UIButton(type: .Custom)
         locateButton.frame = CGRect(x: UIScreen.mainScreen().bounds.width - 45, y: UIScreen.mainScreen().bounds.height - 210, width: 33, height: 33)
         locateButton.setImage(UIImage(named: "locationButton"), forState: .Normal)
@@ -214,23 +214,15 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
 //            isMapInitalized = false
 //        }
         
-        self.cancelSearching()
-        
-        switch self.mainView.alpha {
-        case 0:
-            if self.traitCollection.forceTouchCapability == .Available {
-                print("Unregister 3D Touch")
-                // Pls check this @Andrew: self.unregisterForPreviewingWithContext(self.view)
-
-            }
-        case 1:
-            if self.traitCollection.forceTouchCapability == .Available {
-                print("Register 3D Touch")
-                self.registerForPreviewingWithDelegate(self, sourceView: self.view)
-
-            }
-        default: break
+        switch self.currentViewType {
+        case .List:
+            self.registeredPeekView = self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+        case .Map:
+            self.unregisterForPreviewingWithContext(self.registeredPeekView)
+            self.registeredPeekView = nil
         }
+        
+        self.cancelSearching()
     }
     
     private func getCurrentScholars() {

@@ -77,7 +77,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     // MARK: - Internal functions
     
     internal func dismissSignInViewController() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        delay(1) { 
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
     }
     
     internal func shakeSignInViewController() {
@@ -99,8 +103,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         
         UserKit.sharedInstance.login(self.emailTextField.text!, password: self.passwordTextField.text!) { error in
             if error == nil {
-                self.dismissSignInViewController()
                 self.playConfirmationSound()
+                self.dismissSignInViewController()
                 self.delegate?.userSignedIn()
             } else {
                 self.animateSignInButton(false)

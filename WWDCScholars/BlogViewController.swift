@@ -13,7 +13,7 @@ class BlogViewController: UIViewController {
     @IBOutlet private weak var tableView: NoJumpRefreshTableView!
     @IBOutlet private weak var loadingContainerView: UIView!
     
-    private var testPosts: [BlogPost] = []
+    private var blogPosts: [BlogPost] = []
     private var refreshControl: UIRefreshControl!
     private var loadingViewController: LoadingViewController!
     
@@ -29,7 +29,6 @@ class BlogViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.scrollViewDidScroll(self.tableView)
         self.refreshControl.superview?.sendSubviewToBack(self.refreshControl)
     }
     
@@ -38,7 +37,7 @@ class BlogViewController: UIViewController {
             let destinationViewController = segue.destinationViewController as! BlogPostDetailViewController
             
             if let indexPath = sender as? NSIndexPath {
-                destinationViewController.currentPost = self.testPosts[indexPath.item]
+                destinationViewController.currentPost = self.blogPosts[indexPath.item]
             }
         } else if segue.identifier == String(LoadingViewController) {
             self.loadingViewController = segue.destinationViewController as! LoadingViewController
@@ -76,7 +75,7 @@ class BlogViewController: UIViewController {
     
     internal func loadData() {
         BlogKit.sharedInstance.loadPosts() {
-            self.testPosts = DatabaseManager.sharedInstance.getAllBlogPosts()
+            self.blogPosts = DatabaseManager.sharedInstance.getAllBlogPosts()
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
             
@@ -99,12 +98,12 @@ class BlogViewController: UIViewController {
 
 extension BlogViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.testPosts.count
+        return self.blogPosts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("blogPostTableViewCell") as! BlogPostTableViewCell
-        let post = self.testPosts[indexPath.row]
+        let post = self.blogPosts[indexPath.row]
         
         let authorString = "written by \(post.scholarName)" as NSString
         let attributedAuthorString = NSMutableAttributedString(string: authorString as String)
@@ -161,7 +160,7 @@ extension BlogViewController: UIViewControllerPreviewingDelegate {
             return nil
         }
         
-        let post = self.testPosts[indexPath.item]
+        let post = self.blogPosts[indexPath.item]
         let bounds = CGRect(origin: cell.postImageView.bounds.origin, size: CGSize(width: cell.postImageView.bounds.width, height: cell.postImageView.bounds.height - 50.0))
         
         previewViewController.currentPost = post

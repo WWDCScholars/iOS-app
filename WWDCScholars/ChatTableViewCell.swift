@@ -9,5 +9,13 @@
 import UIKit
 
 class ChatTableViewCell: UITableViewCell {
+    @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+//        self.circleView.applyRoundedCorners()
+    }
 }

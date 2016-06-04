@@ -12,7 +12,10 @@ class ChatListViewController: UIViewController, SignInDelegate {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var notLoggedInView: UIView!
     
+    private var colors: [UIColor] = [.logoBlueColor(), .logoPinkColor(), .logoGreenColor(), .logoYellowColor(), .logoLightBlueColor(), .logoOrangeColor(), .logoPurpleColor()]
+    
     private var chatItems = ChatRoom.getChatItems()
+    private var currentIndex = NSIndexPath(forRow: 0, inSection: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,7 @@ class ChatListViewController: UIViewController, SignInDelegate {
         }
         
         self.styleUI()
+        self.populateColors()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -42,6 +46,12 @@ class ChatListViewController: UIViewController, SignInDelegate {
     
     private func styleUI() {
         self.title = "Chat"
+    }
+    
+    private func populateColors() {
+        if self.chatItems.count > self.colors.count {
+            self.colors += self.colors
+        }
     }
     
     private func showSignInModal() {
@@ -77,8 +87,14 @@ extension ChatListViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("chatTableViewCell", forIndexPath: indexPath) as! ChatTableViewCell
         cell.nameLabel.text = self.chatItems[indexPath.item].name
+        cell.descriptionLabel.text = self.chatItems[indexPath.item].shortDescription
+//        cell.circleView.backgroundColor = self.colors[indexPath.item]
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 88.0
     }
 }
 

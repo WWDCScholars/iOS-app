@@ -113,8 +113,8 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udH-fE-KJs">
-                                                <rect key="frame" x="0.0" y="107" width="320" height="33"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udH-fE-KJs">
+                                                <rect key="frame" x="0.0" y="109" width="320" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="4D5-Zr-ZWn"/>
                                                     <constraint firstAttribute="width" constant="56" id="8kw-G5-8ov"/>
@@ -130,7 +130,7 @@
                                                     </mask>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="logInButtonAction:" destination="R47-kq-tjz" eventType="touchUpInside" id="VY1-mh-QjF"/>
+                                                    <action selector="logInButtonAction:" destination="R47-kq-tjz" eventType="touchUpInside" id="Quu-bb-EfQ"/>
                                                 </connections>
                                             </button>
                                         </subviews>

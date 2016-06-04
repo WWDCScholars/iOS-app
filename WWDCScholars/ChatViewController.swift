@@ -39,7 +39,6 @@ class ChatViewController: JSQMessagesViewController {
         super.viewDidLoad()
         
         if !UserKit.sharedInstance.isLoggedIn {
-            //todo: Show 'You need to login' screen
             return
         }
         
@@ -51,11 +50,9 @@ class ChatViewController: JSQMessagesViewController {
         if let ourScholar = UserKit.sharedInstance.loggedInScholar {
             self.senderId = UserKit.sharedInstance.scholarId ?? "unknown"
             self.senderDisplayName = ourScholar.fullName
-            print (ourScholar.fullName)
-            
         }
+        
         self.styleUI()
-        //        self.finishReceivingMessage()
         self.loadOldMessages(true)
         
     }
@@ -63,17 +60,7 @@ class ChatViewController: JSQMessagesViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        //        self.observeMessages()
         self.observeTyping()
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        //        let messagesQuery = self.messageReference.queryOrderedByChild("dateSent")
-        
-        //        if messageObserverHandle != nil {
-        //            messagesQuery.removeObserverWithHandle(messageObserverHandle!)
-        //        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -96,17 +83,14 @@ class ChatViewController: JSQMessagesViewController {
         self.automaticallyScrollsToMostRecentMessage = true
         self.collectionView.collectionViewLayout.springinessEnabled = true
         self.collectionView.collectionViewLayout.springResistanceFactor = 3000
-        //        self.collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         self.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
         self.inputToolbar.contentView.leftBarButtonItem = nil
-        
         
         let factory = JSQMessagesBubbleImageFactory()
         let taillessFactory = JSQMessagesBubbleImageFactory.init(bubbleImage: UIImage.jsq_bubbleCompactTaillessImage(), capInsets: UIEdgeInsetsZero)
         
         self.incomingGroupBubbleImageView = taillessFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
         self.outgoingGroupBubbleImageView = taillessFactory.outgoingMessagesBubbleImageWithColor(UIColor.scholarsPurpleColor())
-        
         
         self.outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(UIColor.scholarsPurpleColor())
         self.incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
@@ -138,7 +122,7 @@ class ChatViewController: JSQMessagesViewController {
         if let scholar = DatabaseManager.sharedInstance.scholarForId(id){
             let message = JSQMessage(senderId: id, senderDisplayName: scholar.fullName, date: date, text: text)
             self.messages.append(message)
-        }else {
+        } else {
             //todo: reload scholars if scholar is missing in db
             print ("addMessage -- Uhoh! no scholar found in db with id \(id)")
         }
@@ -146,25 +130,8 @@ class ChatViewController: JSQMessagesViewController {
     
     private func loadOldMessages(startObserving: Bool = false) {
         self.messages = []
-        //        let messagesQuery = self.messageReference.queryLimitedToLast(50).queryOrderedByChild("dateSent")
-        //        messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
-        //            if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String, let dateInt = snapshot.value!["dateSent"] as? NSTimeInterval {
-        //                self.addMessage(id, text: text, date: NSDate(timeIntervalSince1970: dateInt))
-        //
-        //                if id != self.senderId {
-        //                    JSQSystemSoundPlayer.jsq_playMessageReceivedSound()
-        //                }
-        //
-        //                self.finishReceivingMessageAnimated(false)
-        //
-        //                self.loadingContainerView.hidden = true
-        //                self.loadingViewController.stopAnimating()
-        //
-        //                if startObserving {
+        
         self.observeMessages()
-        //                }
-        //            }
-        //        })
     }
     
     private func observeMessages() {
@@ -226,7 +193,7 @@ class ChatViewController: JSQMessagesViewController {
         
         if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId) {
             return JSQMessagesAvatarImageFactory.avatarImageWithUserInitials(scholar.initials, backgroundColor: UIColor.transparentScholarsPurpleColor(), textColor: UIColor.whiteColor(), font: UIFont.systemFontOfSize(15), diameter: 50)
-        }else {
+        } else {
             return JSQMessagesAvatarImageFactory.avatarImageWithUserInitials("UK", backgroundColor: UIColor.transparentScholarsPurpleColor(), textColor: UIColor.whiteColor(), font: UIFont.systemFontOfSize(15), diameter: 50)
         }
     }
@@ -242,9 +209,7 @@ class ChatViewController: JSQMessagesViewController {
         }
         
         if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId){
-            
             return NSAttributedString(string: scholar.fullName)
-            
         }
         
         return nil
@@ -274,7 +239,7 @@ class ChatViewController: JSQMessagesViewController {
                 let nextMessage = self.messages[indexPath.item + 1]
                 if nextMessage.senderId == message.senderId {
                     cell.avatarImageView!.image = nil
-                }else {
+                } else {
                     if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId){
                         if let imageUrl = NSURL(string: scholar.profilePicURL) {
                             let imageFilter = RoundedCornersFilter(radius: 50)
@@ -283,7 +248,7 @@ class ChatViewController: JSQMessagesViewController {
                         }
                     }
                 }
-            }else {
+            } else {
                 if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId){
                     if let imageUrl = NSURL(string: scholar.profilePicURL) {
                         let imageFilter = RoundedCornersFilter(radius: 50)
@@ -294,13 +259,7 @@ class ChatViewController: JSQMessagesViewController {
             }
         }
         
-        
-        
-        if message.senderId == self.senderId {
-            cell.textView!.textColor = UIColor.whiteColor()
-        } else {
-            cell.textView!.textColor = UIColor.blackColor()
-        }
+        cell.textView!.textColor = message.senderId == self.senderId ? UIColor.whiteColor() : UIColor.blackColor()
         
         return cell
     }

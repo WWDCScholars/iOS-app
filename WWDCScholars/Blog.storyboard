@@ -167,7 +167,6 @@
                         <outlet property="authorProfileImageViewBackground" destination="hgy-KK-wp2" id="t65-1T-tQg"/>
                         <outlet property="dateLabel" destination="A82-eS-Ke1" id="ptg-vh-H6j"/>
                         <outlet property="headerImageView" destination="2oC-KN-56K" id="Av1-zp-qhZ"/>
-                        <outlet property="headerImageViewConstraint" destination="5FQ-tH-j2V" id="v7q-XW-10W"/>
                         <outlet property="scrollView" destination="NdQ-cc-I2w" id="sj0-zw-kOH"/>
                         <outlet property="titleLabel" destination="Kx5-ha-Lfc" id="0Cr-LL-38w"/>
                         <outlet property="webView" destination="sJ5-fu-VQm" id="3Kg-I8-gAD"/>
@@ -190,21 +189,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovK-iu-0EB">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <connections>
+                                    <segue destination="R9P-i0-vLE" kind="embed" identifier="LoadingViewController" id="Obs-tX-xuf"/>
+                                </connections>
+                            </containerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="326" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rlT-8m-Dnl" customClass="NoJumpRefreshTableView" customModule="Scholars" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="blogPostTableViewCell" rowHeight="326" id="Sqm-n8-W4v" customClass="BlogPostTableViewCell" customModule="Scholars" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="326"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="blogPostTableViewCell" rowHeight="316" id="Sqm-n8-W4v" customClass="BlogPostTableViewCell" customModule="Scholars" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="316"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sqm-n8-W4v" id="LXU-2O-SIU">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="326"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="316"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5i-Vq-liw">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="316"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example1" translatesAutoresizingMaskIntoConstraints="NO" id="nXC-9f-owr">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="example1" translatesAutoresizingMaskIntoConstraints="NO" id="nXC-9f-owr">
                                                             <rect key="frame" x="0.0" y="0.0" width="600" height="366"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="nXC-9f-owr" secondAttribute="height" multiplier="16:9" id="O9A-oh-b1q"/>
@@ -301,7 +306,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="nXC-9f-owr" secondAttribute="bottom" constant="-50" id="lBR-3X-srp"/>
                                                         <constraint firstItem="nXC-9f-owr" firstAttribute="top" secondItem="m5i-Vq-liw" secondAttribute="top" id="mAH-Hq-Whc"/>
                                                         <constraint firstAttribute="width" secondItem="m5i-Vq-liw" secondAttribute="height" multiplier="16:9" id="udM-m0-vWT"/>
-                                                        <constraint firstAttribute="bottom" secondItem="nXC-9f-owr" secondAttribute="bottom" constant="-50" id="xht-Ct-luo"/>
+                                                        <constraint firstAttribute="bottom" secondItem="nXC-9f-owr" secondAttribute="bottom" constant="-40" id="xht-Ct-luo"/>
                                                         <constraint firstAttribute="trailing" secondItem="nXC-9f-owr" secondAttribute="trailing" id="zSU-xi-zn2"/>
                                                     </constraints>
                                                     <variation key="default">
@@ -317,36 +322,14 @@
                                                         </mask>
                                                     </variation>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EzO-04-TlO">
-                                                    <rect key="frame" x="0.0" y="316" width="600" height="10"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="10" id="tNK-kT-YaF"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="tNK-kT-YaF"/>
-                                                        </mask>
-                                                    </variation>
-                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="EzO-04-TlO" firstAttribute="leading" secondItem="LXU-2O-SIU" secondAttribute="leading" id="2z6-8b-liq"/>
-                                                <constraint firstAttribute="bottom" secondItem="m5i-Vq-liw" secondAttribute="bottom" constant="10" id="3VD-3R-mr1"/>
+                                                <constraint firstAttribute="bottom" secondItem="m5i-Vq-liw" secondAttribute="bottom" id="3VD-3R-mr1"/>
                                                 <constraint firstItem="m5i-Vq-liw" firstAttribute="leading" secondItem="LXU-2O-SIU" secondAttribute="leading" id="KYh-m4-kcU"/>
                                                 <constraint firstAttribute="trailing" secondItem="m5i-Vq-liw" secondAttribute="trailing" id="YaI-Gy-82W"/>
                                                 <constraint firstItem="m5i-Vq-liw" firstAttribute="top" secondItem="LXU-2O-SIU" secondAttribute="top" id="fv4-Z5-mjr"/>
-                                                <constraint firstItem="EzO-04-TlO" firstAttribute="top" secondItem="m5i-Vq-liw" secondAttribute="bottom" id="h26-Lv-Xo5"/>
-                                                <constraint firstItem="EzO-04-TlO" firstAttribute="top" secondItem="m5i-Vq-liw" secondAttribute="bottom" id="lJp-E2-ByP"/>
-                                                <constraint firstAttribute="trailing" secondItem="EzO-04-TlO" secondAttribute="trailing" id="qps-4G-kiM"/>
-                                                <constraint firstAttribute="bottom" secondItem="EzO-04-TlO" secondAttribute="bottom" id="u7R-eJ-QM8"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="lJp-E2-ByP"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -364,12 +347,6 @@
                                     <outlet property="delegate" destination="qiP-lR-jI2" id="qPU-fq-bci"/>
                                 </connections>
                             </tableView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovK-iu-0EB">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                                <connections>
-                                    <segue destination="R9P-i0-vLE" kind="embed" identifier="LoadingViewController" id="Obs-tX-xuf"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

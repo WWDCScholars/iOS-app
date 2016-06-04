@@ -385,24 +385,3 @@ extension ScholarDetailViewController: UIScrollViewDelegate {
         self.mapView.frame = mapFrame
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

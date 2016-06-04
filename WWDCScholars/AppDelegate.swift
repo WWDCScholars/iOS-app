@@ -11,6 +11,7 @@ import Fabric
 import Crashlytics
 import CoreSpotlight
 //import Firebase
+// I need to add this line in order to be able to commit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

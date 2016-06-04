@@ -11,6 +11,26 @@ import MapKit
 import SafariServices
 import MessageUI
 
+enum ScreenSize: CGFloat {
+    case ThreePointFive = 480.0
+    case Four = 568.0
+    case FourPointSeven = 667.0
+    case FivePointFive = 736.0
+    
+    var adjustmentValue: CGFloat {
+        switch self {
+        case .ThreePointFive:
+            return 134.0
+        case .Four:
+            return 222.0
+        case .FourPointSeven:
+            return 321.0
+        case .FivePointFive:
+            return 390.0
+        }
+    }
+}
+
 @objc protocol QuickActionsDelegate {
     func openContactURL(url: String)
     func composeEmail(address: String)
@@ -38,6 +58,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.editBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(ScholarDetailViewController.editProfileButtonTapped))
     }
     
@@ -60,7 +81,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.contentSizeConstraint.constant = self.detailsTableView.contentSize.height - 390.0
+        self.contentSizeConstraint.constant = self.detailsTableView.contentSize.height - ScreenSize(rawValue: UIScreen.mainScreen().bounds.height)!.adjustmentValue
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

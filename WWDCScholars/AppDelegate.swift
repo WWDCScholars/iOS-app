@@ -15,7 +15,8 @@ import CoreSpotlight
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    
+    var year:NSString!=""
+
     // 3D Touch
     enum ShortcutIdentifier: String {
         case OpenMyProfile
@@ -124,7 +125,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tabBarController.selectedIndex = 4
             return true
         case .OpenFavorites:
-            tabBarController.selectedIndex = 3
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.year = "saved"
+            
+            tabBarController.selectedIndex = 0
             return true
         case .OpenBlog:
             tabBarController.selectedIndex = 1

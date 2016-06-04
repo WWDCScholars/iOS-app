@@ -49,13 +49,17 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.currentYear = years[self.years.count - 2]
-        
+                
         self.configureUI()
         self.styleUI()
         self.loadData()
     }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(true)
+        appDelegate.year = ""
+    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == String(ScholarDetailViewController) {
@@ -74,6 +78,13 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+  
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        if (appDelegate.year == "saved") {
+            self.currentYear = years[self.years.count - 1]
+        } else {
+            self.currentYear = years[self.years.count - 2]
+        }
         
         let index = self.years.indexOf(self.currentYear)!
         self.selectedYearRow = NSIndexPath(forItem: index, inSection: 0)

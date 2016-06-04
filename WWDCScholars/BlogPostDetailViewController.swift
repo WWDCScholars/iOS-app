@@ -17,6 +17,7 @@ enum AuthorButtonType {
 
 class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate {
     @IBOutlet private weak var headerImageView: UIImageView!
+    @IBOutlet var headerImageViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var authorProfileImageButton: UIButton!
     @IBOutlet private weak var authorProfileImageViewBackground: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
@@ -26,6 +27,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet weak var authorButton: UIButton!
     
+    private var headerImageHeight : CGFloat = 156
     private var titleView = UIScrollView()
     private var titleViewLabel = UILabel()
     private var titleViewOverlayLabel = UILabel()
@@ -37,6 +39,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     var currentPost: BlogPost!
     
     override func viewDidLoad() {
+        self.automaticallyAdjustsScrollViewInsets = false
         self.styleUI()
         self.configureUI()
     }
@@ -156,7 +159,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
             self.registerForPreviewingWithDelegate(self, sourceView: self.authorButton)
             self.registerForPreviewingWithDelegate(self, sourceView: self.authorProfileImageButton)
         }
-        
+    
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BlogPostDetailViewController.showFullScreenHeader))
         self.headerImageView.userInteractionEnabled = true
         self.headerImageView.addGestureRecognizer(tapGestureRecognizer)
@@ -171,7 +174,19 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         //        self.tagsLabel.text = tagsString
         self.dateLabel.text = DateManager.shortDateStringFromDate(self.currentPost.createdAt)
         
-        self.headerImageView.af_setImageWithURL(NSURL(string: self.currentPost.headerImage)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+        self.headerImageView.af_setImageWithURL(NSURL(string: self.currentPost.headerImage)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false, completion:  { response in
+            var scaledImageHeight = self.heightForImage(response.result.value!, scaledToWidth: self.view.frame.size.width)
+            if scaledImageHeight > self.view.frame.size.height/1.5 {
+                scaledImageHeight /= 2
+            }
+            self.headerImageHeight = scaledImageHeight
+            self.headerImageViewConstraint.constant = self.headerImageHeight
+            self.view.layoutIfNeeded()
+            UIView.animateWithDuration(0.5) {
+                self.view.layoutIfNeeded()
+            }
+        })
+        
         self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: self.currentPostAuthor!.profilePicURL)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
     }
     
@@ -186,6 +201,14 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         self.authorProfileImageViewBackground.applyRoundedCorners()
     }
     
+    private func heightForImage (sourceImage:UIImage, scaledToWidth: CGFloat) -> CGFloat {
+        let oldWidth = sourceImage.size.width
+        let scaleFactor = scaledToWidth / oldWidth
+        let newHeight = sourceImage.size.height * scaleFactor
+        
+        return newHeight
+    }
+
     // MARK: - IBActions
     
     @IBAction func authorNameButtonTapped(sender: AnyObject) {
@@ -195,11 +218,13 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     @IBAction func authorNameButtonTouched(sender: AnyObject) {
         self.buttonTypeTapped = sender.tag == 0 ? .Text : .Image
     }
+    
 }
 
 // MARK: - UIWebViewDelegate
 
 extension BlogPostDetailViewController: UIWebViewDelegate {
+   
     func webViewDidFinishLoad(webView: UIWebView) {
         var frame = webView.frame
         frame.size.height = 1.0
@@ -211,15 +236,17 @@ extension BlogPostDetailViewController: UIWebViewDelegate {
         
         self.scrollView.contentSize.height = self.webView.frame.origin.y + self.webView.frame.height - 40.0
     }
+    
 }
 
 // MARK: - UIScrollViewDelegate
 
 extension BlogPostDetailViewController: UIScrollViewDelegate {
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         // HeaderImageView
         
-        let imageViewHeight: CGFloat = 156.0
+        let imageViewHeight: CGFloat = headerImageHeight
         var imageViewFrame = CGRect(x: 0.0, y: 0.0, width: scrollView.bounds.width, height: imageViewHeight)
         
         if scrollView.contentOffset.y < imageViewHeight {
@@ -235,12 +262,15 @@ extension BlogPostDetailViewController: UIScrollViewDelegate {
         self.titleView.contentOffset.y = contentOffset.y
         self.titleViewOverlayLabel.alpha = -((self.titleView.contentOffset.y) / 25.0)
     }
+    
 }
 
 // MARK: - UIViewControllerPreviewingDelegate
 
 extension BlogPostDetailViewController: UIViewControllerPreviewingDelegate {
+    
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+     
         let viewController = storyboard?.instantiateViewControllerWithIdentifier("scholarDetailViewController") as? ScholarDetailViewController
         
         guard let previewViewController = viewController else {
@@ -258,4 +288,24 @@ extension BlogPostDetailViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
         self.showViewController(viewControllerToCommit, sender: self)
     }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

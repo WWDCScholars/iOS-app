@@ -739,7 +739,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="App Store Link " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4JA-6W-WP3" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
-                                                    <rect key="frame" x="49" y="12" width="543" height="30"/>
+                                                    <rect key="frame" x="49" y="12" width="470" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="qZx-aj-1fj"/>
                                                     </constraints>
@@ -764,13 +764,25 @@
                                                         <constraint firstAttribute="height" constant="27" id="crz-ue-JK4"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdk-bc-JTX">
+                                                    <rect key="frame" x="527" y="16" width="65" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="d12-bh-y8O"/>
+                                                        <constraint firstAttribute="width" constant="65" id="tWi-Yw-a6K"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="4JA-6W-WP3" firstAttribute="centerY" secondItem="AWj-PO-7D1" secondAttribute="centerY" id="6O4-k0-6Mh"/>
+                                                <constraint firstItem="Zdk-bc-JTX" firstAttribute="centerY" secondItem="AWj-PO-7D1" secondAttribute="centerY" id="FuW-Xz-B4u"/>
                                                 <constraint firstItem="4JA-6W-WP3" firstAttribute="leading" secondItem="fyT-hH-JaF" secondAttribute="trailing" constant="8" id="QK3-gy-vKf"/>
-                                                <constraint firstAttribute="trailing" secondItem="4JA-6W-WP3" secondAttribute="trailing" constant="8" id="Qsd-bP-6fb"/>
                                                 <constraint firstItem="fyT-hH-JaF" firstAttribute="leading" secondItem="AWj-PO-7D1" secondAttribute="leading" constant="14" id="Szi-u0-916"/>
+                                                <constraint firstItem="Zdk-bc-JTX" firstAttribute="leading" secondItem="4JA-6W-WP3" secondAttribute="trailing" constant="8" id="VoU-Qx-8s5"/>
                                                 <constraint firstItem="fyT-hH-JaF" firstAttribute="centerY" secondItem="AWj-PO-7D1" secondAttribute="centerY" id="uKz-ey-eiT"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zdk-bc-JTX" secondAttribute="trailing" constant="8" id="zEN-Cr-q34"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

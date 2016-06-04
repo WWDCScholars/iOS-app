@@ -61,6 +61,20 @@ class DatabaseManager {
     }
     
     /**
+     Add a list of scholars to the local Realm
+     
+     - parameter scholars: Scholar which will be added to the database
+     */
+    func addScholars(scholars: [Scholar]) {
+        try! realm.write {
+            for scholar in scholars {
+                realm.add(scholar, update: true) // Don't add the scholar if he/she already exists
+            }
+        }
+        //print ("Added \(scholar.fullName)")  // Sorry but I don't care at all about this. I want a clean console, thx.
+    }
+    
+    /**
      Gets a list of all scholars which are currently in the database
      
      - returns: List of scholars

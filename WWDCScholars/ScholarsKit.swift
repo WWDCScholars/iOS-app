@@ -42,13 +42,15 @@ class ScholarsKit: ApiBase {
     }
     
     func parseScholars(jsonArr: [JSON]) {
+        var scholars: [Scholar] = []
         for scholarJson in jsonArr {
             if let scholar = parseScholar(scholarJson) {
-                dbManager.addScholar(scholar)
+                scholars.append(scholar)
             }else {
                 print("Scholar (with id \(scholarJson["_id"].string)) missing items!")
             }
         }
+        dbManager.addScholars(scholars)
     }
     
     func parseScholar(json: JSON) -> Scholar? {

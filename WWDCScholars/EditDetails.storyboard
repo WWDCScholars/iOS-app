@@ -42,7 +42,7 @@
             <objects>
                 <tableViewController id="l2Q-QU-Rdg" customClass="EditProfileTableViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="OAL-Ua-DIL">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -234,7 +234,7 @@
                                                         <constraint firstAttribute="width" constant="27" id="DCw-Bt-9Ss"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGV-uM-AQw" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGV-uM-AQw" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Iu5-hO-D4a"/>
@@ -504,7 +504,7 @@
                                                         <constraint firstAttribute="height" constant="27" id="slk-kT-4eM"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="App Store" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qzI-or-qUj" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="App Store Profile" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qzI-or-qUj" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="CFF-xD-oXc"/>
@@ -537,7 +537,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Scholarship App" id="z1K-2i-3Wh">
+                            <tableViewSection headerTitle="Scholarship Submission" id="z1K-2i-3Wh">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="NM2-dT-iRA">
                                         <rect key="frame" x="0.0" y="925" width="600" height="54"/>
@@ -553,7 +553,7 @@
                                                         <constraint firstAttribute="width" constant="27" id="hpf-wO-hbh"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YouTube video" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4yQ-Pl-BMT" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YouTube Video" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4yQ-Pl-BMT" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="yp8-OF-Ju9"/>
@@ -598,7 +598,7 @@
                                                         <constraint firstAttribute="height" constant="27" id="oXt-Tx-ifu"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="GitHub repo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tg2-Ai-yWH" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="GitHub Repo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tg2-Ai-yWH" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
                                                     <rect key="frame" x="49" y="12" width="543" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="o2X-Hx-2Sg"/>
@@ -729,6 +729,53 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="App Store Submission" footerTitle="Only full length App Store URls are valid and must contain your app's ID" id="ZbV-5b-2wr">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="cKq-va-Ojk">
+                                        <rect key="frame" x="0.0" y="1383" width="600" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cKq-va-Ojk" id="AWj-PO-7D1">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="App Store Link " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4JA-6W-WP3" customClass="FloatLabelTextField" customModule="Scholars" customModuleProvider="target">
+                                                    <rect key="frame" x="49" y="12" width="543" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="qZx-aj-1fj"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                            <real key="value" value="-2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="l2Q-QU-Rdg" id="410-ly-jrd"/>
+                                                    </connections>
+                                                </textField>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appstoreIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="fyT-hH-JaF">
+                                                    <rect key="frame" x="14" y="13" width="27" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="27" id="VJh-lt-bq5"/>
+                                                        <constraint firstAttribute="height" constant="27" id="crz-ue-JK4"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4JA-6W-WP3" firstAttribute="centerY" secondItem="AWj-PO-7D1" secondAttribute="centerY" id="6O4-k0-6Mh"/>
+                                                <constraint firstItem="4JA-6W-WP3" firstAttribute="leading" secondItem="fyT-hH-JaF" secondAttribute="trailing" constant="8" id="QK3-gy-vKf"/>
+                                                <constraint firstAttribute="trailing" secondItem="4JA-6W-WP3" secondAttribute="trailing" constant="8" id="Qsd-bP-6fb"/>
+                                                <constraint firstItem="fyT-hH-JaF" firstAttribute="leading" secondItem="AWj-PO-7D1" secondAttribute="leading" constant="14" id="Szi-u0-916"/>
+                                                <constraint firstItem="fyT-hH-JaF" firstAttribute="centerY" secondItem="AWj-PO-7D1" secondAttribute="centerY" id="uKz-ey-eiT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="l2Q-QU-Rdg" id="Xaj-mK-O9O"/>
@@ -748,7 +795,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="1350"/>
+                    <size key="freeformSize" width="600" height="1600"/>
                     <connections>
                         <outlet property="ageTextField" destination="j0p-Mx-k4f" id="Uij-BZ-Yny"/>
                         <outlet property="appGithubTextField" destination="Tg2-Ai-yWH" id="PbP-G2-U2h"/>

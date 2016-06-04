@@ -189,18 +189,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovK-iu-0EB">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                                <connections>
-                                    <segue destination="R9P-i0-vLE" kind="embed" identifier="LoadingViewController" id="Obs-tX-xuf"/>
-                                </connections>
-                            </containerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="326" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rlT-8m-Dnl" customClass="NoJumpRefreshTableView" customModule="Scholars" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="blogPostTableViewCell" rowHeight="316" id="Sqm-n8-W4v" customClass="BlogPostTableViewCell" customModule="Scholars" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="316"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="316"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sqm-n8-W4v" id="LXU-2O-SIU">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="316"/>
@@ -347,6 +341,12 @@
                                     <outlet property="delegate" destination="qiP-lR-jI2" id="qPU-fq-bci"/>
                                 </connections>
                             </tableView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovK-iu-0EB">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <connections>
+                                    <segue destination="R9P-i0-vLE" kind="embed" identifier="LoadingViewController" id="Obs-tX-xuf"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

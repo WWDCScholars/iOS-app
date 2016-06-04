@@ -151,6 +151,8 @@
 		6EEA892A1CDBFAF900245445 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA89291CDBFAF900245445 /* UserDefaults.swift */; };
 		7B0374F21CF9E51500DE1CED /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D2AB91CF9E453004C1697 /* CryptoSwift.framework */; };
 		7B0374F31CF9E51500DE1CED /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D2AB91CF9E453004C1697 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B0FC2231D02D6CD002C7E40 /* JSQSystemSoundPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0FC21C1D02D69A002C7E40 /* JSQSystemSoundPlayer.framework */; };
+		7B0FC2241D02D6CD002C7E40 /* JSQSystemSoundPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0FC21C1D02D69A002C7E40 /* JSQSystemSoundPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7B15E69F1CF91C4D00C4D7AD /* UserKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B15E69E1CF91C4D00C4D7AD /* UserKit.swift */; };
 		7B296DC21CE3C18300C4BA75 /* ApiBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B296DC11CE3C18300C4BA75 /* ApiBase.swift */; };
 		7B2AA6E01CBAE7530025EC7B /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */; };
@@ -166,8 +168,6 @@
 		7B4D519F1CC110A50072E114 /* UIButton+AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D51951CC110A50072E114 /* UIButton+AlamofireImage.swift */; };
 		7B4D51A01CC110A50072E114 /* UIImage+AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D51961CC110A50072E114 /* UIImage+AlamofireImage.swift */; };
 		7B4D51A11CC110A50072E114 /* UIImageView+AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D51971CC110A50072E114 /* UIImageView+AlamofireImage.swift */; };
-		7B709CEF1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */; };
-		7B709CF41CF8C795007F53F4 /* JSQSystemSoundPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7B7797511CDE681E0029675F /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7797501CDE681E0029675F /* BlogPost.swift */; };
 		7B7797531CDE697F0029675F /* BlogKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7797521CDE697F0029675F /* BlogKit.swift */; };
 		7BBA87641CBB7F3A0057E9AD /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBA87621CBB7F3A0057E9AD /* Fabric.framework */; };
@@ -270,6 +270,34 @@
 			remoteGlobalIDString = 754BE46019693E190098E6F3;
 			remoteInfo = CryptoSwiftTests;
 		};
+		7B0FC21B1D02D69A002C7E40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B0FC20F1D02D69A002C7E40 /* JSQSystemSoundPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8892FA9E1AF6E4DA00F2D347;
+			remoteInfo = "JSQSystemSoundPlayer-iOS";
+		};
+		7B0FC21D1D02D69A002C7E40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B0FC20F1D02D69A002C7E40 /* JSQSystemSoundPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 884DF6631AF6E96700D97D16;
+			remoteInfo = "JSQSystemSoundPlayer-OSX";
+		};
+		7B0FC21F1D02D69A002C7E40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B0FC20F1D02D69A002C7E40 /* JSQSystemSoundPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88F4692F1C0BE399001F70F4;
+			remoteInfo = "JSQSystemSoundPlayer-tvOS";
+		};
+		7B0FC2251D02D6CD002C7E40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B0FC20F1D02D69A002C7E40 /* JSQSystemSoundPlayer.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8892FA9D1AF6E4DA00F2D347;
+			remoteInfo = "JSQSystemSoundPlayer-iOS";
+		};
 		7B2AA6E21CBAE7530025EC7B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 223884151C8252D900A96752 /* Project object */;
@@ -304,9 +332,9 @@
 			dstSubfolderSpec = 10;
 			files = (
 				7BBA87C41CBD641F0057E9AD /* Realm.framework in Embed Frameworks */,
-				7B709CF41CF8C795007F53F4 /* JSQSystemSoundPlayer.framework in Embed Frameworks */,
 				7BBA87C61CBD641F0057E9AD /* RealmSwift.framework in Embed Frameworks */,
 				7B0374F31CF9E51500DE1CED /* CryptoSwift.framework in Embed Frameworks */,
+				7B0FC2241D02D6CD002C7E40 /* JSQSystemSoundPlayer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +544,7 @@
 		6EEA89241CDBE21C00245445 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		6EEA89291CDBFAF900245445 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserDefaults.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		7B0D2AB01CF9E453004C1697 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "CryptoSwift-master/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
+		7B0FC20F1D02D69A002C7E40 /* JSQSystemSoundPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSQSystemSoundPlayer.xcodeproj; path = SoundStuff/JSQSystemSoundPlayer.xcodeproj; sourceTree = "<group>"; };
 		7B15E69E1CF91C4D00C4D7AD /* UserKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserKit.swift; sourceTree = "<group>"; };
 		7B296DC11CE3C18300C4BA75 /* ApiBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiBase.swift; sourceTree = "<group>"; };
 		7B2AA6DD1CBAE7530025EC7B /* WWDCScholarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -536,7 +565,6 @@
 		7B4D51951CC110A50072E114 /* UIButton+AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+AlamofireImage.swift"; sourceTree = "<group>"; };
 		7B4D51961CC110A50072E114 /* UIImage+AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+AlamofireImage.swift"; sourceTree = "<group>"; };
 		7B4D51971CC110A50072E114 /* UIImageView+AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+AlamofireImage.swift"; sourceTree = "<group>"; };
-		7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQSystemSoundPlayer.framework; path = ../JSQSystemSoundPlayer.framework; sourceTree = "<group>"; };
 		7B7797501CDE681E0029675F /* BlogPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 		7B7797521CDE697F0029675F /* BlogKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogKit.swift; sourceTree = "<group>"; };
 		7BBA87621CBB7F3A0057E9AD /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -604,7 +632,6 @@
 				6ED962BB1CF8B3B300551E94 /* QuartzCore.framework in Frameworks */,
 				6E79E1B31CF8AAA000CCDD9D /* GoogleNetworkingUtilities.framework in Frameworks */,
 				6E43D47B1CF8A39A00D35A6F /* FirebaseDatabase.framework in Frameworks */,
-				7B709CEF1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework in Frameworks */,
 				6E79529A1CF6421100160B26 /* SystemConfiguration.framework in Frameworks */,
 				6E7952981CF6420700160B26 /* Security.framework in Frameworks */,
 				6E7952961CF641FF00160B26 /* CFNetwork.framework in Frameworks */,
@@ -616,6 +643,7 @@
 				223F5E9A1CB970EC00E582C5 /* AVFoundation.framework in Frameworks */,
 				7BBA87651CBB7F3A0057E9AD /* Crashlytics.framework in Frameworks */,
 				7B0374F21CF9E51500DE1CED /* CryptoSwift.framework in Frameworks */,
+				7B0FC2231D02D6CD002C7E40 /* JSQSystemSoundPlayer.framework in Frameworks */,
 				6E43D4771CF8A36500D35A6F /* GoogleInterchangeUtilities.framework in Frameworks */,
 				6E43D4781CF8A36500D35A6F /* GoogleSymbolUtilities.framework in Frameworks */,
 				7BBA87C51CBD641F0057E9AD /* RealmSwift.framework in Frameworks */,
@@ -879,7 +907,6 @@
 				6ED962391CF8B28800551E94 /* Controllers */,
 				6ED9623F1CF8B28800551E94 /* Factories */,
 				6ED9624A1CF8B28800551E94 /* JSQMessages.h */,
-				7B709CEE1CF8C3EE007F53F4 /* JSQSystemSoundPlayer.framework */,
 				6ED9624B1CF8B28800551E94 /* Layout */,
 				6ED962571CF8B28800551E94 /* Model */,
 				6ED9626E1CF8B28800551E94 /* Views */,
@@ -1118,6 +1145,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7B0FC2101D02D69A002C7E40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B0FC21C1D02D69A002C7E40 /* JSQSystemSoundPlayer.framework */,
+				7B0FC21E1D02D69A002C7E40 /* JSQSystemSoundPlayer.framework */,
+				7B0FC2201D02D69A002C7E40 /* JSQSystemSoundPlayer.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7B2AA6DE1CBAE7530025EC7B /* WWDCScholarsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1187,6 +1224,7 @@
 		7BBA87A21CBD5D680057E9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B0FC20F1D02D69A002C7E40 /* JSQSystemSoundPlayer.xcodeproj */,
 				7BBA88221CBD8AD10057E9AD /* Alamofire */,
 				6E64F6BA1CFBAE11006CFE2E /* Apple */,
 				6E64F6C01CFBAE43006CFE2E /* CryptoSwift */,
@@ -1282,6 +1320,7 @@
 			);
 			dependencies = (
 				7B0374F51CF9E51500DE1CED /* PBXTargetDependency */,
+				7B0FC2261D02D6CD002C7E40 /* PBXTargetDependency */,
 			);
 			name = WWDCScholars;
 			productName = WWDCScholars;
@@ -1366,6 +1405,10 @@
 					ProductGroup = 7B0D2AB11CF9E453004C1697 /* Products */;
 					ProjectRef = 7B0D2AB01CF9E453004C1697 /* CryptoSwift.xcodeproj */;
 				},
+				{
+					ProductGroup = 7B0FC2101D02D69A002C7E40 /* Products */;
+					ProjectRef = 7B0FC20F1D02D69A002C7E40 /* JSQSystemSoundPlayer.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -1410,6 +1453,27 @@
 			fileType = wrapper.cfbundle;
 			path = CryptoSwiftTests.xctest;
 			remoteRef = 7B0D2AC01CF9E453004C1697 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7B0FC21C1D02D69A002C7E40 /* JSQSystemSoundPlayer.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JSQSystemSoundPlayer.framework;
+			remoteRef = 7B0FC21B1D02D69A002C7E40 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7B0FC21E1D02D69A002C7E40 /* JSQSystemSoundPlayer.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JSQSystemSoundPlayer.framework;
+			remoteRef = 7B0FC21D1D02D69A002C7E40 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7B0FC2201D02D69A002C7E40 /* JSQSystemSoundPlayer.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JSQSystemSoundPlayer.framework;
+			remoteRef = 7B0FC21F1D02D69A002C7E40 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1688,6 +1752,11 @@
 			name = "CryptoSwift iOS";
 			targetProxy = 7B0374F41CF9E51500DE1CED /* PBXContainerItemProxy */;
 		};
+		7B0FC2261D02D6CD002C7E40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "JSQSystemSoundPlayer-iOS";
+			targetProxy = 7B0FC2251D02D6CD002C7E40 /* PBXContainerItemProxy */;
+		};
 		7B2AA6E31CBAE7530025EC7B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2238841C1C8252D900A96752 /* WWDCScholars */;
@@ -1802,9 +1871,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 93;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 93;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1828,9 +1897,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 93;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 93;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

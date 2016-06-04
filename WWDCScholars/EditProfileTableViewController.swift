@@ -161,6 +161,21 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.presentViewController(self.imagePicker, animated: true, completion: nil)
     }
     
+    internal func presentActionSheet(index: Int) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let removeAction = UIAlertAction(title: "Remove Screenshot", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+            self.screenshots[index] = nil
+            self.screenshotCollectionView.reloadData()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        actionSheet.addAction(removeAction)
+        actionSheet.addAction(cancelAction)
+        
+        self.presentViewController(actionSheet, animated: true, completion: nil)
+    }
+    
     // MARK: - Private functions
     
     private func populateFields() {

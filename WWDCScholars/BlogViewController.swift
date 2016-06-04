@@ -19,57 +19,72 @@ class BlogViewController: UIViewController {
         super.viewDidLoad()
         
         let testPost1 = BlogPost()
-        testPost1.id = "56fc25ee5840978d849822b3"
+        testPost1.scholarId = "56fc25ee5840978d849822b3"
         testPost1.scholarName = "Andrew Walker"
         testPost1.email = "me@andrewnwalker.com"
-        testPost1.title = "Preparing for WWDC"
+        testPost1.scholarLink = ""
+        
         testPost1.createdAt = NSDate()
         testPost1.updatedAt = NSDate()
-        testPost1.imageUrl = "http://www.blogcdn.com/www.engadget.com/media/2013/06/wwdc2013-floor.jpg"
-        testPost1.scholarLink = ""
+        
+        testPost1.postId = "57513d3105b68a110061f56b"
+        testPost1.title = "Preparing for WWDC"
+        testPost1.headerImage = "http://www.blogcdn.com/www.engadget.com/media/2013/06/wwdc2013-floor.jpg"
         testPost1.tags = ["Travel", "Events"]
-        testPost1.videoLink = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         testPost1.content = "<html><head><title>Preparing for WWDC</title><h1>How to View the Source of This Page</h1><p>If you go to your web browser's View menu, you will see an option that allows you to see the source code behind a web page.</p><p>When the web was first taking off this was a very popular way for people to learn how web pages had been built.</p><img src='http://www.blogcdn.com/www.engadget.com/media/2013/06/wwdc2013-floor.jpg'/><p>Today, people still often view the source of pages to learn how a web page has been built.</p><h1>How to View the Source of This Page</h1><p>If you go to your web browser's View menu, you will see an option that allows you to see the source code behind a web page.</p><p>When the web was first taking off this was a very popular way for people to learn how web pages had been built.</p><img src='http://www.blogcdn.com/www.engadget.com/media/2013/06/wwdc2013-floor.jpg'/><p>Today, people still often view the source of pages to learn how a web page has been built.</p></body></html>"
+        testPost1.urlLink = "http://wwdcscholars.com"
+        
         
         let testPost2 = BlogPost()
-        testPost2.id = "56fc24dc5840978d849822b2"
+        testPost2.scholarId = "56fc24dc5840978d849822b2"
         testPost2.scholarName = "Oliver Binns"
         testPost2.email = "me@andrewnwalker.com"
-        testPost2.title = "Tips for Making the Most of Your Trip"
+        testPost2.scholarLink = ""
+        
         testPost2.createdAt = NSDate()
         testPost2.updatedAt = NSDate()
-        testPost2.imageUrl = "http://www.sanfrancisco.travel/sites/sftraveldev.prod.acquia-sites.com/files/SanFrancisco_0.jpg"
-        testPost2.scholarLink = ""
+        
+        testPost2.postId = "57513d3105b68a110061f56b"
+        testPost2.title = "Tips for Making the Most of Your Trip"
+        
+        testPost2.headerImage = "http://www.sanfrancisco.travel/sites/sftraveldev.prod.acquia-sites.com/files/SanFrancisco_0.jpg"
         testPost2.tags = ["Travel", "Events", "Tips"]
-        testPost2.videoLink = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         testPost2.content = "<html><head><title>Text</title></head><body><h1>The Story in the Book</h1><h2>Chapter 1</h2><img src=\"https://www.fragomen.com/sites/default/files/styles/xl_image/public/portal/photos/San-Francisco_Hero.jpg?itok=CY70ppTH\"<p>Molly had been staring out of her window for about an hour now. On her desk, lying between the copies of <i>Nature</i>, <i>New Scientist</i>, and all the other scientific journals her work had appeared in, was a well thumbed copy of <cite>On The Road</cite>. It had been Molly's favourite book since college, and the longer she spent in these four walls the more she felt she needed to be free.</p><img src='https://pbs.twimg.com/profile_images/616542814319415296/McCTpH_E.jpg'/><p>She had spent the last ten years in this room, sitting under a poster with an Oscar Wilde quote proclaiming that <q>Work is the refuge of people who have nothing better to do</q>. Although many considered her pioneering work, unraveling the secrets of the llama <abbr title=\"Deoxyribonucleic acid\">DNA</abbr>, to be an outstanding achievement, Molly <em>did</em> think she had something better to do.</p></body></html>"
+        testPost2.urlLink = "http://wwdcscholars.com"
+        
         
         let testPost3 = BlogPost()
-        testPost3.id = "56fc3b1ba5ac14970921ad78"
+        testPost3.scholarId = "56fc3b1ba5ac14970921ad78"
         testPost3.scholarName = "Sam Eckert"
         testPost3.email = "me@andrewnwalker.com"
+        testPost3.scholarLink = ""
+        
+        testPost3.postId = "57513d3105b68a110061f56b"
         testPost3.title = "The Labs and Sessions You Should Be Attending"
         testPost3.createdAt = NSDate()
         testPost3.updatedAt = NSDate()
-        testPost3.imageUrl = "https://devimages.apple.com.edgekey.net/wwdc/images/wwdc16-schedule-sessions.jpg"
-        testPost3.scholarLink = ""
+        testPost3.headerImage = "https://devimages.apple.com.edgekey.net/wwdc/images/wwdc16-schedule-sessions.jpg"
+        
         testPost3.tags = ["Events", "Tips"]
-        testPost3.videoLink = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         testPost3.content = "<html><head><title>Lists</title></head><body><h1>Scrambled Eggs</h1><p>Eggs are one of my favorite foods. Here is a recipe for deliciously rich scrambled eggs.</p><h2>Ingredients</h2><ul><li>2 eggs</li><li>1tbs butter</li><li>2tbs cream</li></ul><h2>Method</h2><ol><li>Melt butter in a frying pan over a medium heat</li><li>Gently mix the eggs and cream in a bowl</li><li>Once butter has melted add cream and eggs</li><li>Using a spatula fold the eggs from the edge of the pan to the center every 20 seconds (as if you are making an omelette)</li><li>When the eggs are still moist remove from the heat (it will continue to cook on the plate until served)</li></ol></body></html>"
+        testPost3.urlLink = "http://wwdcscholars.com"
+        
         
         let testPost4 = BlogPost()
-        testPost4.id = "56fc3d96a5ac14970921ad7a"
+        testPost4.scholarId = "56fc3d96a5ac14970921ad7a"
         testPost4.scholarName = "Michie Ang"
         testPost4.email = "veryhappymichie@gmail.com"
-        testPost4.title = "Caturday"
+        testPost4.scholarLink = ""
+        
         testPost4.createdAt = NSDate()
         testPost4.updatedAt = NSDate()
-        testPost4.imageUrl = "http://m-static.flikie.com/ImageData/WallPapers/bf74e98693fa423e8dc6c3c48b113e89.jpg"
-        testPost4.scholarLink = ""
-        testPost4.tags = ["Cats", "Saturday"]
-        testPost4.videoLink = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        testPost4.content = "<html><head><title>Caturday!</title></head><body><h1>This Cat Looks Grumpy</h1><img src='https://pbs.twimg.com/profile_images/616542814319415296/McCTpH_E.jpg'/><p>Yup, you are right. It looks grumpy enough. But that cat of yours looks even grumpier. </p></p><img src='http://cdn.grumpycats.com/wp-content/uploads/2016/02/12654647_974282002607537_7798179861389974677_n-758x758.jpg'/><p>Yup, my cat is the grummpiest of them all. Look a it's ferocious eyes.</p><h1>This cat Looks Cute</h1><img src='http://m-static.flikie.com/ImageData/WallPapers/bf74e98693fa423e8dc6c3c48b113e89.jpg'/><p>Yup! It looks like it will pass the cuteness meter.</p><p>Today, people still love cats whether grumpy or not. They just love them. Happy Caturday!</p></body></html>"
         
+        testPost4.postId = "57513d3105b68a110061f56b"
+        testPost4.title = "Caturday"
+        testPost4.headerImage = "http://m-static.flikie.com/ImageData/WallPapers/bf74e98693fa423e8dc6c3c48b113e89.jpg"
+        testPost4.tags = ["Cats", "Saturday"]
+        testPost4.content = "<html><head><title>Caturday!</title></head><body><h1>This Cat Looks Grumpy</h1><img src='https://pbs.twimg.com/profile_images/616542814319415296/McCTpH_E.jpg'/><p>Yup, you are right. It looks grumpy enough. But that cat of yours looks even grumpier. </p></p><img src='http://cdn.grumpycats.com/wp-content/uploads/2016/02/12654647_974282002607537_7798179861389974677_n-758x758.jpg'/><p>Yup, my cat is the grummpiest of them all. Look a it's ferocious eyes.</p><h1>This cat Looks Cute</h1><img src='http://m-static.flikie.com/ImageData/WallPapers/bf74e98693fa423e8dc6c3c48b113e89.jpg'/><p>Yup! It looks like it will pass the cuteness meter.</p><p>Today, people still love cats whether grumpy or not. They just love them. Happy Caturday!</p></body></html>"
+        testPost4.urlLink = "http://wwdcscholars.com"
         
         self.testPosts.append(testPost1)
         self.testPosts.append(testPost2)
@@ -166,7 +181,7 @@ extension BlogViewController: UITableViewDataSource {
         cell.postDateLabel.text = DateManager.shortDateStringFromDate(post.createdAt)
         cell.postTitleLabel.text = post.title
         
-        if let imgUrl = NSURL(string: post.imageUrl) {
+        if let imgUrl = NSURL(string: post.headerImage) {
             cell.postImageView.af_setImageWithURL(imgUrl, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
         }
         

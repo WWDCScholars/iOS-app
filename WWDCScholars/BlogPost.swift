@@ -10,22 +10,19 @@ import Foundation
 import RealmSwift
 
 class BlogPost : Object {
-    /// The ID of the blog post
-    dynamic var id: String = ""
     
-    dynamic var email: String = ""
-    
-    dynamic var scholarName: String = ""
-    
-    dynamic var scholarLink: String? = nil
-    
-    dynamic var videoLink: String? = ""
-    
-    dynamic var content: String = ""
-    
+    //Blog Related
+    dynamic var postId: String? = nil
+    dynamic var headerImage: String = ""
     dynamic var title: String = ""
+    dynamic var content: String = ""
+    dynamic var urlLink: String = ""
     
-    dynamic var imageUrl: String = ""
+    //Scholar Related
+    dynamic var scholarId: String = ""
+    dynamic var scholarName: String = ""
+    dynamic var scholarLink: String? = nil
+    dynamic var email: String = ""
     
     dynamic var createdAt: NSDate = NSDate.today()
     dynamic var updatedAt: NSDate = NSDate.today()
@@ -53,7 +50,7 @@ class BlogPost : Object {
     }
     
     override class func primaryKey() -> String {
-        return "id"
+        return "postId"
     }
     
     override static func ignoredProperties() -> [String] {

@@ -31,7 +31,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     private var titleViewOverlayLabel = UILabel()
     private var buttonTypeTapped: AuthorButtonType = .Image
     private var currentPostAuthor: Scholar? {
-        return DatabaseManager.sharedInstance.scholarForId(self.currentPost.id)
+        return DatabaseManager.sharedInstance.scholarForId(self.currentPost.scholarId)
     }
     
     var currentPost: BlogPost!
@@ -74,7 +74,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         if segue.identifier == String(ScholarDetailViewController) {
             let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
             destinationViewController.delegate = self
-            destinationViewController.setScholar(self.currentPost.id)
+            destinationViewController.setScholar(self.currentPost.scholarId)
         }
     }
     
@@ -171,7 +171,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         //        self.tagsLabel.text = tagsString
         self.dateLabel.text = DateManager.shortDateStringFromDate(self.currentPost.createdAt)
         
-        self.headerImageView.af_setImageWithURL(NSURL(string: self.currentPost.imageUrl)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+        self.headerImageView.af_setImageWithURL(NSURL(string: self.currentPost.headerImage)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
         self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: self.currentPostAuthor!.profilePicURL)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
     }
     
@@ -247,7 +247,7 @@ extension BlogPostDetailViewController: UIViewControllerPreviewingDelegate {
             return nil
         }
         
-        previewViewController.setScholar(self.currentPost.id)
+        previewViewController.setScholar(self.currentPost.scholarId)
         previewViewController.delegate = self
         previewViewController.preferredContentSize = CGSize.zero
         previewingContext.sourceRect = self.buttonTypeTapped == .Text ? self.authorButton.frame : self.authorProfileImageButton.bounds

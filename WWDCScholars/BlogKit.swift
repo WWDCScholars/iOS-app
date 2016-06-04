@@ -44,31 +44,44 @@ class BlogKit: ApiBase {
     }
     
     func parsePost(json: JSON) -> BlogPost? {
-        if let id = json["_id"].string,
+        if
+            let postId = json["_id"].string,
+            let scholarId = json["scholarId"].string,
+            let title = json["title"].string,
+            let headerImage = json["headerImage"].string,
+            let content = json["content"].string,
+            
+            //author related
             let email = json["email"].string,
             let scholarLink = json["scholarLink"].string,
             let scholarName = json["scholarName"].string,
-            let videoLink = json["videoLink"].string,
-            let content = json["content"].string,
-            let title = json["title"].string,
-            let image = json["images"].string,
+            
+            //for sharing purposes using social media buttons
+            let urlLink = json["links"]["link"].string,
+            
+            //other info
             let updatedAt = json["updateAt"].string,
             let createdAt = json["createdAt"].string {
             
             let newPost = BlogPost()
-            newPost.id = id
+            
+            newPost.postId = postId
+            newPost.scholarId = scholarId
             newPost.email = email
             newPost.content = content
             newPost.title = title
             newPost.scholarLink = scholarLink.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":") //todo is optional?
             newPost.scholarName = scholarName
-            newPost.imageUrl = image.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
-            newPost.videoLink = videoLink.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+            newPost.headerImage = headerImage.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+            newPost.urlLink = urlLink
+            
             newPost.updatedAt = updatedAt.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
             newPost.createdAt = createdAt.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
             newPost.tags = json["tags"].array!.map({return $0.string!})
+            
             return newPost
-        }else {
+            
+        } else {
             return nil
         }
     }

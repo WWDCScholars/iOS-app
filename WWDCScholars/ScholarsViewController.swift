@@ -61,7 +61,6 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         appDelegate.year = ""
     }
     
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == String(ScholarDetailViewController) {
             let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
@@ -104,6 +103,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.scholarsCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
         
         self.loadingContainerView.hidden = false
+        self.loadingViewController.loadingMessage = "Loading Scholars..."
         self.loadingViewController.startAnimating()
         
         if self.traitCollection.forceTouchCapability == .Available {

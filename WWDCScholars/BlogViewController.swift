@@ -52,6 +52,7 @@ class BlogViewController: UIViewController {
     }
     
     private func configureUI() {
+        self.loadingViewController.loadingMessage = "Loading Blog Posts..."
         self.loadingViewController.startAnimating()
         
         if self.traitCollection.forceTouchCapability == .Available {

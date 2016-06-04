@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EFS-Va-uZI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EFS-Va-uZI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -230,7 +230,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z4f-hS-8Wm">
                                                                     <rect key="frame" x="8" y="37" width="584" height="21"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DsQ-XS-vJq">
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DsQ-XS-vJq">
                                                                             <rect key="frame" x="0.0" y="0.0" width="99" height="21"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="iNP-hj-a32">
@@ -240,7 +240,7 @@
                                                                                         <constraint firstAttribute="width" constant="21" id="s6z-Fa-cui"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Author Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uus-cu-6UI">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uus-cu-6UI">
                                                                                     <rect key="frame" x="26" y="0.0" width="73" height="21"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -364,12 +364,22 @@
                                     <outlet property="delegate" destination="qiP-lR-jI2" id="qPU-fq-bci"/>
                                 </connections>
                             </tableView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovK-iu-0EB">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <connections>
+                                    <segue destination="R9P-i0-vLE" kind="embed" identifier="LoadingViewController" id="Obs-tX-xuf"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ovK-iu-0EB" secondAttribute="trailing" id="68c-FH-55g"/>
                             <constraint firstItem="rlT-8m-Dnl" firstAttribute="top" secondItem="emh-Oi-Mqj" secondAttribute="bottom" id="D4r-tp-MzX"/>
+                            <constraint firstItem="ovK-iu-0EB" firstAttribute="leading" secondItem="dNo-6z-XYE" secondAttribute="leading" id="DG1-mU-5ob"/>
                             <constraint firstItem="rlT-8m-Dnl" firstAttribute="leading" secondItem="dNo-6z-XYE" secondAttribute="leading" id="WEY-Dk-0Wj"/>
+                            <constraint firstItem="ovK-iu-0EB" firstAttribute="top" secondItem="dNo-6z-XYE" secondAttribute="top" id="WsH-yx-Cia"/>
                             <constraint firstItem="50g-W2-a5o" firstAttribute="top" secondItem="rlT-8m-Dnl" secondAttribute="bottom" constant="-49" id="b7v-r2-7CK"/>
+                            <constraint firstItem="50g-W2-a5o" firstAttribute="top" secondItem="ovK-iu-0EB" secondAttribute="bottom" id="e4m-Wj-cX4"/>
                             <constraint firstAttribute="trailing" secondItem="rlT-8m-Dnl" secondAttribute="trailing" id="j3S-Md-g14"/>
                         </constraints>
                     </view>
@@ -382,6 +392,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="loadingContainerView" destination="ovK-iu-0EB" id="JwA-8v-Zrq"/>
                         <outlet property="tableView" destination="rlT-8m-Dnl" id="Fg6-Uv-VQv"/>
                         <segue destination="J2d-vr-eiO" kind="show" identifier="BlogPostDetailViewController" id="Hzs-Ef-xu9"/>
                     </connections>
@@ -389,6 +400,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHL-1y-cIm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2029" y="76"/>
+        </scene>
+        <!--UIViewController-OkU-OR-ZBR-->
+        <scene sceneID="maq-gT-RgU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Scholar" referencedIdentifier="UIViewController-OkU-OR-ZBR" id="R9P-i0-vLE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vfe-ea-jEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2029.5" y="546"/>
         </scene>
         <!--Blog-->
         <scene sceneID="JAo-20-fbl">

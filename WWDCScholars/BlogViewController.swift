@@ -11,9 +11,11 @@ import SafariServices
 
 class BlogViewController: UIViewController {
     @IBOutlet private weak var tableView: NoJumpRefreshTableView!
+    @IBOutlet private weak var loadingContainerView: UIView!
     
     private var testPosts: [BlogPost] = []
     private var refreshControl: UIRefreshControl!
+    private var loadingViewController: LoadingViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,8 @@ class BlogViewController: UIViewController {
             if let indexPath = sender as? NSIndexPath {
                 destinationViewController.currentPost = self.testPosts[indexPath.item]
             }
+        } else if segue.identifier == String(LoadingViewController) {
+            self.loadingViewController = segue.destinationViewController as! LoadingViewController
         }
     }
     
@@ -48,6 +52,8 @@ class BlogViewController: UIViewController {
     }
     
     private func configureUI() {
+        self.loadingViewController.startAnimating()
+        
         if self.traitCollection.forceTouchCapability == .Available {
             self.registerForPreviewingWithDelegate(self, sourceView: self.view)
         }
@@ -72,6 +78,11 @@ class BlogViewController: UIViewController {
             self.testPosts = DatabaseManager.sharedInstance.getAllBlogPosts()
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
+            
+            if self.loadingViewController.isAnimating() {
+                self.loadingContainerView.hidden = true
+                self.loadingViewController.stopAnimating()
+            }
         }
     }
     

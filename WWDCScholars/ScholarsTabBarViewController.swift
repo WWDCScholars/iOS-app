@@ -15,8 +15,14 @@ class ScholarsTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.styleUI()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if !UserDefaults.hasOpenedApp {
+            self.segueToIntro()
+            UserDefaults.hasOpenedApp = true
+        }
     }
     
     func openScholarDetail(id: String) {

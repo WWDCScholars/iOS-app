@@ -60,21 +60,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let window = self.window {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            var contentVC: UIViewController?
-            
-            if UserDefaults.hasOpenedApp {
-                let mainViewController: ScholarsTabBarViewController = mainStoryboard.instantiateViewControllerWithIdentifier(String(ScholarsTabBarViewController)) as! ScholarsTabBarViewController
-                contentVC = mainViewController
-            } else {
-                let introViewController: IntroViewController = mainStoryboard.instantiateViewControllerWithIdentifier(String(IntroViewController)) as! IntroViewController
-                contentVC = introViewController
-            }
+            let mainViewController: ScholarsTabBarViewController = mainStoryboard.instantiateViewControllerWithIdentifier(String(ScholarsTabBarViewController)) as! ScholarsTabBarViewController
             
             // Make it a root controller
-            
             window.backgroundColor = UIColor.whiteColor()
-            window.rootViewController = contentVC
+            window.rootViewController = mainViewController
             window.makeKeyAndVisible()
         }
         

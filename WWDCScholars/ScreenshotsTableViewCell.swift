@@ -112,8 +112,13 @@ extension ScreenshotsTableViewCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("screenshotsCollectionViewCell", forIndexPath: indexPath) as! ScreenshotsCollectionViewCell
         let screenshot = NSURL(string: self.screenshotType == .Scholarship ? self.scholarshipScreenshots[indexPath.item] : self.appStoreScreenshots[indexPath.item])
         
+        cell.activityIndicator.startAnimating()
+
         if screenshot != nil {
-            cell.imageView.af_setImageWithURL(screenshot!, placeholderImage: nil, imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+            cell.imageView.af_setImageWithURL(screenshot!, placeholderImage: nil, imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false, completion: { response in
+                    cell.activityIndicator.stopAnimating()
+                    cell.activityIndicator.removeFromSuperview()
+            })
         }
         
         cell.delegate = self
@@ -121,3 +126,29 @@ extension ScreenshotsTableViewCell: UICollectionViewDataSource {
         return cell
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

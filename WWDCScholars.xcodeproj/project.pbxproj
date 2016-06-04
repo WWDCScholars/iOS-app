@@ -219,7 +219,6 @@
 		7BBA88491CBEA0E80057E9AD /* String+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA88301CBEA0E80057E9AD /* String+Timepiece.swift */; };
 		7BBA88621CBEA1130057E9AD /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA88611CBEA1130057E9AD /* DateUtils.swift */; };
 		7BEB49281CFAE59500A71BAA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEB49271CFAE59500A71BAA /* LoadingViewController.swift */; };
-		9AE5ACC01D0321AD00AD0284 /* ServerDetails.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AE5ACBF1D0321AD00AD0284 /* ServerDetails.plist */; };
 		C0B7FBAA1CC45C9700AD376C /* ClusterAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBA01CC45C9700AD376C /* ClusterAnnotationView.m */; };
 		C0B7FBAB1CC45C9700AD376C /* QCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBA21CC45C9700AD376C /* QCluster.m */; };
 		C0B7FBAC1CC45C9700AD376C /* QNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBA41CC45C9700AD376C /* QNode.m */; };
@@ -1496,7 +1495,6 @@
 				6E08859C1CEE6AE900E375BB /* ServerDetails.plist in Resources */,
 				223F5E9B1CB9724000E582C5 /* tabBarDidSelectItem.m4a in Resources */,
 				6EB723D51CB9B84D005A076F /* Credits.plist in Resources */,
-				9AE5ACC01D0321AD00AD0284 /* ServerDetails.plist in Resources */,
 				6EB723CF1CB9B83B005A076F /* Main.storyboard in Resources */,
 				6ED962B41CF8B28800551E94 /* JSQMessagesLoadEarlierHeaderView.xib in Resources */,
 				0E93C3AA1CFFD40200E366DC /* Chat.storyboard in Resources */,

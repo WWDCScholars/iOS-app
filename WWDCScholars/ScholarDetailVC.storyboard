@@ -342,16 +342,21 @@
                                                                                                             <constraint firstAttribute="height" constant="231" id="ubt-SU-jKr"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
+                                                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zt9-Ur-479">
+                                                                                                        <rect key="frame" x="55" y="106" width="20" height="20"/>
+                                                                                                    </activityIndicatorView>
                                                                                                 </subviews>
                                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                             </view>
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="trailing" secondItem="Esb-HH-tt7" secondAttribute="trailing" id="HAK-lV-AJE"/>
+                                                                                                <constraint firstItem="zt9-Ur-479" firstAttribute="centerY" secondItem="Esb-HH-tt7" secondAttribute="centerY" id="JLl-lg-ubv"/>
                                                                                                 <constraint firstItem="Esb-HH-tt7" firstAttribute="top" secondItem="a6C-13-w3a" secondAttribute="top" id="MGV-1z-ho0"/>
                                                                                                 <constraint firstAttribute="bottom" secondItem="Esb-HH-tt7" secondAttribute="bottom" id="Sfh-5E-g4n"/>
                                                                                                 <constraint firstItem="Esb-HH-tt7" firstAttribute="centerX" secondItem="a6C-13-w3a" secondAttribute="centerX" id="b3q-et-DoM"/>
                                                                                                 <constraint firstItem="Esb-HH-tt7" firstAttribute="leading" secondItem="a6C-13-w3a" secondAttribute="leading" id="bgS-5M-8Nn"/>
                                                                                                 <constraint firstItem="Esb-HH-tt7" firstAttribute="centerY" secondItem="a6C-13-w3a" secondAttribute="centerY" id="cxT-Di-ojT"/>
+                                                                                                <constraint firstItem="zt9-Ur-479" firstAttribute="centerX" secondItem="Esb-HH-tt7" secondAttribute="centerX" id="k1f-sK-D2N"/>
                                                                                                 <constraint firstAttribute="bottom" secondItem="Esb-HH-tt7" secondAttribute="bottom" id="lgM-qQ-42m"/>
                                                                                                 <constraint firstAttribute="trailing" secondItem="Esb-HH-tt7" secondAttribute="trailing" id="rtm-pd-b7N"/>
                                                                                             </constraints>
@@ -366,6 +371,7 @@
                                                                                                 </mask>
                                                                                             </variation>
                                                                                             <connections>
+                                                                                                <outlet property="activityIndicator" destination="zt9-Ur-479" id="vqv-ng-RwG"/>
                                                                                                 <outlet property="imageView" destination="Esb-HH-tt7" id="zXh-0c-qqi"/>
                                                                                             </connections>
                                                                                         </collectionViewCell>

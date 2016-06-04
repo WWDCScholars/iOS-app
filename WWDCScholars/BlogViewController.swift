@@ -21,11 +21,7 @@ class BlogViewController: UIViewController {
         self.styleUI()
         self.configureUI()
         self.addRefreshControl()
-        
-        BlogKit.sharedInstance.loadPosts() {
-            self.testPosts = DatabaseManager.sharedInstance.getAllBlogPosts()
-            self.tableView.reloadData()
-        }
+        self.loadData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -72,7 +68,11 @@ class BlogViewController: UIViewController {
     // MARK: - Internal functions
     
     internal func loadData() {
-        self.refreshControl.endRefreshing()
+        BlogKit.sharedInstance.loadPosts() {
+            self.testPosts = DatabaseManager.sharedInstance.getAllBlogPosts()
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
     }
     
     // MARK: - IBActions

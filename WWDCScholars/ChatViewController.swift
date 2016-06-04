@@ -82,6 +82,7 @@ class ChatViewController: JSQMessagesViewController {
         
         self.automaticallyScrollsToMostRecentMessage = true
         self.collectionView.collectionViewLayout.springinessEnabled = true
+        self.collectionView.showsVerticalScrollIndicator = false
         self.collectionView.collectionViewLayout.springResistanceFactor = 3000
         self.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
         self.inputToolbar.contentView.leftBarButtonItem = nil

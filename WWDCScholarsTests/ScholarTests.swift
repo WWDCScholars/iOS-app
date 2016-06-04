@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import WWDCScholars
+@testable import Scholars
 import RealmSwift
 
 // I added A,B,C to determine the order

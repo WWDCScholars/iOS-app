@@ -84,6 +84,12 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         self.contentSizeConstraint.constant = self.detailsTableView.contentSize.height - ScreenSize(rawValue: UIScreen.mainScreen().bounds.height)!.adjustmentValue
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.mapView.removeFromSuperview()
+        self.mapView = nil
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editProfile" {
             let editVC = (segue.destinationViewController as! UINavigationController).viewControllers.first as! EditProfileTableViewController

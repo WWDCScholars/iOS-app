@@ -196,6 +196,11 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         })
         
         self.currentViewType = self.currentViewType == .List ? .Map : .List
+//        if self.currentViewType == .List && isMapInitalized {
+//            self.mapView.removeFromSuperview()
+//            self.mapView = nil
+//            isMapInitalized = false
+//        }
         
         self.cancelSearching()
     }

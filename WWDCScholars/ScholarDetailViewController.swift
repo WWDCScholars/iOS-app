@@ -47,18 +47,18 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     @IBOutlet private weak var profileImageViewBackground: UIView!
     @IBOutlet private weak var teamIconImageView: UIImageView!
     @IBOutlet private weak var favoritesButton: UIBarButtonItem!
-    
+
     @IBOutlet var editProfileButton: UIBarButtonItem!
-    
+
     private var loggedInScholarString: NSString!
     private var editBarButtonItem: UIBarButtonItem!
     private var currentScholar: Scholar?
-    
+
     var delegate: QuickActionsDelegate?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.editBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(ScholarDetailViewController.editProfileButtonTapped))
     }
     
@@ -86,14 +86,13 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        self.mapView.removeFromSuperview()
-        self.mapView = nil
+        // Map hotfix. Should release cached memory when leaving screen
+        self.mapView.mapType = .Standard
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editProfile" {
             let editVC = (segue.destinationViewController as! UINavigationController).viewControllers.first as! EditProfileTableViewController
-            
             editVC.setScholar(self.currentScholar?.id ?? "")
         }
     }
@@ -386,3 +385,24 @@ extension ScholarDetailViewController: UIScrollViewDelegate {
         self.mapView.frame = mapFrame
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

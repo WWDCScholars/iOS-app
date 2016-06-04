@@ -83,6 +83,8 @@ extension ChatListViewController: UITableViewDataSource {
 
 extension ChatListViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         self.performSegueWithIdentifier(String(ChatViewController), sender: indexPath)
     }
 }

@@ -11,6 +11,10 @@ import SafariServices
 import FirebaseAuth
 import AVFoundation
 
+protocol SignInDelegate {
+    func userSignedIn()
+}
+
 class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehaviorDelegate {
     @IBOutlet private weak var dialogView: SpringView!
     @IBOutlet private weak var signinButton: SpringButton!
@@ -20,9 +24,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     private var originalCenter: CGPoint!
-    
     private var tapSoundEffect: AVAudioPlayer!
     private var session = AVAudioSession.sharedInstance()
+    
+    var delegate: SignInDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,6 +101,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
             if error == nil {
                 self.dismissSignInViewController()
                 self.playConfirmationSound()
+                self.delegate?.userSignedIn()
             } else {
                 self.animateSignInButton(false)
                 self.shakeSignInViewController()

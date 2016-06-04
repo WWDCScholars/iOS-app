@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatListViewController: UIViewController {
+class ChatListViewController: UIViewController, SignInDelegate {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var notLoggedInView: UIView!
     @IBAction func logInButtonAction(sender: AnyObject) {
@@ -28,18 +28,7 @@ class ChatListViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        checkLoggedIn()
-        // Build 100! 🎉
-    }
-    
-    
-    override func viewDidAppear(animated: Bool) {
-        
-        checkLoggedIn()
-        
-        if (tableView.indexPathForSelectedRow != nil){
-            self.tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: true)
-        }
+        self.notLoggedInView.hidden = UserKit.sharedInstance.isLoggedIn
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -60,22 +49,19 @@ class ChatListViewController: UIViewController {
     
     private func showSignInModal() {
         let storyboard = UIStoryboard(name: "EditDetails", bundle: nil)
-        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("SignInVC")
+        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("SignInVC") as! SignInViewController
         
         modalViewController.modalPresentationStyle = .OverCurrentContext
+        modalViewController.delegate = self
         modalViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         self.view.window?.rootViewController?.view.window?.rootViewController!.presentViewController(modalViewController, animated: true, completion: nil)
     }
     
-    private func checkLoggedIn(){
-        switch UserKit.sharedInstance.isLoggedIn{
-        case true:
-            self.notLoggedInView.alpha = 0
-        case false:
-            self.notLoggedInView.alpha = 1
-        }
+    // MARK: - Internal functions
+    
+    internal func userSignedIn() {
+        self.notLoggedInView.hidden = UserKit.sharedInstance.isLoggedIn
     }
-
 }
 
 // MARK: - UITableViewDataSource
@@ -124,3 +110,4 @@ extension ChatListViewController: UIViewControllerPreviewingDelegate {
         self.showViewController(viewControllerToCommit, sender: self)
     }
 }
+

@@ -110,7 +110,7 @@ extension CreditsViewController: UITableViewDataSource {
         let creditNameText = NSMutableAttributedString(string: currentCredit.name)
         let creditLocationText = NSMutableAttributedString(string: " (\(currentCredit.location))")
         
-        creditNameText.addAttribute(NSForegroundColorAttributeName, value: UIColor.blackColor(), range: NSRange(location: 0, length: creditNameText.length))
+        creditNameText.addAttribute(NSForegroundColorAttributeName, value: UIColor.darkGrayColor(), range: NSRange(location: 0, length: creditNameText.length))
         creditLocationText.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGrayColor(), range: NSRange(location: 0, length: creditLocationText.length))
         creditNameText.appendAttributedString(creditLocationText)
         

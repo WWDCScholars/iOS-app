@@ -729,7 +729,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="App Store Submission" footerTitle="Only full length App Store URls are valid and must contain your app's ID" id="ZbV-5b-2wr">
+                            <tableViewSection headerTitle="App Store Submission" footerTitle="Only full length App Store URLs are valid and must contain your app's ID" id="ZbV-5b-2wr">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="cKq-va-Ojk">
                                         <rect key="frame" x="0.0" y="1383" width="600" height="54"/>
@@ -799,6 +799,7 @@
                     <connections>
                         <outlet property="ageTextField" destination="j0p-Mx-k4f" id="Uij-BZ-Yny"/>
                         <outlet property="appGithubTextField" destination="Tg2-Ai-yWH" id="PbP-G2-U2h"/>
+                        <outlet property="appStoreSubmissionTextField" destination="4JA-6W-WP3" id="EOH-cf-U2V"/>
                         <outlet property="appStoreTextField" destination="qzI-or-qUj" id="oHl-ee-Ed5"/>
                         <outlet property="bioTextView" destination="9qa-zv-V07" id="Lj9-4Q-dUe"/>
                         <outlet property="emailTextField" destination="gGV-uM-AQw" id="bwr-pN-7Ae"/>

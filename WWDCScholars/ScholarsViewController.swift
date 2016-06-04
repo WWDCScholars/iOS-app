@@ -215,6 +215,22 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
 //        }
         
         self.cancelSearching()
+        
+        switch self.mainView.alpha {
+        case 0:
+            if self.traitCollection.forceTouchCapability == .Available {
+                print("Unregister 3D Touch")
+                // Pls check this @Andrew: self.unregisterForPreviewingWithContext(self.view)
+
+            }
+        case 1:
+            if self.traitCollection.forceTouchCapability == .Available {
+                print("Register 3D Touch")
+                self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+
+            }
+        default: break
+        }
     }
     
     private func getCurrentScholars() {

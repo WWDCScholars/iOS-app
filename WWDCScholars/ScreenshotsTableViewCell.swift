@@ -28,6 +28,10 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         didSet {
             self.collectionViewTopConstraint.constant = self.is2016 == true ? 60.0 : 16.0
             self.layoutIfNeeded()
+            
+            if self.is2016 == true {
+                segmentedControl.hidden = false
+            }
         }
     }
     

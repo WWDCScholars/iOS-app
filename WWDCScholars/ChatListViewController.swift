@@ -29,6 +29,7 @@ class ChatListViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         checkLoggedIn()
+        // Build 100! 🎉
     }
     
     

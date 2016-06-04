@@ -31,7 +31,8 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     private let years: [WWDC] = [.WWDC2011, .WWDC2012, .WWDC2013, .WWDC2014, .WWDC2015, .WWDC2016, .Saved]
     private let locationManager = CLLocationManager()
     private let noContentLabel = UILabel()
-    
+    private var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
     private lazy var qTree = QTree()
     
     private var currentYear: WWDC = .WWDC2016

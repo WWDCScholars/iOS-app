@@ -92,6 +92,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.styleUI()
         
+    
+        let photoCache = AutoPurgingImageCache( memoryCapacity: 50 * 1024 * 1024, preferredMemoryUsageAfterPurge: 20 * 1024 * 1024 )
+        let newImageDownloader = ImageDownloader(configuration: ImageDownloader.defaultURLSessionConfiguration(), downloadPrioritization: .FIFO, maximumActiveDownloads: 50, imageCache: photoCache)
+        UIImageView.af_sharedImageDownloader = newImageDownloader
+        
         return true
     }
     

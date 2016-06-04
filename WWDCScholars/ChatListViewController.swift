@@ -10,6 +10,10 @@ import UIKit
 
 class ChatListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var notLoggedInView: UIView!
+    @IBAction func logInButtonAction(sender: AnyObject) {
+        showSignInModal()
+    }
     
     private var chatItems = ChatRoom.getChatItems()
     
@@ -23,7 +27,15 @@ class ChatListViewController: UIViewController {
         self.styleUI()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        checkLoggedIn()
+    }
+    
+    
     override func viewDidAppear(animated: Bool) {
+        
+        checkLoggedIn()
+        
         if (tableView.indexPathForSelectedRow != nil){
             self.tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: true)
         }
@@ -44,6 +56,25 @@ class ChatListViewController: UIViewController {
     private func styleUI() {
         self.title = "Chat"
     }
+    
+    private func showSignInModal() {
+        let storyboard = UIStoryboard(name: "EditDetails", bundle: nil)
+        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("SignInVC")
+        
+        modalViewController.modalPresentationStyle = .OverCurrentContext
+        modalViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        self.view.window?.rootViewController?.view.window?.rootViewController!.presentViewController(modalViewController, animated: true, completion: nil)
+    }
+    
+    private func checkLoggedIn(){
+        switch UserKit.sharedInstance.isLoggedIn{
+        case true:
+            self.notLoggedInView.alpha = 0
+        case false:
+            self.notLoggedInView.alpha = 1
+        }
+    }
+
 }
 
 // MARK: - UITableViewDataSource

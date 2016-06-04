@@ -62,7 +62,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="beT-e6-GLb" id="21y-vH-GtS">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Chat Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="681-Cb-HBg">
@@ -71,7 +71,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="516-iW-Qu8"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -91,17 +91,68 @@
                                     <outlet property="delegate" destination="R47-kq-tjz" id="88K-KR-jKG"/>
                                 </connections>
                             </tableView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqK-HR-Fed">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lockFilled" translatesAutoresizingMaskIntoConstraints="NO" id="wco-ij-649">
+                                        <rect key="frame" x="250" y="92" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="mDJ-7L-0W6"/>
+                                            <constraint firstAttribute="width" constant="100" id="uuH-0s-yHB"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You need to login to access the chat." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHG-2b-H3r">
+                                        <rect key="frame" x="8" y="211" width="584" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="62" id="RIW-n3-0qr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udH-fE-KJs">
+                                        <rect key="frame" x="272" y="281" width="56" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="4D5-Zr-ZWn"/>
+                                            <constraint firstAttribute="width" constant="56" id="8kw-G5-8ov"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <color key="tintColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Log in">
+                                            <color key="titleColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logInButtonAction:" destination="R47-kq-tjz" eventType="touchUpInside" id="VY1-mh-QjF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="udH-fE-KJs" firstAttribute="top" secondItem="MHG-2b-H3r" secondAttribute="bottom" constant="8" id="ATY-SX-7RR"/>
+                                    <constraint firstAttribute="trailing" secondItem="MHG-2b-H3r" secondAttribute="trailing" constant="8" id="Ezh-NN-Kno"/>
+                                    <constraint firstItem="udH-fE-KJs" firstAttribute="centerX" secondItem="tqK-HR-Fed" secondAttribute="centerX" id="Kde-S6-nPd"/>
+                                    <constraint firstItem="wco-ij-649" firstAttribute="centerX" secondItem="tqK-HR-Fed" secondAttribute="centerX" id="gFR-Hd-cBZ"/>
+                                    <constraint firstItem="MHG-2b-H3r" firstAttribute="leading" secondItem="tqK-HR-Fed" secondAttribute="leading" constant="8" id="h3X-su-4Df"/>
+                                    <constraint firstItem="MHG-2b-H3r" firstAttribute="top" secondItem="wco-ij-649" secondAttribute="bottom" constant="19" id="nR9-tA-al1"/>
+                                    <constraint firstItem="wco-ij-649" firstAttribute="top" secondItem="tqK-HR-Fed" secondAttribute="top" constant="92" id="qwm-5T-ugi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tqK-HR-Fed" secondAttribute="trailing" id="AcK-lS-pVF"/>
+                            <constraint firstItem="E4h-L6-p7l" firstAttribute="top" secondItem="tqK-HR-Fed" secondAttribute="bottom" id="KZz-C6-c4n"/>
                             <constraint firstItem="Yuh-qG-6aL" firstAttribute="leading" secondItem="sFc-EG-t4X" secondAttribute="leading" id="N5b-zi-TOZ"/>
                             <constraint firstAttribute="trailing" secondItem="Yuh-qG-6aL" secondAttribute="trailing" id="O5z-lj-QYh"/>
                             <constraint firstItem="Yuh-qG-6aL" firstAttribute="top" secondItem="9d1-ML-tK4" secondAttribute="bottom" id="VpW-oJ-4In"/>
+                            <constraint firstItem="tqK-HR-Fed" firstAttribute="leading" secondItem="sFc-EG-t4X" secondAttribute="leading" id="eHc-AZ-LSF"/>
                             <constraint firstItem="E4h-L6-p7l" firstAttribute="top" secondItem="Yuh-qG-6aL" secondAttribute="bottom" id="gHk-3P-qH9"/>
+                            <constraint firstItem="tqK-HR-Fed" firstAttribute="top" secondItem="9d1-ML-tK4" secondAttribute="bottom" id="lUz-YG-vOE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YlQ-cV-lOo"/>
                     <connections>
+                        <outlet property="notLoggedInView" destination="tqK-HR-Fed" id="HzY-S9-jDP"/>
                         <outlet property="tableView" destination="Yuh-qG-6aL" id="dUA-N9-XHD"/>
                         <segue destination="nbF-qz-3hW" kind="show" identifier="ChatViewController" id="nzK-Rg-OLd"/>
                     </connections>
@@ -151,6 +202,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="lockFilled" width="100" height="100"/>
         <image name="tabBarIconChat" width="25" height="25"/>
         <image name="tabBarIconChatFilled" width="25" height="25"/>
     </resources>

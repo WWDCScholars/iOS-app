@@ -124,8 +124,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         switch identifier {
         case .OpenMyProfile:
             let storyboard = UIStoryboard(name: "EditDetails", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("EditDetailsNC")
-            self.window?.rootViewController?.presentViewController(vc, animated: true, completion: nil)
+            var vc = storyboard.instantiateInitialViewController()
+            if (!UserKit.sharedInstance.isLoggedIn) {
+                vc = storyboard.instantiateViewControllerWithIdentifier("SignInVC")
+            } else {
+                vc = storyboard.instantiateViewControllerWithIdentifier("EditDetailsNC")
+            }
+            self.window?.rootViewController?.presentViewController(vc!, animated: true, completion: nil)
             return true
         case .OpenFavorites:
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

@@ -42,6 +42,7 @@
 		22E2A6F51CC1DC2400DF0578 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6F41CC1DC2400DF0578 /* Misc.swift */; };
 		22E937B71CDCE4F300A2BEBE /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E937B61CDCE4F300A2BEBE /* SafariServices.framework */; };
 		22E937B91CDCE82500A2BEBE /* SignUpSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E937B81CDCE82500A2BEBE /* SignUpSafariViewController.swift */; };
+		6E08859C1CEE6AE900E375BB /* ServerDetails.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E08859B1CEE6AE900E375BB /* ServerDetails.plist */; };
 		6E08859E1CEE80B000E375BB /* NoJumpRefreshCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E08859D1CEE80B000E375BB /* NoJumpRefreshCollectionView.swift */; };
 		6E1F069B1CC0332F00E464A0 /* ScholarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */; };
 		6E1F069D1CC045F400E464A0 /* YearCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */; };
@@ -381,6 +382,7 @@
 		22E2A6F41CC1DC2400DF0578 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		22E937B61CDCE4F300A2BEBE /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		22E937B81CDCE82500A2BEBE /* SignUpSafariViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpSafariViewController.swift; sourceTree = "<group>"; };
+		6E08859B1CEE6AE900E375BB /* ServerDetails.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerDetails.plist; sourceTree = "<group>"; };
 		6E08859D1CEE80B000E375BB /* NoJumpRefreshCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoJumpRefreshCollectionView.swift; sourceTree = "<group>"; };
 		6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -607,6 +609,7 @@
 		7BBA88301CBEA0E80057E9AD /* String+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Timepiece.swift"; path = "Sources/String+Timepiece.swift"; sourceTree = "<group>"; };
 		7BBA88611CBEA1130057E9AD /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		7BEB49271CFAE59500A71BAA /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		9AE5ACBF1D0321AD00AD0284 /* ServerDetails.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerDetails.plist; sourceTree = "<group>"; };
 		C0B7FB9F1CC45C9700AD376C /* ClusterAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterAnnotationView.h; sourceTree = "<group>"; };
 		C0B7FBA01CC45C9700AD376C /* ClusterAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterAnnotationView.m; sourceTree = "<group>"; };
 		C0B7FBA11CC45C9700AD376C /* QCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCluster.h; sourceTree = "<group>"; };
@@ -730,6 +733,8 @@
 				C0B7FBB11CC45F6700AD376C /* ScholarAnnotation.swift */,
 				6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */,
 				223884221C8252D900A96752 /* ScholarsViewController.swift */,
+				9AE5ACBF1D0321AD00AD0284 /* ServerDetails.plist */,
+				6E08859B1CEE6AE900E375BB /* ServerDetails.plist */,
 				6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */,
 			);
 			name = Scholars;
@@ -1487,6 +1492,7 @@
 				6ED9628C1CF8B28800551E94 /* JSQMessagesAssets.bundle in Resources */,
 				2238842B1C8252D900A96752 /* LaunchScreen.storyboard in Resources */,
 				6E7952871CF640E100160B26 /* GoogleService-Info.plist in Resources */,
+				6E08859C1CEE6AE900E375BB /* ServerDetails.plist in Resources */,
 				223F5E9B1CB9724000E582C5 /* tabBarDidSelectItem.m4a in Resources */,
 				6EB723D51CB9B84D005A076F /* Credits.plist in Resources */,
 				6EB723CF1CB9B83B005A076F /* Main.storyboard in Resources */,

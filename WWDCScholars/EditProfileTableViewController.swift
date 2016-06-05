@@ -301,6 +301,14 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
             }
         }
         
+        if self.firstNameTextField.text == "" {
+            validationIssue = .FirstName
+        }
+        
+        if self.secondNameTextField.text == "" {
+            validationIssue = .SecondName
+        }
+        
         if validationIssue == .None {
             // Dismiss view and upload changes
         } else {

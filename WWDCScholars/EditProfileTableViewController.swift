@@ -74,8 +74,9 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         
         if !self.hasData {
             self.populateFields()
-            self.configureDatePicker()
         }
+        
+        self.configureDatePicker()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -117,6 +118,8 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     private func configureDatePicker() {
         self.datePicker = UIDatePicker()
         self.datePicker.datePickerMode = .Date
+        self.datePicker.maximumDate = NSDate.dateMinusYears(10)
+        self.datePicker.minimumDate = NSDate.dateMinusYears(100)
         self.ageTextField.inputView = self.datePicker
         
         let toolBar = UIToolbar()

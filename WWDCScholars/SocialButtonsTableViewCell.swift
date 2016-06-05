@@ -85,12 +85,11 @@ class SocialButtonsTableViewCell: UITableViewCell {
     }
     
     internal func twitterTapped() {
-        let twitterProfileID : String! // This is not optional.
-
+        
+        let twitterProfileID : String!
         twitterProfileID = self.scholar.twitterURL!.componentsSeparatedByString("/").last
         
         if twitterProfileID != nil {
-            
             let tweetbotURL = NSURL(string: "tweetbot://\(twitterProfileID!)/user_profile/\(twitterProfileID)".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
 
             let deeplink = NSURL(string: "twitter://user?screen_name=\(twitterProfileID!)".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)

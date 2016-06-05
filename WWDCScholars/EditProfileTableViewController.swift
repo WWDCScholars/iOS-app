@@ -74,8 +74,9 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         
         if !self.hasData {
             self.populateFields()
-            self.configureDatePicker()
         }
+        
+        self.configureDatePicker()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

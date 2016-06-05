@@ -41,34 +41,34 @@ extension UIColor {
         return UIColor(red: 238.0 / 255.0, green: 238.0 / 255.0, blue: 238.0 / 255.0, alpha: 1.0)
     }
     
-    // MARK: - Logo Colors
+    // MARK: - Logo Colors (Not currently used)
     
     class func logoPinkColor() -> UIColor {
-        return UIColor(red: 224.0 / 255.0, green: 69.0 / 255.0, blue: 119.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 220.0 / 255.0, green: 36.0 / 255.0, blue: 110.0 / 255.0, alpha: 1.0)
     }
     
     class func logoBlueColor() -> UIColor {
-        return UIColor(red: 74.0 / 255.0, green: 86.0 / 255.0, blue: 166.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 54.0 / 255.0, green: 74.0 / 255.0, blue: 166.0 / 255.0, alpha: 1.0)
     }
     
     class func logoLightBlueColor() -> UIColor {
-        return UIColor(red: 61.0 / 255.0, green: 147.0 / 255.0, blue: 208.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 15.0 / 255.0, green: 137.0 / 255.0, blue: 204.0 / 255.0, alpha: 1.0)
     }
     
     class func logoYellowColor() -> UIColor {
-        return UIColor(red: 250.0 / 255.0, green: 193.0 / 255.0, blue: 102.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 243.0 / 255.0, green: 186.0 / 255.0, blue: 90.0 / 255.0, alpha: 1.0)
     }
     
     class func logoPurpleColor() -> UIColor {
-        return UIColor(red: 120.0 / 255.0, green: 94.0 / 255.0, blue: 168.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 139.0 / 255.0, green: 14.0 / 255.0, blue: 162.0 / 255.0, alpha: 1.0)
     }
     
     class func logoGreenColor() -> UIColor {
-        return UIColor(red: 150.0 / 255.0, green: 178.0 / 255.0, blue: 77.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 139.0 / 255.0, green: 169.0 / 255.0, blue: 62.0 / 255.0, alpha: 1.0)
     }
     
     class func logoOrangeColor() -> UIColor {
-        return UIColor(red: 233.0 / 255.0, green: 116.0 / 255.0, blue: 53.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 232.0 / 255.0, green: 96.0 / 255.0, blue: 20.0 / 255.0, alpha: 1.0)
     }
 }
 

@@ -22,6 +22,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     @IBOutlet private weak var passwordTextField: DesignableTextField!
     @IBOutlet private weak var signUpButton: SpringButton!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var blurView: UIView!
     
     private var originalCenter: CGPoint!
     private var tapSoundEffect: AVAudioPlayer!
@@ -31,6 +32,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignInViewController.dismissKeyboard(_:)))
+        self.blurView.addGestureRecognizer(gestureRecognizer)
         
         FIRAuth.auth()?.signInAnonymouslyWithCompletion() { (user, error) in
             let isAnonymous = user!.anonymous
@@ -83,6 +87,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     internal func shakeSignInViewController() {
         self.dialogView.animation = "shake"
         self.dialogView.animate()
+    }
+    
+    internal func dismissKeyboard(gestureRecognizer: UIGestureRecognizer) {
+        self.emailTextField.resignFirstResponder()
+        self.passwordTextField.resignFirstResponder()
     }
     
     // MARK: - IBActions

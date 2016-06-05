@@ -123,7 +123,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         switch identifier {
         case .OpenMyProfile:
-            tabBarController.selectedIndex = 4
+            let storyboard = UIStoryboard(name: "EditDetails", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("EditDetailsNC")
+            self.window?.rootViewController?.presentViewController(vc, animated: true, completion: nil)
             return true
         case .OpenFavorites:
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

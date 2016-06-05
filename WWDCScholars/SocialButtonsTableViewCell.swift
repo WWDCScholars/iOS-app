@@ -85,13 +85,20 @@ class SocialButtonsTableViewCell: UITableViewCell {
     }
     
     internal func twitterTapped() {
+        let twitterProfileID : String! // This is not optional.
+
+        twitterProfileID = self.scholar.twitterURL!.componentsSeparatedByString("/").last
         
-        let twitterProfileID = self.scholar.twitterURL!.componentsSeparatedByString("/").last
         if twitterProfileID != nil {
             
+            let tweetbotURL = NSURL(string: "tweetbot://\(twitterProfileID!)/user_profile/\(twitterProfileID)".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
+
             let deeplink = NSURL(string: "twitter://user?screen_name=\(twitterProfileID!)".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
             
-            if UIApplication.sharedApplication().canOpenURL(deeplink!) {
+            if UIApplication.sharedApplication().canOpenURL(tweetbotURL!){
+                UIApplication.sharedApplication().openURL(tweetbotURL!)
+            }
+            else if UIApplication.sharedApplication().canOpenURL(deeplink!) {
                 UIApplication.sharedApplication().openURL(deeplink!)
             } else {
                 self.delegate?.openURL(self.scholar.twitterURL!)
@@ -111,8 +118,8 @@ class SocialButtonsTableViewCell: UITableViewCell {
         self.githubImageView.hidden = self.scholar.githubURL == nil
         self.websiteImageView.hidden = self.scholar.websiteURL == nil
         self.appStoreImageView.hidden = self.scholar.iTunesURL == nil
-        
-        self.twitterImageView.hidden = true //Missing implementation
+        self.twitterImageView.hidden = self.scholar.twitterURL == nil
+
         self.emailImageView.hidden = false //Never hidden
     }
 }

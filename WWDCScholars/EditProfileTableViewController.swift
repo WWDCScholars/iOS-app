@@ -13,6 +13,15 @@ enum ImageUploadType {
     case Screenshot
 }
 
+enum ValidationIssueType: String {
+    case Twitter = "Your Twitter profile URL doesn't seem to be valid."
+    case Facebook = "Your Facebook profile URL doesn't seem to be valid."
+    case GitHub = "Your GitHub profile URL doesn't seem to be valid"
+    case FirstName = "Please enter your first name"
+    case SecondName = "Please enter your second name"
+    case None = ""
+}
+
 class EditProfileTableViewController: UITableViewController, UINavigationControllerDelegate, CLLocationManagerDelegate, LocationSelectedDelegate, ScreenshotImportDelegate {
     @IBOutlet private weak var screenshotCollectionView: UICollectionView!
     @IBOutlet private weak var profileImageButton: UIButton!
@@ -272,7 +281,36 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     }
     
     @IBAction func doneButtonTapped(sender: AnyObject) {
+        var validationIssue: ValidationIssueType = .None
         
+        if let text = self.facebookTextField.text where self.facebookTextField.text != "" {
+            if !text.isValidFacebookLink() {
+                validationIssue = .Facebook
+            }
+        }
+        
+        if let text = self.githubTextField.text where self.githubTextField.text != "" {
+            if !text.isValidGitHubLink() {
+                validationIssue = .GitHub
+            }
+        }
+        
+        if let text = self.twitterTextField.text where self.twitterTextField.text != "" {
+            if !text.isValidTwitterLink() {
+                validationIssue = .Twitter
+            }
+        }
+        
+        if validationIssue == .None {
+            // Dismiss view and upload changes
+        } else {
+            let alertController = UIAlertController(title: "Invalid Details", message: validationIssue.rawValue, preferredStyle: .Alert)
+            
+            let confirmAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            alertController.addAction(confirmAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func cancelButtonTapped(sender: AnyObject) {

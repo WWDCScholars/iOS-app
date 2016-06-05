@@ -216,10 +216,17 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         
         switch self.currentViewType {
         case .List:
-            self.registeredPeekView = self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+			if self.traitCollection.forceTouchCapability == .Available {
+				self.registeredPeekView = self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+			}
         case .Map:
-            self.unregisterForPreviewingWithContext(self.registeredPeekView)
-            self.registeredPeekView = nil
+			// Connor, 06/05/2016 - Trying to unregister on non-3dtouch-enabled 
+			// devices would crash since this would never have been set.
+			if let peekView = self.registeredPeekView {
+				self.unregisterForPreviewingWithContext(peekView)
+			}
+			
+			self.registeredPeekView = nil
         }
         
         self.cancelSearching()

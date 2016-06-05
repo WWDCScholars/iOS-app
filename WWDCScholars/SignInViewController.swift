@@ -149,8 +149,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         
         do {
             let sound = try AVAudioPlayer(contentsOfURL: url)
-            tapSoundEffect = sound
-            // tapSoundEffect.volume = 0.5
+            self.tapSoundEffect = sound
+            self.tapSoundEffect.volume = 0.1
             sound.play()
             
             print("Sound played")

@@ -71,8 +71,8 @@ class ScholarsTabBarViewController: UITabBarController {
         
         do {
             let sound = try AVAudioPlayer(contentsOfURL: url)
-            tapSoundEffect = sound
-            tapSoundEffect.volume = 0.01
+            self.tapSoundEffect = sound
+            self.tapSoundEffect.volume = 0.1
             sound.play()
         } catch {
             print("Failed to load tab bar sound file")

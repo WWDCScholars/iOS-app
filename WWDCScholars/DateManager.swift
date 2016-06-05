@@ -6,6 +6,19 @@
 //  Copyright © 2016 WWDCScholars. All rights reserved.
 //
 
+extension NSDate {
+    static func dateMinusYears(years: Int) -> NSDate {
+        let calendar = NSCalendar.currentCalendar()
+        let currentDate = NSDate()
+        let dateComponents = NSDateComponents()
+        let options: NSCalendarOptions = .WrapComponents
+        dateComponents.year = -years
+        
+        let endDate = calendar.dateByAddingComponents(dateComponents, toDate: currentDate, options: options)
+        return endDate!
+    }
+}
+
 class DateManager {
     static private let sharedInstance = DateManager()
     

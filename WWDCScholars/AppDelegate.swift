@@ -71,12 +71,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
-        // 3D Touch
-        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
-            self.handleShortcut(shortcutItem)
-            
-            return false
-        }
         
         CreditsManager.sharedInstance.getCredits()
         Fabric.with([Crashlytics.self])
@@ -88,6 +82,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let photoCache = AutoPurgingImageCache( memoryCapacity: 50 * 1024 * 1024, preferredMemoryUsageAfterPurge: 20 * 1024 * 1024 )
         let newImageDownloader = ImageDownloader(configuration: ImageDownloader.defaultURLSessionConfiguration(), downloadPrioritization: .FIFO, maximumActiveDownloads: 50, imageCache: photoCache)
         UIImageView.af_sharedImageDownloader = newImageDownloader
+        
+        // 3D Touch
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
+            self.handleShortcut(shortcutItem)
+            
+            return false
+        }
+        
         
         return true
     }

@@ -47,8 +47,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     @IBOutlet private weak var profileImageViewBackground: UIView!
     @IBOutlet private weak var teamIconImageView: UIImageView!
     @IBOutlet private weak var favoritesButton: UIBarButtonItem!
-
-    @IBOutlet var editProfileButton: UIBarButtonItem!
+    @IBOutlet private weak var editProfileButton: UIBarButtonItem!
 
     private var loggedInScholarString: NSString!
     private var editBarButtonItem: UIBarButtonItem!
@@ -76,7 +75,6 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         self.styleUI()
         self.updateUI()
         self.editButtonVisible()
-        
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -155,7 +153,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         // Fix ScrollView Constraint
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
-            let offset = self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)).height+self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0)).height - self.contentSizeConstraint.constant-186
+            let offset = self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)).height+self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0)).height - self.contentSizeConstraint.constant - 118.0
             self.contentSizeConstraint.constant += offset
             print(offset)
         }

@@ -7,7 +7,6 @@
         <!--View Controller-->
         <scene sceneID="twC-yz-amR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1s1-TZ-CSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="7VJ-96-diB" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i2h-77-12Y"/>
@@ -18,22 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="I7G-zS-b5T">
-                        <barButtonItem key="leftBarButtonItem" image="barButtonItemIconAccountFilled" id="h2p-4z-LoF">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="mapIcon" id="sRP-gl-8OC">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="I7G-zS-b5T"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1s1-TZ-CSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1169" y="-289"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qiZ-G6-Zbz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jyi-sw-Jw4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Oc8-D6-y0B" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" id="Oyg-HO-KUm"/>
                     <toolbarItems/>
@@ -50,6 +42,7 @@
                         <segue destination="7VJ-96-diB" kind="relationship" relationship="rootViewController" id="lgH-QH-fPh"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jyi-sw-Jw4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="543" y="-289"/>
         </scene>
@@ -73,8 +66,4 @@
             <point key="canvasLocation" x="-93" y="-289"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="barButtonItemIconAccountFilled" width="22" height="22"/>
-        <image name="mapIcon" width="22" height="22"/>
-    </resources>
 </document>

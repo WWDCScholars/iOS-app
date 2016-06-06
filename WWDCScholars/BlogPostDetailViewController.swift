@@ -149,6 +149,8 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         self.navigationItem.titleView = self.titleView
         self.titleViewLabel.text = self.currentPost.title
         
+        
+        
         self.scrollViewDidScroll(self.scrollView)
     }
     
@@ -179,6 +181,8 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         
         self.authorProfileImageButton.applyRoundedCorners()
         self.authorProfileImageViewBackground.applyRoundedCorners()
+        
+        self.titleLabel.adjustsFontSizeToFitWidth = true
     }
 
     // MARK: - IBActions

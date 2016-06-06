@@ -76,7 +76,7 @@ class IntroViewController: UIViewController {
     }
     
     private func addObjects() {
-        self.getStartedLabel.font = UIFont.systemFontOfSize(16.5)
+        self.getStartedLabel.font = UIFont.systemFontOfSize(14.0)
         let attributedString = NSMutableAttributedString(string: self.getStartedLabel.text!)
         attributedString.addAttribute(NSKernAttributeName, value: 1.13, range: NSMakeRange(0, attributedString.string.length))
         self.getStartedLabel.attributedText = attributedString

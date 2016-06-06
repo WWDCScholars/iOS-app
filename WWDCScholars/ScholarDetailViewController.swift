@@ -76,12 +76,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         self.styleUI()
         self.updateUI()
         self.editButtonVisible()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
-        self.contentSizeConstraint.constant = self.detailsTableView.contentSize.height - ScreenSize(rawValue: UIScreen.mainScreen().bounds.height)!.adjustmentValue
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -152,10 +147,18 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         self.profileImageView.applyRoundedCorners()
         
         self.profileImageView.clipsToBounds = true
-        
+
         self.detailsTableView.estimatedRowHeight = 80.0
         self.detailsTableView.setNeedsLayout()
         self.detailsTableView.layoutIfNeeded()
+        
+        // Fix ScrollView Constraint
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            let offset = self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)).height+self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0)).height - self.contentSizeConstraint.constant-186
+            self.contentSizeConstraint.constant += offset
+            print(offset)
+        }
         
         self.configureMap()
     }
@@ -385,6 +388,33 @@ extension ScholarDetailViewController: UIScrollViewDelegate {
         self.mapView.frame = mapFrame
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

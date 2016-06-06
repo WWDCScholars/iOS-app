@@ -89,7 +89,7 @@ class BlogViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func addPostAction(sender: AnyObject) {
-        let url = NSURL(string: "http://wwdcscholarsform.herokuapp.com/addpost")
+        let url = NSURL(string: "https://wwdcscholars.herokuapp.com/submitpost")
         let viewController = BlogPostSafariViewController(URL: url!)
         
         self.presentViewController(viewController, animated: true, completion: nil)

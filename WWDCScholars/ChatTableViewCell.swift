@@ -12,10 +12,12 @@ class ChatTableViewCell: UITableViewCell {
     @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var containerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        self.circleView.applyRoundedCorners()
+        self.containerView.layer.cornerRadius = 7.0
+        self.circleView.applyRoundedCorners()
     }
 }

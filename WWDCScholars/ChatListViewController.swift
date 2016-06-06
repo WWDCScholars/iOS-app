@@ -88,7 +88,7 @@ extension ChatListViewController: UITableViewDataSource {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("chatTableViewCell", forIndexPath: indexPath) as! ChatTableViewCell
         cell.nameLabel.text = self.chatItems[indexPath.item].name
         cell.descriptionLabel.text = self.chatItems[indexPath.item].shortDescription
-//        cell.circleView.backgroundColor = self.colors[indexPath.item]
+        cell.circleView.backgroundColor = self.colors[indexPath.item]
         
         return cell
     }
@@ -120,9 +120,11 @@ extension ChatListViewController: UIViewControllerPreviewingDelegate {
             return nil
         }
         
+        let cellFrame = CGRect(origin: CGPoint(x: 0.0, y: cell.frame.origin.y + 8.0), size: CGSize(width: cell.frame.width, height: cell.frame.height - 8.0))
+        
         previewViewController.chatItem = self.chatItems[indexPath.item]
         previewViewController.preferredContentSize = CGSize.zero
-        previewingContext.sourceRect = self.view.convertRect(cell.frame, fromView: self.tableView)
+        previewingContext.sourceRect = self.view.convertRect(cellFrame, fromView: self.tableView)
         
         return previewViewController
     }

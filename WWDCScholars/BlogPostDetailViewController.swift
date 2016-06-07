@@ -63,7 +63,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
             "<head>\n" +
             "<meta name = \"viewport\" content = \"initial-scale = 1.0\" />" +
             "<style type=\"text/css\">\n" +
-            "body {font-family: \"%@\"; font-size: %f;}\n" +
+            "body {font-family: \"%@\"; font-size: %f; margin-bottom=150px;}\n" +
             "img {max-width: \(self.view.frame.width - 32.0)px; padding: 16px 0px 16px 0px;}\n" +
             "h1, h2, h3, h4, h5, h6 {font-weight: normal;}\n" +
             "</style>\n" +
@@ -211,7 +211,7 @@ extension BlogPostDetailViewController: UIWebViewDelegate {
         frame.size = fittingSize
         webView.frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: frame.height)
         
-        self.scrollView.contentSize.height = self.webView.frame.origin.y + self.webView.frame.height + 40.0
+        self.scrollView.contentSize.height = self.webView.frame.origin.y + self.webView.frame.height + 40
         self.webView.backgroundColor = UIColor.whiteColor()
         
     }

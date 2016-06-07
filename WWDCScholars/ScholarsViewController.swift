@@ -98,6 +98,10 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
         self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: id)
     }
     
+    func changeYear(indexPath: NSIndexPath) {
+        self.collectionView(self.yearCollectionView, didSelectItemAtIndexPath: indexPath)
+    }
+    
     // MARK: - UI
     
     private func configureUI() {

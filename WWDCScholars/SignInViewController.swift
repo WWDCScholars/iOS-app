@@ -36,6 +36,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignInViewController.dismissKeyboard(_:)))
         self.blurView.addGestureRecognizer(gestureRecognizer)
         
+        self.styleUI()
+        
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        
         FIRAuth.auth()?.signInAnonymouslyWithCompletion() { (user, error) in
             let isAnonymous = user!.anonymous
             let userID = user!.uid
@@ -44,10 +49,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
             print(userID)
         }
         
-        self.styleUI()
-        
-        self.emailTextField.delegate = self
-        self.passwordTextField.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -81,7 +82,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     // MARK: - Internal functions
     
     internal func dismissSignInViewController() {
-            self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     internal func shakeSignInViewController() {
@@ -152,7 +153,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
             self.tapSoundEffect = sound
             self.tapSoundEffect.volume = 0.1
             sound.play()
-            
             print("Sound played")
         } catch {
             print("Failed to load confirmation sound file")
@@ -165,3 +165,50 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

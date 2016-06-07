@@ -86,6 +86,10 @@ static const int kStateKey;
     
     if ( firstResponder ) {
         CGFloat viewableHeight = self.bounds.size.height - self.contentInset.top - self.contentInset.bottom;
+//        CGFloat offset = 0;
+//        if (firstResponder.tag == 9) {
+//            offset = 150;
+//        }
         [self setContentOffset:CGPointMake(self.contentOffset.x,
                                            [self TPKeyboardAvoiding_idealOffsetForView:firstResponder
                                                                  withViewingAreaHeight:viewableHeight])
@@ -252,6 +256,12 @@ static const int kStateKey;
 }
 
 -(CGFloat)TPKeyboardAvoiding_idealOffsetForView:(UIView *)view withViewingAreaHeight:(CGFloat)viewAreaHeight {
+    
+    if (view.tag == 9) {
+        // Ugly hack.
+        return [self TPKeyboardAvoiding_idealOffsetForView:[[view superview] viewWithTag:8] withViewingAreaHeight:viewAreaHeight];
+    }
+    
     CGSize contentSize = self.contentSize;
     CGFloat offset = 0.0;
     
@@ -305,3 +315,51 @@ static const int kStateKey;
 
 @implementation TPKeyboardAvoidingState
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

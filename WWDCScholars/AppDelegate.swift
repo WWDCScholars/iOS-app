@@ -125,20 +125,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         switch identifier {
         case .OpenMyProfile:
-            let storyboard = UIStoryboard(name: "EditDetails", bundle: nil)
-            var vc = storyboard.instantiateInitialViewController()
+            
+            
+            tabBarController.selectedIndex = 0
+            
             if (!UserKit.sharedInstance.isLoggedIn) {
-                vc = storyboard.instantiateViewControllerWithIdentifier("SignInVC")
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                let vc = storyboard.instantiateViewControllerWithIdentifier("SignInVC")
+                self.window?.rootViewController?.presentViewController(vc, animated: true, completion: nil)
             } else {
-                vc = storyboard.instantiateViewControllerWithIdentifier("EditDetailsNC")
+                
+                let storyboard = UIStoryboard(name: "ScholarDetailVC", bundle: nil)
+                
+                let vc = storyboard.instantiateViewControllerWithIdentifier("scholarDetailViewController") as! ScholarDetailViewController
+                
+                guard let detailViewController: ScholarDetailViewController = vc else {
+                    return false
+                }
+                
+                detailViewController.setScholar(UserKit.sharedInstance.scholarId!)
+                // self.window?.rootViewController?.presentViewController(detailViewController, animated: true, completion: nil)
+                ((self.window?.rootViewController as! UITabBarController).viewControllers![0] as! UINavigationController).pushViewController(detailViewController, animated: true)
             }
-            self.window?.rootViewController?.presentViewController(vc!, animated: true, completion: nil)
+            
             return true
         case .OpenFavorites:
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.year = "saved"
             
             tabBarController.selectedIndex = 0
+            
+            let scholarsVC: ScholarsViewController = ((self.window?.rootViewController as! UITabBarController).viewControllers![0] as! UINavigationController).viewControllers[0] as! ScholarsViewController
+            scholarsVC.changeYear(NSIndexPath(forRow: 6, inSection: 0))
+            
             return true
         case .OpenBlog:
             tabBarController.selectedIndex = 1

@@ -16,6 +16,7 @@ enum AuthorButtonType {
 }
 
 class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate {
+    
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet private weak var authorProfileImageButton: UIButton!
     @IBOutlet private weak var authorProfileImageViewBackground: UIView!
@@ -40,6 +41,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         self.automaticallyAdjustsScrollViewInsets = false
         self.styleUI()
         self.configureUI()
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -59,6 +61,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         
         let body = NSString(format:"<html> \n" +
             "<head>\n" +
+            "<meta name = \"viewport\" content = \"initial-scale = 1.0\" />" +
             "<style type=\"text/css\">\n" +
             "body {font-family: \"%@\"; font-size: %f;}\n" +
             "img {max-width: \(self.view.frame.width - 32.0)px; padding: 16px 0px 16px 0px;}\n" +
@@ -206,9 +209,11 @@ extension BlogPostDetailViewController: UIWebViewDelegate {
         
         let fittingSize = webView.sizeThatFits(.zero)
         frame.size = fittingSize
-        webView.frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: frame.height - 1.0)
+        webView.frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: frame.height)
         
-        self.scrollView.contentSize.height = self.webView.frame.origin.y + self.webView.frame.height - 40.0
+        self.scrollView.contentSize.height = self.webView.frame.origin.y + self.webView.frame.height + 630.0
+        self.webView.backgroundColor = UIColor.whiteColor()
+        
     }
 }
 
@@ -234,6 +239,7 @@ extension BlogPostDetailViewController: UIScrollViewDelegate {
         let contentOffset: CGPoint = CGPointMake(0.0, min(scrollView.contentOffset.y - imageViewHeight - (self.titleLabel.frame.height / 2.0) + 22.0, 44.0))
         self.titleView.contentOffset.y = contentOffset.y
         self.titleViewOverlayLabel.alpha = -((self.titleView.contentOffset.y) / 25.0)
+
     }
     
 }

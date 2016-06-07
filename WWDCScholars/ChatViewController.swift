@@ -63,6 +63,14 @@ class ChatViewController: JSQMessagesViewController {
         self.observeTyping()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !UserKit.sharedInstance.isLoggedIn {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == String(ScholarDetailViewController) {
             let destinationViewController = segue.destinationViewController as! ScholarDetailViewController

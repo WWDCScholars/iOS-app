@@ -29,8 +29,8 @@
                                                     <constraint firstAttribute="height" constant="156" id="5FQ-tH-j2V"/>
                                                 </constraints>
                                             </imageView>
-                                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJ5-fu-VQm">
-                                                <rect key="frame" x="8" y="247" width="584" height="345"/>
+                                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sJ5-fu-VQm">
+                                                <rect key="frame" x="8" y="247" width="584" height="238"/>
                                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="J2d-vr-eiO" id="Ngn-z4-Kyf"/>
@@ -126,7 +126,6 @@
                                             <constraint firstItem="hgy-KK-wp2" firstAttribute="top" secondItem="2oC-KN-56K" secondAttribute="bottom" constant="8" id="WPI-MC-Hme"/>
                                             <constraint firstAttribute="trailing" secondItem="2oC-KN-56K" secondAttribute="trailing" id="e2a-BB-Wn7"/>
                                             <constraint firstItem="hgy-KK-wp2" firstAttribute="leading" secondItem="Zgs-Xv-ttD" secondAttribute="leading" constant="8" id="kuV-C5-QfO"/>
-                                            <constraint firstAttribute="bottom" secondItem="sJ5-fu-VQm" secondAttribute="bottom" constant="8" id="lKc-QX-7u1"/>
                                             <constraint firstItem="2oC-KN-56K" firstAttribute="top" secondItem="Zgs-Xv-ttD" secondAttribute="top" id="sbF-09-u3Y"/>
                                             <constraint firstItem="syh-F4-JKa" firstAttribute="leading" secondItem="hgy-KK-wp2" secondAttribute="trailing" constant="8" id="xvt-xq-Nz1"/>
                                         </constraints>
@@ -155,6 +154,7 @@
                             <constraint firstItem="Dg4-8J-QMA" firstAttribute="top" secondItem="NdQ-cc-I2w" secondAttribute="bottom" id="Hzk-m1-G70"/>
                             <constraint firstItem="NdQ-cc-I2w" firstAttribute="leading" secondItem="5wN-hZ-pd4" secondAttribute="leading" id="KCw-B6-FfL"/>
                             <constraint firstAttribute="trailing" secondItem="NdQ-cc-I2w" secondAttribute="trailing" id="MoS-yC-A5c"/>
+                            <constraint firstItem="Dg4-8J-QMA" firstAttribute="top" secondItem="sJ5-fu-VQm" secondAttribute="bottom" constant="8" id="a9C-ve-HIO"/>
                             <constraint firstItem="Zgs-Xv-ttD" firstAttribute="height" secondItem="5wN-hZ-pd4" secondAttribute="height" priority="250" id="vOu-rr-FAg"/>
                         </constraints>
                     </view>

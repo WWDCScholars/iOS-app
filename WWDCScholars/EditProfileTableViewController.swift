@@ -326,11 +326,11 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
                 textField.placeholder = "Password"
             }
             
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            
             let confirmAction = UIAlertAction(title: "Confirm", style: .Default, handler: nil)
             alertController.addAction(confirmAction)
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
-            alertController.addAction(cancelAction)
             
             self.presentViewController(alertController, animated: true, completion: nil)
         } else {

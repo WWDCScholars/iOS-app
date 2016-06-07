@@ -259,31 +259,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    // MARK: - IBActions
-    
-    @IBAction func uploadProfileImageButtonTapped(sender: AnyObject) {
-        self.imageUploadType = .Profile
-        
-        let actionSheet = UIAlertController(title: "Update Profile Image", message: nil, preferredStyle: .ActionSheet)
-        
-        let uploadAction = UIAlertAction(title: "Photo Library", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-            self.imagePicker.sourceType = .PhotoLibrary
-            self.presentViewController(self.imagePicker, animated: true, completion: nil)
-        })
-        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-            self.imagePicker.sourceType = .Camera
-            self.presentViewController(self.imagePicker, animated: true, completion: nil)
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        
-        actionSheet.addAction(uploadAction)
-        actionSheet.addAction(takePhotoAction)
-        actionSheet.addAction(cancelAction)
-        
-        self.presentViewController(actionSheet, animated: true, completion: nil)
-    }
-    
-    @IBAction func doneButtonTapped(sender: AnyObject) {
+    private func validateTextFields() -> ValidationIssueType {
         var validationIssue: ValidationIssueType = .None
         
         if let text = self.facebookTextField.text where self.facebookTextField.text != "" {
@@ -312,12 +288,59 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
             validationIssue = .SecondName
         }
         
-        if validationIssue == .None {
-            // Dismiss view and upload changes
-        } else {
-            let alertController = UIAlertController(title: "Invalid Details", message: validationIssue.rawValue, preferredStyle: .Alert)
+        return validationIssue
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func uploadProfileImageButtonTapped(sender: AnyObject) {
+        self.imageUploadType = .Profile
+        
+        let actionSheet = UIAlertController(title: "Update Profile Image", message: nil, preferredStyle: .ActionSheet)
+        
+        let uploadAction = UIAlertAction(title: "Photo Library", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+            self.imagePicker.sourceType = .PhotoLibrary
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        })
+        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+            self.imagePicker.sourceType = .Camera
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        actionSheet.addAction(uploadAction)
+        actionSheet.addAction(takePhotoAction)
+        actionSheet.addAction(cancelAction)
+        
+        self.presentViewController(actionSheet, animated: true, completion: nil)
+    }
+    
+    @IBAction func doneButtonTapped(sender: AnyObject) {
+        let validationResult = self.validateTextFields()
+        
+        if validationResult == .None {
+            let alertController = UIAlertController(title: "Password", message: "Please enter your password to confirm your changes", preferredStyle: .Alert)
             
-            let confirmAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            alertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
+                textField.secureTextEntry = true
+                textField.placeholder = "Password"
+            }
+            
+            let confirmAction = UIAlertAction(title: "Confirm", style: .Default, handler: nil)
+            alertController.addAction(confirmAction)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+            alertController.addAction(cancelAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            var password = ""
+            let alertController = UIAlertController(title: "Invalid Details", message: validationResult.rawValue, preferredStyle: .Alert)
+            
+            let confirmAction = UIAlertAction(title: "Ok", style: .Default, handler: { (action) -> Void in
+                let textField = alertController.textFields?.first
+                password = textField?.text ?? ""
+            })
             alertController.addAction(confirmAction)
             
             self.presentViewController(alertController, animated: true, completion: nil)

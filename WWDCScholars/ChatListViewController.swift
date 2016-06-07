@@ -16,13 +16,10 @@ class ChatListViewController: UIViewController, SignInDelegate {
     
     private var chatItems = ChatRoom.getChatItems()
     private var currentIndex = NSIndexPath(forRow: 0, inSection: 0)
+    private var registeredPeekView: UIViewControllerPreviewing?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if self.traitCollection.forceTouchCapability == .Available {
-            self.registerForPreviewingWithDelegate(self, sourceView: self.view)
-        }
         
         self.styleUI()
         self.populateColors()
@@ -30,6 +27,16 @@ class ChatListViewController: UIViewController, SignInDelegate {
     
     override func viewWillAppear(animated: Bool) {
         self.notLoggedInView.hidden = UserKit.sharedInstance.isLoggedIn
+        
+        if self.traitCollection.forceTouchCapability == .Available && UserKit.sharedInstance.isLoggedIn {
+            self.registeredPeekView = self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+        } else {
+            if let peekView = self.registeredPeekView {
+                self.unregisterForPreviewingWithContext(peekView)
+            }
+            
+            self.registeredPeekView = nil
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -68,6 +75,10 @@ class ChatListViewController: UIViewController, SignInDelegate {
     
     internal func userSignedIn() {
         self.notLoggedInView.hidden = UserKit.sharedInstance.isLoggedIn
+        
+        if self.traitCollection.forceTouchCapability == .Available && UserKit.sharedInstance.isLoggedIn {
+            self.registeredPeekView = self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+        }
     }
     
     // MARK: IBActions

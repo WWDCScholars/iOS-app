@@ -116,8 +116,17 @@ extension ScreenshotsTableViewCell: UICollectionViewDataSource {
 
         if screenshot != nil {
             cell.imageView.af_setImageWithURL(screenshot!, placeholderImage: nil, imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false, completion: { response in
-                    cell.activityIndicator.stopAnimating()
-                    cell.activityIndicator.removeFromSuperview()
+                cell.activityIndicator.stopAnimating()
+                cell.activityIndicator.removeFromSuperview()
+                
+                // Don't cache screenshots
+                let imageDownloader = UIImageView.af_sharedImageDownloader
+                let urlRequest = NSURLRequest(URL: screenshot!)
+                //Clear from in-memory cache
+                imageDownloader.imageCache?.removeImageForRequest(urlRequest, withAdditionalIdentifier: nil)
+                //Clear from on-disk cache
+                imageDownloader.sessionManager.session.configuration.URLCache?.removeCachedResponseForRequest(urlRequest)
+                
             })
         }
         

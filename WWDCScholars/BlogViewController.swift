@@ -14,6 +14,7 @@ class BlogViewController: UIViewController {
     @IBOutlet private weak var loadingContainerView: UIView!
     
     private var blogPosts: [BlogPost] = []
+    
     private var refreshControl: UIRefreshControl!
     private var loadingViewController: LoadingViewController!
     

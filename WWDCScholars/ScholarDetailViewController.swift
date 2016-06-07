@@ -20,13 +20,13 @@ enum ScreenSize: CGFloat {
     var adjustmentValue: CGFloat {
         switch self {
         case .ThreePointFive:
-            return 134.0
+            return 5.0
         case .Four:
-            return 222.0
+            return 100.0
         case .FourPointSeven:
-            return 321.0
+            return 186.0
         case .FivePointFive:
-            return 390.0
+            return 240.0
         }
     }
 }
@@ -47,17 +47,18 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     @IBOutlet private weak var profileImageViewBackground: UIView!
     @IBOutlet private weak var teamIconImageView: UIImageView!
     @IBOutlet private weak var favoritesButton: UIBarButtonItem!
-    @IBOutlet private weak var editProfileButton: UIBarButtonItem!
-
+    
+    @IBOutlet var editProfileButton: UIBarButtonItem!
+    
     private var loggedInScholarString: NSString!
     private var editBarButtonItem: UIBarButtonItem!
     private var currentScholar: Scholar?
-
+    
     var delegate: QuickActionsDelegate?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.editBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(ScholarDetailViewController.editProfileButtonTapped))
     }
     
@@ -75,6 +76,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         self.styleUI()
         self.updateUI()
         self.editButtonVisible()
+        
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -153,7 +155,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         // Fix ScrollView Constraint
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
-            let offset = self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)).height+self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0)).height - self.contentSizeConstraint.constant - 118.0
+            let offset = self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)).height+self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0)).height - self.contentSizeConstraint.constant - ScreenSize(rawValue: UIScreen.mainScreen().bounds.height)!.adjustmentValue
             self.contentSizeConstraint.constant += offset
             print(offset)
         }
@@ -386,6 +388,7 @@ extension ScholarDetailViewController: UIScrollViewDelegate {
         self.mapView.frame = mapFrame
     }
 }
+
 
 
 

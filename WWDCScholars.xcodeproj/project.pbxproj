@@ -219,6 +219,7 @@
 		7BBA88491CBEA0E80057E9AD /* String+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA88301CBEA0E80057E9AD /* String+Timepiece.swift */; };
 		7BBA88621CBEA1130057E9AD /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA88611CBEA1130057E9AD /* DateUtils.swift */; };
 		7BEB49281CFAE59500A71BAA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEB49271CFAE59500A71BAA /* LoadingViewController.swift */; };
+		9A0E57591D069FBE0071D0FF /* ServerDetails.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A0E57581D069FBE0071D0FF /* ServerDetails.plist */; };
 		C0B7FBAA1CC45C9700AD376C /* ClusterAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBA01CC45C9700AD376C /* ClusterAnnotationView.m */; };
 		C0B7FBAB1CC45C9700AD376C /* QCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBA21CC45C9700AD376C /* QCluster.m */; };
 		C0B7FBAC1CC45C9700AD376C /* QNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBA41CC45C9700AD376C /* QNode.m */; };
@@ -609,6 +610,7 @@
 		7BBA88301CBEA0E80057E9AD /* String+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Timepiece.swift"; path = "Sources/String+Timepiece.swift"; sourceTree = "<group>"; };
 		7BBA88611CBEA1130057E9AD /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		7BEB49271CFAE59500A71BAA /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		9A0E57581D069FBE0071D0FF /* ServerDetails.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerDetails.plist; sourceTree = "<group>"; };
 		C0B7FB9F1CC45C9700AD376C /* ClusterAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterAnnotationView.h; sourceTree = "<group>"; };
 		C0B7FBA01CC45C9700AD376C /* ClusterAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterAnnotationView.m; sourceTree = "<group>"; };
 		C0B7FBA11CC45C9700AD376C /* QCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCluster.h; sourceTree = "<group>"; };
@@ -734,6 +736,7 @@
 				223884221C8252D900A96752 /* ScholarsViewController.swift */,
 				6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */,
 				393FA84D1D048ACB002B1733 /* ServerDetails.plist */,
+				9A0E57581D069FBE0071D0FF /* ServerDetails.plist */,
 			);
 			name = Scholars;
 			sourceTree = "<group>";
@@ -1493,6 +1496,7 @@
 				6E7952871CF640E100160B26 /* GoogleService-Info.plist in Resources */,
 				223F5E9B1CB9724000E582C5 /* tabBarDidSelectItem.m4a in Resources */,
 				6EB723D51CB9B84D005A076F /* Credits.plist in Resources */,
+				9A0E57591D069FBE0071D0FF /* ServerDetails.plist in Resources */,
 				6EB723CF1CB9B83B005A076F /* Main.storyboard in Resources */,
 				6ED962B41CF8B28800551E94 /* JSQMessagesLoadEarlierHeaderView.xib in Resources */,
 				0E93C3AA1CFFD40200E366DC /* Chat.storyboard in Resources */,

@@ -335,7 +335,7 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="231"/>
                                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                                 <subviews>
-                                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Esb-HH-tt7">
+                                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Esb-HH-tt7">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="130" height="231"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="Esb-HH-tt7" secondAttribute="height" multiplier="9:16" id="1aX-nz-rLv"/>

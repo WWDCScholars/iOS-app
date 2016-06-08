@@ -93,15 +93,15 @@
             </objects>
             <point key="canvasLocation" x="533.5" y="415"/>
         </scene>
-        <!--UINavigationController-RjV-CS-n2w-->
+        <!--Scholar-->
         <scene sceneID="CMF-lJ-fgU">
             <objects>
-                <viewControllerPlaceholder storyboardName="Scholar" referencedIdentifier="UINavigationController-RjV-CS-n2w" id="reF-Rs-8go" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Scholar" id="reF-Rs-8go" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="1eg-Np-R27"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6k3-8A-H91" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="78"/>
+            <point key="canvasLocation" x="534.5" y="67"/>
         </scene>
         <!--IntroViewController-->
         <scene sceneID="3U6-ii-jEp">

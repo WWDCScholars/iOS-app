@@ -17,6 +17,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
     @IBOutlet private weak var segmentedControl: UISegmentedControl!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var noScreenshotsLabel: UILabel!
     
     private var screenshotType: ScreenshotType = .Scholarship
     private var appStoreScreenshots: [URL] = []
@@ -41,6 +42,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         
         self.segmentedControl.applyScholarsSegmentedStyle()
         
+        self.setScreenshotHidden(true)
         self.retrieveAppStoreScreenshots()
     }
     
@@ -69,6 +71,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         
         if appID == nil {
             print("App Store URL is shortened version, impossible to retrieve APP ID, consider changing this?", appStoreURL)
+            self.setScreenshotHidden(false)
             return
         }
         
@@ -93,6 +96,12 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
             }
         }
     }
+// MARK: - Private functions
+    func setScreenshotHidden(hiddenStatus: Bool){
+        self.noScreenshotsLabel.hidden = hiddenStatus
+    }
+    
+// MARK: - IBActions
     
     @IBAction func segmentedControlChanged(sender: AnyObject) {
         self.screenshotType = ScreenshotType(rawValue: self.segmentedControl.selectedSegmentIndex) ?? .Scholarship
@@ -110,11 +119,13 @@ extension ScreenshotsTableViewCell: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("screenshotsCollectionViewCell", forIndexPath: indexPath) as! ScreenshotsCollectionViewCell
+
         let screenshot = NSURL(string: self.screenshotType == .Scholarship ? self.scholarshipScreenshots[indexPath.item] : self.appStoreScreenshots[indexPath.item])
         
-        cell.activityIndicator.startAnimating()
 
         if screenshot != nil {
+            cell.activityIndicator.startAnimating()
+
             cell.imageView.af_setImageWithURL(screenshot!, placeholderImage: nil, imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false, completion: { response in
                 cell.activityIndicator.stopAnimating()
                 cell.activityIndicator.removeFromSuperview()
@@ -128,6 +139,8 @@ extension ScreenshotsTableViewCell: UICollectionViewDataSource {
                 imageDownloader.sessionManager.session.configuration.URLCache?.removeCachedResponseForRequest(urlRequest)
                 
             })
+        }else{
+            self.setScreenshotHidden(false)
         }
         
         cell.delegate = self

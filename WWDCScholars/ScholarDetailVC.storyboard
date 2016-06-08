@@ -342,7 +342,7 @@
                                                                                                             <constraint firstAttribute="height" constant="231" id="ubt-SU-jKr"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
-                                                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zt9-Ur-479">
+                                                                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zt9-Ur-479">
                                                                                                         <rect key="frame" x="55" y="106" width="20" height="20"/>
                                                                                                     </activityIndicatorView>
                                                                                                 </subviews>
@@ -377,12 +377,24 @@
                                                                                         </collectionViewCell>
                                                                                     </cells>
                                                                                 </collectionView>
+                                                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Screenshots available." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5EU-i2-v6i">
+                                                                                    <rect key="frame" x="186" y="193" width="213" height="21"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="213" id="FWH-X7-h1C"/>
+                                                                                        <constraint firstAttribute="height" constant="21" id="Yf6-xe-CbT"/>
+                                                                                    </constraints>
+                                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
                                                                             </subviews>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <constraints>
+                                                                                <constraint firstItem="5EU-i2-v6i" firstAttribute="centerX" secondItem="ysQ-0V-odl" secondAttribute="centerX" id="2qs-eU-e13"/>
                                                                                 <constraint firstItem="V2E-9z-1rH" firstAttribute="top" secondItem="Tmo-tM-mm1" secondAttribute="bottom" constant="16" id="4Yl-3W-3Kn"/>
                                                                                 <constraint firstItem="Tmo-tM-mm1" firstAttribute="top" secondItem="Le6-ns-lRO" secondAttribute="bottom" constant="16" id="5Fi-CZ-MED"/>
                                                                                 <constraint firstItem="V2E-9z-1rH" firstAttribute="leading" secondItem="ysQ-0V-odl" secondAttribute="leading" id="8ox-IF-U4B"/>
+                                                                                <constraint firstItem="5EU-i2-v6i" firstAttribute="centerY" secondItem="ysQ-0V-odl" secondAttribute="centerY" constant="33.5" id="CbV-Zt-HY6"/>
                                                                                 <constraint firstAttribute="bottom" secondItem="V2E-9z-1rH" secondAttribute="bottom" constant="16" id="QLM-eF-BMS"/>
                                                                                 <constraint firstItem="Le6-ns-lRO" firstAttribute="leading" secondItem="ysQ-0V-odl" secondAttribute="leading" constant="8" id="Uia-EU-BSl"/>
                                                                                 <constraint firstAttribute="trailing" secondItem="V2E-9z-1rH" secondAttribute="trailing" id="etf-YG-pjM"/>
@@ -411,6 +423,7 @@
                                                                 <connections>
                                                                     <outlet property="collectionView" destination="V2E-9z-1rH" id="Net-9a-qJ9"/>
                                                                     <outlet property="collectionViewTopConstraint" destination="fHM-J4-DDb" id="8nG-sf-QPN"/>
+                                                                    <outlet property="noScreenshotsLabel" destination="5EU-i2-v6i" id="efT-3D-cT8"/>
                                                                     <outlet property="segmentedControl" destination="Tmo-tM-mm1" id="Grz-1C-gCM"/>
                                                                 </connections>
                                                             </tableViewCell>

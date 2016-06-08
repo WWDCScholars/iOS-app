@@ -522,21 +522,6 @@
             </objects>
             <point key="canvasLocation" x="1064.5" y="143"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="KKo-Ot-qRI">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tDM-e3-cVO" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QMS-o8-IbN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AlH-Ng-eyq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1621" y="-1531"/>
-        </scene>
     </scenes>
     <resources>
         <image name="backgroundImage" width="859" height="482"/>

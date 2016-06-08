@@ -14,12 +14,12 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="pjc-gn-51P" kind="presentation" identifier="IntroViewController" id="Djt-KS-IXk"/>
                         <segue destination="reF-Rs-8go" kind="relationship" relationship="viewControllers" id="iKX-ue-aqQ"/>
                         <segue destination="Ynw-Bn-98Z" kind="relationship" relationship="viewControllers" id="ZjR-3p-DQU"/>
                         <segue destination="9jZ-Hk-H9N" kind="relationship" relationship="viewControllers" id="Md7-aM-HbN"/>
                         <segue destination="qV9-pH-lSv" kind="relationship" relationship="viewControllers" id="nE5-jA-7rA"/>
                         <segue destination="vQc-4G-T7I" kind="relationship" relationship="viewControllers" id="ee4-To-k9Z"/>
-                        <segue destination="pjc-gn-51P" kind="presentation" identifier="IntroViewController" id="Djt-KS-IXk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wkk-Oy-SFo" userLabel="First Responder" sceneMemberID="firstResponder"/>

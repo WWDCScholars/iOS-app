@@ -16,7 +16,6 @@ enum AuthorButtonType {
 }
 
 class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate {
-    
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet private weak var authorProfileImageButton: UIButton!
     @IBOutlet private weak var authorProfileImageViewBackground: UIView!
@@ -41,7 +40,6 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         self.automaticallyAdjustsScrollViewInsets = false
         self.styleUI()
         self.configureUI()
-        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -78,7 +76,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         if segue.identifier == String(ScholarDetailViewController) {
             let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
             destinationViewController.delegate = self
-            destinationViewController.setScholar(self.currentPost.scholarId)
+            destinationViewController.setScholar(self.currentPostAuthor!.id)
         }
     }
     
@@ -152,8 +150,6 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         self.navigationItem.titleView = self.titleView
         self.titleViewLabel.text = self.currentPost.title
         
-        
-        
         self.scrollViewDidScroll(self.scrollView)
     }
     
@@ -168,11 +164,17 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         self.headerImageView.addGestureRecognizer(tapGestureRecognizer)
         
         self.titleLabel.text = self.currentPost.title
-        self.authorButton.setTitle(self.currentPost.scholarName, forState: .Normal)
         self.dateLabel.text = DateManager.shortDateStringFromDate(self.currentPost.createdAt)
-        
         self.headerImageView.af_setImageWithURL(NSURL(string: self.currentPost.headerImage)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false, completion: nil)
-        self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: self.currentPostAuthor!.profilePicURL)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
+        
+        if let author = self.currentPostAuthor {
+            self.authorButton.setTitle(author.fullName, forState: .Normal)
+            
+            self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: self.currentPostAuthor!.profilePicURL)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
+        } else {
+            self.authorProfileImageButton.enabled = false
+            self.authorButton.enabled = false
+        }
     }
     
     private func styleUI() {
@@ -256,7 +258,7 @@ extension BlogPostDetailViewController: UIViewControllerPreviewingDelegate {
             return nil
         }
         
-        previewViewController.setScholar(self.currentPost.scholarId)
+        previewViewController.setScholar(self.currentPostAuthor!.id)
         previewViewController.delegate = self
         previewViewController.preferredContentSize = CGSize.zero
         previewingContext.sourceRect = self.buttonTypeTapped == .Text ? self.authorButton.frame : self.authorProfileImageButton.bounds

@@ -139,15 +139,16 @@ class ScholarsKit: ApiBase {
             
             var screenshots: [URL] = []
             if let screenshot = batchJson["screenshotOne"].string {
+            if let screenshot = workaroundServerURLEncode(batchJson["screenshotOne"].string) {
                 screenshots.append(screenshot)
             }
-            if let screenshot = batchJson["screenshotTwo"].string {
+            if let screenshot = workaroundServerURLEncode(batchJson["screenshotTwo"].string) {
                 screenshots.append(screenshot)
             }
-            if let screenshot = batchJson["screenshotThree"].string {
+            if let screenshot = workaroundServerURLEncode(batchJson["screenshotThree"].string) {
                 screenshots.append(screenshot)
             }
-            if let screenshot = batchJson["screenshotFour"].string {
+            if let screenshot = workaroundServerURLEncode(batchJson["screenshotFour"].string) {
                 screenshots.append(screenshot)
             }
             batch.screenshots = screenshots

@@ -93,7 +93,7 @@ class Scholar: Object {
     dynamic var facebookURL: URL?
     /// URL of his/her website (may be nil)
     dynamic var twitterURL: URL?
-    dynamic var iMessageEmail: String?
+    dynamic var iMessage: String?
 
     var batches = List<Batch>()
 //    var wwdcBatchesStr: String {

@@ -126,7 +126,7 @@ class ScholarsKit: ApiBase {
         newScholar.facebookURL = workaroundServerURLEncode(scholarConnect["facebook"].string)
         newScholar.githubURL = workaroundServerURLEncode(scholarConnect["github"].string)
         newScholar.twitterURL = workaroundServerURLEncode(scholarConnect["twitter"].string)
-        newScholar.iMessageEmail = workaroundServerURLEncode(scholarConnect["twitter"].string)
+        newScholar.iMessage = scholarConnect["iMessage"].string
 
         for batchJson in scholarBatch {
             let batch = Batch()

@@ -64,3 +64,4 @@ fastlane/test_output
 WWDCScholars.app.dSYM.zip
 Scholars.app.dSYM.zip
 ServerDetails.plist
+secrets.tar

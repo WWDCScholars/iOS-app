@@ -42,7 +42,6 @@
 		22E2A6F51CC1DC2400DF0578 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2A6F41CC1DC2400DF0578 /* Misc.swift */; };
 		22E937B71CDCE4F300A2BEBE /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E937B61CDCE4F300A2BEBE /* SafariServices.framework */; };
 		22E937B91CDCE82500A2BEBE /* SignUpSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E937B81CDCE82500A2BEBE /* SignUpSafariViewController.swift */; };
-		393FA84E1D048ACB002B1733 /* ServerDetails.plist in Resources */ = {isa = PBXBuildFile; fileRef = 393FA84D1D048ACB002B1733 /* ServerDetails.plist */; };
 		6E08859E1CEE80B000E375BB /* NoJumpRefreshCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E08859D1CEE80B000E375BB /* NoJumpRefreshCollectionView.swift */; };
 		6E1F069B1CC0332F00E464A0 /* ScholarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */; };
 		6E1F069D1CC045F400E464A0 /* YearCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */; };
@@ -385,7 +384,6 @@
 		22E2A6F41CC1DC2400DF0578 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		22E937B61CDCE4F300A2BEBE /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		22E937B81CDCE82500A2BEBE /* SignUpSafariViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpSafariViewController.swift; sourceTree = "<group>"; };
-		393FA84D1D048ACB002B1733 /* ServerDetails.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerDetails.plist; sourceTree = "<group>"; };
 		6E08859D1CEE80B000E375BB /* NoJumpRefreshCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoJumpRefreshCollectionView.swift; sourceTree = "<group>"; };
 		6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -739,7 +737,6 @@
 				6E1F069A1CC0332F00E464A0 /* ScholarCollectionViewCell.swift */,
 				223884221C8252D900A96752 /* ScholarsViewController.swift */,
 				6E1F069C1CC045F400E464A0 /* YearCollectionViewCell.swift */,
-				393FA84D1D048ACB002B1733 /* ServerDetails.plist */,
 				9A0E57581D069FBE0071D0FF /* ServerDetails.plist */,
 			);
 			name = Scholars;
@@ -1497,7 +1494,6 @@
 				7B4D519C1CC110A50072E114 /* Info-tvOS.plist in Resources */,
 				6ED962B71CF8B28800551E94 /* JSQMessagesToolbarContentView.xib in Resources */,
 				6ED9628C1CF8B28800551E94 /* JSQMessagesAssets.bundle in Resources */,
-				393FA84E1D048ACB002B1733 /* ServerDetails.plist in Resources */,
 				2238842B1C8252D900A96752 /* LaunchScreen.storyboard in Resources */,
 				6E7952871CF640E100160B26 /* GoogleService-Info.plist in Resources */,
 				223F5E9B1CB9724000E582C5 /* tabBarDidSelectItem.m4a in Resources */,

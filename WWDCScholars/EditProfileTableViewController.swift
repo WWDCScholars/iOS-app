@@ -196,7 +196,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
             return
         }
         
-        if !self.currentScholar!.batchWWDC.contains(.WWDC2016) {
+        if (self.currentScholar!.latestBatch.batchWWDC != .WWDC2016) {
             self.appStoreSubmissionTextField.enabled = false
         }
         

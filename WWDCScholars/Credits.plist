@@ -45,7 +45,6 @@
 		<array>
 			<string>Project Management</string>
 			<string>iOS</string>
-			<string>Database</string>
 			<string>Apple Watch</string>
 			<string>API</string>
 			<string>Marketing</string>
@@ -60,7 +59,6 @@
 		<string>Manila, Philippines</string>
 		<key>Tasks</key>
 		<array>
-			<string>Database</string>
 			<string>Project Management</string>
 			<string>Web</string>
 			<string>iOS</string>
@@ -81,6 +79,7 @@
 		<array>
 			<string>Web</string>
 			<string>Server</string>
+			<string>iOS</string>
 		</array>
 	</dict>
 </array>

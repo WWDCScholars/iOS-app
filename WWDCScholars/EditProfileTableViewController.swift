@@ -211,7 +211,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.linkedinTextField.text = self.currentScholar?.linkedInURL
         self.websiteTextField.text = self.currentScholar?.websiteURL
         self.appStoreTextField.text = self.currentScholar?.iTunesURL
-        self.appStoreSubmissionTextField.text = self.currentScholar?.appstoreSubmissionURL
+        self.appStoreSubmissionTextField.text = self.currentScholar?.latestBatch.appstoreSubmissionURL
 //        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such property yet!
         self.appGithubTextField.text = self.currentScholar?.githubURL
         self.ageTextField.text = DateManager.shortDateStringFromDate(self.currentScholar!.birthday)
@@ -219,7 +219,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         
         self.myLocation = CLLocationCoordinate2D(latitude: self.currentScholar!.location.latitude, longitude: self.currentScholar!.location.longitude)
         
-        for (index, screenshot) in self.currentScholar!.screenshots.enumerate() {
+        for (index, screenshot) in self.currentScholar!.latestBatch.screenshots.enumerate() {
             request(.GET, screenshot).responseImage { response in
                 if let image = response.result.value {
                     self.screenshots[index] = image
@@ -229,7 +229,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
             }
         }
         
-        if let imageURL = NSURL(string: self.currentScholar!.profilePicURL) {
+        if let imageURL = NSURL(string: self.currentScholar!.latestBatch.profilePic) {
             self.profileImageButton.af_setImageForState(.Normal, URL: imageURL, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
         }
         

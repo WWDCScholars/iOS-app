@@ -170,11 +170,12 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         if let author = self.currentPostAuthor {
             self.authorButton.setTitle(author.fullName, forState: .Normal)
             
-            self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: self.currentPostAuthor!.profilePicURL)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
+            self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: self.currentPostAuthor!.latestBatch.profilePic)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
         } else {
             self.authorProfileImageButton.enabled = false
             self.authorButton.enabled = false
         }
+
     }
     
     private func styleUI() {

@@ -20,7 +20,7 @@ class DatabaseManager {
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
             // version (if you've never set a schema version before, the version is 0).
-            schemaVersion: 8,
+            schemaVersion: 13,
             
             // Set the block which will be called automatically when opening a Realm with
             // a schema version lower than the one set above
@@ -56,6 +56,13 @@ class DatabaseManager {
     func addScholar(scholar: Scholar) {
         try! realm.write {
             realm.add(scholar, update: true) // Don't add the scholar if he/she already exists
+        }
+        //print ("Added \(scholar.fullName)")  // Sorry but I don't care at all about this. I want a clean console, thx.
+    }
+    
+    func addRealmObject(obj: Object, update: Bool = false) {
+        try! realm.write {
+            realm.add(obj, update: update) // Don't add the scholar if he/she already exists
         }
         //print ("Added \(scholar.fullName)")  // Sorry but I don't care at all about this. I want a clean console, thx.
     }
@@ -106,7 +113,7 @@ class DatabaseManager {
     }
     
     func scholarsForWWDCBatch(wwdc: WWDC) -> Scholars {
-        let predicate = NSPredicate(format: "batchWWDCString CONTAINS %@", wwdc.rawValue)
+        let predicate = NSPredicate(format: "ANY batches.batchWWDCStr == %@", wwdc.rawValue)
         return Array(realm.objects(Scholar).filter(predicate))
     }
     

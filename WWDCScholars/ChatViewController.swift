@@ -250,7 +250,7 @@ class ChatViewController: JSQMessagesViewController {
                     cell.avatarImageView!.image = nil
                 } else {
                     if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId){
-                        if let imageUrl = NSURL(string: scholar.profilePicURL) {
+                        if let imageUrl = NSURL(string: scholar.latestBatch.profilePic) {
                             let imageFilter = RoundedCornersFilter(radius: 50)
                             
                             cell.avatarImageView!.af_setImageWithURL(imageUrl, filter: imageFilter, imageTransition: .CrossDissolve(0.25))
@@ -259,7 +259,7 @@ class ChatViewController: JSQMessagesViewController {
                 }
             } else {
                 if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId){
-                    if let imageUrl = NSURL(string: scholar.profilePicURL) {
+                    if let imageUrl = NSURL(string: scholar.latestBatch.profilePic) {
                         let imageFilter = RoundedCornersFilter(radius: 50)
                         
                         cell.avatarImageView!.af_setImageWithURL(imageUrl, filter: imageFilter, imageTransition: .CrossDissolve(0.25))

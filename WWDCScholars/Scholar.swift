@@ -81,33 +81,6 @@ class Scholar: Object {
         }
     }
     
-    /// Number of times the scholar has been a WWDC Scholar
-    dynamic var numberOfTimesWWDCScholar: Int = 0
-    /// String version of the batchWWDC, splitted by '|'
-    private dynamic var batchWWDCString: String = ""
-    /// Array of WWDC's the scholar has been to
-    var batchWWDC: [WWDC] {
-        set {
-            var strArr: [String] = []
-            let arr: [WWDC] = newValue
-            for wwdc in arr {
-                strArr.append(wwdc.rawValue)
-            }
-            batchWWDCString = strArr.joinWithSeparator("|")
-        }
-        
-        get {
-            let strArr = batchWWDCString.componentsSeparatedByString("|")
-            var arr: [WWDC] = []
-            for str in strArr {
-                arr.append(WWDC(rawValue: str)!)
-            }
-            return arr.reverse()
-        }
-    }
-    
-    /// The URL of his/her profile picture
-    dynamic var profilePicURL: URL = ""
     /// The URL of his/her iTunes (developer) account
     dynamic var iTunesURL: URL?
     /// URL of his/her website (may be nil)
@@ -120,7 +93,86 @@ class Scholar: Object {
     dynamic var facebookURL: URL?
     /// URL of his/her website (may be nil)
     dynamic var twitterURL: URL?
+    dynamic var iMessageEmail: String?
+
+    var batches = List<Batch>()
+//    var wwdcBatchesStr: String {
+//        var string = ""
+//        
+//        _ = batches.map({ batch in
+//            string += batch.batchWWDCStr
+//        })
+//        
+//        return string
+//    }
     
+    var latestBatch: Batch {
+        var latestBatch: Batch? = nil
+        
+        for batch in batches {
+            if latestBatch == nil {
+                latestBatch = batch
+                continue
+            }
+            
+            guard latestBatch != nil else {
+                abort() //todo
+            }
+            
+            if batch.batchWWDC.intValue > latestBatch!.batchWWDC.intValue {
+                latestBatch = batch
+            }
+        }
+        
+        return latestBatch!
+    }
+    
+    override class func primaryKey() -> String {
+        return "id"
+    }
+    
+    override static func ignoredProperties() -> [String] {
+        return ["batchWWDC", "location", "age", "latestBatch"]
+    }
+}
+
+class Batch: Object {
+    dynamic var id = ""
+    
+    private dynamic var batchWWDCStr: String = ""
+    var batchWWDC: WWDC {
+        get {
+            return WWDC.forRawValue(batchWWDCStr)
+        }
+        set {
+            batchWWDCStr = newValue.rawValue
+        }
+    }
+    
+    private dynamic var appTypeStr: String = "Offline"
+    var appType: AppType {
+        get {
+            switch appTypeStr {
+            case "Offline":
+                return .Offline
+            case "AppStore":
+                return .AppStore
+            case "Both":
+                return .Both
+            default:
+                return .Offline
+            }
+        }
+        set {
+            appTypeStr = newValue.rawValue
+        }
+    }
+    
+    dynamic var profilePic: URL = ""
+    dynamic var githubLink: URL? = nil
+    dynamic var youtubeLink: URL? = nil
+    dynamic var appstoreSubmissionURL: URL?
+
     /// Array of screenshots of their Scholar app
     private dynamic var screenshotsString: String = ""
     /// Array of screenshots
@@ -144,13 +196,11 @@ class Scholar: Object {
         }
     }
     
-    dynamic var appstoreSubmissionURL: URL?
-    
     override class func primaryKey() -> String {
         return "id"
     }
     
     override static func ignoredProperties() -> [String] {
-        return ["batchWWDC", "location", "age", "screenshots"]
+        return ["batchWWDC", "appType", "screenshots"]
     }
 }

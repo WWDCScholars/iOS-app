@@ -61,4 +61,23 @@ enum WWDC: String {
             return "'11"
         }
     }
+    
+    var intValue: Int {
+        switch self {
+        case Saved:
+            return -1
+        case WWDC2016:
+            return 5
+        case WWDC2015:
+            return 4
+        case WWDC2014:
+            return 3
+        case WWDC2013:
+            return 2
+        case WWDC2012:
+            return 1
+        case WWDC2011:
+            return 0
+        }
+    }
 }

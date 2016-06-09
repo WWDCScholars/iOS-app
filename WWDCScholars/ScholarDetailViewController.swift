@@ -208,7 +208,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         self.teamIconImageView.hidden = !CreditsManager.sharedInstance.checkForCredit(scholar)
         self.locationLabel.text = scholar.location.name
         self.nameLabel.text = scholar.firstName + " " + scholar.lastName
-        self.profileImageView.af_setImageWithURL(NSURL(string: scholar.profilePicURL)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+        self.profileImageView.af_setImageWithURL(NSURL(string: scholar.latestBatch.profilePic)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
     }
     
     private func setFavoriteImage(filled: Bool) {
@@ -315,8 +315,8 @@ extension ScholarDetailViewController: UITableViewDataSource {
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("basicDetailsTableViewCell") as! BasicDetailsTableViewCell
             
             var attendedString = ""
-            for (index, batch) in scholar.batchWWDC.enumerate() {
-                attendedString.appendContentsOf(index != scholar.batchWWDC.count - 1 ? "\(batch.shortVersion), " : batch.shortVersion)
+            for (index, batch) in scholar.batches.enumerate() {
+                attendedString.appendContentsOf(index != scholar.batches.count - 1 ? "\(batch.batchWWDC.shortVersion), " : batch.batchWWDC.shortVersion)
             }
             
             cell.ageLabel.text = String(scholar.age)
@@ -334,9 +334,9 @@ extension ScholarDetailViewController: UITableViewDataSource {
         case 2:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("screenshotsTableViewCell") as! ScreenshotsTableViewCell
             
-            cell.scholarshipScreenshots = scholar.screenshots
-            cell.is2016 = scholar.appstoreSubmissionURL != nil
-            cell.setAppStoreURL(scholar.appstoreSubmissionURL ?? "")
+            cell.scholarshipScreenshots = scholar.latestBatch.screenshots
+            cell.is2016 = scholar.latestBatch.appstoreSubmissionURL != nil
+            cell.setAppStoreURL(scholar.latestBatch.appstoreSubmissionURL ?? "")
             cell.delegate = self
             
             return cell
@@ -364,7 +364,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
         case 1:
             return UITableViewAutomaticDimension
         case 2:
-            return scholar.appstoreSubmissionURL != nil ? 348.0 : 304.0
+            return scholar.latestBatch.appstoreSubmissionURL != nil ? 348.0 : 304.0
         case 3:
             return 54.0
         default:

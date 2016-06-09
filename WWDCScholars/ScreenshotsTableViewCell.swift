@@ -42,7 +42,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         
         self.segmentedControl.applyScholarsSegmentedStyle()
         
-        self.setScreenshotHidden(true)
+        self.setNoScreenshotsLabelHidden(true)
         self.retrieveAppStoreScreenshots()
     }
     
@@ -67,11 +67,10 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
             return
         }
         
-        let appID = String().matchesForRegexInText("([\\d]{10,})", text: appStoreURL).first
-        
+        let appID = String().matchesForRegexInText("([\\d]{10,})", text: self.appStoreURL).first
         if appID == nil {
-            print("App Store URL is shortened version, impossible to retrieve APP ID, consider changing this?", appStoreURL)
-            self.setScreenshotHidden(false)
+            print("App Store URL is shortened version, impossible to retrieve APP ID", self.appStoreURL)
+            
             return
         }
         
@@ -96,15 +95,26 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
             }
         }
     }
-// MARK: - Private functions
-    func setScreenshotHidden(hiddenStatus: Bool){
+
+    // MARK: - Private functions
+
+    func setNoScreenshotsLabelHidden(hiddenStatus: Bool) {
         self.noScreenshotsLabel.hidden = hiddenStatus
     }
     
-// MARK: - IBActions
+    // MARK: - IBActions
     
     @IBAction func segmentedControlChanged(sender: AnyObject) {
         self.screenshotType = ScreenshotType(rawValue: self.segmentedControl.selectedSegmentIndex) ?? .Scholarship
+        
+        switch self.screenshotType {
+        case .Scholarship where self.scholarshipScreenshots.count == 0:
+            self.setNoScreenshotsLabelHidden(false)
+        case .AppStore where self.appStoreScreenshots.count == 0:
+            self.setNoScreenshotsLabelHidden(false)
+        default:
+            self.setNoScreenshotsLabelHidden(true)
+        }
         
         self.collectionView.reloadData()
     }
@@ -121,11 +131,9 @@ extension ScreenshotsTableViewCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("screenshotsCollectionViewCell", forIndexPath: indexPath) as! ScreenshotsCollectionViewCell
 
         let screenshot = NSURL(string: self.screenshotType == .Scholarship ? self.scholarshipScreenshots[indexPath.item] : self.appStoreScreenshots[indexPath.item])
-        
 
         if screenshot != nil {
             cell.activityIndicator.startAnimating()
-
             cell.imageView.af_setImageWithURL(screenshot!, placeholderImage: nil, imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false, completion: { response in
                 cell.activityIndicator.stopAnimating()
                 cell.activityIndicator.removeFromSuperview()
@@ -139,8 +147,6 @@ extension ScreenshotsTableViewCell: UICollectionViewDataSource {
                 imageDownloader.sessionManager.session.configuration.URLCache?.removeCachedResponseForRequest(urlRequest)
                 
             })
-        }else{
-            self.setScreenshotHidden(false)
         }
         
         cell.delegate = self

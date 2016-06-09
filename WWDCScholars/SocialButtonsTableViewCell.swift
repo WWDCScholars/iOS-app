@@ -43,6 +43,12 @@ class SocialButtonsTableViewCell: UITableViewCell {
     
     // MARK: - Internal functions
     
+    internal func isStringNumerical(string : String) -> Bool {
+        // Only allow numbers. Look for anything not a number.
+        let range = string.rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+        return (range == nil)
+    }
+    
     internal func linkedInTapped() {
         self.delegate?.openURL(self.scholar.linkedInURL!)
     }
@@ -114,15 +120,32 @@ class SocialButtonsTableViewCell: UITableViewCell {
     internal func iMessageTapped() {
      
         if let scholariMsgEmail = self.scholar.iMessage{
-            let iMessageURL = NSURL(string: "sms:\(scholariMsgEmail)")!
             
-            if UIApplication.sharedApplication().canOpenURL(iMessageURL){
-                UIApplication.sharedApplication().openURL(iMessageURL)
-                print("iMessage URL does  work, it equals \(scholariMsgEmail)")
+            if isStringNumerical(scholariMsgEmail){
+                let iMessageURL = NSURL(string: "sms:+\(scholariMsgEmail)")!
 
+                if UIApplication.sharedApplication().canOpenURL(iMessageURL){
+                    UIApplication.sharedApplication().openURL(iMessageURL)
+                    print("iMessage phone number does  work, it equals \(scholariMsgEmail)")
+                    
+                }else{
+                    print("iMessage phone number does not work, it equals \(scholariMsgEmail)")
+                }
             }else{
-                print("iMessage URL does not work, it equals \(scholariMsgEmail)")
+                let iMessageURL = NSURL(string: "sms:\(scholariMsgEmail)")!
+                
+                if UIApplication.sharedApplication().canOpenURL(iMessageURL){
+                    UIApplication.sharedApplication().openURL(iMessageURL)
+                    print("iMessage URL does  work, it equals \(scholariMsgEmail)")
+                    
+                }else{
+                    print("iMessage URL does not work, it equals \(scholariMsgEmail)")
+                }
             }
+            
+         
+            
+          
         }else{
             print("iMessageURL is nil")
         }
@@ -150,4 +173,8 @@ class SocialButtonsTableViewCell: UITableViewCell {
         
         self.emailImageView.hidden = false //Never hidden
     }
+    
+    
 }
+
+

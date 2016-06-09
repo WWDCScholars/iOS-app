@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CryptoSwift
 
 class ScholarsKit: ApiBase {
     
@@ -179,6 +180,107 @@ class ScholarsKit: ApiBase {
             print("parseScholar -- Missing id")
             return nil
         }
+    }
+    
+    func updateScholarData(id: String,
+                           password: String,
+                           profilePic: UIImage? = nil,
+                           screenshotOne: UIImage? = nil,
+                           screenshotTwo: UIImage? = nil,
+                           screenshotThree: UIImage? = nil,
+                           screenshotFour: UIImage? = nil,
+                           firstName: String? = nil,
+                           lastName: String? = nil,
+                           email: String? = nil,
+                           birthday: NSDate? = nil,
+                           location: Location? = nil,
+                           videoLink: String? = nil,
+                           githubLinkApp: String? = nil,
+                           twitter: String? = nil,
+                           facebook: String? = nil,
+                           github: String? = nil,
+                           linkedin: String? = nil,
+                           website: String? = nil,
+                           itunes: String? = nil,
+                           iMessage: String? = nil,
+                           shortBio: String? = nil
+                           ) {
+        upload(.POST,
+               "\(self.serverUrl)/api/updateIOS/\(self.apiKey)/\(id)",
+        multipartFormData: { multipartFormData in
+//            multipartFormData.appendBodyPart(data: id.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name: "scholar_id")
+            multipartFormData.appendBodyPart(data: password.dataUsingEncoding(NSUTF8StringEncoding)!.sha256()!.toHexString().dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!, name: "password")
+            
+            if let profilePic = profilePic {
+                multipartFormData.appendBodyPart(data: UIImagePNGRepresentation(profilePic)!, name: "profilePic")
+            }
+            
+            if let screenshotOne = screenshotOne {
+                multipartFormData.appendBodyPart(data: UIImagePNGRepresentation(screenshotOne)!, name: "screenshotOne")
+            }
+            if let screenshotTwo = screenshotTwo {
+                multipartFormData.appendBodyPart(data: UIImagePNGRepresentation(screenshotTwo)!, name: "screenshotTwo")
+            }
+            if let screenshotThree = screenshotThree {
+                multipartFormData.appendBodyPart(data: UIImagePNGRepresentation(screenshotThree)!, name: "screenshotThree")
+            }
+            if let screenshotFour = screenshotFour {
+                multipartFormData.appendBodyPart(data: UIImagePNGRepresentation(screenshotFour)!, name: "screenshotFour")
+            }
+            
+            
+            if let firstName = firstName {
+                multipartFormData.appendBodyPart(data: firstName.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"firstName")
+            }
+            if let birthday = birthday {
+                multipartFormData.appendBodyPart(data: (birthday.stringFromFormat("")).dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"birthday")
+            }
+            if let location = location {
+                multipartFormData.appendBodyPart(data: location.name.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"location")
+                multipartFormData.appendBodyPart(data: "\(location.latitude)".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"latitude")
+                multipartFormData.appendBodyPart(data: "\(location.longitude)".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"longtitude")
+
+            }
+            if let videoLink = videoLink {
+                multipartFormData.appendBodyPart(data: videoLink.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"videoLink")
+            }
+            if let githubLinkApp = githubLinkApp {
+                multipartFormData.appendBodyPart(data: githubLinkApp.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"githubLinkApp")
+            }
+            if let twitter = twitter {
+                multipartFormData.appendBodyPart(data: twitter.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"twitter")
+            }
+            if let facebook = facebook {
+                multipartFormData.appendBodyPart(data: facebook.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"facebook")
+            }
+            if let github = github {
+                multipartFormData.appendBodyPart(data: github.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"github")
+            }
+            if let linkedin = linkedin {
+                multipartFormData.appendBodyPart(data: linkedin.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"linkedin")
+            }
+            if let itunes = itunes {
+                multipartFormData.appendBodyPart(data: itunes.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"itunes")
+            }
+            if let iMessage = iMessage {
+                multipartFormData.appendBodyPart(data: iMessage.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"iMessage")
+            }
+            if let shortBio = shortBio {
+                multipartFormData.appendBodyPart(data: shortBio.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"shortBio")
+            }
+            },
+        encodingCompletion: { encodingResult in
+            switch encodingResult {
+            case .Success(let upload, _, _):
+                upload.responseJSON { response in
+                    
+                    print (response.result.value!)
+                }
+                break
+            case .Failure(let encodingError): break
+                
+            }
+        })
     }
     
     private func workaroundServerURLEncode(url: URL?) -> URL? {

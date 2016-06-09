@@ -76,6 +76,7 @@
 		6E79529A1CF6421100160B26 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7952991CF6421100160B26 /* SystemConfiguration.framework */; };
 		6E79E1B21CF8AAA000CCDD9D /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79E1B01CF8AAA000CCDD9D /* FirebaseAuth.framework */; };
 		6E79E1B31CF8AAA000CCDD9D /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79E1B11CF8AAA000CCDD9D /* GoogleNetworkingUtilities.framework */; };
+		6E83D8D61D0993C500D2CCC6 /* UIImage+Cropping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E83D8D51D0993C500D2CCC6 /* UIImage+Cropping.swift */; };
 		6E9DD6761CC5961F00433193 /* CreditsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9DD6751CC5961F00433193 /* CreditsManager.swift */; };
 		6EAD10BA1CC1907700E0A2A0 /* ScholarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD10B91CC1907700E0A2A0 /* ScholarDetailViewController.swift */; };
 		6EAD10BC1CC1A00800E0A2A0 /* BasicDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD10BB1CC1A00800E0A2A0 /* BasicDetailsTableViewCell.swift */; };
@@ -416,6 +417,7 @@
 		6E7952991CF6421100160B26 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6E79E1B01CF8AAA000CCDD9D /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = "<group>"; };
 		6E79E1B11CF8AAA000CCDD9D /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
+		6E83D8D51D0993C500D2CCC6 /* UIImage+Cropping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Cropping.swift"; sourceTree = "<group>"; };
 		6E9DD6751CC5961F00433193 /* CreditsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsManager.swift; sourceTree = "<group>"; };
 		6EAD10B91CC1907700E0A2A0 /* ScholarDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarDetailViewController.swift; sourceTree = "<group>"; };
 		6EAD10BB1CC1A00800E0A2A0 /* BasicDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicDetailsTableViewCell.swift; sourceTree = "<group>"; };
@@ -1207,6 +1209,7 @@
 				7BBA87671CBD35430057E9AD /* StringUtils.swift */,
 				6ED9264A1CBEF2FC0082FCFE /* UIImage+Color.swift */,
 				7BBA87761CBD4D040057E9AD /* WWDCEnum.swift */,
+				6E83D8D51D0993C500D2CCC6 /* UIImage+Cropping.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1624,6 +1627,7 @@
 				22BFE2C01CEE0829002CB549 /* BlogPostDetailViewController.swift in Sources */,
 				224355CD1CC1D584001FFAD0 /* SpringButton.swift in Sources */,
 				6ED9629D1CF8B28800551E94 /* JSQMessagesBubblesSizeCalculator.m in Sources */,
+				6E83D8D61D0993C500D2CCC6 /* UIImage+Cropping.swift in Sources */,
 				6ED9628F1CF8B28800551E94 /* NSString+JSQMessages.m in Sources */,
 				2236F2971CC29EA500663957 /* DesignableButton.swift in Sources */,
 				7BBA88451CBEA0E80057E9AD /* NSCalendarUnit+Timepiece.swift in Sources */,

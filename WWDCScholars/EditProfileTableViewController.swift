@@ -243,7 +243,8 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         let faces = faceDetector.featuresInImage(image)
         
         if faces.first != nil {
-            self.profileImageButton.setImage(importedImage, forState: .Normal)
+            let croppedImage = UIImage.cropImageToSquare(importedImage)
+            self.profileImageButton.setImage(croppedImage, forState: .Normal)
         } else {
             self.presentConfirmationCheck(importedImage)
         }
@@ -254,7 +255,8 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         let confirmAction = UIAlertAction(title: "I'm Sure!", style: .Default) { (action) in
-            self.profileImageButton.setImage(importedImage, forState: .Normal)
+            let croppedImage = UIImage.cropImageToSquare(importedImage)
+            self.profileImageButton.setImage(croppedImage, forState: .Normal)
         }
         
         alertController.addAction(cancelAction)

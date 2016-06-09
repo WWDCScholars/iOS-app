@@ -322,9 +322,12 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
                 self.loadingViewController.stopAnimating()
             }
             
-            for (index, scholar) in DatabaseManager.sharedInstance.getAllScholars().enumerate() {
-                SpotlightManager.sharedInstance.indexScholar(scholar, atIndex: index)
-            }
+        // TODO: Next version add CoreSpotlight back
+            
+        /* for (index, scholar) in DatabaseManager.sharedInstance.getAllScholars().enumerate() {
+        	SpotlightManager.sharedInstance.indexScholar(scholar, atIndex: index)
+        } */
+            
             
             self.getCurrentScholars()
         })

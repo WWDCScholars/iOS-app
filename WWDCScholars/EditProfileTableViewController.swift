@@ -215,7 +215,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
 //        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such property yet!
         self.appGithubTextField.text = self.currentScholar?.githubURL
         self.ageTextField.text = DateManager.shortDateStringFromDate(self.currentScholar!.birthday)
-//        self.iMessageTextField.text = self.currentScholar?.iMessage No such property yet!
+        self.iMessageTextField.text = self.currentScholar?.iMessage //No such property yet!
         
         self.myLocation = CLLocationCoordinate2D(latitude: self.currentScholar!.location.latitude, longitude: self.currentScholar!.location.longitude)
         
@@ -454,6 +454,8 @@ extension EditProfileTableViewController: UITextFieldDelegate {
         case self.websiteTextField:
             self.appStoreTextField.becomeFirstResponder()
         case self.appStoreTextField:
+            self.iMessageTextField.becomeFirstResponder()
+        case self.iMessageTextField:
             self.youtubeTextField.becomeFirstResponder()
         case self.youtubeTextField:
             self.appGithubTextField.becomeFirstResponder()

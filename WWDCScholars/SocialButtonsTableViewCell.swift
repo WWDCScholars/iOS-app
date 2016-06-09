@@ -23,6 +23,7 @@ class SocialButtonsTableViewCell: UITableViewCell {
     @IBOutlet weak var githubImageView: UIButton!
     @IBOutlet weak var websiteImageView: UIButton!
     @IBOutlet weak var appStoreImageView: UIButton!
+    @IBOutlet var iMessageImageView: UIButton!
     
     var delegate: SocialButtonDelegate?
     var scholar: Scholar!
@@ -37,6 +38,7 @@ class SocialButtonsTableViewCell: UITableViewCell {
         self.websiteImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.websiteTapped), forControlEvents: .TouchUpInside)
         self.emailImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.emailTapped), forControlEvents: .TouchUpInside)
         self.appStoreImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.appStoreTapped), forControlEvents: .TouchUpInside)
+        self.iMessageImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.iMessageTapped), forControlEvents: .TouchUpInside)
     }
     
     // MARK: - Internal functions
@@ -109,6 +111,32 @@ class SocialButtonsTableViewCell: UITableViewCell {
         
     }
     
+    internal func iMessageTapped() {
+     
+        if let scholariMsgEmail = self.scholar.iMessage{
+            let iMessageURL = NSURL(string: "sms:\(scholariMsgEmail)")!
+            
+            if UIApplication.sharedApplication().canOpenURL(iMessageURL){
+                UIApplication.sharedApplication().openURL(iMessageURL)
+                print("iMessage URL does  work, it equals \(scholariMsgEmail)")
+
+            }else{
+                print("iMessage URL does not work, it equals \(scholariMsgEmail)")
+            }
+        }else{
+            print("iMessageURL is nil")
+        }
+        
+        
+        
+        
+      
+        
+
+        
+        
+    }
+    
     // MARK: - Public functions
     
     func setIconVisibility() {
@@ -118,7 +146,8 @@ class SocialButtonsTableViewCell: UITableViewCell {
         self.websiteImageView.hidden = self.scholar.websiteURL == nil
         self.appStoreImageView.hidden = self.scholar.iTunesURL == nil
         self.twitterImageView.hidden = self.scholar.twitterURL == nil
-
+        self.iMessageImageView.hidden = self.scholar.iMessage == nil
+        
         self.emailImageView.hidden = false //Never hidden
     }
 }

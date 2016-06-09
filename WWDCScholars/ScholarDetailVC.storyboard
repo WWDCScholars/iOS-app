@@ -438,7 +438,7 @@
                                                                             <rect key="frame" x="0.0" y="4" width="584" height="46"/>
                                                                             <subviews>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jyK-wL-gAf">
-                                                                                    <rect key="frame" x="163" y="8" width="258" height="30"/>
+                                                                                    <rect key="frame" x="144" y="8" width="296" height="30"/>
                                                                                     <subviews>
                                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8An-fU-P6K">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -496,6 +496,14 @@
                                                                                             </constraints>
                                                                                             <state key="normal" backgroundImage="appstoreIconSmall"/>
                                                                                         </button>
+                                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59K-pI-m9B">
+                                                                                            <rect key="frame" x="266" y="0.0" width="30" height="30"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="width" constant="30" id="8B9-Bu-bZQ"/>
+                                                                                                <constraint firstAttribute="height" constant="30" id="ljK-PF-3OR"/>
+                                                                                            </constraints>
+                                                                                            <state key="normal" backgroundImage="iMessageIconSmall"/>
+                                                                                        </button>
                                                                                     </subviews>
                                                                                     <constraints>
                                                                                         <constraint firstItem="KDU-7l-GY8" firstAttribute="top" secondItem="jyK-wL-gAf" secondAttribute="top" id="2ol-ds-Vgd"/>
@@ -551,6 +559,7 @@
                                                                     <outlet property="emailImageView" destination="KDU-7l-GY8" id="REB-YL-k3C"/>
                                                                     <outlet property="facebookImageView" destination="PmX-Vw-vxa" id="Kh0-Gd-pO3"/>
                                                                     <outlet property="githubImageView" destination="Qp0-Hk-MVi" id="3f1-vy-IhB"/>
+                                                                    <outlet property="iMessageImageView" destination="59K-pI-m9B" id="BZw-jf-B6M"/>
                                                                     <outlet property="iconsView" destination="YjV-Ef-luq" id="U0p-po-R3V"/>
                                                                     <outlet property="linkedInImageView" destination="8sn-n6-43a" id="RpM-j6-Tn6"/>
                                                                     <outlet property="twitterImageView" destination="8An-fU-P6K" id="5hB-l1-bIH"/>
@@ -739,6 +748,7 @@
         <image name="facebookIconSmall" width="27" height="27"/>
         <image name="favouriteUnfilled" width="22" height="21"/>
         <image name="gitHubIconSmall" width="27" height="27"/>
+        <image name="iMessageIconSmall" width="27" height="27"/>
         <image name="linkedinIconSmall" width="27" height="27"/>
         <image name="mailIconSmall" width="27" height="27"/>
         <image name="twitterIconSmall" width="27" height="27"/>

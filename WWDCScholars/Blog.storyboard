@@ -29,8 +29,8 @@
                                                     <constraint firstAttribute="height" constant="156" id="5FQ-tH-j2V"/>
                                                 </constraints>
                                             </imageView>
-                                            <webView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sJ5-fu-VQm">
-                                                <rect key="frame" x="8" y="247" width="584" height="238"/>
+                                            <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJ5-fu-VQm">
+                                                <rect key="frame" x="8" y="247" width="584" height="353"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="J2d-vr-eiO" id="Ngn-z4-Kyf"/>
@@ -122,6 +122,7 @@
                                             <constraint firstItem="sJ5-fu-VQm" firstAttribute="top" secondItem="syh-F4-JKa" secondAttribute="bottom" constant="8" id="Ihc-qG-3aM"/>
                                             <constraint firstItem="2oC-KN-56K" firstAttribute="leading" secondItem="Zgs-Xv-ttD" secondAttribute="leading" id="SxI-fS-WSH"/>
                                             <constraint firstAttribute="trailing" secondItem="syh-F4-JKa" secondAttribute="trailing" constant="8" id="U16-n9-0O1"/>
+                                            <constraint firstAttribute="bottom" secondItem="sJ5-fu-VQm" secondAttribute="bottom" id="UO4-ck-aID"/>
                                             <constraint firstAttribute="trailing" secondItem="sJ5-fu-VQm" secondAttribute="trailing" constant="8" id="Urj-4G-d4q"/>
                                             <constraint firstItem="hgy-KK-wp2" firstAttribute="top" secondItem="2oC-KN-56K" secondAttribute="bottom" constant="8" id="WPI-MC-Hme"/>
                                             <constraint firstAttribute="trailing" secondItem="2oC-KN-56K" secondAttribute="trailing" id="e2a-BB-Wn7"/>
@@ -155,8 +156,15 @@
                             <constraint firstItem="NdQ-cc-I2w" firstAttribute="leading" secondItem="5wN-hZ-pd4" secondAttribute="leading" id="KCw-B6-FfL"/>
                             <constraint firstAttribute="trailing" secondItem="NdQ-cc-I2w" secondAttribute="trailing" id="MoS-yC-A5c"/>
                             <constraint firstItem="Dg4-8J-QMA" firstAttribute="top" secondItem="sJ5-fu-VQm" secondAttribute="bottom" constant="8" id="a9C-ve-HIO"/>
+                            <constraint firstItem="Dg4-8J-QMA" firstAttribute="top" secondItem="sJ5-fu-VQm" secondAttribute="bottom" constant="7" id="eYH-hd-ePI"/>
                             <constraint firstItem="Zgs-Xv-ttD" firstAttribute="height" secondItem="5wN-hZ-pd4" secondAttribute="height" priority="250" id="vOu-rr-FAg"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="a9C-ve-HIO"/>
+                                <exclude reference="eYH-hd-ePI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Blog Post" id="4Id-I8-zVr"/>
@@ -217,12 +225,14 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5N-zp-vXQ">
                                                             <rect key="frame" x="0.0" y="250" width="600" height="66"/>
                                                             <subviews>
-                                                                <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O6O-ux-iTC">
+                                                                <visualEffectView opaque="NO" alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O6O-ux-iTC">
                                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="66"/>
                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rVB-Sj-p0t">
                                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="66"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     </view>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <blurEffect style="dark"/>
                                                                 </visualEffectView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Tq-Jy-Mp6">

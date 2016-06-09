@@ -213,7 +213,7 @@ extension BlogPostDetailViewController: UIWebViewDelegate {
         frame.size = fittingSize
         webView.frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: frame.height)
         
-        self.scrollView.contentSize.height = self.webView.frame.origin.y + self.webView.frame.height + 40
+        self.scrollView.contentSize.height = self.webView.frame.origin.y + self.webView.frame.height + 10
         self.webView.backgroundColor = UIColor.whiteColor()
     }
 }

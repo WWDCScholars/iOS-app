@@ -13,15 +13,14 @@ extension UIImage {
         
         if imageHeight > imageWidth {
             imageHeight = imageWidth
-        }
-        else {
+        } else {
             imageWidth = imageHeight
         }
         
         let size = CGSize(width: imageWidth, height: imageHeight)
         
-        let refWidth : CGFloat = CGFloat(CGImageGetWidth(image.CGImage))
-        let refHeight : CGFloat = CGFloat(CGImageGetHeight(image.CGImage))
+        let refWidth: CGFloat = CGFloat(CGImageGetWidth(image.CGImage))
+        let refHeight: CGFloat = CGFloat(CGImageGetHeight(image.CGImage))
         
         let x = (refWidth - size.width) / 2
         let y = (refHeight - size.height) / 2

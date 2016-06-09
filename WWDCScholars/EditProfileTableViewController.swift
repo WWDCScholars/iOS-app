@@ -40,6 +40,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     @IBOutlet private weak var appStoreTextField: FloatLabelTextField!
     @IBOutlet private weak var youtubeTextField: FloatLabelTextField!
     @IBOutlet private weak var appGithubTextField: FloatLabelTextField!
+    @IBOutlet private weak var iMessageTextField: FloatLabelTextField!
     @IBOutlet private weak var appStoreSubmissionTextField: FloatLabelTextField!
     
     private let imagePicker = UIImagePickerController()
@@ -214,6 +215,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
 //        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such property yet!
         self.appGithubTextField.text = self.currentScholar?.githubURL
         self.ageTextField.text = DateManager.shortDateStringFromDate(self.currentScholar!.birthday)
+//        self.iMessageTextField.text = self.currentScholar?.iMessage No such property yet!
         
         self.myLocation = CLLocationCoordinate2D(latitude: self.currentScholar!.location.latitude, longitude: self.currentScholar!.location.longitude)
         

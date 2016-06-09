@@ -542,7 +542,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appstoreIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="166-7c-vrA">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iMessageIconSmall" translatesAutoresizingMaskIntoConstraints="NO" id="166-7c-vrA">
                                                     <rect key="frame" x="14" y="13" width="27" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="hfA-Gf-Utl"/>
@@ -676,7 +676,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Screenshots" footerTitle="Please upload screenshots from devices with screen sizes 4&quot; and above" id="ocj-ap-jbG">
+                            <tableViewSection headerTitle="Screenshots" footerTitle="" id="ocj-ap-jbG">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="232" id="tNp-8p-5aQ">
                                         <rect key="frame" x="0.0" y="1138" width="600" height="232"/>
@@ -777,7 +777,7 @@
                             <tableViewSection headerTitle="App Store Submission (2016 Scholars only)" footerTitle="Only full length App Store URLs are valid and must contain your app's ID" id="ZbV-5b-2wr">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="cKq-va-Ojk">
-                                        <rect key="frame" x="0.0" y="1437" width="600" height="54"/>
+                                        <rect key="frame" x="0.0" y="1421" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cKq-va-Ojk" id="AWj-PO-7D1">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
@@ -851,6 +851,7 @@
                         <outlet property="facebookTextField" destination="Skb-5n-HOR" id="J52-8W-gLc"/>
                         <outlet property="firstNameTextField" destination="kOz-CM-8bA" id="umE-It-xik"/>
                         <outlet property="githubTextField" destination="RkB-e5-9T3" id="t61-8N-nsl"/>
+                        <outlet property="iMessageTextField" destination="u2M-cw-JSl" id="ABH-eZ-jtd"/>
                         <outlet property="linkedinTextField" destination="d8T-Sw-Ys8" id="43a-nE-Mwt"/>
                         <outlet property="locationChangeButton" destination="n77-0N-l2D" id="WJO-h4-Yom"/>
                         <outlet property="locationTextField" destination="AxZ-O1-Cim" id="cf7-ff-VrG"/>
@@ -1340,6 +1341,7 @@
         <image name="appstoreIconSmall" width="27" height="27"/>
         <image name="facebookIconSmall" width="27" height="27"/>
         <image name="gitHubIconSmall" width="27" height="27"/>
+        <image name="iMessageIconSmall" width="27" height="27"/>
         <image name="input-outline-active" width="250" height="44"/>
         <image name="linkedinIconSmall" width="27" height="27"/>
         <image name="mailIconSmall" width="27" height="27"/>

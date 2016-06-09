@@ -215,14 +215,12 @@ extension BlogPostDetailViewController: UIWebViewDelegate {
         
         self.scrollView.contentSize.height = self.webView.frame.origin.y + self.webView.frame.height + 40
         self.webView.backgroundColor = UIColor.whiteColor()
-        
     }
 }
 
 // MARK: - UIScrollViewDelegate
 
 extension BlogPostDetailViewController: UIScrollViewDelegate {
-    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         // HeaderImageView
         
@@ -241,17 +239,13 @@ extension BlogPostDetailViewController: UIScrollViewDelegate {
         let contentOffset: CGPoint = CGPointMake(0.0, min(scrollView.contentOffset.y - imageViewHeight - (self.titleLabel.frame.height / 2.0) + 22.0, 44.0))
         self.titleView.contentOffset.y = contentOffset.y
         self.titleViewOverlayLabel.alpha = -((self.titleView.contentOffset.y) / 25.0)
-
     }
-    
 }
 
 // MARK: - UIViewControllerPreviewingDelegate
 
 extension BlogPostDetailViewController: UIViewControllerPreviewingDelegate {
-    
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-     
         let viewController = storyboard?.instantiateViewControllerWithIdentifier("scholarDetailViewController") as? ScholarDetailViewController
         
         guard let previewViewController = viewController else {

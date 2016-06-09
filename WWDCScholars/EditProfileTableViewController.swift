@@ -195,6 +195,10 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
             return
         }
         
+        if !self.currentScholar!.batchWWDC.contains(.WWDC2016) {
+            self.appStoreSubmissionTextField.enabled = false
+        }
+        
         self.firstNameTextField.text = self.currentScholar?.firstName
         self.secondNameTextField.text = self.currentScholar?.lastName
         self.locationTextField.text = self.currentScholar?.location.name

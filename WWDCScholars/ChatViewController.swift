@@ -34,6 +34,7 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     var chatItem: ChatRoom!
+    var initialLoad = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,7 @@ class ChatViewController: JSQMessagesViewController {
         }
         
         self.styleUI()
-        self.loadOldMessages(true)
+        self.loadOldMessages()
         
     }
     
@@ -89,7 +90,7 @@ class ChatViewController: JSQMessagesViewController {
         self.loadingViewController.startAnimating()
         
         self.automaticallyScrollsToMostRecentMessage = true
-        self.collectionView.collectionViewLayout.springinessEnabled = true
+        self.collectionView.collectionViewLayout.springinessEnabled = false
         self.collectionView.showsVerticalScrollIndicator = false
         self.collectionView.collectionViewLayout.springResistanceFactor = 3000
         self.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
@@ -103,6 +104,8 @@ class ChatViewController: JSQMessagesViewController {
         
         self.outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(UIColor.scholarsPurpleColor())
         self.incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
+        
+        self.inputToolbar.contentView.rightBarButtonItem.setTitleColor(UIColor.scholarsPurpleColor(), forState: .Normal)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -137,15 +140,31 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
-    private func loadOldMessages(startObserving: Bool = false) {
+    private func loadOldMessages() {
         self.messages = []
-        
-        self.observeMessages()
+        self.collectionView.collectionViewLayout.springinessEnabled = false
+
+        let messagesQuery = self.messageReference.queryOrderedByChild("dateSent").queryLimitedToLast(50)//.queryStartingAtValue(self.messages[self.messages.count-1].date.timeIntervalSince1970, childKey: "dateSent")
+        messagesQuery.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            for snapshot in snapshot.children {
+            if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String, let dateInt = snapshot.value!["dateSent"] as? NSTimeInterval  {
+                self.addMessage(id, text: text, date: NSDate(timeIntervalSince1970: dateInt))
+            }
+            }
+            self.observeMessages()
+            
+            self.finishReceivingMessageAnimated(false)
+            self.collectionView.collectionViewLayout.springinessEnabled = true
+        })
     }
     
     private func observeMessages() {
-        let messagesQuery = self.messageReference.queryOrderedByChild("dateSent").queryLimitedToLast(50)//.queryStartingAtValue(self.messages[self.messages.count-1].date.timeIntervalSince1970, childKey: "dateSent")
+        let messagesQuery = self.messageReference.queryOrderedByChild("dateSent").queryLimitedToLast(1)//.queryStartingAtValue(self.messages[self.messages.count-1].date.timeIntervalSince1970, childKey: "dateSent")
         self.messageObserverHandle = messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if self.initialLoad {
+                self.initialLoad = false
+                return
+            }
             if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String, let dateInt = snapshot.value!["dateSent"] as? NSTimeInterval  {
                 self.addMessage(id, text: text, date: NSDate(timeIntervalSince1970: dateInt))
                 

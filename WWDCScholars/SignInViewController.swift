@@ -107,7 +107,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
             return
         }
         
-        UserKit.sharedInstance.login(self.emailTextField.text!, password: self.passwordTextField.text!) { error in
+        UserKit.sharedInstance.login(self.emailTextField.text!.lowercaseString, password: self.passwordTextField.text!) { error in
             if error == nil {
                 self.playConfirmationSound()
                 delay(1) {

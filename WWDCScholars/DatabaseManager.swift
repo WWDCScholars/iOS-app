@@ -20,7 +20,7 @@ class DatabaseManager {
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
             // version (if you've never set a schema version before, the version is 0).
-            schemaVersion: 13,
+            schemaVersion: 14,
             
             // Set the block which will be called automatically when opening a Realm with
             // a schema version lower than the one set above
@@ -113,7 +113,7 @@ class DatabaseManager {
     }
     
     func scholarsForWWDCBatch(wwdc: WWDC) -> Scholars {
-        let predicate = NSPredicate(format: "ANY batches.batchWWDCStr == %@", wwdc.rawValue)
+        let predicate = NSPredicate(format: "ANY batches.batchWWDCStr == %@", wwdc.toRawValue())
         return Array(realm.objects(Scholar).filter(predicate))
     }
     

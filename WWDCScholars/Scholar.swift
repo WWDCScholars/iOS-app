@@ -145,7 +145,7 @@ class Batch: Object {
             return WWDC.forRawValue(batchWWDCStr)
         }
         set {
-            batchWWDCStr = newValue.rawValue
+            batchWWDCStr = newValue.toRawValue()
         }
     }
     

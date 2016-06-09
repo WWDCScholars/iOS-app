@@ -68,10 +68,7 @@ class ScholarsKit: ApiBase {
 
         if let id = scholarInfo["_id"].string {
             newScholar.id = id
-        }else {
-            print("parseScholar -- Missing id")
-            return nil
-        }
+        
         
         if let gender = scholarInfo["gender"].string {
             newScholar.gender = (gender == "Male") ? .Male : .Female
@@ -133,12 +130,14 @@ class ScholarsKit: ApiBase {
         for batchJson in scholarBatch {
             let batch = Batch()
             
-            batch.batchWWDC = WWDC.forRawValue(batchJson["batchWWDC"].string ?? "")
+            let batchString = batchJson["batchWWDC"].string ?? ""
+//            print (batchString)
             
-            batch.id = "\(newScholar.id)\(batch.batchWWDC.rawValue)"
+            batch.batchWWDC = WWDC.forRawValue(batchString)
+            
+            batch.id = "\(id)\(batch.batchWWDC.rawValue)"
             
             var screenshots: [URL] = []
-            if let screenshot = batchJson["screenshotOne"].string {
             if let screenshot = workaroundServerURLEncode(batchJson["screenshotOne"].string) {
                 screenshots.append(screenshot)
             }
@@ -175,6 +174,11 @@ class ScholarsKit: ApiBase {
         }
 
         return newScholar
+            
+        }else {
+            print("parseScholar -- Missing id")
+            return nil
+        }
     }
     
     private func workaroundServerURLEncode(url: URL?) -> URL? {

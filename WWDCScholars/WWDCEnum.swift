@@ -43,21 +43,40 @@ enum WWDC: String {
         }
     }
     
+    func toRawValue() -> String{
+        switch self {
+        case .Saved:
+            return "Saved"
+        case .WWDC2016:
+            return "WWDC16"
+        case .WWDC2015:
+            return "WWDC15"
+        case .WWDC2014:
+            return "WWDC14"
+        case .WWDC2013:
+            return "WWDC13"
+        case .WWDC2012:
+            return "WWDC12"
+        case .WWDC2011:
+            return "WWDC11"
+        }
+    }
+    
     var shortVersion: String {
         switch self {
-        case Saved:
+        case .Saved:
             return "Saved"
-        case WWDC2016:
+        case .WWDC2016:
             return "'16"
-        case WWDC2015:
+        case .WWDC2015:
             return "'15"
-        case WWDC2014:
+        case .WWDC2014:
             return "'14"
-        case WWDC2013:
+        case .WWDC2013:
             return "'13"
-        case WWDC2012:
+        case .WWDC2012:
             return "'12"
-        case WWDC2011:
+        case .WWDC2011:
             return "'11"
         }
     }
@@ -66,17 +85,17 @@ enum WWDC: String {
         switch self {
         case Saved:
             return -1
-        case WWDC2016:
+        case .WWDC2016:
             return 5
-        case WWDC2015:
+        case .WWDC2015:
             return 4
-        case WWDC2014:
+        case .WWDC2014:
             return 3
-        case WWDC2013:
+        case .WWDC2013:
             return 2
-        case WWDC2012:
+        case .WWDC2012:
             return 1
-        case WWDC2011:
+        case .WWDC2011:
             return 0
         }
     }

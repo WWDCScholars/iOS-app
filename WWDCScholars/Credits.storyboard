@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Owr-WO-kOn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Owr-WO-kOn">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -149,7 +149,7 @@
                                                                             </constraints>
                                                                         </imageView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="P2x-QR-WCu">
-                                                                            <rect key="frame" x="75" y="37" width="178" height="22"/>
+                                                                            <rect key="frame" x="75" y="37" width="256" height="22"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iOS" translatesAutoresizingMaskIntoConstraints="NO" id="ex6-oS-ekg">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
@@ -158,43 +158,64 @@
                                                                                         <constraint firstAttribute="width" constant="22" id="j5n-Al-8x9"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Project Management" translatesAutoresizingMaskIntoConstraints="NO" id="d3q-Ej-Tmf">
-                                                                                    <rect key="frame" x="26" y="0.0" width="22" height="22"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="width" constant="22" id="dTh-0h-fmF"/>
-                                                                                        <constraint firstAttribute="height" constant="22" id="pSC-ZH-QoX"/>
-                                                                                    </constraints>
-                                                                                </imageView>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Website" translatesAutoresizingMaskIntoConstraints="NO" id="Mvk-0Z-0A9">
-                                                                                    <rect key="frame" x="52" y="0.0" width="22" height="22"/>
+                                                                                    <rect key="frame" x="26" y="0.0" width="22" height="22"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="22" id="2oa-kZ-8eP"/>
                                                                                         <constraint firstAttribute="width" constant="22" id="N4x-zM-OXn"/>
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watchOS" translatesAutoresizingMaskIntoConstraints="NO" id="d4Y-Jd-b8p">
-                                                                                    <rect key="frame" x="78" y="0.0" width="22" height="22"/>
+                                                                                    <rect key="frame" x="52" y="0.0" width="22" height="22"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="22" id="SYP-qj-T55"/>
                                                                                         <constraint firstAttribute="width" constant="22" id="nvH-bi-ehE"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Database" translatesAutoresizingMaskIntoConstraints="NO" id="Z1c-wJ-ktB">
-                                                                                    <rect key="frame" x="104" y="0.0" width="22" height="22"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="width" constant="22" id="GkP-3t-8Gg"/>
-                                                                                        <constraint firstAttribute="height" constant="22" id="WvJ-R8-m0n"/>
-                                                                                    </constraints>
-                                                                                </imageView>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Design" translatesAutoresizingMaskIntoConstraints="NO" id="c7Y-05-2oR">
-                                                                                    <rect key="frame" x="130" y="0.0" width="22" height="22"/>
+                                                                                    <rect key="frame" x="78" y="0.0" width="22" height="22"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="22" id="GL3-za-d5m"/>
                                                                                         <constraint firstAttribute="height" constant="22" id="H87-Si-lAC"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marketing" translatesAutoresizingMaskIntoConstraints="NO" id="K8N-qt-XJo">
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Api" translatesAutoresizingMaskIntoConstraints="NO" id="CMh-SM-UfH">
+                                                                                    <rect key="frame" x="104" y="0.0" width="22" height="22"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="22" id="2kd-rT-fKs"/>
+                                                                                        <constraint firstAttribute="width" constant="22" id="zN5-M7-mOh"/>
+                                                                                    </constraints>
+                                                                                </imageView>
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DatabaseTechnical" translatesAutoresizingMaskIntoConstraints="NO" id="Z1c-wJ-ktB">
+                                                                                    <rect key="frame" x="130" y="0.0" width="22" height="22"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="22" id="GkP-3t-8Gg"/>
+                                                                                        <constraint firstAttribute="height" constant="22" id="WvJ-R8-m0n"/>
+                                                                                    </constraints>
+                                                                                </imageView>
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Server" translatesAutoresizingMaskIntoConstraints="NO" id="S2l-tl-xwl">
                                                                                     <rect key="frame" x="156" y="0.0" width="22" height="22"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="22" id="o6P-Dd-hcF"/>
+                                                                                        <constraint firstAttribute="height" constant="22" id="pck-nM-ksa"/>
+                                                                                    </constraints>
+                                                                                </imageView>
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Deployment" translatesAutoresizingMaskIntoConstraints="NO" id="n0q-tX-BKG">
+                                                                                    <rect key="frame" x="182" y="0.0" width="22" height="22"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="22" id="0Pm-vE-CkK"/>
+                                                                                        <constraint firstAttribute="width" constant="22" id="5QO-cG-TMx"/>
+                                                                                    </constraints>
+                                                                                </imageView>
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Project Management" translatesAutoresizingMaskIntoConstraints="NO" id="d3q-Ej-Tmf">
+                                                                                    <rect key="frame" x="208" y="0.0" width="22" height="22"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="22" id="dTh-0h-fmF"/>
+                                                                                        <constraint firstAttribute="height" constant="22" id="pSC-ZH-QoX"/>
+                                                                                    </constraints>
+                                                                                </imageView>
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marketing" translatesAutoresizingMaskIntoConstraints="NO" id="K8N-qt-XJo">
+                                                                                    <rect key="frame" x="234" y="0.0" width="22" height="22"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="22" id="eit-FD-rdb"/>
                                                                                         <constraint firstAttribute="height" constant="22" id="nIX-ER-ylr"/>
@@ -228,14 +249,17 @@
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
+                                                            <outlet property="apiImageView" destination="CMh-SM-UfH" id="e3y-AA-8T7"/>
                                                             <outlet property="appleWatchImageView" destination="d4Y-Jd-b8p" id="Yvr-e8-zOs"/>
                                                             <outlet property="databaseImageView" destination="Z1c-wJ-ktB" id="WIB-D9-CTM"/>
+                                                            <outlet property="deploymentImageView" destination="n0q-tX-BKG" id="vjl-nY-s6P"/>
                                                             <outlet property="designImageView" destination="c7Y-05-2oR" id="sLW-uZ-YSL"/>
                                                             <outlet property="iOSImageView" destination="ex6-oS-ekg" id="Drk-fu-eDa"/>
                                                             <outlet property="marketingImageView" destination="K8N-qt-XJo" id="Ir3-2X-ISD"/>
                                                             <outlet property="projectManagementImageView" destination="d3q-Ej-Tmf" id="JBp-Jh-Jef"/>
                                                             <outlet property="scholarImageView" destination="Erb-OD-E2R" id="ONE-Tn-HBn"/>
                                                             <outlet property="scholarNameLabel" destination="hxF-PQ-1sO" id="d9X-oN-8xJ"/>
+                                                            <outlet property="serverImageView" destination="S2l-tl-xwl" id="mPW-g2-f57"/>
                                                             <outlet property="webImageView" destination="Mvk-0Z-0A9" id="5NF-d7-yzg"/>
                                                         </connections>
                                                     </tableViewCell>
@@ -328,10 +352,13 @@
     </scenes>
     <resources>
         <image name="Andrew Walker" width="133" height="133"/>
-        <image name="Database" width="22" height="22"/>
+        <image name="Api" width="54" height="54"/>
+        <image name="DatabaseTechnical" width="54" height="54"/>
+        <image name="Deployment" width="54" height="54"/>
         <image name="Design" width="22" height="22"/>
         <image name="Marketing" width="22" height="22"/>
         <image name="Project Management" width="22" height="23"/>
+        <image name="Server" width="54" height="54"/>
         <image name="Website" width="22" height="22"/>
         <image name="creditsHeader" width="327" height="184"/>
         <image name="iOS" width="22" height="22"/>

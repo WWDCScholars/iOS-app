@@ -47,6 +47,8 @@
 			<string>iOS</string>
 			<string>Database</string>
 			<string>Apple Watch</string>
+			<string>API</string>
+			<string>Marketing</string>
 		</array>
 	</dict>
 	<dict>
@@ -61,6 +63,11 @@
 			<string>Database</string>
 			<string>Project Management</string>
 			<string>Web</string>
+			<string>iOS</string>
+			<string>Design</string>
+			<string>API</string>
+			<string>Server</string>
+			<string>Marketing</string>
 		</array>
 	</dict>
 	<dict>
@@ -73,6 +80,7 @@
 		<key>Tasks</key>
 		<array>
 			<string>Web</string>
+			<string>Server</string>
 		</array>
 	</dict>
 </array>

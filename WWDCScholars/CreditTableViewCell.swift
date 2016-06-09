@@ -18,6 +18,10 @@ class CreditTableViewCell: UITableViewCell {
     @IBOutlet private weak var designImageView: UIImageView!
     @IBOutlet private weak var appleWatchImageView: UIImageView!
     @IBOutlet private weak var marketingImageView: UIImageView!
+    @IBOutlet weak var apiImageView: UIImageView!
+    @IBOutlet weak var serverImageView: UIImageView!
+    @IBOutlet weak var deploymentImageView: UIImageView!
+    
     
     func setIconVisibility(tasks: [String]) {
         //This code is temporary until I think of a better implementation
@@ -29,6 +33,10 @@ class CreditTableViewCell: UITableViewCell {
         self.designImageView.hidden = !tasks.contains("Design")
         self.appleWatchImageView.hidden = !tasks.contains("Apple Watch")
         self.marketingImageView.hidden = !tasks.contains("Marketing")
+        self.apiImageView.hidden = !tasks.contains("API")
+        self.serverImageView.hidden = !tasks.contains("Server")
+        self.deploymentImageView.hidden = !tasks.contains("Deployment")
+        
     }
     
     override func awakeFromNib() {

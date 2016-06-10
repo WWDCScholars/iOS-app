@@ -47,6 +47,27 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     @IBOutlet private weak var iMessageTextField: FloatLabelTextField!
     @IBOutlet private weak var appStoreSubmissionTextField: FloatLabelTextField!
     
+    private var profilePic: UIImage? = nil,
+    screenshotOne: UIImage? = nil,
+    screenshotTwo: UIImage? = nil,
+    screenshotThree: UIImage? = nil,
+    screenshotFour: UIImage? = nil,
+    firstName: String? = nil,
+    lastName: String? = nil,
+    email: String? = nil,
+    birthday: NSDate? = nil,
+    location: Location? = nil,
+    videoLink: String? = nil,
+    githubLinkApp: String? = nil,
+    twitter: String? = nil,
+    facebook: String? = nil,
+    github: String? = nil,
+    linkedin: String? = nil,
+    website: String? = nil,
+    itunes: String? = nil,
+    iMessage: String? = nil,
+    shortBio: String? = nil
+    
     private let imagePicker = UIImagePickerController()
     private let locationManager = CLLocationManager()
     private let bioMaxLength = 300
@@ -268,6 +289,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         let confirmAction = UIAlertAction(title: "I'm Sure!", style: .Default) { (action) in
             let croppedImage = UIImage.cropImageToSquare(importedImage)
             self.profileImageButton.setImage(croppedImage, forState: .Normal)
+            self.profilePic = importedImage
         }
         
         alertController.addAction(cancelAction)
@@ -373,7 +395,11 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
             alertController.addAction(cancelAction)
             
-            let confirmAction = UIAlertAction(title: "Confirm", style: .Default, handler: nil)
+            let confirmAction = UIAlertAction(title: "Confirm", style: .Default, handler: { _ in
+                ScholarsKit.sharedInstance.updateScholarData(UserKit.sharedInstance.scholarId!, password: alertController.textFields?[0].text ?? "", profilePic: self.profilePic, screenshotOne: self.screenshotOne, screenshotTwo: self.screenshotTwo, screenshotThree: self.screenshotThree, screenshotFour: self.screenshotFour, firstName: self.firstName, lastName: self.lastName, email: self.email, birthday: self.birthday, location: self.location, videoLink: self.videoLink, githubLinkApp: self.githubLinkApp, twitter: self.twitter, facebook: self.facebook, github: self.github, linkedin: self.linkedin, website: self.website, itunes: self.itunes, iMessage: self.iMessage, shortBio: self.shortBio)
+                
+                
+            })
             alertController.addAction(confirmAction)
             
             self.presentViewController(alertController, animated: true, completion: nil)

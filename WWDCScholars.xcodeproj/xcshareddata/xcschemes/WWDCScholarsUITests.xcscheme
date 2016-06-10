@@ -21,11 +21,6 @@
                BlueprintName = "WWDCScholarsUITests"
                ReferencedContainer = "container:WWDCScholars.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "WWDCScholarsUITests">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

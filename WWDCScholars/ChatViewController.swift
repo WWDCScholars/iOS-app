@@ -23,15 +23,15 @@ class ChatViewController: JSQMessagesViewController {
     private var localTyping = false
     private var loadingViewController: LoadingViewController!
     private var messageObserverHandle: UInt?
-    private var isTyping: Bool {
-        get {
-            return self.localTyping
-        }
-        set {
-            self.localTyping = newValue
-            self.userIsTypingRef.setValue(newValue)
-        }
-    }
+//    private var isTyping: Bool {
+//        get {
+//            return self.localTyping
+//        }
+//        set {
+//            self.localTyping = newValue
+//            self.userIsTypingRef.setValue(newValue)
+//        }
+//    }
     
     var chatItem: ChatRoom!
     var initialLoad = true
@@ -115,19 +115,19 @@ class ChatViewController: JSQMessagesViewController {
     // MARK: - Private functions
     
     private func observeTyping() {
-        let typingIndicatorRef = self.messageReference.child("typingIndicator")
-        self.userIsTypingRef = typingIndicatorRef.child(self.senderId)
-        self.userIsTypingRef.onDisconnectRemoveValue()
-        
-        usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqualToValue(true)
-        usersTypingQuery.observeEventType(.Value) { (data: FIRDataSnapshot!) in
-            if data.childrenCount == 1 && self.isTyping {
-                return
-            }
-            
-            self.showTypingIndicator = data.childrenCount > 0
-            self.scrollToBottomAnimated(true)
-        }
+//        let typingIndicatorRef = self.messageReference.child("typingIndicator")
+//        self.userIsTypingRef = typingIndicatorRef.child(self.senderId)
+//        self.userIsTypingRef.onDisconnectRemoveValue()
+//        
+//        usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqualToValue(true)
+//        usersTypingQuery.observeEventType(.Value) { (data: FIRDataSnapshot!) in
+//            if data.childrenCount == 1 && self.isTyping {
+//                return
+//            }
+//            
+//            self.showTypingIndicator = data.childrenCount > 0
+//            self.scrollToBottomAnimated(true)
+//        }
     }
     
     private func addMessage(id: String, text: String, date: NSDate) {
@@ -305,12 +305,12 @@ class ChatViewController: JSQMessagesViewController {
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         
         self.finishSendingMessage()
-        self.isTyping = false
+//        self.isTyping = false
     }
     
     override func textViewDidChange(textView: UITextView) {
         super.textViewDidChange(textView)
         
-        self.isTyping = textView.text != ""
+//        self.isTyping = textView.text != ""
     }
 }

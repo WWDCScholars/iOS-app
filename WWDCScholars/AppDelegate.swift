@@ -37,6 +37,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         var keys: NSDictionary?
         
+//        if let options = launchOptions {
+            if let loggedInId = NSUserDefaults.standardUserDefaults().valueForKey("loggedInScholarId") as? String {
+                UserKit.sharedInstance.scholarId = loggedInId
+            }
+//        }
+        
         if let path = NSBundle.mainBundle().pathForResource("ServerDetails", ofType: "plist") {
             keys = NSDictionary(contentsOfFile: path)
         } else {
@@ -70,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window.makeKeyAndVisible()
         }
         
-        
+//        ScholarsKit.sharedInstance.updateScholarData("56fc2ddaa5ac14970921ad6a", password: "Scholarsh1p2015", firstName: "James", screenshotFour: UIImage(named: "appstoreIconSmall"))
         
         CreditsManager.sharedInstance.getCredits()
         Fabric.with([Crashlytics.self])

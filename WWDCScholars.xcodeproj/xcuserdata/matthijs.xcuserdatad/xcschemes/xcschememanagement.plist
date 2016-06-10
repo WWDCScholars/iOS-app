@@ -4,20 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>WWDCScholars.xcscheme_^#shared#^_</key>
+		<key>WWDCScholars watchOS App.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>10</integer>
 		</dict>
-		<key>WWDCScholarsTests.xcscheme_^#shared#^_</key>
+		<key>WWDCScholars.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>WWDCScholarsUITests.xcscheme_^#shared#^_</key>
+		<key>WWDCScholarsTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
+		</dict>
+		<key>WWDCScholarsUITests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

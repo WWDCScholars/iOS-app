@@ -24,10 +24,10 @@ class ScholarsTabBarViewController: UITabBarController {
             UserDefaults.hasOpenedApp = true
         }
         
-        self.selectedIndex = 1
-        delay(0.1){
-            self.selectedIndex = 0
-        }
+//        self.selectedIndex = 1
+//        delay(0.1){
+//            self.selectedIndex = 0
+//        }
     }
     
     func openScholarDetail(id: String) {

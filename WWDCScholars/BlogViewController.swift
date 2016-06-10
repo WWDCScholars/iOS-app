@@ -106,7 +106,14 @@ extension BlogViewController: UITableViewDataSource {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("blogPostTableViewCell") as! BlogPostTableViewCell
         let post = self.blogPosts[indexPath.row]
         
-        let authorString = "written by \(post.scholarName)" as NSString
+        var authorString = "" as NSString
+        
+        if (post.scholarId == nil) {
+            authorString = "written by \(post.scholarName), WWDC Scholarship Applicant"
+        } else {
+            authorString = "written by \(post.scholarName)"
+        }
+        
         let attributedAuthorString = NSMutableAttributedString(string: authorString as String)
         
         let firstAttribute = [NSForegroundColorAttributeName: UIColor.mediumWhiteTextColor()]

@@ -198,7 +198,16 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     // MARK: - IBActions
     
     @IBAction func authorNameButtonTapped(sender: AnyObject) {
-        self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: nil)
+     
+        if (self.currentPost.scholarId == nil) {
+            var guestURL = NSURL(string: self.currentPost.guestLink!)
+            let safariVC = SFSafariViewController(URL: guestURL!)
+            safariVC.delegate = self
+            presentViewController(safariVC, animated: true, completion: nil)
+            
+        } else {
+            self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: nil)
+        }
     }
     
     @IBAction func authorNameButtonTouched(sender: AnyObject) {

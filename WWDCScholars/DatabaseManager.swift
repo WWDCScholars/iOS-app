@@ -114,7 +114,7 @@ class DatabaseManager {
     
     func scholarsForWWDCBatch(wwdc: WWDC) -> Scholars {
         let predicate = NSPredicate(format: "ANY batches.batchWWDCStr == %@", wwdc.toRawValue())
-        return Array(realm.objects(Scholar).filter(predicate))
+        return Array(realm.objects(Scholar).filter(predicate).sorted("firstName"))
     }
     
     /**
@@ -135,7 +135,7 @@ class DatabaseManager {
      - returns: List of BlogPosts
      */
     func getAllBlogPosts() -> [BlogPost] {
-        let posts = realm.objects(BlogPost)
+        let posts = realm.objects(BlogPost).sorted("createdAt", ascending: false)
         return Array(posts)
     }
     

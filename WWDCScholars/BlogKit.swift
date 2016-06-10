@@ -53,11 +53,8 @@ class BlogKit: ApiBase {
             
             //author related
             let email = json["email"].string,
-            let scholarLink = json["scholarLink"].string,
+//            let scholarLink = json["scholarLink"].string,
             let scholarName = json["scholarName"].string,
-            
-            //guest author related
-            let guestLink = json["guestLink"].string,
             
             //for sharing purposes using social media buttons
             let urlLink = json["links"]["link"].string,
@@ -73,11 +70,13 @@ class BlogKit: ApiBase {
             newPost.email = email
             newPost.content = content
             newPost.title = title
-            newPost.scholarLink = scholarLink.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":") //todo is optional?
+            newPost.scholarLink = json["scholarLink"].string?.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
             newPost.scholarName = scholarName
             newPost.headerImage = headerImage.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
             newPost.urlLink = urlLink.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
-            newPost.guestLink = guestLink.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":") //Optional - Guest Link
+            
+            //guest author related
+            newPost.guestLink = json["guestLink"].string?.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":") //Optional - Guest Link
             
             
             newPost.updatedAt = updatedAt.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!

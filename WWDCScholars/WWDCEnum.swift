@@ -34,7 +34,7 @@ enum WWDC: String {
             return .WWDC2014
         case "WWDC13":
             return .WWDC2013
-        case "WWDC2012":
+        case "WWDC12":
             return .WWDC2012
         case "WWDC11":
             return .WWDC2011

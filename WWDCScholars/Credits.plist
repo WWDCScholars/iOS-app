@@ -81,5 +81,17 @@
 			<string>Server</string>
 		</array>
 	</dict>
+	<dict>
+		<key>ID</key>
+		<string>57313a3f6961057506283eb8</string>
+		<key>Name</key>
+		<string>Sebastian Dobrincu</string>
+		<key>Location</key>
+		<string>Bucharest, Romania</string>
+		<key>Tasks</key>
+		<array>
+			<string>iOS</string>
+		</array>
+	</dict>
 </array>
 </plist>

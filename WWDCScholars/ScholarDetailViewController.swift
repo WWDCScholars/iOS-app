@@ -20,13 +20,13 @@ enum ScreenSize: CGFloat {
     var adjustmentValue: CGFloat {
         switch self {
         case .ThreePointFive:
-            return 5.0
+            return 47.0
         case .Four:
-            return 100.0
+            return 142.0
         case .FourPointSeven:
-            return 186.0
+            return 128.0
         case .FivePointFive:
-            return 240.0
+            return 282.0
         }
     }
 }
@@ -76,7 +76,6 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         self.styleUI()
         self.updateUI()
         self.editButtonVisible()
-        
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -155,7 +154,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         // Fix ScrollView Constraint
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
-            let offset = self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)).height+self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0)).height - self.contentSizeConstraint.constant - ScreenSize(rawValue: UIScreen.mainScreen().bounds.height)!.adjustmentValue
+            let offset = self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)).height+self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0)).height - self.contentSizeConstraint.constant - ScreenSize(rawValue: UIScreen.mainScreen().bounds.height)!.adjustmentValue
             self.contentSizeConstraint.constant += offset
             print(offset)
         }
@@ -309,7 +308,6 @@ extension ScholarDetailViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        
         switch indexPath.item {
         case 0:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("basicDetailsTableViewCell") as! BasicDetailsTableViewCell
@@ -332,20 +330,20 @@ extension ScholarDetailViewController: UITableViewDataSource {
             
             return cell
         case 2:
+            let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("socialButtonsTableViewCell") as! SocialButtonsTableViewCell
+            
+            cell.scholar = scholar
+            cell.delegate = self
+            cell.setIconVisibility()
+            
+            return cell
+        case 3:
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("screenshotsTableViewCell") as! ScreenshotsTableViewCell
             
             cell.scholarshipScreenshots = scholar.latestBatch.screenshots
             cell.is2016 = scholar.latestBatch.appstoreSubmissionURL != nil
             cell.setAppStoreURL(scholar.latestBatch.appstoreSubmissionURL ?? "")
             cell.delegate = self
-            
-            return cell
-        case 3:
-            let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("socialButtonsTableViewCell") as! SocialButtonsTableViewCell
-            
-            cell.scholar = scholar
-            cell.delegate = self
-            cell.setIconVisibility()
             
             return cell
         default:
@@ -364,9 +362,9 @@ extension ScholarDetailViewController: UITableViewDataSource {
         case 1:
             return UITableViewAutomaticDimension
         case 2:
-            return scholar.latestBatch.appstoreSubmissionURL != nil ? 348.0 : 304.0
-        case 3:
             return 54.0
+        case 3:
+            return scholar.latestBatch.appstoreSubmissionURL != nil ? 348.0 : 304.0
         default:
             return 0.0
         }

@@ -57,7 +57,7 @@ class WWDCScholarsUITests: XCTestCase {
         let collectionViewsQuery = app.collectionViews
         
         /// Get cell to check for existence
-        let cell = collectionViewsQuery.cells.otherElements.containingType(.StaticText, identifier:"Andrew").childrenMatchingType(.Image).element
+        let cell = collectionViewsQuery.cells.otherElements.containingType(.StaticText, identifier:"Alyssa").childrenMatchingType(.Image).element
         
         /// Wait until the cell exists, thus data got loaded
         let exists = NSPredicate(format: "exists == 1")
@@ -104,7 +104,7 @@ class WWDCScholarsUITests: XCTestCase {
         skipIntro()
         
         XCUIApplication().tabBars.buttons["Blog"].tap()
-        snapshot("4-Blog", waitForLoadingIndicator: false)
+        snapshot("5-Blog", waitForLoadingIndicator: false)
     }
     
     func testChatScreen(){
@@ -113,25 +113,25 @@ class WWDCScholarsUITests: XCTestCase {
         let app = XCUIApplication()
 
         app.tabBars.buttons["Chat"].tap()
-        snapshot("3a-ChatOverview", waitForLoadingIndicator: false)
+        snapshot("3-ChatOverview", waitForLoadingIndicator: false)
         
         app.tables.staticTexts["General"].tap()
         
         sleep(2)
         
-        snapshot("3b-ChatGeneral", waitForLoadingIndicator: false)
+        snapshot("4-ChatGeneral", waitForLoadingIndicator: false)
 
     }
     
-    func testLoginScreen(){
-        
-        skipIntro()
-        
-        let app = XCUIApplication()
-        app.tabBars.buttons["Scholars"].tap()
-        app.navigationBars["Scholars"].buttons["barButtonItemIconAccountFilled"].tap()
-        snapshot("7-Login", waitForLoadingIndicator: false)
-    }
+//    func testLoginScreen(){
+//        
+//        skipIntro()
+//        
+//        let app = XCUIApplication()
+//        app.tabBars.buttons["Scholars"].tap()
+//        app.navigationBars["Scholars"].buttons["barButtonItemIconAccountFilled"].tap()
+//        snapshot("7-Login", waitForLoadingIndicator: false)
+//    }
     
     func testMapScreen(){
         
@@ -148,6 +148,8 @@ class WWDCScholarsUITests: XCTestCase {
         
         app.tap() // need to interact with the app for the handler to fire
 
+        sleep(3)
+        
         snapshot("1-Map", waitForLoadingIndicator: false)
 
     }

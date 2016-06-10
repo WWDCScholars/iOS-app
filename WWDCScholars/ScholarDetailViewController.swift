@@ -17,6 +17,21 @@ enum ScreenSize: CGFloat {
     case FourPointSeven = 667.0
     case FivePointFive = 736.0
     
+    static func forRawValue(float: CGFloat) -> ScreenSize {
+        switch float {
+        case ThreePointFive.rawValue:
+            return .ThreePointFive
+        case Four.rawValue:
+            return .Four
+        case FourPointSeven.rawValue:
+            return .FourPointSeven
+        case FivePointFive.rawValue:
+            return .FivePointFive
+        default:
+            return .FivePointFive
+        }
+    }
+    
     var adjustmentValue: CGFloat {
         switch self {
         case .ThreePointFive:
@@ -154,7 +169,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         // Fix ScrollView Constraint
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
-            let offset = self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)).height+self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0)).height - self.contentSizeConstraint.constant - ScreenSize(rawValue: UIScreen.mainScreen().bounds.height)!.adjustmentValue
+            let offset = self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)).height+self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0)).height - self.contentSizeConstraint.constant - ScreenSize.forRawValue(UIScreen.mainScreen().bounds.height).adjustmentValue
             self.contentSizeConstraint.constant += offset
             print(offset)
         }

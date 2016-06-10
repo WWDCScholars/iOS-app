@@ -101,6 +101,11 @@ extension ChatListViewController: UITableViewDataSource {
         cell.descriptionLabel.text = self.chatItems[indexPath.item].shortDescription
         cell.circleView.backgroundColor = self.colors[indexPath.item]
         
+        cell.alpha = 0.0
+        UIView.animateWithDuration(0.5) { 
+            cell.alpha = 1.0
+        }
+        
         return cell
     }
     

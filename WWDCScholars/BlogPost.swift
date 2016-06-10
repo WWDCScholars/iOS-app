@@ -24,6 +24,9 @@ class BlogPost : Object {
     dynamic var scholarLink: String? = nil
     dynamic var email: String = ""
     
+    //Guest Post
+    dynamic var guestLink: String? = nil
+    
     dynamic var createdAt: NSDate = NSDate.today()
     dynamic var updatedAt: NSDate = NSDate.today()
     

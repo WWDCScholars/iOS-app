@@ -37,10 +37,10 @@ class ScholarTests: XCTestCase {
         testScholar.firstName = "Matthijs"
         testScholar.lastName = "Logemann"
         testScholar.birthday = NSDate.date(year: 1999, month: 4, day: 27)
-        testScholar.batchWWDC = [.WWDC2015]
+//        testScholar.batchWWDC = [.WWDC2015]
         testScholar.email = "matthijs@logicbit.nl"
         testScholar.gender = .Male
-        testScholar.numberOfTimesWWDCScholar = 1
+//        testScholar.numberOfTimesWWDCScholar = 1
         testScholar.shortBio = "Hi! I'm Matt. And this is a test scholar :D"
         
         dbManager.addScholar(testScholar)
@@ -58,10 +58,10 @@ class ScholarTests: XCTestCase {
             XCTAssertTrue(testScholar.lastName == "Logemann")
             XCTAssertTrue(testScholar.fullName == "Matthijs Logemann")
             XCTAssertTrue(testScholar.age == 17)
-            XCTAssertTrue(testScholar.batchWWDC == [.WWDC2015])
+//            XCTAssertTrue(testScholar.batchWWDC == [.WWDC2015])
             XCTAssertTrue(testScholar.email == "matthijs@logicbit.nl")
             XCTAssertTrue(testScholar.gender == .Male)
-            XCTAssertTrue(testScholar.numberOfTimesWWDCScholar == 1)
+//            XCTAssertTrue(testScholar.numberOfTimesWWDCScholar == 1)
             XCTAssertTrue(testScholar.shortBio == "Hi! I'm Matt. And this is a test scholar :D")
             
         }

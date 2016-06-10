@@ -46,7 +46,7 @@ class BlogKit: ApiBase {
     func parsePost(json: JSON) -> BlogPost? {
         if
             let postId = json["_id"].string,
-            let scholarId = json["scholarId"].string,
+
             let title = json["title"].string,
             let headerImage = json["headerImage"].string,
             let content = json["content"].string,
@@ -66,7 +66,7 @@ class BlogKit: ApiBase {
             let newPost = BlogPost()
             
             newPost.postId = postId
-            newPost.scholarId = scholarId
+            newPost.scholarId = json["scholarId"].string
             newPost.email = email
             newPost.content = content
             newPost.title = title

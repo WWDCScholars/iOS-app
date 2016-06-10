@@ -19,7 +19,7 @@ class BlogPost : Object {
     dynamic var urlLink: String = ""
     
     //Scholar Related
-    dynamic var scholarId: String = ""
+    dynamic var scholarId: String? = nil
     dynamic var scholarName: String = ""
     dynamic var scholarLink: String? = nil
     dynamic var email: String = ""

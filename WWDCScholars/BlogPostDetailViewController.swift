@@ -31,7 +31,11 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     private var titleViewOverlayLabel = UILabel()
     private var buttonTypeTapped: AuthorButtonType = .Image
     private var currentPostAuthor: Scholar? {
-        return DatabaseManager.sharedInstance.scholarForId(self.currentPost.scholarId)
+        if let scholarId = self.currentPost.scholarId {
+            return DatabaseManager.sharedInstance.scholarForId(scholarId)
+        }else {
+            return nil
+        }
     }
     
     var currentPost: BlogPost!

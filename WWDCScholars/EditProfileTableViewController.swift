@@ -297,10 +297,12 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-    
+
+
     private func validateTextFields() -> ValidationIssueType {
         var validationIssue: ValidationIssueType = .None
-        
+       
+        /*
         if let text = self.facebookTextField.text where self.facebookTextField.text != "" {
             if !text.isValidFacebookLink() {
                 validationIssue = .Facebook
@@ -319,19 +321,19 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
             }
         }
         
-//        if let text = self.linkedinTextField.text where self.linkedinTextField.text != "" {
-//            if !text.isValidLinkedInLink() {
-//                validationIssue = .LinkedIn
-//            }
-//        }
+        if let text = self.linkedinTextField.text where self.linkedinTextField.text != "" {
+            if !text.isValidLinkedInLink() {
+                validationIssue = .LinkedIn
+            }
+        }
         
     
-//        if let text = self.appStoreTextField.text where self.appStoreTextField.text != "" {
-//            if !text.isValidiTunesLink() {
-//                validationIssue = .iTunes
-//            }
-//        }
-        
+        if let text = self.appStoreTextField.text where self.appStoreTextField.text != "" {
+            if !text.isValidiTunesLink() {
+                validationIssue = .iTunes
+            }
+        }
+     
         if let text = self.appGithubTextField.text where self.appGithubTextField.text != "" {
             if !text.isValidGitHubLink() {
                 validationIssue = .GithubApp
@@ -353,9 +355,10 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         if self.secondNameTextField.text == "" {
             validationIssue = .SecondName
         }
-        
+        */
         return validationIssue
     }
+
     
     // MARK: - IBActions
     

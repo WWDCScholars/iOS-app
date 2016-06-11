@@ -12,4 +12,4 @@
 #import "JSQSystemSoundPlayer/JSQSystemSoundPlayer.h"
 #import "JTSImageInfo.h"
 #import "JTSImageViewController.h"
-#import "SDStatusBarManager.h"
+//#import "SDStatusBarManager.h"

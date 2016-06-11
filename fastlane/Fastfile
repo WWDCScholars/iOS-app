@@ -69,6 +69,15 @@ platform :ios do
     # frameit
   end
 
+  desc "Deploy a new version to the App Store"
+  lane :appstore_upload do
+    match(git_url: "git@github.com:WWDCScholars/certificates.git", type: "appstore", readonly: true)
+    gym(scheme: "WWDCScholars", silent: true) # Build your app - more options available
+    # scan
+    deliver(force: true, skip_screenshots: true)
+    # frameit
+  end
+
   # You can define as many lanes as you want
 
   after_all do |lane|

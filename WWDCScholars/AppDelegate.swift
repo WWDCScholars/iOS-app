@@ -37,9 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         var keys: NSDictionary?
         
-//        if let options = launchOptions {
-            if let loggedInId = NSUserDefaults.standardUserDefaults().valueForKey("loggedInScholarId") as? String {
-                UserKit.sharedInstance.scholarId = loggedInId
+//        if let options = launchOptions {[[NSProcessInfo processInfo].environment hasKey:@"UITest"]
+            if NSProcessInfo.processInfo().environment.keys.contains("loggedInScholarId"){
+                UserKit.sharedInstance.scholarId = NSProcessInfo.processInfo().environment["loggedInScholarId"]
             }
 //        }
         

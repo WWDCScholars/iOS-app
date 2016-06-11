@@ -20,6 +20,7 @@ class WWDCScholarsUITests: XCTestCase {
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         
         let app = XCUIApplication()
+        app.launchEnvironment = ["loggedInScholarId": "56fc2ddaa5ac14970921ad6a"]
         setupSnapshot(app)
         app.launch()
         
@@ -57,14 +58,14 @@ class WWDCScholarsUITests: XCTestCase {
         let collectionViewsQuery = app.collectionViews
         
         /// Get cell to check for existence
-        let cell = collectionViewsQuery.cells.otherElements.containingType(.StaticText, identifier:"Alyssa").childrenMatchingType(.Image).element
+        let cell = collectionViewsQuery.cells.otherElements.containingType(.StaticText, identifier:"Alyssa").element
         
         /// Wait until the cell exists, thus data got loaded
         let exists = NSPredicate(format: "exists == 1")
         expectationForPredicate(exists, evaluatedWithObject: cell, handler: nil)
         waitForExpectationsWithTimeout(60, handler: nil)
         
-        sleep(5)
+        sleep(10)
 
         cell.tap()
 
@@ -104,6 +105,9 @@ class WWDCScholarsUITests: XCTestCase {
         skipIntro()
         
         XCUIApplication().tabBars.buttons["Blog"].tap()
+        
+        sleep(7)
+        
         snapshot("5-Blog", waitForLoadingIndicator: false)
     }
     

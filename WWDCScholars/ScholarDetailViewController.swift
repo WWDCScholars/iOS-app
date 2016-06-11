@@ -328,7 +328,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
             let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("basicDetailsTableViewCell") as! BasicDetailsTableViewCell
             
             var attendedString = ""
-            for (index, batch) in scholar.batches.enumerate() {
+            for (index, batch) in scholar.batches.reverse().enumerate() {
                 attendedString.appendContentsOf(index != scholar.batches.count - 1 ? "\(batch.batchWWDC.shortVersion), " : batch.batchWWDC.shortVersion)
             }
             

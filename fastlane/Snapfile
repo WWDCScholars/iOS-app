@@ -15,7 +15,7 @@ languages([
 ])
 
 # Arguments to pass to the app on launch. See https://github.com/fastlane/snapshot#launch-arguments
-launch_arguments(["-loggedInScholarId 56fc2ddaa5ac14970921ad6a"])
+# launch_arguments(["-loggedInScholarId 56fc2ddaa5ac14970921ad6a"])
 
 # The name of the scheme which contains the UI Tests
 #scheme "SchemeName"

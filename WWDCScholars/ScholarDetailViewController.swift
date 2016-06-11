@@ -119,7 +119,10 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
             } else {
                 UserDefaults.favorites.removeAtIndex(indexOfFavorite!)
                 
-                self.delegate?.refreshScholarsWithNewFavorite!()
+                
+                let scholarDetailVC = ScholarDetailViewController()
+                
+                scholarDetailVC.delegate?.refreshScholarsWithNewFavorite!()
             }
         }
         
@@ -302,8 +305,10 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         } else {
             UserDefaults.favorites.removeAtIndex(indexOfFavorite!)
         }
+        let scholarDetailVC = ScholarDetailViewController()
         
-        self.delegate?.refreshScholarsWithNewFavorite!()
+        scholarDetailVC.delegate?.refreshScholarsWithNewFavorite!()
+
     }
     
     @IBAction func editProfileButtonTapped(sender: AnyObject) {

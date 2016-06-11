@@ -344,6 +344,10 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     }
     
     internal func refreshScholarsWithNewFavorite() {
+        //let scholarDetailVC = ScholarDetailViewController()
+        
+       // scholarDetailVC.delegate?.refreshScholarsWithNewFavorite!()
+
         self.getCurrentScholars()
     }
     

@@ -76,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window.makeKeyAndVisible()
         }
         
-//        ScholarsKit.sharedInstance.updateScholarData("56fc2ddaa5ac14970921ad6a", password: "Scholarsh1p2015", firstName: "James", screenshotFour: UIImage(named: "appstoreIconSmall"))
+//        ScholarsKit.sharedInstance.updateScholarData("56fc2ddaa5ac14970921ad6a", password: "Scholarsh1p2015", firstName: "Steve", lastName: "Even", shortBio: "This is Steven", profilePic: UIImage(named: "appstoreIconSmall"), screenshotOne: UIImage(named: "appstoreIconSmall"), screenshotTwo: UIImage(named: "appstoreIconSmall"), screenshotThree: UIImage(named: "appstoreIconSmall"), screenshotFour: UIImage(named: "appstoreIconSmall"))
         
         CreditsManager.sharedInstance.getCredits()
         Fabric.with([Crashlytics.self])

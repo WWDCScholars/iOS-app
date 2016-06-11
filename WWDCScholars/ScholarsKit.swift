@@ -206,7 +206,7 @@ class ScholarsKit: ApiBase {
                            shortBio: String? = nil
                            ) {
         upload(.POST,
-               "\(self.serverUrl)/api/updateIOS/\(self.apiKey)/\(id)",
+               "\(self.serverUrl)/api/updateIOSMULTER/\(self.apiKey)/\(id)",
         multipartFormData: { multipartFormData in
 //            multipartFormData.appendBodyPart(data: id.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name: "scholar_id")
             multipartFormData.appendBodyPart(data: password.dataUsingEncoding(NSUTF8StringEncoding)!.sha256()!.toHexString().dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!, name: "password")
@@ -230,6 +230,9 @@ class ScholarsKit: ApiBase {
             
             if let firstName = firstName {
                 multipartFormData.appendBodyPart(data: firstName.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"firstName")
+            }
+            if let lastName = lastName {
+                multipartFormData.appendBodyPart(data: lastName.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"lastName")
             }
             if let birthday = birthday {
                 multipartFormData.appendBodyPart(data: (birthday.stringFromFormat("")).dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"birthday")

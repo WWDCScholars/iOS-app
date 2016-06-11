@@ -173,7 +173,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         
         self.authorButton.setTitle(self.currentPostAuthor?.fullName, forState: .Normal)
 
-        if _ = self.currentPostAuthor {
+        if self.currentPostAuthor != nil{
             self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: self.currentPostAuthor!.latestBatch.profilePic)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
         } else {
             self.authorProfileImageButton.enabled = false

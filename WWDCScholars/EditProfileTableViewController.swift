@@ -464,7 +464,9 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
                     website: self.website,
                     itunes: self.itunes,
                     iMessage: self.iMessage,
-                    shortBio: self.shortBio)
+                shortBio: self.shortBio) { error, message in
+                    
+                }
                 
                 
             })

@@ -203,7 +203,8 @@ class ScholarsKit: ApiBase {
                            website: String? = nil,
                            itunes: String? = nil,
                            iMessage: String? = nil,
-                           shortBio: String? = nil
+                           shortBio: String? = nil,
+                           completionHandler: ((error: ErrorType?, message: String) -> Void)? = nil
                            ) {
         
 //        print ("Helo")
@@ -276,12 +277,27 @@ class ScholarsKit: ApiBase {
         encodingCompletion: { encodingResult in
             switch encodingResult {
             case .Success(let upload, _, _):
-                upload.responseJSON { response in
+                upload.responseData { response in
+                    if response.result.error != nil {
+                        completionHandler?(error: response.result.error!, message: response.result.error!.localizedDescription)
+                        return
+                    }
                     
-                    print (response.result.value)
+                    let json = JSON(data: response.result.value!)
+                    if json["errorCode"].int == -1 {
+                        print (json["message"].string)
+                        completionHandler?(error: nil, message: json["message"].string!)
+                    }else if json["errorCode"].int == -1004 {
+                        completionHandler?(error: Error.error(code: -1004, failureReason: "Wrong password!"), message: json["message"].string!)
+                    }
+//                    else if json["errorCode"].int == -1004 {
+//                        completionHandler?(error: Error.error(code: -1004, failureReason: "No scholar with that ID"), message: json["message"].string!)
+//                    }
                 }
                 break
-            case .Failure(let encodingError): break
+            case .Failure(let encodingError):
+                completionHandler?(error: encodingError, message: "Error")
+                break
                 
             }
         })

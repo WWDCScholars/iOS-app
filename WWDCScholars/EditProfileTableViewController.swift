@@ -175,18 +175,20 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     }
     
     internal func presentActionSheet(index: Int) {
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        
-        let removeAction = UIAlertAction(title: "Remove Screenshot", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-            self.screenshots[index] = nil
-            self.screenshotCollectionView.reloadData()
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        
-        actionSheet.addAction(removeAction)
-        actionSheet.addAction(cancelAction)
-        
-        self.presentViewController(actionSheet, animated: true, completion: nil)
+        if self.screenshots[index] != nil {
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            
+            let removeAction = UIAlertAction(title: "Remove Screenshot", style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+                self.screenshots[index] = nil
+                self.screenshotCollectionView.reloadData()
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            
+            actionSheet.addAction(removeAction)
+            actionSheet.addAction(cancelAction)
+            
+            self.presentViewController(actionSheet, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Private functions

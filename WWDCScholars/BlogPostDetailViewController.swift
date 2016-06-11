@@ -173,12 +173,13 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         
         self.authorButton.setTitle(self.currentPost.scholarName, forState: .Normal)
 
-//        if self.currentPostAuthor != nil{
-//            self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: self.currentPostAuthor!.latestBatch.profilePic)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
-//        } else {
+        if self.currentPostAuthor != nil{
+            self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: self.currentPostAuthor!.latestBatch.profilePic)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
+        } else {
+            self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: "https://wwdcscholars.s3.amazonaws.com/scholarImages/2016_s_C_profilePic2015_1465646958901.png")!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
 //            self.authorProfileImageButton.enabled = false
 //            self.authorButton.enabled = false
-//        }
+        }
 
     }
     

@@ -109,7 +109,7 @@ extension BlogViewController: UITableViewDataSource {
         var authorString = "" as NSString
         
         if (post.scholarId == nil) {
-            authorString = "written by \(post.scholarName), WWDC Scholarship Applicant"
+            authorString = "written by \(post.scholarName) (Guest post)"
         } else {
             authorString = "written by \(post.scholarName)"
         }

@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var keys: NSDictionary?
         
         #if DEBUG
-            SDStatusBarManager.sharedInstance().enableOverrides()
+//            SDStatusBarManager.sharedInstance().enableOverrides()
         #endif
         
 //        if let options = launchOptions {[[NSProcessInfo processInfo].environment hasKey:@"UITest"]

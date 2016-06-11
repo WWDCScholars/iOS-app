@@ -1,11 +1,13 @@
-WWDC is great. Actually, it’s insane! We are the winners of the WWDC15 scholarship and we want is to change the world with code. We worked day and night to reach our goal, to get a scholarship for this year's WWDC. Many developers have applied, but only we were able to code what would bring us to San Francisco.
+WWDC is great. Actually, it’s insane! We are a team of WWDC scholarship winners and we want is to change the world with code. We worked day and night to reach our goal, to get a scholarship for this year's WWDC. Many developers have applied, but only we were able to code what would bring us to San Francisco.
 
-We’re scholars from all around the world and we combined our knowledge, our innovation and our love for software to build this app to inspire kids, students, and future iOS developers to build apps that can change the world. 
+We’re scholars from all around the world and we combined our knowledge, our innovation and our love for software to build this app to inspire kids, students, and future iOS developers to build apps that can change the world.
 
-What does this app do? 
+What does this app do?
 
-Well, it contains us, WWDC scholarship winners, our works and how you can connect with us.
+Well, it contains us, WWDC scholarship winners, our works and how you can connect with us. Chat with other scholars and get to know them better!
+
+Read blogposts of your fellow scholars and keep learning!
 
 With this app, we are able to showcase our talents and inspire future generation to build things, to make a difference and to change the world.
 
-We are the crazy ones, the misfits, the rebels, and the ones who see things differently. We are the epicenter of change. We are the WWDC student scholarship winners of 2015.
+We are the crazy ones, the misfits, the rebels, and the ones who see things differently. We are the epicenter of change. We are the WWDC student scholarship winners of 2016.

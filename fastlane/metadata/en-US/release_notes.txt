@@ -1,0 +1,27 @@
+THE ONLY THING THAT'S CHANGED IS EVERYTHING!
+
+Introducing Scholars of WWDC, Version 2.0. Browse and search Scholars based on the year they have attended! You can also save your favorite Scholars, too. We have started collecting all the WWDCScholars from all the batches. If you are one of us, add yourself in at WWDCScholars.herokuapp.com !
+
+You can now connect with Scholars easily from within the app. Meet with other developers, organize events and talk about everything you want! You can also read and share your experiences, ideas and projects in the blog section. Submit posts and edit your profile straight from the app.
+
+
+So to recap the new features of version 2.0:
+
+SCHOLARS HISTORY - Bigger and better. Now, you have the ability to browse through a collection of Scholars from this year until 2011
+
+SAVE SCHOLARS - Ability to save your favorite Scholars
+
+SEARCH SCHOLARS - Ability to search Scholars easily within the app.
+
+EDIT DETAILS - You can now log in to the app and change your details right in it.
+
+BLOG - Read and share your experiences, ideas and projects in the blog section. You can also submit posts right from within the app.
+
+CHAT - Get in touch with other Scholars! Meet up, plan events and build great things together.
+
+NEW UI - Everything looks totally different now!
+
+
+Why are we doing all of this? Simply because we are WWDCScholars and we are crazy enough to change the world! If you have any suggestions or questions, email us at team@WWDCScholars.com ! We're happy about any kind of feedback!
+
+// This app is not affiliated with Apple, Inc. It is made by a group of WWDCScholars who want to inspire more people to learn how to code.

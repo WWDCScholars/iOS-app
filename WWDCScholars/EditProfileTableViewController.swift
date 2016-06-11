@@ -214,10 +214,13 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.websiteTextField.text = self.currentScholar?.websiteURL
         self.appStoreTextField.text = self.currentScholar?.iTunesURL
         self.appStoreSubmissionTextField.text = self.currentScholar?.latestBatch.appstoreSubmissionURL
-//        self.youtubeTextField.text = self.currentScholar?.youtubeURL // No such property yet!
-        self.appGithubTextField.text = self.currentScholar?.githubURL
+
+        //App Links
+        self.youtubeTextField.text = self.currentScholar?.latestBatch.youtubeLink
+        self.appGithubTextField.text = self.currentScholar?.latestBatch.githubLink
+
         self.ageTextField.text = DateManager.shortDateStringFromDate(self.currentScholar!.birthday)
-        self.iMessageTextField.text = self.currentScholar?.iMessage //No such property yet!
+        self.iMessageTextField.text = self.currentScholar?.iMessage
         
         self.myLocation = CLLocationCoordinate2D(latitude: self.currentScholar!.location.latitude, longitude: self.currentScholar!.location.longitude)
         

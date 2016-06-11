@@ -169,6 +169,8 @@ class Batch: Object {
     }
     
     dynamic var profilePic: URL = ""
+    
+    //App Links
     dynamic var githubLink: URL? = nil
     dynamic var youtubeLink: URL? = nil
     dynamic var appstoreSubmissionURL: URL?

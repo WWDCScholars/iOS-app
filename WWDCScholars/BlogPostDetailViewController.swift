@@ -173,12 +173,12 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         
         self.authorButton.setTitle(self.currentPost.scholarName, forState: .Normal)
 
-        if self.currentPostAuthor != nil{
-            self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: self.currentPostAuthor!.latestBatch.profilePic)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
-        } else {
-            self.authorProfileImageButton.enabled = false
-            self.authorButton.enabled = false
-        }
+//        if self.currentPostAuthor != nil{
+//            self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: self.currentPostAuthor!.latestBatch.profilePic)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)
+//        } else {
+//            self.authorProfileImageButton.enabled = false
+//            self.authorButton.enabled = false
+//        }
 
     }
     
@@ -200,9 +200,9 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     @IBAction func authorNameButtonTapped(sender: AnyObject) {
      
         if (self.currentPost.scholarId == nil) {
-            var guestURL = NSURL(string: self.currentPost.guestLink!)
+            let guestURL = NSURL(string: self.currentPost.guestLink!)
             let safariVC = SFSafariViewController(URL: guestURL!)
-            safariVC.delegate = self
+//            safariVC.delegate = self
             presentViewController(safariVC, animated: true, completion: nil)
             
         } else {

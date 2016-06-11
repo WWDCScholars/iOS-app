@@ -73,10 +73,10 @@ class BlogKit: ApiBase {
             newPost.scholarLink = json["scholarLink"].string?.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
             newPost.scholarName = scholarName
             newPost.headerImage = headerImage.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
-            newPost.urlLink = urlLink.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+            newPost.urlLink = urlLink
             
             //guest author related
-            newPost.guestLink = json["guestLink"].string?.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":") //Optional - Guest Link
+            newPost.guestLink = json["guestLink"].string //Optional - Guest Link
             
             
             newPost.updatedAt = updatedAt.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!

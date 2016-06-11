@@ -230,6 +230,17 @@ extension BlogPostDetailViewController: UIWebViewDelegate {
         self.scrollView.contentSize.height = self.webView.frame.origin.y + self.webView.frame.height + 10
         self.webView.backgroundColor = UIColor.whiteColor()
     }
+    
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if navigationType == UIWebViewNavigationType.LinkClicked {
+            let viewController = SFSafariViewController(URL: request.URL!)
+            viewController.delegate = self
+            
+            self.presentViewController(viewController, animated: true, completion: nil)
+            return false
+        }
+        return true
+    }
 }
 
 // MARK: - UIScrollViewDelegate

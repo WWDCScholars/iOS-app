@@ -204,8 +204,9 @@ class ScholarsKit: ApiBase {
                            itunes: String? = nil,
                            iMessage: String? = nil,
                            shortBio: String? = nil,
-                           completionHandler: ((error: ErrorType?, message: String) -> Void)? = nil
+                           completionHandler: ((error: NSError?, message: String) -> Void)? = nil
                            ) {
+        
         
 //        print ("Helo")
 //        return
@@ -301,7 +302,7 @@ class ScholarsKit: ApiBase {
                 }
                 break
             case .Failure(let encodingError):
-                completionHandler?(error: encodingError, message: "Error")
+                completionHandler?(error: encodingError as NSError, message: "Error")
                 break
                 
             }

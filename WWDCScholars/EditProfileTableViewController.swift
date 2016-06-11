@@ -443,6 +443,13 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
                     self.shortBio = self.bioTextView.text
                 }
                 
+                let alert = UIAlertController(title: "Updating details...", message: nil, preferredStyle: .Alert);
+                let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+                activityIndicator.frame = activityIndicator.frame.offsetBy(dx: 8, dy: (alert.view.bounds.height - activityIndicator.frame.height)/2);
+                activityIndicator.autoresizingMask = [.FlexibleRightMargin, .FlexibleTopMargin, .FlexibleBottomMargin]
+                activityIndicator.startAnimating();
+                alert.view.addSubview(activityIndicator);
+                
                 ScholarsKit.sharedInstance.updateScholarData(UserKit.sharedInstance.scholarId!,
                     password: alertController.textFields?.first?.text ?? "",
                     profilePic: self.profilePic,
@@ -465,31 +472,31 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
                     itunes: self.itunes,
                     iMessage: self.iMessage,
                 shortBio: self.shortBio) { error, message in
-                    let alertController = UIAlertController(title: "Error", message: "An error occured. Make sure you have a working internet connection and try again later or contact us.", preferredStyle: .Alert)
                     
-                    let confirmAction = UIAlertAction(title: "Ok", style: .Default, handler:{ (UIAlertAction) in
-                        self.cancelButtonTapped(self)
-                    })
-                   
-                    alertController.addAction(confirmAction)
-                    
-                    
-                    self.presentViewController(alertController, animated: true, completion: nil)
+                    alert.dismissViewControllerAnimated(true) {
+                        if error != nil {
+                            let alertController = UIAlertController(title: "Error", message: "An error occured. Make sure you have a working internet connection and try again later or contact us. Error code: \(error!.code.description)", preferredStyle: .Alert)
+                            
+                            let confirmAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+                            
+                            alertController.addAction(confirmAction)
+                            
+                            
+                            self.presentViewController(alertController, animated: true, completion: nil)
+                        }else {
+                            let alertController = UIAlertController(title: "Sucess!", message: message, preferredStyle: .Alert)
+                            
+                            let confirmAction = UIAlertAction(title: "Ok", style: .Default, handler:{ (UIAlertAction) in
+                                self.cancelButtonTapped(self)
+                            })
+                            alertController.addAction(confirmAction)
+                            
+                            self.presentViewController(alertController, animated: true, completion: nil)
+                        }
+                    }
                 }
-          /*-----------------------------------
-                 CODE TO EMBED FOR SUCESSFUL SUBMISSION:
-                 
-                 
-                 
-                let alertController = UIAlertController(title: "Sucess!", message: "You have successfully updated your profile, please wait for team to verify updates. Thank you.", preferredStyle: .Alert)
                 
-                let confirmAction = UIAlertAction(title: "Ok", style: .Default, handler:{ (UIAlertAction) in
-                    self.cancelButtonTapped(self)
-                })
-                alertController.addAction(confirmAction)
-                
-                self.presentViewController(alertController, animated: true, completion: nil)
- -----------------------------*/
+                self.presentViewController(alert, animated: true, completion: nil)
                 
             })
             alertController.addAction(confirmAction)

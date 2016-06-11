@@ -48,10 +48,6 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     @IBOutlet private weak var appStoreSubmissionTextField: FloatLabelTextField!
     
     private var profilePic: UIImage? = nil,
-    screenshotOne: UIImage? = nil,
-    screenshotTwo: UIImage? = nil,
-    screenshotThree: UIImage? = nil,
-    screenshotFour: UIImage? = nil,
     firstName: String? = nil,
     lastName: String? = nil,
     email: String? = nil,
@@ -66,7 +62,8 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     website: String? = nil,
     itunes: String? = nil,
     iMessage: String? = nil,
-    shortBio: String? = nil
+    shortBio: String? = nil,
+    updatedScreenshots: [UIImage?] = [nil, nil, nil, nil]
     
     private let imagePicker = UIImagePickerController()
     private let locationManager = CLLocationManager()
@@ -186,6 +183,9 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         LocationManager.sharedInstance.getLocationDetails(location, completion: {(locationDetails) -> Void in
             self.locationTextField.text = ("\(locationDetails.locality), \(locationDetails.country)")
             self.myLocation = location
+            
+            let newLoc = Location(name: "\(locationDetails.locality), \(locationDetails.country)", longitude: location.longitude, latitude: location.latitude)
+            self.location = newLoc
             
             self.locationManager.stopUpdatingLocation()
         })
@@ -396,7 +396,75 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
             alertController.addAction(cancelAction)
             
             let confirmAction = UIAlertAction(title: "Confirm", style: .Default, handler: { _ in
-                ScholarsKit.sharedInstance.updateScholarData(UserKit.sharedInstance.scholarId!, password: alertController.textFields?[0].text ?? "", profilePic: self.profilePic, screenshotOne: self.screenshotOne, screenshotTwo: self.screenshotTwo, screenshotThree: self.screenshotThree, screenshotFour: self.screenshotFour, firstName: self.firstName, lastName: self.lastName, email: self.email, birthday: self.birthday, location: self.location, videoLink: self.videoLink, githubLinkApp: self.githubLinkApp, twitter: self.twitter, facebook: self.facebook, github: self.github, linkedin: self.linkedin, website: self.website, itunes: self.itunes, iMessage: self.iMessage, shortBio: self.shortBio)
+                if self.currentScholar?.firstName != self.firstNameTextField.text {
+                    self.firstName = self.firstNameTextField.text
+                }
+                
+                if self.currentScholar?.lastName != self.secondNameTextField.text {
+                    self.lastName = self.secondNameTextField.text
+                }
+                
+                if self.currentScholar?.email != self.emailTextField.text {
+                    self.email = self.emailTextField.text
+                }
+                
+                if self.currentScholar?.birthday != self.datePicker.date {
+                    self.birthday = self.datePicker.date
+                }
+                
+                if self.currentScholar?.latestBatch.youtubeLink != self.youtubeTextField.text {
+                    self.videoLink = self.youtubeTextField.text
+                }
+                
+                if self.currentScholar?.latestBatch.githubLink != self.appGithubTextField.text {
+                    self.githubLinkApp = self.appGithubTextField.text
+                }
+                
+                if self.currentScholar?.twitterURL != self.twitterTextField.text {
+                    self.twitter = self.twitterTextField.text
+                }
+                
+                if self.currentScholar?.facebookURL != self.facebookTextField.text {
+                    self.facebook = self.facebookTextField.text
+                }
+                if self.currentScholar?.githubURL != self.githubTextField.text {
+                    self.github = self.githubTextField.text
+                }
+                if self.currentScholar?.linkedInURL != self.linkedinTextField.text {
+                    self.linkedin = self.linkedinTextField.text
+                }
+                if self.currentScholar?.iTunesURL != self.appStoreTextField.text {
+                    self.itunes = self.appStoreTextField.text
+                }
+                if self.currentScholar?.iMessage != self.iMessageTextField.text {
+                    self.iMessage = self.iMessageTextField.text
+                }
+                if self.currentScholar?.shortBio != self.bioTextView.text {
+                    self.shortBio = self.bioTextView.text
+                }
+                
+                ScholarsKit.sharedInstance.updateScholarData(UserKit.sharedInstance.scholarId!,
+                    password: alertController.textFields?.first?.text ?? "",
+                    profilePic: self.profilePic,
+                    screenshotOne: self.updatedScreenshots[0],
+                    screenshotTwo: self.updatedScreenshots[1],
+                    screenshotThree: self.updatedScreenshots[2],
+                    screenshotFour: self.updatedScreenshots[3],
+                    firstName: self.firstName,
+                    lastName: self.lastName,
+                    email: self.email,
+                    birthday: self.birthday,
+                    location: self.location,
+                    videoLink: self.videoLink,
+                    githubLinkApp: self.githubLinkApp,
+                    twitter: self.twitter,
+                    facebook: self.facebook,
+                    github: self.github,
+                    linkedin: self.linkedin,
+                    website: self.website,
+                    itunes: self.itunes,
+                    iMessage: self.iMessage,
+                    shortBio: self.shortBio)
                 
                 
             })
@@ -404,13 +472,9 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
             
             self.presentViewController(alertController, animated: true, completion: nil)
         } else {
-            var password = ""
             let alertController = UIAlertController(title: "Invalid Details", message: validationResult.rawValue, preferredStyle: .Alert)
             
-            let confirmAction = UIAlertAction(title: "Ok", style: .Default, handler: { (action) -> Void in
-                let textField = alertController.textFields?.first
-                password = textField?.text ?? ""
-            })
+            let confirmAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
             alertController.addAction(confirmAction)
             
             self.presentViewController(alertController, animated: true, completion: nil)
@@ -460,7 +524,7 @@ extension EditProfileTableViewController: UIImagePickerControllerDelegate {
                 self.updateProfileImageIfFaceDetected(pickedImage)
             case .Screenshot:
                 self.screenshots[self.screenshotUploadIndex] = pickedImage
-                
+                self.updatedScreenshots[self.screenshotUploadIndex] = pickedImage
                 self.screenshotCollectionView.reloadData()
             }
         }

@@ -45,7 +45,7 @@ extension String {
     }
     
     func isValidiTunesLink() -> Bool {
-        let matches = matchesForRegexInText("https?://(www\\.)?itunes.com/\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]{2,})", text: self)
+        let matches = matchesForRegexInText("https?://itunes.apple.com/\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]{2,})", text: self)
         
         return matches.count > 0
     }
@@ -59,7 +59,9 @@ extension String {
     func isValidyoutubeLink() -> Bool {
         let matches = matchesForRegexInText("https?://(www\\.)?youtube.com/\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]{2,})", text: self)
         
-        return matches.count > 0
+        let secondMatches = matchesForRegexInText("https?://(www\\.)?youtu.be/\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]{2,})", text: self)
+
+        return matches.count > 0 || secondMatches.count > 0
     }
 
     

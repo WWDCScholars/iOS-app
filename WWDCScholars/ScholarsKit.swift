@@ -205,6 +205,9 @@ class ScholarsKit: ApiBase {
                            iMessage: String? = nil,
                            shortBio: String? = nil
                            ) {
+        
+//        print ("Helo")
+//        return
         upload(.POST,
                "\(self.serverUrl)/api/updateIOSMULTER/\(self.apiKey)/\(id)",
         multipartFormData: { multipartFormData in
@@ -235,7 +238,7 @@ class ScholarsKit: ApiBase {
                 multipartFormData.appendBodyPart(data: lastName.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"lastName")
             }
             if let birthday = birthday {
-                multipartFormData.appendBodyPart(data: (birthday.stringFromFormat("")).dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"birthday")
+                multipartFormData.appendBodyPart(data: (birthday.stringFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")).dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"birthday")
             }
             if let location = location {
                 multipartFormData.appendBodyPart(data: location.name.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"location")
@@ -275,7 +278,7 @@ class ScholarsKit: ApiBase {
             case .Success(let upload, _, _):
                 upload.responseJSON { response in
                     
-//                    print (response.result.value!)
+                    print (response.result.value)
                 }
                 break
             case .Failure(let encodingError): break

@@ -285,7 +285,12 @@ class ScholarsKit: ApiBase {
                     
                     let json = JSON(data: response.result.value!)
                     if json["errorCode"].int == -1 {
+                        print("Retreiving Sucess code")
                         print (json["message"].string)
+
+                    
+                        
+                        
                         completionHandler?(error: nil, message: json["message"].string!)
                     }else if json["errorCode"].int == -1004 {
                         completionHandler?(error: Error.error(code: -1004, failureReason: "Wrong password!"), message: json["message"].string!)

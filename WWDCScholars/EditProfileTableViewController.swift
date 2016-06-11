@@ -465,7 +465,16 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
                     itunes: self.itunes,
                     iMessage: self.iMessage,
                 shortBio: self.shortBio) { error, message in
+                    let alertController = UIAlertController(title: "Invalid Details", message: "An error occured. Make sure you have a working internet connection and try again later or contact us.", preferredStyle: .Alert)
                     
+                    let confirmAction = UIAlertAction(title: "Ok", style: .Default, handler:{ (UIAlertAction) in
+                        self.cancelButtonTapped(self)
+                    })
+                   
+                    alertController.addAction(confirmAction)
+                    
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
                 }
                 
                 

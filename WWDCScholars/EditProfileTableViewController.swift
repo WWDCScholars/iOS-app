@@ -17,6 +17,10 @@ enum ValidationIssueType: String {
     case Twitter = "Your Twitter profile URL doesn't seem to be valid."
     case Facebook = "Your Facebook profile URL doesn't seem to be valid."
     case GitHub = "Your GitHub profile URL doesn't seem to be valid"
+    case LinkedIn = "Your LinkedIn profile URL doesn't seem to be valid"
+    case YoutubeLink = "Your Youtube URL for your App Video doesn't seem to be valid, please don't use url shortener."
+    case GithubApp = "Your Github URL for your App doesn't seem to be valid"
+    case iTunes = "Your iTunes Developer Account url doesn't seem to be valid, please don't use url shortener"
     case FirstName = "Please enter your first name"
     case SecondName = "Please enter your second name"
     case None = ""
@@ -292,6 +296,33 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
                 validationIssue = .Twitter
             }
         }
+        
+        if let text = self.linkedinTextField.text where self.linkedinTextField.text != "" {
+            if !text.isValidLinkedInLink() {
+                validationIssue = .LinkedIn
+            }
+        }
+        
+    
+        if let text = self.appStoreTextField.text where self.appStoreTextField.text != "" {
+            if !text.isValidiTunesLink() {
+                validationIssue = .iTunes
+            }
+        }
+        
+        if let text = self.appGithubTextField.text where self.appGithubTextField.text != "" {
+            if !text.isValidGitHubLink() {
+                validationIssue = .GithubApp
+            }
+        }
+        
+        if let text = self.youtubeTextField.text where self.youtubeTextField.text != "" {
+            if !text.isValidyoutubeLink() {
+                validationIssue = .YoutubeLink
+            }
+        }
+        
+        
         
         if self.firstNameTextField.text == "" {
             validationIssue = .FirstName

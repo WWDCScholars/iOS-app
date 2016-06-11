@@ -55,19 +55,18 @@ class WWDCScholarsUITests: XCTestCase {
         let app = XCUIApplication()
 //        app.otherElements.containingType(.Button, identifier:"wwdcScholarsTabIcon").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(3).childrenMatchingType(.CollectionView).element.tap()
         
-        let collectionViewsQuery = app.collectionViews
+        let collectionViewsQuery = app.collectionViews.cells.otherElements.containingType(.StaticText, identifier:"Aaron").images["profilePic"]
         
         /// Get cell to check for existence
-        let cell = collectionViewsQuery.cells.otherElements.elementAtIndex(0).childrenMatchingType(.Image).element
         
         /// Wait until the cell exists, thus data got loaded
         let exists = NSPredicate(format: "exists == 1")
-        expectationForPredicate(exists, evaluatedWithObject: cell, handler: nil)
+        expectationForPredicate(exists, evaluatedWithObject: collectionViewsQuery, handler: nil)
         waitForExpectationsWithTimeout(60, handler: nil)
-        
-        sleep(10)
 
-        cell.tap()
+        collectionViewsQuery.tap()
+
+        sleep(5)
 
         snapshot("2-ScholarDetail", waitForLoadingIndicator: false)
     }
@@ -106,7 +105,7 @@ class WWDCScholarsUITests: XCTestCase {
         
         XCUIApplication().tabBars.buttons["Blog"].tap()
         
-        sleep(7)
+        sleep(4)
         
         snapshot("5-Blog", waitForLoadingIndicator: false)
     }

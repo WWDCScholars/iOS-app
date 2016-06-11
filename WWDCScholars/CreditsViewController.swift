@@ -39,6 +39,17 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
         }
     }
     
+    // MARK: - IBActions
+    
+    @IBAction func moreInfoBarButtonItemPressed(sender: AnyObject) {
+        let url = NSURL(string: "http://wwdcscholars.github.io")
+        let viewController = SignUpSafariViewController(URL: url!)
+        
+        self.presentViewController(viewController, animated: true, completion: nil)
+        
+    }
+    
+    
     // MARK: - Internal functions
     
     internal func showFullScreenImage() {

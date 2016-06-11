@@ -319,18 +319,18 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
             }
         }
         
-        if let text = self.linkedinTextField.text where self.linkedinTextField.text != "" {
-            if !text.isValidLinkedInLink() {
-                validationIssue = .LinkedIn
-            }
-        }
+//        if let text = self.linkedinTextField.text where self.linkedinTextField.text != "" {
+//            if !text.isValidLinkedInLink() {
+//                validationIssue = .LinkedIn
+//            }
+//        }
         
     
-        if let text = self.appStoreTextField.text where self.appStoreTextField.text != "" {
-            if !text.isValidiTunesLink() {
-                validationIssue = .iTunes
-            }
-        }
+//        if let text = self.appStoreTextField.text where self.appStoreTextField.text != "" {
+//            if !text.isValidiTunesLink() {
+//                validationIssue = .iTunes
+//            }
+//        }
         
         if let text = self.appGithubTextField.text where self.appGithubTextField.text != "" {
             if !text.isValidGitHubLink() {

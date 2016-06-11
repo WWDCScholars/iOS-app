@@ -50,11 +50,11 @@ extension String {
         return matches.count > 0
     }
     
-    func isValidLinkedInLink() -> Bool {
-        let matches = matchesForRegexInText("https?://(www\\.)?linkedin.com/\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]{2,})", text: self)
-        
-        return matches.count > 0
-    }
+//    func isValidLinkedInLink() -> Bool {
+//        let matches = matchesForRegexInText("https?://(www\\.)?linkedin.com/\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]{2,})", text: self)
+//        
+//        return matches.count > 0
+//    }
     
     func isValidyoutubeLink() -> Bool {
         let matches = matchesForRegexInText("https?://(www\\.)?youtube.com/\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]{2,})", text: self)

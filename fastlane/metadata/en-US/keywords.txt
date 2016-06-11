@@ -1,1 +1,1 @@
-wwdc,scholarship,winners,information,wwdc15,2015,apple
+wwdc,scholarship,winners,information,wwdc15,wwdc16,2016,apple,dubdub,dubdubdc

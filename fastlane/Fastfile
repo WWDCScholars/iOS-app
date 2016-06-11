@@ -20,8 +20,8 @@ platform :ios do
     ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
 
     # sh('git init')
-    sh('git config --global user.name "WWDCScholars-bot"')
-    sh('git config --global user.email "wwdcscholars@logicbit.nl"')
+    # sh('git config --global user.name "WWDCScholars-bot"')
+    # sh('git config --global user.email "wwdcscholars@logicbit.nl"')
     # sh('git remote set-url origin https://$GH_TOKEN@github.com/WWDCScholars/WWDCScholars-iOS.git')
     # ensure_git_status_clean
     increment_build_number
@@ -64,7 +64,7 @@ platform :ios do
     match(git_url: "git@github.com:WWDCScholars/certificates.git", type: "appstore", readonly: true)
     snapshot
     gym(scheme: "WWDCScholars", silent: true) # Build your app - more options available
-    scan
+    # scan
     deliver(force: true)
     # frameit
   end

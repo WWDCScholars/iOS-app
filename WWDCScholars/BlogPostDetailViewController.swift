@@ -272,18 +272,25 @@ extension BlogPostDetailViewController: UIScrollViewDelegate {
 
 extension BlogPostDetailViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        let viewController = storyboard?.instantiateViewControllerWithIdentifier("scholarDetailViewController") as? ScholarDetailViewController
-        
-        guard let previewViewController = viewController else {
-            return nil
+        if (self.currentPost.scholarId == nil) {
+            let guestURL = NSURL(string: self.currentPost.guestLink!)
+            let safariVC = SFSafariViewController(URL: guestURL!)
+            
+            return safariVC
+        } else {
+            let viewController = storyboard?.instantiateViewControllerWithIdentifier("scholarDetailViewController") as? ScholarDetailViewController
+            
+            guard let previewViewController = viewController else {
+                return nil
+            }
+            
+            previewViewController.setScholar(self.currentPostAuthor!.id)
+            previewViewController.delegate = self
+            previewViewController.preferredContentSize = CGSize.zero
+            previewingContext.sourceRect = self.buttonTypeTapped == .Text ? self.authorButton.frame : self.authorProfileImageButton.bounds
+            
+            return previewViewController
         }
-        
-        previewViewController.setScholar(self.currentPostAuthor!.id)
-        previewViewController.delegate = self
-        previewViewController.preferredContentSize = CGSize.zero
-        previewingContext.sourceRect = self.buttonTypeTapped == .Text ? self.authorButton.frame : self.authorProfileImageButton.bounds
-        
-        return previewViewController
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {

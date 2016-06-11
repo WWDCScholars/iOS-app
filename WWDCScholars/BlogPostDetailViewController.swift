@@ -171,7 +171,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         self.dateLabel.text = DateManager.shortDateStringFromDate(self.currentPost.createdAt)
         self.headerImageView.af_setImageWithURL(NSURL(string: self.currentPost.headerImage)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false, completion: nil)
         
-        self.authorButton.setTitle(self.currentPostAuthor?.fullName, forState: .Normal)
+        self.authorButton.setTitle(self.currentPost.scholarName, forState: .Normal)
 
         if self.currentPostAuthor != nil{
             self.authorProfileImageButton.af_setBackgroundImageForState(.Normal, URL: NSURL(string: self.currentPostAuthor!.latestBatch.profilePic)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: dispatch_get_main_queue(), completion: nil)

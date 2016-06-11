@@ -58,7 +58,7 @@ class WWDCScholarsUITests: XCTestCase {
         let collectionViewsQuery = app.collectionViews
         
         /// Get cell to check for existence
-        let cell = collectionViewsQuery.cells.otherElements.containingType(.StaticText, identifier:"Alyssa").element
+        let cell = collectionViewsQuery.cells.otherElements.elementAtIndex(0).childrenMatchingType(.Image).element
         
         /// Wait until the cell exists, thus data got loaded
         let exists = NSPredicate(format: "exists == 1")

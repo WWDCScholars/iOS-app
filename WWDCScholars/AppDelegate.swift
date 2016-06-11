@@ -9,6 +9,9 @@
 import UIKit
 import Fabric
 import Crashlytics
+//#if DEBUG
+//import SimulatorStatusMagic
+//#endif
 //import CoreSpotlight
 //import Firebase
 // I need to add this line in order to be able to commit
@@ -36,6 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         var keys: NSDictionary?
+        
+        #if DEBUG
+            SDStatusBarManager.sharedInstance().enableOverrides()
+        #endif
         
 //        if let options = launchOptions {[[NSProcessInfo processInfo].environment hasKey:@"UITest"]
             if NSProcessInfo.processInfo().environment.keys.contains("loggedInScholarId"){

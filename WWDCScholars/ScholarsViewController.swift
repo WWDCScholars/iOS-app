@@ -28,7 +28,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     @IBOutlet private weak var loginBarButtonItem: UIBarButtonItem!
     @IBOutlet private weak var mapBarButtonItem: UIBarButtonItem!
     
-    private let years: [WWDC] = [.WWDC2011, .WWDC2012, .WWDC2013, .WWDC2014, .WWDC2015, .WWDC2016, .Saved]
+    private let years: [WWDC] = [.WWDCEarlier, .WWDC2012, .WWDC2013, .WWDC2014, .WWDC2015, .WWDC2016, .Saved]
     private let locationManager = CLLocationManager()
     private let noContentLabel = UILabel()
     private var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

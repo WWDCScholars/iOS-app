@@ -12,7 +12,7 @@ enum WWDC: String {
     case WWDC2014 = "2014"
     case WWDC2013 = "2013"
     case WWDC2012 = "2012"
-    case WWDC2011 = "2011"
+    case WWDCEarlier = "EARLIER"
     case Saved = "Saved"
     
     /**
@@ -36,8 +36,8 @@ enum WWDC: String {
             return .WWDC2013
         case "WWDC12":
             return .WWDC2012
-        case "WWDC11":
-            return .WWDC2011
+        case "WWDCEarlier":
+            return .WWDCEarlier
         default:
             return .WWDC2016
         }
@@ -57,8 +57,8 @@ enum WWDC: String {
             return "WWDC13"
         case .WWDC2012:
             return "WWDC12"
-        case .WWDC2011:
-            return "WWDC11"
+        case .WWDCEarlier:
+            return "WWDCEarlier"
         }
     }
     
@@ -76,8 +76,8 @@ enum WWDC: String {
             return "'13"
         case .WWDC2012:
             return "'12"
-        case .WWDC2011:
-            return "'11"
+        case .WWDCEarlier:
+            return "'Earlier"
         }
     }
     
@@ -95,7 +95,7 @@ enum WWDC: String {
             return 2
         case .WWDC2012:
             return 1
-        case .WWDC2011:
+        case .WWDCEarlier:
             return 0
         }
     }

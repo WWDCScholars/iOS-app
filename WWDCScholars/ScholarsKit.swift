@@ -268,6 +268,9 @@ class ScholarsKit: ApiBase {
             if let itunes = itunes {
                 multipartFormData.appendBodyPart(data: itunes.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"itunes")
             }
+            if let website = website {
+                multipartFormData.appendBodyPart(data: website.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"website")
+            }
             if let iMessage = iMessage {
                 multipartFormData.appendBodyPart(data: iMessage.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"iMessage")
             }

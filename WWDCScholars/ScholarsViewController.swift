@@ -600,8 +600,7 @@ extension ScholarsViewController: MKMapViewDelegate {
         let objects = self.qTree.getObjectsIn(mapRegion, minNonClusteredSpan: minNonClusteredSpan) as NSArray
         for object in objects {
             
-         
-            
+
             if (object as AnyObject).isKind(of: QCluster()) == true {
                 let c = object as? QCluster
                 let neighbours = self.qTree.neighbours(forLocation: (c?.coordinate)!, limitCount: NSInteger((c?.objectsCount)!)) as NSArray

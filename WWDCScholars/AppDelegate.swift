@@ -192,6 +192,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+        
         /*
         if url.host == "scholar" {
             //todo check if id exists

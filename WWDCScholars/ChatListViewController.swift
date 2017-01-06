@@ -9,14 +9,14 @@
 import UIKit
 
 class ChatListViewController: UIViewController, SignInDelegate {
-    @IBOutlet fileprivate weak var tableView: UITableView!
-    @IBOutlet fileprivate weak var notLoggedInView: UIView!
+    @IBOutlet  weak var tableView: UITableView!
+    @IBOutlet  weak var notLoggedInView: UIView!
     
-    fileprivate var colors: [UIColor] = [.logoBlueColor(), .logoPinkColor(), .logoGreenColor(), .logoYellowColor(), .logoLightBlueColor(), .logoOrangeColor(), .logoPurpleColor()]
+     var colors: [UIColor] = [.logoBlueColor(), .logoPinkColor(), .logoGreenColor(), .logoYellowColor(), .logoLightBlueColor(), .logoOrangeColor(), .logoPurpleColor()]
     
-    fileprivate var chatItems = ChatRoom.getChatItems()
-    fileprivate var currentIndex = IndexPath(row: 0, section: 0)
-    fileprivate var registeredPeekView: UIViewControllerPreviewing?
+     var chatItems = ChatRoom.getChatItems()
+     var currentIndex = IndexPath(row: 0, section: 0)
+     var registeredPeekView: UIViewControllerPreviewing?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,17 +51,17 @@ class ChatListViewController: UIViewController, SignInDelegate {
     
     // MARK: - Private functions
     
-    fileprivate func styleUI() {
+     func styleUI() {
         self.title = "Chat"
     }
     
-    fileprivate func populateColors() {
+     func populateColors() {
         if self.chatItems.count > self.colors.count {
             self.colors += self.colors
         }
     }
     
-    fileprivate func showSignInModal() {
+     func showSignInModal() {
         let storyboard = UIStoryboard(name: "EditDetails", bundle: nil)
         let modalViewController = storyboard.instantiateViewController(withIdentifier: "SignInVC") as! SignInViewController
         

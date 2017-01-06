@@ -29,7 +29,7 @@ class Scholar: Object {
     /// The E-Mail address of the scholar
     dynamic var email: String = ""
     
-    fileprivate dynamic var genderInt: Int = 0
+    dynamic var genderInt: Int = 0
     /// The gender of the scholar
     var gender: Gender {
         get {
@@ -65,9 +65,9 @@ class Scholar: Object {
     dynamic var shortBio: String = ""
     
     /// Location details for easier saving
-    fileprivate dynamic var latitude: Double = 0
-    fileprivate dynamic var longitude: Double = 0
-    fileprivate dynamic var locationString: String = ""
+    private dynamic var latitude: Double = 0
+    private dynamic var longitude: Double = 0
+    private dynamic var locationString: String = ""
     /// The location the scholar provided
     var location: Location {
         get {

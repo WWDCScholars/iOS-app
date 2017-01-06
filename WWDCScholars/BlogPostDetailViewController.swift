@@ -176,9 +176,10 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         self.authorButton.setTitle(self.currentPost.scholarName, for: UIControlState())
 
         if self.currentPostAuthor != nil{
-            self.authorProfileImageButton.af_setBackgroundImage(for: UIControlState(), URL: Foundation.URL(string: self.currentPostAuthor!.latestBatch.profilePic)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: DispatchQueue.main, completion: nil)
+            
+            self.authorProfileImageButton.af_setBackgroundImage(for: .normal, URL: Foundation.URL(string: self.currentPostAuthor!.latestBatch.profilePic)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: DispatchQueue.main, completion: nil)
         } else {
-            self.authorProfileImageButton.af_setBackgroundImage(for: UIControlState(), URL: Foundation.URL(string: "https://wwdcscholars.s3.amazonaws.com/scholarImages/2016_s_C_profilePic2015_1465646958901.png")!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: DispatchQueue.main, completion: nil)
+            self.authorProfileImageButton.af_setBackgroundImage(for: .normal, URL: Foundation.URL(string: "https://wwdcscholars.s3.amazonaws.com/scholarImages/2016_s_C_profilePic2015_1465646958901.png")!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: DispatchQueue.main, completion: nil)
 //            self.authorProfileImageButton.enabled = false
 //            self.authorButton.enabled = false
         }

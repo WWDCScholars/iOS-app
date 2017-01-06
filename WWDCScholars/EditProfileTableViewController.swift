@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 enum ImageUploadType {
     case profile
@@ -103,7 +105,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == String(describing: LocationSelectViewController) {
+        if segue.identifier == String(describing: LocationSelectViewController()) {
             let navigationController = segue.destination as! UINavigationController
             let destinationViewController = navigationController.topViewController as! LocationSelectViewController
             destinationViewController.passedLocation = self.myLocation
@@ -250,7 +252,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         self.myLocation = CLLocationCoordinate2D(latitude: self.currentScholar!.location.latitude, longitude: self.currentScholar!.location.longitude)
         
         for (index, screenshot) in self.currentScholar!.latestBatch.screenshots.enumerated() {
-            request(.GET, screenshot).responseImage { response in
+            Alamofire.request(screenshot).responseImage { response in
                 if let image = response.result.value {
                     self.screenshots[index] = image
                     
@@ -520,7 +522,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     }
     
     @IBAction func selectLocationButtonTapped(_ sender: AnyObject) {
-        self.performSegue(withIdentifier: String(describing: LocationSelectViewController), sender: nil)
+        self.performSegue(withIdentifier: String(describing: LocationSelectViewController()), sender: nil)
     }
 }
 

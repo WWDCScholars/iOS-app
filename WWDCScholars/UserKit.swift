@@ -55,7 +55,7 @@ class UserKit: ApiBase {
             
            request("\(self.serverUrl)/api/login/\(self.apiKey)", method: .post, parameters: ["email": email as AnyObject, "password": encodedPassword as AnyObject])
                 .responseString() { response in
-                    print (response.result.error)
+                    print (response.result.error!)
                     
                     if let error = response.result.error {
                         completionHandler?(error as NSError?)

@@ -602,7 +602,9 @@ extension ScholarsViewController: MKMapViewDelegate {
         for object in objects {
             
 
-            if (object as AnyObject).isKind(of: QCluster()){
+
+            
+            if object is QCluster{
                 let c = object as? QCluster
                 let neighbours = self.qTree.neighbours(forLocation: (c?.coordinate)!, limitCount: NSInteger((c?.objectsCount)!)) as NSArray
                 for neighbour in neighbours {

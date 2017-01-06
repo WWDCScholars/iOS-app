@@ -8,6 +8,8 @@
 
 import UIKit
 import MapKit
+import AlamofireImage
+import Alamofire
 
 protocol LocationSelectedDelegate {
     func updateLocation(_ location: CLLocationCoordinate2D)

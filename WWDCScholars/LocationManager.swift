@@ -42,7 +42,7 @@ class LocationManager {
                     let localityString = containsPlacemark.locality != nil ? containsPlacemark.locality! : "Unknown"
                     let countryString = containsPlacemark.country != nil ? containsPlacemark.country! : "Unknown"
                     
-                    completion((locality: localityString, country: countryString))
+                    completion(localityString, countryString)
                 }
             }
         })

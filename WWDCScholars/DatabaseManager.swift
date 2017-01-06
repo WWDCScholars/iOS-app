@@ -30,7 +30,7 @@ class DatabaseManager {
                 // Nothing to do!
                 // Realm will automatically detect new properties and removed properties
                 // And will update the schema on disk automatically
-                migration.deleteData("Scholar")
+                migration.deleteData(forType: "Scholar")
                 //                }
         })
         
@@ -87,7 +87,7 @@ class DatabaseManager {
      - returns: List of scholars
      */
     func getAllScholars() -> [Scholar] {
-        let scholars = realm.objects(Scholar)
+        let scholars = realm.objects(Scholar.self)
         return Array(scholars)
     }
     
@@ -97,7 +97,7 @@ class DatabaseManager {
      - returns: Number of scholars
      */
     func scholarCount() -> Int {
-        let scholars = realm.objects(Scholar)
+        let scholars = realm.objects(Scholar.self)
         return scholars.count
     }
     
@@ -109,12 +109,12 @@ class DatabaseManager {
      - returns: The (optional) scholar for the id
      */
     func scholarForId(_ id: String) -> Scholar? {
-        return realm.objectForPrimaryKey(Scholar.self, key: id)
+        return realm.object(ofType: Scholar.self, forPrimaryKey: id as AnyObject)
     }
     
     func scholarsForWWDCBatch(_ wwdc: WWDC) -> Scholars {
         let predicate = NSPredicate(format: "ANY batches.batchWWDCStr == %@", wwdc.toRawValue())
-        return Array(realm.objects(Scholar).filter(predicate).sorted("firstName"))
+        return Array(realm.objects(Scholar).filter(predicate).sorted(byProperty: "firstName"))
     }
     
     /**
@@ -135,7 +135,7 @@ class DatabaseManager {
      - returns: List of BlogPosts
      */
     func getAllBlogPosts() -> [BlogPost] {
-        let posts = realm.objects(BlogPost).sorted("createdAt", ascending: false)
+        let posts = realm.objects(BlogPost).sorted(byProperty: "createdAt", ascending: false)
         return Array(posts)
     }
     

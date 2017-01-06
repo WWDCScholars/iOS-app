@@ -165,8 +165,6 @@
 		7B296DC21CE3C18300C4BA75 /* ApiBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B296DC11CE3C18300C4BA75 /* ApiBase.swift */; };
 		7B2AA6E01CBAE7530025EC7B /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6DF1CBAE7530025EC7B /* WWDCScholarsTests.swift */; };
 		7B2AA6EE1CBAE75B0025EC7B /* WWDCScholarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AA6ED1CBAE75B0025EC7B /* WWDCScholarsUITests.swift */; };
-		7B3FE4581D0C2980008E270E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 7B3FE44A1D0C2980008E270E /* LICENSE */; };
-		7B3FE4591D0C2980008E270E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 7B3FE44B1D0C2980008E270E /* README.md */; };
 		7B447BA01CDA7233008BD069 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B447B9F1CDA7233008BD069 /* SnapshotHelper.swift */; };
 		7B60D5481D09B98E0075B301 /* AppType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D5471D09B98E0075B301 /* AppType.swift */; };
 		7B7797511CDE681E0029675F /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7797501CDE681E0029675F /* BlogPost.swift */; };
@@ -603,8 +601,6 @@
 		7B2AA6EB1CBAE75B0025EC7B /* WWDCScholarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2AA6ED1CBAE75B0025EC7B /* WWDCScholarsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsUITests.swift; sourceTree = "<group>"; };
 		7B2AA6EF1CBAE75B0025EC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B3FE44A1D0C2980008E270E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		7B3FE44B1D0C2980008E270E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7B3FE44D1D0C2980008E270E /* SDStatusBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDStatusBarManager.h; sourceTree = "<group>"; };
 		7B3FE44E1D0C2980008E270E /* SDStatusBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDStatusBarManager.m; sourceTree = "<group>"; };
 		7B3FE44F1D0C2980008E270E /* SDStatusBarOverrider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDStatusBarOverrider.h; sourceTree = "<group>"; };
@@ -1230,8 +1226,6 @@
 		7B3FE4491D0C2980008E270E /* SimulatorStatusMagic */ = {
 			isa = PBXGroup;
 			children = (
-				7B3FE44A1D0C2980008E270E /* LICENSE */,
-				7B3FE44B1D0C2980008E270E /* README.md */,
 				7B3FE44C1D0C2980008E270E /* SDStatusBarManager */,
 			);
 			path = SimulatorStatusMagic;
@@ -1638,7 +1632,6 @@
 				6EB723D91CB9B85B005A076F /* Assets.xcassets in Resources */,
 				22B608471CFC5E860042F558 /* loginSuccessful.aif in Resources */,
 				6ED962AF1CF8B28800551E94 /* JSQMessagesCollectionViewCellOutgoing.xib in Resources */,
-				7B3FE4581D0C2980008E270E /* LICENSE in Resources */,
 				0E93C39E1CFFCF8C00E366DC /* ScholarDetailVC.storyboard in Resources */,
 				6ED962AD1CF8B28800551E94 /* JSQMessagesCollectionViewCellIncoming.xib in Resources */,
 				0E93C3AC1CFFD4D100E366DC /* EditDetails.storyboard in Resources */,
@@ -1785,7 +1778,6 @@
 				6ED9629C1CF8B28800551E94 /* JSQAudioMediaViewAttributes.m in Sources */,
 				7BBA87A01CBD5D220057E9AD /* DatabaseManager.swift in Sources */,
 				6ED962B61CF8B28800551E94 /* JSQMessagesToolbarContentView.m in Sources */,
-				7B3FE4591D0C2980008E270E /* README.md in Sources */,
 				6ED962CA1CF8CAA300551E94 /* JTSAnimatedGIFUtility.m in Sources */,
 				6ED9629B1CF8B28800551E94 /* JSQMessagesToolbarButtonFactory.m in Sources */,
 				6E51E2791CDEE6A40095FD38 /* LocationManager.swift in Sources */,

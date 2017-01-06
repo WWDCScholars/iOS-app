@@ -5,21 +5,20 @@
 //  Created by Marcin Krzyzanowski on 15/04/16.
 //  Copyright © 2016 Marcin Krzyzanowski. All rights reserved.
 //
-//  SecureBytes keeps bytes in memory. Because this is class, bytes are not copied
-//  and memory area is locked as long as referenced, then unlocked on deinit
-//
 
-#if os(Linux)
+#if os(Linux) || os(Android) || os(FreeBSD)
     import Glibc
 #else
     import Darwin
 #endif
 
-class SecureBytes {
-    private let bytes: [UInt8]
+///  Keeps bytes in memory. Because this is class, bytes are not copied
+///  and memory area is locked as long as referenced, then unlocked on deinit
+final class SecureBytes {
+    fileprivate let bytes: Array<UInt8>
     let count: Int
 
-    init(bytes: [UInt8]) {
+    init(bytes: Array<UInt8>) {
         self.bytes = bytes
         self.count = bytes.count
         self.bytes.withUnsafeBufferPointer { (pointer) -> Void in
@@ -32,8 +31,38 @@ class SecureBytes {
             munlock(pointer.baseAddress, pointer.count)
         }
     }
+}
 
-    subscript(index: Int) -> UInt8 {
-        return self.bytes[index]
+extension SecureBytes: Collection {
+    typealias Index = Int
+
+    var endIndex: Int {
+        return self.bytes.endIndex
+    }
+
+    var startIndex: Int {
+        return self.bytes.startIndex
+    }
+
+    subscript(position: Index) -> UInt8 {
+        return self.bytes[position]
+    }
+
+    subscript(bounds: Range<Index>) -> ArraySlice<UInt8> {
+        return self.bytes[bounds]
+    }
+
+    func formIndex(after i: inout Int) {
+        self.bytes.formIndex(after: &i)
+    }
+
+    func index(after i: Int) -> Int {
+        return self.bytes.index(after: i)
+    }
+}
+
+extension SecureBytes: ExpressibleByArrayLiteral {
+    public convenience init(arrayLiteral elements: UInt8...) {
+        self.init(bytes: elements)
     }
 }

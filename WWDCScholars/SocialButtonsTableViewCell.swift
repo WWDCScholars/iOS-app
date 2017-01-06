@@ -9,13 +9,13 @@
 import UIKit
 
 protocol SocialButtonDelegate {
-    func openURL(url: String)
-    func composeEmail(address: String)
+    func openURL(_ url: String)
+    func composeEmail(_ address: String)
 }
 
 class SocialButtonsTableViewCell: UITableViewCell {
     
-    @IBOutlet private weak var iconsView: UIView!
+    @IBOutlet fileprivate weak var iconsView: UIView!
     @IBOutlet weak var twitterImageView: UIButton!
     @IBOutlet weak var linkedInImageView: UIButton!
     @IBOutlet weak var emailImageView: UIButton!
@@ -31,21 +31,21 @@ class SocialButtonsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.linkedInImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.linkedInTapped), forControlEvents: .TouchUpInside)
-        self.facebookImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.facebookTapped), forControlEvents: .TouchUpInside)
-        self.twitterImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.twitterTapped), forControlEvents: .TouchUpInside)
-        self.githubImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.gitHubTapped), forControlEvents: .TouchUpInside)
-        self.websiteImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.websiteTapped), forControlEvents: .TouchUpInside)
-        self.emailImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.emailTapped), forControlEvents: .TouchUpInside)
-        self.appStoreImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.appStoreTapped), forControlEvents: .TouchUpInside)
-        self.iMessageImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.iMessageTapped), forControlEvents: .TouchUpInside)
+        self.linkedInImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.linkedInTapped), for: .touchUpInside)
+        self.facebookImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.facebookTapped), for: .touchUpInside)
+        self.twitterImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.twitterTapped), for: .touchUpInside)
+        self.githubImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.gitHubTapped), for: .touchUpInside)
+        self.websiteImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.websiteTapped), for: .touchUpInside)
+        self.emailImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.emailTapped), for: .touchUpInside)
+        self.appStoreImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.appStoreTapped), for: .touchUpInside)
+        self.iMessageImageView.addTarget(self, action: #selector(SocialButtonsTableViewCell.iMessageTapped), for: .touchUpInside)
     }
     
     // MARK: - Internal functions
     
-    internal func isStringNumerical(string : String) -> Bool {
+    internal func isStringNumerical(_ string : String) -> Bool {
         // Only allow numbers. Look for anything not a number.
-        let range = string.rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+        let range = string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted)
         return (range == nil)
     }
     
@@ -66,13 +66,13 @@ class SocialButtonsTableViewCell: UITableViewCell {
     
     internal func facebookTapped() {
         
-        let facebookProfileID = self.scholar.facebookURL!.componentsSeparatedByString("/").last
+        let facebookProfileID = self.scholar.facebookURL!.components(separatedBy: "/").last
         if facebookProfileID != nil {
             
-            let deeplink = NSURL(string: "fb://profile/\(facebookProfileID!)".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
+            let deeplink = Foundation.URL(string: "fb://profile/\(facebookProfileID!)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
             
-            if UIApplication.sharedApplication().canOpenURL(deeplink!) {
-                UIApplication.sharedApplication().openURL(deeplink!)
+            if UIApplication.shared.canOpenURL(deeplink!) {
+                UIApplication.shared.openURL(deeplink!)
             } else {
                self.delegate?.openURL(self.scholar.facebookURL!)
             }
@@ -93,8 +93,8 @@ class SocialButtonsTableViewCell: UITableViewCell {
     
     internal func appStoreTapped() {
         
-        if UIApplication.sharedApplication().canOpenURL(NSURL(string: self.scholar.iTunesURL!)!) {
-            UIApplication.sharedApplication().openURL(NSURL(string: self.scholar.iTunesURL!)!)
+        if UIApplication.shared.canOpenURL(Foundation.URL(string: self.scholar.iTunesURL!)!) {
+            UIApplication.shared.openURL(Foundation.URL(string: self.scholar.iTunesURL!)!)
         }
         
     }
@@ -102,18 +102,18 @@ class SocialButtonsTableViewCell: UITableViewCell {
     internal func twitterTapped() {
         
         let twitterProfileID : String!
-        twitterProfileID = self.scholar.twitterURL!.componentsSeparatedByString("/").last
+        twitterProfileID = self.scholar.twitterURL!.components(separatedBy: "/").last
         
         if twitterProfileID != nil {
-            let tweetbotURL = NSURL(string: "tweetbot://\(twitterProfileID!)/user_profile/\(twitterProfileID)".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
+            let tweetbotURL = Foundation.URL(string: "tweetbot://\(twitterProfileID!)/user_profile/\(twitterProfileID)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
 
-            let deeplink = NSURL(string: "twitter://user?screen_name=\(twitterProfileID!)".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
+            let deeplink = Foundation.URL(string: "twitter://user?screen_name=\(twitterProfileID!)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
             
-            if UIApplication.sharedApplication().canOpenURL(tweetbotURL!){
-                UIApplication.sharedApplication().openURL(tweetbotURL!)
+            if UIApplication.shared.canOpenURL(tweetbotURL!){
+                UIApplication.shared.openURL(tweetbotURL!)
             }
-            else if UIApplication.sharedApplication().canOpenURL(deeplink!) {
-                UIApplication.sharedApplication().openURL(deeplink!)
+            else if UIApplication.shared.canOpenURL(deeplink!) {
+                UIApplication.shared.openURL(deeplink!)
             } else {
                 self.delegate?.openURL(self.scholar.twitterURL!)
             }
@@ -129,20 +129,20 @@ class SocialButtonsTableViewCell: UITableViewCell {
         if let scholariMsgEmail = self.scholar.iMessage{
             
             if isStringNumerical(scholariMsgEmail){
-                let iMessageURL = NSURL(string: "sms:+\(scholariMsgEmail)")!
+                let iMessageURL = Foundation.URL(string: "sms:+\(scholariMsgEmail)")!
 
-                if UIApplication.sharedApplication().canOpenURL(iMessageURL){
-                    UIApplication.sharedApplication().openURL(iMessageURL)
+                if UIApplication.shared.canOpenURL(iMessageURL){
+                    UIApplication.shared.openURL(iMessageURL)
                     print("iMessage phone number does  work, it equals \(scholariMsgEmail)")
                     
                 }else{
                     print("iMessage phone number does not work, it equals \(scholariMsgEmail)")
                 }
             }else{
-                let iMessageURL = NSURL(string: "sms:\(scholariMsgEmail)")!
+                let iMessageURL = Foundation.URL(string: "sms:\(scholariMsgEmail)")!
                 
-                if UIApplication.sharedApplication().canOpenURL(iMessageURL){
-                    UIApplication.sharedApplication().openURL(iMessageURL)
+                if UIApplication.shared.canOpenURL(iMessageURL){
+                    UIApplication.shared.openURL(iMessageURL)
                     print("iMessage URL does  work, it equals \(scholariMsgEmail)")
                     
                 }else{
@@ -170,15 +170,15 @@ class SocialButtonsTableViewCell: UITableViewCell {
     // MARK: - Public functions
     
     func setIconVisibility() {
-        self.linkedInImageView.hidden = self.scholar.linkedInURL == nil
-        self.facebookImageView.hidden = self.scholar.facebookURL == nil
-        self.githubImageView.hidden = self.scholar.githubURL == nil
-        self.websiteImageView.hidden = self.scholar.websiteURL == nil
-        self.appStoreImageView.hidden = self.scholar.iTunesURL == nil
-        self.twitterImageView.hidden = self.scholar.twitterURL == nil
-        self.iMessageImageView.hidden = self.scholar.iMessage == nil
+        self.linkedInImageView.isHidden = self.scholar.linkedInURL == nil
+        self.facebookImageView.isHidden = self.scholar.facebookURL == nil
+        self.githubImageView.isHidden = self.scholar.githubURL == nil
+        self.websiteImageView.isHidden = self.scholar.websiteURL == nil
+        self.appStoreImageView.isHidden = self.scholar.iTunesURL == nil
+        self.twitterImageView.isHidden = self.scholar.twitterURL == nil
+        self.iMessageImageView.isHidden = self.scholar.iMessage == nil
         
-        self.emailImageView.hidden = false //Never hidden
+        self.emailImageView.isHidden = false //Never hidden
     }
     
     

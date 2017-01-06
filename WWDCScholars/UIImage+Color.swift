@@ -9,14 +9,14 @@
 import UIKit
 
 extension UIImage {
-    static func imageWithSize(size: CGSize, color: UIColor) -> UIImage {
+    static func imageWithSize(_ size: CGSize, color: UIColor) -> UIImage {
         UIGraphicsBeginImageContext(size)
         let context = UIGraphicsGetCurrentContext()
         color.setFill()
-        CGContextFillRect(context, CGRect(origin: CGPoint.zero, size: size))
+        context?.fill(CGRect(origin: CGPoint.zero, size: size))
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return image
+        return image!
     }
 }

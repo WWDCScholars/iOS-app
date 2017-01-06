@@ -14,7 +14,7 @@ class UserKit: ApiBase {
     
     let dbManager = DatabaseManager.sharedInstance
     
-    private override init() {
+    fileprivate override init() {
     }
     
     var isLoggedIn: Bool {
@@ -23,7 +23,7 @@ class UserKit: ApiBase {
     
     var scholarId: String? {
         get {
-            if let scholarId = NSUserDefaults.standardUserDefaults().stringForKey("scholarId") {
+            if let scholarId = Foundation.UserDefaults.standard.string(forKey: "scholarId") {
                 if scholarId == "" {
                     return nil
                 }
@@ -34,8 +34,8 @@ class UserKit: ApiBase {
             }
         }
         set {
-            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "scholarId")
-            NSUserDefaults.standardUserDefaults().synchronize()
+            Foundation.UserDefaults.standard.set(newValue, forKey: "scholarId")
+            Foundation.UserDefaults.standard.synchronize()
         }
     }
     
@@ -47,14 +47,18 @@ class UserKit: ApiBase {
         return nil
     }
     
-    func login(email: String, password: String, completionHandler: ((error: NSError?) -> Void)? = nil) {
-        if let encodedPassword = password.dataUsingEncoding(NSUTF8StringEncoding)?.sha256()?.toHexString() {
-            request(.POST, "\(self.serverUrl)/api/login/\(self.apiKey)", parameters: ["email": email, "password": encodedPassword])
+    func login(_ email: String, password: String, completionHandler: ((_ error: NSError?) -> Void)? = nil) {
+        if let encodedPassword = password.data(using: String.Encoding.utf8)?.sha256().toHexString() {
+            
+            
+            
+                        
+            request(.POST, method: "\(self.serverUrl)/api/login/\(self.apiKey)", parameters: ["email": email as AnyObject, "password": encodedPassword as AnyObject])
                 .responseString() { response in
                     print (response.result.error)
                     
                     if let error = response.result.error {
-                        completionHandler?(error: error)
+                        completionHandler?(error)
                         return
                     }
                     
@@ -64,14 +68,14 @@ class UserKit: ApiBase {
                         
                         if let errorCode = json["errorCode"].int, let message = json["message"].string {
                             print ("Error logging in with code: \(errorCode) and message \(message)")
-                            completionHandler?(error: NSError(domain: "com.wwdcscholars.loginError", code: errorCode, userInfo: ["message": message]))
+                            completionHandler?(NSError(domain: "com.wwdcscholars.loginError", code: errorCode, userInfo: ["message": message]))
                             return
                         }
                         
                         if let scholarId = json["id"].string, let firstName = json["firstName"].string {
                             self.scholarId = scholarId
                             print ("Logged in! Welcome \(firstName)")
-                            completionHandler?(error: nil)
+                            completionHandler?(nil)
                         }
                     }
             }

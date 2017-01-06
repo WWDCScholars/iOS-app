@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ImageTappedDelegate {
-    func showFullScreenImage(imageView: UIImageView)
+    func showFullScreenImage(_ imageView: UIImageView)
 }
 
 class ScreenshotsCollectionViewCell: UICollectionViewCell {
@@ -20,7 +20,7 @@ class ScreenshotsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ScreenshotsCollectionViewCell.showFullScreenImage))
-        self.imageView.userInteractionEnabled = true
+        self.imageView.isUserInteractionEnabled = true
         self.imageView.addGestureRecognizer(tapGestureRecognizer)
     }
     

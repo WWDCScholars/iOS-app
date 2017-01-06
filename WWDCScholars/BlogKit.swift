@@ -12,13 +12,13 @@ class BlogKit: ApiBase {
     
     let dbManager = DatabaseManager.sharedInstance
     
-    private override init() {
+    fileprivate override init() {
     }
     
     /**
      Loads scholars from the online database
      */
-    func loadPosts(completionHandler: () -> Void) {
+    func loadPosts(_ completionHandler: @escaping () -> Void) {
         request(.GET, "\(self.serverUrl)/api/posts/\(self.apiKey)")
             .responseString() { response in
                 if let data = response.result.value {
@@ -33,7 +33,7 @@ class BlogKit: ApiBase {
         }
     }
     
-    func parsePosts(jsonArr: [JSON]) {
+    func parsePosts(_ jsonArr: [JSON]) {
         for postJson in jsonArr {
             if let post = parsePost(postJson) {
                 dbManager.addBlogPost(post)
@@ -43,7 +43,7 @@ class BlogKit: ApiBase {
         }
     }
     
-    func parsePost(json: JSON) -> BlogPost? {
+    func parsePost(_ json: JSON) -> BlogPost? {
         if
             let postId = json["_id"].string,
 
@@ -70,9 +70,9 @@ class BlogKit: ApiBase {
             newPost.email = email
             newPost.content = content
             newPost.title = title
-            newPost.scholarLink = json["scholarLink"].string?.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+            newPost.scholarLink = json["scholarLink"].string?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!.replacingOccurrences(of: "%3A", with: ":")
             newPost.scholarName = scholarName
-            newPost.headerImage = headerImage.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+            newPost.headerImage = headerImage.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!.replacingOccurrences(of: "%3A", with: ":")
             newPost.urlLink = urlLink
             
             //guest author related

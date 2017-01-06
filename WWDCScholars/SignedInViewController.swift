@@ -13,9 +13,9 @@ protocol EditDetailsDelegate {
 }
 
 class SignedInViewController: UIViewController, DragDropBehaviorDelegate {
-    @IBOutlet private weak var dialogView: SpringView!
+    @IBOutlet fileprivate weak var dialogView: SpringView!
 
-    private var originalCenter: CGPoint!
+    fileprivate var originalCenter: CGPoint!
     
     var delegate: EditDetailsDelegate?
     
@@ -24,47 +24,47 @@ class SignedInViewController: UIViewController, DragDropBehaviorDelegate {
         
         self.styleUI()
         
-        if UIScreen.mainScreen().bounds.size.height == 480.0 {
-            self.dialogView.transform = CGAffineTransformMakeScale(0.8, 0.8)
+        if UIScreen.main.bounds.size.height == 480.0 {
+            self.dialogView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.dialogView.animate()
     }
     
     // MARK: - UI
     
-    private func styleUI() {
+    fileprivate func styleUI() {
         self.originalCenter = self.view.center
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
-    @IBAction func closeButtonTapped(sender: AnyObject) {
+    @IBAction func closeButtonTapped(_ sender: AnyObject) {
         self.dialogView.animation = "zoomOut"
         self.dialogView.animate()
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func editButtonTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func editButtonTapped(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
         
         self.delegate?.presentEditDetailsViewController()
     }
     
-    @IBAction func logoutButtonTapped(sender: AnyObject) {
+    @IBAction func logoutButtonTapped(_ sender: AnyObject) {
         UserKit.sharedInstance.logout()
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - DragDropBehavior
     
-    func dragDropBehavior(behavior: DragDropBehavior, viewDidDrop view: UIView) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func dragDropBehavior(_ behavior: DragDropBehavior, viewDidDrop view: UIView) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

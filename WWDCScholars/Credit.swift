@@ -15,7 +15,7 @@ struct Credit {
     let image: UIImage
     let id: String?
     
-    static func getCredit(name: String, location: String, tasks: [String], image: String, id: String) -> Credit {
+    static func getCredit(_ name: String, location: String, tasks: [String], image: String, id: String) -> Credit {
         return Credit(name: name, location: location, tasks: tasks, image: UIImage(named: name)!, id: id)
     }
 }

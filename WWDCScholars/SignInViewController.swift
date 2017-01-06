@@ -16,17 +16,17 @@ protocol SignInDelegate {
 }
 
 class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehaviorDelegate {
-    @IBOutlet private weak var dialogView: SpringView!
-    @IBOutlet private weak var signinButton: SpringButton!
-    @IBOutlet private weak var emailTextField: DesignableTextField!
-    @IBOutlet private weak var passwordTextField: DesignableTextField!
-    @IBOutlet private weak var signUpButton: SpringButton!
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet fileprivate weak var dialogView: SpringView!
+    @IBOutlet fileprivate weak var signinButton: SpringButton!
+    @IBOutlet fileprivate weak var emailTextField: DesignableTextField!
+    @IBOutlet fileprivate weak var passwordTextField: DesignableTextField!
+    @IBOutlet fileprivate weak var signUpButton: SpringButton!
+    @IBOutlet fileprivate weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var blurView: UIView!
     
-    private var originalCenter: CGPoint!
-    private var tapSoundEffect: AVAudioPlayer!
-    private var session = AVAudioSession.sharedInstance()
+    fileprivate var originalCenter: CGPoint!
+    fileprivate var tapSoundEffect: AVAudioPlayer!
+    fileprivate var session = AVAudioSession.sharedInstance()
     
     var delegate: SignInDelegate?
     
@@ -41,8 +41,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         
-        FIRAuth.auth()?.signInAnonymouslyWithCompletion() { (user, error) in
-            let isAnonymous = user!.anonymous
+        FIRAuth.auth()?.signInAnonymously() { (user, error) in
+            let isAnonymous = user!.isAnonymous
             let userID = user!.uid
             
             print(isAnonymous)
@@ -51,38 +51,38 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         self.dialogView.animate()
         self.signUpButton.animate()
         
-        if UIScreen.mainScreen().bounds.size.height == 480.0 {
-            self.dialogView.transform = CGAffineTransformMakeScale(0.8, 0.8)
+        if UIScreen.main.bounds.size.height == 480.0 {
+            self.dialogView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         }
     }
     
     // MARK: - UI
     
-    private func styleUI() {
+    fileprivate func styleUI() {
         self.originalCenter = self.view.center
     }
     
-    private func animateSignInButton(hidden: Bool) {
-        UIView.animateWithDuration(0.2, animations: {
+    fileprivate func animateSignInButton(_ hidden: Bool) {
+        UIView.animate(withDuration: 0.2, animations: {
             self.signinButton.alpha = CGFloat(!hidden)
             self.activityIndicator.alpha = CGFloat(hidden)
         })
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
     // MARK: - Internal functions
     
     internal func dismissSignInViewController() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     internal func shakeSignInViewController() {
@@ -90,14 +90,14 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         self.dialogView.animate()
     }
     
-    internal func dismissKeyboard(gestureRecognizer: UIGestureRecognizer) {
+    internal func dismissKeyboard(_ gestureRecognizer: UIGestureRecognizer) {
         self.emailTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
     }
     
     // MARK: - IBActions
     
-    @IBAction func signinButtonPressed(sender: AnyObject) {
+    @IBAction func signinButtonPressed(_ sender: AnyObject) {
         self.animateSignInButton(true)
         
         if self.emailTextField.text == "" || self.passwordTextField.text == "" {
@@ -107,7 +107,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
             return
         }
         
-        UserKit.sharedInstance.login(self.emailTextField.text!.lowercaseString, password: self.passwordTextField.text!) { error in
+        UserKit.sharedInstance.login(self.emailTextField.text!.lowercased(), password: self.passwordTextField.text!) { error in
             if error == nil {
                 self.playConfirmationSound()
                 delay(1) {
@@ -121,35 +121,35 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         }
     }
     
-    @IBAction func signUpButtonPressed(sender: AnyObject) {
-        let url = NSURL(string: "http://wwdcscholars.herokuapp.com")
-        let viewController = SignUpSafariViewController(URL: url!)
+    @IBAction func signUpButtonPressed(_ sender: AnyObject) {
+        let url = Foundation.URL(string: "http://wwdcscholars.herokuapp.com")
+        let viewController = SignUpSafariViewController(url: url!)
         
-        self.presentViewController(viewController, animated: true, completion: nil)
+        self.present(viewController, animated: true, completion: nil)
     }
     
-    @IBAction func closeButtonPressed(sender: AnyObject) {
+    @IBAction func closeButtonPressed(_ sender: AnyObject) {
         self.dialogView.animation = "zoomOut"
         self.dialogView.animate()
         
         self.signUpButton.animation = "zoomOut"
         self.signUpButton.animate()
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func scrollViewPressed(sender: AnyObject) {
+    @IBAction func scrollViewPressed(_ sender: AnyObject) {
         self.view.endEditing(true)
     }
     
     // MARK: - Private functions
     
-    private func playConfirmationSound(){
-        let path = NSBundle.mainBundle().pathForResource("loginSuccessful.aif", ofType: nil)!
-        let url = NSURL(fileURLWithPath: path)
+    fileprivate func playConfirmationSound(){
+        let path = Bundle.main.path(forResource: "loginSuccessful.aif", ofType: nil)!
+        let url = Foundation.URL(fileURLWithPath: path)
         
         do {
-            let sound = try AVAudioPlayer(contentsOfURL: url)
+            let sound = try AVAudioPlayer(contentsOf: url)
             self.tapSoundEffect = sound
             self.tapSoundEffect.volume = 0.1
             sound.play()
@@ -161,8 +161,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     
     // MARK: - DragDropBehavior
     
-    func dragDropBehavior(behavior: DragDropBehavior, viewDidDrop view: UIView) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func dragDropBehavior(_ behavior: DragDropBehavior, viewDidDrop view: UIView) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

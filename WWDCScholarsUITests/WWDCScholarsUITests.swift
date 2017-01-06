@@ -55,14 +55,14 @@ class WWDCScholarsUITests: XCTestCase {
         let app = XCUIApplication()
 //        app.otherElements.containingType(.Button, identifier:"wwdcScholarsTabIcon").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(3).childrenMatchingType(.CollectionView).element.tap()
         
-        let collectionViewsQuery = app.collectionViews.cells.otherElements.containingType(.StaticText, identifier:"Aaron").images["profilePic"]
+        let collectionViewsQuery = app.collectionViews.cells.otherElements.containing(.staticText, identifier:"Aaron").images["profilePic"]
         
         /// Get cell to check for existence
         
         /// Wait until the cell exists, thus data got loaded
         let exists = NSPredicate(format: "exists == 1")
-        expectationForPredicate(exists, evaluatedWithObject: collectionViewsQuery, handler: nil)
-        waitForExpectationsWithTimeout(60, handler: nil)
+        expectation(for: exists, evaluatedWith: collectionViewsQuery, handler: nil)
+        waitForExpectations(timeout: 60, handler: nil)
 
         collectionViewsQuery.tap()
 
@@ -144,7 +144,7 @@ class WWDCScholarsUITests: XCTestCase {
         let mapiconButton = app.navigationBars["Scholars"].buttons["mapIcon"]
         mapiconButton.tap()
         
-        addUIInterruptionMonitorWithDescription("Location Dialog") { (alert) -> Bool in
+        addUIInterruptionMonitor(withDescription: "Location Dialog") { (alert) -> Bool in
             alert.buttons["Allow"].tap()
             return true
         }

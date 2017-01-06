@@ -6,32 +6,32 @@
 //  Copyright © 2016 WWDCScholars. All rights reserved.
 //
 
-extension NSDate {
-    static func dateMinusYears(years: Int) -> NSDate {
-        let calendar = NSCalendar.currentCalendar()
-        let currentDate = NSDate()
-        let dateComponents = NSDateComponents()
-        let options: NSCalendarOptions = .WrapComponents
+extension Date {
+    static func dateMinusYears(_ years: Int) -> Date {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        var dateComponents = DateComponents()
+        let options: NSCalendar.Options = .wrapComponents
         dateComponents.year = -years
         
-        let endDate = calendar.dateByAddingComponents(dateComponents, toDate: currentDate, options: options)
+        let endDate = (calendar as NSCalendar).date(byAdding: dateComponents, to: currentDate, options: options)
         return endDate!
     }
 }
 
 class DateManager {
-    static private let sharedInstance = DateManager()
+    static fileprivate let sharedInstance = DateManager()
     
-    private lazy var shortDateFormatter: NSDateFormatter = {
-        let dateFormatter: NSDateFormatter = NSDateFormatter()
+    fileprivate lazy var shortDateFormatter: DateFormatter = {
+        let dateFormatter: DateFormatter = DateFormatter()
         dateFormatter.doesRelativeDateFormatting = true
-        dateFormatter.dateStyle = .ShortStyle
-        dateFormatter.timeStyle = .NoStyle
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
         
         return dateFormatter
     }()
     
-    static func shortDateStringFromDate(date: NSDate) -> String {
-        return self.sharedInstance.shortDateFormatter.stringFromDate(date)
+    static func shortDateStringFromDate(_ date: Date) -> String {
+        return self.sharedInstance.shortDateFormatter.string(from: date)
     }
 }

@@ -13,12 +13,12 @@ class ApiBase {
     var serverUrl: URL = ""
     var apiKey: String = ""
     
-    func setServerDetails(serverUrl: URL, serverAPIKey: String) {
+    func setServerDetails(_ serverUrl: URL, serverAPIKey: String) {
         self.serverUrl = serverUrl
         self.apiKey = serverAPIKey
     }
     
-    class func setServerDetails(serverUrl: URL, serverAPIKey: String) {
+    class func setServerDetails(_ serverUrl: URL, serverAPIKey: String) {
         ScholarsKit.sharedInstance.setServerDetails(serverUrl, serverAPIKey: serverAPIKey)
         BlogKit.sharedInstance.setServerDetails(serverUrl, serverAPIKey: serverAPIKey)
         UserKit.sharedInstance.setServerDetails(serverUrl, serverAPIKey: serverAPIKey)

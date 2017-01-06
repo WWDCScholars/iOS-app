@@ -17,6 +17,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 #import <Foundation/Foundation.h>
+#import "RLMConstants.h"
 
 @class RLMRealmConfiguration, RLMObject, RLMSchema, RLMMigration, RLMNotificationToken;
 
@@ -33,8 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
  objects (for example, by using the same path or identifier) multiple times on a single thread
  within a single iteration of the run loop will normally return the same
  `RLMRealm` object.
- 
- If you specifically want to ensure a `RLMRealm` instance is
+
+ If you specifically want to ensure an `RLMRealm` instance is
  destroyed (for example, if you wish to open a Realm, check some property, and
  then possibly delete the Realm file and re-open it), place the code which uses
  the Realm within an `@autoreleasepool {}` and ensure you have no other
@@ -56,11 +57,11 @@ NS_ASSUME_NONNULL_BEGIN
  Obtains an instance of the default Realm.
 
  The default Realm is used by the `RLMObject` class methods
- which do not take a `RLMRealm` parameter, but is otherwise not special. The
- default Realm is persisted as default.realm under the Documents directory of
- your Application on iOS, and in your application's Application Support
+ which do not take an `RLMRealm` parameter, but is otherwise not special. The
+ default Realm is persisted as *default.realm* under the *Documents* directory of
+ your Application on iOS, and in your application's *Application Support*
  directory on OS X.
- 
+
  The default Realm is created using the default `RLMRealmConfiguration`, which
  can be changed via `+[RLMRealmConfiguration setDefaultConfiguration:]`.
 
@@ -92,15 +93,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The `RLMSchema` used by the Realm.
  */
-@property (nonatomic, readonly, null_unspecified) RLMSchema *schema;
+@property (nonatomic, readonly) RLMSchema *schema;
 
 /**
  Indicates if the Realm is currently engaged in a write transaction.
 
- @warning Wrapping mutating operations in a write transaction if this property returns `NO`
-          may cause a large number of write transactions to be created, which could negatively
-          impact Realm's performance. Always prefer performing multiple mutations in a single
-          transaction when possible.
+ @warning   Do not simply check this property and then start a write transaction whenever an object needs to be
+            created, updated, or removed. Doing so might cause a large number of write transactions to be created,
+            degrading performance. Instead, always prefer performing multiple updates during a single transaction.
  */
 @property (nonatomic, readonly) BOOL inWriteTransaction;
 
@@ -118,10 +118,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The type of a block to run whenever the data within the Realm is modified.
- 
+
  @see `-[RLMRealm addNotificationBlock:]`
  */
-typedef void (^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
+typedef void (^RLMNotificationBlock)(RLMNotification notification, RLMRealm *realm);
 
 #pragma mark - Receiving Notification when a Realm Changes
 
@@ -130,14 +130,15 @@ typedef void (^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
 
  Notification handlers are called after each write transaction is committed,
  either on the current thread or other threads.
- 
- Handler blocks are called on the same thread that they were added on, and may only be added on threads which are
- currently within a run loop. Unless you are specifically creating and running a run loop on a background thread, this
- will normally only be the main thread.
+
+ Handler blocks are called on the same thread that they were added on, and may
+ only be added on threads which are currently within a run loop. Unless you are
+ specifically creating and running a run loop on a background thread, this will
+ normally only be the main thread.
 
  The block has the following definition:
 
-     typedef void(^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
+     typedef void(^RLMNotificationBlock)(RLMNotification notification, RLMRealm *realm);
 
  It receives the following parameters:
 
@@ -161,27 +162,39 @@ typedef void (^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
 /**
  Begins a write transaction on the Realm.
 
- Only one write transaction can be open at a time. Write transactions cannot be
- nested, and trying to begin a write transaction on a Realm which is
- already in a write transaction will throw an exception. Calls to
- `beginWriteTransaction` from `RLMRealm` instances in other threads will block
- until the current write transaction completes.
+ Only one write transaction can be open at a time for each Realm file. Write
+ transactions cannot be nested, and trying to begin a write transaction on a
+ Realm which is already in a write transaction will throw an exception. Calls to
+ `beginWriteTransaction` from `RLMRealm` instances for the same Realm file in
+ other threads or other processes will block until the current write transaction
+ completes or is cancelled.
 
  Before beginning the write transaction, `beginWriteTransaction` updates the
- `RLMRealm` instance to the latest Realm version, as if `refresh` had been called, and
- generates notifications if applicable. This has no effect if the Realm
- was already up to date.
+ `RLMRealm` instance to the latest Realm version, as if `refresh` had been
+ called, and generates notifications if applicable. This has no effect if the
+ Realm was already up to date.
 
  It is rarely a good idea to have write transactions span multiple cycles of
  the run loop, but if you do wish to do so you will need to ensure that the
- Realm participating in the write transaction is kept alive until the write transaction
- is committed.
+ Realm participating in the write transaction is kept alive until the write
+ transaction is committed.
  */
 - (void)beginWriteTransaction;
 
 /**
- Commits all write operations in the current write transaction, and ends the 
+ Commits all write operations in the current write transaction, and ends the
  transaction.
+
+ After saving the changes, all notification blocks registered on this specific
+ `RLMRealm` instance are invoked synchronously. Notification blocks registered
+ on other threads or on collections are invoked asynchronously. If you do not
+ want to receive a specific notification for this write tranaction, see
+ `commitWriteTransactionWithoutNotifying:error:`.
+
+ This method can fail if there is insufficient disk space available to save the
+ writes made, or due to unexpected i/o errors. This version of the method throws
+ an exception when errors occur. Use the version with a `NSError` out parameter
+ instead if you wish to handle errors.
 
  @warning This method may only be called during a write transaction.
  */
@@ -190,6 +203,15 @@ typedef void (^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
 /**
  Commits all write operations in the current write transaction, and ends the
  transaction.
+
+ After saving the changes, all notification blocks registered on this specific
+ `RLMRealm` instance are invoked synchronously. Notification blocks registered
+ on other threads or on collections are invoked asynchronously. If you do not
+ want to receive a specific notification for this write tranaction, see
+ `commitWriteTransactionWithoutNotifying:error:`.
+
+ This method can fail if there is insufficient disk space available to save the
+ writes made, or due to unexpected i/o errors.
 
  @warning This method may only be called during a write transaction.
 
@@ -200,6 +222,40 @@ typedef void (^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
  @return Whether the transaction succeeded.
  */
 - (BOOL)commitWriteTransaction:(NSError **)error;
+
+/**
+ Commits all write operations in the current write transaction, without
+ notifying specific notification blocks of the changes.
+
+ After saving the changes, all notification blocks registered on this specific
+ `RLMRealm` instance are invoked synchronously. Notification blocks registered
+ on other threads or on collections are scheduled to be invoked asynchronously.
+
+ You can skip notifiying specific notification blocks about the changes made
+ in this write transaction by passing in their associated notification tokens.
+ This is primarily useful when the write transaction is saving changes already
+ made in the UI and you do not want to have the notification block attempt to
+ re-apply the same changes.
+
+ The tokens passed to this method must be for notifications for this specific
+ `RLMRealm` instance. Notifications for different threads cannot be skipped
+ using this method.
+
+ This method can fail if there is insufficient disk space available to save the
+ writes made, or due to unexpected i/o errors.
+
+ @warning This method may only be called during a write transaction.
+
+ @param tokens An array of notification tokens which were returned from adding
+               callbacks which you do not want to be notified for the changes
+               made in this write transaction.
+ @param error If an error occurs, upon return contains an `NSError` object
+              that describes the problem. If you are not interested in
+              possible errors, pass in `NULL`.
+
+ @return Whether the transaction succeeded.
+ */
+- (BOOL)commitWriteTransactionWithoutNotifying:(NSArray<RLMNotificationToken *> *)tokens error:(NSError **)error;
 
 /**
  Reverts all writes made during the current write transaction and ends the transaction.
@@ -224,23 +280,27 @@ typedef void (^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
  but re-running the query which provided `oldObject` will once again return
  the valid object.
 
+ KVO observers on any objects which were modified during the transaction will
+ be notified about the change back to their initial values, but no other
+ notifcations are produced by a cancelled write transaction.
+
  @warning This method may only be called during a write transaction.
  */
 - (void)cancelWriteTransaction;
 
 /**
  Performs actions contained within the given block inside a write transaction.
- 
+
  @see `[RLMRealm transactionWithBlock:error:]`
  */
 - (void)transactionWithBlock:(__attribute__((noescape)) void(^)(void))block NS_SWIFT_UNAVAILABLE("");
 
 /**
  Performs actions contained within the given block inside a write transaction.
- 
- Write transactions cannot be nested, and trying to execute a write transaction 
+
+ Write transactions cannot be nested, and trying to execute a write transaction
  on a Realm which is already participating in a write transaction will throw an
- exception. Calls to `transactionWithBlock:` from `RLMRealm` instances in other 
+ exception. Calls to `transactionWithBlock:` from `RLMRealm` instances in other
  threads will block until the current write transaction completes.
 
  Before beginning the write transaction, `transactionWithBlock:` updates the
@@ -258,35 +318,42 @@ typedef void (^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
 - (BOOL)transactionWithBlock:(__attribute__((noescape)) void(^)(void))block error:(NSError **)error;
 
 /**
- Updates the Realm and outstanding objects managed by the Realm to point to the most recent data.
+ Updates the Realm and outstanding objects managed by the Realm to point to the
+ most recent data.
 
- @return    Whether there were any updates for the Realm. Note that `YES` may be returned even if no data actually
-            changed.
+ If the version of the Realm is actually changed, Realm and collection
+ notifications will be sent to reflect the changes. This may take some time, as
+ collection notifications are prepared on a background thread. As a result,
+ calling this method on the main thread is not advisable.
+
+ @return Whether there were any updates for the Realm. Note that `YES` may be
+         returned even if no data actually changed.
  */
 - (BOOL)refresh;
 
 /**
- Set this property to `YES` to automatically update this Realm when changes happen in other threads.
+ Set this property to `YES` to automatically update this Realm when changes
+ happen in other threads.
 
  If set to `YES` (the default), changes made on other threads will be reflected
  in this Realm on the next cycle of the run loop after the changes are
  committed.  If set to `NO`, you must manually call `-refresh` on the Realm to
  update it to get the latest data.
 
- Note that by default, background threads do not have an active run loop and you 
+ Note that by default, background threads do not have an active run loop and you
  will need to manually call `-refresh` in order to update to the latest version,
  even if `autorefresh` is set to `YES`.
 
- Even with this enabled, you can still call `-refresh` at any time to update the
- Realm before the automatic refresh would occur.
+ Even with this property enabled, you can still call `-refresh` at any time to
+ update the Realm before the automatic refresh would occur.
 
- Notifications are sent when a write transaction is committed whether or not
- automatic refreshing is enabled.
+ Write transactions will still always advance a Realm to the latest version and
+ produce local notifications on commit even if autorefresh is disabled.
 
  Disabling `autorefresh` on a Realm without any strong references to it will not
- have any effect, and `autorefresh` will revert back to `YES` the next time the Realm is created.
- This is normally irrelevant as it means that there is
- nothing to refresh (as persisted `RLMObject`s, `RLMArray`s, and `RLMResults` have strong
+ have any effect, and `autorefresh` will revert back to `YES` the next time the
+ Realm is created. This is normally irrelevant as it means that there is nothing
+ to refresh (as managed `RLMObject`s, `RLMArray`s, and `RLMResults` have strong
  references to the Realm that manages them), but it means that setting
  `RLMRealm.defaultRealm.autorefresh = NO` in
  `application:didFinishLaunchingWithOptions:` and only later storing Realm
@@ -301,8 +368,9 @@ typedef void (^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
 
  The destination file cannot already exist.
 
- Note that if this method is called from within a write transaction, the *current* data is written, not the data from
- the point when the previous write transaction was committed.
+ Note that if this method is called from within a write transaction, the
+ *current* data is written, not the data from the point when the previous write
+ transaction was committed.
 
  @param fileURL Local URL to save the Realm to.
  @param key     Optional 64-byte encryption key to encrypt the new file with.
@@ -315,7 +383,7 @@ typedef void (^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
 - (BOOL)writeCopyToURL:(NSURL *)fileURL encryptionKey:(nullable NSData *)key error:(NSError **)error;
 
 /**
- Invalidates all `RLMObject`s and `RLMResults` managed by the Realm.
+ Invalidates all `RLMObject`s, `RLMResults`, `RLMLinkingObjects`, and `RLMArray`s managed by the Realm.
 
  A Realm holds a read lock on the version of the data accessed by it, so
  that changes made to the Realm on different threads do not modify or delete the
@@ -347,9 +415,9 @@ typedef void (^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
  Once added, this object is considered to be managed by the Realm. It can be retrieved
  using the `objectsWhere:` selectors on `RLMRealm` and on subclasses of `RLMObject`.
 
- When added, all child relationships referenced by this object will also be added to 
+ When added, all child relationships referenced by this object will also be added to
  the Realm if they are not already in it.
- 
+
  If the object or any related objects are already being managed by a different Realm
  an exception will be thrown. Use `-[RLMObject createInRealm:withObject:]` to insert a copy of a managed object
  into a different Realm.
@@ -379,8 +447,8 @@ typedef void (^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
 
 /**
  Adds or updates an existing object into the Realm.
- 
- The object provided must have a designated primary key. If no objects exist in the Realm 
+
+ The object provided must have a designated primary key. If no objects exist in the Realm
  with the same primary key value, the object is inserted. Otherwise, the existing object is
  updated with any changed values.
 
@@ -418,13 +486,13 @@ typedef void (^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
 
 /**
  Deletes one or more objects from the Realm.
- 
+
  This is the equivalent of calling `deleteObject:` for every object in a collection.
 
  @warning This method may only be called during a write transaction.
 
  @param array  An `RLMArray`, `NSArray`, or `RLMResults` of `RLMObject`s (or subclasses) to be deleted.
- 
+
  @see `deleteObject:`
  */
 - (void)deleteObjects:(id)array;
@@ -463,7 +531,8 @@ typedef void (^RLMMigrationBlock)(RLMMigration *migration, uint64_t oldSchemaVer
 
  @return The version of the Realm at `fileURL`, or `RLMNotVersioned` if the version cannot be read.
  */
-+ (uint64_t)schemaVersionAtURL:(NSURL *)fileURL encryptionKey:(nullable NSData *)key error:(NSError **)error;
++ (uint64_t)schemaVersionAtURL:(NSURL *)fileURL encryptionKey:(nullable NSData *)key error:(NSError **)error
+NS_REFINED_FOR_SWIFT;
 
 /**
  Performs the given Realm configuration's migration block on a Realm at the given path.
@@ -477,14 +546,29 @@ typedef void (^RLMMigrationBlock)(RLMMigration *migration, uint64_t oldSchemaVer
 
  @see                 RLMMigration
  */
-+ (NSError *)migrateRealm:(RLMRealmConfiguration *)configuration;
++ (nullable NSError *)migrateRealm:(RLMRealmConfiguration *)configuration
+__deprecated_msg("Use `performMigrationForConfiguration:error:`") NS_REFINED_FOR_SWIFT;
+
+/**
+ Performs the given Realm configuration's migration block on a Realm at the given path.
+
+ This method is called automatically when opening a Realm for the first time and does
+ not need to be called explicitly. You can choose to call this method to control
+ exactly when and how migrations are performed.
+
+ @param configuration The Realm configuration used to open and migrate the Realm.
+ @return              The error that occurred while applying the migration, if any.
+
+ @see                 RLMMigration
+ */
++ (BOOL)performMigrationForConfiguration:(RLMRealmConfiguration *)configuration error:(NSError **)error;
 
 @end
 
 /**
  A token which is returned from methods which subscribe to changes to a Realm.
 
- Change subscriptions in Realm return an `RLMNotificationToken` instance, 
+ Change subscriptions in Realm return an `RLMNotificationToken` instance,
  which can be used to unsubscribe from the changes. You must store a strong
  reference to the token for as long as you want to continue to receive notifications.
  When you wish to stop, call the `-stop` method. Notifications are also stopped if

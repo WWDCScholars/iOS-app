@@ -29,19 +29,19 @@ class Scholar: Object {
     /// The E-Mail address of the scholar
     dynamic var email: String = ""
     
-    private dynamic var genderInt: Int = 0
+    fileprivate dynamic var genderInt: Int = 0
     /// The gender of the scholar
     var gender: Gender {
         get {
             switch genderInt {
             case 0:
-                return .Unknown
+                return .unknown
             case 1:
-                return .Male
+                return .male
             case 2:
-                return .Female
+                return .female
             default:
-                return .Unknown
+                return .unknown
             }
         }
         set {
@@ -50,24 +50,24 @@ class Scholar: Object {
     }
     
     /// The birthday of the scholar
-    dynamic var birthday: NSDate = NSDate.today()
+    dynamic var birthday: Date = Date.today()
     /// The age of the scholar
     dynamic var age: Int {
-        let ageComponents = NSCalendar.currentCalendar().components(.Year,
-                                                                    fromDate: birthday,
-                                                                    toDate: NSDate(),
+        let ageComponents = (Calendar.current as NSCalendar).components(.year,
+                                                                    from: birthday,
+                                                                    to: Date(),
                                                                     options: [])
         let age = ageComponents.year
-        return age
+        return age!
     }
     
     /// A short description of him/herself
     dynamic var shortBio: String = ""
     
     /// Location details for easier saving
-    private dynamic var latitude: Double = 0
-    private dynamic var longitude: Double = 0
-    private dynamic var locationString: String = ""
+    fileprivate dynamic var latitude: Double = 0
+    fileprivate dynamic var longitude: Double = 0
+    fileprivate dynamic var locationString: String = ""
     /// The location the scholar provided
     var location: Location {
         get {
@@ -139,7 +139,7 @@ class Scholar: Object {
 class Batch: Object {
     dynamic var id = ""
     
-    private dynamic var batchWWDCStr: String = ""
+    fileprivate dynamic var batchWWDCStr: String = ""
     var batchWWDC: WWDC {
         get {
             return WWDC.forRawValue(batchWWDCStr)
@@ -149,7 +149,7 @@ class Batch: Object {
         }
     }
     
-    private dynamic var appTypeStr: String = "Offline"
+    fileprivate dynamic var appTypeStr: String = "Offline"
     var appType: AppType {
         get {
             switch appTypeStr {
@@ -176,7 +176,7 @@ class Batch: Object {
     dynamic var appstoreSubmissionURL: URL?
 
     /// Array of screenshots of their Scholar app
-    private dynamic var screenshotsString: String = ""
+    fileprivate dynamic var screenshotsString: String = ""
     /// Array of screenshots
     var screenshots: [URL] {
         set {
@@ -185,16 +185,16 @@ class Batch: Object {
             for wwdc in arr {
                 strArr.append(wwdc)
             }
-            screenshotsString = strArr.joinWithSeparator("|")
+            screenshotsString = strArr.joined(separator: "|")
         }
         
         get {
-            let strArr = screenshotsString.componentsSeparatedByString("|")
+            let strArr = screenshotsString.components(separatedBy: "|")
             var arr: [URL] = []
             for str in strArr {
                 arr.append(str)
             }
-            return arr.reverse()
+            return arr.reversed()
         }
     }
     

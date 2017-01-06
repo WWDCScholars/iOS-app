@@ -10,13 +10,13 @@ import UIKit
 import SafariServices
 
 class BlogViewController: UIViewController {
-    @IBOutlet private weak var tableView: NoJumpRefreshTableView!
-    @IBOutlet private weak var loadingContainerView: UIView!
+    @IBOutlet fileprivate weak var tableView: NoJumpRefreshTableView!
+    @IBOutlet fileprivate weak var loadingContainerView: UIView!
     
-    private var blogPosts: [BlogPost] = []
+    fileprivate var blogPosts: [BlogPost] = []
     
-    private var refreshControl: UIRefreshControl!
-    private var loadingViewController: LoadingViewController!
+    fileprivate var refreshControl: UIRefreshControl!
+    fileprivate var loadingViewController: LoadingViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,45 +30,45 @@ class BlogViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.refreshControl.superview?.sendSubviewToBack(self.refreshControl)
+        self.refreshControl.superview?.sendSubview(toBack: self.refreshControl)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == String(BlogPostDetailViewController) {
-            let destinationViewController = segue.destinationViewController as! BlogPostDetailViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == String(describing: BlogPostDetailViewController) {
+            let destinationViewController = segue.destination as! BlogPostDetailViewController
             
-            if let indexPath = sender as? NSIndexPath {
+            if let indexPath = sender as? IndexPath {
                 destinationViewController.currentPost = self.blogPosts[indexPath.item]
             }
-        } else if segue.identifier == String(LoadingViewController) {
-            self.loadingViewController = segue.destinationViewController as! LoadingViewController
+        } else if segue.identifier == String(describing: LoadingViewController) {
+            self.loadingViewController = segue.destination as! LoadingViewController
         }
     }
     
     // MARK: - UI
     
-    private func styleUI() {
+    fileprivate func styleUI() {
         self.title = "Blog"
     }
     
-    private func configureUI() {
+    fileprivate func configureUI() {
         self.loadingViewController.loadingMessage = "Loading Blog Posts..."
         self.loadingViewController.startAnimating()
         
-        if self.traitCollection.forceTouchCapability == .Available {
-            self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+        if self.traitCollection.forceTouchCapability == .available {
+            self.registerForPreviewing(with: self, sourceView: self.view)
         }
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
     // MARK: - Private functions
     
-    private func addRefreshControl() {
+    fileprivate func addRefreshControl() {
         self.refreshControl = UIRefreshControl()
-        self.refreshControl.addTarget(self, action: #selector(BlogViewController.loadData), forControlEvents: .ValueChanged)
+        self.refreshControl.addTarget(self, action: #selector(BlogViewController.loadData), for: .valueChanged)
         self.tableView.addSubview(self.refreshControl)
     }
     
@@ -81,7 +81,7 @@ class BlogViewController: UIViewController {
             self.refreshControl.endRefreshing()
             
             if self.loadingViewController.isAnimating() {
-                self.loadingContainerView.hidden = true
+                self.loadingContainerView.isHidden = true
                 self.loadingViewController.stopAnimating()
             }
         }
@@ -89,66 +89,66 @@ class BlogViewController: UIViewController {
     
     // MARK: - IBActions
     
-    @IBAction func addPostAction(sender: AnyObject) {
-        let url = NSURL(string: "https://wwdcscholars.herokuapp.com/submitpost")
-        let viewController = BlogPostSafariViewController(URL: url!)
+    @IBAction func addPostAction(_ sender: AnyObject) {
+        let url = Foundation.URL(string: "https://wwdcscholars.herokuapp.com/submitpost")
+        let viewController = BlogPostSafariViewController(url: url!)
         
-        self.presentViewController(viewController, animated: true, completion: nil)
+        self.present(viewController, animated: true, completion: nil)
     }
 }
 
 extension BlogViewController: UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.blogPosts.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("blogPostTableViewCell") as! BlogPostTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "blogPostTableViewCell") as! BlogPostTableViewCell
         let post = self.blogPosts[indexPath.row]
         
         var authorString = "" as NSString
         
         if (post.scholarId == nil) {
-            authorString = "written by \(post.scholarName) (Guest post)"
+            authorString = "written by \(post.scholarName) (Guest post)" as NSString
 
         } else {
-            authorString = "written by \(post.scholarName)"
+            authorString = "written by \(post.scholarName)" as NSString
         }
         
         let attributedAuthorString = NSMutableAttributedString(string: authorString as String)
         
         let firstAttribute = [NSForegroundColorAttributeName: UIColor.mediumWhiteTextColor()]
-        attributedAuthorString.addAttributes(firstAttribute, range: authorString.rangeOfString("written by"))
+        attributedAuthorString.addAttributes(firstAttribute, range: authorString.range(of: "written by"))
         
-        let secondAttribute = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        attributedAuthorString.addAttributes(secondAttribute, range: authorString.rangeOfString("\(post.scholarName)"))
+        let secondAttribute = [NSForegroundColorAttributeName: UIColor.white]
+        attributedAuthorString.addAttributes(secondAttribute, range: authorString.range(of: "\(post.scholarName)"))
         
         cell.postAuthorLabel.attributedText = attributedAuthorString
         cell.postDateLabel.text = DateManager.shortDateStringFromDate(post.createdAt)
         cell.postTitleLabel.text = post.title
         
-        if let imgUrl = NSURL(string: post.headerImage) {
-            cell.postImageView.af_setImageWithURL(imgUrl, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+        if let imgUrl = Foundation.URL(string: post.headerImage) {
+            cell.postImageView.af_setImageWithURL(imgUrl, placeholderImage: UIImage(named: "placeholder"), imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false)
         }
         
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.view.bounds.width / 16.0 * 9.0
     }
 }
 
 extension BlogViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier(String(BlogPostDetailViewController), sender: indexPath)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: String(describing: BlogPostDetailViewController), sender: indexPath)
     }
 }
 
 // MARK: - UIScrollViewDelegate
 
 extension BlogViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let visibleCells = self.tableView.visibleCells as! [BlogPostTableViewCell]
         
         for cell in visibleCells {
@@ -160,12 +160,12 @@ extension BlogViewController: UIScrollViewDelegate {
 // MARK: - UIViewControllerPreviewingDelegate
 
 extension BlogViewController: UIViewControllerPreviewingDelegate {
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        let viewController = storyboard?.instantiateViewControllerWithIdentifier("blogPostDetailViewController") as? BlogPostDetailViewController
-        let cellPosition = self.tableView.convertPoint(location, fromView: self.view)
-        let cellIndex = self.tableView.indexPathForRowAtPoint(cellPosition)
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "blogPostDetailViewController") as? BlogPostDetailViewController
+        let cellPosition = self.tableView.convert(location, from: self.view)
+        let cellIndex = self.tableView.indexPathForRow(at: cellPosition)
         
-        guard let previewViewController = viewController, indexPath = cellIndex, cell = self.tableView.cellForRowAtIndexPath(indexPath) as? BlogPostTableViewCell else {
+        guard let previewViewController = viewController, let indexPath = cellIndex, let cell = self.tableView.cellForRow(at: indexPath) as? BlogPostTableViewCell else {
             return nil
         }
         
@@ -174,14 +174,14 @@ extension BlogViewController: UIViewControllerPreviewingDelegate {
         
         previewViewController.currentPost = post
         previewViewController.preferredContentSize = CGSize.zero
-        previewingContext.sourceRect = self.view.convertRect(bounds, fromView: cell)
+        previewingContext.sourceRect = self.view.convert(bounds, from: cell)
         
         return previewViewController
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         self.view.endEditing(true)
         
-        self.showViewController(viewControllerToCommit, sender: self)
+        self.show(viewControllerToCommit, sender: self)
     }
 }

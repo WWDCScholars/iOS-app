@@ -14,7 +14,7 @@ class DateUtils {
     }
 }
 
-extension NSDate {
+extension Date {
     
     
 }

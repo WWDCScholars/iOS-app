@@ -9,8 +9,8 @@
 import UIKit
 
 protocol ScreenshotImportDelegate {
-    func importNewScreenshot(index: Int)
-    func presentActionSheet(index: Int)
+    func importNewScreenshot(_ index: Int)
+    func presentActionSheet(_ index: Int)
 }
 
 class ScreenshotUploadCollectionViewCell: UICollectionViewCell {
@@ -28,7 +28,7 @@ class ScreenshotUploadCollectionViewCell: UICollectionViewCell {
         self.uploadButton.addGestureRecognizer(longPressGestureRecognizer)
     }
     
-    private func styleUI() {
+    fileprivate func styleUI() {
         self.titleTextLabel.textColor = UIColor.scholarsPurpleColor()
         self.iconImageView.tintColor = UIColor.scholarsPurpleColor()
     }
@@ -37,7 +37,7 @@ class ScreenshotUploadCollectionViewCell: UICollectionViewCell {
         self.delegate?.presentActionSheet(self.tag)
     }
     
-    @IBAction func uploadButtonTapped(sender: AnyObject) {
+    @IBAction func uploadButtonTapped(_ sender: AnyObject) {
         self.delegate?.importNewScreenshot(self.tag)
     }
 }

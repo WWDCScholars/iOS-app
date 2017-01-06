@@ -11,13 +11,13 @@ import UIKit
 class ImageManager {
     static let sharedInstance = ImageManager()
     
-    func expandImage(imageView: UIImageView, viewController: UIViewController) {
+    func expandImage(_ imageView: UIImageView, viewController: UIViewController) {
         let imageInfo = JTSImageInfo()
         imageInfo.image = imageView.image
         imageInfo.referenceRect = imageView.frame
         imageInfo.referenceView = imageView.superview
         
-        let imageViewer = JTSImageViewController(imageInfo: imageInfo, mode: .Image, backgroundStyle: .Blurred)
-        imageViewer.showFromViewController(viewController, transition: .FromOriginalPosition)
+        let imageViewer = JTSImageViewController(imageInfo: imageInfo, mode: .image, backgroundStyle: .blurred)
+        imageViewer?.show(from: viewController, transition: .fromOriginalPosition)
     }
 }

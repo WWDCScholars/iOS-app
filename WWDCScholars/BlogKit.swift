@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Alamofire
+
 class BlogKit: ApiBase {
     static let sharedInstance = BlogKit()
     
@@ -19,7 +21,7 @@ class BlogKit: ApiBase {
      Loads scholars from the online database
      */
     func loadPosts(_ completionHandler: @escaping () -> Void) {
-        request(.GET, "\(self.serverUrl)/api/posts/\(self.apiKey)")
+        Alamofire.request("\(self.serverUrl)/api/posts/\(self.apiKey)")
             .responseString() { response in
                 if let data = response.result.value {
                     //                print (data)
@@ -78,9 +80,8 @@ class BlogKit: ApiBase {
             //guest author related
             newPost.guestLink = json["guestLink"].string //Optional - Guest Link
             
-            
-            newPost.updatedAt = updatedAt.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
-            newPost.createdAt = createdAt.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
+            newPost.updatedAt = updatedAt.date(inFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
+            newPost.createdAt = createdAt.date(inFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
             newPost.tags = json["tags"].array!.map({return $0.string!})
             
             return newPost

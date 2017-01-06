@@ -24,7 +24,9 @@ class SpotlightManager {
         attributeSet.contentDescription = scholar.shortBio
         
         let item = CSSearchableItem(uniqueIdentifier: scholar.userActivityUserInfo["id"] as? String, domainIdentifier: "com.wwdcscholars", attributeSet: attributeSet)
-        CSSearchableIndex.default().indexSearchableItems([item]) { (error: NSError?) -> Void in
+        
+        
+        CSSearchableIndex.default().indexSearchableItems([item]) { (error: Error?) -> Void in
             if let error = error {
                 print("Indexing error: \(error.localizedDescription)")
             }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Realm
 import RealmSwift
 
 class Scholar: Object {
@@ -139,7 +140,7 @@ class Scholar: Object {
 class Batch: Object {
     dynamic var id = ""
     
-    fileprivate dynamic var batchWWDCStr: String = ""
+    private dynamic var batchWWDCStr: String = ""
     var batchWWDC: WWDC {
         get {
             return WWDC.forRawValue(batchWWDCStr)
@@ -149,7 +150,7 @@ class Batch: Object {
         }
     }
     
-    fileprivate dynamic var appTypeStr: String = "Offline"
+    private dynamic var appTypeStr: String = "Offline"
     var appType: AppType {
         get {
             switch appTypeStr {
@@ -176,7 +177,7 @@ class Batch: Object {
     dynamic var appstoreSubmissionURL: URL?
 
     /// Array of screenshots of their Scholar app
-    fileprivate dynamic var screenshotsString: String = ""
+    private dynamic var screenshotsString: String = ""
     /// Array of screenshots
     var screenshots: [URL] {
         set {

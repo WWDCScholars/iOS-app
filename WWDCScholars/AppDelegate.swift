@@ -9,6 +9,9 @@
 import UIKit
 import Fabric
 import Crashlytics
+import Alamofire
+import AlamofireImage
+
 //#if DEBUG
 //import SimulatorStatusMagic
 //#endif
@@ -92,7 +95,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     
         let photoCache = AutoPurgingImageCache( memoryCapacity: 50 * 1024 * 1024, preferredMemoryUsageAfterPurge: 20 * 1024 * 1024 )
-        let newImageDownloader = ImageDownloader(sessionManager: ImageDownloader.defaultURLSessionConfiguration(), downloadPrioritization: .fifo, maximumActiveDownloads: 50, imageCache: photoCache)
+        
+        
+        let mng = Alamofire.SessionManager.default
+        
+        
+        let newImageDownloader = ImageDownloader(sessionManager: mng, downloadPrioritization: .fifo, maximumActiveDownloads: 50, imageCache: photoCache)
         UIImageView.af_sharedImageDownloader = newImageDownloader
         
         // 3D Touch
@@ -183,14 +191,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+    private func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+        /*
         if url.host == "scholar" {
             //todo check if id exists
             (self.window?.rootViewController as! ScholarsTabBarViewController).openScholarDetail(url.lastPathComponent!)
         } else if url.host == "post" {
             (self.window?.rootViewController as! ScholarsTabBarViewController).openScholarDetail(url.lastPathComponent!) // todo Open blog, not scholar
         }
-        
+        */
         return true
     }
     

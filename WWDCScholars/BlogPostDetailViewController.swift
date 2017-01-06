@@ -9,6 +9,8 @@
 import UIKit
 import MessageUI
 import SafariServices
+import Alamofire
+import AlamofireImage
 
 enum AuthorButtonType {
     case image
@@ -77,7 +79,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == String(describing: ScholarDetailViewController) {
+        if segue.identifier == String(describing: ScholarDetailViewController()) {
             let destinationViewController = segue.destination as! ScholarDetailViewController
             destinationViewController.delegate = self
             destinationViewController.setScholar(self.currentPostAuthor!.id)
@@ -169,14 +171,14 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
         
         self.titleLabel.text = self.currentPost.title
         self.dateLabel.text = DateManager.shortDateStringFromDate(self.currentPost.createdAt)
-        self.headerImageView.af_setImageWithURL(Foundation.URL(string: self.currentPost.headerImage)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false, completion: nil)
+        self.headerImageView.af_setImage(withURL: Foundation.URL(string: self.currentPost.headerImage)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false, completion: nil)
         
         self.authorButton.setTitle(self.currentPost.scholarName, for: UIControlState())
 
         if self.currentPostAuthor != nil{
-            self.authorProfileImageButton.af_setBackgroundImageForState(UIControlState(), URL: Foundation.URL(string: self.currentPostAuthor!.latestBatch.profilePic)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: DispatchQueue.main, completion: nil)
+            self.authorProfileImageButton.af_setBackgroundImage(for: UIControlState(), URL: Foundation.URL(string: self.currentPostAuthor!.latestBatch.profilePic)!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: DispatchQueue.main, completion: nil)
         } else {
-            self.authorProfileImageButton.af_setBackgroundImageForState(UIControlState(), URL: Foundation.URL(string: "https://wwdcscholars.s3.amazonaws.com/scholarImages/2016_s_C_profilePic2015_1465646958901.png")!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: DispatchQueue.main, completion: nil)
+            self.authorProfileImageButton.af_setBackgroundImage(for: UIControlState(), URL: Foundation.URL(string: "https://wwdcscholars.s3.amazonaws.com/scholarImages/2016_s_C_profilePic2015_1465646958901.png")!, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: DispatchQueue.main, completion: nil)
 //            self.authorProfileImageButton.enabled = false
 //            self.authorButton.enabled = false
         }
@@ -207,7 +209,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
             present(safariVC, animated: true, completion: nil)
             
         } else {
-            self.performSegue(withIdentifier: String(describing: ScholarDetailViewController), sender: nil)
+            self.performSegue(withIdentifier: String(describing: ScholarDetailViewController()), sender: nil)
         }
     }
     

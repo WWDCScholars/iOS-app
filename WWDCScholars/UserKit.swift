@@ -8,6 +8,7 @@
 
 import Foundation
 import CryptoSwift
+import Alamofire
 
 class UserKit: ApiBase {
     static let sharedInstance = UserKit()
@@ -52,13 +53,12 @@ class UserKit: ApiBase {
             
             
             
-                        
-            request(.POST, method: "\(self.serverUrl)/api/login/\(self.apiKey)", parameters: ["email": email as AnyObject, "password": encodedPassword as AnyObject])
+           request("\(self.serverUrl)/api/login/\(self.apiKey)", method: .post, parameters: ["email": email as AnyObject, "password": encodedPassword as AnyObject])
                 .responseString() { response in
                     print (response.result.error)
                     
                     if let error = response.result.error {
-                        completionHandler?(error)
+                        completionHandler?(error as NSError?)
                         return
                     }
                     

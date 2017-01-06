@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 import SafariServices
 import MessageUI
+import Alamofire
 import AlamofireImage
 
 enum CurrentViewType {

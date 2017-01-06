@@ -8,6 +8,8 @@
 
 import UIKit
 import AdSupport
+import Alamofire
+import AlamofireImage
 
 class ChatViewController: JSQMessagesViewController {
     @IBOutlet fileprivate weak var loadingContainerView: UIView!
@@ -73,10 +75,10 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == String(describing: ScholarDetailViewController) {
+        if segue.identifier == String(describing: ScholarDetailViewController()) {
             let destinationViewController = segue.destination as! ScholarDetailViewController
             destinationViewController.setScholar(sender as! String)
-        } else if segue.identifier == String(describing: LoadingViewController) {
+        } else if segue.identifier == String(describing: LoadingViewController()) {
             self.loadingViewController = segue.destination as! LoadingViewController
         }
     }
@@ -133,7 +135,7 @@ class ChatViewController: JSQMessagesViewController {
     fileprivate func addMessage(_ id: String, text: String, date: Date) {
         if let scholar = DatabaseManager.sharedInstance.scholarForId(id){
             let message = JSQMessage(senderId: id, senderDisplayName: scholar.fullName, date: date, text: text)
-            self.messages.append(message)
+            self.messages.append(message!)
         } else {
             //todo: reload scholars if scholar is missing in db
             print ("addMessage -- Uhoh! no scholar found in db with id \(id)")
@@ -272,7 +274,7 @@ class ChatViewController: JSQMessagesViewController {
                         if let imageUrl = Foundation.URL(string: scholar.latestBatch.profilePic) {
                             let imageFilter = RoundedCornersFilter(radius: 50)
                             
-                            cell.avatarImageView!.af_setImageWithURL(imageUrl, filter: imageFilter, imageTransition: .crossDissolve(0.25))
+                            cell.avatarImageView!.af_setImage(withURL: imageUrl, filter: imageFilter, imageTransition: .crossDissolve(0.25))
                         }
                     }
                 }
@@ -281,7 +283,7 @@ class ChatViewController: JSQMessagesViewController {
                     if let imageUrl = Foundation.URL(string: scholar.latestBatch.profilePic) {
                         let imageFilter = RoundedCornersFilter(radius: 50)
                         
-                        cell.avatarImageView!.af_setImageWithURL(imageUrl, filter: imageFilter, imageTransition: .crossDissolve(0.25))
+                        cell.avatarImageView!.af_setImage(withURL: imageUrl, filter: imageFilter, imageTransition: .crossDissolve(0.25))
                     }
                 }
             }
@@ -294,7 +296,7 @@ class ChatViewController: JSQMessagesViewController {
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapAvatarImageView avatarImageView: UIImageView!, at indexPath: IndexPath!) {
         let message = messages[indexPath.item]
-        self.performSegue(withIdentifier: String(describing: ScholarDetailViewController), sender: message.senderId)
+        self.performSegue(withIdentifier: String(describing: ScholarDetailViewController()), sender: message.senderId)
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {

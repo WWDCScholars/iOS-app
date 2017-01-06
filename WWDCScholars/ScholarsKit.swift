@@ -8,6 +8,8 @@
 
 import Foundation
 import CryptoSwift
+import Alamofire
+
 
 class ScholarsKit: ApiBase {
     
@@ -23,7 +25,7 @@ class ScholarsKit: ApiBase {
      Loads scholars from the online database
      */
     func loadScholars(_ completionHandler: @escaping () -> Void) {
-        request(.GET, "\(self.serverUrl)/api/scholars/\(self.apiKey)")
+        request("\(self.serverUrl)/api/scholars/\(self.apiKey)", method: .get)
             .responseString() { response in
                 if let data = response.result.value {
                     //                print (data)
@@ -107,7 +109,8 @@ class ScholarsKit: ApiBase {
         }
         
         if let birthday = scholarInfo["birthday"].string {
-            newScholar.birthday = birthday.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
+            
+            newScholar.birthday = birthday.date(inFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
         }else {
             print("parseScholar -- \(newScholar.id) -- Missing birthday")
             return nil

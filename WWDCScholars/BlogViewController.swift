@@ -34,13 +34,13 @@ class BlogViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == String(describing: BlogPostDetailViewController) {
+        if segue.identifier == String(describing: BlogPostDetailViewController()) {
             let destinationViewController = segue.destination as! BlogPostDetailViewController
             
             if let indexPath = sender as? IndexPath {
                 destinationViewController.currentPost = self.blogPosts[indexPath.item]
             }
-        } else if segue.identifier == String(describing: LoadingViewController) {
+        } else if segue.identifier == String(describing: LoadingViewController()) {
             self.loadingViewController = segue.destination as! LoadingViewController
         }
     }
@@ -128,7 +128,7 @@ extension BlogViewController: UITableViewDataSource {
         cell.postTitleLabel.text = post.title
         
         if let imgUrl = Foundation.URL(string: post.headerImage) {
-            cell.postImageView.af_setImageWithURL(imgUrl, placeholderImage: UIImage(named: "placeholder"), imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false)
+            cell.postImageView.af_setImage(withURL: imgUrl, placeholderImage: UIImage(named: "placeholder"), imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false)
         }
         
         return cell
@@ -141,7 +141,7 @@ extension BlogViewController: UITableViewDataSource {
 
 extension BlogViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: String(describing: BlogPostDetailViewController), sender: indexPath)
+        self.performSegue(withIdentifier: String(describing: BlogPostDetailViewController()), sender: indexPath)
     }
 }
 

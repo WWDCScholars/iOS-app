@@ -29,7 +29,7 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == String(describing: ScholarDetailViewController) {
+        if segue.identifier == String(describing: ScholarDetailViewController()) {
             if let indexPath = sender as? IndexPath {
                 if let scholarId = CreditsManager.sharedInstance.getScholarId(indexPath) {
                     let destinationViewController = segue.destination as! ScholarDetailViewController
@@ -143,7 +143,7 @@ extension CreditsViewController: UITableViewDataSource {
 extension CreditsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
-        self.performSegue(withIdentifier: String(describing: ScholarDetailViewController), sender: indexPath)
+        self.performSegue(withIdentifier: String(describing: ScholarDetailViewController()), sender: indexPath)
     }
 }
 

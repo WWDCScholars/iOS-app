@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AlamofireImage
+import Alamofire
 
 enum ScreenshotType: Int {
     case scholarship
@@ -76,7 +78,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         
         let lookupURL = "http://itunes.apple.com/lookup?id=\(appID!)"
         
-        request(.GET, lookupURL).responseString() { response in
+        request(lookupURL, method: .get).responseString() { response in
             if let data = response.result.value {
                 let json = JSON.parse(data)
                 
@@ -134,7 +136,7 @@ extension ScreenshotsTableViewCell: UICollectionViewDataSource {
 
         if screenshot != nil {
             cell.activityIndicator.startAnimating()
-            cell.imageView.af_setImageWithURL(screenshot!, placeholderImage: nil, imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false, completion: { response in
+            cell.imageView.af_setImage(withURL: screenshot!, placeholderImage: nil, imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false, completion: { response in
                 cell.activityIndicator.stopAnimating()
                 cell.activityIndicator.removeFromSuperview()
                 

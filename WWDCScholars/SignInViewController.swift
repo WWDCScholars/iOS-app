@@ -70,8 +70,18 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
     
     fileprivate func animateSignInButton(_ hidden: Bool) {
         UIView.animate(withDuration: 0.2, animations: {
-            self.signinButton.alpha = CGFloat(!hidden)
-            self.activityIndicator.alpha = CGFloat(hidden)
+            if hidden == true{
+                self.signinButton.alpha = CGFloat(0)
+                self.activityIndicator.alpha = CGFloat(1)
+
+            }else{
+                self.signinButton.alpha = CGFloat(1)
+                self.activityIndicator.alpha = CGFloat(0)
+            }
+           // self.signinButton.alpha = CGFloat(!hidden)
+           // self.activityIndicator.alpha = CGFloat(hidden)
+            
+            // PLS CHECK AGAIN
         })
     }
     
@@ -110,7 +120,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         UserKit.sharedInstance.login(self.emailTextField.text!.lowercased(), password: self.passwordTextField.text!) { error in
             if error == nil {
                 self.playConfirmationSound()
-                delay(1) {
+                delay(delay: 1) {
                 self.dismissSignInViewController()
                 }
                 self.delegate?.userSignedIn()

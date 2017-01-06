@@ -143,7 +143,7 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     fileprivate func loadOldMessages() {
-        self.messages = []
+      /*  self.messages = []
         self.collectionView.collectionViewLayout.springinessEnabled = false
 
         let messagesQuery = self.messageReference.queryOrdered(byChild: "dateSent").queryLimited(toLast: 50)//.queryStartingAtValue(self.messages[self.messages.count-1].date.timeIntervalSince1970, childKey: "dateSent")
@@ -157,11 +157,11 @@ class ChatViewController: JSQMessagesViewController {
             
             self.finishReceivingMessage(animated: false)
             self.collectionView.collectionViewLayout.springinessEnabled = true
-        })
+        })*/
     }
     
     fileprivate func observeMessages() {
-        let messagesQuery = self.messageReference.queryOrdered(byChild: "dateSent").queryLimited(toLast: 1)//.queryStartingAtValue(self.messages[self.messages.count-1].date.timeIntervalSince1970, childKey: "dateSent")
+       /* let messagesQuery = self.messageReference.queryOrdered(byChild: "dateSent").queryLimited(toLast: 1)//.queryStartingAtValue(self.messages[self.messages.count-1].date.timeIntervalSince1970, childKey: "dateSent")
         self.messageObserverHandle = messagesQuery.observe(.childAdded, with: { snapshot in
             if self.initialLoad {
                 self.initialLoad = false
@@ -176,7 +176,7 @@ class ChatViewController: JSQMessagesViewController {
                 
                 self.finishReceivingMessage()
             }
-        })
+        })*/
     }
     
     // MARK: - JSQMessagesViewController

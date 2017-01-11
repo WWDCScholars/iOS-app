@@ -239,6 +239,7 @@ extension UIImageView {
         
         
         let session = URLSession()
+                
         
         let task = session.dataTask(with: url) { (data, response, error) in
             guard

@@ -262,7 +262,10 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         }
         
         if let imageURL = Foundation.URL(string: self.currentScholar!.latestBatch.profilePic) {
-            self.profileImageButton.af_setImageForState(UIControlState(), URL: imageURL, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: DispatchQueue.main, completion: nil)
+            
+            self.profileImageButton.af_setImage(for: UIControlState, url: imageURL, placeholderImage: UIImage(named: "placeholder"), filter: nil, progress: nil, progressQueue: DispatchQueue.main, completion: nil)
+            
+          //  self.profileImageButton.af_setImageForState(UIControlState(), URL: imageURL, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: DispatchQueue.main, completion: nil)
         }
         
         self.hasData = true

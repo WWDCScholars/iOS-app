@@ -17,7 +17,6 @@
 		22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */; };
 		2235A79D1E1F2A6E00E8CB8E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2235A79B1E1F2A6E00E8CB8E /* Realm.framework */; };
 		2235A79E1E1F2A6E00E8CB8E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2235A79C1E1F2A6E00E8CB8E /* RealmSwift.framework */; };
-		2235A7AA1E1F2BFE00E8CB8E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2235A7A91E1F2BFE00E8CB8E /* SwiftyJSON.swift */; };
 		2235A7EB1E1F2D7100E8CB8E /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2235A7E81E1F2D7100E8CB8E /* DesignableButton.swift */; };
 		2235A7EC1E1F2D7100E8CB8E /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2235A7E91E1F2D7100E8CB8E /* DesignableTextField.swift */; };
 		2235A7ED1E1F2D7100E8CB8E /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2235A7EA1E1F2D7100E8CB8E /* DesignableView.swift */; };
@@ -200,6 +199,62 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		22BCDC7C1E26611A006F0EFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22BCDC721E26611A006F0EFE /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2E4FEFDB19575BE100351305;
+			remoteInfo = "SwiftyJSON iOS";
+		};
+		22BCDC7E1E26611A006F0EFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22BCDC721E26611A006F0EFE /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2E4FEFE619575BE100351305;
+			remoteInfo = "SwiftyJSON iOS Tests";
+		};
+		22BCDC801E26611A006F0EFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22BCDC721E26611A006F0EFE /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C7DFC5B1A9102BD005AA3F7;
+			remoteInfo = "SwiftyJSON OSX";
+		};
+		22BCDC821E26611A006F0EFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22BCDC721E26611A006F0EFE /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C7DFC651A9102BD005AA3F7;
+			remoteInfo = "SwiftyJSON OSX Tests";
+		};
+		22BCDC841E26611A006F0EFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22BCDC721E26611A006F0EFE /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4D7CCE81B9465A700EE7221;
+			remoteInfo = "SwiftyJSON watchOS";
+		};
+		22BCDC861E26611A006F0EFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22BCDC721E26611A006F0EFE /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7236B4F61BAC14150020529B;
+			remoteInfo = "SwiftyJSON tvOS";
+		};
+		22BCDC881E26611A006F0EFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22BCDC721E26611A006F0EFE /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A8580F741BCF5C5B00DA927B;
+			remoteInfo = "SwiftyJSON tvOS Tests";
+		};
+		22BCDC8A1E266132006F0EFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22BCDC721E26611A006F0EFE /* SwiftyJSON.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E4FEFDA19575BE100351305;
+			remoteInfo = "SwiftyJSON iOS";
+		};
 		7B0FC21B1D02D69A002C7E40 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7B0FC20F1D02D69A002C7E40 /* JSQSystemSoundPlayer.xcodeproj */;
@@ -415,7 +470,6 @@
 		22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		2235A79B1E1F2A6E00E8CB8E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		2235A79C1E1F2A6E00E8CB8E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
-		2235A7A91E1F2BFE00E8CB8E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		2235A7E81E1F2D7100E8CB8E /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		2235A7E91E1F2D7100E8CB8E /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		2235A7EA1E1F2D7100E8CB8E /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
@@ -448,6 +502,7 @@
 		22AA366A1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		22AA366B1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		22B608461CFC5E810042F558 /* loginSuccessful.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = loginSuccessful.aif; sourceTree = "<group>"; };
+		22BCDC721E26611A006F0EFE /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "../../../../../../Downloads/SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
 		22BFE2BF1CEE0829002CB549 /* BlogPostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostDetailViewController.swift; sourceTree = "<group>"; };
 		22E2A6EE1CC1DA2400DF0578 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		22E937B61CDCE4F300A2BEBE /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
@@ -857,6 +912,20 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		22BCDC731E26611A006F0EFE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22BCDC7D1E26611A006F0EFE /* SwiftyJSON.framework */,
+				22BCDC7F1E26611A006F0EFE /* SwiftyJSON iOS Tests.xctest */,
+				22BCDC811E26611A006F0EFE /* SwiftyJSON.framework */,
+				22BCDC831E26611A006F0EFE /* SwiftyJSON OSX Tests.xctest */,
+				22BCDC851E26611A006F0EFE /* SwiftyJSON.framework */,
+				22BCDC871E26611A006F0EFE /* SwiftyJSON.framework */,
+				22BCDC891E26611A006F0EFE /* SwiftyJSON tvOS Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		6E43D46F1CF8A35B00D35A6F /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -902,7 +971,7 @@
 		6E64F6BF1CFBAE35006CFE2E /* SwiftyJSON */ = {
 			isa = PBXGroup;
 			children = (
-				2235A7A91E1F2BFE00E8CB8E /* SwiftyJSON.swift */,
+				22BCDC721E26611A006F0EFE /* SwiftyJSON.xcodeproj */,
 			);
 			name = SwiftyJSON;
 			sourceTree = "<group>";
@@ -1375,6 +1444,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				22BCDC8B1E266132006F0EFE /* PBXTargetDependency */,
 				7B0FC2261D02D6CD002C7E40 /* PBXTargetDependency */,
 				7B56A56D1E1FCB0F005A9E81 /* PBXTargetDependency */,
 				7B56A5711E1FCB0F005A9E81 /* PBXTargetDependency */,
@@ -1478,6 +1548,10 @@
 					ProductGroup = 7B0FC2101D02D69A002C7E40 /* Products */;
 					ProjectRef = 7B0FC20F1D02D69A002C7E40 /* JSQSystemSoundPlayer.xcodeproj */;
 				},
+				{
+					ProductGroup = 22BCDC731E26611A006F0EFE /* Products */;
+					ProjectRef = 22BCDC721E26611A006F0EFE /* SwiftyJSON.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -1489,6 +1563,55 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		22BCDC7D1E26611A006F0EFE /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 22BCDC7C1E26611A006F0EFE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		22BCDC7F1E26611A006F0EFE /* SwiftyJSON iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftyJSON iOS Tests.xctest";
+			remoteRef = 22BCDC7E1E26611A006F0EFE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		22BCDC811E26611A006F0EFE /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 22BCDC801E26611A006F0EFE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		22BCDC831E26611A006F0EFE /* SwiftyJSON OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftyJSON OSX Tests.xctest";
+			remoteRef = 22BCDC821E26611A006F0EFE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		22BCDC851E26611A006F0EFE /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 22BCDC841E26611A006F0EFE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		22BCDC871E26611A006F0EFE /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 22BCDC861E26611A006F0EFE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		22BCDC891E26611A006F0EFE /* SwiftyJSON tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftyJSON tvOS Tests.xctest";
+			remoteRef = 22BCDC881E26611A006F0EFE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		7B0FC21C1D02D69A002C7E40 /* JSQSystemSoundPlayer.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1815,7 +1938,6 @@
 				22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */,
 				6EEA891F1CDBE15B00245445 /* NSString+Morphing.m in Sources */,
 				2235A8001E1F2F4600E8CB8E /* Int+Timepiece.swift in Sources */,
-				2235A7AA1E1F2BFE00E8CB8E /* SwiftyJSON.swift in Sources */,
 				2235A7EF1E1F2D8E00E8CB8E /* Misc.swift in Sources */,
 				22671A641CE3D19F0055F91B /* BlogPostSafariViewController.swift in Sources */,
 				6ED962CD1CF8CAA300551E94 /* JTSSimpleImageDownloader.m in Sources */,
@@ -1863,6 +1985,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		22BCDC8B1E266132006F0EFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftyJSON iOS";
+			targetProxy = 22BCDC8A1E266132006F0EFE /* PBXContainerItemProxy */;
+		};
 		7B0FC2261D02D6CD002C7E40 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "JSQSystemSoundPlayer-iOS";

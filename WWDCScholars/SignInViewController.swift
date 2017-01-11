@@ -78,6 +78,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
                 self.signinButton.alpha = CGFloat(1)
                 self.activityIndicator.alpha = CGFloat(0)
             }
+            
+            
            // self.signinButton.alpha = CGFloat(!hidden)
            // self.activityIndicator.alpha = CGFloat(hidden)
             

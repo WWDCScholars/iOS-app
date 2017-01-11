@@ -9,6 +9,7 @@
 import UIKit
 import AlamofireImage
 import Alamofire
+import SwiftyJSON
 
 enum ScreenshotType: Int {
     case scholarship

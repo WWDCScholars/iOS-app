@@ -9,6 +9,7 @@
 import Foundation
 import CryptoSwift
 import Alamofire
+import SwiftyJSON
 
 class UserKit: ApiBase {
     static let sharedInstance = UserKit()

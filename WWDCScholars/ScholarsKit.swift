@@ -10,7 +10,7 @@ import Foundation
 import CryptoSwift
 import Alamofire
 import AlamofireImage
-
+import SwiftyJSON
 
 class ScholarsKit: ApiBase {
     
@@ -248,16 +248,16 @@ class ScholarsKit: ApiBase {
             if let birthday = birthday {
                 
                 
-            //    birthday.string(inDateStyle: <#T##DateFormatter.Style#>, andTimeStyle: <#T##DateFormatter.Style#>)
                 
+                // SWIFT 3 // NEEEDS CHECKS
                 
-            //    multipartFormData.append(<#T##data: Data##Data#>, withName: <#T##String#>)
+                let dateString = birthday.string(inDateStyle: .medium, andTimeStyle: .medium)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
                 
-                
-                
-             // SWIFT 3  multipartFormData.append(birthday.string(inDateStyle: DateFormatter(String("yyyy-MM-dd"), andTimeStyle: DateFormatter(String("HH:mm:ss.SSSZ")))), withName: "birthday")
-                
-                
+            
+                multipartFormData.append(dateString.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "birthday")
+   
               // ORIGINAL  multipartFormData.append((birthday.stringFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")).data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"birthday")
             }
             if let location = location {

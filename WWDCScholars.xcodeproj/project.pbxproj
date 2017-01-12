@@ -198,6 +198,7 @@
 		7BF0870E1E282B7A00C8A3A0 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C11E28293800C8A3A0 /* GoogleSignIn.framework */; };
 		7BF0870F1E282B7A00C8A3A0 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C21E28293800C8A3A0 /* GoogleSymbolUtilities.framework */; };
 		7BF087101E282B7A00C8A3A0 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C31E28293800C8A3A0 /* GoogleUtilities.framework */; };
+		7BF087121E2836A900C8A3A0 /* Alamofire+SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF087111E2836A900C8A3A0 /* Alamofire+SwiftyJSON.swift */; };
 		9A0E57591D069FBE0071D0FF /* ServerDetails.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A0E57581D069FBE0071D0FF /* ServerDetails.plist */; };
 		C0B7FBAA1CC45C9700AD376C /* ClusterAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBA01CC45C9700AD376C /* ClusterAnnotationView.m */; };
 		C0B7FBAB1CC45C9700AD376C /* QCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBA21CC45C9700AD376C /* QCluster.m */; };
@@ -509,6 +510,7 @@
 		7BF086C61E28293800C8A3A0 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		7BF086C71E28293800C8A3A0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		7BF086C81E28293800C8A3A0 /* Timepiece.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timepiece.framework; path = Carthage/Build/iOS/Timepiece.framework; sourceTree = "<group>"; };
+		7BF087111E2836A900C8A3A0 /* Alamofire+SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+SwiftyJSON.swift"; sourceTree = "<group>"; };
 		9A0E57581D069FBE0071D0FF /* ServerDetails.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerDetails.plist; sourceTree = "<group>"; };
 		C0B7FB9F1CC45C9700AD376C /* ClusterAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterAnnotationView.h; sourceTree = "<group>"; };
 		C0B7FBA01CC45C9700AD376C /* ClusterAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterAnnotationView.m; sourceTree = "<group>"; };
@@ -1091,6 +1093,7 @@
 		7BBA87A21CBD5D680057E9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BF087111E2836A900C8A3A0 /* Alamofire+SwiftyJSON.swift */,
 				7BF086A91E28293800C8A3A0 /* Alamofire.framework */,
 				7BF086AA1E28293800C8A3A0 /* AlamofireImage.framework */,
 				7BF086AB1E28293800C8A3A0 /* CryptoSwift.framework */,
@@ -1430,6 +1433,7 @@
 				7B60D5481D09B98E0075B301 /* AppType.swift in Sources */,
 				6ED962941CF8B28800551E94 /* JSQMessagesKeyboardController.m in Sources */,
 				6E447DB11CC3E4FE00014B12 /* ScreenshotsCollectionViewCell.swift in Sources */,
+				7BF087121E2836A900C8A3A0 /* Alamofire+SwiftyJSON.swift in Sources */,
 				223F5E931CB9436200E582C5 /* Style.swift in Sources */,
 				6ED962B21CF8B28800551E94 /* JSQMessagesLabel.m in Sources */,
 				6ED962CB1CF8CAA300551E94 /* JTSImageInfo.m in Sources */,

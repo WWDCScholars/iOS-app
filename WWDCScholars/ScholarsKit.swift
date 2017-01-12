@@ -27,11 +27,11 @@ class ScholarsKit: ApiBase {
      */
     func loadScholars(_ completionHandler: @escaping () -> Void) {
         Alamofire.request("https://httpbin.org/get", method: .get)
-            .responseJSON() { response in
+            .validate()
+            .responseSwiftyJSON { response in
                 print (response)
-                if let data = response.result.value {
+                if let json = response.result.value {
                     //                print (data)
-                    let json = JSON.init(parseJSON: data as! String)
                     //                print("JSON: \(json)")
                     print ("loadScholars -- Loading scholars")
                     if let array = json.array {

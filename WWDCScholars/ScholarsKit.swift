@@ -217,7 +217,6 @@ class ScholarsKit: ApiBase {
             
             
         multipartFormData: { multipartFormData in
-//            multipartFormData.appendBodyPart(data: id.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name: "scholar_id")
             
             
             multipartFormData.append(password.data(using: String.Encoding.utf8)!.sha256().toHexString().data(using: String.Encoding.utf8, allowLossyConversion: true)!, withName: "password")
@@ -238,7 +237,6 @@ class ScholarsKit: ApiBase {
             if let screenshotFour = screenshotFour {
                 multipartFormData.append(UIImagePNGRepresentation(screenshotFour)!, withName: "screenshotFour", fileName: "screenshotFour.png", mimeType: "image/png")
             }
-            
             if let firstName = firstName {
                 multipartFormData.append(firstName.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"firstName")
             }
@@ -246,7 +244,6 @@ class ScholarsKit: ApiBase {
                 multipartFormData.append(lastName.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"lastName")
             }
             if let birthday = birthday {
-                
                 
                 
                 // SWIFT 3 // NEEEDS CHECKS

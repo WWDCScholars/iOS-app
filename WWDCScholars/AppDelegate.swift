@@ -11,6 +11,7 @@ import Fabric
 import Crashlytics
 import Alamofire
 import AlamofireImage
+import Firebase
 
 //#if DEBUG
 //import SimulatorStatusMagic
@@ -194,7 +195,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    @nonobjc internal func application(_ application: UIApplication, handleOpen url: URLString) -> Bool {
+    @nonobjc internal func application(_ application: UIApplication, handleOpen url: String) -> Bool {
         
         /*
         if url.host == "scholar" {

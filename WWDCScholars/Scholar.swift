@@ -83,17 +83,17 @@ class Scholar: Object {
     }
     
     /// The URL of his/her iTunes (developer) account
-    dynamic var iTunesURL: URLString?
+    dynamic var iTunesURL: String?
     /// URL of his/her website (may be nil)
-    dynamic var websiteURL: URLString?
+    dynamic var websiteURL: String?
     /// URL to his/her LinkedIn page (may be nil)
-    dynamic var linkedInURL: URLString?
+    dynamic var linkedInURL: String?
     /// URL to his/her GitHub page (may be nil)
-    dynamic var githubURL: URLString?
+    dynamic var githubURL: String?
     /// URL to his/her Facebook page (may be nil)
-    dynamic var facebookURL: URLString?
+    dynamic var facebookURL: String?
     /// URL of his/her website (may be nil)
-    dynamic var twitterURL: URLString?
+    dynamic var twitterURL: String?
     dynamic var iMessage: String?
 
     var batches = List<Batch>()
@@ -169,20 +169,20 @@ class Batch: Object {
         }
     }
     
-    dynamic var profilePic: URLString = ""
+    dynamic var profilePic: String = ""
     
     //App Links
-    dynamic var githubLink: URLString? = nil
-    dynamic var youtubeLink: URLString? = nil
-    dynamic var appstoreSubmissionURL: URLString?
+    dynamic var githubLink: String? = nil
+    dynamic var youtubeLink: String? = nil
+    dynamic var appstoreSubmissionURL: String?
 
     /// Array of screenshots of their Scholar app
     private dynamic var screenshotsString: String = ""
     /// Array of screenshots
-    var screenshots: [URLString] {
+    var screenshots: [String] {
         set {
             var strArr: [String] = []
-            let arr: [URLString] = newValue
+            let arr: [String] = newValue
             for wwdc in arr {
                 strArr.append(wwdc)
             }
@@ -191,7 +191,7 @@ class Batch: Object {
         
         get {
             let strArr = screenshotsString.components(separatedBy: "|")
-            var arr: [URLString] = []
+            var arr: [String] = []
             for str in strArr {
                 arr.append(str)
             }

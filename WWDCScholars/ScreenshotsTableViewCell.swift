@@ -23,10 +23,10 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
     @IBOutlet fileprivate weak var noScreenshotsLabel: UILabel!
     
     fileprivate var screenshotType: ScreenshotType = .scholarship
-    fileprivate var appStoreScreenshots: [URLString] = []
+    fileprivate var appStoreScreenshots: [String] = []
     fileprivate var appStoreURL = ""
     
-    var scholarshipScreenshots: [URLString] = []
+    var scholarshipScreenshots: [String] = []
     var delegate: ImageTappedDelegate?
     var is2016: Bool = false {
         didSet {
@@ -49,7 +49,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         self.retrieveAppStoreScreenshots()
     }
     
-    func setAppStoreURL(_ url: URLString) {
+    func setAppStoreURL(_ url: String) {
         self.appStoreURL = url
         self.is2016 = (url == "") ? false : self.is2016
         guard self.appStoreURL != "" else {
@@ -88,7 +88,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
                         if let appStoreScreenshots = appJson["screenshotUrls"].array {
                             for screenshot in appStoreScreenshots {
                                 if let screenshotString = screenshot.string {
-                                    self.appStoreScreenshots.append(URLString(screenshotString))
+                                    self.appStoreScreenshots.append(String(screenshotString))
                                     completionHandler?()
                                 }
                             }

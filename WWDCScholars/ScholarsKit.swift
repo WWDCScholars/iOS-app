@@ -26,11 +26,12 @@ class ScholarsKit: ApiBase {
      Loads scholars from the online database
      */
     func loadScholars(_ completionHandler: @escaping () -> Void) {
-        request("\(self.serverUrl)/api/scholars/\(self.apiKey)", method: .get)
-            .responseString() { response in
+        Alamofire.request("https://httpbin.org/get", method: .get)
+            .responseJSON() { response in
+                print (response)
                 if let data = response.result.value {
                     //                print (data)
-                    let json = JSON.init(parseJSON: data)
+                    let json = JSON.init(parseJSON: data as! String)
                     //                print("JSON: \(json)")
                     print ("loadScholars -- Loading scholars")
                     if let array = json.array {
@@ -142,7 +143,7 @@ class ScholarsKit: ApiBase {
             
             batch.id = "\(id)\(batch.batchWWDC.rawValue)"
             
-            var screenshots: [URLString] = []
+            var screenshots: [String] = []
             if let screenshot = workaroundServerURLEncode(batchJson["screenshotOne"].string) {
                 screenshots.append(screenshot)
             }
@@ -329,7 +330,7 @@ class ScholarsKit: ApiBase {
         })
     }
     
-    fileprivate func workaroundServerURLEncode(_ url: URLString?) -> URLString? {
+    fileprivate func workaroundServerURLEncode(_ url: String?) -> String? {
         return url?.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!.replacingOccurrences(of: "%3A", with: ":")
     }
 }

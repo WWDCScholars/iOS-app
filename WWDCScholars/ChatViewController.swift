@@ -10,6 +10,7 @@ import UIKit
 import AdSupport
 import Alamofire
 import AlamofireImage
+import Firebase
 
 class ChatViewController: JSQMessagesViewController {
     @IBOutlet fileprivate weak var loadingContainerView: UIView!

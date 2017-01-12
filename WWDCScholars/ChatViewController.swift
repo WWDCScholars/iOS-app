@@ -149,9 +149,9 @@ class ChatViewController: JSQMessagesViewController {
         let messagesQuery = self.messageReference.queryOrdered(byChild: "dateSent").queryLimited(toLast: 50)//.queryStartingAtValue(self.messages[self.messages.count-1].date.timeIntervalSince1970, childKey: "dateSent")
         messagesQuery.observeSingleEvent(of: .value, with: { snapshot in
             for snapshot in snapshot.children {
-            if let id = (snapshot as AnyObject).value!["senderId"] as? String, let text = (snapshot as AnyObject).value!["text"] as? String, let dateInt = (snapshot as AnyObject).value!["dateSent"] as? TimeInterval  {
+            /*if let id = (snapshot as AnyObject).value!["senderId"] as? String, let text = (snapshot as AnyObject).value!["text"] as? String, let dateInt = (snapshot as AnyObject).value!["dateSent"] as? TimeInterval  {
                 self.addMessage(id, text: text, date: Date(timeIntervalSince1970: dateInt))
-            }
+            }*/
             }
             self.observeMessages()
             
@@ -167,7 +167,7 @@ class ChatViewController: JSQMessagesViewController {
                 self.initialLoad = false
                 return
             }
-            if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String, let dateInt = snapshot.value!["dateSent"] as? TimeInterval  {
+            /*if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String, let dateInt = snapshot.value!["dateSent"] as? TimeInterval  {
                 self.addMessage(id, text: text, date: Date(timeIntervalSince1970: dateInt))
                 
                 if id != self.senderId {
@@ -175,7 +175,7 @@ class ChatViewController: JSQMessagesViewController {
                 }
                 
                 self.finishReceivingMessage()
-            }
+            }*/
         })
     }
     

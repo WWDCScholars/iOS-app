@@ -182,11 +182,11 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     }
     
     internal func updateLocation(_ location: CLLocationCoordinate2D) {
-        LocationManager.sharedInstance.getLocationDetails(location, completion: {(locationDetails) -> Void in
-            self.locationTextField.text = ("\(locationDetails.locality), \(locationDetails.country)")
+        LocationManager.sharedInstance.getLocationDetails(withParameter: location, completion: {(locationDetails) -> Void in
+            self.locationTextField.text = ("\(locationDetails.0), \(locationDetails.1)")
             self.myLocation = location
             
-            let newLoc = Location(name: "\(locationDetails.locality), \(locationDetails.country)", longitude: location.longitude, latitude: location.latitude)
+            let newLoc = Location(name: "\(locationDetails.0), \(locationDetails.1)", longitude: location.longitude, latitude: location.latitude)
             self.location = newLoc
             
             self.locationManager.stopUpdatingLocation()
@@ -263,7 +263,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
         
         if let imageURL = Foundation.URL(string: self.currentScholar!.latestBatch.profilePic) {
             
-            self.profileImageButton.af_setImage(for: UIControlState, url: imageURL, placeholderImage: UIImage(named: "placeholder"), filter: nil, progress: nil, progressQueue: DispatchQueue.main, completion: nil)
+            self.profileImageButton.af_setImage(for: .normal, url: imageURL, placeholderImage: UIImage(named: "placeholder"), filter: nil, progress: nil, progressQueue: DispatchQueue.main, completion: nil)
             
           //  self.profileImageButton.af_setImageForState(UIControlState(), URL: imageURL, placeHolderImage: UIImage(named: "placeholder"), progress: nil, progressQueue: DispatchQueue.main, completion: nil)
         }

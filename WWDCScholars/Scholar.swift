@@ -83,17 +83,17 @@ class Scholar: Object {
     }
     
     /// The URL of his/her iTunes (developer) account
-    dynamic var iTunesURL: URL?
+    dynamic var iTunesURL: URLString?
     /// URL of his/her website (may be nil)
-    dynamic var websiteURL: URL?
+    dynamic var websiteURL: URLString?
     /// URL to his/her LinkedIn page (may be nil)
-    dynamic var linkedInURL: URL?
+    dynamic var linkedInURL: URLString?
     /// URL to his/her GitHub page (may be nil)
-    dynamic var githubURL: URL?
+    dynamic var githubURL: URLString?
     /// URL to his/her Facebook page (may be nil)
-    dynamic var facebookURL: URL?
+    dynamic var facebookURL: URLString?
     /// URL of his/her website (may be nil)
-    dynamic var twitterURL: URL?
+    dynamic var twitterURL: URLString?
     dynamic var iMessage: String?
 
     var batches = List<Batch>()
@@ -169,20 +169,20 @@ class Batch: Object {
         }
     }
     
-    dynamic var profilePic: URL = ""
+    dynamic var profilePic: URLString = ""
     
     //App Links
-    dynamic var githubLink: URL? = nil
-    dynamic var youtubeLink: URL? = nil
-    dynamic var appstoreSubmissionURL: URL?
+    dynamic var githubLink: URLString? = nil
+    dynamic var youtubeLink: URLString? = nil
+    dynamic var appstoreSubmissionURL: URLString?
 
     /// Array of screenshots of their Scholar app
     private dynamic var screenshotsString: String = ""
     /// Array of screenshots
-    var screenshots: [URL] {
+    var screenshots: [URLString] {
         set {
             var strArr: [String] = []
-            let arr: [URL] = newValue
+            let arr: [URLString] = newValue
             for wwdc in arr {
                 strArr.append(wwdc)
             }
@@ -191,7 +191,7 @@ class Batch: Object {
         
         get {
             let strArr = screenshotsString.components(separatedBy: "|")
-            var arr: [URL] = []
+            var arr: [URLString] = []
             for str in strArr {
                 arr.append(str)
             }

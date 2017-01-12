@@ -63,8 +63,13 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        
+        let body = NSString(format:"<html> \n <head>\n <meta name = \"viewport\" content = \"initial-scale = 1.0\" /> <style type=\"text/css\">\n body {font-family: \"%@\"; font-size: %f; margin-bottom=150px;}\n img {max-width: \(self.view.frame.width - 32.0)px; padding: 16px 0px 16px 0px;}\n h1, h2, h3, h4, h5, h6 {font-weight: normal;}\n </style>\n </head>\n <body>%@</body>\n </html>" as NSString, UIFont.preferredFont(forTextStyle: UIFontTextStyle.body).fontName, UIFont.preferredFont(forTextStyle: UIFontTextStyle.body).pointSize - 2.0, self.currentPost.content)
+        
+        //// CHECK AGAIN - ORIGINAL:
+        /*
         let body = NSString(format:"<html> \n" +
-            "<head>\n" +
+        "<head>\n" +
             "<meta name = \"viewport\" content = \"initial-scale = 1.0\" />" +
             "<style type=\"text/css\">\n" +
             "body {font-family: \"%@\"; font-size: %f; margin-bottom=150px;}\n" +
@@ -73,7 +78,9 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
             "</style>\n" +
             "</head>\n" +
             "<body>%@</body>\n" +
-            "</html>", UIFont.preferredFont(forTextStyle: UIFontTextStyle.body).fontName, UIFont.preferredFont(forTextStyle: UIFontTextStyle.body).pointSize - 2.0, self.currentPost.content)
+        "</html>", UIFont.preferredFont(forTextStyle: UIFontTextStyle.body).fontName, UIFont.preferredFont(forTextStyle: UIFontTextStyle.body).pointSize - 2.0, self.currentPost.content)
+        */
+        
         
         self.webView.loadHTMLString(body as String, baseURL: nil)
     }

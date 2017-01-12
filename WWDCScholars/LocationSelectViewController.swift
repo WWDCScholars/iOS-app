@@ -90,9 +90,19 @@ class LocationSelectViewController: UIViewController, UISearchBarDelegate, MKMap
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinates
         
-        LocationManager.sharedInstance.getLocationDetails(coordinates, completion: {(locationDetails) -> Void in
-            annotation.title = locationDetails.locality
-            annotation.subtitle = locationDetails.country
+        
+        LocationManager.sharedInstance.getLocationDetails(withParameter: coordinates, completion: {(locationDetails) -> Void in
+            
+            annotation.title = locationDetails.0
+            annotation.subtitle = locationDetails.1
+            
+            
+            ///// CHECK AGAIN - ORIGINAL
+            // annotation.title = locationDetails.locality
+            // annotation.subtitle = locationDetails.country
+            ///// CHECK AGAIN - ORIGINAL
+            
+            
             
             if self.mapView.annotations.count > 0 {
                 self.mapView.removeAnnotation(self.mapView.annotations.first!)
@@ -101,6 +111,8 @@ class LocationSelectViewController: UIViewController, UISearchBarDelegate, MKMap
             self.mapView.addAnnotation(annotation)
             self.mapView.selectAnnotation(annotation, animated: true)
         })
+        
+        
     }
     
     // MARK: - IBActions

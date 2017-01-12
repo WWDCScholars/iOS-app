@@ -191,7 +191,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    private func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+    internal func application(_ application: UIApplication, handleOpen url: URLString) -> Bool {
         
         /*
         if url.host == "scholar" {
@@ -199,8 +199,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             (self.window?.rootViewController as! ScholarsTabBarViewController).openScholarDetail(url.lastPathComponent!)
         } else if url.host == "post" {
             (self.window?.rootViewController as! ScholarsTabBarViewController).openScholarDetail(url.lastPathComponent!) // todo Open blog, not scholar
-        }
-        */
+        }*/
+        
         return true
     }
     

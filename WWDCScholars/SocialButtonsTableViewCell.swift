@@ -51,7 +51,7 @@ class SocialButtonsTableViewCell: UITableViewCell {
     
     internal func linkedInTapped() {
         
-        var explicitLinkedInURL = URL()
+        var explicitLinkedInURL = URLString()
         explicitLinkedInURL = self.scholar.linkedInURL!
 
         print(explicitLinkedInURL)

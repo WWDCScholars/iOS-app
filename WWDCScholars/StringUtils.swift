@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias URL = String
+public typealias URLString = String
 
 extension String {
     

@@ -142,7 +142,7 @@ class ScholarsKit: ApiBase {
             
             batch.id = "\(id)\(batch.batchWWDC.rawValue)"
             
-            var screenshots: [URL] = []
+            var screenshots: [URLString] = []
             if let screenshot = workaroundServerURLEncode(batchJson["screenshotOne"].string) {
                 screenshots.append(screenshot)
             }
@@ -332,7 +332,7 @@ class ScholarsKit: ApiBase {
         })
     }
     
-    fileprivate func workaroundServerURLEncode(_ url: URL?) -> URL? {
+    fileprivate func workaroundServerURLEncode(_ url: URLString?) -> URLString? {
         return url?.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!.replacingOccurrences(of: "%3A", with: ":")
     }
 }

@@ -10,15 +10,15 @@ import Foundation
 class ApiBase {
     
     /// Server URL of the database (with API) where the scholar data is saved
-    var serverUrl: URL = ""
+    var serverUrl: URLString = ""
     var apiKey: String = ""
     
-    func setServerDetails(_ serverUrl: URL, serverAPIKey: String) {
+    func setServerDetails(_ serverUrl: URLString, serverAPIKey: String) {
         self.serverUrl = serverUrl
         self.apiKey = serverAPIKey
     }
     
-    class func setServerDetails(_ serverUrl: URL, serverAPIKey: String) {
+    class func setServerDetails(_ serverUrl: URLString, serverAPIKey: String) {
         ScholarsKit.sharedInstance.setServerDetails(serverUrl, serverAPIKey: serverAPIKey)
         BlogKit.sharedInstance.setServerDetails(serverUrl, serverAPIKey: serverAPIKey)
         UserKit.sharedInstance.setServerDetails(serverUrl, serverAPIKey: serverAPIKey)

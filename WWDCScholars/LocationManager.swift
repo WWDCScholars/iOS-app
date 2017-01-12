@@ -35,7 +35,20 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 class LocationManager {
     static let sharedInstance = LocationManager()
     
-    func getLocationDetails(_ coordinates: CLLocationCoordinate2D, completion: @escaping (_ locality: String, _ country: String) -> Void) {
+    func getLocationDetails(withParameter coordinates: CLLocationCoordinate2D, completion: @escaping (_ locality: String, _ country: String) -> Void) {
+        CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude), completionHandler: {(placemarks, error) -> Void in
+            if placemarks?.count > 0 {
+                if let containsPlacemark = placemarks?.first {
+                    let localityString = containsPlacemark.locality != nil ? containsPlacemark.locality! : "Unknown"
+                    let countryString = containsPlacemark.country != nil ? containsPlacemark.country! : "Unknown"
+                    
+                    completion(localityString, countryString)
+                }
+            }
+        })
+    }
+    
+    func getLocationDetails1(_ coordinates: CLLocationCoordinate2D, completion:  @escaping (_ locality: String, _ country: String) -> Void) {
         CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude), completionHandler: {(placemarks, error) -> Void in
             if placemarks?.count > 0 {
                 if let containsPlacemark = placemarks?.first {

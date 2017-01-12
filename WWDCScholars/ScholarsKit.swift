@@ -30,7 +30,7 @@ class ScholarsKit: ApiBase {
             .responseString() { response in
                 if let data = response.result.value {
                     //                print (data)
-                    let json = JSON.parse(data)
+                    let json = JSON.init(parseJSON: data)
                     //                print("JSON: \(json)")
                     print ("loadScholars -- Loading scholars")
                     if let array = json.array {
@@ -305,7 +305,7 @@ class ScholarsKit: ApiBase {
                     let json = JSON(data: response.result.value!)
                     if json["errorCode"].int == -1 {
                         print("Retreiving Sucess code")
-                        print (json["message"].string)
+                        print (json["message"].string!)
 
                     
                         

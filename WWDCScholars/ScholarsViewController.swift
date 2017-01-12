@@ -40,7 +40,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     fileprivate var currentYear: WWDC = .WWDC2016
     fileprivate var currentScholars: [Scholar] = []
     fileprivate var searchResults = NSArray()
-    fileprivate var loadingViewController: LoadingViewController!
+    fileprivate var loadingViewController = LoadingViewController()
     fileprivate var searchBarActive = false
     fileprivate var loggedIn: Bool!
     fileprivate var isMapInitalized = false

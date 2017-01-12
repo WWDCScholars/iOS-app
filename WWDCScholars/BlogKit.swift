@@ -26,7 +26,7 @@ class BlogKit: ApiBase {
             .responseString() { response in
                 if let data = response.result.value {
                     //                print (data)
-                    let json = JSON.parse(data)
+                    let json = JSON.init(parseJSON: data)
                     //                print("JSON: \(json)")
                     if let array = json.array {
                         self.parsePosts(array)

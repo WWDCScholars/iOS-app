@@ -77,7 +77,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let window = self.window {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainViewController: ScholarsTabBarViewController = mainStoryboard.instantiateViewController(withIdentifier: String(describing: ScholarsTabBarViewController())) as! ScholarsTabBarViewController
+            
+            let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: String(describing: "ScholarsTabBarViewController"))
+            
+           // let mainViewController: ScholarsTabBarViewController = mainStoryboard.instantiateViewController(withIdentifier: String(describing: ScholarsTabBarViewController())) as! ScholarsTabBarViewController
             
             // Make it a root controller
             window.backgroundColor = UIColor.white
@@ -191,7 +194,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    internal func application(_ application: UIApplication, handleOpen url: URLString) -> Bool {
+    @nonobjc internal func application(_ application: UIApplication, handleOpen url: URLString) -> Bool {
         
         /*
         if url.host == "scholar" {

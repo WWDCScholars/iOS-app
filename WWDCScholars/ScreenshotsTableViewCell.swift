@@ -81,7 +81,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         
         request(lookupURL, method: .get).responseString() { response in
             if let data = response.result.value {
-                let json = JSON.parse(data)
+                let json = JSON.init(parseJSON: data)
                 
                 if let results = json["results"].array {
                     for appJson in results {

@@ -13,10 +13,10 @@ class BlogViewController: UIViewController {
     @IBOutlet fileprivate weak var tableView: NoJumpRefreshTableView!
     @IBOutlet fileprivate weak var loadingContainerView: UIView!
     
-    fileprivate var blogPosts: [BlogPost] = []
+     var blogPosts: [BlogPost] = []
     
-    fileprivate var refreshControl: UIRefreshControl!
-    fileprivate var loadingViewController: LoadingViewController!
+     var refreshControl: UIRefreshControl!
+     var loadingViewController = LoadingViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()

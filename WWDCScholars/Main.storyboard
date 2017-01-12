@@ -14,6 +14,7 @@
                 <tabBarController storyboardIdentifier="ScholarsTabBarViewController" automaticallyAdjustsScrollViewInsets="NO" id="wIZ-DC-Vqm" customClass="ScholarsTabBarViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="89r-IU-lIg">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>

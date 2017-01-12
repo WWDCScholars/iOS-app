@@ -64,7 +64,7 @@ class UserKit: ApiBase {
                     }
                     
                     if let data = response.result.value {
-                        let json = JSON.parse(data)
+                        let json = JSON.init(parseJSON: data)
                         print("JSON: \(json)")
                         
                         if let errorCode = json["errorCode"].int, let message = json["message"].string {

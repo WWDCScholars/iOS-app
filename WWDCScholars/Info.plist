@@ -62,7 +62,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Find Scholar&apos;s location relative to you</string>
+	<string>Find Scholar's location relative to you</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>

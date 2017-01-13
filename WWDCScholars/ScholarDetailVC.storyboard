@@ -74,7 +74,7 @@
                                                                             <rect key="frame" x="0.0" y="4" width="584" height="70"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dd5-vu-RLz">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="195" height="70"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="194.5" height="70"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DOX-7g-D7r">
                                                                                             <rect key="frame" x="82" y="12" width="30" height="45"/>
@@ -118,13 +118,13 @@
                                                                                     </constraints>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="in2-F3-pr9">
-                                                                                    <rect key="frame" x="195" y="0.0" width="194" height="70"/>
+                                                                                    <rect key="frame" x="194.5" y="0.0" width="195" height="70"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-dA-hQT">
-                                                                                            <rect key="frame" x="66" y="12" width="62" height="45"/>
+                                                                                            <rect key="frame" x="67" y="12" width="61.5" height="45"/>
                                                                                             <subviews>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdU-gM-IFc">
-                                                                                                    <rect key="frame" x="0.0" y="0.0" width="62" height="21"/>
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="61.5" height="21"/>
                                                                                                     <constraints>
                                                                                                         <constraint firstAttribute="height" constant="21" id="3c8-ZE-gkw"/>
                                                                                                     </constraints>
@@ -133,7 +133,7 @@
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="World" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ddp-lp-BkL">
-                                                                                                    <rect key="frame" x="10" y="24" width="43" height="21"/>
+                                                                                                    <rect key="frame" x="10" y="24" width="42.5" height="21"/>
                                                                                                     <constraints>
                                                                                                         <constraint firstAttribute="height" constant="21" id="69n-Lc-IEZ"/>
                                                                                                     </constraints>
@@ -162,13 +162,13 @@
                                                                                     </constraints>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSG-Qq-NES">
-                                                                                    <rect key="frame" x="389" y="0.0" width="195" height="70"/>
+                                                                                    <rect key="frame" x="389.5" y="0.0" width="194.5" height="70"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCL-L9-LaH">
-                                                                                            <rect key="frame" x="61" y="12" width="71" height="45"/>
+                                                                                            <rect key="frame" x="62" y="12" width="70.5" height="45"/>
                                                                                             <subviews>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attended" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjw-pu-j0W">
-                                                                                                    <rect key="frame" x="0.0" y="0.0" width="71" height="21"/>
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="70.5" height="21"/>
                                                                                                     <constraints>
                                                                                                         <constraint firstAttribute="height" constant="21" id="aDN-Xf-Xoh"/>
                                                                                                     </constraints>
@@ -177,7 +177,7 @@
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWDC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTs-Aj-4hm">
-                                                                                                    <rect key="frame" x="10" y="24" width="52" height="21"/>
+                                                                                                    <rect key="frame" x="10" y="24" width="51.5" height="21"/>
                                                                                                     <constraints>
                                                                                                         <constraint firstAttribute="height" constant="21" id="vzJ-cu-lCz"/>
                                                                                                     </constraints>
@@ -578,7 +578,7 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wwdcScholarsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="NKq-2g-1bu">
                                                         <rect key="frame" x="562" y="8" width="30" height="30"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="30" id="0qt-ZT-KAe"/>
+                                                            <constraint firstAttribute="width" secondItem="NKq-2g-1bu" secondAttribute="height" multiplier="1:1" id="4Wi-il-edy"/>
                                                             <constraint firstAttribute="height" constant="30" id="fsU-di-oov"/>
                                                         </constraints>
                                                     </imageView>

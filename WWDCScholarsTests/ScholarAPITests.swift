@@ -23,13 +23,13 @@ class ScholarAPITests: XCTestCase {
     }
     
     func testALoadScholars() {
-        let readyExpectation = expectationWithDescription("ready")
+        let readyExpectation = expectation(description: "ready")
         
         scholarApi.loadScholars() {
             readyExpectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(60, handler: { error in
+        waitForExpectations(timeout: 60, handler: { error in
             XCTAssertNil(error, "Error")
         })
     }

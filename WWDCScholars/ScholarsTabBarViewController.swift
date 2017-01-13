@@ -10,15 +10,15 @@ import UIKit
 import AVFoundation
 
 class ScholarsTabBarViewController: UITabBarController {
-    private var tapSoundEffect: AVAudioPlayer!
-    private var session = AVAudioSession.sharedInstance()
+    fileprivate var tapSoundEffect: AVAudioPlayer!
+    fileprivate var session = AVAudioSession.sharedInstance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.styleUI()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         if !UserDefaults.hasOpenedApp {
             self.segueToIntro()
             UserDefaults.hasOpenedApp = true
@@ -30,26 +30,26 @@ class ScholarsTabBarViewController: UITabBarController {
 //        }
     }
     
-    func openScholarDetail(id: String) {
+    func openScholarDetail(_ id: String) {
         ((self.viewControllers![0] as! UINavigationController).viewControllers[0] as! ScholarsViewController).openScholarDetail(id)
     }
     
     // MARK: - Internal
     
     internal func segueToIntro() {
-        self.performSegueWithIdentifier(String(IntroViewController), sender: nil)
+        self.performSegue(withIdentifier: String(describing: "IntroViewController"), sender: nil)
     }
     
     // MARK: - UI
     
-    private func styleUI() {
+    fileprivate func styleUI() {
         self.tabBar.tintColor = UIColor.scholarsPurpleColor()
-        self.tabBar.items![2].enabled = false
+        self.tabBar.items![2].isEnabled = false
         
         let image = UIImage(named: "wwdcScholarsTabIcon")!
         let button = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: image.size.width, height: image.size.height))
-        button.setBackgroundImage(image, forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(ScholarsTabBarViewController.segueToIntro), forControlEvents: .TouchUpInside)
+        button.setBackgroundImage(image, for: UIControlState())
+        button.addTarget(self, action: #selector(ScholarsTabBarViewController.segueToIntro), for: .touchUpInside)
         
         let heightDifference = image.size.height - self.tabBar.frame.size.height
         
@@ -64,18 +64,18 @@ class ScholarsTabBarViewController: UITabBarController {
         self.view.addSubview(button)
     }
     
-    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         do {
             try session.setCategory(AVAudioSessionCategoryAmbient)
         } catch {
             print("Failed setting category")
         }
         
-        let path = NSBundle.mainBundle().pathForResource("tabBarDidSelectItem.m4a", ofType: nil)!
-        let url = NSURL(fileURLWithPath: path)
+        let path = Bundle.main.path(forResource: "tabBarDidSelectItem.m4a", ofType: nil)!
+        let url = Foundation.URL(fileURLWithPath: path)
         
         do {
-            let sound = try AVAudioPlayer(contentsOfURL: url)
+            let sound = try AVAudioPlayer(contentsOf: url)
             self.tapSoundEffect = sound
             self.tapSoundEffect.volume = 0.1
             sound.play()

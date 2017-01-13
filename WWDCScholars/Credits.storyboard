@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Owr-WO-kOn">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Owr-WO-kOn">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Credits-->
@@ -36,7 +40,7 @@
                                             </imageView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="67" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FWN-KX-h1v">
                                                 <rect key="frame" x="0.0" y="200" width="600" height="800"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <view key="tableHeaderView" contentMode="scaleToFill" id="lpY-W5-buZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="91"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -50,7 +54,7 @@
                                                                         <constraint firstAttribute="height" constant="21" id="pfa-CE-IxJ"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmj-ll-ihB">
@@ -60,7 +64,7 @@
                                                                         <constraint firstAttribute="width" priority="250" constant="75" id="WwH-eG-eaF"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <variation key="default">
                                                                         <mask key="constraints">
@@ -69,7 +73,7 @@
                                                                     </variation>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstItem="Gmj-ll-ihB" firstAttribute="centerX" secondItem="Y3d-Gq-9Ke" secondAttribute="centerX" id="2sn-Dy-e3O"/>
                                                                 <constraint firstAttribute="trailing" secondItem="XRN-ft-s7z" secondAttribute="trailing" constant="8" id="EPU-lv-SHj"/>
@@ -81,7 +85,7 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="Y3d-Gq-9Ke" secondAttribute="trailing" id="AVK-J5-QGg"/>
                                                         <constraint firstItem="Y3d-Gq-9Ke" firstAttribute="top" secondItem="lpY-W5-buZ" secondAttribute="top" id="ImO-Pm-yQi"/>
@@ -99,7 +103,7 @@
                                                             </constraints>
                                                             <string key="text">Many thanks to everyone who has contributed this year and in previous years. We are also very grateful for the invaluable advice and support provided by Apple!</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <variation key="default">
                                                                 <mask key="constraints">
@@ -108,7 +112,7 @@
                                                             </variation>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="cp6-7C-iS3" secondAttribute="trailing" constant="16" id="BxD-fY-FQB"/>
                                                         <constraint firstItem="cp6-7C-iS3" firstAttribute="leading" secondItem="c1e-X3-iax" secondAttribute="leading" constant="16" id="EfZ-CR-YM0"/>
@@ -227,7 +231,7 @@
                                                                             </constraints>
                                                                         </stackView>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstItem="P2x-QR-WCu" firstAttribute="leading" secondItem="Erb-OD-E2R" secondAttribute="trailing" constant="8" id="4QF-AX-oa2"/>
                                                                         <constraint firstItem="Erb-OD-E2R" firstAttribute="top" secondItem="C9W-k7-nkd" secondAttribute="top" constant="8" id="6EA-aY-pen"/>
@@ -247,7 +251,7 @@
                                                                 <constraint firstItem="C9W-k7-nkd" firstAttribute="top" secondItem="xfW-AG-Pl1" secondAttribute="top" id="xod-9w-LK5"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <outlet property="apiImageView" destination="CMh-SM-UfH" id="e3y-AA-8T7"/>
                                                             <outlet property="appleWatchImageView" destination="d4Y-Jd-b8p" id="Yvr-e8-zOs"/>
@@ -270,7 +274,7 @@
                                                 </connections>
                                             </tableView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="pp6-9E-2db" firstAttribute="top" secondItem="lJF-k8-fBG" secondAttribute="top" id="7xk-Cl-uPl"/>
                                             <constraint firstItem="FWN-KX-h1v" firstAttribute="leading" secondItem="lJF-k8-fBG" secondAttribute="leading" id="C8q-eE-Qh3"/>
@@ -283,7 +287,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="lJF-k8-fBG" firstAttribute="leading" secondItem="sm6-Vm-Y09" secondAttribute="leading" id="0cT-Ej-LHc"/>
                                     <constraint firstAttribute="trailing" secondItem="lJF-k8-fBG" secondAttribute="trailing" id="Q7v-Aq-UGr"/>
@@ -295,7 +299,7 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lJF-k8-fBG" firstAttribute="height" secondItem="sTT-xf-zDR" secondAttribute="height" priority="250" id="2yB-2F-5Jc"/>
                             <constraint firstAttribute="trailing" secondItem="sm6-Vm-Y09" secondAttribute="trailing" id="GbK-Xs-KaX"/>
@@ -307,7 +311,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Credits" id="ER4-QY-MEO">
                         <barButtonItem key="rightBarButtonItem" image="barButtonItemIconInfoFilled" id="K2d-fL-9P4">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="moreInfoBarButtonItemPressed:" destination="00G-Zd-ZWK" id="0Sf-Q2-DB6"/>
                             </connections>
@@ -336,8 +340,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PAM-uF-wae">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -359,13 +363,13 @@
     </scenes>
     <resources>
         <image name="Andrew Walker" width="133" height="133"/>
-        <image name="Api" width="54" height="54"/>
-        <image name="DatabaseTechnical" width="54" height="54"/>
-        <image name="Deployment" width="54" height="54"/>
+        <image name="Api" width="27" height="27"/>
+        <image name="DatabaseTechnical" width="27" height="27"/>
+        <image name="Deployment" width="27" height="27"/>
         <image name="Design" width="22" height="22"/>
         <image name="Marketing" width="22" height="22"/>
         <image name="Project Management" width="22" height="23"/>
-        <image name="Server" width="54" height="54"/>
+        <image name="Server" width="27" height="27"/>
         <image name="Website" width="22" height="22"/>
         <image name="barButtonItemIconInfoFilled" width="22" height="22"/>
         <image name="creditsHeader" width="327" height="184"/>

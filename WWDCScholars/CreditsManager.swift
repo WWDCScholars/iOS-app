@@ -16,14 +16,14 @@ class CreditsManager {
     // MARK: - Public functions
     
     func getCredits() {
-        if let path = NSBundle.mainBundle().pathForResource("Credits", ofType: "plist"), array = NSArray(contentsOfFile: path) {
+        if let path = Bundle.main.path(forResource: "Credits", ofType: "plist"), let array = NSArray(contentsOfFile: path) {
             self.credits.removeAll()
             
             self.creditsFromArray(array)
         }
     }
     
-    func getScholarId(indexPath: NSIndexPath) -> String? {
+    func getScholarId(_ indexPath: IndexPath) -> String? {
         if let scholarID = self.credits[indexPath.item].id {
             return scholarID
         }
@@ -31,7 +31,7 @@ class CreditsManager {
         return nil
     }
     
-    func checkForCredit(scholar: Scholar) -> Bool {
+    func checkForCredit(_ scholar: Scholar) -> Bool {
         for credit in self.credits {
             if scholar.id == credit.id {
                 return true
@@ -43,7 +43,7 @@ class CreditsManager {
     
     // MARK: - Private functions
     
-    private func creditsFromArray(items: NSArray) {
+    fileprivate func creditsFromArray(_ items: NSArray) {
         for item in items as! [NSDictionary] {
             let scholarName = item["Name"] as! String
             let scholarLocation = item["Location"] as! String

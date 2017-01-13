@@ -22,7 +22,7 @@ enum WWDC: String {
      
      - returns: Enum value of WWDC
      */
-    static func forRawValue(rawValue: String) -> WWDC{
+    static func forRawValue(_ rawValue: String) -> WWDC{
         switch rawValue {
         case "Saved":
             return .Saved
@@ -83,7 +83,7 @@ enum WWDC: String {
     
     var intValue: Int {
         switch self {
-        case Saved:
+        case .Saved:
             return -1
         case .WWDC2016:
             return 5

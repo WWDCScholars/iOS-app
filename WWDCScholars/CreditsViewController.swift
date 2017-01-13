@@ -11,28 +11,28 @@ import SafariServices
 import MessageUI
 
 class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate, QuickActionsDelegate {
-    @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var headerImageView: UIImageView!
+    @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet fileprivate weak var headerImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.traitCollection.forceTouchCapability == .Available {
-            self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+        if self.traitCollection.forceTouchCapability == .available {
+            self.registerForPreviewing(with: self, sourceView: self.view)
         }
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreditsViewController.showFullScreenImage))
-        self.headerImageView.userInteractionEnabled = true
+        self.headerImageView.isUserInteractionEnabled = true
         self.headerImageView.addGestureRecognizer(tapGestureRecognizer)
         
         self.styleUI()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == String(ScholarDetailViewController) {
-            if let indexPath = sender as? NSIndexPath {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == String(describing: ScholarDetailViewController.self) {
+            if let indexPath = sender as? IndexPath {
                 if let scholarId = CreditsManager.sharedInstance.getScholarId(indexPath) {
-                    let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
+                    let destinationViewController = segue.destination as! ScholarDetailViewController
                     destinationViewController.setScholar(scholarId)
                 }
             }
@@ -41,11 +41,11 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
     
     // MARK: - IBActions
     
-    @IBAction func moreInfoBarButtonItemPressed(sender: AnyObject) {
-        let url = NSURL(string: "http://wwdcscholars.github.io")
-        let viewController = SignUpSafariViewController(URL: url!)
+    @IBAction func moreInfoBarButtonItemPressed(_ sender: AnyObject) {
+        let url = Foundation.URL(string: "http://wwdcscholars.github.io")
+        let viewController = SignUpSafariViewController(url: url!)
         
-        self.presentViewController(viewController, animated: true, completion: nil)
+        self.present(viewController, animated: true, completion: nil)
         
     }
     
@@ -56,46 +56,46 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
         ImageManager.sharedInstance.expandImage(self.headerImageView, viewController: self)
     }
     
-    internal func openContactURL(url: String) {
-        let viewController = SFSafariViewController(URL: NSURL(string: url)!)
+    internal func openContactURL(_ url: String) {
+        let viewController = SFSafariViewController(url: Foundation.URL(string: url)!)
         viewController.delegate = self
         
-        self.presentViewController(viewController, animated: true, completion: nil)
+        self.present(viewController, animated: true, completion: nil)
     }
     
-    internal func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    internal func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
-    internal func composeEmail(address: String) {
+    internal func composeEmail(_ address: String) {
         if MFMailComposeViewController.canSendMail() {
             let viewController = MFMailComposeViewController()
             viewController.mailComposeDelegate = self
             viewController.setToRecipients([address])
             
-            self.presentViewController(viewController, animated: true, completion: nil)
+            self.present(viewController, animated: true, completion: nil)
         }
     }
     
-    internal func safariViewControllerDidFinish(controller: SFSafariViewController) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    internal func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - UI
     
-    private func styleUI() {
+    fileprivate func styleUI() {
         self.title = "Credits"
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
 }
 
 // MARK: - UIScrollViewDelegate
 
 extension CreditsViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let imageViewHeight: CGFloat = 200.0
         var imageViewFrame = CGRect(x: 0, y: 0, width: scrollView.bounds.width, height: imageViewHeight)
         
@@ -111,19 +111,19 @@ extension CreditsViewController: UIScrollViewDelegate {
 // MARK: - TableViewDataSource
 
 extension CreditsViewController: UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CreditsManager.sharedInstance.credits.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let creditCell = self.tableView.dequeueReusableCellWithIdentifier("creditCell") as! CreditTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let creditCell = self.tableView.dequeueReusableCell(withIdentifier: "creditCell") as! CreditTableViewCell
         let currentCredit = CreditsManager.sharedInstance.credits[indexPath.item]
         let creditNameText = NSMutableAttributedString(string: currentCredit.name)
         let creditLocationText = NSMutableAttributedString(string: " (\(currentCredit.location))")
         
-        creditNameText.addAttribute(NSForegroundColorAttributeName, value: UIColor.darkGrayColor(), range: NSRange(location: 0, length: creditNameText.length))
-        creditLocationText.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGrayColor(), range: NSRange(location: 0, length: creditLocationText.length))
-        creditNameText.appendAttributedString(creditLocationText)
+        creditNameText.addAttribute(NSForegroundColorAttributeName, value: UIColor.darkGray, range: NSRange(location: 0, length: creditNameText.length))
+        creditLocationText.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGray, range: NSRange(location: 0, length: creditLocationText.length))
+        creditNameText.append(creditLocationText)
         
         creditCell.scholarNameLabel.attributedText = creditNameText
         creditCell.scholarImageView.image = currentCredit.image
@@ -133,7 +133,7 @@ extension CreditsViewController: UITableViewDataSource {
         return creditCell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 67.0
     }
 }
@@ -141,21 +141,21 @@ extension CreditsViewController: UITableViewDataSource {
 // MARK: - TableViewDelegate
 
 extension CreditsViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: indexPath)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        self.performSegue(withIdentifier: String(describing: "ScholarDetailViewController"), sender: indexPath)
     }
 }
 
 // MARK: - UIViewControllerPreviewingDelegate
 
 extension CreditsViewController: UIViewControllerPreviewingDelegate {
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        let viewController = storyboard?.instantiateViewControllerWithIdentifier("scholarDetailViewController") as? ScholarDetailViewController
-        let cellPosition = self.tableView.convertPoint(location, fromView: self.view)
-        let cellIndex = self.tableView.indexPathForRowAtPoint(cellPosition)
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "scholarDetailViewController") as? ScholarDetailViewController
+        let cellPosition = self.tableView.convert(location, from: self.view)
+        let cellIndex = self.tableView.indexPathForRow(at: cellPosition)
         
-        guard let previewViewController = viewController, indexPath = cellIndex, cell = self.tableView.cellForRowAtIndexPath(indexPath) else {
+        guard let previewViewController = viewController, let indexPath = cellIndex, let cell = self.tableView.cellForRow(at: indexPath) else {
             return nil
         }
         
@@ -164,12 +164,12 @@ extension CreditsViewController: UIViewControllerPreviewingDelegate {
         }
         previewViewController.delegate = self
         previewViewController.preferredContentSize = CGSize.zero
-        previewingContext.sourceRect = self.view.convertRect(cell.frame, fromView: self.tableView)
+        previewingContext.sourceRect = self.view.convert(cell.frame, from: self.tableView)
         
         return previewViewController
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
-        self.showViewController(viewControllerToCommit, sender: self)
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        self.show(viewControllerToCommit, sender: self)
     }
 }

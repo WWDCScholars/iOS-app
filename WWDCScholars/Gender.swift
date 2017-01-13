@@ -7,7 +7,7 @@
 //
 
 enum Gender: Int {
-    case Unknown = 0
-    case Male = 1
-    case Female = 2
+    case unknown = 0
+    case male = 1
+    case female = 2
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Realm
 import RealmSwift
 
 class Scholar: Object {
@@ -29,19 +30,19 @@ class Scholar: Object {
     /// The E-Mail address of the scholar
     dynamic var email: String = ""
     
-    private dynamic var genderInt: Int = 0
+    dynamic var genderInt: Int = 0
     /// The gender of the scholar
     var gender: Gender {
         get {
             switch genderInt {
             case 0:
-                return .Unknown
+                return .unknown
             case 1:
-                return .Male
+                return .male
             case 2:
-                return .Female
+                return .female
             default:
-                return .Unknown
+                return .unknown
             }
         }
         set {
@@ -50,15 +51,15 @@ class Scholar: Object {
     }
     
     /// The birthday of the scholar
-    dynamic var birthday: NSDate = NSDate.today()
+    dynamic var birthday: Date = Date.today()
     /// The age of the scholar
     dynamic var age: Int {
-        let ageComponents = NSCalendar.currentCalendar().components(.Year,
-                                                                    fromDate: birthday,
-                                                                    toDate: NSDate(),
+        let ageComponents = (Calendar.current as NSCalendar).components(.year,
+                                                                    from: birthday,
+                                                                    to: Date(),
                                                                     options: [])
         let age = ageComponents.year
-        return age
+        return age!
     }
     
     /// A short description of him/herself
@@ -82,17 +83,17 @@ class Scholar: Object {
     }
     
     /// The URL of his/her iTunes (developer) account
-    dynamic var iTunesURL: URL?
+    dynamic var iTunesURL: String?
     /// URL of his/her website (may be nil)
-    dynamic var websiteURL: URL?
+    dynamic var websiteURL: String?
     /// URL to his/her LinkedIn page (may be nil)
-    dynamic var linkedInURL: URL?
+    dynamic var linkedInURL: String?
     /// URL to his/her GitHub page (may be nil)
-    dynamic var githubURL: URL?
+    dynamic var githubURL: String?
     /// URL to his/her Facebook page (may be nil)
-    dynamic var facebookURL: URL?
+    dynamic var facebookURL: String?
     /// URL of his/her website (may be nil)
-    dynamic var twitterURL: URL?
+    dynamic var twitterURL: String?
     dynamic var iMessage: String?
 
     var batches = List<Batch>()
@@ -168,33 +169,33 @@ class Batch: Object {
         }
     }
     
-    dynamic var profilePic: URL = ""
+    dynamic var profilePic: String = ""
     
     //App Links
-    dynamic var githubLink: URL? = nil
-    dynamic var youtubeLink: URL? = nil
-    dynamic var appstoreSubmissionURL: URL?
+    dynamic var githubLink: String? = nil
+    dynamic var youtubeLink: String? = nil
+    dynamic var appstoreSubmissionURL: String?
 
     /// Array of screenshots of their Scholar app
     private dynamic var screenshotsString: String = ""
     /// Array of screenshots
-    var screenshots: [URL] {
+    var screenshots: [String] {
         set {
             var strArr: [String] = []
-            let arr: [URL] = newValue
+            let arr: [String] = newValue
             for wwdc in arr {
                 strArr.append(wwdc)
             }
-            screenshotsString = strArr.joinWithSeparator("|")
+            screenshotsString = strArr.joined(separator: "|")
         }
         
         get {
-            let strArr = screenshotsString.componentsSeparatedByString("|")
-            var arr: [URL] = []
+            let strArr = screenshotsString.components(separatedBy: "|")
+            var arr: [String] = []
             for str in strArr {
                 arr.append(str)
             }
-            return arr.reverse()
+            return arr.reversed()
         }
     }
     

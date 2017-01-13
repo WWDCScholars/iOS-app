@@ -17,7 +17,7 @@ class SignUpSafariViewController: SFSafariViewController, SFSafariViewController
         self.setNeedsStatusBarAppearanceUpdate()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .Default
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .default
     }
 }

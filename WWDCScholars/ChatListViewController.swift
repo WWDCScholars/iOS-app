@@ -9,14 +9,14 @@
 import UIKit
 
 class ChatListViewController: UIViewController, SignInDelegate {
-    @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var notLoggedInView: UIView!
+    @IBOutlet  weak var tableView: UITableView!
+    @IBOutlet  weak var notLoggedInView: UIView!
     
-    private var colors: [UIColor] = [.logoBlueColor(), .logoPinkColor(), .logoGreenColor(), .logoYellowColor(), .logoLightBlueColor(), .logoOrangeColor(), .logoPurpleColor()]
+     var colors: [UIColor] = [.logoBlueColor(), .logoPinkColor(), .logoGreenColor(), .logoYellowColor(), .logoLightBlueColor(), .logoOrangeColor(), .logoPurpleColor()]
     
-    private var chatItems = ChatRoom.getChatItems()
-    private var currentIndex = NSIndexPath(forRow: 0, inSection: 0)
-    private var registeredPeekView: UIViewControllerPreviewing?
+     var chatItems = ChatRoom.getChatItems()
+     var currentIndex = IndexPath(row: 0, section: 0)
+     var registeredPeekView: UIViewControllerPreviewing?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,25 +25,25 @@ class ChatListViewController: UIViewController, SignInDelegate {
         self.populateColors()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.notLoggedInView.hidden = UserKit.sharedInstance.isLoggedIn
+    override func viewWillAppear(_ animated: Bool) {
+        self.notLoggedInView.isHidden = UserKit.sharedInstance.isLoggedIn
         
-        if self.traitCollection.forceTouchCapability == .Available && UserKit.sharedInstance.isLoggedIn {
-            self.registeredPeekView = self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+        if self.traitCollection.forceTouchCapability == .available && UserKit.sharedInstance.isLoggedIn {
+            self.registeredPeekView = self.registerForPreviewing(with: self, sourceView: self.view)
         } else {
             if let peekView = self.registeredPeekView {
-                self.unregisterForPreviewingWithContext(peekView)
+                self.unregisterForPreviewing(withContext: peekView)
             }
             
             self.registeredPeekView = nil
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == String(ChatViewController) {
-            let destinationViewController = segue.destinationViewController as! ChatViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == String(describing: ChatViewController.self) {
+            let destinationViewController = segue.destination as! ChatViewController
             
-            if let indexPath = sender as? NSIndexPath {
+            if let indexPath = sender as? IndexPath {
                 destinationViewController.chatItem = self.chatItems[indexPath.item]
             }
         }
@@ -51,39 +51,39 @@ class ChatListViewController: UIViewController, SignInDelegate {
     
     // MARK: - Private functions
     
-    private func styleUI() {
+     func styleUI() {
         self.title = "Chat"
     }
     
-    private func populateColors() {
+     func populateColors() {
         if self.chatItems.count > self.colors.count {
             self.colors += self.colors
         }
     }
     
-    private func showSignInModal() {
+     func showSignInModal() {
         let storyboard = UIStoryboard(name: "EditDetails", bundle: nil)
-        let modalViewController = storyboard.instantiateViewControllerWithIdentifier("SignInVC") as! SignInViewController
+        let modalViewController = storyboard.instantiateViewController(withIdentifier: "SignInVC") as! SignInViewController
         
-        modalViewController.modalPresentationStyle = .OverCurrentContext
+        modalViewController.modalPresentationStyle = .overCurrentContext
         modalViewController.delegate = self
-        modalViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        self.view.window?.rootViewController?.view.window?.rootViewController!.presentViewController(modalViewController, animated: true, completion: nil)
+        modalViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.view.window?.rootViewController?.view.window?.rootViewController!.present(modalViewController, animated: true, completion: nil)
     }
     
     // MARK: - Internal functions
     
     internal func userSignedIn() {
-        self.notLoggedInView.hidden = UserKit.sharedInstance.isLoggedIn
+        self.notLoggedInView.isHidden = UserKit.sharedInstance.isLoggedIn
         
-        if self.traitCollection.forceTouchCapability == .Available && UserKit.sharedInstance.isLoggedIn {
-            self.registeredPeekView = self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+        if self.traitCollection.forceTouchCapability == .available && UserKit.sharedInstance.isLoggedIn {
+            self.registeredPeekView = self.registerForPreviewing(with: self, sourceView: self.view)
         }
     }
     
     // MARK: IBActions
     
-    @IBAction func logInButtonAction(sender: AnyObject) {
+    @IBAction func logInButtonAction(_ sender: AnyObject) {
         self.showSignInModal()
     }
 }
@@ -91,25 +91,25 @@ class ChatListViewController: UIViewController, SignInDelegate {
 // MARK: - UITableViewDataSource
 
 extension ChatListViewController: UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.chatItems.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("chatTableViewCell", forIndexPath: indexPath) as! ChatTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "chatTableViewCell", for: indexPath) as! ChatTableViewCell
         cell.nameLabel.text = self.chatItems[indexPath.item].name
         cell.descriptionLabel.text = self.chatItems[indexPath.item].shortDescription
         cell.circleView.backgroundColor = self.colors[indexPath.item]
         
         cell.alpha = 0.0
-        UIView.animateWithDuration(0.5) { 
+        UIView.animate(withDuration: 0.5, animations: { 
             cell.alpha = 1.0
-        }
+        }) 
         
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 88.0
     }
 }
@@ -117,22 +117,22 @@ extension ChatListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension ChatListViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
         
-        self.performSegueWithIdentifier(String(ChatViewController), sender: indexPath)
+        self.performSegue(withIdentifier: String(describing: ChatViewController.self), sender: indexPath)
     }
 }
 
 // MARK: - UIViewControllerPreviewingDelegate
 
 extension ChatListViewController: UIViewControllerPreviewingDelegate {
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        let viewController = storyboard?.instantiateViewControllerWithIdentifier("chatViewController") as? ChatViewController
-        let cellPosition = self.tableView.convertPoint(location, fromView: self.view)
-        let cellIndex = self.tableView.indexPathForRowAtPoint(cellPosition)
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "chatViewController") as? ChatViewController
+        let cellPosition = self.tableView.convert(location, from: self.view)
+        let cellIndex = self.tableView.indexPathForRow(at: cellPosition)
         
-        guard let previewViewController = viewController, indexPath = cellIndex, cell = self.tableView.cellForRowAtIndexPath(indexPath) else {
+        guard let previewViewController = viewController, let indexPath = cellIndex, let cell = self.tableView.cellForRow(at: indexPath) else {
             return nil
         }
         
@@ -140,13 +140,13 @@ extension ChatListViewController: UIViewControllerPreviewingDelegate {
         
         previewViewController.chatItem = self.chatItems[indexPath.item]
         previewViewController.preferredContentSize = CGSize.zero
-        previewingContext.sourceRect = self.view.convertRect(cellFrame, fromView: self.tableView)
+        previewingContext.sourceRect = self.view.convert(cellFrame, from: self.tableView)
         
         return previewViewController
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
-        self.showViewController(viewControllerToCommit, sender: self)
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        self.show(viewControllerToCommit, sender: self)
     }
 }
 

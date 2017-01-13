@@ -9,19 +9,19 @@
 class UserDefaults {
     static var hasOpenedApp: Bool {
         get {
-            return NSUserDefaults.standardUserDefaults().boolForKey("hasOpenedApp")
+            return Foundation.UserDefaults.standard.bool(forKey: "hasOpenedApp")
         }
         set(hasOpenedApp) {
-            NSUserDefaults.standardUserDefaults().setObject(hasOpenedApp, forKey: "hasOpenedApp")
+            Foundation.UserDefaults.standard.set(hasOpenedApp, forKey: "hasOpenedApp")
         }
     }
     
     static var favorites: [String] {
         get {
-            return NSUserDefaults.standardUserDefaults().objectForKey("favorites") as? [String] ?? []
+            return Foundation.UserDefaults.standard.object(forKey: "favorites") as? [String] ?? []
         }
         set(favorites) {
-            NSUserDefaults.standardUserDefaults().setObject(favorites, forKey: "favorites")
+            Foundation.UserDefaults.standard.set(favorites, forKey: "favorites")
         }
     }
 }

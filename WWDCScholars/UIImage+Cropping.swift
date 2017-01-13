@@ -7,7 +7,7 @@
 //
 
 extension UIImage {
-    static func cropImageToSquare(image: UIImage) -> UIImage? {
+    static func cropImageToSquare(_ image: UIImage) -> UIImage? {
         var imageHeight = image.size.height
         var imageWidth = image.size.width
         
@@ -19,15 +19,15 @@ extension UIImage {
         
         let size = CGSize(width: imageWidth, height: imageHeight)
         
-        let refWidth: CGFloat = CGFloat(CGImageGetWidth(image.CGImage))
-        let refHeight: CGFloat = CGFloat(CGImageGetHeight(image.CGImage))
+        let refWidth: CGFloat = CGFloat(image.cgImage!.width)
+        let refHeight: CGFloat = CGFloat(image.cgImage!.height)
         
         let x = (refWidth - size.width) / 2
         let y = (refHeight - size.height) / 2
         
-        let cropRect = CGRectMake(x, y, size.height, size.width)
-        if let imageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect) {
-            return UIImage(CGImage: imageRef, scale: 0, orientation: image.imageOrientation)
+        let cropRect = CGRect(x: x, y: y, width: size.height, height: size.width)
+        if let imageRef = image.cgImage?.cropping(to: cropRect) {
+            return UIImage(cgImage: imageRef, scale: 0, orientation: image.imageOrientation)
         }
         
         return nil

@@ -7,23 +7,26 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
+
 class BlogKit: ApiBase {
     static let sharedInstance = BlogKit()
     
     let dbManager = DatabaseManager.sharedInstance
     
-    private override init() {
+    fileprivate override init() {
     }
     
     /**
      Loads scholars from the online database
      */
-    func loadPosts(completionHandler: () -> Void) {
-        request(.GET, "\(self.serverUrl)/api/posts/\(self.apiKey)")
+    func loadPosts(_ completionHandler: @escaping () -> Void) {
+        Alamofire.request("\(self.serverUrl)/api/posts/\(self.apiKey)")
             .responseString() { response in
                 if let data = response.result.value {
                     //                print (data)
-                    let json = JSON.parse(data)
+                    let json = JSON.init(parseJSON: data)
                     //                print("JSON: \(json)")
                     if let array = json.array {
                         self.parsePosts(array)
@@ -33,7 +36,7 @@ class BlogKit: ApiBase {
         }
     }
     
-    func parsePosts(jsonArr: [JSON]) {
+    func parsePosts(_ jsonArr: [JSON]) {
         for postJson in jsonArr {
             if let post = parsePost(postJson) {
                 dbManager.addBlogPost(post)
@@ -43,7 +46,7 @@ class BlogKit: ApiBase {
         }
     }
     
-    func parsePost(json: JSON) -> BlogPost? {
+    func parsePost(_ json: JSON) -> BlogPost? {
         if
             let postId = json["_id"].string,
 
@@ -70,17 +73,16 @@ class BlogKit: ApiBase {
             newPost.email = email
             newPost.content = content
             newPost.title = title
-            newPost.scholarLink = json["scholarLink"].string?.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+            newPost.scholarLink = json["scholarLink"].string?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!.replacingOccurrences(of: "%3A", with: ":")
             newPost.scholarName = scholarName
-            newPost.headerImage = headerImage.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+            newPost.headerImage = headerImage.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!.replacingOccurrences(of: "%3A", with: ":")
             newPost.urlLink = urlLink
             
             //guest author related
             newPost.guestLink = json["guestLink"].string //Optional - Guest Link
             
-            
-            newPost.updatedAt = updatedAt.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
-            newPost.createdAt = createdAt.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
+            newPost.updatedAt = updatedAt.date(inFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
+            newPost.createdAt = createdAt.date(inFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
             newPost.tags = json["tags"].array!.map({return $0.string!})
             
             return newPost

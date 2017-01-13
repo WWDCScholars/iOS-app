@@ -22,7 +22,7 @@
 
 import UIKit
 
-public class SpringImageView: UIImageView, Springable {
+open class SpringImageView: UIImageView, Springable {
     @IBInspectable public var autostart: Bool = false
     @IBInspectable public var autohide: Bool = false
     @IBInspectable public var animation: String = ""
@@ -40,33 +40,33 @@ public class SpringImageView: UIImageView, Springable {
     @IBInspectable public var curve: String = ""
     public var opacity: CGFloat = 1
     public var animateFrom: Bool = false
-    
+
     lazy private var spring : Spring = Spring(self)
-    
-    override public func awakeFromNib() {
+
+    override open func awakeFromNib() {
         super.awakeFromNib()
         self.spring.customAwakeFromNib()
     }
-    
-    override public func didMoveToWindow() {
-        super.didMoveToWindow()
-        self.spring.customDidMoveToWindow()
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        spring.customLayoutSubviews()
     }
-    
+
     public func animate() {
         self.spring.animate()
     }
-    
-    public func animateNext(completion: () -> ()) {
-        self.spring.animateNext(completion)
+
+    public func animateNext(completion: @escaping () -> ()) {
+        self.spring.animateNext(completion: completion)
     }
-    
+
     public func animateTo() {
         self.spring.animateTo()
     }
-    
-    public func animateToNext(completion: () -> ()) {
-        self.spring.animateToNext(completion)
+
+    public func animateToNext(completion: @escaping () -> ()) {
+        self.spring.animateToNext(completion: completion)
     }
-    
+
 }

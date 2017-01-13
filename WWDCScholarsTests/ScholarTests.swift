@@ -36,7 +36,7 @@ class ScholarTests: XCTestCase {
         testScholar.id = "testScholar1"
         testScholar.firstName = "Matthijs"
         testScholar.lastName = "Logemann"
-        testScholar.birthday = NSDate.date(year: 1999, month: 4, day: 27)
+        testScholar.birthday = Date.date(year: 1999, month: 4, day: 27)
 //        testScholar.batchWWDC = [.WWDC2015]
         testScholar.email = "matthijs@logicbit.nl"
         testScholar.gender = .Male

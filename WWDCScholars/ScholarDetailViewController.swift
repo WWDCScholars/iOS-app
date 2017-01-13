@@ -10,82 +10,83 @@ import UIKit
 import MapKit
 import SafariServices
 import MessageUI
+import AlamofireImage
 
 enum ScreenSize: CGFloat {
-    case ThreePointFive = 480.0
-    case Four = 568.0
-    case FourPointSeven = 667.0
-    case FivePointFive = 736.0
+    case threePointFive = 480.0
+    case four = 568.0
+    case fourPointSeven = 667.0
+    case fivePointFive = 736.0
     
-    static func forRawValue(float: CGFloat) -> ScreenSize {
+    static func forRawValue(_ float: CGFloat) -> ScreenSize {
         switch float {
-        case ThreePointFive.rawValue:
-            return .ThreePointFive
-        case Four.rawValue:
-            return .Four
-        case FourPointSeven.rawValue:
-            return .FourPointSeven
-        case FivePointFive.rawValue:
-            return .FivePointFive
+        case threePointFive.rawValue:
+            return .threePointFive
+        case four.rawValue:
+            return .four
+        case fourPointSeven.rawValue:
+            return .fourPointSeven
+        case fivePointFive.rawValue:
+            return .fivePointFive
         default:
-            return .FivePointFive
+            return .fivePointFive
         }
     }
     
     var adjustmentValue: CGFloat {
         switch self {
-        case .ThreePointFive:
+        case .threePointFive:
             return 47.0
-        case .Four:
+        case .four:
             return 142.0
-        case .FourPointSeven:
+        case .fourPointSeven:
             return 128.0
-        case .FivePointFive:
+        case .fivePointFive:
             return 282.0
         }
     }
 }
 
 @objc protocol QuickActionsDelegate {
-    func openContactURL(url: String)
-    func composeEmail(address: String)
-    optional func refreshScholarsWithNewFavorite()
+    func openContactURL(_ url: String)
+    func composeEmail(_ address: String)
+    @objc optional func refreshScholarsWithNewFavorite()
 }
 
 class ScholarDetailViewController: UIViewController, ImageTappedDelegate, SocialButtonDelegate, SFSafariViewControllerDelegate, MFMailComposeViewControllerDelegate {
-    @IBOutlet private weak var contentSizeConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var detailsTableView: UITableView!
-    @IBOutlet private weak var mapView: MKMapView!
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var locationLabel: UILabel!
-    @IBOutlet private weak var profileImageView: UIImageView!
-    @IBOutlet private weak var profileImageViewBackground: UIView!
-    @IBOutlet private weak var teamIconImageView: UIImageView!
-    @IBOutlet private weak var favoritesButton: UIBarButtonItem!
+    @IBOutlet fileprivate weak var contentSizeConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var detailsTableView: UITableView!
+    @IBOutlet fileprivate weak var mapView: MKMapView!
+    @IBOutlet fileprivate weak var nameLabel: UILabel!
+    @IBOutlet fileprivate weak var locationLabel: UILabel!
+    @IBOutlet fileprivate weak var profileImageView: UIImageView!
+    @IBOutlet fileprivate weak var profileImageViewBackground: UIView!
+    @IBOutlet fileprivate weak var teamIconImageView: UIImageView!
+    @IBOutlet fileprivate weak var favoritesButton: UIBarButtonItem!
     
     @IBOutlet var editProfileButton: UIBarButtonItem!
     
-    private var loggedInScholarString: NSString!
-    private var editBarButtonItem: UIBarButtonItem!
-    private var currentScholar: Scholar?
+    fileprivate var loggedInScholarString: NSString!
+    fileprivate var editBarButtonItem: UIBarButtonItem!
+    fileprivate var currentScholar: Scholar?
     
     var delegate: QuickActionsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.editBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(ScholarDetailViewController.editProfileButtonTapped))
+        self.editBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(ScholarDetailViewController.editProfileButtonTapped))
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         let profileTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ScholarDetailViewController.profileImageTapped))
-        self.profileImageView.userInteractionEnabled = true
+        self.profileImageView.isUserInteractionEnabled = true
         self.profileImageView.addGestureRecognizer(profileTapGestureRecognizer)
         
         let mapTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ScholarDetailViewController.convertMapToImage))
-        self.mapView.userInteractionEnabled = true
+        self.mapView.isUserInteractionEnabled = true
         self.mapView.addGestureRecognizer(mapTapGestureRecognizer)
         
         self.styleUI()
@@ -93,31 +94,31 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         self.editButtonVisible()
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         // Map hotfix. Should release cached memory when leaving screen
-        self.mapView.mapType = .Standard
+        self.mapView.mapType = .standard
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editProfile" {
-            let editVC = (segue.destinationViewController as! UINavigationController).viewControllers.first as! EditProfileTableViewController
+            let editVC = (segue.destination as! UINavigationController).viewControllers.first as! EditProfileTableViewController
             editVC.setScholar(self.currentScholar?.id ?? "")
         }
     }
     
     // MARK: - UIPreviewActions
     
-    override func previewActionItems() -> [UIPreviewActionItem] {
-        let indexOfFavorite = UserDefaults.favorites.indexOf(self.currentScholar?.id ?? "")
+    override var previewActionItems : [UIPreviewActionItem] {
+        let indexOfFavorite = UserDefaults.favorites.index(of: self.currentScholar?.id ?? "")
         let actionTitle = indexOfFavorite == nil ? "Add to saved" : "Remove from saved"
-        let actionStyle: UIPreviewActionStyle = indexOfFavorite == nil ? .Default : .Destructive
+        let actionStyle: UIPreviewActionStyle = indexOfFavorite == nil ? .default : .destructive
         
         let favoriteAction = UIPreviewAction(title: actionTitle, style: actionStyle) { (action, viewController) -> Void in
             if indexOfFavorite == nil {
                 UserDefaults.favorites.append(self.currentScholar?.id ?? "")
             } else {
-                UserDefaults.favorites.removeAtIndex(indexOfFavorite!)
+                UserDefaults.favorites.remove(at: indexOfFavorite!)
                 
                 
                 let scholarDetailVC = ScholarDetailViewController()
@@ -129,7 +130,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         var actions: [UIPreviewAction] = []
         
         if let websiteURL = self.currentScholar?.websiteURL {
-            let websiteAction = UIPreviewAction(title: "Website", style: .Default) { (action, viewController) -> Void in
+            let websiteAction = UIPreviewAction(title: "Website", style: .default) { (action, viewController) -> Void in
                 self.delegate?.openContactURL(websiteURL)
             }
             
@@ -137,7 +138,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         }
         
         if let emailAddress = self.currentScholar?.email {
-            let emailAction = UIPreviewAction(title: "Email", style: .Default) { (action, viewController) -> Void in
+            let emailAction = UIPreviewAction(title: "Email", style: .default) { (action, viewController) -> Void in
                 self.delegate?.composeEmail(emailAddress)
             }
             
@@ -145,21 +146,21 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         }
         
         if let linkedInURL = self.currentScholar?.linkedInURL {
-            let linkedInAction = UIPreviewAction(title: "LinkedIn", style: .Default) { (action, viewController) -> Void in
+            let linkedInAction = UIPreviewAction(title: "LinkedIn", style: .default) { (action, viewController) -> Void in
                 self.delegate?.openContactURL(linkedInURL)
             }
             
             actions.append(linkedInAction)
         }
         
-        let socialActions = UIPreviewActionGroup(title: "Contact", style: .Default, actions: actions)
+        let socialActions = UIPreviewActionGroup(title: "Contact", style: .default, actions: actions)
         
         return [socialActions, favoriteAction]
     }
     
     // MARK: - UI
     
-    private func styleUI() {
+    fileprivate func styleUI() {
         self.profileImageViewBackground.applyRoundedCorners()
         self.profileImageView.applyRoundedCorners()
         
@@ -170,9 +171,9 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         self.detailsTableView.layoutIfNeeded()
         
         // Fix ScrollView Constraint
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
-            let offset = self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)).height+self.detailsTableView.rectForRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0)).height - self.contentSizeConstraint.constant - ScreenSize.forRawValue(UIScreen.mainScreen().bounds.height).adjustmentValue
+        let delayTime = DispatchTime.now() + Double(Int64(0.1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: delayTime) {
+            let offset = self.detailsTableView.rectForRow(at: IndexPath(row: 1, section: 0)).height+self.detailsTableView.rectForRow(at: IndexPath(row: 3, section: 0)).height - self.contentSizeConstraint.constant - ScreenSize.forRawValue(UIScreen.main.bounds.height).adjustmentValue
             self.contentSizeConstraint.constant += offset
             print(offset)
         }
@@ -182,11 +183,11 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
     
     // MARK: - Private functions
     
-    private func editButtonVisible() {
+    fileprivate func editButtonVisible() {
         if UserKit.sharedInstance.isLoggedIn {
-            self.loggedInScholarString = UserKit.sharedInstance.scholarId ?? "unknown"
+            self.loggedInScholarString = UserKit.sharedInstance.scholarId as NSString?? ?? "unknown"
             
-            if self.loggedInScholarString == self.currentScholar?.id {
+            if self.loggedInScholarString as String == (self.currentScholar?.id)! {
                 self.navigationItem.rightBarButtonItems = [self.editBarButtonItem, self.favoritesButton]
             } else {
                 self.navigationItem.rightBarButtonItems = [self.favoritesButton]
@@ -196,15 +197,15 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         }
     }
     
-    private func configureMap() {
+    fileprivate func configureMap() {
         guard let scholar = self.currentScholar else {
             return
         }
         
-        self.mapView.zoomEnabled = false
-        self.mapView.scrollEnabled = false
-        self.mapView.rotateEnabled = false
-        self.mapView.pitchEnabled = false
+        self.mapView.isZoomEnabled = false
+        self.mapView.isScrollEnabled = false
+        self.mapView.isRotateEnabled = false
+        self.mapView.isPitchEnabled = false
         
         let camera = MKMapCamera()
         camera.altitude = 7500
@@ -214,7 +215,7 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         self.mapView.setCamera(camera, animated: false)
     }
     
-    private func updateUI() {
+    fileprivate func updateUI() {
         guard let scholar = self.currentScholar else {
             return
         }
@@ -222,15 +223,16 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         self.title = scholar.fullName
         
         self.setFavoriteImage(UserDefaults.favorites.contains(scholar.id))
-        self.teamIconImageView.hidden = !CreditsManager.sharedInstance.checkForCredit(scholar)
+        self.teamIconImageView.isHidden = !CreditsManager.sharedInstance.checkForCredit(scholar)
         self.locationLabel.text = scholar.location.name
         self.nameLabel.text = scholar.firstName + " " + scholar.lastName
-        self.profileImageView.af_setImageWithURL(NSURL(string: scholar.latestBatch.profilePic)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false)
+        self.profileImageView.af_setImage(withURL:Foundation.URL(string: scholar.latestBatch.profilePic)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false)
+//        self.profileImageView.af_setImageWithURL(Foundation.URL(string: scholar.latestBatch.profilePic)!, placeholderImage: UIImage(named: "placeholder"), imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false)
     }
     
-    private func setFavoriteImage(filled: Bool) {
+    fileprivate func setFavoriteImage(_ filled: Bool) {
         self.favoritesButton.image = UIImage(named: filled ? "favouriteFilled" : "favouriteUnfilled")
-        self.favoritesButton.tintColor = filled ? UIColor.goldColor() : UIColor.whiteColor()
+        self.favoritesButton.tintColor = filled ? UIColor.goldColor() : UIColor.white
     }
     
     // MARK: - Internal functions
@@ -242,8 +244,8 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         
         self.mapView.frame.size = CGSize(width: viewWidth, height: viewHeight)
         
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: viewWidth, height: viewHeight), false, UIScreen.mainScreen().scale)
-        self.mapView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: viewWidth, height: viewHeight), false, UIScreen.main.scale)
+        self.mapView.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -260,50 +262,50 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
         self.showFullScreenImage(self.profileImageView)
     }
     
-    internal func showFullScreenImage(imageView: UIImageView) {
+    internal func showFullScreenImage(_ imageView: UIImageView) {
         ImageManager.sharedInstance.expandImage(imageView, viewController: self)
     }
     
-    func openURL(url: String) {
-        let viewController = SFSafariViewController(URL: NSURL(string: url)!)
+    func openURL(_ url: String) {
+        let viewController = SFSafariViewController(url: Foundation.URL(string: url)!)
         viewController.delegate = self
         
-        self.presentViewController(viewController, animated: true, completion: nil)
+        self.present(viewController, animated: true, completion: nil)
     }
     
-    internal func safariViewControllerDidFinish(controller: SFSafariViewController) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    internal func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
-    internal func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    internal func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
-    internal func composeEmail(address: String) {
+    internal func composeEmail(_ address: String) {
         if MFMailComposeViewController.canSendMail() {
             let viewController = MFMailComposeViewController()
             viewController.mailComposeDelegate = self
             viewController.setToRecipients([address])
             
-            self.presentViewController(viewController, animated: true, completion: nil)
+            self.present(viewController, animated: true, completion: nil)
         }
     }
     
-    internal func setScholar(id: String) {
+    internal func setScholar(_ id: String) {
         self.currentScholar = DatabaseManager.sharedInstance.scholarForId(id)
     }
     
     // MARK: - IBActions
     
-    @IBAction func favoriteButtonTapped(sender: AnyObject) {
-        let indexOfFavorite = UserDefaults.favorites.indexOf(self.currentScholar?.id ?? "")
+    @IBAction func favoriteButtonTapped(_ sender: AnyObject) {
+        let indexOfFavorite = UserDefaults.favorites.index(of: self.currentScholar?.id ?? "")
         
         self.setFavoriteImage(indexOfFavorite == nil)
         
         if indexOfFavorite == nil {
             UserDefaults.favorites.append(self.currentScholar?.id ?? "")
         } else {
-            UserDefaults.favorites.removeAtIndex(indexOfFavorite!)
+            UserDefaults.favorites.remove(at: indexOfFavorite!)
         }
         let scholarDetailVC = ScholarDetailViewController()
         
@@ -311,46 +313,46 @@ class ScholarDetailViewController: UIViewController, ImageTappedDelegate, Social
 
     }
     
-    @IBAction func editProfileButtonTapped(sender: AnyObject) {
-        self.performSegueWithIdentifier("editProfile", sender: nil)
+    @IBAction func editProfileButtonTapped(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "editProfile", sender: nil)
     }
 }
 
 // MARK: - UICollectionViewDataSource
 
 extension ScholarDetailViewController: UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let scholar = self.currentScholar else {
             return UITableViewCell()
         }
         
         switch indexPath.item {
         case 0:
-            let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("basicDetailsTableViewCell") as! BasicDetailsTableViewCell
+            let cell = self.detailsTableView.dequeueReusableCell(withIdentifier: "basicDetailsTableViewCell") as! BasicDetailsTableViewCell
             
             var attendedString = ""
-            for (index, batch) in scholar.batches.reverse().enumerate() {
-                attendedString.appendContentsOf(index != scholar.batches.count - 1 ? "\(batch.batchWWDC.shortVersion), " : batch.batchWWDC.shortVersion)
+            for (index, batch) in scholar.batches.reversed().enumerated() {
+                attendedString.append(index != scholar.batches.count - 1 ? "\(batch.batchWWDC.shortVersion), " : batch.batchWWDC.shortVersion)
             }
             
             cell.ageLabel.text = String(scholar.age)
-            let locationArr = scholar.location.name.characters.split(",").map(String.init)
+            let locationArr = scholar.location.name.characters.split(separator: ",").map(String.init)
             cell.countryLabel.text = locationArr[locationArr.count - 1]
             cell.attendedLabel.text = attendedString
             
             return cell
         case 1:
-            let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("bioTableViewCell") as! BioTableViewCell
+            let cell = self.detailsTableView.dequeueReusableCell(withIdentifier: "bioTableViewCell") as! BioTableViewCell
             
             cell.contentLabel.text = scholar.shortBio
             
             return cell
         case 2:
-            let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("socialButtonsTableViewCell") as! SocialButtonsTableViewCell
+            let cell = self.detailsTableView.dequeueReusableCell(withIdentifier: "socialButtonsTableViewCell") as! SocialButtonsTableViewCell
             
             cell.scholar = scholar
             cell.delegate = self
@@ -358,7 +360,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
             
             return cell
         case 3:
-            let cell = self.detailsTableView.dequeueReusableCellWithIdentifier("screenshotsTableViewCell") as! ScreenshotsTableViewCell
+            let cell = self.detailsTableView.dequeueReusableCell(withIdentifier: "screenshotsTableViewCell") as! ScreenshotsTableViewCell
             
             cell.scholarshipScreenshots = scholar.latestBatch.screenshots
             cell.is2016 = scholar.latestBatch.appstoreSubmissionURL != nil
@@ -371,7 +373,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: IndexPath) -> CGFloat {
         guard let scholar = self.currentScholar else {
             return 0.0
         }
@@ -394,7 +396,7 @@ extension ScholarDetailViewController: UITableViewDataSource {
 // MARK: - UIScrollViewDelegate
 
 extension ScholarDetailViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let mapHeight: CGFloat = 156.0
         var mapFrame = CGRect(x: 0, y: 0, width: scrollView.bounds.width, height: mapHeight)
         

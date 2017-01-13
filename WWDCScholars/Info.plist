@@ -31,6 +31,14 @@
 				<string>WWDCScholars</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.218869077009-s6hi328gvrdkiuhgbj3um9rnq9cv4p6o</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>144</string>
@@ -62,7 +70,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Find Scholar&apos;s location relative to you</string>
+	<string>Find Scholar's location relative to you</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>

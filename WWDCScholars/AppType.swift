@@ -18,7 +18,7 @@ enum AppType: String {
      
      - returns: Enum value of AppType
      */
-    static func forRawValue(rawValueOptional: String?) -> AppType {
+    static func forRawValue(_ rawValueOptional: String?) -> AppType {
         if let rawValue = rawValueOptional {
         switch rawValue {
         case "Offline":

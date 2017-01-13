@@ -9,62 +9,62 @@
 import UIKit
 
 private var screenSize: CGSize {
-    return UIScreen.mainScreen().bounds.size
+    return UIScreen.main.bounds.size
 }
 
 enum TutorialObjectActionType {
-    case ChangeAlpha
-    case Resize
+    case changeAlpha
+    case resize
 }
 
 enum TutorialObjectAction: Equatable {
-    case ChangeAlpha(value: CGFloat)
-    case Resize(size: CGSize)
+    case changeAlpha(value: CGFloat)
+    case resize(size: CGSize)
     
     var intValue: Int {
         switch self {
-        case .ChangeAlpha(value: _):
+        case .changeAlpha(value: _):
             return 0
-        case .Resize(size: _):
+        case .resize(size: _):
             return 1
         }
     }
     
-    func applyAction(object: UIView) {
+    func applyAction(_ object: UIView) {
         switch self {
-        case let .ChangeAlpha(value: value):
+        case let .changeAlpha(value: value):
             object.alpha = value
-        case let .Resize(size: value):
+        case let .resize(size: value):
             let center = object.center
             object.frame = CGRect(x: 0, y: 0, width: value.width, height: value.height)
             object.center = center
         }
     }
     
-    func merge(another: TutorialObjectAction, delta: CGFloat) -> TutorialObjectAction {
+    func merge(_ another: TutorialObjectAction, delta: CGFloat) -> TutorialObjectAction {
         switch (self, another) {
-        case let (.ChangeAlpha(value: value), .ChangeAlpha(value: anotherValue)):
-            return TutorialObjectAction.ChangeAlpha(value: value + (anotherValue - value) * delta)
-        case let (.Resize(size: value), .Resize(size: anotherValue)):
+        case let (.changeAlpha(value: value), .changeAlpha(value: anotherValue)):
+            return TutorialObjectAction.changeAlpha(value: value + (anotherValue - value) * delta)
+        case let (.resize(size: value), .resize(size: anotherValue)):
             let size = CGSize(width: value.width + (anotherValue.width - value.width) * delta, height: value.height + (anotherValue.height - value.height) * delta)
-            return TutorialObjectAction.Resize(size: size)
+            return TutorialObjectAction.resize(size: size)
         default:
-            return .ChangeAlpha(value: 1.0)
+            return .changeAlpha(value: 1.0)
         }
     }
 }
 
 class TutorialObjectActionContainer {
-    class func findOrCreateAction(type: TutorialObjectActionType, actions: [TutorialObjectAction]) -> TutorialObjectAction {
+    class func findOrCreateAction(_ type: TutorialObjectActionType, actions: [TutorialObjectAction]) -> TutorialObjectAction {
         var action: TutorialObjectAction
         switch type {
-        case .ChangeAlpha:
-            action = TutorialObjectAction.ChangeAlpha(value: 1.0)
-        case .Resize:
-            action = TutorialObjectAction.Resize(size: CGSizeZero)
+        case .changeAlpha:
+            action = TutorialObjectAction.changeAlpha(value: 1.0)
+        case .resize:
+            action = TutorialObjectAction.resize(size: CGSize.zero)
         }
         
-        if let index = actions.indexOf(action) {
+        if let index = actions.index(of: action) {
             return actions[index]
         }
         
@@ -78,23 +78,23 @@ func ==(lhs: TutorialObjectAction, rhs: TutorialObjectAction) -> Bool {
 
 class TutorialObject {
     var object: UIView!
-    private(set) var points: [CGPoint] = []
+    fileprivate(set) var points: [CGPoint] = []
     var tag = 0
     
-    private(set) var size: CGSize = CGSizeZero
-    private var startPosition: CGPoint = CGPointZero
+    fileprivate(set) var size: CGSize = CGSize.zero
+    fileprivate var startPosition: CGPoint = CGPoint.zero
     
-    private var actions: [Int: [TutorialObjectAction]] = [:]
+    fileprivate var actions: [Int: [TutorialObjectAction]] = [:]
     
     init(object: UIView) {
         self.object = object
-        self.actions[0] = [TutorialObjectAction.ChangeAlpha(value: object.alpha), TutorialObjectAction.Resize(size: object.frame.size)]
+        self.actions[0] = [TutorialObjectAction.changeAlpha(value: object.alpha), TutorialObjectAction.resize(size: object.frame.size)]
         startPosition = object.center
     }
     
     var shouldAutoconvert: Bool = true
     
-    func setSize(size: CGSize) {
+    func setSize(_ size: CGSize) {
         needToRecalculateActions = true
         
         if shouldAutoconvert {
@@ -103,10 +103,10 @@ class TutorialObject {
             self.size = screenSize
         }
         
-        self.actions[0] = [TutorialObjectAction.ChangeAlpha(value: object.alpha), TutorialObjectAction.Resize(size: self.size)]
+        self.actions[0] = [TutorialObjectAction.changeAlpha(value: object.alpha), TutorialObjectAction.resize(size: self.size)]
     }
     
-    func setPoints(points: [CGPoint]) {
+    func setPoints(_ points: [CGPoint]) {
         needToRecalculateActions = true
         
         self.points = []
@@ -119,22 +119,22 @@ class TutorialObject {
         }
     }
     
-    func addActionAtPosition(action: TutorialObjectAction, position: Int) {
+    func addActionAtPosition(_ action: TutorialObjectAction, position: Int) {
         needToRecalculateActions = true
         
         if actions[position] == nil {
             actions[position] = []
         }
         
-        if let index = actions[position]!.indexOf(action) {
-            actions[position]?.removeAtIndex(index)
+        if let index = actions[position]!.index(of: action) {
+            actions[position]?.remove(at: index)
         }
         
         actions[position]?.append(action)
     }
     
-    private var needToRecalculateActions = true
-    private func recalculateActions() {
+    fileprivate var needToRecalculateActions = true
+    fileprivate func recalculateActions() {
         let count = points.count
         
         var preveousAlphaAction = actions[0]![0]
@@ -145,13 +145,13 @@ class TutorialObject {
                 actions[i] = []
             }
             
-            if let index = actions[i]!.indexOf(preveousAlphaAction) {
+            if let index = actions[i]!.index(of: preveousAlphaAction) {
                 preveousAlphaAction = actions[i]![index]
             } else {
                 addActionAtPosition(preveousAlphaAction, position: i)
             }
             
-            if let index = actions[i]!.indexOf(preveousSizeAction) {
+            if let index = actions[i]!.index(of: preveousSizeAction) {
                 preveousSizeAction = actions[i]![index]
             } else {
                 addActionAtPosition(preveousSizeAction, position: i)
@@ -159,11 +159,11 @@ class TutorialObject {
         }
     }
     
-    func actionsAtPosition(position: Int) -> [TutorialObjectAction] {
+    func actionsAtPosition(_ position: Int) -> [TutorialObjectAction] {
         return actions[position] ?? []
     }
     
-    func changeObjectToPosition(position: CGPoint) {
+    func changeObjectToPosition(_ position: CGPoint) {
         var newPosition = position
         
         newPosition.x += startPosition.x
@@ -203,8 +203,8 @@ class TutorialObject {
             let oldActions = actionsAtPosition(index)
             let newActions = actionsAtPosition(index + 1)
             
-            let alphaAction = TutorialObjectActionContainer.findOrCreateAction(.ChangeAlpha, actions: oldActions).merge(TutorialObjectActionContainer.findOrCreateAction(.ChangeAlpha, actions: newActions), delta: delta)
-            let frameAction = TutorialObjectActionContainer.findOrCreateAction(.Resize, actions: oldActions).merge(TutorialObjectActionContainer.findOrCreateAction(.Resize, actions: newActions), delta: delta)
+            let alphaAction = TutorialObjectActionContainer.findOrCreateAction(.changeAlpha, actions: oldActions).merge(TutorialObjectActionContainer.findOrCreateAction(.changeAlpha, actions: newActions), delta: delta)
+            let frameAction = TutorialObjectActionContainer.findOrCreateAction(.resize, actions: oldActions).merge(TutorialObjectActionContainer.findOrCreateAction(.resize, actions: newActions), delta: delta)
             
             
             alphaAction.applyAction(self.object)

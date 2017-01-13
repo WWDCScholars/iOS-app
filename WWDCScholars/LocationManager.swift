@@ -7,18 +7,55 @@
 //
 
 import Foundation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class LocationManager {
     static let sharedInstance = LocationManager()
     
-    func getLocationDetails(coordinates: CLLocationCoordinate2D, completion: (locality: String, country: String) -> Void) {
+    func getLocationDetails(withParameter coordinates: CLLocationCoordinate2D, completion: @escaping (_ locality: String, _ country: String) -> Void) {
         CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude), completionHandler: {(placemarks, error) -> Void in
             if placemarks?.count > 0 {
                 if let containsPlacemark = placemarks?.first {
                     let localityString = containsPlacemark.locality != nil ? containsPlacemark.locality! : "Unknown"
                     let countryString = containsPlacemark.country != nil ? containsPlacemark.country! : "Unknown"
                     
-                    completion((locality: localityString, country: countryString))
+                    completion(localityString, countryString)
+                }
+            }
+        })
+    }
+    
+    func getLocationDetails1(_ coordinates: CLLocationCoordinate2D, completion:  @escaping (_ locality: String, _ country: String) -> Void) {
+        CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude), completionHandler: {(placemarks, error) -> Void in
+            if placemarks?.count > 0 {
+                if let containsPlacemark = placemarks?.first {
+                    let localityString = containsPlacemark.locality != nil ? containsPlacemark.locality! : "Unknown"
+                    let countryString = containsPlacemark.country != nil ? containsPlacemark.country! : "Unknown"
+                    
+                    completion(localityString, countryString)
                 }
             }
         })

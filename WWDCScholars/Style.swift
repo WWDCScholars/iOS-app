@@ -84,23 +84,23 @@ extension UISegmentedControl {
 extension UIButton {
     func applyScholarsButtonStyle() {
         self.layer.cornerRadius = 7.0
-        self.layer.borderColor = UIColor.scholarsPurpleColor().CGColor
+        self.layer.borderColor = UIColor.scholarsPurpleColor().cgColor
         self.layer.borderWidth = 0.5
-        self.setTitleColor(UIColor.scholarsPurpleColor(), forState: .Normal)
+        self.setTitleColor(UIColor.scholarsPurpleColor(), for: UIControlState())
     }
     
     func applyActiveChatButtonStyle() {
         self.layer.cornerRadius = 4.0
-        self.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.setTitleColor(UIColor.white, for: UIControlState())
         self.backgroundColor = UIColor.scholarsPurpleColor()
-        self.enabled = true
+        self.isEnabled = true
     }
     
     func applyInactiveChatButtonStyle() {
         self.layer.cornerRadius = 4.0
-        self.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        self.backgroundColor = UIColor.lightGrayColor()
-        self.enabled = false
+        self.setTitleColor(UIColor.white, for: UIControlState())
+        self.backgroundColor = UIColor.lightGray
+        self.isEnabled = false
     }
 }
 
@@ -110,8 +110,8 @@ extension UILabel {
         
         //Styling using Scholars Purple
         self.backgroundColor = UIColor.transparentScholarsPurpleColor()
-        self.textColor = UIColor.whiteColor()
-        self.font = UIFont.systemFontOfSize(15)
+        self.textColor = UIColor.white
+        self.font = UIFont.systemFont(ofSize: 15)
     }
 }
 
@@ -129,34 +129,34 @@ extension UIView {
 
 extension UIViewController {
     func applyExtendedNavigationBarStyle() {
-        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.shadowImage = UIImage(named: "transparentPixel")
         
         //Styling using Scholars Purple Color
         let colouredImage = UIImage.imageWithSize(CGSize(width: 1, height: 1), color: UIColor.scholarsPurpleColor())
         
-        self.navigationController?.navigationBar.setBackgroundImage(colouredImage, forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.setBackgroundImage(colouredImage, for: UIBarMetrics.default)
     }
 }
 
 extension UINavigationBar {
     func applyExtendedNavigationBarStyle() {
-        self.translucent = false
+        self.isTranslucent = false
         self.shadowImage = UIImage(named: "transparentPixel")
         
         //Styling using Scholars Purple
         let colouredImage = UIImage.imageWithSize(CGSize(width: 1, height: 1), color: UIColor.scholarsPurpleColor())
         
-        self.setBackgroundImage(colouredImage, forBarMetrics: UIBarMetrics.Default)
+        self.setBackgroundImage(colouredImage, for: UIBarMetrics.default)
     }
     
     static func applyNavigationBarStyle() {
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().translucent = false
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().isTranslucent = false
         
         //Styling using Scholars Purple
         UINavigationBar.appearance().backgroundColor = UIColor.scholarsPurpleColor()
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
     }
 }

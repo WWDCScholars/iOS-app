@@ -8,21 +8,24 @@
 
 import UIKit
 import AdSupport
+import Alamofire
+import AlamofireImage
+import Firebase
 
 class ChatViewController: JSQMessagesViewController {
-    @IBOutlet private weak var loadingContainerView: UIView!
+    @IBOutlet fileprivate weak var loadingContainerView: UIView!
     
-    private var messageReference: FIRDatabaseReference!
-    private var messages = [JSQMessage]()
-    private var outgoingBubbleImageView: JSQMessagesBubbleImage!
-    private var incomingBubbleImageView: JSQMessagesBubbleImage!
-    private var outgoingGroupBubbleImageView: JSQMessagesBubbleImage!
-    private var incomingGroupBubbleImageView: JSQMessagesBubbleImage!
-    private var usersTypingQuery: FIRDatabaseQuery!
-    private var userIsTypingRef: FIRDatabaseReference!
-    private var localTyping = false
-    private var loadingViewController: LoadingViewController!
-    private var messageObserverHandle: UInt?
+    fileprivate var messageReference: FIRDatabaseReference!
+    fileprivate var messages = [JSQMessage]()
+    fileprivate var outgoingBubbleImageView: JSQMessagesBubbleImage!
+    fileprivate var incomingBubbleImageView: JSQMessagesBubbleImage!
+    fileprivate var outgoingGroupBubbleImageView: JSQMessagesBubbleImage!
+    fileprivate var incomingGroupBubbleImageView: JSQMessagesBubbleImage!
+    fileprivate var usersTypingQuery: FIRDatabaseQuery!
+    fileprivate var userIsTypingRef: FIRDatabaseReference!
+    fileprivate var localTyping = false
+    fileprivate var loadingViewController: LoadingViewController!
+    fileprivate var messageObserverHandle: UInt?
 //    private var isTyping: Bool {
 //        get {
 //            return self.localTyping
@@ -58,63 +61,63 @@ class ChatViewController: JSQMessagesViewController {
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         self.observeTyping()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if !UserKit.sharedInstance.isLoggedIn {
-            self.navigationController?.popViewControllerAnimated(true)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == String(ScholarDetailViewController) {
-            let destinationViewController = segue.destinationViewController as! ScholarDetailViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == String(describing: ScholarDetailViewController.self) {
+            let destinationViewController = segue.destination as! ScholarDetailViewController
             destinationViewController.setScholar(sender as! String)
-        } else if segue.identifier == String(LoadingViewController) {
-            self.loadingViewController = segue.destinationViewController as! LoadingViewController
+        } else if segue.identifier == String(describing: LoadingViewController.self) {
+            self.loadingViewController = segue.destination as! LoadingViewController
         }
     }
     
     // MARK: - UI
     
-    private func styleUI() {
+    fileprivate func styleUI() {
         self.title = self.chatItem.name
         
-        self.loadingContainerView.hidden = false
+        self.loadingContainerView.isHidden = false
         self.loadingViewController.startAnimating()
         
         self.automaticallyScrollsToMostRecentMessage = true
         self.collectionView.collectionViewLayout.springinessEnabled = false
         self.collectionView.showsVerticalScrollIndicator = false
         self.collectionView.collectionViewLayout.springResistanceFactor = 3000
-        self.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        self.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         self.inputToolbar.contentView.leftBarButtonItem = nil
         
         let factory = JSQMessagesBubbleImageFactory()
-        let taillessFactory = JSQMessagesBubbleImageFactory.init(bubbleImage: UIImage.jsq_bubbleCompactTaillessImage(), capInsets: UIEdgeInsetsZero)
+        let taillessFactory = JSQMessagesBubbleImageFactory.init(bubble: UIImage.jsq_bubbleCompactTailless(), capInsets: UIEdgeInsets.zero)
         
-        self.incomingGroupBubbleImageView = taillessFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
-        self.outgoingGroupBubbleImageView = taillessFactory.outgoingMessagesBubbleImageWithColor(UIColor.scholarsPurpleColor())
+        self.incomingGroupBubbleImageView = taillessFactory?.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+        self.outgoingGroupBubbleImageView = taillessFactory?.outgoingMessagesBubbleImage(with: UIColor.scholarsPurpleColor())
         
-        self.outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(UIColor.scholarsPurpleColor())
-        self.incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
+        self.outgoingBubbleImageView = factory?.outgoingMessagesBubbleImage(with: UIColor.scholarsPurpleColor())
+        self.incomingBubbleImageView = factory?.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
         
-        self.inputToolbar.contentView.rightBarButtonItem.setTitleColor(UIColor.scholarsPurpleColor(), forState: .Normal)
+        self.inputToolbar.contentView.rightBarButtonItem.setTitleColor(UIColor.scholarsPurpleColor(), for: UIControlState())
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     // MARK: - Private functions
     
-    private func observeTyping() {
+    fileprivate func observeTyping() {
 //        let typingIndicatorRef = self.messageReference.child("typingIndicator")
 //        self.userIsTypingRef = typingIndicatorRef.child(self.senderId)
 //        self.userIsTypingRef.onDisconnectRemoveValue()
@@ -130,64 +133,64 @@ class ChatViewController: JSQMessagesViewController {
 //        }
     }
     
-    private func addMessage(id: String, text: String, date: NSDate) {
+    fileprivate func addMessage(_ id: String, text: String, date: Date) {
         if let scholar = DatabaseManager.sharedInstance.scholarForId(id){
             let message = JSQMessage(senderId: id, senderDisplayName: scholar.fullName, date: date, text: text)
-            self.messages.append(message)
+            self.messages.append(message!)
         } else {
             //todo: reload scholars if scholar is missing in db
             print ("addMessage -- Uhoh! no scholar found in db with id \(id)")
         }
     }
     
-    private func loadOldMessages() {
+    fileprivate func loadOldMessages() {
         self.messages = []
         self.collectionView.collectionViewLayout.springinessEnabled = false
 
-        let messagesQuery = self.messageReference.queryOrderedByChild("dateSent").queryLimitedToLast(50)//.queryStartingAtValue(self.messages[self.messages.count-1].date.timeIntervalSince1970, childKey: "dateSent")
-        messagesQuery.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        let messagesQuery = self.messageReference.queryOrdered(byChild: "dateSent").queryLimited(toLast: 50)//.queryStartingAtValue(self.messages[self.messages.count-1].date.timeIntervalSince1970, childKey: "dateSent")
+        messagesQuery.observeSingleEvent(of: .value, with: { snapshot in
             for snapshot in snapshot.children {
-            if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String, let dateInt = snapshot.value!["dateSent"] as? NSTimeInterval  {
-                self.addMessage(id, text: text, date: NSDate(timeIntervalSince1970: dateInt))
-            }
+            /*if let id = (snapshot as AnyObject).value!["senderId"] as? String, let text = (snapshot as AnyObject).value!["text"] as? String, let dateInt = (snapshot as AnyObject).value!["dateSent"] as? TimeInterval  {
+                self.addMessage(id, text: text, date: Date(timeIntervalSince1970: dateInt))
+            }*/
             }
             self.observeMessages()
             
-            self.finishReceivingMessageAnimated(false)
+            self.finishReceivingMessage(animated: false)
             self.collectionView.collectionViewLayout.springinessEnabled = true
         })
     }
     
-    private func observeMessages() {
-        let messagesQuery = self.messageReference.queryOrderedByChild("dateSent").queryLimitedToLast(1)//.queryStartingAtValue(self.messages[self.messages.count-1].date.timeIntervalSince1970, childKey: "dateSent")
-        self.messageObserverHandle = messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
+    fileprivate func observeMessages() {
+        let messagesQuery = self.messageReference.queryOrdered(byChild: "dateSent").queryLimited(toLast: 1)//.queryStartingAtValue(self.messages[self.messages.count-1].date.timeIntervalSince1970, childKey: "dateSent")
+        self.messageObserverHandle = messagesQuery.observe(.childAdded, with: { snapshot in
             if self.initialLoad {
                 self.initialLoad = false
                 return
             }
-            if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String, let dateInt = snapshot.value!["dateSent"] as? NSTimeInterval  {
-                self.addMessage(id, text: text, date: NSDate(timeIntervalSince1970: dateInt))
+            /*if let id = snapshot.value!["senderId"] as? String, let text = snapshot.value!["text"] as? String, let dateInt = snapshot.value!["dateSent"] as? TimeInterval  {
+                self.addMessage(id, text: text, date: Date(timeIntervalSince1970: dateInt))
                 
                 if id != self.senderId {
                     JSQSystemSoundPlayer.jsq_playMessageReceivedSound()
                 }
                 
                 self.finishReceivingMessage()
-            }
+            }*/
         })
     }
     
     // MARK: - JSQMessagesViewController
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         return self.messages[indexPath.item]
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.messages.count
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         
         let message = self.messages[indexPath.item]
         
@@ -209,7 +212,7 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         let message = self.messages[indexPath.row]
         
         if indexPath.item - 1 > 0 {
@@ -220,13 +223,13 @@ class ChatViewController: JSQMessagesViewController {
         }
         
         if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId) {
-            return JSQMessagesAvatarImageFactory.avatarImageWithUserInitials(scholar.initials, backgroundColor: UIColor.transparentScholarsPurpleColor(), textColor: UIColor.whiteColor(), font: UIFont.systemFontOfSize(15), diameter: 50)
+            return JSQMessagesAvatarImageFactory.avatarImage(withUserInitials: scholar.initials, backgroundColor: UIColor.transparentScholarsPurpleColor(), textColor: UIColor.white, font: UIFont.systemFont(ofSize: 15), diameter: 50)
         } else {
-            return JSQMessagesAvatarImageFactory.avatarImageWithUserInitials("UK", backgroundColor: UIColor.transparentScholarsPurpleColor(), textColor: UIColor.whiteColor(), font: UIFont.systemFontOfSize(15), diameter: 50)
+            return JSQMessagesAvatarImageFactory.avatarImage(withUserInitials: "UK", backgroundColor: UIColor.transparentScholarsPurpleColor(), textColor: UIColor.white, font: UIFont.systemFont(ofSize: 15), diameter: 50)
         }
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
         let message = messages[indexPath.item]
         
         if indexPath.item - 1 > 0 {
@@ -243,7 +246,7 @@ class ChatViewController: JSQMessagesViewController {
         return nil
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
         let message = messages[indexPath.item]
         
         if indexPath.item - 1 > 0 {
@@ -256,8 +259,8 @@ class ChatViewController: JSQMessagesViewController {
         return (message.senderId == self.senderId) ? 0 : kJSQMessagesCollectionViewCellLabelHeightDefault
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as! JSQMessagesCollectionViewCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
         cell.messageBubbleTopLabel.textInsets = UIEdgeInsetsMake(0, 45, 0, 0)
         
         let message = self.messages[indexPath.item]
@@ -269,37 +272,37 @@ class ChatViewController: JSQMessagesViewController {
                     cell.avatarImageView!.image = nil
                 } else {
                     if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId){
-                        if let imageUrl = NSURL(string: scholar.latestBatch.profilePic) {
+                        if let imageUrl = Foundation.URL(string: scholar.latestBatch.profilePic) {
                             let imageFilter = RoundedCornersFilter(radius: 50)
                             
-                            cell.avatarImageView!.af_setImageWithURL(imageUrl, filter: imageFilter, imageTransition: .CrossDissolve(0.25))
+                            cell.avatarImageView!.af_setImage(withURL: imageUrl, filter: imageFilter, imageTransition: .crossDissolve(0.25))
                         }
                     }
                 }
             } else {
                 if let scholar = DatabaseManager.sharedInstance.scholarForId(message.senderId){
-                    if let imageUrl = NSURL(string: scholar.latestBatch.profilePic) {
+                    if let imageUrl = Foundation.URL(string: scholar.latestBatch.profilePic) {
                         let imageFilter = RoundedCornersFilter(radius: 50)
                         
-                        cell.avatarImageView!.af_setImageWithURL(imageUrl, filter: imageFilter, imageTransition: .CrossDissolve(0.25))
+                        cell.avatarImageView!.af_setImage(withURL: imageUrl, filter: imageFilter, imageTransition: .crossDissolve(0.25))
                     }
                 }
             }
         }
         
-        cell.textView!.textColor = message.senderId == self.senderId ? UIColor.whiteColor() : UIColor.blackColor()
+        cell.textView!.textColor = message.senderId == self.senderId ? UIColor.white : UIColor.black
         
         return cell
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!, didTapAvatarImageView avatarImageView: UIImageView!, atIndexPath indexPath: NSIndexPath!) {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapAvatarImageView avatarImageView: UIImageView!, at indexPath: IndexPath!) {
         let message = messages[indexPath.item]
-        self.performSegueWithIdentifier(String(ScholarDetailViewController), sender: message.senderId)
+        self.performSegue(withIdentifier: String(describing: ScholarDetailViewController.self), sender: message.senderId)
     }
     
-    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         let itemRef = self.messageReference.childByAutoId()
-        let messageItem = ["text": text, "senderId": senderId, "dateSent": NSDate().timeIntervalSince1970 ]
+        let messageItem = ["text": text, "senderId": senderId, "dateSent": Date().timeIntervalSince1970 ] as [String : Any]
         itemRef.setValue(messageItem)
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
@@ -308,7 +311,7 @@ class ChatViewController: JSQMessagesViewController {
 //        self.isTyping = false
     }
     
-    override func textViewDidChange(textView: UITextView) {
+    override func textViewDidChange(_ textView: UITextView) {
         super.textViewDidChange(textView)
         
 //        self.isTyping = textView.text != ""

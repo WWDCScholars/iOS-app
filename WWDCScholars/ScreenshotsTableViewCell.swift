@@ -7,23 +7,26 @@
 //
 
 import UIKit
+import AlamofireImage
+import Alamofire
+import SwiftyJSON
 
 enum ScreenshotType: Int {
-    case Scholarship
-    case AppStore
+    case scholarship
+    case appStore
 }
 
 class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, ImageTappedDelegate {
-    @IBOutlet private weak var segmentedControl: UISegmentedControl!
-    @IBOutlet private weak var collectionView: UICollectionView!
-    @IBOutlet private weak var collectionViewTopConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var noScreenshotsLabel: UILabel!
+    @IBOutlet fileprivate weak var segmentedControl: UISegmentedControl!
+    @IBOutlet fileprivate weak var collectionView: UICollectionView!
+    @IBOutlet fileprivate weak var collectionViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var noScreenshotsLabel: UILabel!
     
-    private var screenshotType: ScreenshotType = .Scholarship
-    private var appStoreScreenshots: [URL] = []
-    private var appStoreURL = ""
+    fileprivate var screenshotType: ScreenshotType = .scholarship
+    fileprivate var appStoreScreenshots: [String] = []
+    fileprivate var appStoreURL = ""
     
-    var scholarshipScreenshots: [URL] = []
+    var scholarshipScreenshots: [String] = []
     var delegate: ImageTappedDelegate?
     var is2016: Bool = false {
         didSet {
@@ -31,7 +34,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
             self.layoutIfNeeded()
             
             if self.is2016 == true {
-                segmentedControl.hidden = false
+                segmentedControl.isHidden = false
             }
         }
     }
@@ -46,7 +49,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         self.retrieveAppStoreScreenshots()
     }
     
-    func setAppStoreURL(url: URL) {
+    func setAppStoreURL(_ url: String) {
         self.appStoreURL = url
         self.is2016 = (url == "") ? false : self.is2016
         guard self.appStoreURL != "" else {
@@ -58,16 +61,16 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         }
     }
     
-    internal func showFullScreenImage(imageView: UIImageView) {
+    internal func showFullScreenImage(_ imageView: UIImageView) {
         self.delegate?.showFullScreenImage(imageView)
     }
     
-    private func retrieveAppStoreScreenshots(completionHandler: (() -> Void)? = nil) {
+    fileprivate func retrieveAppStoreScreenshots(_ completionHandler: (() -> Void)? = nil) {
         guard self.appStoreURL != "" else {
             return
         }
         
-        let appID = String().matchesForRegexInText("([\\d]{10,})", text: self.appStoreURL).first
+        let appID = String().matchesForRegexInText("(id[0-9]+)", text: self.appStoreURL).first?.replacingOccurrences(of: "id", with: "")
         if appID == nil {
             print("App Store URL is shortened version, impossible to retrieve APP ID", self.appStoreURL)
             
@@ -76,16 +79,16 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
         
         let lookupURL = "http://itunes.apple.com/lookup?id=\(appID!)"
         
-        request(.GET, lookupURL).responseString() { response in
+        request(lookupURL, method: .get).responseString() { response in
             if let data = response.result.value {
-                let json = JSON.parse(data)
+                let json = JSON.init(parseJSON: data)
                 
                 if let results = json["results"].array {
                     for appJson in results {
                         if let appStoreScreenshots = appJson["screenshotUrls"].array {
                             for screenshot in appStoreScreenshots {
                                 if let screenshotString = screenshot.string {
-                                    self.appStoreScreenshots.append(URL(screenshotString))
+                                    self.appStoreScreenshots.append(String(screenshotString))
                                     completionHandler?()
                                 }
                             }
@@ -98,19 +101,19 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
 
     // MARK: - Private functions
 
-    func setNoScreenshotsLabelHidden(hiddenStatus: Bool) {
-        self.noScreenshotsLabel.hidden = hiddenStatus
+    func setNoScreenshotsLabelHidden(_ hiddenStatus: Bool) {
+        self.noScreenshotsLabel.isHidden = hiddenStatus
     }
     
     // MARK: - IBActions
     
-    @IBAction func segmentedControlChanged(sender: AnyObject) {
-        self.screenshotType = ScreenshotType(rawValue: self.segmentedControl.selectedSegmentIndex) ?? .Scholarship
+    @IBAction func segmentedControlChanged(_ sender: AnyObject) {
+        self.screenshotType = ScreenshotType(rawValue: self.segmentedControl.selectedSegmentIndex) ?? .scholarship
         
         switch self.screenshotType {
-        case .Scholarship where self.scholarshipScreenshots.count == 0:
+        case .scholarship where self.scholarshipScreenshots.count == 0:
             self.setNoScreenshotsLabelHidden(false)
-        case .AppStore where self.appStoreScreenshots.count == 0:
+        case .appStore where self.appStoreScreenshots.count == 0:
             self.setNoScreenshotsLabelHidden(false)
         default:
             self.setNoScreenshotsLabelHidden(true)
@@ -123,28 +126,28 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
 // MARK: - UICollectionViewDataSource
 
 extension ScreenshotsTableViewCell: UICollectionViewDataSource {
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.screenshotType == .Scholarship ? self.scholarshipScreenshots.count : self.appStoreScreenshots.count
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.screenshotType == .scholarship ? self.scholarshipScreenshots.count : self.appStoreScreenshots.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("screenshotsCollectionViewCell", forIndexPath: indexPath) as! ScreenshotsCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "screenshotsCollectionViewCell", for: indexPath) as! ScreenshotsCollectionViewCell
 
-        let screenshot = NSURL(string: self.screenshotType == .Scholarship ? self.scholarshipScreenshots[indexPath.item] : self.appStoreScreenshots[indexPath.item])
+        let screenshot = Foundation.URL(string: self.screenshotType == .scholarship ? self.scholarshipScreenshots[indexPath.item] : self.appStoreScreenshots[indexPath.item])
 
         if screenshot != nil {
             cell.activityIndicator.startAnimating()
-            cell.imageView.af_setImageWithURL(screenshot!, placeholderImage: nil, imageTransition: .CrossDissolve(0.2), runImageTransitionIfCached: false, completion: { response in
+            cell.imageView.af_setImage(withURL: screenshot!, placeholderImage: nil, imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false, completion: { response in
                 cell.activityIndicator.stopAnimating()
                 cell.activityIndicator.removeFromSuperview()
                 
                 // Don't cache screenshots
                 let imageDownloader = UIImageView.af_sharedImageDownloader
-                let urlRequest = NSURLRequest(URL: screenshot!)
+                let urlRequest = Foundation.URLRequest(url: screenshot!)
                 //Clear from in-memory cache
-                imageDownloader.imageCache?.removeImageForRequest(urlRequest, withAdditionalIdentifier: nil)
+                _ = imageDownloader.imageCache?.removeImage(for: urlRequest, withIdentifier: nil)
                 //Clear from on-disk cache
-                imageDownloader.sessionManager.session.configuration.URLCache?.removeCachedResponseForRequest(urlRequest)
+                imageDownloader.sessionManager.session.configuration.urlCache?.removeCachedResponse(for: urlRequest)
                 
             })
         }

@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import Timepiece
 
 class BlogPost : Object {
     
@@ -27,10 +28,10 @@ class BlogPost : Object {
     //Guest Post
     dynamic var guestLink: String? = nil
     
-    dynamic var createdAt: NSDate = NSDate.today()
-    dynamic var updatedAt: NSDate = NSDate.today()
+    dynamic var createdAt: Date = Date.today()
+    dynamic var updatedAt: Date = Date.today()
     
-    private dynamic var tagsString: String = ""
+    fileprivate dynamic var tagsString: String = ""
     /// Array of WWDC's the scholar has been to
     var tags: [String] {
         set {
@@ -39,16 +40,16 @@ class BlogPost : Object {
             for str in arr {
                 strArr.append(str)
             }
-            tagsString = strArr.joinWithSeparator("|")
+            tagsString = strArr.joined(separator: "|")
         }
         
         get {
-            let strArr = tagsString.componentsSeparatedByString("|")
+            let strArr = tagsString.components(separatedBy: "|")
             var arr: [String] = []
             for str in strArr {
                 arr.append(str)
             }
-            return arr.reverse()
+            return arr.reversed()
         }
     }
     

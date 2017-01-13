@@ -16,7 +16,7 @@ class DatabaseManager {
     /// Shared instance of DatabaseManager, whose database is the default Realm
     static let sharedInstance = DatabaseManager()
     
-    private init() {
+    fileprivate init() {
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
             // version (if you've never set a schema version before, the version is 0).
@@ -30,7 +30,7 @@ class DatabaseManager {
                 // Nothing to do!
                 // Realm will automatically detect new properties and removed properties
                 // And will update the schema on disk automatically
-                migration.deleteData("Scholar")
+                migration.deleteData(forType: "Scholar")
                 //                }
         })
         
@@ -53,14 +53,14 @@ class DatabaseManager {
      
      - parameter scholar: Scholar which will be added to the database
      */
-    func addScholar(scholar: Scholar) {
+    func addScholar(_ scholar: Scholar) {
         try! realm.write {
             realm.add(scholar, update: true) // Don't add the scholar if he/she already exists
         }
         //print ("Added \(scholar.fullName)")  // Sorry but I don't care at all about this. I want a clean console, thx.
     }
     
-    func addRealmObject(obj: Object, update: Bool = false) {
+    func addRealmObject(_ obj: Object, update: Bool = false) {
         try! realm.write {
             realm.add(obj, update: update) // Don't add the scholar if he/she already exists
         }
@@ -72,7 +72,7 @@ class DatabaseManager {
      
      - parameter scholars: Scholar which will be added to the database
      */
-    func addScholars(scholars: [Scholar]) {
+    func addScholars(_ scholars: [Scholar]) {
         try! realm.write {
             for scholar in scholars {
                 realm.add(scholar, update: true) // Don't add the scholar if he/she already exists
@@ -87,7 +87,7 @@ class DatabaseManager {
      - returns: List of scholars
      */
     func getAllScholars() -> [Scholar] {
-        let scholars = realm.objects(Scholar)
+        let scholars = realm.objects(Scholar.self)
         return Array(scholars)
     }
     
@@ -97,7 +97,7 @@ class DatabaseManager {
      - returns: Number of scholars
      */
     func scholarCount() -> Int {
-        let scholars = realm.objects(Scholar)
+        let scholars = realm.objects(Scholar.self)
         return scholars.count
     }
     
@@ -108,13 +108,13 @@ class DatabaseManager {
      
      - returns: The (optional) scholar for the id
      */
-    func scholarForId(id: String) -> Scholar? {
-        return realm.objectForPrimaryKey(Scholar.self, key: id)
+    func scholarForId(_ id: String) -> Scholar? {
+        return realm.object(ofType: Scholar.self, forPrimaryKey: id as AnyObject)
     }
     
-    func scholarsForWWDCBatch(wwdc: WWDC) -> Scholars {
+    func scholarsForWWDCBatch(_ wwdc: WWDC) -> Scholars {
         let predicate = NSPredicate(format: "ANY batches.batchWWDCStr == %@", wwdc.toRawValue())
-        return Array(realm.objects(Scholar).filter(predicate).sorted("firstName"))
+        return Array(realm.objects(Scholar.self).filter(predicate).sorted(byKeyPath: "firstName"))
     }
     
     /**
@@ -122,7 +122,7 @@ class DatabaseManager {
      
      - parameter post: The blog post to add
      */
-    func addBlogPost(post: BlogPost) {
+    func addBlogPost(_ post: BlogPost) {
         try! realm.write {
             realm.add(post, update: true) // Don't add the blog post if it already exists
         }
@@ -135,7 +135,7 @@ class DatabaseManager {
      - returns: List of BlogPosts
      */
     func getAllBlogPosts() -> [BlogPost] {
-        let posts = realm.objects(BlogPost).sorted("createdAt", ascending: false)
+        let posts = realm.objects(BlogPost.self).sorted(byKeyPath: "createdAt", ascending: false)
         return Array(posts)
     }
     

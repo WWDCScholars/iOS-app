@@ -8,6 +8,9 @@
 
 import Foundation
 import CryptoSwift
+import Alamofire
+import AlamofireImage
+import SwiftyJSON
 
 class ScholarsKit: ApiBase {
     
@@ -16,18 +19,18 @@ class ScholarsKit: ApiBase {
     
     let dbManager = DatabaseManager.sharedInstance
     
-    private override init() {
+    fileprivate override init() {
     }
     
     /**
      Loads scholars from the online database
      */
-    func loadScholars(completionHandler: () -> Void) {
-        request(.GET, "\(self.serverUrl)/api/scholars/\(self.apiKey)")
-            .responseString() { response in
-                if let data = response.result.value {
+    func loadScholars(_ completionHandler: @escaping () -> Void) {
+        Alamofire.request("\(self.serverUrl)/api/scholars/\(self.apiKey)", method: .get)
+            .validate()
+            .responseSwiftyJSON { response in
+                if let json = response.result.value {
                     //                print (data)
-                    let json = JSON.parse(data)
                     //                print("JSON: \(json)")
                     print ("loadScholars -- Loading scholars")
                     if let array = json.array {
@@ -42,7 +45,7 @@ class ScholarsKit: ApiBase {
         return dbManager.scholarCount() > 0
     }
     
-    func parseScholars(jsonArr: [JSON]) {
+    func parseScholars(_ jsonArr: [JSON]) {
         var scholars: [Scholar] = []
         for scholarJson in jsonArr {
             if let scholar = parseScholar(scholarJson) {
@@ -54,7 +57,7 @@ class ScholarsKit: ApiBase {
         dbManager.addScholars(scholars)
     }
     
-    func parseScholar(json: JSON) -> Scholar? {
+    func parseScholar(_ json: JSON) -> Scholar? {
         let scholarInfo = json["scholarsInfo"]
         let scholarConnect = json["scholarConnect"]
         let scholarBatchMaybe = json["batch"].array
@@ -72,7 +75,7 @@ class ScholarsKit: ApiBase {
         
         
         if let gender = scholarInfo["gender"].string {
-            newScholar.gender = (gender == "Male") ? .Male : .Female
+            newScholar.gender = (gender == "Male") ? .male : .female
         }else {
             print("parseScholar -- \(newScholar.id) -- Missing gender")
             return nil
@@ -107,7 +110,8 @@ class ScholarsKit: ApiBase {
         }
         
         if let birthday = scholarInfo["birthday"].string {
-            newScholar.birthday = birthday.dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
+            
+            newScholar.birthday = birthday.date(inFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")!
         }else {
             print("parseScholar -- \(newScholar.id) -- Missing birthday")
             return nil
@@ -138,7 +142,7 @@ class ScholarsKit: ApiBase {
             
             batch.id = "\(id)\(batch.batchWWDC.rawValue)"
             
-            var screenshots: [URL] = []
+            var screenshots: [String] = []
             if let screenshot = workaroundServerURLEncode(batchJson["screenshotOne"].string) {
                 screenshots.append(screenshot)
             }
@@ -182,7 +186,7 @@ class ScholarsKit: ApiBase {
         }
     }
     
-    func updateScholarData(id: String,
+    func updateScholarData(_ id: String,
                            password: String,
                            profilePic: UIImage? = nil,
                            screenshotOne: UIImage? = nil,
@@ -192,7 +196,7 @@ class ScholarsKit: ApiBase {
                            firstName: String? = nil,
                            lastName: String? = nil,
                            email: String? = nil,
-                           birthday: NSDate? = nil,
+                           birthday: Date? = nil,
                            location: Location? = nil,
                            videoLink: String? = nil,
                            githubLinkApp: String? = nil,
@@ -204,115 +208,128 @@ class ScholarsKit: ApiBase {
                            itunes: String? = nil,
                            iMessage: String? = nil,
                            shortBio: String? = nil,
-                           completionHandler: ((error: NSError?, message: String) -> Void)? = nil
+                           completionHandler: ((_ error: NSError?, _ message: String) -> Void)? = nil
                            ) {
         
-        
-//        print ("Helo")
-//        return
-        upload(.POST,
-               "\(self.serverUrl)/api/updateIOSMULTER/\(self.apiKey)/\(id)",
+ 
+        Alamofire.upload(
+            
+            
+            
         multipartFormData: { multipartFormData in
-//            multipartFormData.appendBodyPart(data: id.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name: "scholar_id")
-            multipartFormData.appendBodyPart(data: password.dataUsingEncoding(NSUTF8StringEncoding)!.sha256()!.toHexString().dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!, name: "password")
+            
+            
+            multipartFormData.append(password.data(using: String.Encoding.utf8)!.sha256().toHexString().data(using: String.Encoding.utf8, allowLossyConversion: true)!, withName: "password")
             
             if let profilePic = profilePic {
-                multipartFormData.appendBodyPart(data: UIImagePNGRepresentation(profilePic)!, name: "profilePic", fileName: "profilePic.png", mimeType: "image/png")
+                multipartFormData.append(UIImagePNGRepresentation(profilePic)!, withName: "profilePic", fileName: "profilePic.png", mimeType: "image/png")
             }
             
             if let screenshotOne = screenshotOne {
-                multipartFormData.appendBodyPart(data: UIImagePNGRepresentation(screenshotOne)!, name: "screenshotOne", fileName: "screenshotOne.png", mimeType: "image/png")
+                multipartFormData.append(UIImagePNGRepresentation(screenshotOne)!, withName: "screenshotOne", fileName: "screenshotOne.png", mimeType: "image/png")
             }
             if let screenshotTwo = screenshotTwo {
-                multipartFormData.appendBodyPart(data: UIImagePNGRepresentation(screenshotTwo)!, name: "screenshotTwo", fileName: "screenshotTwo.png", mimeType: "image/png")
+                multipartFormData.append(UIImagePNGRepresentation(screenshotTwo)!, withName: "screenshotTwo", fileName: "screenshotTwo.png", mimeType: "image/png")
             }
             if let screenshotThree = screenshotThree {
-                multipartFormData.appendBodyPart(data: UIImagePNGRepresentation(screenshotThree)!, name: "screenshotThree", fileName: "screenshotThree.png", mimeType: "image/png")
+                multipartFormData.append(UIImagePNGRepresentation(screenshotThree)!, withName: "screenshotThree", fileName: "screenshotThree.png", mimeType: "image/png")
             }
             if let screenshotFour = screenshotFour {
-                multipartFormData.appendBodyPart(data: UIImagePNGRepresentation(screenshotFour)!, name: "screenshotFour", fileName: "screenshotFour.png", mimeType: "image/png")
+                multipartFormData.append(UIImagePNGRepresentation(screenshotFour)!, withName: "screenshotFour", fileName: "screenshotFour.png", mimeType: "image/png")
             }
-            
             if let firstName = firstName {
-                multipartFormData.appendBodyPart(data: firstName.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"firstName")
+                multipartFormData.append(firstName.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"firstName")
             }
             if let lastName = lastName {
-                multipartFormData.appendBodyPart(data: lastName.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"lastName")
+                multipartFormData.append(lastName.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"lastName")
             }
             if let birthday = birthday {
-                multipartFormData.appendBodyPart(data: (birthday.stringFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")).dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"birthday")
+                
+                
+                // SWIFT 3 // NEEEDS CHECKS
+                
+                let dateString = birthday.string(inDateStyle: .medium, andTimeStyle: .medium)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                
+            
+                multipartFormData.append(dateString.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "birthday")
+   
+              // ORIGINAL  multipartFormData.append((birthday.stringFromFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")).data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"birthday")
             }
             if let location = location {
-                multipartFormData.appendBodyPart(data: location.name.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"location")
-                multipartFormData.appendBodyPart(data: "\(location.latitude)".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"latitude")
-                multipartFormData.appendBodyPart(data: "\(location.longitude)".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"longtitude")
+                multipartFormData.append(location.name.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"location")
+                multipartFormData.append("\(location.latitude)".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"latitude")
+                multipartFormData.append("\(location.longitude)".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"longtitude")
             }
             if let videoLink = videoLink {
-                multipartFormData.appendBodyPart(data: videoLink.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"videoLink")
+                multipartFormData.append(videoLink.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"videoLink")
             }
             if let githubLinkApp = githubLinkApp {
-                multipartFormData.appendBodyPart(data: githubLinkApp.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"githubLinkApp")
+                multipartFormData.append(githubLinkApp.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"githubLinkApp")
             }
             if let twitter = twitter {
-                multipartFormData.appendBodyPart(data: twitter.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"twitter")
+                multipartFormData.append(twitter.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"twitter")
             }
             if let facebook = facebook {
-                multipartFormData.appendBodyPart(data: facebook.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"facebook")
+                multipartFormData.append(facebook.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"facebook")
             }
             if let github = github {
-                multipartFormData.appendBodyPart(data: github.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"github")
+                multipartFormData.append(github.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"github")
             }
             if let linkedin = linkedin {
-                multipartFormData.appendBodyPart(data: linkedin.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"linkedin")
+                multipartFormData.append(linkedin.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"linkedin")
             }
             if let itunes = itunes {
-                multipartFormData.appendBodyPart(data: itunes.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"itunes")
+                multipartFormData.append(itunes.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"itunes")
             }
             if let website = website {
-                multipartFormData.appendBodyPart(data: website.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"website")
+                multipartFormData.append(website.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"website")
             }
             if let iMessage = iMessage {
-                multipartFormData.appendBodyPart(data: iMessage.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"iMessage")
+                multipartFormData.append(iMessage.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"iMessage")
             }
             if let shortBio = shortBio {
-                multipartFormData.appendBodyPart(data: shortBio.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"shortBio")
+                multipartFormData.append(shortBio.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"shortBio")
             }
-            },
+        },to: "\(self.serverUrl)/api/updateIOSMULTER/\(self.apiKey)/\(id)", method: .post,
         encodingCompletion: { encodingResult in
             switch encodingResult {
-            case .Success(let upload, _, _):
+            case .success(let upload, _, _):
                 upload.responseData { response in
                     if response.result.error != nil {
-                        completionHandler?(error: response.result.error!, message: response.result.error!.localizedDescription)
+                        completionHandler?(response.result.error! as NSError?, response.result.error!.localizedDescription)
                         return
                     }
                     
                     let json = JSON(data: response.result.value!)
                     if json["errorCode"].int == -1 {
                         print("Retreiving Sucess code")
-                        print (json["message"].string)
+                        print (json["message"].string!)
 
                     
                         
                         
-                        completionHandler?(error: nil, message: json["message"].string!)
+                        completionHandler?(nil, json["message"].string!)
                     }else if json["errorCode"].int == -1004 {
-                        completionHandler?(error: Error.error(code: -1004, failureReason: "Wrong password!"), message: json["message"].string!)
+                        
+                        
+                       // HERE UPDATE completionHandler?(error: Error.error(code: -1004, failureReason: "Wrong password!"), message: json["message"].string!)
                     }
 //                    else if json["errorCode"].int == -1004 {
 //                        completionHandler?(error: Error.error(code: -1004, failureReason: "No scholar with that ID"), message: json["message"].string!)
 //                    }
                 }
                 break
-            case .Failure(let encodingError):
-                completionHandler?(error: encodingError as NSError, message: "Error")
+            case .failure(let encodingError):
+                completionHandler?(encodingError as NSError, "Error")
                 break
                 
             }
         })
     }
     
-    private func workaroundServerURLEncode(url: URL?) -> URL? {
-        return url?.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!.stringByReplacingOccurrencesOfString("%3A", withString: ":")
+    fileprivate func workaroundServerURLEncode(_ url: String?) -> String? {
+        return url?.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!.replacingOccurrences(of: "%3A", with: ":")
     }
 }

@@ -70,7 +70,7 @@ class ScreenshotsTableViewCell: UITableViewCell, UICollectionViewDelegate, Image
             return
         }
         
-        let appID = String().matchesForRegexInText("([\\d]{10,})", text: self.appStoreURL).first
+        let appID = String().matchesForRegexInText("(id[0-9]+)", text: self.appStoreURL).first?.replacingOccurrences(of: "id", with: "")
         if appID == nil {
             print("App Store URL is shortened version, impossible to retrieve APP ID", self.appStoreURL)
             

@@ -163,11 +163,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let storyboard = UIStoryboard(name: "ScholarDetailVC", bundle: nil)
                 
                 let vc = storyboard.instantiateViewController(withIdentifier: "scholarDetailViewController") as! ScholarDetailViewController
-                
-                guard let detailViewController: ScholarDetailViewController = vc else {
-                    return false
-                }
-                
+                                
                 detailViewController.setScholar(UserKit.sharedInstance.scholarId!)
                 // self.window?.rootViewController?.presentViewController(detailViewController, animated: true, completion: nil)
                 ((self.window?.rootViewController as! UITabBarController).viewControllers![0] as! UINavigationController).pushViewController(detailViewController, animated: true)

@@ -511,6 +511,7 @@
 		7BF086C71E28293800C8A3A0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		7BF086C81E28293800C8A3A0 /* Timepiece.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timepiece.framework; path = Carthage/Build/iOS/Timepiece.framework; sourceTree = "<group>"; };
 		7BF087111E2836A900C8A3A0 /* Alamofire+SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+SwiftyJSON.swift"; sourceTree = "<group>"; };
+		7BF087131E28BB2A00C8A3A0 /* Scholars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scholars.entitlements; sourceTree = "<group>"; };
 		9A0E57581D069FBE0071D0FF /* ServerDetails.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerDetails.plist; sourceTree = "<group>"; };
 		C0B7FB9F1CC45C9700AD376C /* ClusterAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterAnnotationView.h; sourceTree = "<group>"; };
 		C0B7FBA01CC45C9700AD376C /* ClusterAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterAnnotationView.m; sourceTree = "<group>"; };
@@ -629,6 +630,7 @@
 		2238841F1C8252D900A96752 /* WWDCScholars */ = {
 			isa = PBXGroup;
 			children = (
+				7BF087131E28BB2A00C8A3A0 /* Scholars.entitlements */,
 				7BBA876C1CBD4AA00057E9AD /* API */,
 				223F5E8C1CB9429B00E582C5 /* Blog */,
 				223F5E8D1CB942A100E582C5 /* Chat */,
@@ -1232,7 +1234,16 @@
 				TargetAttributes = {
 					2238841C1C8252D900A96752 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = YQ3FQN6Z53;
 						LastSwiftMigration = 0820;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					7B2AA6DC1CBAE7530025EC7B = {
 						CreatedOnToolsVersion = 7.3;
@@ -1631,9 +1642,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WWDCScholars/Scholars.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 144;
+				DEVELOPMENT_TEAM = YQ3FQN6Z53;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1660,9 +1673,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WWDCScholars/Scholars.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 144;
+				DEVELOPMENT_TEAM = YQ3FQN6Z53;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

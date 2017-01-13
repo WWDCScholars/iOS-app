@@ -76,10 +76,10 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == String(describing: ScholarDetailViewController()) {
+        if segue.identifier == String(describing: ScholarDetailViewController.self) {
             let destinationViewController = segue.destination as! ScholarDetailViewController
             destinationViewController.setScholar(sender as! String)
-        } else if segue.identifier == String(describing: LoadingViewController()) {
+        } else if segue.identifier == String(describing: LoadingViewController.self) {
             self.loadingViewController = segue.destination as! LoadingViewController
         }
     }
@@ -297,7 +297,7 @@ class ChatViewController: JSQMessagesViewController {
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapAvatarImageView avatarImageView: UIImageView!, at indexPath: IndexPath!) {
         let message = messages[indexPath.item]
-        self.performSegue(withIdentifier: String(describing: ScholarDetailViewController()), sender: message.senderId)
+        self.performSegue(withIdentifier: String(describing: ScholarDetailViewController.self), sender: message.senderId)
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {

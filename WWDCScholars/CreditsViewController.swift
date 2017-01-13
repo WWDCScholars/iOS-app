@@ -29,7 +29,7 @@ class CreditsViewController: UIViewController, SFSafariViewControllerDelegate, M
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == String(describing: ScholarDetailViewController()) {
+        if segue.identifier == String(describing: ScholarDetailViewController.self) {
             if let indexPath = sender as? IndexPath {
                 if let scholarId = CreditsManager.sharedInstance.getScholarId(indexPath) {
                     let destinationViewController = segue.destination as! ScholarDetailViewController

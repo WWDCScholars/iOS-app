@@ -26,10 +26,9 @@ class ScholarsKit: ApiBase {
      Loads scholars from the online database
      */
     func loadScholars(_ completionHandler: @escaping () -> Void) {
-        Alamofire.request("https://httpbin.org/get", method: .get)
+        Alamofire.request("\(self.serverUrl)/api/scholars/\(self.apiKey)", method: .get)
             .validate()
             .responseSwiftyJSON { response in
-                print (response)
                 if let json = response.result.value {
                     //                print (data)
                     //                print("JSON: \(json)")

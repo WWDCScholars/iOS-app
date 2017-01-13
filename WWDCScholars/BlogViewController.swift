@@ -34,13 +34,13 @@ class BlogViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == String(describing: BlogPostDetailViewController()) {
+        if segue.identifier == String(describing: BlogPostDetailViewController.self) {
             let destinationViewController = segue.destination as! BlogPostDetailViewController
             
             if let indexPath = sender as? IndexPath {
                 destinationViewController.currentPost = self.blogPosts[indexPath.item]
             }
-        } else if segue.identifier == String(describing: LoadingViewController()) {
+        } else if segue.identifier == String(describing: LoadingViewController.self) {
             self.loadingViewController = segue.destination as! LoadingViewController
         }
     }
@@ -141,7 +141,7 @@ extension BlogViewController: UITableViewDataSource {
 
 extension BlogViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: String(describing: BlogPostDetailViewController()), sender: indexPath)
+        self.performSegue(withIdentifier: String(describing: BlogPostDetailViewController.self), sender: indexPath)
     }
 }
 

@@ -210,7 +210,7 @@ extension IntroViewController: UIScrollViewDelegate {
                 if UserDefaults.hasOpenedApp {
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    self.performSegue(withIdentifier: String(describing: ScholarsTabBarViewController()), sender: self)
+                    self.performSegue(withIdentifier: String(describing: ScholarsTabBarViewController.self), sender: self)
                     UserDefaults.hasOpenedApp = true
                 }
             }

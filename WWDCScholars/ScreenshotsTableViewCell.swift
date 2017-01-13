@@ -145,7 +145,7 @@ extension ScreenshotsTableViewCell: UICollectionViewDataSource {
                 let imageDownloader = UIImageView.af_sharedImageDownloader
                 let urlRequest = Foundation.URLRequest(url: screenshot!)
                 //Clear from in-memory cache
-                imageDownloader.imageCache?.removeImage(for: urlRequest, withIdentifier: nil)
+                _ = imageDownloader.imageCache?.removeImage(for: urlRequest, withIdentifier: nil)
                 //Clear from on-disk cache
                 imageDownloader.sessionManager.session.configuration.urlCache?.removeCachedResponse(for: urlRequest)
                 

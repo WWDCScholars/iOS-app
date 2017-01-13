@@ -66,7 +66,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == String(describing: ScholarDetailViewController()) {
+        if segue.identifier == String(describing: ScholarDetailViewController.self) {
             let destinationViewController = segue.destination as! ScholarDetailViewController
             destinationViewController.delegate = self
             
@@ -75,7 +75,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
             } else if let scholarID = sender as? String {
                 destinationViewController.setScholar(scholarID)
             }
-        } else if segue.identifier == String(describing: LoadingViewController()) {
+        } else if segue.identifier == String(describing: LoadingViewController.self) {
             self.loadingViewController = segue.destination as! LoadingViewController
         }
     }
@@ -97,7 +97,7 @@ class ScholarsViewController: UIViewController, SFSafariViewControllerDelegate, 
     }
     
     func openScholarDetail(_ id: String) {
-        self.performSegue(withIdentifier: String(describing: ScholarDetailViewController()), sender: id)
+        self.performSegue(withIdentifier: String(describing: ScholarDetailViewController.self), sender: id)
     }
     
     func changeYear(_ indexPath: IndexPath) {
@@ -506,7 +506,7 @@ extension ScholarsViewController: UICollectionViewDelegate {
         if collectionView == self.scholarsCollectionView {
             self.view.endEditing(true)
             
-            self.performSegue(withIdentifier: String(describing: ScholarDetailViewController()), sender: indexPath)
+            self.performSegue(withIdentifier: String(describing: ScholarDetailViewController.self), sender: indexPath)
         } else if collectionView == self.yearCollectionView {
             let cell = self.yearCollectionView.cellForItem(at: indexPath) as! YearCollectionViewCell
             
@@ -637,7 +637,7 @@ extension ScholarsViewController: MKMapViewDelegate {
         if view.isKind(of: MKAnnotationView.classForCoder()) {
             let annotation = view.annotation as! ScholarAnnotation
             
-            self.performSegue(withIdentifier: String(describing: ScholarDetailViewController()), sender: annotation.id)
+            self.performSegue(withIdentifier: String(describing: ScholarDetailViewController.self), sender: annotation.id)
         }
     }
 }

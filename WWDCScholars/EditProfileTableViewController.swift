@@ -105,7 +105,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == String(describing: LocationSelectViewController()) {
+        if segue.identifier == String(describing: LocationSelectViewController.self) {
             let navigationController = segue.destination as! UINavigationController
             let destinationViewController = navigationController.topViewController as! LocationSelectViewController
             destinationViewController.passedLocation = self.myLocation
@@ -525,7 +525,7 @@ class EditProfileTableViewController: UITableViewController, UINavigationControl
     }
     
     @IBAction func selectLocationButtonTapped(_ sender: AnyObject) {
-        self.performSegue(withIdentifier: String(describing: LocationSelectViewController()), sender: nil)
+        self.performSegue(withIdentifier: String(describing: LocationSelectViewController.self), sender: nil)
     }
 }
 

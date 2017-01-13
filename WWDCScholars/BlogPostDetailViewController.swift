@@ -86,7 +86,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == String(describing: ScholarDetailViewController()) {
+        if segue.identifier == String(describing: ScholarDetailViewController.self) {
             let destinationViewController = segue.destination as! ScholarDetailViewController
             destinationViewController.delegate = self
             destinationViewController.setScholar(self.currentPostAuthor!.id)
@@ -225,7 +225,7 @@ class BlogPostDetailViewController: UIViewController, SFSafariViewControllerDele
             present(safariVC, animated: true, completion: nil)
             
         } else {
-            self.performSegue(withIdentifier: String(describing: ScholarDetailViewController()), sender: nil)
+            self.performSegue(withIdentifier: String(describing: ScholarDetailViewController.self), sender: nil)
         }
     }
     

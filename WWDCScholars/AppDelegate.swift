@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let window = self.window {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: String(describing: "ScholarsTabBarViewController"))
+            let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: "ScholarsTabBarViewController")
             
            // let mainViewController: ScholarsTabBarViewController = mainStoryboard.instantiateViewController(withIdentifier: String(describing: ScholarsTabBarViewController())) as! ScholarsTabBarViewController
             

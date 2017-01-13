@@ -9,8 +9,8 @@
 import UIKit
 
 class LoadingViewController: UIViewController {
-    @IBOutlet fileprivate weak var activityIndicator = UIActivityIndicatorView()
-    @IBOutlet fileprivate weak var loadingLabel = UILabel()
+    @IBOutlet fileprivate weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet fileprivate weak var loadingLabel: UILabel!
     
     var loadingMessage: String? {
         didSet {

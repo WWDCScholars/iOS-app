@@ -40,7 +40,7 @@ class ChatListViewController: UIViewController, SignInDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == String(describing: ChatViewController()) {
+        if segue.identifier == String(describing: ChatViewController.self) {
             let destinationViewController = segue.destination as! ChatViewController
             
             if let indexPath = sender as? IndexPath {
@@ -120,7 +120,7 @@ extension ChatListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
         
-        self.performSegue(withIdentifier: String(describing: ChatViewController()), sender: indexPath)
+        self.performSegue(withIdentifier: String(describing: ChatViewController.self), sender: indexPath)
     }
 }
 

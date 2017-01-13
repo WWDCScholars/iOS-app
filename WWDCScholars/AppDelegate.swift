@@ -99,19 +99,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     
         let photoCache = AutoPurgingImageCache( memoryCapacity: 50 * 1024 * 1024, preferredMemoryUsageAfterPurge: 20 * 1024 * 1024 )
-        
-        
-        let mng = Alamofire.SessionManager.default
-        
-        
-        let newImageDownloader = ImageDownloader(sessionManager: mng, downloadPrioritization: .fifo, maximumActiveDownloads: 50, imageCache: photoCache)
+//
+//        
+//        let mng = Alamofire.SessionManager.default
+//        
+//        
+        let newImageDownloader = ImageDownloader(downloadPrioritization: .fifo, maximumActiveDownloads: 50, imageCache: photoCache)
         UIImageView.af_sharedImageDownloader = newImageDownloader
         
         // 3D Touch
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
-            self.handleShortcut(shortcutItem)
-            
-            return false
+            return self.handleShortcut(shortcutItem)
         }
         
         

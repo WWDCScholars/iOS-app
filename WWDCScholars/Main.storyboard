@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wIZ-DC-Vqm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wIZ-DC-Vqm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,8 +23,8 @@
                         <segue destination="reF-Rs-8go" kind="relationship" relationship="viewControllers" id="iKX-ue-aqQ"/>
                         <segue destination="Ynw-Bn-98Z" kind="relationship" relationship="viewControllers" id="ZjR-3p-DQU"/>
                         <segue destination="9jZ-Hk-H9N" kind="relationship" relationship="viewControllers" id="Md7-aM-HbN"/>
-                        <segue destination="qV9-pH-lSv" kind="relationship" relationship="viewControllers" id="nE5-jA-7rA"/>
-                        <segue destination="vQc-4G-T7I" kind="relationship" relationship="viewControllers" id="ee4-To-k9Z"/>
+                        <segue destination="WOy-X8-9hM" kind="relationship" relationship="viewControllers" id="SBJ-lv-d90"/>
+                        <segue destination="vQc-4G-T7I" kind="relationship" relationship="viewControllers" id="6LR-qr-NpH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wkk-Oy-SFo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -68,7 +68,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="scholarDetailViewController" storyboardName="ScholarDetailVC" referencedIdentifier="scholarDetailViewController" id="z7X-cv-lvg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tF-AP-JMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="596.5" y="124"/>
+            <point key="canvasLocation" x="654" y="123"/>
         </scene>
         <!--UINavigationController-EFS-Va-uZI-->
         <scene sceneID="GTt-g6-E3u">
@@ -78,7 +78,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0B-yC-PXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620.5" y="244"/>
+            <point key="canvasLocation" x="826" y="234"/>
         </scene>
         <!--blogPostDetailViewController-->
         <scene sceneID="qgq-5f-Q4g">
@@ -86,7 +86,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="blogPostDetailViewController" storyboardName="Blog" referencedIdentifier="blogPostDetailViewController" id="xVb-qn-I4P" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYf-lJ-zmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="600.5" y="180"/>
+            <point key="canvasLocation" x="684" y="179"/>
         </scene>
         <!--Credits-->
         <scene sceneID="DSx-xU-nqS">
@@ -116,6 +116,16 @@
             </objects>
             <point key="canvasLocation" x="75.5" y="733"/>
         </scene>
+        <!--NearMe-->
+        <scene sceneID="9QB-pa-dpQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NearMe" id="WOy-X8-9hM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="5vS-cX-v2F"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gkn-e6-MPf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="946" y="311"/>
+        </scene>
         <!--Chat-->
         <scene sceneID="Gux-bA-RpV">
             <objects>
@@ -124,7 +134,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ECQ-gZ-vTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="528.5" y="332"/>
+            <point key="canvasLocation" x="786" y="373"/>
         </scene>
         <!--EditDetailsNC-->
         <scene sceneID="dOt-ae-5gj">

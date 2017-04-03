@@ -13,6 +13,10 @@
 		0E93C3A81CFFD2CE00E366DC /* Scholar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93C3A71CFFD2CE00E366DC /* Scholar.storyboard */; };
 		0E93C3AA1CFFD40200E366DC /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93C3A91CFFD40200E366DC /* Chat.storyboard */; };
 		0E93C3AC1CFFD4D100E366DC /* EditDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93C3AB1CFFD4D100E366DC /* EditDetails.storyboard */; };
+		2226A8271E92A4B2007AC6C0 /* NearMe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2226A8261E92A4B2007AC6C0 /* NearMe.storyboard */; };
+		2226A8291E92A770007AC6C0 /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226A8281E92A770007AC6C0 /* NearMeViewController.swift */; };
+		2226A8321E92A9F9007AC6C0 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2226A8301E92A9F9007AC6C0 /* Realm.framework */; };
+		2226A8331E92A9F9007AC6C0 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2226A8311E92A9F9007AC6C0 /* RealmSwift.framework */; };
 		22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */; };
 		22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */; };
 		2235A7EB1E1F2D7100E8CB8E /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2235A7E81E1F2D7100E8CB8E /* DesignableButton.swift */; };
@@ -171,8 +175,6 @@
 		7BF086CA1E28293800C8A3A0 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086AA1E28293800C8A3A0 /* AlamofireImage.framework */; };
 		7BF086CB1E28293800C8A3A0 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086AB1E28293800C8A3A0 /* CryptoSwift.framework */; };
 		7BF086E41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework */; };
-		7BF086E51E28293800C8A3A0 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C51E28293800C8A3A0 /* Realm.framework */; };
-		7BF086E61E28293800C8A3A0 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C61E28293800C8A3A0 /* RealmSwift.framework */; };
 		7BF086E71E28293800C8A3A0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C71E28293800C8A3A0 /* SwiftyJSON.framework */; };
 		7BF086E81E28293800C8A3A0 /* Timepiece.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C81E28293800C8A3A0 /* Timepiece.framework */; };
 		7BF086F91E282B7A00C8A3A0 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086AC1E28293800C8A3A0 /* Firebase.framework */; };
@@ -255,6 +257,10 @@
 		0E93C3A71CFFD2CE00E366DC /* Scholar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scholar.storyboard; sourceTree = "<group>"; };
 		0E93C3A91CFFD40200E366DC /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		0E93C3AB1CFFD4D100E366DC /* EditDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditDetails.storyboard; sourceTree = "<group>"; };
+		2226A8261E92A4B2007AC6C0 /* NearMe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NearMe.storyboard; sourceTree = "<group>"; };
+		2226A8281E92A770007AC6C0 /* NearMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeViewController.swift; sourceTree = "<group>"; };
+		2226A8301E92A9F9007AC6C0 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		2226A8311E92A9F9007AC6C0 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		2235A7E81E1F2D7100E8CB8E /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
@@ -506,8 +512,6 @@
 		7BF086C21E28293800C8A3A0 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Carthage/Build/iOS/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 		7BF086C31E28293800C8A3A0 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Carthage/Build/iOS/GoogleUtilities.framework; sourceTree = "<group>"; };
 		7BF086C41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQSystemSoundPlayer.framework; path = Carthage/Build/iOS/JSQSystemSoundPlayer.framework; sourceTree = "<group>"; };
-		7BF086C51E28293800C8A3A0 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		7BF086C61E28293800C8A3A0 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		7BF086C71E28293800C8A3A0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		7BF086C81E28293800C8A3A0 /* Timepiece.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timepiece.framework; path = Carthage/Build/iOS/Timepiece.framework; sourceTree = "<group>"; };
 		7BF087111E2836A900C8A3A0 /* Alamofire+SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+SwiftyJSON.swift"; sourceTree = "<group>"; };
@@ -533,6 +537,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2226A8321E92A9F9007AC6C0 /* Realm.framework in Frameworks */,
+				2226A8331E92A9F9007AC6C0 /* RealmSwift.framework in Frameworks */,
 				7BF086F91E282B7A00C8A3A0 /* Firebase.framework in Frameworks */,
 				7BF086FA1E282B7A00C8A3A0 /* FirebaseAnalytics.framework in Frameworks */,
 				7BF086FB1E282B7A00C8A3A0 /* FirebaseAppIndexing.framework in Frameworks */,
@@ -560,8 +566,6 @@
 				7BF086CA1E28293800C8A3A0 /* AlamofireImage.framework in Frameworks */,
 				7BF086CB1E28293800C8A3A0 /* CryptoSwift.framework in Frameworks */,
 				7BF086E41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework in Frameworks */,
-				7BF086E51E28293800C8A3A0 /* Realm.framework in Frameworks */,
-				7BF086E61E28293800C8A3A0 /* RealmSwift.framework in Frameworks */,
 				7BF086E71E28293800C8A3A0 /* SwiftyJSON.framework in Frameworks */,
 				7BF086E81E28293800C8A3A0 /* Timepiece.framework in Frameworks */,
 				6ED962BB1CF8B3B300551E94 /* QuartzCore.framework in Frameworks */,
@@ -595,6 +599,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2226A8251E92A491007AC6C0 /* Near me */ = {
+			isa = PBXGroup;
+			children = (
+				2226A8261E92A4B2007AC6C0 /* NearMe.storyboard */,
+				2226A8281E92A770007AC6C0 /* NearMeViewController.swift */,
+			);
+			name = "Near me";
+			sourceTree = "<group>";
+		};
 		22297D631CBA8A2A00BF5B41 /* Edit Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -640,6 +653,7 @@
 				223F5E8F1CB942B000E582C5 /* General */,
 				6EEA89211CDBE1F500245445 /* Intro */,
 				224355C51CC1D468001FFAD0 /* Login */,
+				2226A8251E92A491007AC6C0 /* Near me */,
 				6EEA89281CDBFAE600245445 /* Managers */,
 				223F5E8B1CB9429200E582C5 /* Scholars */,
 				6EEA892C1CDBFC8800245445 /* UI */,
@@ -1095,6 +1109,8 @@
 		7BBA87A21CBD5D680057E9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2226A8301E92A9F9007AC6C0 /* Realm.framework */,
+				2226A8311E92A9F9007AC6C0 /* RealmSwift.framework */,
 				7BF087111E2836A900C8A3A0 /* Alamofire+SwiftyJSON.swift */,
 				7BF086A91E28293800C8A3A0 /* Alamofire.framework */,
 				7BF086AA1E28293800C8A3A0 /* AlamofireImage.framework */,
@@ -1124,8 +1140,6 @@
 				7BF086C21E28293800C8A3A0 /* GoogleSymbolUtilities.framework */,
 				7BF086C31E28293800C8A3A0 /* GoogleUtilities.framework */,
 				7BF086C41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework */,
-				7BF086C51E28293800C8A3A0 /* Realm.framework */,
-				7BF086C61E28293800C8A3A0 /* RealmSwift.framework */,
 				7BF086C71E28293800C8A3A0 /* SwiftyJSON.framework */,
 				7BF086C81E28293800C8A3A0 /* Timepiece.framework */,
 				7B3FE4491D0C2980008E270E /* SimulatorStatusMagic */,
@@ -1286,6 +1300,7 @@
 				6ED962B91CF8B28800551E94 /* JSQMessagesTypingIndicatorFooterView.xib in Resources */,
 				6ED962B71CF8B28800551E94 /* JSQMessagesToolbarContentView.xib in Resources */,
 				6ED9628C1CF8B28800551E94 /* JSQMessagesAssets.bundle in Resources */,
+				2226A8271E92A4B2007AC6C0 /* NearMe.storyboard in Resources */,
 				2238842B1C8252D900A96752 /* LaunchScreen.storyboard in Resources */,
 				6E7952871CF640E100160B26 /* GoogleService-Info.plist in Resources */,
 				223F5E9B1CB9724000E582C5 /* tabBarDidSelectItem.m4a in Resources */,
@@ -1448,6 +1463,7 @@
 				223F5E931CB9436200E582C5 /* Style.swift in Sources */,
 				6ED962B21CF8B28800551E94 /* JSQMessagesLabel.m in Sources */,
 				6ED962CB1CF8CAA300551E94 /* JTSImageInfo.m in Sources */,
+				2226A8291E92A770007AC6C0 /* NearMeViewController.swift in Sources */,
 				6ED962A71CF8B28800551E94 /* JSQPhotoMediaItem.m in Sources */,
 				7BEB49281CFAE59500A71BAA /* LoadingViewController.swift in Sources */,
 				6ED962AA1CF8B28800551E94 /* JSQMessagesCollectionView.m in Sources */,

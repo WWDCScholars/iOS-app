@@ -11,7 +11,6 @@
 		0E93C3A41CFFD04B00E366DC /* Blog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93C3A31CFFD04B00E366DC /* Blog.storyboard */; };
 		0E93C3A61CFFD16B00E366DC /* Credits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93C3A51CFFD16B00E366DC /* Credits.storyboard */; };
 		0E93C3A81CFFD2CE00E366DC /* Scholar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93C3A71CFFD2CE00E366DC /* Scholar.storyboard */; };
-		0E93C3AA1CFFD40200E366DC /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93C3A91CFFD40200E366DC /* Chat.storyboard */; };
 		0E93C3AC1CFFD4D100E366DC /* EditDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93C3AB1CFFD4D100E366DC /* EditDetails.storyboard */; };
 		2226A8271E92A4B2007AC6C0 /* NearMe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2226A8261E92A4B2007AC6C0 /* NearMe.storyboard */; };
 		2226A8291E92A770007AC6C0 /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226A8281E92A770007AC6C0 /* NearMeViewController.swift */; };
@@ -38,7 +37,6 @@
 		223F5E9B1CB9724000E582C5 /* tabBarDidSelectItem.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 223F5E981CB9709600E582C5 /* tabBarDidSelectItem.m4a */; };
 		224355D31CC1D624001FFAD0 /* DragDropBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224355D21CC1D624001FFAD0 /* DragDropBehavior.swift */; };
 		22543B1F1CB70182003F9422 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B1E1CB70182003F9422 /* BlogViewController.swift */; };
-		22543B211CB7019A003F9422 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22543B201CB7019A003F9422 /* ChatViewController.swift */; };
 		22671A641CE3D19F0055F91B /* BlogPostSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22671A631CE3D19F0055F91B /* BlogPostSafariViewController.swift */; };
 		22AA36691CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AA36681CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.m */; };
 		22AA366C1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AA366B1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
@@ -53,9 +51,6 @@
 		6E1F6D5D1CC1B2F2002D17DB /* BioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */; };
 		6E24BF331CF4B088002D00B2 /* SocialButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E24BF321CF4B088002D00B2 /* SocialButtonsTableViewCell.swift */; };
 		6E251F6A1CE6C4C100F9ADFC /* SpotlightManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E251F691CE6C4C100F9ADFC /* SpotlightManager.swift */; };
-		6E26BEFE1D01B1D20049F11B /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E26BEFD1D01B1D20049F11B /* ChatListViewController.swift */; };
-		6E26BF041D01B2050049F11B /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E26BF031D01B2050049F11B /* ChatTableViewCell.swift */; };
-		6E26BF061D01B2730049F11B /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E26BF051D01B2730049F11B /* ChatRoom.swift */; };
 		6E26BF081D01BF830049F11B /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E26BF071D01BF830049F11B /* SignedInViewController.swift */; };
 		6E447DB11CC3E4FE00014B12 /* ScreenshotsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E447DB01CC3E4FE00014B12 /* ScreenshotsCollectionViewCell.swift */; };
 		6E447DB31CC3E5D100014B12 /* ScreenshotsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E447DB21CC3E5D100014B12 /* ScreenshotsTableViewCell.swift */; };
@@ -177,29 +172,6 @@
 		7BF086CB1E28293800C8A3A0 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086AB1E28293800C8A3A0 /* CryptoSwift.framework */; };
 		7BF086E41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework */; };
 		7BF086E81E28293800C8A3A0 /* Timepiece.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C81E28293800C8A3A0 /* Timepiece.framework */; };
-		7BF086F91E282B7A00C8A3A0 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086AC1E28293800C8A3A0 /* Firebase.framework */; };
-		7BF086FA1E282B7A00C8A3A0 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086AD1E28293800C8A3A0 /* FirebaseAnalytics.framework */; };
-		7BF086FB1E282B7A00C8A3A0 /* FirebaseAppIndexing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086AE1E28293800C8A3A0 /* FirebaseAppIndexing.framework */; };
-		7BF086FC1E282B7A00C8A3A0 /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086AF1E28293800C8A3A0 /* FirebaseAuth.framework */; };
-		7BF086FE1E282B7A00C8A3A0 /* FirebaseCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086B11E28293800C8A3A0 /* FirebaseCrash.framework */; };
-		7BF086FF1E282B7A00C8A3A0 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086B21E28293800C8A3A0 /* FirebaseDatabase.framework */; };
-		7BF087001E282B7A00C8A3A0 /* FirebaseDynamicLinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086B31E28293800C8A3A0 /* FirebaseDynamicLinks.framework */; };
-		7BF087011E282B7A00C8A3A0 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086B41E28293800C8A3A0 /* FirebaseInstanceID.framework */; };
-		7BF087021E282B7A00C8A3A0 /* FirebaseInvites.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086B51E28293800C8A3A0 /* FirebaseInvites.framework */; };
-		7BF087031E282B7A00C8A3A0 /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086B61E28293800C8A3A0 /* FirebaseMessaging.framework */; };
-		7BF087041E282B7A00C8A3A0 /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086B71E28293800C8A3A0 /* FirebaseRemoteConfig.framework */; };
-		7BF087051E282B7A00C8A3A0 /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086B81E28293800C8A3A0 /* FirebaseStorage.framework */; };
-		7BF087061E282B7A00C8A3A0 /* GoogleAppUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086B91E28293800C8A3A0 /* GoogleAppUtilities.framework */; };
-		7BF087071E282B7A00C8A3A0 /* GoogleAuthUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086BA1E28293800C8A3A0 /* GoogleAuthUtilities.framework */; };
-		7BF087081E282B7A00C8A3A0 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086BB1E28293800C8A3A0 /* GoogleInterchangeUtilities.framework */; };
-		7BF087091E282B7A00C8A3A0 /* GoogleIPhoneUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086BC1E28293800C8A3A0 /* GoogleIPhoneUtilities.framework */; };
-		7BF0870A1E282B7A00C8A3A0 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086BD1E28293800C8A3A0 /* GoogleMobileAds.framework */; };
-		7BF0870B1E282B7A00C8A3A0 /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086BE1E28293800C8A3A0 /* GoogleNetworkingUtilities.framework */; };
-		7BF0870C1E282B7A00C8A3A0 /* GoogleParsingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086BF1E28293800C8A3A0 /* GoogleParsingUtilities.framework */; };
-		7BF0870D1E282B7A00C8A3A0 /* GooglePlusUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C01E28293800C8A3A0 /* GooglePlusUtilities.framework */; };
-		7BF0870E1E282B7A00C8A3A0 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C11E28293800C8A3A0 /* GoogleSignIn.framework */; };
-		7BF0870F1E282B7A00C8A3A0 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C21E28293800C8A3A0 /* GoogleSymbolUtilities.framework */; };
-		7BF087101E282B7A00C8A3A0 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C31E28293800C8A3A0 /* GoogleUtilities.framework */; };
 		7BF087121E2836A900C8A3A0 /* Alamofire+SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF087111E2836A900C8A3A0 /* Alamofire+SwiftyJSON.swift */; };
 		9A0E57591D069FBE0071D0FF /* ServerDetails.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A0E57581D069FBE0071D0FF /* ServerDetails.plist */; };
 		C0B7FBAA1CC45C9700AD376C /* ClusterAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B7FBA01CC45C9700AD376C /* ClusterAnnotationView.m */; };
@@ -255,7 +227,6 @@
 		0E93C3A31CFFD04B00E366DC /* Blog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Blog.storyboard; sourceTree = "<group>"; };
 		0E93C3A51CFFD16B00E366DC /* Credits.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Credits.storyboard; sourceTree = "<group>"; };
 		0E93C3A71CFFD2CE00E366DC /* Scholar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scholar.storyboard; sourceTree = "<group>"; };
-		0E93C3A91CFFD40200E366DC /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		0E93C3AB1CFFD4D100E366DC /* EditDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditDetails.storyboard; sourceTree = "<group>"; };
 		2226A8261E92A4B2007AC6C0 /* NearMe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NearMe.storyboard; sourceTree = "<group>"; };
 		2226A8281E92A770007AC6C0 /* NearMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeViewController.swift; sourceTree = "<group>"; };
@@ -284,7 +255,6 @@
 		223F5E991CB970EC00E582C5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		224355D21CC1D624001FFAD0 /* DragDropBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragDropBehavior.swift; sourceTree = "<group>"; };
 		22543B1E1CB70182003F9422 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		22543B201CB7019A003F9422 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		22671A631CE3D19F0055F91B /* BlogPostSafariViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostSafariViewController.swift; sourceTree = "<group>"; };
 		22AA36661CC2765D0061FF09 /* WWDCScholars-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WWDCScholars-Bridging-Header.h"; sourceTree = "<group>"; };
 		22AA36671CC2765E0061FF09 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
@@ -302,9 +272,6 @@
 		6E1F6D5C1CC1B2F2002D17DB /* BioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioTableViewCell.swift; sourceTree = "<group>"; };
 		6E24BF321CF4B088002D00B2 /* SocialButtonsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialButtonsTableViewCell.swift; sourceTree = "<group>"; };
 		6E251F691CE6C4C100F9ADFC /* SpotlightManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightManager.swift; sourceTree = "<group>"; };
-		6E26BEFD1D01B1D20049F11B /* ChatListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
-		6E26BF031D01B2050049F11B /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
-		6E26BF051D01B2730049F11B /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		6E26BF071D01BF830049F11B /* SignedInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
 		6E447DB01CC3E4FE00014B12 /* ScreenshotsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotsCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E447DB21CC3E5D100014B12 /* ScreenshotsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotsTableViewCell.swift; sourceTree = "<group>"; };
@@ -488,30 +455,6 @@
 		7BF086A91E28293800C8A3A0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		7BF086AA1E28293800C8A3A0 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		7BF086AB1E28293800C8A3A0 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
-		7BF086AC1E28293800C8A3A0 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = Carthage/Build/iOS/Firebase.framework; sourceTree = "<group>"; };
-		7BF086AD1E28293800C8A3A0 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Carthage/Build/iOS/FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		7BF086AE1E28293800C8A3A0 /* FirebaseAppIndexing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAppIndexing.framework; path = Carthage/Build/iOS/FirebaseAppIndexing.framework; sourceTree = "<group>"; };
-		7BF086AF1E28293800C8A3A0 /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Carthage/Build/iOS/FirebaseAuth.framework; sourceTree = "<group>"; };
-		7BF086B01E28293800C8A3A0 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Carthage/Build/iOS/FirebaseCore.framework; sourceTree = "<group>"; };
-		7BF086B11E28293800C8A3A0 /* FirebaseCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCrash.framework; path = Carthage/Build/iOS/FirebaseCrash.framework; sourceTree = "<group>"; };
-		7BF086B21E28293800C8A3A0 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Carthage/Build/iOS/FirebaseDatabase.framework; sourceTree = "<group>"; };
-		7BF086B31E28293800C8A3A0 /* FirebaseDynamicLinks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDynamicLinks.framework; path = Carthage/Build/iOS/FirebaseDynamicLinks.framework; sourceTree = "<group>"; };
-		7BF086B41E28293800C8A3A0 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Carthage/Build/iOS/FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		7BF086B51E28293800C8A3A0 /* FirebaseInvites.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInvites.framework; path = Carthage/Build/iOS/FirebaseInvites.framework; sourceTree = "<group>"; };
-		7BF086B61E28293800C8A3A0 /* FirebaseMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMessaging.framework; path = Carthage/Build/iOS/FirebaseMessaging.framework; sourceTree = "<group>"; };
-		7BF086B71E28293800C8A3A0 /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseRemoteConfig.framework; path = Carthage/Build/iOS/FirebaseRemoteConfig.framework; sourceTree = "<group>"; };
-		7BF086B81E28293800C8A3A0 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Carthage/Build/iOS/FirebaseStorage.framework; sourceTree = "<group>"; };
-		7BF086B91E28293800C8A3A0 /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppUtilities.framework; path = Carthage/Build/iOS/GoogleAppUtilities.framework; sourceTree = "<group>"; };
-		7BF086BA1E28293800C8A3A0 /* GoogleAuthUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAuthUtilities.framework; path = Carthage/Build/iOS/GoogleAuthUtilities.framework; sourceTree = "<group>"; };
-		7BF086BB1E28293800C8A3A0 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Carthage/Build/iOS/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
-		7BF086BC1E28293800C8A3A0 /* GoogleIPhoneUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleIPhoneUtilities.framework; path = Carthage/Build/iOS/GoogleIPhoneUtilities.framework; sourceTree = "<group>"; };
-		7BF086BD1E28293800C8A3A0 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Carthage/Build/iOS/GoogleMobileAds.framework; sourceTree = "<group>"; };
-		7BF086BE1E28293800C8A3A0 /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = Carthage/Build/iOS/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
-		7BF086BF1E28293800C8A3A0 /* GoogleParsingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleParsingUtilities.framework; path = Carthage/Build/iOS/GoogleParsingUtilities.framework; sourceTree = "<group>"; };
-		7BF086C01E28293800C8A3A0 /* GooglePlusUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlusUtilities.framework; path = Carthage/Build/iOS/GooglePlusUtilities.framework; sourceTree = "<group>"; };
-		7BF086C11E28293800C8A3A0 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = Carthage/Build/iOS/GoogleSignIn.framework; sourceTree = "<group>"; };
-		7BF086C21E28293800C8A3A0 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Carthage/Build/iOS/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
-		7BF086C31E28293800C8A3A0 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Carthage/Build/iOS/GoogleUtilities.framework; sourceTree = "<group>"; };
 		7BF086C41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQSystemSoundPlayer.framework; path = Carthage/Build/iOS/JSQSystemSoundPlayer.framework; sourceTree = "<group>"; };
 		7BF086C81E28293800C8A3A0 /* Timepiece.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timepiece.framework; path = Carthage/Build/iOS/Timepiece.framework; sourceTree = "<group>"; };
 		7BF087111E2836A900C8A3A0 /* Alamofire+SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+SwiftyJSON.swift"; sourceTree = "<group>"; };
@@ -539,32 +482,9 @@
 			files = (
 				2226A8321E92A9F9007AC6C0 /* Realm.framework in Frameworks */,
 				2226A8331E92A9F9007AC6C0 /* RealmSwift.framework in Frameworks */,
-				7BF086FE1E282B7A00C8A3A0 /* FirebaseCrash.framework in Frameworks */,
 				7BF086C91E28293800C8A3A0 /* Alamofire.framework in Frameworks */,
 				7BF086CA1E28293800C8A3A0 /* AlamofireImage.framework in Frameworks */,
-				7BF086FF1E282B7A00C8A3A0 /* FirebaseDatabase.framework in Frameworks */,
-				7BF087001E282B7A00C8A3A0 /* FirebaseDynamicLinks.framework in Frameworks */,
 				7BF086CB1E28293800C8A3A0 /* CryptoSwift.framework in Frameworks */,
-				7BF087011E282B7A00C8A3A0 /* FirebaseInstanceID.framework in Frameworks */,
-				7BF086F91E282B7A00C8A3A0 /* Firebase.framework in Frameworks */,
-				7BF086FA1E282B7A00C8A3A0 /* FirebaseAnalytics.framework in Frameworks */,
-				7BF086FB1E282B7A00C8A3A0 /* FirebaseAppIndexing.framework in Frameworks */,
-				7BF086FC1E282B7A00C8A3A0 /* FirebaseAuth.framework in Frameworks */,
-				7BF087021E282B7A00C8A3A0 /* FirebaseInvites.framework in Frameworks */,
-				7BF087031E282B7A00C8A3A0 /* FirebaseMessaging.framework in Frameworks */,
-				7BF087041E282B7A00C8A3A0 /* FirebaseRemoteConfig.framework in Frameworks */,
-				7BF087051E282B7A00C8A3A0 /* FirebaseStorage.framework in Frameworks */,
-				7BF087061E282B7A00C8A3A0 /* GoogleAppUtilities.framework in Frameworks */,
-				7BF087071E282B7A00C8A3A0 /* GoogleAuthUtilities.framework in Frameworks */,
-				7BF087081E282B7A00C8A3A0 /* GoogleInterchangeUtilities.framework in Frameworks */,
-				7BF087091E282B7A00C8A3A0 /* GoogleIPhoneUtilities.framework in Frameworks */,
-				7BF0870A1E282B7A00C8A3A0 /* GoogleMobileAds.framework in Frameworks */,
-				7BF0870B1E282B7A00C8A3A0 /* GoogleNetworkingUtilities.framework in Frameworks */,
-				7BF0870C1E282B7A00C8A3A0 /* GoogleParsingUtilities.framework in Frameworks */,
-				7BF0870D1E282B7A00C8A3A0 /* GooglePlusUtilities.framework in Frameworks */,
-				7BF0870E1E282B7A00C8A3A0 /* GoogleSignIn.framework in Frameworks */,
-				7BF0870F1E282B7A00C8A3A0 /* GoogleSymbolUtilities.framework in Frameworks */,
-				7BF087101E282B7A00C8A3A0 /* GoogleUtilities.framework in Frameworks */,
 				2226A83E1E92B931007AC6C0 /* SwiftyJSON.framework in Frameworks */,
 				7BF086E41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework in Frameworks */,
 				7BF086E81E28293800C8A3A0 /* Timepiece.framework in Frameworks */,
@@ -646,7 +566,6 @@
 				7BF087131E28BB2A00C8A3A0 /* Scholars.entitlements */,
 				7BBA876C1CBD4AA00057E9AD /* API */,
 				223F5E8C1CB9429B00E582C5 /* Blog */,
-				223F5E8D1CB942A100E582C5 /* Chat */,
 				223F5E8E1CB942A700E582C5 /* Credits */,
 				6EAD10B81CC1905F00E0A2A0 /* Details */,
 				22297D631CBA8A2A00BF5B41 /* Edit Details */,
@@ -686,18 +605,6 @@
 				0E93C3A31CFFD04B00E366DC /* Blog.storyboard */,
 			);
 			name = Blog;
-			sourceTree = "<group>";
-		};
-		223F5E8D1CB942A100E582C5 /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				22543B201CB7019A003F9422 /* ChatViewController.swift */,
-				0E93C3A91CFFD40200E366DC /* Chat.storyboard */,
-				6E26BEFD1D01B1D20049F11B /* ChatListViewController.swift */,
-				6E26BF031D01B2050049F11B /* ChatTableViewCell.swift */,
-				6E26BF051D01B2730049F11B /* ChatRoom.swift */,
-			);
-			name = Chat;
 			sourceTree = "<group>";
 		};
 		223F5E8E1CB942A700E582C5 /* Credits */ = {
@@ -1116,30 +1023,6 @@
 				7BF086A91E28293800C8A3A0 /* Alamofire.framework */,
 				7BF086AA1E28293800C8A3A0 /* AlamofireImage.framework */,
 				7BF086AB1E28293800C8A3A0 /* CryptoSwift.framework */,
-				7BF086AC1E28293800C8A3A0 /* Firebase.framework */,
-				7BF086AD1E28293800C8A3A0 /* FirebaseAnalytics.framework */,
-				7BF086AE1E28293800C8A3A0 /* FirebaseAppIndexing.framework */,
-				7BF086AF1E28293800C8A3A0 /* FirebaseAuth.framework */,
-				7BF086B01E28293800C8A3A0 /* FirebaseCore.framework */,
-				7BF086B11E28293800C8A3A0 /* FirebaseCrash.framework */,
-				7BF086B21E28293800C8A3A0 /* FirebaseDatabase.framework */,
-				7BF086B31E28293800C8A3A0 /* FirebaseDynamicLinks.framework */,
-				7BF086B41E28293800C8A3A0 /* FirebaseInstanceID.framework */,
-				7BF086B51E28293800C8A3A0 /* FirebaseInvites.framework */,
-				7BF086B61E28293800C8A3A0 /* FirebaseMessaging.framework */,
-				7BF086B71E28293800C8A3A0 /* FirebaseRemoteConfig.framework */,
-				7BF086B81E28293800C8A3A0 /* FirebaseStorage.framework */,
-				7BF086B91E28293800C8A3A0 /* GoogleAppUtilities.framework */,
-				7BF086BA1E28293800C8A3A0 /* GoogleAuthUtilities.framework */,
-				7BF086BB1E28293800C8A3A0 /* GoogleInterchangeUtilities.framework */,
-				7BF086BC1E28293800C8A3A0 /* GoogleIPhoneUtilities.framework */,
-				7BF086BD1E28293800C8A3A0 /* GoogleMobileAds.framework */,
-				7BF086BE1E28293800C8A3A0 /* GoogleNetworkingUtilities.framework */,
-				7BF086BF1E28293800C8A3A0 /* GoogleParsingUtilities.framework */,
-				7BF086C01E28293800C8A3A0 /* GooglePlusUtilities.framework */,
-				7BF086C11E28293800C8A3A0 /* GoogleSignIn.framework */,
-				7BF086C21E28293800C8A3A0 /* GoogleSymbolUtilities.framework */,
-				7BF086C31E28293800C8A3A0 /* GoogleUtilities.framework */,
 				7BF086C41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework */,
 				7BF086C81E28293800C8A3A0 /* Timepiece.framework */,
 				7B3FE4491D0C2980008E270E /* SimulatorStatusMagic */,
@@ -1308,7 +1191,6 @@
 				9A0E57591D069FBE0071D0FF /* ServerDetails.plist in Resources */,
 				6EB723CF1CB9B83B005A076F /* Main.storyboard in Resources */,
 				6ED962B41CF8B28800551E94 /* JSQMessagesLoadEarlierHeaderView.xib in Resources */,
-				0E93C3AA1CFFD40200E366DC /* Chat.storyboard in Resources */,
 				0E93C3A41CFFD04B00E366DC /* Blog.storyboard in Resources */,
 				0E93C3A81CFFD2CE00E366DC /* Scholar.storyboard in Resources */,
 				6EB723D91CB9B85B005A076F /* Assets.xcassets in Resources */,
@@ -1368,7 +1250,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Timepiece.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Firebase.framework",
 			);
 			outputPaths = (
 			);
@@ -1384,7 +1265,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ED962B51CF8B28800551E94 /* JSQMessagesMediaPlaceholderView.m in Sources */,
-				6E26BEFE1D01B1D20049F11B /* ChatListViewController.swift in Sources */,
 				6ED962CF1CF8CAA300551E94 /* UIImage+JTSImageEffects.m in Sources */,
 				7BBA87711CBD4AE80057E9AD /* Scholar.swift in Sources */,
 				6ED962B11CF8B28800551E94 /* JSQMessagesInputToolbar.m in Sources */,
@@ -1392,7 +1272,6 @@
 				6ECBC33C1CEF5642006AA8F0 /* NoJumpRefreshTableView.swift in Sources */,
 				6ED962B01CF8B28800551E94 /* JSQMessagesComposerTextView.m in Sources */,
 				6ED962A81CF8B28800551E94 /* JSQVideoMediaItem.m in Sources */,
-				6E26BF041D01B2050049F11B /* ChatTableViewCell.swift in Sources */,
 				7B15E69F1CF91C4D00C4D7AD /* UserKit.swift in Sources */,
 				223884231C8252D900A96752 /* ScholarsViewController.swift in Sources */,
 				7B296DC21CE3C18300C4BA75 /* ApiBase.swift in Sources */,
@@ -1408,7 +1287,6 @@
 				6EEA89251CDBE21C00245445 /* AZTextHeight.swift in Sources */,
 				7BBA87681CBD35430057E9AD /* StringUtils.swift in Sources */,
 				6EAD10BA1CC1907700E0A2A0 /* ScholarDetailViewController.swift in Sources */,
-				6E26BF061D01B2730049F11B /* ChatRoom.swift in Sources */,
 				6EAD10BC1CC1A00800E0A2A0 /* BasicDetailsTableViewCell.swift in Sources */,
 				22AA366C1CC276B10061FF09 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				6ED962AC1CF8B28800551E94 /* JSQMessagesCollectionViewCellIncoming.m in Sources */,
@@ -1428,7 +1306,6 @@
 				6E9DD6761CC5961F00433193 /* CreditsManager.swift in Sources */,
 				2235A7ED1E1F2D7100E8CB8E /* DesignableView.swift in Sources */,
 				2235A7EC1E1F2D7100E8CB8E /* DesignableTextField.swift in Sources */,
-				22543B211CB7019A003F9422 /* ChatViewController.swift in Sources */,
 				22BFE2C01CEE0829002CB549 /* BlogPostDetailViewController.swift in Sources */,
 				6ED9629D1CF8B28800551E94 /* JSQMessagesBubblesSizeCalculator.m in Sources */,
 				6E83D8D61D0993C500D2CCC6 /* UIImage+Cropping.swift in Sources */,

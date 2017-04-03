@@ -8,7 +8,6 @@
 
 import UIKit
 import SafariServices
-import FirebaseAuth
 import AVFoundation
 
 protocol SignInDelegate {
@@ -41,15 +40,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, DragDropBehav
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         
-        FIRAuth.auth()?.signInAnonymously() { (user, error) in
-            let isAnonymous = user!.isAnonymous
-            let userID = user!.uid
-            
-            print(isAnonymous)
-            print(userID)
-        }
-        
-    }
+         }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

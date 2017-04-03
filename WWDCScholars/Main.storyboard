@@ -126,16 +126,6 @@
             </objects>
             <point key="canvasLocation" x="946" y="311"/>
         </scene>
-        <!--Chat-->
-        <scene sceneID="Gux-bA-RpV">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Chat" id="qV9-pH-lSv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="loR-HH-zaI"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ECQ-gZ-vTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="786" y="373"/>
-        </scene>
         <!--EditDetailsNC-->
         <scene sceneID="dOt-ae-5gj">
             <objects>

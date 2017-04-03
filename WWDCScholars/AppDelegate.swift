@@ -11,7 +11,6 @@ import Fabric
 import Crashlytics
 import Alamofire
 import AlamofireImage
-import Firebase
 
 //#if DEBUG
 //import SimulatorStatusMagic
@@ -93,7 +92,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         CreditsManager.sharedInstance.getCredits()
         Fabric.with([Crashlytics.self])
-        FIRApp.configure()
         
         self.styleUI()
         

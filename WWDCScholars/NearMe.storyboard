@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Near Me View Controller-->
+        <!--Near me-->
         <scene sceneID="V6e-o3-T5O">
             <objects>
                 <viewController id="ttE-Y4-fyC" customClass="NearMeViewController" customModule="Scholars" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,7 +32,7 @@
                             <constraint firstItem="n3i-jO-r3K" firstAttribute="top" secondItem="8Pi-Aq-Cc9" secondAttribute="bottom" id="xdb-uY-dwY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eQm-uk-Srq"/>
+                    <navigationItem key="navigationItem" title="Near me" id="eQm-uk-Srq"/>
                     <connections>
                         <outlet property="mapView" destination="n3i-jO-r3K" id="zOM-rK-wPY"/>
                     </connections>

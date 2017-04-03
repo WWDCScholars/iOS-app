@@ -8,27 +8,49 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class NearMeViewController: UIViewController, MKMapViewDelegate {
+enum updateType {
+    case none
+    case locationOnly
+    case locationAndHeading
+}
+
+class NearMeViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     fileprivate let locationManager = CLLocationManager()
-    fileprivate var myLocation: CLLocationCoordinate2D?
+  //  fileprivate var myLocation: CLLocationCoordinate2D?
     @IBOutlet var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        locationManager.delegate = self as CLLocationManagerDelegate
         // Do any additional setup after loading the view.
+        setupMap()
+    }
+    
+    func setupMap(){
         
-     configureMap()
-         zoomMap()
-      /*  let world = MKCoordinateRegionMake(CLLocationCoordinate2DMake(48.783423, 9.181502), MKCoordinateSpanMake(50, 100))
+        let locateButton = UIButton(type: .custom)
+        locateButton.frame = CGRect(x: UIScreen.main.bounds.width - 45, y: UIScreen.main.bounds.height - 160, width: 33, height: 33)
+        locateButton.setImage(UIImage(named: "locationButton"), for: UIControlState())
+        locateButton.addTarget(self, action: #selector(NearMeViewController.locationButtonTapped), for: .touchUpInside)
+        locateButton.layer.shadowOpacity = 0.5
+        locateButton.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        locateButton.layer.shadowRadius = 2.0
+        locateButton.applyRoundedCorners()
+        locateButton.backgroundColor = UIColor.scholarsPurpleColor()
+        self.mapView.addSubview(locateButton)
+
+        self.mapView.showsUserLocation = true
+        self.mapView.delegate = self
+        self.mapView.mapType = .standard
+        self.mapView.showsCompass = true
+        self.mapView.showsScale = true
         
-        let stuttgart = MKCoordinateRegionMake(CLLocationCoordinate2DMake(48.783423, 9.181502), MKCoordinateSpanMake(0.08, 0.16))
-        
-        mapView.setRegion(stuttgart, animated: true)*/
-        
-        
+        let sanJose = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.3297201, -121.8896298), MKCoordinateSpanMake(0.08, 0.16))
+        mapView.setRegion(sanJose, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,36 +58,15 @@ class NearMeViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func configureMap(){
-        
-
-        self.mapView.showsUserLocation = true
-        self.mapView.delegate = self
-        self.mapView.mapType = .standard
+    func locationButtonTapped(){
+        // This will check wether the view is currently tracking location, location + heading or nothing. Will implement later.
         
         
-            let locateButton = UIButton(type: .custom)
-            locateButton.frame = CGRect(x: UIScreen.main.bounds.width - 45, y: UIScreen.main.bounds.height - 160, width: 33, height: 33)
-            locateButton.setImage(UIImage(named: "locationButton"), for: UIControlState())
-            locateButton.addTarget(self, action: #selector(NearMeViewController.zoomMap), for: .touchUpInside)
-            locateButton.layer.shadowOpacity = 0.5
-            locateButton.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-            locateButton.layer.shadowRadius = 2.0
-            locateButton.applyRoundedCorners()
-            locateButton.backgroundColor = UIColor.scholarsPurpleColor()
-            
-            self.mapView.addSubview(locateButton)
-        
-        
-        let myLocation = self.mapView.userLocation.coordinate as CLLocationCoordinate2D
-        let zoomRegion = MKCoordinateRegionMakeWithDistance(myLocation, 5000, 5000)
-        self.mapView.setRegion(zoomRegion, animated: true)
-
-        zoomMap()
+        serviceRequest()
     }
     
+    func serviceRequest(){
     
-    func zoomMap(){
         if CLLocationManager.locationServicesEnabled() {
             switch(CLLocationManager.authorizationStatus()) {
             case .notDetermined, .restricted, .denied:
@@ -85,14 +86,51 @@ class NearMeViewController: UIViewController, MKMapViewDelegate {
                 
                 self.present(controller, animated: true, completion: nil)
             case .authorizedAlways, .authorizedWhenInUse:
-                let myLocation = self.mapView.userLocation.coordinate as CLLocationCoordinate2D
-                let zoomRegion = MKCoordinateRegionMakeWithDistance(myLocation, 5000, 5000)
-                self.mapView.setRegion(zoomRegion, animated: true)
+                self.locationManager.startUpdatingHeading()
+                startLocationTracking()
+                zoomMap()
+
             }
         }
 
+    
+    }
+    
+    func zoomMap(){
+
+        // ONLY LOCATION, NO HEADING
+        
+        
+     /*   let zoomRegion = MKCoordinateRegionMakeWithDistance(userLocation!, 800, 800)
+        self.mapView.setRegion(zoomRegion, animated: true)
+        
+      */
+        /*  let mapCamera = MKMapCamera()
+         let cameraLocation = CLLocationCoordinate2D(latitude: (self.mapView.userLocation.coordinate.latitude), longitude: (self.mapView.userLocation.coordinate.longitude)-0.000000000000107)
+         mapCamera.centerCoordinate = cameraLocation
+         mapCamera.pitch = 53
+         mapCamera.altitude = 1500*/
+        
+    }
+    func startLocationTracking(){
+        self.locationManager.startUpdatingLocation()
+       
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation = locationManager.location?.coordinate
+        self.mapView.setCenter(userLocation!, animated: true)
+        
+        self.locationManager.stopUpdatingLocation()
+        let timer = Timer(fireAt: Date.init(timeIntervalSinceNow: 0), interval: 5, target: self, selector: #selector(NearMeViewController.startLocationTracking), userInfo: nil, repeats: false)
+        timer.fire()
     }
 
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        let heading = locationManager.heading?.trueHeading
+        let mapCamera = MKMapCamera(lookingAtCenter: self.mapView.userLocation.coordinate , fromDistance: 2000, pitch: 53, heading: heading!)
+        self.mapView.setCamera(mapCamera, animated: true)
+    }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         
@@ -100,11 +138,8 @@ class NearMeViewController: UIViewController, MKMapViewDelegate {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
         return UIInterfaceOrientationMask.portrait
-
     }
-    
-   
-    
+
 
     /*
     // MARK: - Navigation

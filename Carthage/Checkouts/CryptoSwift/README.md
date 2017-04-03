@@ -107,11 +107,12 @@ In the project, you'll find [single scheme](http://promisekit.org/news/2016/08/M
 You can use [CocoaPods](http://cocoapods.org/?q=cryptoSwift).
 
 ```ruby
-source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'CryptoSwift'
+target 'MyApp' do
+  pod 'CryptoSwift'
+end
 ```
 
 or for newest version from specified branch of code:
@@ -189,7 +190,7 @@ let hex   = bytes.toHexString()            // "010203"
 
 Build bytes out of `String`
 ```swift
-let bytes = "string".utf8.map({$0})
+let bytes = Array("string".utf8)
 ```
 
 Also... check out helpers that work with **Base64** encoded data:
@@ -257,10 +258,8 @@ try HMAC(key: key, variant: .sha256).authenticate(bytes)
 #####Password-Based Key Derivation Functions
 
 ```swift
-let password: Array<UInt8> = "s33krit".utf8.map {$0}
-let salt: Array<UInt8> = "nacllcan".utf8.map {$0}
-
-try PKCS5.PBKDF1(password: password, salt: salt, variant: .sha1, iterations: 4096).calculate()
+let password: Array<UInt8> = Array("s33krit".utf8)
+let salt: Array<UInt8> = Array("nacllcan".utf8)
 
 try PKCS5.PBKDF2(password: password, salt: salt, iterations: 4096, variant: .sha256).calculate()
 ```
@@ -313,7 +312,7 @@ try AES(key: [1,2,3,...,32], iv: [1,2,3,...,16], blockMode: .CBC, padding: PKCS7
 ```swift
 do {
     let aes = try AES(key: "passwordpassword", iv: "drowssapdrowssap") // aes128
-    let ciphertext = try aes.encrypt("Nullam quis risus eget urna mollis ornare vel eu leo.".utf8.map({$0}))
+    let ciphertext = try aes.encrypt(Array("Nullam quis risus eget urna mollis ornare vel eu leo.".utf8))
 } catch { }
 ```
 
@@ -327,9 +326,9 @@ do {
 
     var ciphertext = Array<UInt8>()
     // aggregate partial results
-    ciphertext += try encryptor.update(withBytes: "Nullam quis risus ".utf8.map({$0}))
-    ciphertext += try encryptor.update(withBytes: "eget urna mollis ".utf8.map({$0}))
-    ciphertext += try encryptor.update(withBytes: "ornare vel eu leo.".utf8.map({$0}))
+    ciphertext += try encryptor.update(withBytes: Array("Nullam quis risus ".utf8))
+    ciphertext += try encryptor.update(withBytes: Array("eget urna mollis ".utf8))
+    ciphertext += try encryptor.update(withBytes: Array("ornare vel eu leo.".utf8))
     // finish at the end
     ciphertext += try encryptor.finish()
 

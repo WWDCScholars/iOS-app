@@ -97,12 +97,12 @@ final class AESTests: XCTestCase {
         do {
             var ciphertext = Array<UInt8>()
             let plaintext = "Today Apple launched the open source Swift community, as well as amazing new tools and resources."
-            let aes = try AES(key: "passwordpassword".utf8.map({ $0 }), iv: "drowssapdrowssap".utf8.map({ $0 }))
+            let aes = try AES(key: Array("passwordpassword".utf8), iv: Array("drowssapdrowssap".utf8))
             var encryptor = aes.makeEncryptor()
 
-            ciphertext += try encryptor.update(withBytes: plaintext.utf8.map({ $0 }))
+            ciphertext += try encryptor.update(withBytes: Array(plaintext.utf8))
             ciphertext += try encryptor.finish()
-            XCTAssertEqual(try aes.encrypt(plaintext.utf8.map({ $0 })), ciphertext, "encryption failed")
+            XCTAssertEqual(try aes.encrypt(Array(plaintext.utf8)), ciphertext, "encryption failed")
         } catch {
             XCTAssert(false, "\(error)")
         }
@@ -219,7 +219,7 @@ final class AESTests: XCTestCase {
         var plaintext: Array<UInt8> = Array<UInt8>(repeating: 0, count: 6000)
 
         for i in 0 ..< plaintext.count / 6 {
-            let s = String(format: "%05d", i).utf8.map { $0 }
+            let s = Array(String(format: "%05d", i).utf8)
             plaintext[i * 6 + 0] = s[0]
             plaintext[i * 6 + 1] = s[1]
             plaintext[i * 6 + 2] = s[2]
@@ -305,6 +305,20 @@ final class AESTests: XCTestCase {
         let encrypted = try! aes.encrypt(plaintext)
         let decrypted = try? aes2.decrypt(encrypted)
         XCTAssertTrue(decrypted! != plaintext, "failed")
+    }
+
+    // https://github.com/krzyzanowskim/CryptoSwift/issues/394
+    func testOpenSSL_394() {
+        let plaintext = Array("Nullam quis risus eget urna mollis ornare vel eu leo.".utf8)
+        let key = Array("passwordpassword".utf8).md5() // -md md5
+        let iv  = Array("drowssapdrowssap".utf8) // -iv 64726f777373617064726f7773736170
+        let aes = try! AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7()) // -aes-128-cbc
+        let ciphertext = try! aes.encrypt(plaintext) // enc
+
+        // $ echo -n "Nullam quis risus eget urna mollis ornare vel eu leo." | openssl enc -aes-128-cbc -md md5 -nosalt -iv 64726f777373617064726f7773736170 -pass pass:passwordpassword -base64
+        // cij+965z2Xqoj9tIHgtA72ZPfv5sxnt76vwkIt1CodYY313oa7mr0pSc5o++g0CX
+        // YczxK2fGIa84xtwDtRMwBQ==
+        XCTAssertEqual(ciphertext.toBase64(), "cij+965z2Xqoj9tIHgtA72ZPfv5sxnt76vwkIt1CodYY313oa7mr0pSc5o++g0CXYczxK2fGIa84xtwDtRMwBQ==")
     }
 }
 

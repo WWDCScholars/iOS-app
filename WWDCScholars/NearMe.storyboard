@@ -21,15 +21,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n3i-jO-r3K">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="n3i-jO-r3K" firstAttribute="centerX" secondItem="9I2-Vx-ybf" secondAttribute="centerX" id="6yQ-2Z-HIU"/>
-                            <constraint firstItem="n3i-jO-r3K" firstAttribute="centerY" secondItem="9I2-Vx-ybf" secondAttribute="centerY" id="J3Y-ng-Zik"/>
-                            <constraint firstItem="n3i-jO-r3K" firstAttribute="height" secondItem="9I2-Vx-ybf" secondAttribute="height" id="WJ6-4B-UTd"/>
-                            <constraint firstItem="n3i-jO-r3K" firstAttribute="width" secondItem="9I2-Vx-ybf" secondAttribute="width" id="egz-ok-oCm"/>
+                            <constraint firstItem="n3i-jO-r3K" firstAttribute="centerX" secondItem="9I2-Vx-ybf" secondAttribute="centerX" id="g9d-W8-e3l"/>
+                            <constraint firstItem="bFa-me-2NR" firstAttribute="top" secondItem="n3i-jO-r3K" secondAttribute="bottom" constant="-49" id="hZ3-RD-rwk"/>
+                            <constraint firstItem="n3i-jO-r3K" firstAttribute="width" secondItem="9I2-Vx-ybf" secondAttribute="width" id="lq6-EJ-NHz"/>
+                            <constraint firstItem="n3i-jO-r3K" firstAttribute="top" secondItem="8Pi-Aq-Cc9" secondAttribute="bottom" id="xdb-uY-dwY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eQm-uk-Srq"/>

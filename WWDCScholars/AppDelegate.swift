@@ -162,7 +162,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 let storyboard = UIStoryboard(name: "ScholarDetailVC", bundle: nil)
                 
-                let vc = storyboard.instantiateViewController(withIdentifier: "scholarDetailViewController") as! ScholarDetailViewController
+                let detailViewController = storyboard.instantiateViewController(withIdentifier: "scholarDetailViewController") as! ScholarDetailViewController
                                 
                 detailViewController.setScholar(UserKit.sharedInstance.scholarId!)
                 // self.window?.rootViewController?.presentViewController(detailViewController, animated: true, completion: nil)

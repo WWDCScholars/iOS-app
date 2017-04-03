@@ -20,28 +20,28 @@ class NearMeViewController: UIViewController, MKMapViewDelegate {
         
         mapView.delegate = self
         
-        self.mapView.mapType = MKMapType.HybridFlyover
+        self.mapView.mapType = MKMapType.hybridFlyover
         
         
         let world = MKCoordinateRegionMake(CLLocationCoordinate2DMake(48.783423, 9.181502), MKCoordinateSpanMake(50, 100))
         
         let stuttgart = MKCoordinateRegionMake(CLLocationCoordinate2DMake(48.783423, 9.181502), MKCoordinateSpanMake(0.08, 0.16))
         
-        mapView.setRegion(world, animated: true)
+        mapView.setRegion(stuttgart, animated: true)
         
         
-        let delay = 3 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue()) {
-
-            // Just testing things out with Stuttgart here ;) -Sam c:
-            self.mapView.setRegion(stuttgart, animated: true)
-            
-        }
+//        let delay = 3 * Double(NSEC_PER_SEC)
+//        let time = dispatch_time(dispatch_time_t(DispatchTime.now()), Int64(delay))
+//        dispatch_after(time, DispatchQueue.main) {
+//
+//            // Just testing things out with Stuttgart here ;) -Sam c:
+//            self.mapView.setRegion(stuttgart, animated: true)
+//            
+//        }
         
         
-        let value = UIInterfaceOrientation.Portrait.rawValue
-        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,8 +52,10 @@ class NearMeViewController: UIViewController, MKMapViewDelegate {
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         
     }
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.portrait
+
     }
     
 

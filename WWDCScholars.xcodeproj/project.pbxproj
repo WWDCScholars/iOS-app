@@ -17,6 +17,7 @@
 		2226A8291E92A770007AC6C0 /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226A8281E92A770007AC6C0 /* NearMeViewController.swift */; };
 		2226A8321E92A9F9007AC6C0 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2226A8301E92A9F9007AC6C0 /* Realm.framework */; };
 		2226A8331E92A9F9007AC6C0 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2226A8311E92A9F9007AC6C0 /* RealmSwift.framework */; };
+		2226A8381E92B6DA007AC6C0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2226A8361E92B6D2007AC6C0 /* SwiftyJSON.framework */; };
 		22297D6A1CBA8EA800BF5B41 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */; };
 		22297D6B1CBA8EA800BF5B41 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */; };
 		2235A7EB1E1F2D7100E8CB8E /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2235A7E81E1F2D7100E8CB8E /* DesignableButton.swift */; };
@@ -175,7 +176,6 @@
 		7BF086CA1E28293800C8A3A0 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086AA1E28293800C8A3A0 /* AlamofireImage.framework */; };
 		7BF086CB1E28293800C8A3A0 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086AB1E28293800C8A3A0 /* CryptoSwift.framework */; };
 		7BF086E41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework */; };
-		7BF086E71E28293800C8A3A0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C71E28293800C8A3A0 /* SwiftyJSON.framework */; };
 		7BF086E81E28293800C8A3A0 /* Timepiece.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086C81E28293800C8A3A0 /* Timepiece.framework */; };
 		7BF086F91E282B7A00C8A3A0 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086AC1E28293800C8A3A0 /* Firebase.framework */; };
 		7BF086FA1E282B7A00C8A3A0 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF086AD1E28293800C8A3A0 /* FirebaseAnalytics.framework */; };
@@ -261,6 +261,8 @@
 		2226A8281E92A770007AC6C0 /* NearMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeViewController.swift; sourceTree = "<group>"; };
 		2226A8301E92A9F9007AC6C0 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		2226A8311E92A9F9007AC6C0 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		2226A8341E92B688007AC6C0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/SwiftyJSON-dggjybeklkbgengrdxocjycbxmru/Build/Products/Debug-iphonesimulator/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		2226A8361E92B6D2007AC6C0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		22297D681CBA8EA800BF5B41 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		22297D691CBA8EA800BF5B41 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		2235A7E81E1F2D7100E8CB8E /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
@@ -512,7 +514,6 @@
 		7BF086C21E28293800C8A3A0 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Carthage/Build/iOS/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 		7BF086C31E28293800C8A3A0 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Carthage/Build/iOS/GoogleUtilities.framework; sourceTree = "<group>"; };
 		7BF086C41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQSystemSoundPlayer.framework; path = Carthage/Build/iOS/JSQSystemSoundPlayer.framework; sourceTree = "<group>"; };
-		7BF086C71E28293800C8A3A0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		7BF086C81E28293800C8A3A0 /* Timepiece.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timepiece.framework; path = Carthage/Build/iOS/Timepiece.framework; sourceTree = "<group>"; };
 		7BF087111E2836A900C8A3A0 /* Alamofire+SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+SwiftyJSON.swift"; sourceTree = "<group>"; };
 		7BF087131E28BB2A00C8A3A0 /* Scholars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scholars.entitlements; sourceTree = "<group>"; };
@@ -566,10 +567,10 @@
 				7BF0870F1E282B7A00C8A3A0 /* GoogleSymbolUtilities.framework in Frameworks */,
 				7BF087101E282B7A00C8A3A0 /* GoogleUtilities.framework in Frameworks */,
 				7BF086E41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework in Frameworks */,
-				7BF086E71E28293800C8A3A0 /* SwiftyJSON.framework in Frameworks */,
 				7BF086E81E28293800C8A3A0 /* Timepiece.framework in Frameworks */,
 				6ED962BB1CF8B3B300551E94 /* QuartzCore.framework in Frameworks */,
 				6E79529A1CF6421100160B26 /* SystemConfiguration.framework in Frameworks */,
+				2226A8381E92B6DA007AC6C0 /* SwiftyJSON.framework in Frameworks */,
 				6E7952981CF6420700160B26 /* Security.framework in Frameworks */,
 				6E7952961CF641FF00160B26 /* CFNetwork.framework in Frameworks */,
 				6E7952941CF641F500160B26 /* libicucore.tbd in Frameworks */,
@@ -1109,6 +1110,8 @@
 		7BBA87A21CBD5D680057E9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2226A8361E92B6D2007AC6C0 /* SwiftyJSON.framework */,
+				2226A8341E92B688007AC6C0 /* SwiftyJSON.framework */,
 				2226A8301E92A9F9007AC6C0 /* Realm.framework */,
 				2226A8311E92A9F9007AC6C0 /* RealmSwift.framework */,
 				7BF087111E2836A900C8A3A0 /* Alamofire+SwiftyJSON.swift */,
@@ -1140,7 +1143,6 @@
 				7BF086C21E28293800C8A3A0 /* GoogleSymbolUtilities.framework */,
 				7BF086C31E28293800C8A3A0 /* GoogleUtilities.framework */,
 				7BF086C41E28293800C8A3A0 /* JSQSystemSoundPlayer.framework */,
-				7BF086C71E28293800C8A3A0 /* SwiftyJSON.framework */,
 				7BF086C81E28293800C8A3A0 /* Timepiece.framework */,
 				7B3FE4491D0C2980008E270E /* SimulatorStatusMagic */,
 				6E64F6BA1CFBAE11006CFE2E /* Apple */,

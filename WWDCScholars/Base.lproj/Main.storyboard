@@ -1,26 +1,226 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A294a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="din-Gx-LHX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Tab Bar Controller-->
+        <scene sceneID="Kyb-5d-N2u">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="din-Gx-LHX" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="dND-sn-Ptz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="8qZ-uI-XB1" kind="relationship" relationship="viewControllers" id="FZr-aj-d9o"/>
+                        <segue destination="vbi-HT-P1h" kind="relationship" relationship="viewControllers" id="rvN-WS-8YS"/>
+                        <segue destination="L9g-R1-PxL" kind="relationship" relationship="viewControllers" id="5WJ-eW-Gwo"/>
+                        <segue destination="UvG-9R-tFM" kind="relationship" relationship="viewControllers" id="FCW-eM-Xzw"/>
+                        <segue destination="ZIT-ka-p0q" kind="relationship" relationship="viewControllers" id="MqS-jh-ZuW"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JVX-bW-oZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-204" y="161"/>
+        </scene>
+        <!--Scholars-->
+        <scene sceneID="PHr-Hy-k7m">
+            <objects>
+                <navigationController id="8qZ-uI-XB1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Scholars" image="scholarsTabBarIconUnfilled" selectedImage="scholarsTabBarIconFilled" id="euh-VL-n7g"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hyK-7l-vvB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="PH2-Q1-fYf" kind="relationship" relationship="rootViewController" id="G2L-Dc-voM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zAt-lX-c62" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="-1240"/>
+        </scene>
+        <!--Scholars View Controller-->
+        <scene sceneID="I7z-RD-tmy">
+            <objects>
+                <viewController id="PH2-Q1-fYf" customClass="ScholarsViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="za2-YH-8gJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="y8N-Zc-85H"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="a32-D6-iJu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="7bB-xd-apA"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aFY-tg-syj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1446" y="-1240"/>
+        </scene>
+        <!--Team-->
+        <scene sceneID="gt7-bA-eMr">
+            <objects>
+                <navigationController id="UvG-9R-tFM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Team" image="teamTabBarIconUnfilled" selectedImage="teamTabBarIconFilled" id="J3k-kA-scY"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dCY-Up-CCn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="K3a-Kv-CIl" kind="relationship" relationship="rootViewController" id="MTc-dp-sQ2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D4Y-IU-CXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="1582"/>
+        </scene>
+        <!--Team View Controller-->
+        <scene sceneID="SOC-0D-0hd">
+            <objects>
+                <viewController id="K3a-Kv-CIl" customClass="TeamViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VTQ-ky-tp9"/>
+                        <viewControllerLayoutGuide type="bottom" id="DPn-q9-efK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iSa-Mm-wlY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="99O-sT-WVy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MDY-0T-1KC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446" y="1582"/>
+        </scene>
+        <!--Blog-->
+        <scene sceneID="bSW-Ov-BFX">
+            <objects>
+                <navigationController id="L9g-R1-PxL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Blog" image="blogTabBarIconUnfilled" selectedImage="blogTabBarIconFilled" id="viC-mD-neq"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ek8-da-dtR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5ED-mc-sHC" kind="relationship" relationship="rootViewController" id="V9e-Fb-vDn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o9w-wO-N6U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="867"/>
+        </scene>
+        <!--Blog View Controller-->
+        <scene sceneID="Kem-vJ-liZ">
+            <objects>
+                <viewController id="5ED-mc-sHC" customClass="BlogViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MG6-z6-F7M"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wee-D1-XEl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YHU-dE-lKY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Aww-Wk-Lhd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="okx-nT-Wlz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446" y="867"/>
+        </scene>
+        <!--Nearby-->
+        <scene sceneID="yT3-kO-lzi">
+            <objects>
+                <navigationController id="vbi-HT-P1h" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Nearby" image="mapTabBarIconUnfilled" selectedImage="mapTabBarIconFilled" id="8bF-VB-lTJ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xsT-gO-ZPT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TrQ-eK-rvt" kind="relationship" relationship="rootViewController" id="vsQ-ec-FhK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cQJ-kn-23d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="-541"/>
+        </scene>
+        <!--Nearby View Controller-->
+        <scene sceneID="HAX-Kn-2QE">
+            <objects>
+                <viewController id="TrQ-eK-rvt" customClass="NearbyViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7dm-z6-Mog"/>
+                        <viewControllerLayoutGuide type="bottom" id="3FH-n4-eVR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dWd-Ma-fBI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7EN-Vo-xhB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bwn-rX-sCH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446" y="-541"/>
+        </scene>
+        <!--Activity View Controller-->
+        <scene sceneID="X3t-za-JO5">
+            <objects>
+                <viewController id="341-IU-cB2" customClass="ActivityViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Knw-Qz-Sud"/>
+                        <viewControllerLayoutGuide type="bottom" id="wBX-Yp-taQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QeB-Sh-mS6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XcR-mx-WUT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="txp-Zf-8Li" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446" y="162"/>
+        </scene>
+        <!--Activity-->
+        <scene sceneID="qcL-0J-QHU">
+            <objects>
+                <navigationController id="ZIT-ka-p0q" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Activity" image="activityTabBarIconUnfilled" selectedImage="activityTabBarIconFilled" id="djR-NN-0gb"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Bx-qm-L1A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="341-IU-cB2" kind="relationship" relationship="rootViewController" id="Qti-MA-BBc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kkW-tw-gnL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="161"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="activityTabBarIconFilled" width="23" height="21"/>
+        <image name="activityTabBarIconUnfilled" width="23" height="21"/>
+        <image name="blogTabBarIconFilled" width="24" height="22"/>
+        <image name="blogTabBarIconUnfilled" width="24" height="22"/>
+        <image name="mapTabBarIconFilled" width="24" height="23"/>
+        <image name="mapTabBarIconUnfilled" width="24" height="23"/>
+        <image name="scholarsTabBarIconFilled" width="26" height="20"/>
+        <image name="scholarsTabBarIconUnfilled" width="26" height="20"/>
+        <image name="teamTabBarIconFilled" width="26" height="20"/>
+        <image name="teamTabBarIconUnfilled" width="26" height="20"/>
+    </resources>
 </document>

@@ -20,4 +20,10 @@ internal extension UINavigationBar {
         self.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
     
+    internal func applyExtendedStyle() {
+        let image = UIImage()
+        self.setBackgroundImage(image, for: .default)
+        self.shadowImage = image
+    }
+    
 }

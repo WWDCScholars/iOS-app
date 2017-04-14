@@ -11,6 +11,12 @@ import UIKit
 
 internal final class ScholarsViewController: UIViewController {
     
+    // MARK: - Private Properties
+    
+    @IBOutlet private weak var navigationBarExtensionView: NavigationBarExtensionView?
+    @IBOutlet private weak var batchCollectionView: UICollectionView?
+    @IBOutlet private weak var scholarCollectionView: UICollectionView?
+    
     // MARK: - Lifecycle
     
     internal override func viewDidLoad() {
@@ -23,11 +29,13 @@ internal final class ScholarsViewController: UIViewController {
     // MARK: - UI
     
     private func styleUI() {
-        
+        self.view.applyBackgroundStyle()
+        self.navigationBarExtensionView?.backgroundColor = .scholarsPurple
     }
     
     private func configureUI() {
         self.title = "Scholars"
+        self.navigationController?.navigationBar.applyExtendedStyle()
     }
     
 }

@@ -23,7 +23,7 @@ internal final class ActivityViewController: UIViewController {
     // MARK: - UI
     
     private func styleUI() {
-        
+
     }
     
     private func configureUI() {

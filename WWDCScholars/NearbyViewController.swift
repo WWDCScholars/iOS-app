@@ -8,8 +8,11 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 internal final class NearbyViewController: UIViewController {
+    
+    @IBOutlet private weak var mapView: MKMapView?
     
     // MARK: - Lifecycle
     

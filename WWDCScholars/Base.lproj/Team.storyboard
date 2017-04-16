@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A294a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UvG-9R-tFM">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Team-->
+        <scene sceneID="gt7-bA-eMr">
+            <objects>
+                <navigationController id="UvG-9R-tFM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Team" image="teamTabBarIconUnfilled" selectedImage="teamTabBarIconFilled" id="J3k-kA-scY"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dCY-Up-CCn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="K3a-Kv-CIl" kind="relationship" relationship="rootViewController" id="MTc-dp-sQ2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D4Y-IU-CXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="1582"/>
+        </scene>
+        <!--Team View Controller-->
+        <scene sceneID="SOC-0D-0hd">
+            <objects>
+                <viewController id="K3a-Kv-CIl" customClass="TeamViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VTQ-ky-tp9"/>
+                        <viewControllerLayoutGuide type="bottom" id="DPn-q9-efK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iSa-Mm-wlY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="99O-sT-WVy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MDY-0T-1KC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446" y="1582"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="teamTabBarIconFilled" width="26" height="20"/>
+        <image name="teamTabBarIconUnfilled" width="26" height="20"/>
+    </resources>
+</document>

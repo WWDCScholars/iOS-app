@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A294a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vbi-HT-P1h">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Nearby-->
+        <scene sceneID="yT3-kO-lzi">
+            <objects>
+                <navigationController id="vbi-HT-P1h" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Nearby" image="mapTabBarIconUnfilled" selectedImage="mapTabBarIconFilled" id="8bF-VB-lTJ"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xsT-gO-ZPT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TrQ-eK-rvt" kind="relationship" relationship="rootViewController" id="vsQ-ec-FhK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cQJ-kn-23d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="-541"/>
+        </scene>
+        <!--Nearby View Controller-->
+        <scene sceneID="HAX-Kn-2QE">
+            <objects>
+                <viewController id="TrQ-eK-rvt" customClass="NearbyViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7dm-z6-Mog"/>
+                        <viewControllerLayoutGuide type="bottom" id="3FH-n4-eVR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dWd-Ma-fBI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="W7J-ye-gpE">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W7J-ye-gpE" firstAttribute="top" secondItem="7dm-z6-Mog" secondAttribute="bottom" id="KFw-yA-r4j"/>
+                            <constraint firstAttribute="trailing" secondItem="W7J-ye-gpE" secondAttribute="trailing" id="icF-iP-VID"/>
+                            <constraint firstItem="W7J-ye-gpE" firstAttribute="leading" secondItem="dWd-Ma-fBI" secondAttribute="leading" id="lSH-Sc-Ewj"/>
+                            <constraint firstItem="3FH-n4-eVR" firstAttribute="top" secondItem="W7J-ye-gpE" secondAttribute="bottom" id="zRP-5Y-VHF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7EN-Vo-xhB"/>
+                    <connections>
+                        <outlet property="mapView" destination="W7J-ye-gpE" id="nN5-CM-vNF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bwn-rX-sCH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446" y="-541"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mapTabBarIconFilled" width="24" height="23"/>
+        <image name="mapTabBarIconUnfilled" width="24" height="23"/>
+    </resources>
+</document>

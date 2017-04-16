@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A294a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L9g-R1-PxL">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Blog-->
+        <scene sceneID="bSW-Ov-BFX">
+            <objects>
+                <navigationController id="L9g-R1-PxL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Blog" image="blogTabBarIconUnfilled" selectedImage="blogTabBarIconFilled" id="viC-mD-neq"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ek8-da-dtR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5ED-mc-sHC" kind="relationship" relationship="rootViewController" id="V9e-Fb-vDn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o9w-wO-N6U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="867"/>
+        </scene>
+        <!--Blog View Controller-->
+        <scene sceneID="Kem-vJ-liZ">
+            <objects>
+                <viewController id="5ED-mc-sHC" customClass="BlogViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MG6-z6-F7M"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wee-D1-XEl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YHU-dE-lKY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Aww-Wk-Lhd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="okx-nT-Wlz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446" y="867"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="blogTabBarIconFilled" width="24" height="22"/>
+        <image name="blogTabBarIconUnfilled" width="24" height="22"/>
+    </resources>
+</document>

@@ -23,7 +23,7 @@ internal final class ScholarsViewController: UIViewController {
         super.viewDidLoad()
         
         self.styleUI()
-        self.configureUI()
+        self.configureUI()        
     }
     
     // MARK: - UI

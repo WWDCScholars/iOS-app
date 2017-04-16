@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A294a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZIT-ka-p0q">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Activity View Controller-->
+        <scene sceneID="X3t-za-JO5">
+            <objects>
+                <viewController id="341-IU-cB2" customClass="ActivityViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Knw-Qz-Sud"/>
+                        <viewControllerLayoutGuide type="bottom" id="wBX-Yp-taQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QeB-Sh-mS6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XcR-mx-WUT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="txp-Zf-8Li" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446" y="162"/>
+        </scene>
+        <!--Activity-->
+        <scene sceneID="qcL-0J-QHU">
+            <objects>
+                <navigationController id="ZIT-ka-p0q" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Activity" image="activityTabBarIconUnfilled" selectedImage="activityTabBarIconFilled" id="djR-NN-0gb"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Bx-qm-L1A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="341-IU-cB2" kind="relationship" relationship="rootViewController" id="Qti-MA-BBc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kkW-tw-gnL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="161"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="activityTabBarIconFilled" width="23" height="21"/>
+        <image name="activityTabBarIconUnfilled" width="23" height="21"/>
+    </resources>
+</document>

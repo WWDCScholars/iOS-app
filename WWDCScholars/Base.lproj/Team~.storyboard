@@ -23,12 +23,48 @@
                         <segue destination="W22-Za-i4z" kind="relationship" relationship="viewControllers" id="rvN-WS-8YS"/>
                         <segue destination="hq7-L8-0DI" kind="relationship" relationship="viewControllers" id="MqS-jh-ZuW"/>
                         <segue destination="QZv-vj-ETe" kind="relationship" relationship="viewControllers" id="5WJ-eW-Gwo"/>
-                        <segue destination="QBz-WV-uGZ" kind="relationship" relationship="viewControllers" id="FCW-eM-Xzw"/>
+                        <segue destination="UvG-9R-tFM" kind="relationship" relationship="viewControllers" id="FCW-eM-Xzw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVX-bW-oZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-204" y="161"/>
+        </scene>
+        <!--Team-->
+        <scene sceneID="gt7-bA-eMr">
+            <objects>
+                <navigationController id="UvG-9R-tFM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Team" image="teamTabBarIconUnfilled" selectedImage="teamTabBarIconFilled" id="J3k-kA-scY"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dCY-Up-CCn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="K3a-Kv-CIl" kind="relationship" relationship="rootViewController" id="MTc-dp-sQ2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D4Y-IU-CXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="1582"/>
+        </scene>
+        <!--Team View Controller-->
+        <scene sceneID="SOC-0D-0hd">
+            <objects>
+                <viewController id="K3a-Kv-CIl" customClass="TeamViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VTQ-ky-tp9"/>
+                        <viewControllerLayoutGuide type="bottom" id="DPn-q9-efK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iSa-Mm-wlY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="99O-sT-WVy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MDY-0T-1KC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446" y="1582"/>
         </scene>
         <!--Scholars-->
         <scene sceneID="HQa-Gb-Ysd">
@@ -38,7 +74,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="koS-MC-MWX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569" y="-4"/>
+            <point key="canvasLocation" x="633" y="-1240"/>
         </scene>
         <!--Nearby-->
         <scene sceneID="0ZI-tz-qVq">
@@ -48,7 +84,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZq-R1-7fz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="562" y="77"/>
+            <point key="canvasLocation" x="633" y="-541"/>
         </scene>
         <!--Activity-->
         <scene sceneID="IeX-SG-Z68">
@@ -58,7 +94,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BwI-mC-13O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="564" y="162"/>
+            <point key="canvasLocation" x="633" y="161"/>
         </scene>
         <!--Blog-->
         <scene sceneID="GpC-qM-Ayz">
@@ -68,17 +104,11 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCr-I8-YJD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549" y="242"/>
-        </scene>
-        <!--Team-->
-        <scene sceneID="aPO-pX-O3z">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Team" id="QBz-WV-uGZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0K0-Xs-d7m"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RqI-xB-5bX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="553" y="325"/>
+            <point key="canvasLocation" x="633" y="867"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="teamTabBarIconFilled" width="26" height="20"/>
+        <image name="teamTabBarIconUnfilled" width="26" height="20"/>
+    </resources>
 </document>

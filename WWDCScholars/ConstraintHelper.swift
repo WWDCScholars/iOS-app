@@ -69,5 +69,4 @@ internal final class ConstraintHelper {
         self.addHorizontalCenterConstraint(subview: subview, constant: 0.0, superview: superview)
         self.addVerticalCenterConstraint(subview: subview, constant: 0.0, superview: superview)
     }
-    
 }

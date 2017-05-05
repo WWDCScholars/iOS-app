@@ -29,5 +29,4 @@ internal final class BlogViewController: UIViewController {
     private func configureUI() {
         self.title = "Blog"
     }
-    
 }

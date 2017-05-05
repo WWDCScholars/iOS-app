@@ -16,5 +16,4 @@ internal extension UIView {
     internal func applyBackgroundStyle() {
         self.backgroundColor = .backgroundGray
     }
-    
 }

@@ -25,5 +25,4 @@ internal extension UINavigationBar {
         self.setBackgroundImage(image, for: .default)
         self.shadowImage = image
     }
-    
 }

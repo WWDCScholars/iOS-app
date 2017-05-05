@@ -24,5 +24,4 @@ internal final class UIStatusBar {
     internal static func applyScholarsDarkStyle() {
         UIApplication.shared.statusBarStyle = .default
     }
-    
 }

@@ -42,5 +42,4 @@ internal final class NavigationBarExtensionView: UIView {
         ConstraintHelper.addLeftConstraint(subview: self.bottomBorderView, constant: 0.0, superview: self)
         ConstraintHelper.addRightConstraint(subview: self.bottomBorderView, constant: 0.0, superview: self)
     }
-    
 }

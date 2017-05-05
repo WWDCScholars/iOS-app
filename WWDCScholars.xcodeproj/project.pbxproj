@@ -30,6 +30,11 @@
 		6E5CA5151EA16A810018ECB9 /* NavigationBarExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5CA5141EA16A810018ECB9 /* NavigationBarExtensionView.swift */; };
 		6E5CA51A1EA16AE50018ECB9 /* ConstraintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5CA5191EA16AE50018ECB9 /* ConstraintHelper.swift */; };
 		6E5CA51E1EA172E70018ECB9 /* UIView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5CA51D1EA172E70018ECB9 /* UIView+Style.swift */; };
+		6E6F40221EBE02BD00D8D969 /* ProfileSocialAccountsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6F40211EBE02BD00D8D969 /* ProfileSocialAccountsFactory.swift */; };
+		6E7D17411EBD290200C93E89 /* String+WWDCScholars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D17401EBD290200C93E89 /* String+WWDCScholars.swift */; };
+		6E7D17431EBD3B9400C93E89 /* UIView+WWDCScholars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D17421EBD3B9400C93E89 /* UIView+WWDCScholars.swift */; };
+		6E997BD91EBE60530098C140 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E997BD81EBE60530098C140 /* RoundView.swift */; };
+		6E997BDB1EBE61FB0098C140 /* UILabel+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E997BDA1EBE61FB0098C140 /* UILabel+Style.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +63,11 @@
 		6E5CA5141EA16A810018ECB9 /* NavigationBarExtensionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarExtensionView.swift; sourceTree = "<group>"; };
 		6E5CA5191EA16AE50018ECB9 /* ConstraintHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintHelper.swift; sourceTree = "<group>"; };
 		6E5CA51D1EA172E70018ECB9 /* UIView+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Style.swift"; sourceTree = "<group>"; };
+		6E6F40211EBE02BD00D8D969 /* ProfileSocialAccountsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSocialAccountsFactory.swift; sourceTree = "<group>"; };
+		6E7D17401EBD290200C93E89 /* String+WWDCScholars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+WWDCScholars.swift"; sourceTree = "<group>"; };
+		6E7D17421EBD3B9400C93E89 /* UIView+WWDCScholars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+WWDCScholars.swift"; sourceTree = "<group>"; };
+		6E997BD81EBE60530098C140 /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
+		6E997BDA1EBE61FB0098C140 /* UILabel+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Style.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,13 +84,13 @@
 		6E127D561EA3C69D0068F7DB /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				6E3C55501EA032DD008F9AC9 /* Main.storyboard */,
-				6E127D531EA3C6980068F7DB /* Team.storyboard */,
-				6E127D511EA3C68C0068F7DB /* Blog.storyboard */,
 				6E127D4E1EA3C67F0068F7DB /* Activity.storyboard */,
+				6E127D511EA3C68C0068F7DB /* Blog.storyboard */,
+				6E3C55501EA032DD008F9AC9 /* Main.storyboard */,
 				6E127D4C1EA3C66E0068F7DB /* Nearby.storyboard */,
-				6E127D491EA3C65D0068F7DB /* Scholars.storyboard */,
 				6E127D571EA3C6E30068F7DB /* Profile.storyboard */,
+				6E127D491EA3C65D0068F7DB /* Scholars.storyboard */,
+				6E127D531EA3C6980068F7DB /* Team.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -104,9 +114,9 @@
 		6E3C554B1EA032DD008F9AC9 /* WWDCScholars */ = {
 			isa = PBXGroup;
 			children = (
+				6E7D173F1EBD28E000C93E89 /* Extensions */,
 				6E127D561EA3C69D0068F7DB /* Storyboards */,
 				6E48061F1EA14F9700213835 /* UI */,
-				6E3C55611EA03CF4008F9AC9 /* Extensions */,
 				6E3C555E1EA03C52008F9AC9 /* UIViewControllers */,
 				6E3C554C1EA032DD008F9AC9 /* AppDelegate.swift */,
 				6E3C55531EA032DD008F9AC9 /* Assets.xcassets */,
@@ -122,9 +132,9 @@
 				6E48061B1EA14EC500213835 /* ActivityViewController.swift */,
 				6E4806191EA14EB700213835 /* BlogViewController.swift */,
 				6E48061D1EA14ED100213835 /* NearbyViewController.swift */,
+				6E6F40201EBE028E00D8D969 /* ProfileViewController */,
 				6E3C555F1EA03C6D008F9AC9 /* ScholarsViewController.swift */,
 				6E4806171EA14E8600213835 /* TeamViewController.swift */,
-				6E127D591EA3C6FA0068F7DB /* ProfileViewController.swift */,
 			);
 			name = UIViewControllers;
 			sourceTree = "<group>";
@@ -133,9 +143,11 @@
 			isa = PBXGroup;
 			children = (
 				6E3C55651EA03DFE008F9AC9 /* UIColor+Style.swift */,
+				6E997BDA1EBE61FB0098C140 /* UILabel+Style.swift */,
 				6E3C55671EA042F3008F9AC9 /* UINavigationBar+Style.swift */,
 				6E3C55621EA03D17008F9AC9 /* UITabBar+Style.swift */,
 				6E5CA51D1EA172E70018ECB9 /* UIView+Style.swift */,
+				6E7D17421EBD3B9400C93E89 /* UIView+WWDCScholars.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -143,9 +155,10 @@
 		6E48061F1EA14F9700213835 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6E5CA5161EA16AB20018ECB9 /* Elements */,
+				6E3C55611EA03CF4008F9AC9 /* Extensions */,
 				6E5CA5181EA16AD80018ECB9 /* Helpers */,
 				6E5CA5171EA16AD10018ECB9 /* Misc. */,
-				6E5CA5161EA16AB20018ECB9 /* Elements */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -154,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				6E5CA5141EA16A810018ECB9 /* NavigationBarExtensionView.swift */,
+				6E997BD81EBE60530098C140 /* RoundView.swift */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -172,6 +186,23 @@
 				6E5CA5191EA16AE50018ECB9 /* ConstraintHelper.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		6E6F40201EBE028E00D8D969 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E127D591EA3C6FA0068F7DB /* ProfileViewController.swift */,
+				6E6F40211EBE02BD00D8D969 /* ProfileSocialAccountsFactory.swift */,
+			);
+			name = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		6E7D173F1EBD28E000C93E89 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6E7D17401EBD290200C93E89 /* String+WWDCScholars.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +237,7 @@
 				TargetAttributes = {
 					6E3C55481EA032DD008F9AC9 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = XP2V9X75F2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -256,13 +288,18 @@
 				6E3C554D1EA032DD008F9AC9 /* AppDelegate.swift in Sources */,
 				6E3C55631EA03D17008F9AC9 /* UITabBar+Style.swift in Sources */,
 				6E3C55601EA03C6D008F9AC9 /* ScholarsViewController.swift in Sources */,
+				6E7D17411EBD290200C93E89 /* String+WWDCScholars.swift in Sources */,
+				6E997BDB1EBE61FB0098C140 /* UILabel+Style.swift in Sources */,
 				6E127D5A1EA3C6FA0068F7DB /* ProfileViewController.swift in Sources */,
 				6E5CA5151EA16A810018ECB9 /* NavigationBarExtensionView.swift in Sources */,
+				6E997BD91EBE60530098C140 /* RoundView.swift in Sources */,
 				6E4806211EA14FA700213835 /* UIStatusBar.swift in Sources */,
 				6E48061C1EA14EC500213835 /* ActivityViewController.swift in Sources */,
 				6E3C55661EA03DFE008F9AC9 /* UIColor+Style.swift in Sources */,
 				6E3C55681EA042F3008F9AC9 /* UINavigationBar+Style.swift in Sources */,
 				6E48061E1EA14ED100213835 /* NearbyViewController.swift in Sources */,
+				6E7D17431EBD3B9400C93E89 /* UIView+WWDCScholars.swift in Sources */,
+				6E6F40221EBE02BD00D8D969 /* ProfileSocialAccountsFactory.swift in Sources */,
 				6E48061A1EA14EB700213835 /* BlogViewController.swift in Sources */,
 				6E5CA51A1EA16AE50018ECB9 /* ConstraintHelper.swift in Sources */,
 				6E4806181EA14E8600213835 /* TeamViewController.swift in Sources */,
@@ -410,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XP2V9X75F2;
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AndrewWalker.WWDCScholars;
@@ -422,6 +460,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XP2V9X75F2;
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AndrewWalker.WWDCScholars;

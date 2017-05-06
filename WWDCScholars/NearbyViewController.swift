@@ -32,5 +32,4 @@ internal final class NearbyViewController: UIViewController {
     private func configureUI() {
         self.title = "Nearby"
     }
-    
 }

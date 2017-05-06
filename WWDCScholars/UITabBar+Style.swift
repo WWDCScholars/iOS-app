@@ -15,6 +15,6 @@ internal extension UITabBar {
     
     internal static func applyScholarsStyle() {
         self.appearance().tintColor = .scholarsPurple
+        self.appearance().isTranslucent = false
     }
-    
 }

@@ -29,5 +29,4 @@ internal final class ActivityViewController: UIViewController {
     private func configureUI() {
         self.title = "Activity"
     }
-    
 }

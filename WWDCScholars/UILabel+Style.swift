@@ -15,16 +15,26 @@ internal extension UILabel {
     
     internal func applyProfileNameStyle() {
         self.font = UIFont.systemFont(ofSize: 25.0)
-        self.textColor = .darkTextGray
+        self.textColor = .titleTextDark
     }
     
     internal func applyProfileTitleStyle() {
         self.font = UIFont.systemFont(ofSize: 16.0)
-        self.textColor = .lightTextGray
+        self.textColor = .titleTextDark
     }
     
     internal func applyProfileContentStyle() {
         self.font = UIFont.systemFont(ofSize: 16.0)
-        self.textColor = .lightTextGray
+        self.textColor = .contentTextDark
+    }
+    
+    internal func applyBlogPostInfoTitleStyle() {
+        self.font = UIFont.systemFont(ofSize: 16.0)
+        self.textColor = .titleTextLight
+    }
+    
+    internal func applyBlogPostInfoAuthorStyle() {
+        self.font = UIFont.systemFont(ofSize: 10.0)
+        self.textColor = .contentTextLight
     }
 }

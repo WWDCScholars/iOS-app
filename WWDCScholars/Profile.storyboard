@@ -36,21 +36,21 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e97-Is-YvX">
                                                 <rect key="frame" x="0.0" y="160" width="375" height="132.5"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LpK-h4-PcV" customClass="RoundView" customModule="WWDCScholars" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LpK-h4-PcV">
                                                         <rect key="frame" x="137.5" y="-50" width="100" height="100"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DpM-ZP-bET" customClass="RoundImageView" customModule="WWDCScholars" customModuleProvider="target">
-                                                                <rect key="frame" x="4" y="4" width="92" height="92"/>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DpM-ZP-bET">
+                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstItem="DpM-ZP-bET" firstAttribute="leading" secondItem="LpK-h4-PcV" secondAttribute="leading" constant="4" id="Xdb-IG-LKg"/>
-                                                            <constraint firstAttribute="trailing" secondItem="DpM-ZP-bET" secondAttribute="trailing" constant="4" id="dFJ-cr-ULf"/>
+                                                            <constraint firstItem="DpM-ZP-bET" firstAttribute="leading" secondItem="LpK-h4-PcV" secondAttribute="leading" id="Xdb-IG-LKg"/>
+                                                            <constraint firstAttribute="trailing" secondItem="DpM-ZP-bET" secondAttribute="trailing" id="dFJ-cr-ULf"/>
                                                             <constraint firstAttribute="width" constant="100" id="hla-El-P4s"/>
                                                             <constraint firstAttribute="height" constant="100" id="od8-U8-KHa"/>
-                                                            <constraint firstAttribute="bottom" secondItem="DpM-ZP-bET" secondAttribute="bottom" constant="4" id="pxL-5p-c1z"/>
-                                                            <constraint firstItem="DpM-ZP-bET" firstAttribute="top" secondItem="LpK-h4-PcV" secondAttribute="top" constant="4" id="yYs-gD-Cz7"/>
+                                                            <constraint firstAttribute="bottom" secondItem="DpM-ZP-bET" secondAttribute="bottom" id="pxL-5p-c1z"/>
+                                                            <constraint firstItem="DpM-ZP-bET" firstAttribute="top" secondItem="LpK-h4-PcV" secondAttribute="top" id="yYs-gD-Cz7"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yd-WE-aAE">
@@ -71,20 +71,20 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQ5-Nj-MpX" customClass="RoundView" customModule="WWDCScholars" customModuleProvider="target">
-                                                        <rect key="frame" x="202.5" y="15" width="35" height="35"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQ5-Nj-MpX">
+                                                        <rect key="frame" x="206.5" y="19" width="35" height="35"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="KTi-AS-dke" customClass="RoundImageView" customModule="WWDCScholars" customModuleProvider="target">
-                                                                <rect key="frame" x="4" y="4" width="27" height="27"/>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="KTi-AS-dke">
+                                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="35" id="9nf-Wg-ND5"/>
-                                                            <constraint firstItem="KTi-AS-dke" firstAttribute="leading" secondItem="nQ5-Nj-MpX" secondAttribute="leading" constant="4" id="MIP-t8-a3G"/>
-                                                            <constraint firstItem="KTi-AS-dke" firstAttribute="top" secondItem="nQ5-Nj-MpX" secondAttribute="top" constant="4" id="SoJ-MK-77M"/>
-                                                            <constraint firstAttribute="trailing" secondItem="KTi-AS-dke" secondAttribute="trailing" constant="4" id="axS-Cx-Upp"/>
-                                                            <constraint firstAttribute="bottom" secondItem="KTi-AS-dke" secondAttribute="bottom" constant="4" id="bZq-1B-hHT"/>
+                                                            <constraint firstItem="KTi-AS-dke" firstAttribute="leading" secondItem="nQ5-Nj-MpX" secondAttribute="leading" id="MIP-t8-a3G"/>
+                                                            <constraint firstItem="KTi-AS-dke" firstAttribute="top" secondItem="nQ5-Nj-MpX" secondAttribute="top" id="SoJ-MK-77M"/>
+                                                            <constraint firstAttribute="trailing" secondItem="KTi-AS-dke" secondAttribute="trailing" id="axS-Cx-Upp"/>
+                                                            <constraint firstAttribute="bottom" secondItem="KTi-AS-dke" secondAttribute="bottom" id="bZq-1B-hHT"/>
                                                             <constraint firstAttribute="height" constant="35" id="kDB-yg-xSS"/>
                                                         </constraints>
                                                     </view>
@@ -334,11 +334,11 @@
                         <outlet property="locationLabel" destination="uIB-A1-kmL" id="Y8R-Et-Ktm"/>
                         <outlet property="mapView" destination="yTt-t0-tfi" id="Vfb-ex-eai"/>
                         <outlet property="nameLabel" destination="7yd-WE-aAE" id="zaB-qa-aDH"/>
-                        <outlet property="profilePictureContainerView" destination="LpK-h4-PcV" id="dEd-5l-mVs"/>
-                        <outlet property="profilePictureImageView" destination="DpM-ZP-bET" id="Y2N-Yv-Cbh"/>
+                        <outlet property="profilePictureContainerView" destination="LpK-h4-PcV" id="CJb-kr-gyn"/>
+                        <outlet property="profilePictureImageView" destination="DpM-ZP-bET" id="R6y-if-oqb"/>
                         <outlet property="socialAccountsStackView" destination="6Ya-MI-2SV" id="JiG-Ts-6Gr"/>
-                        <outlet property="teamContainerView" destination="nQ5-Nj-MpX" id="noz-te-hgS"/>
-                        <outlet property="teamImageView" destination="KTi-AS-dke" id="QXV-RT-PIb"/>
+                        <outlet property="teamContainerView" destination="nQ5-Nj-MpX" id="7BX-fE-bHX"/>
+                        <outlet property="teamImageView" destination="KTi-AS-dke" id="vot-J6-vRT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiU-46-hVa" userLabel="First Responder" sceneMemberID="firstResponder"/>

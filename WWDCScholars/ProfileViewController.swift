@@ -14,10 +14,10 @@ internal final class ProfileViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    @IBOutlet private weak var profilePictureImageView: RoundImageView?
-    @IBOutlet private weak var profilePictureContainerView: RoundView?
-    @IBOutlet private weak var teamImageView: RoundImageView?
-    @IBOutlet private weak var teamContainerView: RoundView?
+    @IBOutlet private weak var profilePictureImageView: UIImageView?
+    @IBOutlet private weak var profilePictureContainerView: UIView?
+    @IBOutlet private weak var teamImageView: UIImageView?
+    @IBOutlet private weak var teamContainerView: UIView?
     @IBOutlet private weak var nameLabel: UILabel?
     @IBOutlet private weak var locationLabel: UILabel?
     @IBOutlet private weak var ageTitleLabel: UILabel?
@@ -73,6 +73,15 @@ internal final class ProfileViewController: UIViewController {
         self.countryContentLabel?.applyProfileContentStyle()
         self.batchTitleLabel?.applyProfileTitleStyle()
         self.batchContentLabel?.applyProfileContentStyle()
+        self.bioLabel?.applyProfileContentStyle()
+        
+        self.profilePictureContainerView?.round()
+        self.profilePictureContainerView?.applyRelativeCircularBorder()
+        self.teamContainerView?.round()
+        self.teamContainerView?.applyRelativeCircularBorder()
+        
+        self.teamImageView?.round()
+        self.profilePictureImageView?.round()
     }
     
     private func configureUI() {
@@ -82,18 +91,16 @@ internal final class ProfileViewController: UIViewController {
     }
     
     private func configureBioLabel() {
-        let font = UIFont.systemFont(ofSize: 16.0)
+        let font = self.bioLabel?.font
         let width = self.bioLabel?.frame.width ?? 0.0
         let height = self.bioLabelText.height(for: width, font: font)
-        self.bioLabel?.font = font
-        self.bioLabel?.textColor = .lightTextGray
         self.bioLabelHeightConstraint?.constant = height + self.bioLabelHeightConstraintUpdateValue
     }
     
     // MARK: - Private Functions
     
     private func populateHeaderContent() {
-        self.profilePictureImageView?.image = UIImage(named: "profileImage")
+        self.profilePictureImageView?.image = UIImage(named: "profile")
         self.nameLabel?.text = "Andrew Walker"
         self.locationLabel?.text = "Edinburgh, UK"
     }

@@ -16,4 +16,8 @@ internal extension UIView {
     internal func applyBackgroundStyle() {
         self.backgroundColor = .backgroundGray
     }
+    
+    internal func applyThumbnailFooterStyle() {
+        self.backgroundColor = .thumbnailTransparentPurple
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  IntroSecondViewController.swift
+//  IntroThirdViewController.swift
 //  WWDCScholars
 //
 //  Created by Sam Eckert on 08.05.17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal class IntroSecondViewController: UIViewController {
+internal class IntroThirdViewController: UIViewController {
 
     @IBOutlet var backgroundImageView: UIImageView!
     @IBOutlet var headerLabel: UILabel!
@@ -19,7 +19,7 @@ internal class IntroSecondViewController: UIViewController {
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.animator = UIDynamicAnimator(referenceView: self.view)
         self.buttonBoundsDynamicItem = APLPositionToBoundsMapping(target: self.nextButton)
@@ -27,7 +27,7 @@ internal class IntroSecondViewController: UIViewController {
         
         setupUI()
     }
-
+    
     internal override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,10 +41,10 @@ internal class IntroSecondViewController: UIViewController {
     
     private func setupUI(){
         // Label text and spacing
-        headerLabel.text = "We are the \nCrazy Ones."
+        headerLabel.text = "You can \nquote us,"
         headerLabel.addTextSpacing(spacing: 0.8)
         
-        bodyLabel.text = "The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. We’re not fond of rules. And we have no respect for the status quo."
+        bodyLabel.text = "disagree with us, glorify or vilify us. About the only thing you can't do is ignore us. Because we change things. We push the human race forward."
         bodyLabel.addTextSpacing(spacing: 0.4)
         
         // Button text and adaption
@@ -63,16 +63,16 @@ internal class IntroSecondViewController: UIViewController {
         self.animator!.addBehavior(self.attachmentBehavior)
         
         nextButton.adjustsImageWhenHighlighted = false
-        self.nextButton.addTarget(self, action: #selector(IntroSecondViewController.onDown(sender:)), for: UIControlEvents.touchDown)
-        self.nextButton.addTarget(self, action: #selector(IntroSecondViewController.onUp(sender:)), for: UIControlEvents.touchCancel)
-        self.nextButton.addTarget(self, action: #selector(IntroSecondViewController.onUp(sender:)), for: UIControlEvents.touchUpInside)
-        self.nextButton.addTarget(self, action: #selector(IntroSecondViewController.onUp(sender:)), for: UIControlEvents.touchUpOutside)
+        self.nextButton.addTarget(self, action: #selector(IntroThirdViewController.onDown(sender:)), for: UIControlEvents.touchDown)
+        self.nextButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControlEvents.touchCancel)
+        self.nextButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControlEvents.touchUpInside)
+        self.nextButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControlEvents.touchUpOutside)
         
         backButton.adjustsImageWhenHighlighted = false
-        self.backButton.addTarget(self, action: #selector(IntroSecondViewController.onDown(sender:)), for: UIControlEvents.touchDown)
-        self.backButton.addTarget(self, action: #selector(IntroSecondViewController.onUp(sender:)), for: UIControlEvents.touchCancel)
-        self.backButton.addTarget(self, action: #selector(IntroSecondViewController.onUp(sender:)), for: UIControlEvents.touchUpInside)
-        self.backButton.addTarget(self, action: #selector(IntroSecondViewController.onUp(sender:)), for: UIControlEvents.touchUpOutside)
+        self.backButton.addTarget(self, action: #selector(IntroThirdViewController.onDown(sender:)), for: UIControlEvents.touchDown)
+        self.backButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControlEvents.touchCancel)
+        self.backButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControlEvents.touchUpInside)
+        self.backButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControlEvents.touchUpOutside)
     }
     @objc private func onDown(sender: UIButton) {
         self.attachmentBehavior.damping = 0.1
@@ -87,25 +87,25 @@ internal class IntroSecondViewController: UIViewController {
         self.attachmentBehavior.damping = 100
         UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: .beginFromCurrentState, animations: { sender.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)}, completion: {_ in})
     }
-
-        
-    @IBAction func unwindToSecond(segue: UIStoryboardSegue) {}
-
+    
+    
+    @IBAction func unwindToThird(segue: UIStoryboardSegue) {}
+    
     
     @IBAction func backButtonAction(_ sender: Any) {
-        self.performSegue(withIdentifier: "unwindToFirst", sender: self)
+        self.performSegue(withIdentifier: "unwindToSecond", sender: self)
     }
-
+    
     @IBAction func nextButtonAction(_ sender: Any) {
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
 
 }

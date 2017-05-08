@@ -40,7 +40,7 @@ internal class IntroFirstViewController: UIViewController {
     
     private func setupUI(){
         // Label text and spacing
-        headerLabel.text = "We are the Crazy Ones."
+        headerLabel.text = "Here's to the Crazy Ones."
         headerLabel.addTextSpacing(spacing: 0.8)
         
         // Button text and adaption
@@ -80,6 +80,7 @@ internal class IntroFirstViewController: UIViewController {
     @IBAction func getStartedButtonAction(_ sender: Any) {
     }
     
+    @IBAction func unwindToFirst(segue: UIStoryboardSegue) {}
 
     /*
     // MARK: - Navigation

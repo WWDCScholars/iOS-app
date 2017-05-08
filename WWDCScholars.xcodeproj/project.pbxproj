@@ -11,6 +11,8 @@
 		22768DFD1EC0D7070083DDBE /* IntroFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768DFC1EC0D7070083DDBE /* IntroFirstViewController.swift */; };
 		22768DFF1EC0D7180083DDBE /* IntroSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768DFE1EC0D7180083DDBE /* IntroSecondViewController.swift */; };
 		22768E011EC0D8070083DDBE /* APLPositionToBoundsMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768E001EC0D8070083DDBE /* APLPositionToBoundsMapping.swift */; };
+		22879B301EC11FCC00B43BF4 /* IntroThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22879B2F1EC11FCC00B43BF4 /* IntroThirdViewController.swift */; };
+		22879B321EC1220700B43BF4 /* IntroFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22879B311EC1220700B43BF4 /* IntroFourthViewController.swift */; };
 		6E127D4B1EA3C65D0068F7DB /* Scholars.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D491EA3C65D0068F7DB /* Scholars.storyboard */; };
 		6E127D4D1EA3C66E0068F7DB /* Nearby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D4C1EA3C66E0068F7DB /* Nearby.storyboard */; };
 		6E127D501EA3C67F0068F7DB /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D4E1EA3C67F0068F7DB /* Activity.storyboard */; };
@@ -47,6 +49,8 @@
 		22768DFC1EC0D7070083DDBE /* IntroFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroFirstViewController.swift; sourceTree = "<group>"; };
 		22768DFE1EC0D7180083DDBE /* IntroSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroSecondViewController.swift; sourceTree = "<group>"; };
 		22768E001EC0D8070083DDBE /* APLPositionToBoundsMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APLPositionToBoundsMapping.swift; sourceTree = "<group>"; };
+		22879B2F1EC11FCC00B43BF4 /* IntroThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroThirdViewController.swift; sourceTree = "<group>"; };
+		22879B311EC1220700B43BF4 /* IntroFourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroFourthViewController.swift; sourceTree = "<group>"; };
 		6E127D4A1EA3C65D0068F7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Scholars.storyboard; sourceTree = "<group>"; };
 		6E127D4C1EA3C66E0068F7DB /* Nearby.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Nearby.storyboard; sourceTree = "<group>"; };
 		6E127D4F1EA3C67F0068F7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Activity.storyboard; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 				6E4806191EA14EB700213835 /* BlogViewController.swift */,
 				22768DFC1EC0D7070083DDBE /* IntroFirstViewController.swift */,
 				22768DFE1EC0D7180083DDBE /* IntroSecondViewController.swift */,
+				22879B2F1EC11FCC00B43BF4 /* IntroThirdViewController.swift */,
+				22879B311EC1220700B43BF4 /* IntroFourthViewController.swift */,
 				6E48061D1EA14ED100213835 /* NearbyViewController.swift */,
 				6E6F40201EBE028E00D8D969 /* ProfileViewController */,
 				6E3C555F1EA03C6D008F9AC9 /* ScholarsViewController.swift */,
@@ -321,6 +327,7 @@
 				6E5CA5151EA16A810018ECB9 /* NavigationBarExtensionView.swift in Sources */,
 				6E67DE971EBF99CA00992E69 /* BlogPostCollectionViewCell.swift in Sources */,
 				22768DFD1EC0D7070083DDBE /* IntroFirstViewController.swift in Sources */,
+				22879B321EC1220700B43BF4 /* IntroFourthViewController.swift in Sources */,
 				6E4806211EA14FA700213835 /* UIStatusBar.swift in Sources */,
 				6E48061C1EA14EC500213835 /* ActivityViewController.swift in Sources */,
 				6E3C55661EA03DFE008F9AC9 /* UIColor+Style.swift in Sources */,
@@ -331,6 +338,7 @@
 				6E48061A1EA14EB700213835 /* BlogViewController.swift in Sources */,
 				6E5CA51A1EA16AE50018ECB9 /* ConstraintHelper.swift in Sources */,
 				6E4806181EA14E8600213835 /* TeamViewController.swift in Sources */,
+				22879B301EC11FCC00B43BF4 /* IntroThirdViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

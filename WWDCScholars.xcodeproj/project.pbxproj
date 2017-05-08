@@ -10,6 +10,7 @@
 		22768DEF1EC0BAC50083DDBE /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22768DEE1EC0BAC50083DDBE /* Intro.storyboard */; };
 		22768DF11EC0BD300083DDBE /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768DF01EC0BD300083DDBE /* IntroViewController.swift */; };
 		22768DF31EC0BDA30083DDBE /* TutorialObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768DF21EC0BDA30083DDBE /* TutorialObject.swift */; };
+		22768DF51EC0BE5E0083DDBE /* AZTextHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768DF41EC0BE5E0083DDBE /* AZTextHeight.swift */; };
 		6E127D4B1EA3C65D0068F7DB /* Scholars.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D491EA3C65D0068F7DB /* Scholars.storyboard */; };
 		6E127D4D1EA3C66E0068F7DB /* Nearby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D4C1EA3C66E0068F7DB /* Nearby.storyboard */; };
 		6E127D501EA3C67F0068F7DB /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D4E1EA3C67F0068F7DB /* Activity.storyboard */; };
@@ -45,6 +46,7 @@
 		22768DEE1EC0BAC50083DDBE /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		22768DF01EC0BD300083DDBE /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		22768DF21EC0BDA30083DDBE /* TutorialObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialObject.swift; sourceTree = "<group>"; };
+		22768DF41EC0BE5E0083DDBE /* AZTextHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZTextHeight.swift; sourceTree = "<group>"; };
 		6E127D4A1EA3C65D0068F7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Scholars.storyboard; sourceTree = "<group>"; };
 		6E127D4C1EA3C66E0068F7DB /* Nearby.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Nearby.storyboard; sourceTree = "<group>"; };
 		6E127D4F1EA3C67F0068F7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Activity.storyboard; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		6E5CA5171EA16AD10018ECB9 /* Misc. */ = {
 			isa = PBXGroup;
 			children = (
+				22768DF41EC0BE5E0083DDBE /* AZTextHeight.swift */,
 				22768DF21EC0BDA30083DDBE /* TutorialObject.swift */,
 				6E4806201EA14FA700213835 /* UIStatusBar.swift */,
 			);
@@ -312,6 +315,7 @@
 				6E3C55601EA03C6D008F9AC9 /* ScholarsViewController.swift in Sources */,
 				6E7D17411EBD290200C93E89 /* String+WWDCScholars.swift in Sources */,
 				6E997BDB1EBE61FB0098C140 /* UILabel+Style.swift in Sources */,
+				22768DF51EC0BE5E0083DDBE /* AZTextHeight.swift in Sources */,
 				6E127D5A1EA3C6FA0068F7DB /* ProfileViewController.swift in Sources */,
 				6E5CA5151EA16A810018ECB9 /* NavigationBarExtensionView.swift in Sources */,
 				22768DF11EC0BD300083DDBE /* IntroViewController.swift in Sources */,

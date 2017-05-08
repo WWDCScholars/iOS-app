@@ -27,7 +27,7 @@ class IntroViewController: UIViewController {
     fileprivate var third = "And while some may see us as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do."
     fileprivate var stopAnimation = false
     fileprivate var objects: [TutorialObject] = []
-    fileprivate var firstQuoteLabel: TOMSMorphingLabel!
+ //   fileprivate var firstQuoteLabel: TOMSMorphingLabel!
     fileprivate var lastContentOffset = CGPoint.zero
     fileprivate var textState = 0
     fileprivate var didDoMyThing = false
@@ -127,17 +127,17 @@ class IntroViewController: UIViewController {
         
         let coefficent = 0.5 - (defaultPartHeight / self.screenSize.height) / 2 + 0.027
         
-        self.firstQuoteLabel = TOMSMorphingLabel(frame: CGRect(x: 0, y: 0, width: firstWidth + 22, height: 30))
-        self.firstQuoteLabel.font = font
-        self.firstQuoteLabel.textColor = UIColor.white
-        self.firstQuoteLabel.center =  CGPoint(x: self.screenSize.width / 2 - self.screenSize.width * firstSpace, y: 0)
-        self.firstQuoteLabel.text = "Here's to "
-        self.firstQuoteLabel.textAlignment = .right
-        self.contentView.addSubview(self.firstQuoteLabel)
-        
-        let firstQuoteObject = TutorialObject(object: self.firstQuoteLabel)
-        firstQuoteObject.setPoints([CGPoint(x: 0.5 - firstSpace, y: 0.5), CGPoint(x: 1.5 - firstSpace, y: 0.5), CGPoint(x: 2.5 - firstSpace, y: coefficent), CGPoint(x: 2.5 - firstSpace, y: coefficent)])
-        self.objects.append(firstQuoteObject)
+    //    self.firstQuoteLabel = TOMSMorphingLabel(frame: CGRect(x: 0, y: 0, width: firstWidth + 22, height: 30))
+//        self.firstQuoteLabel.font = font
+//        self.firstQuoteLabel.textColor = UIColor.white
+//        self.firstQuoteLabel.center =  CGPoint(x: self.screenSize.width / 2 - self.screenSize.width * firstSpace, y: 0)
+//        self.firstQuoteLabel.text = "Here's to "
+//        self.firstQuoteLabel.textAlignment = .right
+//        self.contentView.addSubview(self.firstQuoteLabel)
+//        
+//        let firstQuoteObject = TutorialObject(object: self.firstQuoteLabel)
+//        firstQuoteObject.setPoints([CGPoint(x: 0.5 - firstSpace, y: 0.5), CGPoint(x: 1.5 - firstSpace, y: 0.5), CGPoint(x: 2.5 - firstSpace, y: coefficent), CGPoint(x: 2.5 - firstSpace, y: coefficent)])
+//        self.objects.append(firstQuoteObject)
         
         let secondQuoteLabel = UILabel(frame: CGRect(x: 0, y: 0, width: secondWidth, height: 30))
         secondQuoteLabel.center =  CGPoint(x: self.screenSize.width / 2 + self.screenSize.width * secondSpace, y: 0)

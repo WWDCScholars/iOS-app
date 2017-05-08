@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aDv-2k-hQC">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="introImage1" translatesAutoresizingMaskIntoConstraints="NO" id="aDv-2k-hQC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Here's to the Crazy Ones." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72Y-Hb-OK5">
@@ -40,6 +40,7 @@
                                 <state key="normal" title="Get Started"/>
                                 <connections>
                                     <action selector="getStartedButtonAction:" destination="yma-I3-e2N" eventType="touchUpInside" id="NVY-qO-pNG"/>
+                                    <segue destination="erp-g9-aOr" kind="presentation" modalTransitionStyle="crossDissolve" id="7pl-u5-Dag"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -74,7 +75,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P8j-X1-lKh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="introImage2" translatesAutoresizingMaskIntoConstraints="NO" id="P8j-X1-lKh">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cf-8g-UKK">
@@ -138,4 +139,8 @@ Crazy Ones.</string>
             <point key="canvasLocation" x="1161" y="125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="introImage1" width="375" height="667"/>
+        <image name="introImage2" width="375" height="667"/>
+    </resources>
 </document>

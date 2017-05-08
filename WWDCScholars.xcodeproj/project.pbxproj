@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22768DEF1EC0BAC50083DDBE /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22768DEE1EC0BAC50083DDBE /* Intro.storyboard */; };
 		6E127D4B1EA3C65D0068F7DB /* Scholars.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D491EA3C65D0068F7DB /* Scholars.storyboard */; };
 		6E127D4D1EA3C66E0068F7DB /* Nearby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D4C1EA3C66E0068F7DB /* Nearby.storyboard */; };
 		6E127D501EA3C67F0068F7DB /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D4E1EA3C67F0068F7DB /* Activity.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22768DEE1EC0BAC50083DDBE /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		6E127D4A1EA3C65D0068F7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Scholars.storyboard; sourceTree = "<group>"; };
 		6E127D4C1EA3C66E0068F7DB /* Nearby.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Nearby.storyboard; sourceTree = "<group>"; };
 		6E127D4F1EA3C67F0068F7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Activity.storyboard; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				6E127D4E1EA3C67F0068F7DB /* Activity.storyboard */,
 				6E127D511EA3C68C0068F7DB /* Blog.storyboard */,
+				22768DEE1EC0BAC50083DDBE /* Intro.storyboard */,
 				6E3C55501EA032DD008F9AC9 /* Main.storyboard */,
 				6E127D4C1EA3C66E0068F7DB /* Nearby.storyboard */,
 				6E127D571EA3C6E30068F7DB /* Profile.storyboard */,
@@ -285,6 +288,7 @@
 				6E127D581EA3C6E30068F7DB /* Profile.storyboard in Resources */,
 				6E3C55521EA032DD008F9AC9 /* Main.storyboard in Resources */,
 				6E127D521EA3C68C0068F7DB /* Blog.storyboard in Resources */,
+				22768DEF1EC0BAC50083DDBE /* Intro.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

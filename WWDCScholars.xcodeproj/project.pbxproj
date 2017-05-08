@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		22768DEF1EC0BAC50083DDBE /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22768DEE1EC0BAC50083DDBE /* Intro.storyboard */; };
-		22768DF91EC0D6000083DDBE /* SingleActionIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768DF81EC0D6000083DDBE /* SingleActionIntroViewController.swift */; };
-		22768DFB1EC0D6130083DDBE /* DoubleActionIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768DFA1EC0D6130083DDBE /* DoubleActionIntroViewController.swift */; };
+		22768DFD1EC0D7070083DDBE /* IntroFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768DFC1EC0D7070083DDBE /* IntroFirstViewController.swift */; };
+		22768DFF1EC0D7180083DDBE /* IntroSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768DFE1EC0D7180083DDBE /* IntroSecondViewController.swift */; };
+		22768E011EC0D8070083DDBE /* APLPositionToBoundsMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768E001EC0D8070083DDBE /* APLPositionToBoundsMapping.swift */; };
 		6E127D4B1EA3C65D0068F7DB /* Scholars.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D491EA3C65D0068F7DB /* Scholars.storyboard */; };
 		6E127D4D1EA3C66E0068F7DB /* Nearby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D4C1EA3C66E0068F7DB /* Nearby.storyboard */; };
 		6E127D501EA3C67F0068F7DB /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D4E1EA3C67F0068F7DB /* Activity.storyboard */; };
@@ -43,8 +44,9 @@
 
 /* Begin PBXFileReference section */
 		22768DEE1EC0BAC50083DDBE /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
-		22768DF81EC0D6000083DDBE /* SingleActionIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleActionIntroViewController.swift; sourceTree = "<group>"; };
-		22768DFA1EC0D6130083DDBE /* DoubleActionIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleActionIntroViewController.swift; sourceTree = "<group>"; };
+		22768DFC1EC0D7070083DDBE /* IntroFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroFirstViewController.swift; sourceTree = "<group>"; };
+		22768DFE1EC0D7180083DDBE /* IntroSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroSecondViewController.swift; sourceTree = "<group>"; };
+		22768E001EC0D8070083DDBE /* APLPositionToBoundsMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APLPositionToBoundsMapping.swift; sourceTree = "<group>"; };
 		6E127D4A1EA3C65D0068F7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Scholars.storyboard; sourceTree = "<group>"; };
 		6E127D4C1EA3C66E0068F7DB /* Nearby.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Nearby.storyboard; sourceTree = "<group>"; };
 		6E127D4F1EA3C67F0068F7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Activity.storyboard; sourceTree = "<group>"; };
@@ -141,8 +143,8 @@
 			children = (
 				6E48061B1EA14EC500213835 /* ActivityViewController.swift */,
 				6E4806191EA14EB700213835 /* BlogViewController.swift */,
-				22768DF81EC0D6000083DDBE /* SingleActionIntroViewController.swift */,
-				22768DFA1EC0D6130083DDBE /* DoubleActionIntroViewController.swift */,
+				22768DFC1EC0D7070083DDBE /* IntroFirstViewController.swift */,
+				22768DFE1EC0D7180083DDBE /* IntroSecondViewController.swift */,
 				6E48061D1EA14ED100213835 /* NearbyViewController.swift */,
 				6E6F40201EBE028E00D8D969 /* ProfileViewController */,
 				6E3C555F1EA03C6D008F9AC9 /* ScholarsViewController.swift */,
@@ -194,6 +196,7 @@
 		6E5CA5181EA16AD80018ECB9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				22768E001EC0D8070083DDBE /* APLPositionToBoundsMapping.swift */,
 				6E5CA5191EA16AE50018ECB9 /* ConstraintHelper.swift */,
 			);
 			name = Helpers;
@@ -305,18 +308,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22768E011EC0D8070083DDBE /* APLPositionToBoundsMapping.swift in Sources */,
 				6E5CA51E1EA172E70018ECB9 /* UIView+Style.swift in Sources */,
-				22768DF91EC0D6000083DDBE /* SingleActionIntroViewController.swift in Sources */,
+				22768DFF1EC0D7180083DDBE /* IntroSecondViewController.swift in Sources */,
 				6E3C554D1EA032DD008F9AC9 /* AppDelegate.swift in Sources */,
 				6E67DE991EBFA48A00992E69 /* CGFloat+WWDCScholars.swift in Sources */,
 				6E3C55631EA03D17008F9AC9 /* UITabBar+Style.swift in Sources */,
 				6E3C55601EA03C6D008F9AC9 /* ScholarsViewController.swift in Sources */,
 				6E7D17411EBD290200C93E89 /* String+WWDCScholars.swift in Sources */,
 				6E997BDB1EBE61FB0098C140 /* UILabel+Style.swift in Sources */,
-				22768DFB1EC0D6130083DDBE /* DoubleActionIntroViewController.swift in Sources */,
 				6E127D5A1EA3C6FA0068F7DB /* ProfileViewController.swift in Sources */,
 				6E5CA5151EA16A810018ECB9 /* NavigationBarExtensionView.swift in Sources */,
 				6E67DE971EBF99CA00992E69 /* BlogPostCollectionViewCell.swift in Sources */,
+				22768DFD1EC0D7070083DDBE /* IntroFirstViewController.swift in Sources */,
 				6E4806211EA14FA700213835 /* UIStatusBar.swift in Sources */,
 				6E48061C1EA14EC500213835 /* ActivityViewController.swift in Sources */,
 				6E3C55661EA03DFE008F9AC9 /* UIColor+Style.swift in Sources */,

@@ -1,15 +1,17 @@
 //
-//  SingleActionIntroViewController.swift
+//  IntroSecondViewController.swift
 //  WWDCScholars
 //
 //  Created by Sam Eckert on 08.05.17.
-//  Copyright © 2017 Sam Eckert. All rights reserved.
+//  Copyright © 2017 Andrew Walker. All rights reserved.
 //
 
 import UIKit
 
-class SingleActionIntroViewController: UIViewController {
+class IntroSecondViewController: UIViewController {
 
+    @IBOutlet var backgroundImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

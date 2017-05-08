@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Single Action Intro View Controller-->
+        <!--Intro First View Controller-->
         <scene sceneID="Lh5-pP-Qdg">
             <objects>
-                <viewController id="yma-I3-e2N" customClass="SingleActionIntroViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yma-I3-e2N" customClass="IntroFirstViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l7D-oa-SXd"/>
                         <viewControllerLayoutGuide type="bottom" id="pyq-nX-lyg"/>
@@ -20,17 +20,32 @@
                     <view key="view" contentMode="scaleToFill" id="pU3-J7-F6W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aDv-2k-hQC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aDv-2k-hQC" firstAttribute="centerX" secondItem="pU3-J7-F6W" secondAttribute="centerX" id="CDl-cG-szk"/>
+                            <constraint firstItem="aDv-2k-hQC" firstAttribute="width" secondItem="pU3-J7-F6W" secondAttribute="width" id="eQn-OR-0oK"/>
+                            <constraint firstItem="aDv-2k-hQC" firstAttribute="centerY" secondItem="pU3-J7-F6W" secondAttribute="centerY" id="hOn-Eo-xze"/>
+                            <constraint firstItem="aDv-2k-hQC" firstAttribute="height" secondItem="pU3-J7-F6W" secondAttribute="height" id="z7X-4x-nKk"/>
+                        </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="aDv-2k-hQC" id="9a6-QO-Gng"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IbK-3f-lLO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="362" y="125"/>
+            <point key="canvasLocation" x="360.80000000000001" y="124.58770614692655"/>
         </scene>
-        <!--Double Action Intro View Controller-->
+        <!--Intro Second View Controller-->
         <scene sceneID="XUr-Ky-ldG">
             <objects>
-                <viewController id="erp-g9-aOr" customClass="DoubleActionIntroViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="erp-g9-aOr" customClass="IntroSecondViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nrx-sc-INh"/>
                         <viewControllerLayoutGuide type="bottom" id="OSh-ts-Y6j"/>
@@ -38,12 +53,27 @@
                     <view key="view" contentMode="scaleToFill" id="Uzt-5n-k7F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P8j-X1-lKh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P8j-X1-lKh" firstAttribute="width" secondItem="Uzt-5n-k7F" secondAttribute="width" id="D4s-4o-Aoz"/>
+                            <constraint firstItem="P8j-X1-lKh" firstAttribute="centerX" secondItem="Uzt-5n-k7F" secondAttribute="centerX" id="EVQ-Hd-x0a"/>
+                            <constraint firstItem="P8j-X1-lKh" firstAttribute="centerY" secondItem="Uzt-5n-k7F" secondAttribute="centerY" id="bAQ-FB-1DI"/>
+                            <constraint firstItem="P8j-X1-lKh" firstAttribute="height" secondItem="Uzt-5n-k7F" secondAttribute="height" id="jID-b6-tmb"/>
+                        </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="P8j-X1-lKh" id="Gq6-2k-QE3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYb-5h-9iv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1020" y="125"/>
+            <point key="canvasLocation" x="1161" y="125"/>
         </scene>
     </scenes>
 </document>

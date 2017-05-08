@@ -37,4 +37,12 @@ internal extension UILabel {
         self.font = UIFont.systemFont(ofSize: 10.0)
         self.textColor = .contentTextLight
     }
+    
+    internal func addTextSpacing(spacing: Float) {
+        if text != nil {
+            let attributedString = NSMutableAttributedString(string: text!)
+            attributedString.addAttribute(NSKernAttributeName, value: spacing, range: NSRange(location: 0, length: attributedString.length - 1))
+            attributedText = attributedString
+        }
+    }
 }

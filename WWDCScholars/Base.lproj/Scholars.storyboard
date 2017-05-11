@@ -42,36 +42,50 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvp-yF-48O" customClass="NavigationBarExtensionView" customModule="WWDCScholars" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="50"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1Ye-lf-Uk1">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T8F-ym-Pf7">
                                         <rect key="frame" x="0.0" y="10" width="375" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="XJz-9w-Twi"/>
+                                            <constraint firstAttribute="height" constant="30" id="uNw-ng-ozM"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Rxk-ol-YcO">
-                                            <size key="itemSize" width="50" height="50"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KgT-VB-6Ec">
+                                            <size key="itemSize" width="60" height="30"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="t9c-ju-Xj8">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="batchCollectionViewCell" id="Qei-9l-Dyb" customClass="BatchCollectionViewCell" customModule="WWDCScholars" customModuleProvider="target">
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRK-RV-eFj">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                 </view>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="cRK-RV-eFj" secondAttribute="trailing" id="EBV-F9-MqF"/>
+                                                    <constraint firstItem="cRK-RV-eFj" firstAttribute="top" secondItem="Qei-9l-Dyb" secondAttribute="top" id="WdF-HA-aEe"/>
+                                                    <constraint firstItem="cRK-RV-eFj" firstAttribute="leading" secondItem="Qei-9l-Dyb" secondAttribute="leading" id="dro-79-ZMp"/>
+                                                    <constraint firstAttribute="bottom" secondItem="cRK-RV-eFj" secondAttribute="bottom" id="pIQ-C5-tm9"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="label" destination="cRK-RV-eFj" id="gwV-9M-43n"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="1Ye-lf-Uk1" firstAttribute="leading" secondItem="mvp-yF-48O" secondAttribute="leading" id="MXa-e5-Vft"/>
-                                    <constraint firstItem="1Ye-lf-Uk1" firstAttribute="centerY" secondItem="mvp-yF-48O" secondAttribute="centerY" id="OPm-ud-Bky"/>
+                                    <constraint firstItem="T8F-ym-Pf7" firstAttribute="centerY" secondItem="mvp-yF-48O" secondAttribute="centerY" id="41l-nW-UNp"/>
+                                    <constraint firstAttribute="trailing" secondItem="T8F-ym-Pf7" secondAttribute="trailing" id="Azh-MR-FsO"/>
+                                    <constraint firstItem="T8F-ym-Pf7" firstAttribute="leading" secondItem="mvp-yF-48O" secondAttribute="leading" id="RYX-rn-e4g"/>
                                     <constraint firstAttribute="height" constant="50" id="TXD-yF-ON7"/>
-                                    <constraint firstAttribute="trailing" secondItem="1Ye-lf-Uk1" secondAttribute="trailing" id="Vzo-L0-s5L"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pzc-cf-gJB">
@@ -108,7 +122,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7bB-xd-apA"/>
                     <connections>
-                        <outlet property="batchCollectionView" destination="1Ye-lf-Uk1" id="bdE-Wf-8ES"/>
+                        <outlet property="batchCollectionView" destination="T8F-ym-Pf7" id="SBT-Xt-ScL"/>
                         <outlet property="navigationBarExtensionView" destination="mvp-yF-48O" id="zRc-AY-wiv"/>
                         <outlet property="scholarCollectionView" destination="Pzc-cf-gJB" id="Vx6-P2-yWB"/>
                         <segue destination="XS0-Sv-dxH" kind="show" identifier="ProfileViewController" id="35h-42-TPM"/>

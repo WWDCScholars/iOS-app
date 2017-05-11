@@ -37,4 +37,9 @@ internal extension UILabel {
         self.font = UIFont.systemFont(ofSize: 10.0)
         self.textColor = .contentTextLight
     }
+    
+    internal func applyScholarsBatchTitleStyle() {
+        self.font = UIFont.systemFont(ofSize: 14.0)
+        self.textColor = .titleTextLight
+    }
 }

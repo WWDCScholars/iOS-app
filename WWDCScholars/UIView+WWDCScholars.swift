@@ -13,20 +13,10 @@ internal extension UIView {
     
     // MARK: - Internal Functions
     
-    internal func isSquare() -> Bool {
-        return self.frame.width == self.frame.height
-    }
-}
-
-internal extension UIView {
-    
-    // MARK: - Internal Functions
-    
-    internal func round() {
-        if self.isSquare() {
-            self.layer.cornerRadius = self.frame.height / 2
-            self.clipsToBounds = true
-        }
+    internal func roundCorners() {
+        let cornerRadius = min(self.frame.height / 2, self.frame.width / 2)
+        self.layer.cornerRadius = cornerRadius
+        self.clipsToBounds = true
     }
     
     internal func applyDefaultCornerRadius() {

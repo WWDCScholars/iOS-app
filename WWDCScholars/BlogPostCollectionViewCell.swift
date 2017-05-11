@@ -36,9 +36,9 @@ internal final class BlogPostCollectionViewCell: UICollectionViewCell {
         self.infoContainerView?.applyThumbnailFooterStyle()
         self.titleLabel?.applyBlogPostInfoTitleStyle()
         self.authorLabel?.applyBlogPostInfoAuthorStyle()
-        self.authorProfileContainerView?.round()
+        self.authorProfileContainerView?.roundCorners()
         self.authorProfileContainerView?.applyRelativeCircularBorder()
-        self.authorProfileButton?.round()
+        self.authorProfileButton?.roundCorners()
     }
     
     private func configureUI() {

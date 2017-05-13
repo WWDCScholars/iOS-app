@@ -75,13 +75,13 @@ internal final class ProfileViewController: UIViewController {
         self.batchContentLabel?.applyProfileContentStyle()
         self.bioLabel?.applyProfileContentStyle()
         
-        self.profilePictureContainerView?.round()
+        self.profilePictureContainerView?.roundCorners()
         self.profilePictureContainerView?.applyRelativeCircularBorder()
-        self.teamContainerView?.round()
+        self.teamContainerView?.roundCorners()
         self.teamContainerView?.applyRelativeCircularBorder()
         
-        self.teamImageView?.round()
-        self.profilePictureImageView?.round()
+        self.teamImageView?.roundCorners()
+        self.profilePictureImageView?.roundCorners()
     }
     
     private func configureUI() {

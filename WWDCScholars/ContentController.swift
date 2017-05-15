@@ -34,7 +34,11 @@ internal extension ContentController {
     }
 
     internal func cellContent(for indexPath: IndexPath) -> CellContent {
-        return self.sectionContent[indexPath.section].cellContent[indexPath.row]
+        return self.sectionContent(for: indexPath).cellContent[indexPath.row]
+    }
+    
+    internal func sectionContent(for indexPath: IndexPath) -> SectionContent {
+        return self.sectionContent[indexPath.section]
     }
 
     internal func add(sectionContent: SectionContent) {

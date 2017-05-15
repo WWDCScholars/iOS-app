@@ -42,4 +42,9 @@ internal extension UILabel {
         self.font = UIFont.systemFont(ofSize: 14.0)
         self.textColor = .titleTextLight
     }
+    
+    internal func applyScholarsTitleStyle() {
+        self.font = UIFont.systemFont(ofSize: 16.0)
+        self.textColor = .titleTextLight
+    }
 }

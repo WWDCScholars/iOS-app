@@ -1,5 +1,5 @@
 //
-//  Actionable.swift
+//  SelectableMultiple.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 11/05/2017.
@@ -8,4 +8,4 @@
 
 import Foundation
 
-internal protocol Actionable: class {}
+internal protocol SelectableMultipleCellContent: class, SelectableCellContent {}

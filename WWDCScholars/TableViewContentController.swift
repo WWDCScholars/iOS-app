@@ -62,7 +62,7 @@ extension TableViewContentController: UITableViewDelegate {
 
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let content = self.cellContent(for: indexPath)
-        (content as? Selectable)?.performAction(on: self.tableView, with: self.sectionContent, at: indexPath)
+        (content as? SelectableCellContent)?.performAction(on: self.tableView, with: self.sectionContent, at: indexPath)
 
         self.tableView?.deselectRow(at: indexPath, animated: true)
     }

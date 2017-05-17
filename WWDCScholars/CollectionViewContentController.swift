@@ -35,7 +35,7 @@ extension CollectionViewContentController: UICollectionViewDelegate {
 
     internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let content = self.cellContent(for: indexPath)
-        (content as? Selectable)?.performAction(on: self.collectionView, with: self.sectionContent, at: indexPath)
+        (content as? SelectableCellContent)?.performAction(on: self.collectionView, with: self.sectionContent, at: indexPath)
 
         self.collectionView?.deselectItem(at: indexPath, animated: true)
     }
@@ -60,5 +60,44 @@ extension CollectionViewContentController: UICollectionViewDataSource {
         let cellContent = self.cellContent(for: indexPath)
         (cell as? Cell)?.configure(with: cellContent)
         return cell
+    }
+}
+
+extension CollectionViewContentController: UICollectionViewDelegateFlowLayout {
+    
+    // MARK: - Internal Functions
+    
+    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let sectionContent = self.sizeableCollectionViewSectionContent(for: indexPath.section) else {
+            return .zero
+        }
+        
+        guard let cellContent = self.sizeableCollectionViewCellContent(for: indexPath) else {
+            return .zero
+        }
+        
+        return cellContent.size(within: collectionView, sizingModifiers: sectionContent.sizingModifiers)
+    }
+    
+    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return self.sizeableCollectionViewSectionContent(for: section)?.sizingModifiers.edgeInsets ?? .zero
+    }
+    
+    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return self.sizeableCollectionViewSectionContent(for: section)?.sizingModifiers.minimumLineSpacing ?? 0.0
+    }
+    
+    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return self.sizeableCollectionViewSectionContent(for: section)?.sizingModifiers.minimumInteritemSpacing ?? 0.0
+    }
+    
+    // MARK: - Private Functions
+    
+    private func sizeableCollectionViewCellContent(for indexPath: IndexPath) -> SizeableCollectionViewCellContent? {
+        return self.cellContent(for: indexPath) as? SizeableCollectionViewCellContent
+    }
+    
+    private func sizeableCollectionViewSectionContent(for section: Int) -> SizeableCollectionViewSectionContent? {
+        return self.sectionContent[section] as? SizeableCollectionViewSectionContent
     }
 }

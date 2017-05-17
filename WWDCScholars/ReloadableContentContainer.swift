@@ -1,5 +1,5 @@
 //
-//  Reloadable.swift
+//  ReloadableContentContainer.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 11/05/2017.
@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-internal protocol Reloadable: class {
+internal protocol ReloadableContentContainer: class {
     func reload(sections: IndexSet)
 }
 
-extension UICollectionView: Reloadable {
+extension UICollectionView: ReloadableContentContainer {
 
     // MARK: - internal Functions
 
@@ -22,7 +22,7 @@ extension UICollectionView: Reloadable {
     }
 }
 
-extension UITableView: Reloadable {
+extension UITableView: ReloadableContentContainer {
 
     // MARK: - internal Functions
 

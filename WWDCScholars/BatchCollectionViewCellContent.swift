@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
-internal final class BatchCollectionViewCellContent: CellContent, SelectableSingle {
+internal final class BatchCollectionViewCellContent: CellContent, FixedSizeCollectionViewCellContent, SelectableSingleCellContent {
     
     // MARK: - Internal Properties
     
     internal let reuseIdentifier = "batchCollectionViewCell"
+    internal let width: CGFloat = 70.0
+    internal let height: CGFloat = 30.0
     internal let batch: ExampleBatch
     
     internal var isSelected: Bool

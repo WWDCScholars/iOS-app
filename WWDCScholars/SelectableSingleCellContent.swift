@@ -8,14 +8,14 @@
 
 import Foundation
 
-internal protocol SelectableSingle: class, Selectable {}
+internal protocol SelectableSingleCellContent: class, SelectableCellContent {}
 
-internal extension SelectableSingle {
+internal extension SelectableSingleCellContent {
 
     // MARK: - internal Functions
 
-    internal func performAction(on contentContainer: Reloadable?, with sectionContent: [SectionContent], at indexPath: IndexPath) {
-        let selectableContent = sectionContent.flatMap({ $0.cellContent.flatMap({ $0 as? SelectableSingle }) })
+    internal func performAction(on contentContainer: ReloadableContentContainer?, with sectionContent: [SectionContent], at indexPath: IndexPath) {
+        let selectableContent = sectionContent.flatMap({ $0.cellContent.flatMap({ $0 as? SelectableSingleCellContent }) })
         let contentForDeselection = selectableContent.filter({ $0 !== self })
         _ = contentForDeselection.map({ $0.isSelected = false })
         self.isSelected = true

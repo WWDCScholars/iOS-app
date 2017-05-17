@@ -1,5 +1,5 @@
 //
-//  SelectableMultiple.swift
+//  SelectableSectionMultiple.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 11/05/2017.
@@ -8,4 +8,4 @@
 
 import Foundation
 
-internal protocol SelectableMultiple: class, Selectable {}
+internal protocol SelectableSectionMultipleCellContent: class, SelectableCellContent {}

@@ -64,4 +64,11 @@ internal final class ScholarsViewController: UIViewController {
         self.scholarCollectionViewContentController.add(sectionContent: batchesSectionContent)
         self.scholarCollectionViewContentController.reloadContent()
     }
+    
+    // MARK: - IBActions
+    @IBAction func openProfile(_ sender: Any) {
+        self.performSegue(withIdentifier: "ProfileViewController", sender: self)
+    }
+    
+    
 }

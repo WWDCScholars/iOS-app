@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		224DCE441ECDEDD8006A2D84 /* DeckDismissingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224DCE3E1ECDEDD8006A2D84 /* DeckDismissingAnimationController.swift */; };
+		224DCE451ECDEDD8006A2D84 /* DeckPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224DCE3F1ECDEDD8006A2D84 /* DeckPresentationController.swift */; };
+		224DCE461ECDEDD8006A2D84 /* DeckPresentingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224DCE401ECDEDD8006A2D84 /* DeckPresentingAnimationController.swift */; };
+		224DCE471ECDEDD8006A2D84 /* DeckSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224DCE411ECDEDD8006A2D84 /* DeckSegue.swift */; };
+		224DCE481ECDEDD8006A2D84 /* DeckTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224DCE421ECDEDD8006A2D84 /* DeckTransitioningDelegate.swift */; };
+		224DCE491ECDEDD8006A2D84 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224DCE431ECDEDD8006A2D84 /* Utilities.swift */; };
 		6E032F5E1EC7AE8000410B7C /* ScholarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E032F5D1EC7AE8000410B7C /* ScholarCollectionViewCell.swift */; };
 		6E032F601EC7AE9500410B7C /* ScholarCollectionViewCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E032F5F1EC7AE9500410B7C /* ScholarCollectionViewCellContent.swift */; };
 		6E032F621EC7B05200410B7C /* ExampleScholar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E032F611EC7B05200410B7C /* ExampleScholar.swift */; };
@@ -74,6 +80,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		224DCE3E1ECDEDD8006A2D84 /* DeckDismissingAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckDismissingAnimationController.swift; sourceTree = "<group>"; };
+		224DCE3F1ECDEDD8006A2D84 /* DeckPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckPresentationController.swift; sourceTree = "<group>"; };
+		224DCE401ECDEDD8006A2D84 /* DeckPresentingAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckPresentingAnimationController.swift; sourceTree = "<group>"; };
+		224DCE411ECDEDD8006A2D84 /* DeckSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckSegue.swift; sourceTree = "<group>"; };
+		224DCE421ECDEDD8006A2D84 /* DeckTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckTransitioningDelegate.swift; sourceTree = "<group>"; };
+		224DCE431ECDEDD8006A2D84 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6E032F5D1EC7AE8000410B7C /* ScholarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E032F5F1EC7AE9500410B7C /* ScholarCollectionViewCellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarCollectionViewCellContent.swift; sourceTree = "<group>"; };
 		6E032F611EC7B05200410B7C /* ExampleScholar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleScholar.swift; sourceTree = "<group>"; };
@@ -153,6 +165,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		224DCE3D1ECDEDC5006A2D84 /* DeckTransition */ = {
+			isa = PBXGroup;
+			children = (
+				224DCE3E1ECDEDD8006A2D84 /* DeckDismissingAnimationController.swift */,
+				224DCE3F1ECDEDD8006A2D84 /* DeckPresentationController.swift */,
+				224DCE401ECDEDD8006A2D84 /* DeckPresentingAnimationController.swift */,
+				224DCE411ECDEDD8006A2D84 /* DeckSegue.swift */,
+				224DCE421ECDEDD8006A2D84 /* DeckTransitioningDelegate.swift */,
+				224DCE431ECDEDD8006A2D84 /* Utilities.swift */,
+			);
+			name = DeckTransition;
+			sourceTree = "<group>";
+		};
 		6E032F5C1EC7AE6C00410B7C /* ScholarCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +325,7 @@
 		6E5CA5181EA16AD80018ECB9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				224DCE3D1ECDEDC5006A2D84 /* DeckTransition */,
 				6E5CA5191EA16AE50018ECB9 /* ConstraintHelper.swift */,
 			);
 			name = Helpers;
@@ -614,6 +640,7 @@
 				6E67DE971EBF99CA00992E69 /* BlogPostCollectionViewCell.swift in Sources */,
 				6EE999EA1EC509B600F13809 /* CellContent.swift in Sources */,
 				6EE999EF1EC509B600F13809 /* ReloadableContentContainer.swift in Sources */,
+				224DCE461ECDEDD8006A2D84 /* DeckPresentingAnimationController.swift in Sources */,
 				6EE999F31EC509B600F13809 /* SelectableSectionMultipleCellContent.swift in Sources */,
 				6EE99A0E1EC52C9200F13809 /* ScholarsViewControllerCellContentFactory.swift in Sources */,
 				6EE999F11EC509B600F13809 /* SelectableCellContent.swift in Sources */,
@@ -623,6 +650,7 @@
 				6E3C55661EA03DFE008F9AC9 /* UIColor+Style.swift in Sources */,
 				6EE999F61EC509B600F13809 /* TableViewContentController.swift in Sources */,
 				6E3C55681EA042F3008F9AC9 /* UINavigationBar+Style.swift in Sources */,
+				224DCE471ECDEDD8006A2D84 /* DeckSegue.swift in Sources */,
 				6E032F661EC92B5300410B7C /* ScholarsSectionContent.swift in Sources */,
 				6E48061E1EA14ED100213835 /* NearbyViewController.swift in Sources */,
 				6E1083C71ECBCBFB00139C23 /* VariableHeightFixedWidthCollectionViewCellContent.swift in Sources */,
@@ -631,10 +659,12 @@
 				6EE999F41EC509B600F13809 /* SelectableSectionSingleCellContent.swift in Sources */,
 				6EE999E81EC509B600F13809 /* ActionableCellContent.swift in Sources */,
 				6E7D17431EBD3B9400C93E89 /* UIView+WWDCScholars.swift in Sources */,
+				224DCE441ECDEDD8006A2D84 /* DeckDismissingAnimationController.swift in Sources */,
 				6E6F40221EBE02BD00D8D969 /* ProfileSocialAccountsFactory.swift in Sources */,
 				6E1083C91ECBCC1300139C23 /* VariableWidthFixedHeightCollectionViewCellContent.swift in Sources */,
 				6E1083D31ECBD21100139C23 /* VariableDimensionCollectionViewCellContent.swift in Sources */,
 				6E032F641EC92B1C00410B7C /* BatchSectionContent.swift in Sources */,
+				224DCE491ECDEDD8006A2D84 /* Utilities.swift in Sources */,
 				6E48061A1EA14EB700213835 /* BlogViewController.swift in Sources */,
 				6EE999E91EC509B600F13809 /* Cell.swift in Sources */,
 				6EE999F01EC509B600F13809 /* SectionContent.swift in Sources */,
@@ -642,8 +672,10 @@
 				6E1083D11ECBCDB600139C23 /* CollectionViewSectionContentSizingModifiers.swift in Sources */,
 				6E032F601EC7AE9500410B7C /* ScholarCollectionViewCellContent.swift in Sources */,
 				6EE999EE1EC509B600F13809 /* HeaderFooterViewContent.swift in Sources */,
+				224DCE481ECDEDD8006A2D84 /* DeckTransitioningDelegate.swift in Sources */,
 				6E1083CD1ECBCC4300139C23 /* FixedSizeCollectionViewCellContent.swift in Sources */,
 				6EE99A031EC51FC900F13809 /* BatchCollectionViewCell.swift in Sources */,
+				224DCE451ECDEDD8006A2D84 /* DeckPresentationController.swift in Sources */,
 				6E5CA51A1EA16AE50018ECB9 /* ConstraintHelper.swift in Sources */,
 				6E1083C51ECBCBD100139C23 /* VariableHeightCollectionViewCellContent.swift in Sources */,
 				6E4806181EA14E8600213835 /* TeamViewController.swift in Sources */,

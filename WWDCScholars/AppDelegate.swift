@@ -10,7 +10,7 @@ import UIKit
 
 @UIApplicationMain
 internal final class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     // MARK: - Internal Properties
     
     internal var window: UIWindow?
@@ -22,9 +22,14 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.applyScholarsStyle()
         UITabBar.applyScholarsStyle()
         
+        if let shortcutItem = launchOptions?[.shortcutItem] as? UIApplicationShortcutItem {
+            let success = self.handle(shortcutItem: shortcutItem)
+            return success
+        }
+        
         return true
     }
-
+    
     internal func applicationWillResignActive(_ application: UIApplication) {
     }
 
@@ -38,5 +43,16 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     internal func applicationWillTerminate(_ application: UIApplication) {
+    }
+    
+    internal func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        let success = self.handle(shortcutItem: shortcutItem)
+        completionHandler(success)
+    }
+    
+    // MARK: - Private Functions
+    
+    private func handle(shortcutItem: UIApplicationShortcutItem) -> Bool {
+        return QuickActionManager.shared.handle(shortcutItem: shortcutItem, rootViewController: self.window?.rootViewController)
     }
 }

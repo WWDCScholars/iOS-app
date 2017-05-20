@@ -47,4 +47,9 @@ internal extension UILabel {
         self.font = UIFont.systemFont(ofSize: 16.0)
         self.textColor = .titleTextLight
     }
+    
+    internal func applyBackgroundTitleStyle() {
+        self.font = UIFont.systemFont(ofSize: 16.0)
+        self.textColor = .backgroundElementGray
+    }
 }

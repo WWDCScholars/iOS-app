@@ -25,6 +25,10 @@ internal extension UIColor {
         return UIColor(red: 245.0 / 255.0, green: 245.0 / 255.0, blue: 245.0 / 255.0, alpha: 1.0)
     }
     
+    internal static var backgroundElementGray: UIColor {
+        return UIColor(red: 130.0 / 255.0, green: 130.0 / 255.0, blue: 130.0 / 255.0, alpha: 1.0)
+    }
+    
     internal static var titleTextDark: UIColor {
         return UIColor(red: 64.0 / 255.0, green: 64.0 / 255.0, blue: 64.0 / 255.0, alpha: 1.0)
     }

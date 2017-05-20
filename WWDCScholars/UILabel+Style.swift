@@ -52,4 +52,10 @@ internal extension UILabel {
         self.font = UIFont.systemFont(ofSize: 16.0)
         self.textColor = .backgroundElementGray
     }
+    
+    internal func applyScholarClusterStyle() {
+        self.font = UIFont.systemFont(ofSize: 16.0)
+        self.textAlignment = .center
+        self.textColor = .white
+    }
 }

@@ -40,15 +40,15 @@
             </objects>
             <point key="canvasLocation" x="569" y="-4"/>
         </scene>
-        <!--Nearby-->
+        <!--Map-->
         <scene sceneID="0ZI-tz-qVq">
             <objects>
-                <viewControllerPlaceholder storyboardName="Nearby" id="W22-Za-i4z" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Map" id="W22-Za-i4z" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="ulm-5Z-QuZ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZq-R1-7fz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="562" y="77"/>
+            <point key="canvasLocation" x="547" y="76"/>
         </scene>
         <!--Activity-->
         <scene sceneID="IeX-SG-Z68">

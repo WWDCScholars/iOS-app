@@ -1,47 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A294a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZIT-ka-p0q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZIT-ka-p0q">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Activity View Controller-->
-        <scene sceneID="X3t-za-JO5">
-            <objects>
-                <viewController id="341-IU-cB2" customClass="ActivityViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Knw-Qz-Sud"/>
-                        <viewControllerLayoutGuide type="bottom" id="wBX-Yp-taQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QeB-Sh-mS6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="XcR-mx-WUT"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="txp-Zf-8Li" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1446" y="162"/>
-        </scene>
         <!--Activity-->
         <scene sceneID="qcL-0J-QHU">
             <objects>
                 <navigationController id="ZIT-ka-p0q" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Activity" image="activityTabBarIconUnfilled" selectedImage="activityTabBarIconFilled" id="djR-NN-0gb"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Bx-qm-L1A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="341-IU-cB2" kind="relationship" relationship="rootViewController" id="Qti-MA-BBc"/>
+                        <segue destination="6kx-LQ-ExG" kind="relationship" relationship="rootViewController" id="S55-Ty-TeL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkW-tw-gnL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="633" y="161"/>
+        </scene>
+        <!--Activity View Controller-->
+        <scene sceneID="zsm-Pd-ISb">
+            <objects>
+                <tableViewController id="6kx-LQ-ExG" customClass="ActivityViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7hz-tG-2LP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xFy-9F-YEj">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xFy-9F-YEj" id="Ngm-9E-NoY">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6kx-LQ-ExG" id="AnN-4B-xwc"/>
+                            <outlet property="delegate" destination="6kx-LQ-ExG" id="mVM-8U-CCQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="aYx-7F-UN7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cdj-7p-ssF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1449" y="178"/>
         </scene>
     </scenes>
     <resources>

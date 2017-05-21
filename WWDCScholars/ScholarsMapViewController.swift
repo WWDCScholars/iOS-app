@@ -1,5 +1,5 @@
 //
-//  MapViewController.swift
+//  ScholarsMapViewController.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 14/04/2017.
@@ -11,7 +11,7 @@ import UIKit
 import MapKit
 import ClusterKit.MapKit
 
-internal final class MapViewController: UIViewController {
+internal final class ScholarsMapViewController: UIViewController {
     
     // MARK: - Private Properties
     
@@ -21,6 +21,10 @@ internal final class MapViewController: UIViewController {
     
     fileprivate let scholarClusterAnnotationViewIdentifier = "scholarClusterAnnotationView"
     fileprivate let scholarAnnotationViewIdentifier = "scholarAnnotationView"
+    
+    // MARK: - Internal Properties
+    
+    internal var scholars = [ExampleScholar]()
     
     // MARK: - Lifecycle
     
@@ -51,13 +55,12 @@ internal final class MapViewController: UIViewController {
     // MARK: - Private Functions
     
     private func configureMapContent() {
-        let scholars: [ExampleScholar] = [ScholarOne(), ScholarTwo(), ScholarThree()]
-        let annotations = MapAnnotationsFactory.annotations(for: scholars)
+        let annotations = ScholarsMapAnnotationsFactory.annotations(for: self.scholars)
         self.mapView?.clusterManager.addAnnotations(annotations)
     }
 }
 
-extension MapViewController: MKMapViewDelegate {
+extension ScholarsMapViewController: MKMapViewDelegate {
     
     // MARK: - Internal Functions
     

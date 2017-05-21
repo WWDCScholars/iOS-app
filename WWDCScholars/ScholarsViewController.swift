@@ -15,20 +15,44 @@ internal final class ScholarsViewController: UIViewController {
     
     @IBOutlet private weak var navigationBarExtensionView: NavigationBarExtensionView?
     @IBOutlet private weak var batchCollectionView: UICollectionView?
-    @IBOutlet private weak var scholarCollectionView: UICollectionView?
+    @IBOutlet private weak var scholarsMapContainerView: ScholarsMapContainerView?
+    @IBOutlet private weak var scholarsListContainerView: ScholarsListContainerView?
     
     private let batchCollectionViewContentController = CollectionViewContentController()
-    private let scholarCollectionViewContentController = CollectionViewContentController()
+    private let scholars: [ExampleScholar] = [ScholarOne(), ScholarTwo(), ScholarThree()]
+    
+    private var scholarsMapViewController: ScholarsMapViewController?
+    private var scholarsListViewController: ScholarsListViewController?
+    private var containerViewTransitionHelper: ContainerViewTransitionHelper?
     
     // MARK: - Lifecycle
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.containerViewTransitionHelper = ContainerViewTransitionHelper(activeView: self.scholarsListContainerView, inactiveView: self.scholarsMapContainerView)
+        
         self.styleUI()
         self.configureUI()
         self.configureBatchContentController()
-        self.configureScholarContentController()
+    }
+    
+    internal override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == "ScholarsListViewController" {
+            let scholarsListViewController = segue.destination as? ScholarsListViewController
+            scholarsListViewController?.scholars = self.scholars
+            self.scholarsListViewController = scholarsListViewController
+            return
+        }
+        
+        if segue.identifier == "ScholarsMapViewController" {
+            let scholarsMapViewController = segue.destination as? ScholarsMapViewController
+            scholarsMapViewController?.scholars = self.scholars
+            self.scholarsMapViewController = scholarsMapViewController
+            return
+        }
     }
     
     // MARK: - UI
@@ -55,13 +79,12 @@ internal final class ScholarsViewController: UIViewController {
         self.batchCollectionViewContentController.reloadContent()
     }
     
-    private func configureScholarContentController() {
-        self.scholarCollectionViewContentController.configure(collectionView: self.scholarCollectionView)
+    // MARK: - Actions
+    
+    @IBAction internal func switchViewButtonTapped() {
+        self.containerViewTransitionHelper?.switchViews()
         
-        let scholars: [ExampleScholar] = [ScholarOne(), ScholarOne(), ScholarOne(), ScholarOne(), ScholarOne(), ScholarOne(), ScholarOne(), ScholarOne(), ScholarOne(), ScholarOne(), ScholarOne(), ScholarOne(), ScholarOne(), ScholarOne(), ScholarOne(), ScholarOne()]
-        let batchesSectionContent = ScholarsViewControllerCellContentFactory.scholarSectionContent(from: scholars)
-        
-        self.scholarCollectionViewContentController.add(sectionContent: batchesSectionContent)
-        self.scholarCollectionViewContentController.reloadContent()
+        let rightBarButtonItemImage = (self.containerViewTransitionHelper?.inactiveView as? TransitionalContainerView)?.navigationBarItemImage
+        self.navigationItem.rightBarButtonItem?.image = rightBarButtonItemImage
     }
 }

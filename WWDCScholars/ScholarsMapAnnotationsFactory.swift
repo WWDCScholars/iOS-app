@@ -1,5 +1,5 @@
 //
-//  MapAnnotationsFactory.swift
+//  ScholarsMapAnnotationsFactory.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 20/05/2017.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal final class MapAnnotationsFactory {
+internal final class ScholarsMapAnnotationsFactory {
     
     // MARK: - Lifecycle
     

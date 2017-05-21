@@ -23,13 +23,12 @@
 		6E1083D11ECBCDB600139C23 /* CollectionViewSectionContentSizingModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1083D01ECBCDB600139C23 /* CollectionViewSectionContentSizingModifiers.swift */; };
 		6E1083D31ECBD21100139C23 /* VariableDimensionCollectionViewCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1083D21ECBD21100139C23 /* VariableDimensionCollectionViewCellContent.swift */; };
 		6E127D4B1EA3C65D0068F7DB /* Scholars.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D491EA3C65D0068F7DB /* Scholars.storyboard */; };
-		6E127D4D1EA3C66E0068F7DB /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D4C1EA3C66E0068F7DB /* Map.storyboard */; };
 		6E127D501EA3C67F0068F7DB /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D4E1EA3C67F0068F7DB /* Activity.storyboard */; };
 		6E127D521EA3C68C0068F7DB /* Blog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D511EA3C68C0068F7DB /* Blog.storyboard */; };
 		6E127D551EA3C6980068F7DB /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D531EA3C6980068F7DB /* Team.storyboard */; };
 		6E127D581EA3C6E30068F7DB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D571EA3C6E30068F7DB /* Profile.storyboard */; };
 		6E127D5A1EA3C6FA0068F7DB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E127D591EA3C6FA0068F7DB /* ProfileViewController.swift */; };
-		6E2EFC211ED0A37400C23E16 /* MapAnnotationsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2EFC201ED0A37400C23E16 /* MapAnnotationsFactory.swift */; };
+		6E2EFC211ED0A37400C23E16 /* ScholarsMapAnnotationsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2EFC201ED0A37400C23E16 /* ScholarsMapAnnotationsFactory.swift */; };
 		6E2EFC241ED0C8D500C23E16 /* ScholarAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2EFC231ED0C8D500C23E16 /* ScholarAnnotationView.swift */; };
 		6E2EFC271ED0C90100C23E16 /* ScholarClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2EFC261ED0C90100C23E16 /* ScholarClusterAnnotationView.swift */; };
 		6E2EFC2A1ED0E4E200C23E16 /* ScholarAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2EFC291ED0E4E200C23E16 /* ScholarAnnotation.swift */; };
@@ -44,7 +43,7 @@
 		6E4806181EA14E8600213835 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4806171EA14E8600213835 /* TeamViewController.swift */; };
 		6E48061A1EA14EB700213835 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4806191EA14EB700213835 /* BlogViewController.swift */; };
 		6E48061C1EA14EC500213835 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E48061B1EA14EC500213835 /* ActivityViewController.swift */; };
-		6E48061E1EA14ED100213835 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E48061D1EA14ED100213835 /* MapViewController.swift */; };
+		6E48061E1EA14ED100213835 /* ScholarsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E48061D1EA14ED100213835 /* ScholarsMapViewController.swift */; };
 		6E4806211EA14FA700213835 /* UIStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4806201EA14FA700213835 /* UIStatusBar.swift */; };
 		6E5CA5151EA16A810018ECB9 /* NavigationBarExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5CA5141EA16A810018ECB9 /* NavigationBarExtensionView.swift */; };
 		6E5CA51A1EA16AE50018ECB9 /* ConstraintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5CA5191EA16AE50018ECB9 /* ConstraintHelper.swift */; };
@@ -57,6 +56,10 @@
 		6E997BDB1EBE61FB0098C140 /* UILabel+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E997BDA1EBE61FB0098C140 /* UILabel+Style.swift */; };
 		6EB77E2C1ECE353D00E6E263 /* QuickActionShortcutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB77E2B1ECE353D00E6E263 /* QuickActionShortcutType.swift */; };
 		6EB77E321ECE3B7E00E6E263 /* QuickActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB77E311ECE3B7E00E6E263 /* QuickActionManager.swift */; };
+		6EC1ECA41ED2004E00302A25 /* ScholarsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1ECA31ED2004E00302A25 /* ScholarsListViewController.swift */; };
+		6EC1ECAE1ED228B300302A25 /* SwitchableContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1ECAD1ED228B300302A25 /* SwitchableContainerView.swift */; };
+		6EC1ECB01ED2299C00302A25 /* ContainerViewTransitionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1ECAF1ED2299C00302A25 /* ContainerViewTransitionHelper.swift */; };
+		6EC1ECB41ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1ECB31ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift */; };
 		6ED441BD1ED075E50035BD31 /* BackgroundViewControllers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED441BC1ED075E50035BD31 /* BackgroundViewControllers.storyboard */; };
 		6ED441BF1ED076840035BD31 /* BackgroundActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED441BE1ED076840035BD31 /* BackgroundActivityViewController.swift */; };
 		6ED441C21ED077E20035BD31 /* BackgroundViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED441C11ED077E20035BD31 /* BackgroundViewHelper.swift */; };
@@ -115,13 +118,12 @@
 		6E1083D01ECBCDB600139C23 /* CollectionViewSectionContentSizingModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewSectionContentSizingModifiers.swift; sourceTree = "<group>"; };
 		6E1083D21ECBD21100139C23 /* VariableDimensionCollectionViewCellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableDimensionCollectionViewCellContent.swift; sourceTree = "<group>"; };
 		6E127D4A1EA3C65D0068F7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Scholars.storyboard; sourceTree = "<group>"; };
-		6E127D4C1EA3C66E0068F7DB /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		6E127D4F1EA3C67F0068F7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Activity.storyboard; sourceTree = "<group>"; };
 		6E127D511EA3C68C0068F7DB /* Blog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Blog.storyboard; sourceTree = "<group>"; };
 		6E127D541EA3C6980068F7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Team.storyboard; sourceTree = "<group>"; };
 		6E127D571EA3C6E30068F7DB /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		6E127D591EA3C6FA0068F7DB /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		6E2EFC201ED0A37400C23E16 /* MapAnnotationsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationsFactory.swift; sourceTree = "<group>"; };
+		6E2EFC201ED0A37400C23E16 /* ScholarsMapAnnotationsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsMapAnnotationsFactory.swift; sourceTree = "<group>"; };
 		6E2EFC231ED0C8D500C23E16 /* ScholarAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarAnnotationView.swift; sourceTree = "<group>"; };
 		6E2EFC261ED0C90100C23E16 /* ScholarClusterAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarClusterAnnotationView.swift; sourceTree = "<group>"; };
 		6E2EFC291ED0E4E200C23E16 /* ScholarAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarAnnotation.swift; sourceTree = "<group>"; };
@@ -138,7 +140,7 @@
 		6E4806171EA14E8600213835 /* TeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		6E4806191EA14EB700213835 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		6E48061B1EA14EC500213835 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
-		6E48061D1EA14ED100213835 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		6E48061D1EA14ED100213835 /* ScholarsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsMapViewController.swift; sourceTree = "<group>"; };
 		6E4806201EA14FA700213835 /* UIStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStatusBar.swift; sourceTree = "<group>"; };
 		6E5CA5141EA16A810018ECB9 /* NavigationBarExtensionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarExtensionView.swift; sourceTree = "<group>"; };
 		6E5CA5191EA16AE50018ECB9 /* ConstraintHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintHelper.swift; sourceTree = "<group>"; };
@@ -151,6 +153,10 @@
 		6E997BDA1EBE61FB0098C140 /* UILabel+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Style.swift"; sourceTree = "<group>"; };
 		6EB77E2B1ECE353D00E6E263 /* QuickActionShortcutType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickActionShortcutType.swift; sourceTree = "<group>"; };
 		6EB77E311ECE3B7E00E6E263 /* QuickActionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickActionManager.swift; sourceTree = "<group>"; };
+		6EC1ECA31ED2004E00302A25 /* ScholarsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsListViewController.swift; sourceTree = "<group>"; };
+		6EC1ECAD1ED228B300302A25 /* SwitchableContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchableContainerView.swift; sourceTree = "<group>"; };
+		6EC1ECAF1ED2299C00302A25 /* ContainerViewTransitionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewTransitionHelper.swift; sourceTree = "<group>"; };
+		6EC1ECB31ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsListViewControllerCellContentFactory.swift; sourceTree = "<group>"; };
 		6ED441BC1ED075E50035BD31 /* BackgroundViewControllers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BackgroundViewControllers.storyboard; sourceTree = "<group>"; };
 		6ED441BE1ED076840035BD31 /* BackgroundActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundActivityViewController.swift; sourceTree = "<group>"; };
 		6ED441C11ED077E20035BD31 /* BackgroundViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundViewHelper.swift; sourceTree = "<group>"; };
@@ -204,7 +210,6 @@
 				6E127D4E1EA3C67F0068F7DB /* Activity.storyboard */,
 				6E127D511EA3C68C0068F7DB /* Blog.storyboard */,
 				6E3C55501EA032DD008F9AC9 /* Main.storyboard */,
-				6E127D4C1EA3C66E0068F7DB /* Map.storyboard */,
 				6E127D571EA3C6E30068F7DB /* Profile.storyboard */,
 				6E127D491EA3C65D0068F7DB /* Scholars.storyboard */,
 				6E127D531EA3C6980068F7DB /* Team.storyboard */,
@@ -298,9 +303,9 @@
 				6EB77E2A1ECE352700E6E263 /* Misc. */,
 				6EE99A081EC528CB00F13809 /* Model */,
 				6E127D561EA3C69D0068F7DB /* Storyboards */,
-				6EB77E291ECE350000E6E263 /* Supporting Files */,
 				6E48061F1EA14F9700213835 /* UI */,
 				6E3C555E1EA03C52008F9AC9 /* UIViewControllers */,
+				6EB77E291ECE350000E6E263 /* Supporting Files */,
 			);
 			path = WWDCScholars;
 			sourceTree = "<group>";
@@ -308,9 +313,10 @@
 		6E3C555E1EA03C52008F9AC9 /* UIViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6EC1ECB21ED23B3600302A25 /* ScholarsMapViewController */,
+				6EC1ECB11ED23B2700302A25 /* ScholarsListViewController */,
 				6E48061B1EA14EC500213835 /* ActivityViewController.swift */,
 				6E4806191EA14EB700213835 /* BlogViewController.swift */,
-				6ED441C81ED08BCD0035BD31 /* MapViewController */,
 				6E6F40201EBE028E00D8D969 /* ProfileViewController */,
 				6EE99A0C1EC52C7200F13809 /* ScholarsViewController */,
 				6E4806171EA14E8600213835 /* TeamViewController.swift */,
@@ -350,6 +356,7 @@
 				6E2EFC281ED0C91500C23E16 /* AnnotationViews */,
 				6ED441BB1ED075AD0035BD31 /* BackgroundViewControllers */,
 				6ED441BA1ED075970035BD31 /* NavigationBarExtensionView */,
+				6EC1ECB51ED23D4600302A25 /* SwitchableContainerView */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -365,8 +372,9 @@
 		6E5CA5181EA16AD80018ECB9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				6E5CA5191EA16AE50018ECB9 /* ConstraintHelper.swift */,
 				6ED441C11ED077E20035BD31 /* BackgroundViewHelper.swift */,
+				6E5CA5191EA16AE50018ECB9 /* ConstraintHelper.swift */,
+				6EC1ECAF1ED2299C00302A25 /* ContainerViewTransitionHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -423,6 +431,32 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		6EC1ECB11ED23B2700302A25 /* ScholarsListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6EC1ECA31ED2004E00302A25 /* ScholarsListViewController.swift */,
+				6EC1ECB31ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift */,
+			);
+			name = ScholarsListViewController;
+			sourceTree = "<group>";
+		};
+		6EC1ECB21ED23B3600302A25 /* ScholarsMapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E48061D1EA14ED100213835 /* ScholarsMapViewController.swift */,
+				6E2EFC201ED0A37400C23E16 /* ScholarsMapAnnotationsFactory.swift */,
+			);
+			name = ScholarsMapViewController;
+			sourceTree = "<group>";
+		};
+		6EC1ECB51ED23D4600302A25 /* SwitchableContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				6EC1ECAD1ED228B300302A25 /* SwitchableContainerView.swift */,
+			);
+			name = SwitchableContainerView;
+			sourceTree = "<group>";
+		};
 		6ED441BA1ED075970035BD31 /* NavigationBarExtensionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,15 +488,6 @@
 				6ED441C31ED08BAD0035BD31 /* ClusterKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6ED441C81ED08BCD0035BD31 /* MapViewController */ = {
-			isa = PBXGroup;
-			children = (
-				6E48061D1EA14ED100213835 /* MapViewController.swift */,
-				6E2EFC201ED0A37400C23E16 /* MapAnnotationsFactory.swift */,
-			);
-			name = MapViewController;
 			sourceTree = "<group>";
 		};
 		6EE999D81EC5098A00F13809 /* ContentController */ = {
@@ -712,7 +737,6 @@
 				6E127D501EA3C67F0068F7DB /* Activity.storyboard in Resources */,
 				6E127D4B1EA3C65D0068F7DB /* Scholars.storyboard in Resources */,
 				6E3C55541EA032DD008F9AC9 /* Assets.xcassets in Resources */,
-				6E127D4D1EA3C66E0068F7DB /* Map.storyboard in Resources */,
 				6E127D551EA3C6980068F7DB /* Team.storyboard in Resources */,
 				6E127D581EA3C6E30068F7DB /* Profile.storyboard in Resources */,
 				6E3C55521EA032DD008F9AC9 /* Main.storyboard in Resources */,
@@ -732,9 +756,12 @@
 				6EB77E2C1ECE353D00E6E263 /* QuickActionShortcutType.swift in Sources */,
 				6EE999F51EC509B600F13809 /* SelectableSingleCellContent.swift in Sources */,
 				6E3C554D1EA032DD008F9AC9 /* AppDelegate.swift in Sources */,
+				6EC1ECB01ED2299C00302A25 /* ContainerViewTransitionHelper.swift in Sources */,
 				6E2EFC241ED0C8D500C23E16 /* ScholarAnnotationView.swift in Sources */,
 				6E67DE991EBFA48A00992E69 /* CGFloat+WWDCScholars.swift in Sources */,
+				6EC1ECB41ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift in Sources */,
 				6E1083CF1ECBCC5600139C23 /* SizeableCollectionViewCellContent.swift in Sources */,
+				6EC1ECAE1ED228B300302A25 /* SwitchableContainerView.swift in Sources */,
 				6E3C55631EA03D17008F9AC9 /* UITabBar+Style.swift in Sources */,
 				6ED441C21ED077E20035BD31 /* BackgroundViewHelper.swift in Sources */,
 				6EE999ED1EC509B600F13809 /* HeaderFooterView.swift in Sources */,
@@ -748,7 +775,7 @@
 				6E1083C31ECBCBBB00139C23 /* VariableWidthCollectionViewCellContent.swift in Sources */,
 				6EE99A0B1EC528E900F13809 /* ExampleBatch.swift in Sources */,
 				6E2EFC2A1ED0E4E200C23E16 /* ScholarAnnotation.swift in Sources */,
-				6E2EFC211ED0A37400C23E16 /* MapAnnotationsFactory.swift in Sources */,
+				6E2EFC211ED0A37400C23E16 /* ScholarsMapAnnotationsFactory.swift in Sources */,
 				6E127D5A1EA3C6FA0068F7DB /* ProfileViewController.swift in Sources */,
 				6E2EFC271ED0C90100C23E16 /* ScholarClusterAnnotationView.swift in Sources */,
 				6E5CA5151EA16A810018ECB9 /* NavigationBarExtensionView.swift in Sources */,
@@ -766,10 +793,11 @@
 				6EE999F61EC509B600F13809 /* TableViewContentController.swift in Sources */,
 				6E3C55681EA042F3008F9AC9 /* UINavigationBar+Style.swift in Sources */,
 				6E032F661EC92B5300410B7C /* ScholarsSectionContent.swift in Sources */,
-				6E48061E1EA14ED100213835 /* MapViewController.swift in Sources */,
+				6E48061E1EA14ED100213835 /* ScholarsMapViewController.swift in Sources */,
 				6E1083C71ECBCBFB00139C23 /* VariableHeightFixedWidthCollectionViewCellContent.swift in Sources */,
 				6E032F5E1EC7AE8000410B7C /* ScholarCollectionViewCell.swift in Sources */,
 				6E1083CB1ECBCC2D00139C23 /* VariableSizeCollectionViewCellContent.swift in Sources */,
+				6EC1ECA41ED2004E00302A25 /* ScholarsListViewController.swift in Sources */,
 				6EE999F41EC509B600F13809 /* SelectableSectionSingleCellContent.swift in Sources */,
 				6EE999E81EC509B600F13809 /* ActionableCellContent.swift in Sources */,
 				6E7D17431EBD3B9400C93E89 /* UIView+WWDCScholars.swift in Sources */,

@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="PH2-Q1-fYf" kind="relationship" relationship="rootViewController" id="G2L-Dc-voM"/>
+                        <segue destination="qGl-J7-dbK" kind="relationship" relationship="rootViewController" id="eRT-oc-7Gh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAt-lX-c62" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -28,39 +28,54 @@
             <point key="canvasLocation" x="633" y="-1240"/>
         </scene>
         <!--Scholars View Controller-->
-        <scene sceneID="I7z-RD-tmy">
+        <scene sceneID="cxQ-dL-ehw">
             <objects>
-                <viewController id="PH2-Q1-fYf" customClass="ScholarsViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qGl-J7-dbK" customClass="ScholarsViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="za2-YH-8gJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="y8N-Zc-85H"/>
+                        <viewControllerLayoutGuide type="top" id="Blw-iU-Ci0"/>
+                        <viewControllerLayoutGuide type="bottom" id="S38-HA-16i"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="a32-D6-iJu">
+                    <view key="view" contentMode="scaleToFill" id="xVN-Qy-XxB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvp-yF-48O" customClass="NavigationBarExtensionView" customModule="WWDCScholars" customModuleProvider="target">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Na7-a8-isB" customClass="ScholarsMapContainerView" customModule="WWDCScholars" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="114" width="375" height="504"/>
+                                <connections>
+                                    <segue destination="20p-BO-DzZ" kind="embed" identifier="ScholarsMapViewController" id="UxO-GT-tpF"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LPF-51-alX" customClass="ScholarsListContainerView" customModule="WWDCScholars" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="114" width="375" height="504"/>
+                                <connections>
+                                    <segue destination="PH2-Q1-fYf" kind="embed" identifier="ScholarsListViewController" id="a6y-Bj-bAc"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufY-CR-ih1" customClass="NavigationBarExtensionView" customModule="WWDCScholars" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="50"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T8F-ym-Pf7">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AfL-6f-7Ot">
                                         <rect key="frame" x="0.0" y="10" width="375" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="uNw-ng-ozM"/>
+                                            <constraint firstAttribute="height" constant="30" id="pd1-8N-D3V"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KgT-VB-6Ec">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KeI-a3-UT0">
                                             <size key="itemSize" width="60" height="30"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="batchCollectionViewCell" id="Qei-9l-Dyb" customClass="BatchCollectionViewCell" customModule="WWDCScholars" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="batchCollectionViewCell" id="ljA-rh-00w" customClass="BatchCollectionViewCell" customModule="WWDCScholars" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="0.0" width="60" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRK-RV-eFj">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70g-lj-c6H">
+                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -68,13 +83,13 @@
                                                     </subviews>
                                                 </view>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="cRK-RV-eFj" secondAttribute="trailing" id="EBV-F9-MqF"/>
-                                                    <constraint firstItem="cRK-RV-eFj" firstAttribute="top" secondItem="Qei-9l-Dyb" secondAttribute="top" id="WdF-HA-aEe"/>
-                                                    <constraint firstItem="cRK-RV-eFj" firstAttribute="leading" secondItem="Qei-9l-Dyb" secondAttribute="leading" id="dro-79-ZMp"/>
-                                                    <constraint firstAttribute="bottom" secondItem="cRK-RV-eFj" secondAttribute="bottom" id="pIQ-C5-tm9"/>
+                                                    <constraint firstAttribute="bottom" secondItem="70g-lj-c6H" secondAttribute="bottom" id="1d9-pA-G01"/>
+                                                    <constraint firstItem="70g-lj-c6H" firstAttribute="leading" secondItem="ljA-rh-00w" secondAttribute="leading" id="4Ft-XV-9Wb"/>
+                                                    <constraint firstAttribute="trailing" secondItem="70g-lj-c6H" secondAttribute="trailing" id="59Z-V6-H1q"/>
+                                                    <constraint firstItem="70g-lj-c6H" firstAttribute="top" secondItem="ljA-rh-00w" secondAttribute="top" id="XOt-RB-8Sg"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="label" destination="cRK-RV-eFj" id="gwV-9M-43n"/>
+                                                    <outlet property="label" destination="70g-lj-c6H" id="Ahc-PD-As4"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -82,14 +97,60 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="T8F-ym-Pf7" firstAttribute="centerY" secondItem="mvp-yF-48O" secondAttribute="centerY" id="41l-nW-UNp"/>
-                                    <constraint firstAttribute="trailing" secondItem="T8F-ym-Pf7" secondAttribute="trailing" id="Azh-MR-FsO"/>
-                                    <constraint firstItem="T8F-ym-Pf7" firstAttribute="leading" secondItem="mvp-yF-48O" secondAttribute="leading" id="RYX-rn-e4g"/>
-                                    <constraint firstAttribute="height" constant="50" id="TXD-yF-ON7"/>
+                                    <constraint firstAttribute="trailing" secondItem="AfL-6f-7Ot" secondAttribute="trailing" id="Te5-N0-GRl"/>
+                                    <constraint firstAttribute="height" constant="50" id="Tvd-hk-uai"/>
+                                    <constraint firstItem="AfL-6f-7Ot" firstAttribute="centerY" secondItem="ufY-CR-ih1" secondAttribute="centerY" id="rFD-gn-pGg"/>
+                                    <constraint firstItem="AfL-6f-7Ot" firstAttribute="leading" secondItem="ufY-CR-ih1" secondAttribute="leading" id="wvt-H8-cEh"/>
                                 </constraints>
                             </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Na7-a8-isB" firstAttribute="leading" secondItem="xVN-Qy-XxB" secondAttribute="leading" id="234-t8-T2q"/>
+                            <constraint firstAttribute="trailing" secondItem="Na7-a8-isB" secondAttribute="trailing" id="Q3W-1w-yV7"/>
+                            <constraint firstItem="S38-HA-16i" firstAttribute="top" secondItem="Na7-a8-isB" secondAttribute="bottom" id="bC6-IW-bAs"/>
+                            <constraint firstAttribute="trailing" secondItem="LPF-51-alX" secondAttribute="trailing" id="gvc-Tp-Jcd"/>
+                            <constraint firstItem="ufY-CR-ih1" firstAttribute="top" secondItem="Blw-iU-Ci0" secondAttribute="bottom" id="ihB-J2-HaG"/>
+                            <constraint firstItem="ufY-CR-ih1" firstAttribute="leading" secondItem="xVN-Qy-XxB" secondAttribute="leading" id="jcj-Lf-fVY"/>
+                            <constraint firstItem="S38-HA-16i" firstAttribute="top" secondItem="LPF-51-alX" secondAttribute="bottom" id="lTf-7y-q0Y"/>
+                            <constraint firstItem="LPF-51-alX" firstAttribute="top" secondItem="ufY-CR-ih1" secondAttribute="bottom" id="loL-CM-AQS"/>
+                            <constraint firstItem="LPF-51-alX" firstAttribute="leading" secondItem="xVN-Qy-XxB" secondAttribute="leading" id="pL2-NM-PRp"/>
+                            <constraint firstAttribute="trailing" secondItem="ufY-CR-ih1" secondAttribute="trailing" id="qxP-1C-XsE"/>
+                            <constraint firstItem="Na7-a8-isB" firstAttribute="top" secondItem="ufY-CR-ih1" secondAttribute="bottom" id="rg9-LY-OUb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="GdJ-AQ-7Pt">
+                        <barButtonItem key="rightBarButtonItem" image="mapNavigationBarIconFilled" id="zo9-Da-SPd">
+                            <connections>
+                                <action selector="switchViewButtonTapped" destination="qGl-J7-dbK" id="RFl-sF-uSO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="batchCollectionView" destination="AfL-6f-7Ot" id="nQh-3F-zQG"/>
+                        <outlet property="navigationBarExtensionView" destination="ufY-CR-ih1" id="t8D-Lt-Ec5"/>
+                        <outlet property="scholarsListContainerView" destination="LPF-51-alX" id="csj-gh-Mdr"/>
+                        <outlet property="scholarsMapContainerView" destination="Na7-a8-isB" id="V2S-PB-qXd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lfZ-9i-o7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1589.5999999999999" y="-1240.0299850074964"/>
+        </scene>
+        <!--Scholars List View Controller-->
+        <scene sceneID="I7z-RD-tmy">
+            <objects>
+                <viewController id="PH2-Q1-fYf" customClass="ScholarsListViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="za2-YH-8gJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="y8N-Zc-85H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a32-D6-iJu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pzc-cf-gJB">
-                                <rect key="frame" x="0.0" y="114" width="375" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rzr-ac-a4m">
                                     <size key="itemSize" width="120" height="140"/>
@@ -150,25 +211,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="y8N-Zc-85H" firstAttribute="top" secondItem="Pzc-cf-gJB" secondAttribute="bottom" id="0wH-2Z-aNJ"/>
-                            <constraint firstItem="mvp-yF-48O" firstAttribute="top" secondItem="za2-YH-8gJ" secondAttribute="bottom" id="MgW-0V-ccz"/>
+                            <constraint firstItem="Pzc-cf-gJB" firstAttribute="top" secondItem="za2-YH-8gJ" secondAttribute="bottom" id="WiK-LR-X0s"/>
                             <constraint firstAttribute="trailing" secondItem="Pzc-cf-gJB" secondAttribute="trailing" id="ZcG-hd-s7f"/>
-                            <constraint firstItem="Pzc-cf-gJB" firstAttribute="top" secondItem="mvp-yF-48O" secondAttribute="bottom" id="vBo-7q-ABn"/>
-                            <constraint firstItem="mvp-yF-48O" firstAttribute="leading" secondItem="a32-D6-iJu" secondAttribute="leading" id="vJl-kk-o2l"/>
-                            <constraint firstAttribute="trailing" secondItem="mvp-yF-48O" secondAttribute="trailing" id="xHR-ne-Qk3"/>
                             <constraint firstItem="Pzc-cf-gJB" firstAttribute="leading" secondItem="a32-D6-iJu" secondAttribute="leading" id="yYk-gk-Fqs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7bB-xd-apA"/>
                     <connections>
-                        <outlet property="batchCollectionView" destination="T8F-ym-Pf7" id="SBT-Xt-ScL"/>
-                        <outlet property="navigationBarExtensionView" destination="mvp-yF-48O" id="zRc-AY-wiv"/>
-                        <outlet property="scholarCollectionView" destination="Pzc-cf-gJB" id="Vx6-P2-yWB"/>
+                        <outlet property="scholarCollectionView" destination="Pzc-cf-gJB" id="DEr-oP-Lof"/>
                         <segue destination="XS0-Sv-dxH" kind="show" identifier="ProfileViewController" id="35h-42-TPM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFY-tg-syj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1445.5999999999999" y="-1240.0299850074964"/>
+            <point key="canvasLocation" x="2484" y="-1511"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Het-ZB-HZZ">
@@ -176,10 +232,46 @@
                 <viewControllerPlaceholder storyboardName="Profile" id="XS0-Sv-dxH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Zr-FR-a89" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2057" y="-1240"/>
+            <point key="canvasLocation" x="3494" y="-1421"/>
+        </scene>
+        <!--Scholars Map View Controller-->
+        <scene sceneID="hzN-Ft-Gf4">
+            <objects>
+                <viewController id="20p-BO-DzZ" customClass="ScholarsMapViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="blG-wd-QIe"/>
+                        <viewControllerLayoutGuide type="bottom" id="NZu-SL-3N9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HuZ-Wc-4hm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WIB-Nb-tF1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
+                                <connections>
+                                    <outlet property="delegate" destination="20p-BO-DzZ" id="17S-5T-Mwk"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NZu-SL-3N9" firstAttribute="top" secondItem="WIB-Nb-tF1" secondAttribute="bottom" id="4Uq-A4-4nc"/>
+                            <constraint firstAttribute="trailing" secondItem="WIB-Nb-tF1" secondAttribute="trailing" id="dPO-uE-yWx"/>
+                            <constraint firstItem="WIB-Nb-tF1" firstAttribute="top" secondItem="blG-wd-QIe" secondAttribute="bottom" id="eKM-1L-bw4"/>
+                            <constraint firstItem="WIB-Nb-tF1" firstAttribute="leading" secondItem="HuZ-Wc-4hm" secondAttribute="leading" id="j5L-ZV-d2a"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="WIB-Nb-tF1" id="7OK-sF-voe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qlc-Jq-3xN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2484" y="-940"/>
         </scene>
     </scenes>
     <resources>
+        <image name="mapNavigationBarIconFilled" width="22" height="20"/>
         <image name="scholarsTabBarIconFilled" width="26" height="20"/>
         <image name="scholarsTabBarIconUnfilled" width="26" height="20"/>
     </resources>

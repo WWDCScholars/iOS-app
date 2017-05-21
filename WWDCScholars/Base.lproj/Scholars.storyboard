@@ -232,7 +232,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" id="XS0-Sv-dxH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Zr-FR-a89" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3494" y="-1421"/>
+            <point key="canvasLocation" x="3508" y="-1240"/>
         </scene>
         <!--Scholars Map View Controller-->
         <scene sceneID="hzN-Ft-Gf4">
@@ -263,6 +263,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="WIB-Nb-tF1" id="7OK-sF-voe"/>
+                        <segue destination="XS0-Sv-dxH" kind="show" identifier="ProfileViewController" id="G5l-BR-PGf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qlc-Jq-3xN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -275,4 +276,7 @@
         <image name="scholarsTabBarIconFilled" width="26" height="20"/>
         <image name="scholarsTabBarIconUnfilled" width="26" height="20"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="G5l-BR-PGf"/>
+    </inferredMetricsTieBreakers>
 </document>

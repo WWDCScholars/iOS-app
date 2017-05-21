@@ -25,24 +25,10 @@ internal final class ScholarsViewControllerCellContentFactory {
         return section
     }
     
-    internal static func scholarSectionContent(from scholars: [ExampleScholar]) -> SectionContent {
-        let section = ScholarsSectionContent()
-        for scholar in scholars {
-            let scholarCellContent = self.scholarCellContent(from: scholar)
-            section.add(cellContent: scholarCellContent)
-        }
-        return section
-    }
-    
     // MARK: - Private Functions
     
     private static func batchCellContent(from batch: ExampleBatch) -> CellContent {
         let cellContent = BatchCollectionViewCellContent(batch: batch)
-        return cellContent
-    }
-    
-    private static func scholarCellContent(from scholar: ExampleScholar) -> CellContent {
-        let cellContent = ScholarCollectionViewCellContent(scholar: scholar)
         return cellContent
     }
 }

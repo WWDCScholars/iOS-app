@@ -63,8 +63,6 @@
 		6ED441BD1ED075E50035BD31 /* BackgroundViewControllers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED441BC1ED075E50035BD31 /* BackgroundViewControllers.storyboard */; };
 		6ED441BF1ED076840035BD31 /* BackgroundActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED441BE1ED076840035BD31 /* BackgroundActivityViewController.swift */; };
 		6ED441C21ED077E20035BD31 /* BackgroundViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED441C11ED077E20035BD31 /* BackgroundViewHelper.swift */; };
-		6ED441C41ED08BAE0035BD31 /* ClusterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED441C31ED08BAD0035BD31 /* ClusterKit.framework */; };
-		6ED441C51ED08BAE0035BD31 /* ClusterKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED441C31ED08BAD0035BD31 /* ClusterKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EE999E81EC509B600F13809 /* ActionableCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE999D91EC509B600F13809 /* ActionableCellContent.swift */; };
 		6EE999E91EC509B600F13809 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE999DA1EC509B600F13809 /* Cell.swift */; };
 		6EE999EA1EC509B600F13809 /* CellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE999DB1EC509B600F13809 /* CellContent.swift */; };
@@ -85,16 +83,23 @@
 		6EE99A0B1EC528E900F13809 /* ExampleBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE99A0A1EC528E900F13809 /* ExampleBatch.swift */; };
 		6EE99A0E1EC52C9200F13809 /* ScholarsViewControllerCellContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE99A0D1EC52C9200F13809 /* ScholarsViewControllerCellContentFactory.swift */; };
 		6EE99A171EC52E2F00F13809 /* BasicSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE99A161EC52E2F00F13809 /* BasicSectionContent.swift */; };
+		7BD91F8A1ED2153E00439718 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F881ED2153E00439718 /* Fabric.framework */; };
+		7BD91F8B1ED2153E00439718 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F891ED2153E00439718 /* Crashlytics.framework */; };
+		7BD91F8F1ED2158600439718 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F8C1ED2158600439718 /* TwitterKit.framework */; };
+		7BD91F901ED2158600439718 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7BD91F8D1ED2158600439718 /* TwitterKitResources.bundle */; };
+		7BD91F911ED2158600439718 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F8E1ED2158600439718 /* TwitterCore.framework */; };
+		7BD91F921ED2178000439718 /* ClusterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED441C31ED08BAD0035BD31 /* ClusterKit.framework */; };
+		7BD91F931ED2178000439718 /* ClusterKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED441C31ED08BAD0035BD31 /* ClusterKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6ED441C61ED08BAE0035BD31 /* Embed Frameworks */ = {
+		7BD91F941ED2178000439718 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6ED441C51ED08BAE0035BD31 /* ClusterKit.framework in Embed Frameworks */,
+				7BD91F931ED2178000439718 /* ClusterKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +186,11 @@
 		6EE99A0A1EC528E900F13809 /* ExampleBatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleBatch.swift; sourceTree = "<group>"; };
 		6EE99A0D1EC52C9200F13809 /* ScholarsViewControllerCellContentFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsViewControllerCellContentFactory.swift; sourceTree = "<group>"; };
 		6EE99A161EC52E2F00F13809 /* BasicSectionContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSectionContent.swift; sourceTree = "<group>"; };
+		7BD91F881ED2153E00439718 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		7BD91F891ED2153E00439718 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		7BD91F8C1ED2158600439718 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		7BD91F8D1ED2158600439718 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		7BD91F8E1ED2158600439718 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,7 +198,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6ED441C41ED08BAE0035BD31 /* ClusterKit.framework in Frameworks */,
+				7BD91F911ED2158600439718 /* TwitterCore.framework in Frameworks */,
+				7BD91F921ED2178000439718 /* ClusterKit.framework in Frameworks */,
+				7BD91F8B1ED2153E00439718 /* Crashlytics.framework in Frameworks */,
+				7BD91F8A1ED2153E00439718 /* Fabric.framework in Frameworks */,
+				7BD91F8F1ED2158600439718 /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +499,11 @@
 		6ED441C71ED08BB40035BD31 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BD91F8C1ED2158600439718 /* TwitterKit.framework */,
+				7BD91F8D1ED2158600439718 /* TwitterKitResources.bundle */,
+				7BD91F8E1ED2158600439718 /* TwitterCore.framework */,
+				7BD91F881ED2153E00439718 /* Fabric.framework */,
+				7BD91F891ED2153E00439718 /* Crashlytics.framework */,
 				6ED441C31ED08BAD0035BD31 /* ClusterKit.framework */,
 			);
 			name = Frameworks;
@@ -682,7 +701,8 @@
 				6E3C55451EA032DD008F9AC9 /* Sources */,
 				6E3C55461EA032DD008F9AC9 /* Frameworks */,
 				6E3C55471EA032DD008F9AC9 /* Resources */,
-				6ED441C61ED08BAE0035BD31 /* Embed Frameworks */,
+				7BD91F871ED2151D00439718 /* ShellScript */,
+				7BD91F941ED2178000439718 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -705,7 +725,7 @@
 				TargetAttributes = {
 					6E3C55481EA032DD008F9AC9 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = XP2V9X75F2;
+						DevelopmentTeam = YQ3FQN6Z53;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -740,12 +760,29 @@
 				6E127D551EA3C6980068F7DB /* Team.storyboard in Resources */,
 				6E127D581EA3C6E30068F7DB /* Profile.storyboard in Resources */,
 				6E3C55521EA032DD008F9AC9 /* Main.storyboard in Resources */,
+				7BD91F901ED2158600439718 /* TwitterKitResources.bundle in Resources */,
 				6E127D521EA3C68C0068F7DB /* Blog.storyboard in Resources */,
 				6ED441BD1ED075E50035BD31 /* BackgroundViewControllers.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7BD91F871ED2151D00439718 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run d870990c31d5e6607e80fc418397610c59340eec e90d6681747a8d65aebd5a8df4fd264459fbd5e3d9d33deee5deb3c49f3f9b2f";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6E3C55451EA032DD008F9AC9 /* Sources */ = {
@@ -963,14 +1000,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XP2V9X75F2;
+				DEVELOPMENT_TEAM = YQ3FQN6Z53;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.AndrewWalker.WWDCScholars;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -980,14 +1018,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XP2V9X75F2;
+				DEVELOPMENT_TEAM = YQ3FQN6Z53;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.AndrewWalker.WWDCScholars;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

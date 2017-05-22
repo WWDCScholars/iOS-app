@@ -69,11 +69,13 @@ internal final class ActivityViewController: TWTRTimelineViewController {
                         dataSource.searchQuery == query {
                         dataSource.filterSensitiveTweets = true
                         dataSource.timelineFilter = filter
+                        dataSource.topTweetsOnly = false
                     }else {
                         let dataSource = TWTRSearchTimelineDataSource(searchQuery: query, apiClient: self.client)
                         self.dataSource = dataSource
                         dataSource.filterSensitiveTweets = true
                         dataSource.timelineFilter = filter
+                        dataSource.topTweetsOnly = false
                         
                     }
                     completion?(nil)

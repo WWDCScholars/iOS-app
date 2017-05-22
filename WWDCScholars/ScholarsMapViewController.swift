@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 import ClusterKit.MapKit
+import DeckTransition
 
 internal final class ScholarsMapViewController: UIViewController {
     
@@ -87,7 +88,15 @@ extension ScholarsMapViewController: MKMapViewDelegate {
     }
     
     internal func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        self.performSegue(withIdentifier: "ProfileViewController", sender: nil)
+        let transitionDelegate = DeckTransitioningDelegate()
+        guard let profileVC = UIStoryboard.init(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController else {
+            print ("Something went horibly wrong while instantiating the profile view controller!")
+            return
+        }
+        profileVC.transitioningDelegate = transitionDelegate
+        profileVC.modalPresentationStyle = .custom
+        present(profileVC, animated: true, completion: nil)
+//        self.performSegue(withIdentifier: "ProfileViewController", sender: nil)
     }
     
     // MARK: - Private Functions

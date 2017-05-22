@@ -132,7 +132,7 @@ extension ActivityViewController: TWTRTweetDetailViewControllerDelegate {
 }
 
 extension TWTRTweetDetailViewController: UIScrollViewDelegate {
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {        
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let delegate = transitioningDelegate as? DeckTransitioningDelegate {
             if scrollView.contentOffset.y > 0 {
                 // Normal behaviour if the `scrollView` isn't scrolled to the top

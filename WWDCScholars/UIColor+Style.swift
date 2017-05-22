@@ -17,6 +17,10 @@ internal extension UIColor {
         return UIColor(red: 65.0 / 255.0, green: 58.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0)
     }
     
+    internal static var scholarsTranslucentPurple: UIColor {
+        return UIColor(red: 10.0 / 255.0, green: 1.0 / 255.0, blue: 114.0 / 255.0, alpha: 1.0)
+    }
+    
     internal static var navigationBarBorderGray: UIColor {
         return UIColor(red: 178.0 / 255.0, green: 178.0 / 255.0, blue: 178.0 / 255.0, alpha: 1.0)
     }

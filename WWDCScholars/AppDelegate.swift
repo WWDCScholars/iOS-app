@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Fabric
+import TwitterKit
+import Crashlytics
 
 @UIApplicationMain
 internal final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +21,8 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Internal Functions
     
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        Fabric.with([Crashlytics.self, Twitter.self])
+
         UIStatusBar.applyScholarsLightStyle()
         UINavigationBar.applyScholarsStyle()
         UITabBar.applyScholarsStyle()

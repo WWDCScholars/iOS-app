@@ -191,6 +191,11 @@
 		7BD91F8C1ED2158600439718 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		7BD91F8D1ED2158600439718 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		7BD91F8E1ED2158600439718 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		7BD91F981ED332FD00439718 /* ActivityQueryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityQueryItem.swift; sourceTree = "<group>"; };
+		7BD91F9A1ED333F400439718 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		7BD91F9C1ED33B3E00439718 /* WWDCScholars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WWDCScholars.entitlements; sourceTree = "<group>"; };
+		7BD91F9D1ED33B4100439718 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		7BD91F9F1ED33F7A00439718 /* ActivityTimelineFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTimelineFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +315,7 @@
 		6E3C554B1EA032DD008F9AC9 /* WWDCScholars */ = {
 			isa = PBXGroup;
 			children = (
+				7BD91F9C1ED33B3E00439718 /* WWDCScholars.entitlements */,
 				6E3C554C1EA032DD008F9AC9 /* AppDelegate.swift */,
 				6EB77E301ECE3B7300E6E263 /* Managers */,
 				6EE99A0F1EC52DA900F13809 /* Controllers */,
@@ -440,6 +446,7 @@
 		6EB77E301ECE3B7300E6E263 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				7BD91F9A1ED333F400439718 /* CloudKitManager.swift */,
 				6EB77E311ECE3B7E00E6E263 /* QuickActionManager.swift */,
 			);
 			name = Managers;
@@ -499,6 +506,7 @@
 		6ED441C71ED08BB40035BD31 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BD91F9D1ED33B4100439718 /* CloudKit.framework */,
 				7BD91F8C1ED2158600439718 /* TwitterKit.framework */,
 				7BD91F8D1ED2158600439718 /* TwitterKitResources.bundle */,
 				7BD91F8E1ED2158600439718 /* TwitterCore.framework */,
@@ -633,6 +641,8 @@
 			isa = PBXGroup;
 			children = (
 				6EE99A091EC528D200F13809 /* Test Models */,
+				7BD91F981ED332FD00439718 /* ActivityQueryItem.swift */,
+				7BD91F9F1ED33F7A00439718 /* ActivityTimelineFilter.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -725,8 +735,16 @@
 				TargetAttributes = {
 					6E3C55481EA032DD008F9AC9 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = XP2V9X75F2;
+						DevelopmentTeam = YQ3FQN6Z53;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1000,7 +1018,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XP2V9X75F2;
+				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
+				DEVELOPMENT_TEAM = YQ3FQN6Z53;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1018,7 +1037,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XP2V9X75F2;
+				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
+				DEVELOPMENT_TEAM = YQ3FQN6Z53;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

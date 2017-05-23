@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import TwitterKit
 import SafariServices
+import DeckTransition
 
 internal final class ActivityViewController: TWTRTimelineViewController {
     
@@ -134,7 +135,12 @@ extension ActivityViewController: TWTRTweetViewDelegate {
     
     internal func tweetView(_ tweetView: TWTRTweetView, shouldDisplay controller: TWTRTweetDetailViewController) -> Bool {
         controller.delegate = self
-        return true
+        let transitionDelegate = DeckTransitioningDelegate()
+        controller.transitioningDelegate = transitionDelegate
+        controller.modalPresentationStyle = .custom
+        present(controller, animated: true, completion: nil)
+        controller.scrollView.delegate = controller
+        return false
     }
 }
 
@@ -174,6 +180,31 @@ extension ActivityViewController: TWTRTweetDetailViewControllerDelegate {
             UIApplication.shared.open(URL.init(string: "tweetbot://query=%24\(cashtag.text)")!, options: [:], completionHandler: nil)
         }else {
             openSafariViewController(for: URL.init(string: "https://twitter.com/search?q=%24\(cashtag.text)")!)
+        }
+    }
+}
+
+extension TWTRTweetDetailViewController: UIScrollViewDelegate {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let delegate = transitioningDelegate as? DeckTransitioningDelegate {
+            if scrollView.contentOffset.y > 0 {
+                // Normal behaviour if the `scrollView` isn't scrolled to the top
+                scrollView.bounces = true
+                delegate.isDismissEnabled = false
+            } else {
+                if scrollView.isDecelerating {
+                    // If the `scrollView` is scrolled to the top but is decelerating
+                    // that means a swipe has been performed. The view and scrollview are
+                    // both translated in response to this.
+                    view.transform = CGAffineTransform(translationX: 0, y: -scrollView.contentOffset.y)
+                    scrollView.transform = CGAffineTransform(translationX: 0, y: scrollView.contentOffset.y)
+                } else {
+                    // If the user has panned to the top, the scrollview doesnʼt bounce and
+                    // the dismiss gesture is enabled.
+                    scrollView.bounces = false
+                    delegate.isDismissEnabled = true
+                }
+            }
         }
     }
 }

@@ -90,6 +90,8 @@
 		7BD91F911ED2158600439718 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F8E1ED2158600439718 /* TwitterCore.framework */; };
 		7BD91F921ED2178000439718 /* ClusterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED441C31ED08BAD0035BD31 /* ClusterKit.framework */; };
 		7BD91F931ED2178000439718 /* ClusterKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED441C31ED08BAD0035BD31 /* ClusterKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7BD91F961ED3135100439718 /* DeckTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F951ED3135100439718 /* DeckTransition.framework */; };
+		7BD91F971ED3135100439718 /* DeckTransition.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F951ED3135100439718 /* DeckTransition.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7BD91FA11ED35EDA00439718 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD91F9A1ED333F400439718 /* CloudKitManager.swift */; };
 		7BD91FA21ED35EE600439718 /* ActivityQueryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD91F981ED332FD00439718 /* ActivityQueryItem.swift */; };
 		7BD91FA31ED35EE600439718 /* ActivityTimelineFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD91F9F1ED33F7A00439718 /* ActivityTimelineFilter.swift */; };
@@ -102,6 +104,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				7BD91F971ED3135100439718 /* DeckTransition.framework in Embed Frameworks */,
 				7BD91F931ED2178000439718 /* ClusterKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -194,6 +197,7 @@
 		7BD91F8C1ED2158600439718 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		7BD91F8D1ED2158600439718 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		7BD91F8E1ED2158600439718 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		7BD91F951ED3135100439718 /* DeckTransition.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeckTransition.framework; path = Carthage/Build/iOS/DeckTransition.framework; sourceTree = "<group>"; };
 		7BD91F981ED332FD00439718 /* ActivityQueryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityQueryItem.swift; sourceTree = "<group>"; };
 		7BD91F9A1ED333F400439718 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		7BD91F9C1ED33B3E00439718 /* WWDCScholars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WWDCScholars.entitlements; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 				7BD91F921ED2178000439718 /* ClusterKit.framework in Frameworks */,
 				7BD91F8B1ED2153E00439718 /* Crashlytics.framework in Frameworks */,
 				7BD91F8A1ED2153E00439718 /* Fabric.framework in Frameworks */,
+				7BD91F961ED3135100439718 /* DeckTransition.framework in Frameworks */,
 				7BD91F8F1ED2158600439718 /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +514,7 @@
 		6ED441C71ED08BB40035BD31 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BD91F951ED3135100439718 /* DeckTransition.framework */,
 				7BD91F9D1ED33B4100439718 /* CloudKit.framework */,
 				7BD91F8C1ED2158600439718 /* TwitterKit.framework */,
 				7BD91F8D1ED2158600439718 /* TwitterKitResources.bundle */,

@@ -92,6 +92,9 @@
 		7BD91F931ED2178000439718 /* ClusterKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED441C31ED08BAD0035BD31 /* ClusterKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7BD91F961ED3135100439718 /* DeckTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F951ED3135100439718 /* DeckTransition.framework */; };
 		7BD91F971ED3135100439718 /* DeckTransition.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F951ED3135100439718 /* DeckTransition.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7BD91FA11ED35EDA00439718 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD91F9A1ED333F400439718 /* CloudKitManager.swift */; };
+		7BD91FA21ED35EE600439718 /* ActivityQueryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD91F981ED332FD00439718 /* ActivityQueryItem.swift */; };
+		7BD91FA31ED35EE600439718 /* ActivityTimelineFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD91F9F1ED33F7A00439718 /* ActivityTimelineFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -195,6 +198,11 @@
 		7BD91F8D1ED2158600439718 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		7BD91F8E1ED2158600439718 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		7BD91F951ED3135100439718 /* DeckTransition.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeckTransition.framework; path = Carthage/Build/iOS/DeckTransition.framework; sourceTree = "<group>"; };
+		7BD91F981ED332FD00439718 /* ActivityQueryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityQueryItem.swift; sourceTree = "<group>"; };
+		7BD91F9A1ED333F400439718 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		7BD91F9C1ED33B3E00439718 /* WWDCScholars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WWDCScholars.entitlements; sourceTree = "<group>"; };
+		7BD91F9D1ED33B4100439718 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		7BD91F9F1ED33F7A00439718 /* ActivityTimelineFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTimelineFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +323,7 @@
 		6E3C554B1EA032DD008F9AC9 /* WWDCScholars */ = {
 			isa = PBXGroup;
 			children = (
+				7BD91F9C1ED33B3E00439718 /* WWDCScholars.entitlements */,
 				6E3C554C1EA032DD008F9AC9 /* AppDelegate.swift */,
 				6EB77E301ECE3B7300E6E263 /* Managers */,
 				6EE99A0F1EC52DA900F13809 /* Controllers */,
@@ -445,6 +454,7 @@
 		6EB77E301ECE3B7300E6E263 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				7BD91F9A1ED333F400439718 /* CloudKitManager.swift */,
 				6EB77E311ECE3B7E00E6E263 /* QuickActionManager.swift */,
 			);
 			name = Managers;
@@ -505,6 +515,7 @@
 			isa = PBXGroup;
 			children = (
 				7BD91F951ED3135100439718 /* DeckTransition.framework */,
+				7BD91F9D1ED33B4100439718 /* CloudKit.framework */,
 				7BD91F8C1ED2158600439718 /* TwitterKit.framework */,
 				7BD91F8D1ED2158600439718 /* TwitterKitResources.bundle */,
 				7BD91F8E1ED2158600439718 /* TwitterCore.framework */,
@@ -639,6 +650,8 @@
 			isa = PBXGroup;
 			children = (
 				6EE99A091EC528D200F13809 /* Test Models */,
+				7BD91F981ED332FD00439718 /* ActivityQueryItem.swift */,
+				7BD91F9F1ED33F7A00439718 /* ActivityTimelineFilter.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -731,8 +744,16 @@
 				TargetAttributes = {
 					6E3C55481EA032DD008F9AC9 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = XP2V9X75F2;
+						DevelopmentTeam = YQ3FQN6Z53;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -820,6 +841,7 @@
 				6E2EFC2A1ED0E4E200C23E16 /* ScholarAnnotation.swift in Sources */,
 				6E2EFC211ED0A37400C23E16 /* ScholarsMapAnnotationsFactory.swift in Sources */,
 				6E127D5A1EA3C6FA0068F7DB /* ProfileViewController.swift in Sources */,
+				7BD91FA31ED35EE600439718 /* ActivityTimelineFilter.swift in Sources */,
 				6E2EFC271ED0C90100C23E16 /* ScholarClusterAnnotationView.swift in Sources */,
 				6E5CA5151EA16A810018ECB9 /* NavigationBarExtensionView.swift in Sources */,
 				6EE99A171EC52E2F00F13809 /* BasicSectionContent.swift in Sources */,
@@ -833,6 +855,7 @@
 				6E4806211EA14FA700213835 /* UIStatusBar.swift in Sources */,
 				6E48061C1EA14EC500213835 /* ActivityViewController.swift in Sources */,
 				6E3C55661EA03DFE008F9AC9 /* UIColor+Style.swift in Sources */,
+				7BD91FA11ED35EDA00439718 /* CloudKitManager.swift in Sources */,
 				6EE999F61EC509B600F13809 /* TableViewContentController.swift in Sources */,
 				6E3C55681EA042F3008F9AC9 /* UINavigationBar+Style.swift in Sources */,
 				6E032F661EC92B5300410B7C /* ScholarsSectionContent.swift in Sources */,
@@ -848,6 +871,7 @@
 				6E1083C91ECBCC1300139C23 /* VariableWidthFixedHeightCollectionViewCellContent.swift in Sources */,
 				6E1083D31ECBD21100139C23 /* VariableDimensionCollectionViewCellContent.swift in Sources */,
 				6ED441BF1ED076840035BD31 /* BackgroundActivityViewController.swift in Sources */,
+				7BD91FA21ED35EE600439718 /* ActivityQueryItem.swift in Sources */,
 				6E032F641EC92B1C00410B7C /* BatchSectionContent.swift in Sources */,
 				6E48061A1EA14EB700213835 /* BlogViewController.swift in Sources */,
 				6EE999E91EC509B600F13809 /* Cell.swift in Sources */,
@@ -1006,7 +1030,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XP2V9X75F2;
+				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
+				DEVELOPMENT_TEAM = YQ3FQN6Z53;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1024,7 +1049,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XP2V9X75F2;
+				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
+				DEVELOPMENT_TEAM = YQ3FQN6Z53;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

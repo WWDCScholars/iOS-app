@@ -13,15 +13,22 @@ import SafariServices
 
 internal final class ActivityViewController: TWTRTimelineViewController {
     
+    private var client: TWTRAPIClient! = nil
+    
     // MARK: - Lifecycle
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.client = TWTRAPIClient()
+        
         self.styleUI()
         self.configureUI()
         self.configureTwitterDataSource()
         self.configureTwitterDelegate()
+        print (self.refreshControl)
+        self.refreshControl?.removeTarget(nil, action: nil, for: .allEvents)
+        self.refreshControl?.addTarget(self, action: #selector(self.refreshTableView), for: .valueChanged)
     }
     
     // MARK: - UI
@@ -39,10 +46,42 @@ internal final class ActivityViewController: TWTRTimelineViewController {
     // MARK: - Private functions
     
     private func configureTwitterDataSource() {
-        let client = TWTRAPIClient()
-        let query = "#WWDCScholars OR from:@tim_cook OR from:@cue OR from:@jgeleynse OR from:@pschiller OR from:@AngelaAhrendts OR from:@EEhare"
-        let dataSource = TWTRSearchTimelineDataSource(searchQuery: query, apiClient: client)
-        self.dataSource = dataSource
+        loadFilterAndQuery()
+    }
+    
+    private func loadFilterAndQuery(completion: ((Error?) -> Void)? = nil) {
+        CloudKitManager.shared.loadActivityTimelineFilters() { filter, error in
+            guard let filter = filter, error == nil else {
+                print ("Error loading activity filters \(error.debugDescription)")
+                completion?(error)
+                return
+            }
+            
+            CloudKitManager.shared.loadActivityQueryItems() { query, error in
+                guard let query = query, error == nil else {
+                    print ("Error loading activity query \(error.debugDescription)")
+                    completion?(error)
+                    return
+                }
+                //            let query = "#WWDCScholars OR from:@tim_cook OR from:@cue OR from:@jgeleynse OR from:@pschiller OR from:@AngelaAhrendts OR from:@EEhare"
+                DispatchQueue.main.async {
+                    if let dataSource = self.dataSource as? TWTRSearchTimelineDataSource,
+                        dataSource.searchQuery == query {
+                        dataSource.filterSensitiveTweets = true
+                        dataSource.timelineFilter = filter
+                        dataSource.topTweetsOnly = false
+                    }else {
+                        let dataSource = TWTRSearchTimelineDataSource(searchQuery: query, apiClient: self.client)
+                        self.dataSource = dataSource
+                        dataSource.filterSensitiveTweets = true
+                        dataSource.timelineFilter = filter
+                        dataSource.topTweetsOnly = false
+                        
+                    }
+                    completion?(nil)
+                }
+            }
+        }
     }
     
     private func configureTwitterDelegate() {
@@ -50,6 +89,20 @@ internal final class ActivityViewController: TWTRTimelineViewController {
     }
     
     // MARK: - Actions
+    
+    internal func refreshTableView() {
+        loadFilterAndQuery(completion: { error in
+            guard error == nil else {
+                print ("Error loading activity filters and query \(error.debugDescription)")
+                if self.refreshControl?.isRefreshing == true {
+                   self.refreshControl?.endRefreshing()
+                }
+                return
+            }
+            
+            self.refresh()
+        })
+    }
     
     internal func openTweetComposer() {
         let composer = TWTRComposer()
@@ -107,7 +160,7 @@ extension ActivityViewController: TWTRTweetDetailViewControllerDelegate {
             if (UIApplication.shared.canOpenURL(URL(string:"twitter://")!)) {
                 UIApplication.shared.open(URL.init(string: "twitter://search?query=%23\(hashtag.text)")!, options: [:], completionHandler: nil)
             }else if (UIApplication.shared.canOpenURL(URL(string:"tweetbot://")!)) {
-                 UIApplication.shared.open(URL.init(string: "tweetbot://query=%23\(hashtag.text)")!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(URL.init(string: "tweetbot://query=%23\(hashtag.text)")!, options: [:], completionHandler: nil)
             }else {
                 openSafariViewController(for: URL.init(string: "https://twitter.com/search?q=%23\(hashtag.text)")!)
             }

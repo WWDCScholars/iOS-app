@@ -116,7 +116,11 @@ extension ActivityViewController: TWTRTweetViewDelegate {
     internal func openSafariViewController(`for` url: URL) {
         let svc = SFSafariViewController(url: url)
         svc.preferredBarTintColor = .scholarsTranslucentPurple
-        self.presentedViewController?.present(svc, animated: true, completion: nil)
+        if let presVC = self.presentedViewController {
+            presVC.present(svc, animated: true, completion: nil)
+        }else {
+            self.present(svc, animated: true, completion: nil)
+        }
     }
     
     internal func tweetView(_ tweetView: TWTRTweetView, didTap url: URL) {

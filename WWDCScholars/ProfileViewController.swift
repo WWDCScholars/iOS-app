@@ -127,46 +127,12 @@ internal final class ProfileViewController: UIViewController {
     }
 }
 
-extension ProfileViewController: UIScrollViewDelegate {
+extension ProfileViewController: UIScrollViewDelegate, DeckTransitionScrollAssist, HeaderParallaxAssist {
     
     // MARK: - Internal Functions
     
     internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.updateMapViewParallax(with: scrollView)
-        
-        if let delegate = transitioningDelegate as? DeckTransitioningDelegate {
-            if scrollView.contentOffset.y > 0 {
-                // Normal behaviour if the `scrollView` isn't scrolled to the top
-                scrollView.bounces = true
-                delegate.isDismissEnabled = false
-            } else {
-                if scrollView.isDecelerating {
-                    // If the `scrollView` is scrolled to the top but is decelerating
-                    // that means a swipe has been performed. The view and scrollview are
-                    // both translated in response to this.
-                    view.transform = CGAffineTransform(translationX: 0, y: -scrollView.contentOffset.y)
-                    scrollView.transform = CGAffineTransform(translationX: 0, y: scrollView.contentOffset.y)
-                } else {
-                    // If the user has panned to the top, the scrollview doesnʼt bounce and
-                    // the dismiss gesture is enabled.
-                    scrollView.bounces = false
-                    delegate.isDismissEnabled = true
-                }
-            }
-        }
-    }
-    
-    // MARK: - Private Functions
-    
-    private func updateMapViewParallax(with scrollView: UIScrollView) {
-        let height = self.mapViewHeight
-        var frame = CGRect(x: 0.0, y: 0.0, width: scrollView.bounds.width, height: height)
-        
-        if scrollView.contentOffset.y < height {
-            frame.origin.y = scrollView.contentOffset.y
-            frame.size.height = -scrollView.contentOffset.y + height
-        }
-        
-        self.mapView?.frame = frame
+        self.updateDeckTransition(for: scrollView)
+        self.updateHeaderParallax(for: scrollView, on: self.mapView, baseHeight: self.mapViewHeight)
     }
 }

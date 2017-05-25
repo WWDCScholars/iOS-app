@@ -95,31 +95,6 @@ extension ActivityViewController: ActivityViewControllerProxyDelegate {
     }
 }
 
-extension TWTRTweetDetailViewController: UIScrollViewDelegate {
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let delegate = transitioningDelegate as? DeckTransitioningDelegate {
-            if scrollView.contentOffset.y > 0 {
-                // Normal behaviour if the `scrollView` isn't scrolled to the top
-                scrollView.bounces = true
-                delegate.isDismissEnabled = false
-            } else {
-                if scrollView.isDecelerating {
-                    // If the `scrollView` is scrolled to the top but is decelerating
-                    // that means a swipe has been performed. The view and scrollview are
-                    // both translated in response to this.
-                    view.transform = CGAffineTransform(translationX: 0, y: -scrollView.contentOffset.y)
-                    scrollView.transform = CGAffineTransform(translationX: 0, y: scrollView.contentOffset.y)
-                } else {
-                    // If the user has panned to the top, the scrollview doesnʼt bounce and
-                    // the dismiss gesture is enabled.
-                    scrollView.bounces = false
-                    delegate.isDismissEnabled = true
-                }
-            }
-        }
-    }
-}
-
 extension ActivityViewController: TWTRTweetViewDelegate {
     internal func openSafariViewController(`for` url: URL) {
         let svc = SFSafariViewController(url: url)

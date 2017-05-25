@@ -14,101 +14,109 @@ import DeckTransition
 
 internal final class ActivityViewController: TWTRTimelineViewController {
     
-    private var client: TWTRAPIClient! = nil
+    // MARK: - File Private Properties
+    
+    fileprivate var filter: TWTRTimelineFilter?
+    
+    // MARK: - Internal Properties
+    
+    internal var proxy: ActivityViewControllerProxy?
     
     // MARK: - Lifecycle
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.client = TWTRAPIClient()
+        self.proxy = ActivityViewControllerProxy(delegate: self)
         
-        self.styleUI()
         self.configureUI()
-        self.configureTwitterDataSource()
-        self.configureTwitterDelegate()
-        print (self.refreshControl)
-        self.refreshControl?.removeTarget(nil, action: nil, for: .allEvents)
-        self.refreshControl?.addTarget(self, action: #selector(self.refreshTableView), for: .valueChanged)
+        self.loadTimeline()
     }
     
     // MARK: - UI
     
-    private func styleUI() {
-        let composeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(self.openTweetComposer))
-        self.navigationItem.rightBarButtonItem = composeBarButtonItem
-    }
-    
     private func configureUI() {
         self.title = "Activity"
         self.showTweetActions = true
-    }
-    
-    // MARK: - Private functions
-    
-    private func configureTwitterDataSource() {
-        loadFilterAndQuery()
-    }
-    
-    private func loadFilterAndQuery(completion: ((Error?) -> Void)? = nil) {
-        CloudKitManager.shared.loadActivityTimelineFilters() { filter, error in
-            guard let filter = filter, error == nil else {
-                print ("Error loading activity filters \(error.debugDescription)")
-                completion?(error)
-                return
-            }
-            
-            CloudKitManager.shared.loadActivityQueryItems() { query, error in
-                guard let query = query, error == nil else {
-                    print ("Error loading activity query \(error.debugDescription)")
-                    completion?(error)
-                    return
-                }
-                //            let query = "#WWDCScholars OR from:@tim_cook OR from:@cue OR from:@jgeleynse OR from:@pschiller OR from:@AngelaAhrendts OR from:@EEhare"
-                DispatchQueue.main.async {
-                    if let dataSource = self.dataSource as? TWTRSearchTimelineDataSource,
-                        dataSource.searchQuery == query {
-                        dataSource.filterSensitiveTweets = true
-                        dataSource.timelineFilter = filter
-                        dataSource.topTweetsOnly = false
-                    }else {
-                        let dataSource = TWTRSearchTimelineDataSource(searchQuery: query, apiClient: self.client)
-                        self.dataSource = dataSource
-                        dataSource.filterSensitiveTweets = true
-                        dataSource.timelineFilter = filter
-                        dataSource.topTweetsOnly = false
-                        
-                    }
-                    completion?(nil)
-                }
-            }
-        }
-    }
-    
-    private func configureTwitterDelegate() {
         self.tweetViewDelegate = self
+        
+        let composeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(self.presentTweetComposer))
+        self.navigationItem.rightBarButtonItem = composeBarButtonItem
+        
+        self.refreshControl?.replaceTarget(self, action: #selector(self.loadTimeline), for: .valueChanged)
+    }
+    
+    // MARK: - File Private Functions
+    
+    fileprivate func configureDataSource(with activityQueryItems: [ActivityQueryItem]) {
+        let query = ActivityQueryFactory.query(for: activityQueryItems)
+        let client = TWTRAPIClient()
+        let dataSource = TWTRSearchTimelineDataSource(searchQuery: query, apiClient: client)
+        dataSource.filterSensitiveTweets = true
+        dataSource.timelineFilter = self.filter
+        dataSource.topTweetsOnly = false
+        self.dataSource = dataSource
+        self.refresh()
     }
     
     // MARK: - Actions
     
-    internal func refreshTableView() {
-        loadFilterAndQuery(completion: { error in
-            guard error == nil else {
-                print ("Error loading activity filters and query \(error.debugDescription)")
-                if self.refreshControl?.isRefreshing == true {
-                   self.refreshControl?.endRefreshing()
-                }
-                return
-            }
-            
-            self.refresh()
-        })
+    @objc fileprivate func loadTimeline() {
+        self.proxy?.loadActivityTimelineFilters()
     }
     
-    internal func openTweetComposer() {
+    @objc fileprivate func presentTweetComposer() {
         let composer = TWTRComposer()
         composer.setText("#WWDCScholars")
         composer.show(from: self) { _ in }
+    }
+}
+
+extension ActivityViewController: ActivityViewControllerProxyDelegate {
+    
+    // MARK: - Internal Functions
+    
+    internal func didLoadActivityTimelineFilters(activityTimelineFilters: [ActivityTimelineFilter]) {
+        self.filter = ActivityFilterFactory.filter(for: activityTimelineFilters)
+        self.proxy?.loadActivityQueryItems()
+    }
+    
+    internal func failedToLoadActivityTimelineFilters() {
+        // TODO: Update UI to display background view controller
+    }
+    
+    internal func didLoadActivityQueryItems(activityQueryItems: [ActivityQueryItem]) {
+        self.configureDataSource(with: activityQueryItems)
+        self.refreshControl?.endRefreshing()
+    }
+    
+    internal func failedToLoadActivityQueryItems() {
+        // TODO: Update UI to display background view controller
+    }
+}
+
+extension TWTRTweetDetailViewController: UIScrollViewDelegate {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let delegate = transitioningDelegate as? DeckTransitioningDelegate {
+            if scrollView.contentOffset.y > 0 {
+                // Normal behaviour if the `scrollView` isn't scrolled to the top
+                scrollView.bounces = true
+                delegate.isDismissEnabled = false
+            } else {
+                if scrollView.isDecelerating {
+                    // If the `scrollView` is scrolled to the top but is decelerating
+                    // that means a swipe has been performed. The view and scrollview are
+                    // both translated in response to this.
+                    view.transform = CGAffineTransform(translationX: 0, y: -scrollView.contentOffset.y)
+                    scrollView.transform = CGAffineTransform(translationX: 0, y: scrollView.contentOffset.y)
+                } else {
+                    // If the user has panned to the top, the scrollview doesnʼt bounce and
+                    // the dismiss gesture is enabled.
+                    scrollView.bounces = false
+                    delegate.isDismissEnabled = true
+                }
+            }
+        }
     }
 }
 
@@ -184,31 +192,6 @@ extension ActivityViewController: TWTRTweetDetailViewControllerDelegate {
             UIApplication.shared.open(URL.init(string: "tweetbot://query=%24\(cashtag.text)")!, options: [:], completionHandler: nil)
         }else {
             openSafariViewController(for: URL.init(string: "https://twitter.com/search?q=%24\(cashtag.text)")!)
-        }
-    }
-}
-
-extension TWTRTweetDetailViewController: UIScrollViewDelegate {
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let delegate = transitioningDelegate as? DeckTransitioningDelegate {
-            if scrollView.contentOffset.y > 0 {
-                // Normal behaviour if the `scrollView` isn't scrolled to the top
-                scrollView.bounces = true
-                delegate.isDismissEnabled = false
-            } else {
-                if scrollView.isDecelerating {
-                    // If the `scrollView` is scrolled to the top but is decelerating
-                    // that means a swipe has been performed. The view and scrollview are
-                    // both translated in response to this.
-                    view.transform = CGAffineTransform(translationX: 0, y: -scrollView.contentOffset.y)
-                    scrollView.transform = CGAffineTransform(translationX: 0, y: scrollView.contentOffset.y)
-                } else {
-                    // If the user has panned to the top, the scrollview doesnʼt bounce and
-                    // the dismiss gesture is enabled.
-                    scrollView.bounces = false
-                    delegate.isDismissEnabled = true
-                }
-            }
         }
     }
 }

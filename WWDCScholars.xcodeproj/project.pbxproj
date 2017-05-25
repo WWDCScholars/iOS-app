@@ -51,6 +51,7 @@
 		6E67DE971EBF99CA00992E69 /* BlogPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E67DE961EBF99CA00992E69 /* BlogPostCollectionViewCell.swift */; };
 		6E67DE991EBFA48A00992E69 /* CGFloat+WWDCScholars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E67DE981EBFA48A00992E69 /* CGFloat+WWDCScholars.swift */; };
 		6E6F40221EBE02BD00D8D969 /* ProfileSocialAccountsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6F40211EBE02BD00D8D969 /* ProfileSocialAccountsFactory.swift */; };
+		6E7930011ED65B8C00846434 /* UITabBarController+WWDCScholars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7930001ED65B8C00846434 /* UITabBarController+WWDCScholars.swift */; };
 		6E7D17411EBD290200C93E89 /* String+WWDCScholars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D17401EBD290200C93E89 /* String+WWDCScholars.swift */; };
 		6E7D17431EBD3B9400C93E89 /* UIView+WWDCScholars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D17421EBD3B9400C93E89 /* UIView+WWDCScholars.swift */; };
 		6E997BDB1EBE61FB0098C140 /* UILabel+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E997BDA1EBE61FB0098C140 /* UILabel+Style.swift */; };
@@ -159,6 +160,7 @@
 		6E67DE961EBF99CA00992E69 /* BlogPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E67DE981EBFA48A00992E69 /* CGFloat+WWDCScholars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+WWDCScholars.swift"; sourceTree = "<group>"; };
 		6E6F40211EBE02BD00D8D969 /* ProfileSocialAccountsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSocialAccountsFactory.swift; sourceTree = "<group>"; };
+		6E7930001ED65B8C00846434 /* UITabBarController+WWDCScholars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+WWDCScholars.swift"; sourceTree = "<group>"; };
 		6E7D17401EBD290200C93E89 /* String+WWDCScholars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+WWDCScholars.swift"; sourceTree = "<group>"; };
 		6E7D17421EBD3B9400C93E89 /* UIView+WWDCScholars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+WWDCScholars.swift"; sourceTree = "<group>"; };
 		6E997BDA1EBE61FB0098C140 /* UILabel+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Style.swift"; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				6E3C55621EA03D17008F9AC9 /* UITabBar+Style.swift */,
 				6E5CA51D1EA172E70018ECB9 /* UIView+Style.swift */,
 				6E7D17421EBD3B9400C93E89 /* UIView+WWDCScholars.swift */,
+				6E7930001ED65B8C00846434 /* UITabBarController+WWDCScholars.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -835,6 +838,7 @@
 				6EE999EB1EC509B600F13809 /* CollectionViewContentController.swift in Sources */,
 				6E997BDB1EBE61FB0098C140 /* UILabel+Style.swift in Sources */,
 				6EE999EC1EC509B600F13809 /* ContentController.swift in Sources */,
+				6E7930011ED65B8C00846434 /* UITabBarController+WWDCScholars.swift in Sources */,
 				6E032F691EC92BC600410B7C /* SizeableCollectionViewSectionContent.swift in Sources */,
 				6E1083C31ECBCBBB00139C23 /* VariableWidthCollectionViewCellContent.swift in Sources */,
 				6EE99A0B1EC528E900F13809 /* ExampleBatch.swift in Sources */,

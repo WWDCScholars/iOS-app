@@ -47,22 +47,24 @@ internal final class QuickActionManager {
     // MARK: - Private Functions
     
     private func openProfile(tabBarController: UITabBarController) {
-        let index = tabBarController.index(of: ScholarsListViewController.self) ?? 0
+        let index = tabBarController.viewControllers?.index(where: { ($0 as? UINavigationController)?.viewControllers.first is ScholarsListViewController }) ?? 0
         tabBarController.selectedIndex = index
     }
     
     private func openSavedScholars(tabBarController: UITabBarController) {
-        let index = tabBarController.index(of: ScholarsListViewController.self) ?? 0
+        let index = tabBarController.viewControllers?.index(where: { ($0 as? UINavigationController)?.viewControllers.first is ScholarsListViewController }) ?? 0
+
         tabBarController.selectedIndex = index
     }
     
     private func openAcivity(tabBarController: UITabBarController) {
-        let index = tabBarController.index(of: ActivityViewController.self) ?? 0
+        let index = tabBarController.viewControllers?.index(where: { ($0 as? UINavigationController)?.viewControllers.first is ActivityViewController }) ?? 0
+
         tabBarController.selectedIndex = index
     }
     
     private func openBlog(tabBarController: UITabBarController) {
-        let index = tabBarController.index(of: BlogViewController.self) ?? 0
+        let index = tabBarController.viewControllers?.index(where: { ($0 as? UINavigationController)?.viewControllers.first is BlogViewController }) ?? 0
         tabBarController.selectedIndex = index
     }
 }

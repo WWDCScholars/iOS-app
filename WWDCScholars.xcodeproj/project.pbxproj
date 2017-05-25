@@ -87,6 +87,7 @@
 		6EE99A0E1EC52C9200F13809 /* ScholarsViewControllerCellContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE99A0D1EC52C9200F13809 /* ScholarsViewControllerCellContentFactory.swift */; };
 		6EE99A171EC52E2F00F13809 /* BasicSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE99A161EC52E2F00F13809 /* BasicSectionContent.swift */; };
 		6EF533911ED63F8E000157E5 /* ActivityFilterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF533901ED63F8E000157E5 /* ActivityFilterFactory.swift */; };
+		7B2D142B1ED6E4350039C870 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F9D1ED33B4100439718 /* CloudKit.framework */; };
 		7BD91F8A1ED2153E00439718 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F881ED2153E00439718 /* Fabric.framework */; };
 		7BD91F8B1ED2153E00439718 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F891ED2153E00439718 /* Crashlytics.framework */; };
 		7BD91F8F1ED2158600439718 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F8C1ED2158600439718 /* TwitterKit.framework */; };
@@ -218,6 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B2D142B1ED6E4350039C870 /* CloudKit.framework in Frameworks */,
 				7BD91F911ED2158600439718 /* TwitterCore.framework in Frameworks */,
 				7BD91F921ED2178000439718 /* ClusterKit.framework in Frameworks */,
 				7BD91F8B1ED2153E00439718 /* Crashlytics.framework in Frameworks */,

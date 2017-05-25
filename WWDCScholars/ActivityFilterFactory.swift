@@ -26,16 +26,16 @@ internal final class ActivityFilterFactory {
         for filter in activityTimelineFilters {
             switch filter.type {
             case .keyword:
-                keywords.insert(filter.filter)
+                _ = keywords.insert(filter.filter)
                 break
             case .hashtag:
-                hashtags.insert(filter.filter)
+                _ = hashtags.insert(filter.filter)
                 break
             case .handle:
-                handles.insert(filter.filter)
+                _ = handles.insert(filter.filter)
                 break
             case .url:
-                urls.insert(filter.filter)
+                _ = urls.insert(filter.filter)
                 break
             }
         }

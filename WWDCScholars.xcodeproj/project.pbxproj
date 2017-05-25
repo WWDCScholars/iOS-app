@@ -383,6 +383,7 @@
 		6E3C55611EA03CF4008F9AC9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6E6703581ED63B3700228FF0 /* UIControl+WWDCScholars.swift */,
 				6E3C55651EA03DFE008F9AC9 /* UIColor+Style.swift */,
 				6E997BDA1EBE61FB0098C140 /* UILabel+Style.swift */,
 				6E3C55671EA042F3008F9AC9 /* UINavigationBar+Style.swift */,
@@ -467,7 +468,6 @@
 			children = (
 				6E7D17401EBD290200C93E89 /* String+WWDCScholars.swift */,
 				6E67DE981EBFA48A00992E69 /* CGFloat+WWDCScholars.swift */,
-				6E6703581ED63B3700228FF0 /* UIControl+WWDCScholars.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";

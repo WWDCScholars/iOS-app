@@ -10,20 +10,20 @@ import Foundation
 import UIKit
 
 internal extension UILabel {
-
+    
     // MARK: - Internal Functions
     
-    internal func applyProfileNameStyle() {
+    internal func applyDetailHeaderTitleStyle() {
         self.font = UIFont.systemFont(ofSize: 25.0)
         self.textColor = .titleTextDark
     }
     
-    internal func applyProfileTitleStyle() {
+    internal func applyDetailTitleStyle() {
         self.font = UIFont.systemFont(ofSize: 16.0)
         self.textColor = .titleTextDark
     }
     
-    internal func applyProfileContentStyle() {
+    internal func applyDetailContentStyle() {
         self.font = UIFont.systemFont(ofSize: 16.0)
         self.textColor = .contentTextDark
     }

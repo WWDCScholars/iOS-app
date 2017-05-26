@@ -72,7 +72,7 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
     }
     
     // MARK: - Internal Functions Functions
-
+    
     internal func switchedToViewController() {
         self.locationManager.requestWhenInUseAuthorization()
     }
@@ -130,15 +130,6 @@ extension ScholarsMapViewController: MKMapViewDelegate {
         let edgeInset: CGFloat = 50.0
         let edgeInsets = UIEdgeInsets(top: edgeInset, left: edgeInset, bottom: edgeInset, right: edgeInset)
         mapView.show(cluster, edgePadding: edgeInsets, animated: true)
-    }
-    
-    private func presentProfileViewController() {
-        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
-        let profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController")
-        let transitionDelegate = DeckTransitioningDelegate()
-        profileViewController.transitioningDelegate = transitionDelegate
-        profileViewController.modalPresentationStyle = .custom
-        self.present(profileViewController, animated: true, completion: nil)
     }
     
     private func scholarAnnotationView(annotation: MKAnnotation, mapView: MKMapView) -> ScholarAnnotationView {

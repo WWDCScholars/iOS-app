@@ -59,6 +59,10 @@ extension BlogViewController: UICollectionViewDelegateFlowLayout {
         return self.cellSize()
     }
     
+    internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "blogPostViewController", sender: nil)
+    }
+    
     // MARK: - Private Functions
     
     private func cellSize() -> CGSize {

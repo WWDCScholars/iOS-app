@@ -1,0 +1,18 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+pod 'ClusterKit/MapKit', :path => '../.'
+
+target 'Example-data' do
+    pod 'GeoJSONSerialization'
+end
+
+target 'Example-objc' do
+    pod 'GoogleMaps', '~> 2.2'
+end
+
+target 'Example-swift' do
+    pod 'GoogleMaps', '~> 2.2'
+end
+

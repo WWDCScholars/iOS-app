@@ -13,6 +13,7 @@
 		6E032F641EC92B1C00410B7C /* BatchSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E032F631EC92B1C00410B7C /* BatchSectionContent.swift */; };
 		6E032F661EC92B5300410B7C /* ScholarsSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E032F651EC92B5300410B7C /* ScholarsSectionContent.swift */; };
 		6E032F691EC92BC600410B7C /* SizeableCollectionViewSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E032F681EC92BC600410B7C /* SizeableCollectionViewSectionContent.swift */; };
+		6E0ECEDD1ED89B0D009F8422 /* BlogPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0ECEDC1ED89B0D009F8422 /* BlogPostViewController.swift */; };
 		6E1083C31ECBCBBB00139C23 /* VariableWidthCollectionViewCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1083C21ECBCBBB00139C23 /* VariableWidthCollectionViewCellContent.swift */; };
 		6E1083C51ECBCBD100139C23 /* VariableHeightCollectionViewCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1083C41ECBCBD100139C23 /* VariableHeightCollectionViewCellContent.swift */; };
 		6E1083C71ECBCBFB00139C23 /* VariableHeightFixedWidthCollectionViewCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1083C61ECBCBFB00139C23 /* VariableHeightFixedWidthCollectionViewCellContent.swift */; };
@@ -130,6 +131,7 @@
 		6E032F631EC92B1C00410B7C /* BatchSectionContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchSectionContent.swift; sourceTree = "<group>"; };
 		6E032F651EC92B5300410B7C /* ScholarsSectionContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsSectionContent.swift; sourceTree = "<group>"; };
 		6E032F681EC92BC600410B7C /* SizeableCollectionViewSectionContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeableCollectionViewSectionContent.swift; sourceTree = "<group>"; };
+		6E0ECEDC1ED89B0D009F8422 /* BlogPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostViewController.swift; sourceTree = "<group>"; };
 		6E1083C21ECBCBBB00139C23 /* VariableWidthCollectionViewCellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableWidthCollectionViewCellContent.swift; sourceTree = "<group>"; };
 		6E1083C41ECBCBD100139C23 /* VariableHeightCollectionViewCellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableHeightCollectionViewCellContent.swift; sourceTree = "<group>"; };
 		6E1083C61ECBCBFB00139C23 /* VariableHeightFixedWidthCollectionViewCellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableHeightFixedWidthCollectionViewCellContent.swift; sourceTree = "<group>"; };
@@ -251,6 +253,14 @@
 				6E032F5F1EC7AE9500410B7C /* ScholarCollectionViewCellContent.swift */,
 			);
 			name = ScholarCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		6E0ECEDB1ED89ACC009F8422 /* BlogPostViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E0ECEDC1ED89B0D009F8422 /* BlogPostViewController.swift */,
+			);
+			name = BlogPostViewController;
 			sourceTree = "<group>";
 		};
 		6E127D561EA3C69D0068F7DB /* Storyboards */ = {
@@ -379,14 +389,15 @@
 		6E3C555E1EA03C52008F9AC9 /* UIViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6E4119FE1ED788E9004A02DE /* TWTRTweetDetailViewController */,
-				6EC1ECB21ED23B3600302A25 /* ScholarsMapViewController */,
-				6EC1ECB11ED23B2700302A25 /* ScholarsListViewController */,
 				6E9E8B2D1ED6334500432074 /* ActivityViewController */,
+				6E0ECEDB1ED89ACC009F8422 /* BlogPostViewController */,
 				6E302AD71ED64C3D00483293 /* BlogViewController */,
 				6E6F40201EBE028E00D8D969 /* ProfileViewController */,
+				6EC1ECB11ED23B2700302A25 /* ScholarsListViewController */,
+				6EC1ECB21ED23B3600302A25 /* ScholarsMapViewController */,
 				6EE99A0C1EC52C7200F13809 /* ScholarsViewController */,
 				6E302AD81ED64C4B00483293 /* TeamViewController */,
+				6E4119FE1ED788E9004A02DE /* TWTRTweetDetailViewController */,
 			);
 			name = UIViewControllers;
 			sourceTree = "<group>";
@@ -941,6 +952,7 @@
 				6E67DE971EBF99CA00992E69 /* BlogPostCollectionViewCell.swift in Sources */,
 				6EE999EA1EC509B600F13809 /* CellContent.swift in Sources */,
 				6EE999EF1EC509B600F13809 /* ReloadableContentContainer.swift in Sources */,
+				6E0ECEDD1ED89B0D009F8422 /* BlogPostViewController.swift in Sources */,
 				6EE999F31EC509B600F13809 /* SelectableSectionMultipleCellContent.swift in Sources */,
 				6EE99A0E1EC52C9200F13809 /* ScholarsViewControllerCellContentFactory.swift in Sources */,
 				6EE999F11EC509B600F13809 /* SelectableCellContent.swift in Sources */,

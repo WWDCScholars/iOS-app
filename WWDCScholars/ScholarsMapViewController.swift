@@ -11,12 +11,17 @@ import UIKit
 import MapKit
 import ClusterKit.MapKit
 import DeckTransition
+import CoreLocation
 
-internal final class ScholarsMapViewController: UIViewController {
+internal final class ScholarsMapViewController: UIViewController, ContainerViewController {
     
     // MARK: - Private Properties
     
     @IBOutlet private weak var mapView: MKMapView?
+    @IBOutlet private weak var myLocationButtonVisualEffectView: UIVisualEffectView?
+    @IBOutlet private weak var myLocationButton: UIButton?
+    
+    private let locationManager = CLLocationManager()
     
     // MARK: - File Private Properties
     
@@ -40,24 +45,51 @@ internal final class ScholarsMapViewController: UIViewController {
     // MARK: - UI
     
     private func styleUI() {
+        self.myLocationButtonVisualEffectView?.applyDefaultCornerRadius()
         
+        self.myLocationButton?.tintColor = .scholarsPurple
+        self.myLocationButton?.applyDefaultCornerRadius()
     }
     
     private func configureUI() {
         self.title = "Map"
         
-        let clusterAlgorithm = CKNonHierarchicalDistanceBasedAlgorithm()
-        clusterAlgorithm.cellSize = 200
+        let myLocationButtonImage = UIImage(named: "myLocationIcon")
+        self.myLocationButton?.setImage(myLocationButtonImage, for: .normal)
+        self.myLocationButton?.contentMode = .center
         
+        let clusterAlgorithm = CKNonHierarchicalDistanceBasedAlgorithm()
+        clusterAlgorithm.cellSize = 200.0
         self.mapView?.clusterManager.algorithm = clusterAlgorithm
         self.mapView?.clusterManager.marginFactor = 1
+        self.mapView?.showsUserLocation = true
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction internal func myLocationButtonTapped() {
+        
+    }
+    
+    // MARK: - Internal Functions Functions
+
+    internal func switchedToViewController() {
+        self.locationManager.requestWhenInUseAuthorization()
     }
     
     // MARK: - Private Functions
     
     private func configureMapContent() {
+        guard let mapView = self.mapView else {
+            return
+        }
+        
         let annotations = ScholarsMapAnnotationsFactory.annotations(for: self.scholars)
-        self.mapView?.clusterManager.addAnnotations(annotations)
+        mapView.clusterManager.addAnnotations(annotations)
+        
+        let distance: CLLocationDistance = 10000000.0
+        let defaultRegion = MKCoordinateRegionMakeWithDistance(mapView.centerCoordinate, distance, distance)
+        mapView.setRegion(defaultRegion, animated: true)
     }
 }
 
@@ -82,21 +114,14 @@ extension ScholarsMapViewController: MKMapViewDelegate {
     }
     
     internal func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let cluster = view.annotation as? CKCluster, cluster.count > 1 {
-            self.show(cluster: cluster, mapView: mapView)
-        }
-    }
-    
-    internal func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let transitionDelegate = DeckTransitioningDelegate()
-        guard let profileVC = UIStoryboard.init(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController else {
-            print ("Something went horibly wrong while instantiating the profile view controller!")
+        mapView.deselectAnnotation(view.annotation, animated: false)
+        
+        guard let cluster = view.annotation as? CKCluster else {
             return
         }
-        profileVC.transitioningDelegate = transitionDelegate
-        profileVC.modalPresentationStyle = .custom
-        present(profileVC, animated: true, completion: nil)
-//        self.performSegue(withIdentifier: "ProfileViewController", sender: nil)
+        
+        let isCluster = cluster.count > 1
+        isCluster ? self.show(cluster: cluster, mapView: mapView) : self.presentProfileViewController()
     }
     
     // MARK: - Private Functions
@@ -105,6 +130,15 @@ extension ScholarsMapViewController: MKMapViewDelegate {
         let edgeInset: CGFloat = 50.0
         let edgeInsets = UIEdgeInsets(top: edgeInset, left: edgeInset, bottom: edgeInset, right: edgeInset)
         mapView.show(cluster, edgePadding: edgeInsets, animated: true)
+    }
+    
+    private func presentProfileViewController() {
+        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        let profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController")
+        let transitionDelegate = DeckTransitioningDelegate()
+        profileViewController.transitioningDelegate = transitionDelegate
+        profileViewController.modalPresentationStyle = .custom
+        self.present(profileViewController, animated: true, completion: nil)
     }
     
     private func scholarAnnotationView(annotation: MKAnnotation, mapView: MKMapView) -> ScholarAnnotationView {

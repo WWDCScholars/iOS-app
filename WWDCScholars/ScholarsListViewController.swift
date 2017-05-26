@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal final class ScholarsListViewController: UIViewController {
+internal final class ScholarsListViewController: UIViewController, ContainerViewController {
 
     // MARK: - Private Properties
     

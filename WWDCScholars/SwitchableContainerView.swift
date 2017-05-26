@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-internal protocol TransitionalContainerView {
+internal protocol ScholarsSwitchableContainerView {
     var navigationBarItemImage: UIImage? { get }
 }
 
-internal final class ScholarsMapContainerView: UIView, TransitionalContainerView {
+internal final class ScholarsMapContainerView: UIView, ScholarsSwitchableContainerView {
     
     // MARK: - Internal Properties
     
     internal let navigationBarItemImage = UIImage(named: "mapNavigationBarIconFilled")
 }
 
-internal final class ScholarsListContainerView: UIView, TransitionalContainerView {
+internal final class ScholarsListContainerView: UIView, ScholarsSwitchableContainerView {
     
     // MARK: - Internal Properties
     

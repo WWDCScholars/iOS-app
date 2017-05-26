@@ -23,14 +23,17 @@ internal final class ScholarsViewController: UIViewController {
     
     private var scholarsMapViewController: ScholarsMapViewController?
     private var scholarsListViewController: ScholarsListViewController?
-    private var containerViewTransitionHelper: ContainerViewTransitionHelper?
+    private var containerViewSwitchHelper: ContainerViewSwitchHelper?
     
     // MARK: - Lifecycle
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.containerViewTransitionHelper = ContainerViewTransitionHelper(activeView: self.scholarsListContainerView, inactiveView: self.scholarsMapContainerView)
+        
+        let scholarsListContainerViewContent = ContainerViewElements(view: self.scholarsListContainerView, viewController: self.scholarsListViewController)
+        let scholarsMapContainerViewContent = ContainerViewElements(view: self.scholarsMapContainerView, viewController: self.scholarsMapViewController)
+        self.containerViewSwitchHelper = ContainerViewSwitchHelper(activeContainerViewElements: scholarsListContainerViewContent, inactiveContainerViewElements: scholarsMapContainerViewContent)
         
         self.styleUI()
         self.configureUI()
@@ -82,9 +85,9 @@ internal final class ScholarsViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction internal func switchViewButtonTapped() {
-        self.containerViewTransitionHelper?.switchViews()
+        self.containerViewSwitchHelper?.switchViews()
         
-        let rightBarButtonItemImage = (self.containerViewTransitionHelper?.inactiveView as? TransitionalContainerView)?.navigationBarItemImage
+        let rightBarButtonItemImage = (self.containerViewSwitchHelper?.inactiveContainerViewElements?.view as? ScholarsSwitchableContainerView)?.navigationBarItemImage
         self.navigationItem.rightBarButtonItem?.image = rightBarButtonItemImage
     }
 }

@@ -41,14 +41,10 @@ internal final class ScholarAnnotationView: MKAnnotationView {
     
     private func configureUI() {
         self.frame.size = self.size
-        self.canShowCallout = true
+        self.canShowCallout = false
         
         self.imageView.image = UIImage(named: "profile")
         self.imageView.frame = self.frame
         self.addSubview(self.imageView)
-        
-        let detailDisclosureButton = UIButton(type: .detailDisclosure)
-        detailDisclosureButton.tintColor = .black
-        self.rightCalloutAccessoryView = detailDisclosureButton
     }
 }

@@ -24,6 +24,8 @@ internal final class BlogViewController: UIViewController {
         
         self.styleUI()
         self.configureUI()
+        
+        self.performSegue(withIdentifier: "blogPostViewController", sender: nil)
     }
     
     // MARK: - UI

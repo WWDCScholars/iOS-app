@@ -14,7 +14,7 @@ internal final class BlogPostCollectionViewCell: UICollectionViewCell, Cell {
     // MARK: - Private Properties
     
     @IBOutlet private weak var heroImageView: UIImageView?
-    @IBOutlet private weak var authorProfileButton: UIButton?
+    @IBOutlet private weak var authorProfileImageView: UIImageView?
     @IBOutlet private weak var authorProfileContainerView: UIView?
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var authorLabel: UILabel?
@@ -41,7 +41,7 @@ internal final class BlogPostCollectionViewCell: UICollectionViewCell, Cell {
         self.authorLabel?.applyBlogPostInfoAuthorStyle()
         self.authorProfileContainerView?.roundCorners()
         self.authorProfileContainerView?.applyRelativeCircularBorder()
-        self.authorProfileButton?.roundCorners()
+        self.authorProfileImageView?.roundCorners()
     }
     
     // MARK: - Internal Functions
@@ -55,7 +55,7 @@ internal final class BlogPostCollectionViewCell: UICollectionViewCell, Cell {
         
         let blogPost = cellContent.blogPost
         self.heroImageView?.image = blogPost.heroImage
-        self.authorProfileButton?.setBackgroundImage(blogPost.author.profileImage, for: .normal)
+        self.authorProfileImageView?.image = blogPost.author.profileImage
         self.titleLabel?.text = blogPost.title
         self.authorLabel?.text = "by \(blogPost.author.fullName)"
     }

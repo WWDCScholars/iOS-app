@@ -11,7 +11,6 @@ import UIKit
 import MapKit
 import ClusterKit.MapKit
 import DeckTransition
-import CoreLocation
 
 internal final class ScholarsMapViewController: UIViewController, ContainerViewController {
     
@@ -22,6 +21,8 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
     @IBOutlet private weak var myLocationButton: UIButton?
     
     private let locationManager = CLLocationManager()
+    
+    private var locationStatusManager: LocationStatusManager?
     
     // MARK: - File Private Properties
     
@@ -37,9 +38,12 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
     internal override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.locationStatusManager = LocationStatusManager(viewController: self, locationManager: self.locationManager)
+        
         self.styleUI()
         self.configureUI()
         self.configureMapContent()
+        self.setRegionToDefaultLocation()
     }
     
     // MARK: - UI
@@ -68,7 +72,17 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
     // MARK: - Actions
     
     @IBAction internal func myLocationButtonTapped() {
+        guard CLLocationManager.locationServicesEnabled() else {
+            self.locationStatusManager?.handleLocationServicesDisabled()
+            return
+        }
         
+        guard CLLocationManager.isAuthorized() else {
+            self.locationStatusManager?.handleAuthorizationFailure()
+            return
+        }
+        
+        self.setRegionToUserLocation()
     }
     
     // MARK: - Internal Functions Functions
@@ -80,16 +94,29 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
     // MARK: - Private Functions
     
     private func configureMapContent() {
+        let annotations = ScholarsMapAnnotationsFactory.annotations(for: self.scholars)
+        self.mapView?.clusterManager.addAnnotations(annotations)
+    }
+    
+    private func setRegionToDefaultLocation() {
         guard let mapView = self.mapView else {
             return
         }
         
-        let annotations = ScholarsMapAnnotationsFactory.annotations(for: self.scholars)
-        mapView.clusterManager.addAnnotations(annotations)
-        
         let distance: CLLocationDistance = 10000000.0
         let defaultRegion = MKCoordinateRegionMakeWithDistance(mapView.centerCoordinate, distance, distance)
         mapView.setRegion(defaultRegion, animated: true)
+    }
+    
+    private func setRegionToUserLocation() {
+        guard let mapView = self.mapView else {
+            return
+        }
+        
+        let userCoordinate = mapView.userLocation.coordinate
+        let distance: CLLocationDistance = 2500000.0
+        let userRegion = MKCoordinateRegionMakeWithDistance(userCoordinate, distance, distance)
+        mapView.setRegion(userRegion, animated: true)
     }
 }
 

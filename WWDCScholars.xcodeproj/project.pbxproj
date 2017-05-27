@@ -24,9 +24,7 @@
 		6E1083D31ECBD21100139C23 /* VariableDimensionCollectionViewCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1083D21ECBD21100139C23 /* VariableDimensionCollectionViewCellContent.swift */; };
 		6E127D4B1EA3C65D0068F7DB /* Scholars.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D491EA3C65D0068F7DB /* Scholars.storyboard */; };
 		6E127D501EA3C67F0068F7DB /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D4E1EA3C67F0068F7DB /* Activity.storyboard */; };
-		6E127D521EA3C68C0068F7DB /* Blog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D511EA3C68C0068F7DB /* Blog.storyboard */; };
 		6E127D551EA3C6980068F7DB /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D531EA3C6980068F7DB /* Team.storyboard */; };
-		6E127D581EA3C6E30068F7DB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E127D571EA3C6E30068F7DB /* Profile.storyboard */; };
 		6E127D5A1EA3C6FA0068F7DB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E127D591EA3C6FA0068F7DB /* ProfileViewController.swift */; };
 		6E2EFC211ED0A37400C23E16 /* ScholarsMapAnnotationsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2EFC201ED0A37400C23E16 /* ScholarsMapAnnotationsFactory.swift */; };
 		6E2EFC241ED0C8D500C23E16 /* ScholarAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2EFC231ED0C8D500C23E16 /* ScholarAnnotationView.swift */; };
@@ -55,6 +53,7 @@
 		6E6703591ED63B3700228FF0 /* UIControl+WWDCScholars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6703581ED63B3700228FF0 /* UIControl+WWDCScholars.swift */; };
 		6E67DE971EBF99CA00992E69 /* BlogPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E67DE961EBF99CA00992E69 /* BlogPostCollectionViewCell.swift */; };
 		6E67DE991EBFA48A00992E69 /* CGFloat+WWDCScholars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E67DE981EBFA48A00992E69 /* CGFloat+WWDCScholars.swift */; };
+		6E6B50431EDA0E63006B28A3 /* LocationStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6B50421EDA0E63006B28A3 /* LocationStatusManager.swift */; };
 		6E6F40221EBE02BD00D8D969 /* ProfileSocialAccountsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6F40211EBE02BD00D8D969 /* ProfileSocialAccountsFactory.swift */; };
 		6E7930011ED65B8C00846434 /* UITabBarController+WWDCScholars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7930001ED65B8C00846434 /* UITabBarController+WWDCScholars.swift */; };
 		6E7D17411EBD290200C93E89 /* String+WWDCScholars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D17401EBD290200C93E89 /* String+WWDCScholars.swift */; };
@@ -65,10 +64,15 @@
 		6E9E8B2F1ED6339D00432074 /* ActivityViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E8B2E1ED6339D00432074 /* ActivityViewControllerProxy.swift */; };
 		6EB77E2C1ECE353D00E6E263 /* QuickActionShortcutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB77E2B1ECE353D00E6E263 /* QuickActionShortcutType.swift */; };
 		6EB77E321ECE3B7E00E6E263 /* QuickActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB77E311ECE3B7E00E6E263 /* QuickActionManager.swift */; };
+		6EBE862F1EDA227200C99D0D /* CLLocationManager+WWDCScholars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBE862E1EDA227200C99D0D /* CLLocationManager+WWDCScholars.swift */; };
 		6EC1ECA41ED2004E00302A25 /* ScholarsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1ECA31ED2004E00302A25 /* ScholarsListViewController.swift */; };
 		6EC1ECAE1ED228B300302A25 /* SwitchableContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1ECAD1ED228B300302A25 /* SwitchableContainerView.swift */; };
 		6EC1ECB01ED2299C00302A25 /* ContainerViewSwitchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1ECAF1ED2299C00302A25 /* ContainerViewSwitchHelper.swift */; };
 		6EC1ECB41ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1ECB31ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift */; };
+		6ECF5BE91ED8CAE20024CC9A /* BlogPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF5BE81ED8CAE20024CC9A /* BlogPostViewController.swift */; };
+		6ECF5BEB1ED8CB000024CC9A /* UIViewController+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF5BEA1ED8CB000024CC9A /* UIViewController+Present.swift */; };
+		6ECF5BEE1ED8CB600024CC9A /* Blog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ECF5BED1ED8CB600024CC9A /* Blog.storyboard */; };
+		6ECF5BF01ED8CB6C0024CC9A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ECF5BEF1ED8CB6C0024CC9A /* Profile.storyboard */; };
 		6ED441BD1ED075E50035BD31 /* BackgroundViewControllers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED441BC1ED075E50035BD31 /* BackgroundViewControllers.storyboard */; };
 		6ED441BF1ED076840035BD31 /* BackgroundActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED441BE1ED076840035BD31 /* BackgroundActivityViewController.swift */; };
 		6ED441C21ED077E20035BD31 /* BackgroundViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED441C11ED077E20035BD31 /* BackgroundViewHelper.swift */; };
@@ -141,9 +145,7 @@
 		6E1083D21ECBD21100139C23 /* VariableDimensionCollectionViewCellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableDimensionCollectionViewCellContent.swift; sourceTree = "<group>"; };
 		6E127D4A1EA3C65D0068F7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Scholars.storyboard; sourceTree = "<group>"; };
 		6E127D4F1EA3C67F0068F7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Activity.storyboard; sourceTree = "<group>"; };
-		6E127D511EA3C68C0068F7DB /* Blog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Blog.storyboard; sourceTree = "<group>"; };
 		6E127D541EA3C6980068F7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Team.storyboard; sourceTree = "<group>"; };
-		6E127D571EA3C6E30068F7DB /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		6E127D591EA3C6FA0068F7DB /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6E2EFC201ED0A37400C23E16 /* ScholarsMapAnnotationsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsMapAnnotationsFactory.swift; sourceTree = "<group>"; };
 		6E2EFC231ED0C8D500C23E16 /* ScholarAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarAnnotationView.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		6E6703581ED63B3700228FF0 /* UIControl+WWDCScholars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+WWDCScholars.swift"; sourceTree = "<group>"; };
 		6E67DE961EBF99CA00992E69 /* BlogPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E67DE981EBFA48A00992E69 /* CGFloat+WWDCScholars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+WWDCScholars.swift"; sourceTree = "<group>"; };
+		6E6B50421EDA0E63006B28A3 /* LocationStatusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationStatusManager.swift; sourceTree = "<group>"; };
 		6E6F40211EBE02BD00D8D969 /* ProfileSocialAccountsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSocialAccountsFactory.swift; sourceTree = "<group>"; };
 		6E7930001ED65B8C00846434 /* UITabBarController+WWDCScholars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+WWDCScholars.swift"; sourceTree = "<group>"; };
 		6E7D17401EBD290200C93E89 /* String+WWDCScholars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+WWDCScholars.swift"; sourceTree = "<group>"; };
@@ -184,10 +187,15 @@
 		6E9E8B2E1ED6339D00432074 /* ActivityViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewControllerProxy.swift; sourceTree = "<group>"; };
 		6EB77E2B1ECE353D00E6E263 /* QuickActionShortcutType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickActionShortcutType.swift; sourceTree = "<group>"; };
 		6EB77E311ECE3B7E00E6E263 /* QuickActionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickActionManager.swift; sourceTree = "<group>"; };
+		6EBE862E1EDA227200C99D0D /* CLLocationManager+WWDCScholars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+WWDCScholars.swift"; sourceTree = "<group>"; };
 		6EC1ECA31ED2004E00302A25 /* ScholarsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsListViewController.swift; sourceTree = "<group>"; };
 		6EC1ECAD1ED228B300302A25 /* SwitchableContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchableContainerView.swift; sourceTree = "<group>"; };
 		6EC1ECAF1ED2299C00302A25 /* ContainerViewSwitchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewSwitchHelper.swift; sourceTree = "<group>"; };
 		6EC1ECB31ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsListViewControllerCellContentFactory.swift; sourceTree = "<group>"; };
+		6ECF5BE81ED8CAE20024CC9A /* BlogPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostViewController.swift; sourceTree = "<group>"; };
+		6ECF5BEA1ED8CB000024CC9A /* UIViewController+Present.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Present.swift"; sourceTree = "<group>"; };
+		6ECF5BED1ED8CB600024CC9A /* Blog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Blog.storyboard; sourceTree = "<group>"; };
+		6ECF5BEF1ED8CB6C0024CC9A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		6ED441BC1ED075E50035BD31 /* BackgroundViewControllers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BackgroundViewControllers.storyboard; sourceTree = "<group>"; };
 		6ED441BE1ED076840035BD31 /* BackgroundActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundActivityViewController.swift; sourceTree = "<group>"; };
 		6ED441C11ED077E20035BD31 /* BackgroundViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundViewHelper.swift; sourceTree = "<group>"; };
@@ -257,9 +265,9 @@
 			isa = PBXGroup;
 			children = (
 				6E127D4E1EA3C67F0068F7DB /* Activity.storyboard */,
-				6E127D511EA3C68C0068F7DB /* Blog.storyboard */,
+				6ECF5BED1ED8CB600024CC9A /* Blog.storyboard */,
 				6E3C55501EA032DD008F9AC9 /* Main.storyboard */,
-				6E127D571EA3C6E30068F7DB /* Profile.storyboard */,
+				6ECF5BEF1ED8CB6C0024CC9A /* Profile.storyboard */,
 				6E127D491EA3C65D0068F7DB /* Scholars.storyboard */,
 				6E127D531EA3C6980068F7DB /* Team.storyboard */,
 			);
@@ -384,9 +392,11 @@
 				6EC1ECB11ED23B2700302A25 /* ScholarsListViewController */,
 				6E9E8B2D1ED6334500432074 /* ActivityViewController */,
 				6E302AD71ED64C3D00483293 /* BlogViewController */,
+				6ECF5BE71ED8CABD0024CC9A /* BlogPostViewController */,
 				6E6F40201EBE028E00D8D969 /* ProfileViewController */,
 				6EE99A0C1EC52C7200F13809 /* ScholarsViewController */,
 				6E302AD81ED64C4B00483293 /* TeamViewController */,
+				6ECF5BEC1ED8CB040024CC9A /* Extensions */,
 			);
 			name = UIViewControllers;
 			sourceTree = "<group>";
@@ -497,6 +507,7 @@
 			children = (
 				6E7D17401EBD290200C93E89 /* String+WWDCScholars.swift */,
 				6E67DE981EBFA48A00992E69 /* CGFloat+WWDCScholars.swift */,
+				6EBE862E1EDA227200C99D0D /* CLLocationManager+WWDCScholars.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -543,6 +554,7 @@
 			children = (
 				7BD91F9A1ED333F400439718 /* CloudKitManager.swift */,
 				6EB77E311ECE3B7E00E6E263 /* QuickActionManager.swift */,
+				6E6B50421EDA0E63006B28A3 /* LocationStatusManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -571,6 +583,22 @@
 				6EC1ECAD1ED228B300302A25 /* SwitchableContainerView.swift */,
 			);
 			name = SwitchableContainerView;
+			sourceTree = "<group>";
+		};
+		6ECF5BE71ED8CABD0024CC9A /* BlogPostViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6ECF5BE81ED8CAE20024CC9A /* BlogPostViewController.swift */,
+			);
+			name = BlogPostViewController;
+			sourceTree = "<group>";
+		};
+		6ECF5BEC1ED8CB040024CC9A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6ECF5BEA1ED8CB000024CC9A /* UIViewController+Present.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		6ED441BA1ED075970035BD31 /* NavigationBarExtensionView */ = {
@@ -870,13 +898,13 @@
 			files = (
 				6E3C55571EA032DD008F9AC9 /* LaunchScreen.storyboard in Resources */,
 				6E127D501EA3C67F0068F7DB /* Activity.storyboard in Resources */,
+				6ECF5BF01ED8CB6C0024CC9A /* Profile.storyboard in Resources */,
+				6ECF5BEE1ED8CB600024CC9A /* Blog.storyboard in Resources */,
 				6E127D4B1EA3C65D0068F7DB /* Scholars.storyboard in Resources */,
 				6E3C55541EA032DD008F9AC9 /* Assets.xcassets in Resources */,
 				6E127D551EA3C6980068F7DB /* Team.storyboard in Resources */,
-				6E127D581EA3C6E30068F7DB /* Profile.storyboard in Resources */,
 				6E3C55521EA032DD008F9AC9 /* Main.storyboard in Resources */,
 				7BD91F901ED2158600439718 /* TwitterKitResources.bundle in Resources */,
-				6E127D521EA3C68C0068F7DB /* Blog.storyboard in Resources */,
 				6ED441BD1ED075E50035BD31 /* BackgroundViewControllers.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -921,6 +949,7 @@
 				6ED441C21ED077E20035BD31 /* BackgroundViewHelper.swift in Sources */,
 				6EE999ED1EC509B600F13809 /* HeaderFooterView.swift in Sources */,
 				6E3C55601EA03C6D008F9AC9 /* ScholarsViewController.swift in Sources */,
+				6E6B50431EDA0E63006B28A3 /* LocationStatusManager.swift in Sources */,
 				6E032F621EC7B05200410B7C /* ExampleScholar.swift in Sources */,
 				6E7D17411EBD290200C93E89 /* String+WWDCScholars.swift in Sources */,
 				6EE999EB1EC509B600F13809 /* CollectionViewContentController.swift in Sources */,
@@ -941,6 +970,7 @@
 				6E67DE971EBF99CA00992E69 /* BlogPostCollectionViewCell.swift in Sources */,
 				6EE999EA1EC509B600F13809 /* CellContent.swift in Sources */,
 				6EE999EF1EC509B600F13809 /* ReloadableContentContainer.swift in Sources */,
+				6ECF5BE91ED8CAE20024CC9A /* BlogPostViewController.swift in Sources */,
 				6EE999F31EC509B600F13809 /* SelectableSectionMultipleCellContent.swift in Sources */,
 				6EE99A0E1EC52C9200F13809 /* ScholarsViewControllerCellContentFactory.swift in Sources */,
 				6EE999F11EC509B600F13809 /* SelectableCellContent.swift in Sources */,
@@ -951,6 +981,7 @@
 				7BD91FA11ED35EDA00439718 /* CloudKitManager.swift in Sources */,
 				6EE999F61EC509B600F13809 /* TableViewContentController.swift in Sources */,
 				6E3C55681EA042F3008F9AC9 /* UINavigationBar+Style.swift in Sources */,
+				6ECF5BEB1ED8CB000024CC9A /* UIViewController+Present.swift in Sources */,
 				6E032F661EC92B5300410B7C /* ScholarsSectionContent.swift in Sources */,
 				6E48061E1EA14ED100213835 /* ScholarsMapViewController.swift in Sources */,
 				6E825ADD1ED7C24A0082FAD6 /* ContainerViewElements.swift in Sources */,
@@ -966,6 +997,7 @@
 				6E1083C91ECBCC1300139C23 /* VariableWidthFixedHeightCollectionViewCellContent.swift in Sources */,
 				6E1083D31ECBD21100139C23 /* VariableDimensionCollectionViewCellContent.swift in Sources */,
 				6ED441BF1ED076840035BD31 /* BackgroundActivityViewController.swift in Sources */,
+				6EBE862F1EDA227200C99D0D /* CLLocationManager+WWDCScholars.swift in Sources */,
 				7BD91FA21ED35EE600439718 /* ActivityQueryItem.swift in Sources */,
 				6E6703591ED63B3700228FF0 /* UIControl+WWDCScholars.swift in Sources */,
 				6E032F641EC92B1C00410B7C /* BatchSectionContent.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  SwitchableContainerView.swift
+//  ScholarsSwitchableContainerView.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 21/05/2017.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal protocol ScholarsSwitchableContainerView {
+internal protocol ScholarsSwitchableContainerView: class {
     var navigationBarItemImage: UIImage? { get }
 }
 

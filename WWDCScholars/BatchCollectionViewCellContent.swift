@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal final class BatchCollectionViewCellContent: CellContent, FixedSizeCollectionViewCellContent, SelectableSingleCellContent {
+internal final class BatchCollectionViewCellContent: CellContent, FixedSizeCollectionViewCellContent, SelectableSingleCellContent, ActionableCellContent {
     
     // MARK: - Internal Properties
     
@@ -17,13 +17,15 @@ internal final class BatchCollectionViewCellContent: CellContent, FixedSizeColle
     internal let width: CGFloat = 70.0
     internal let height: CGFloat = 30.0
     internal let batch: ExampleBatch
+    internal let action: () -> Void
     
     internal var isSelected: Bool
     
     // MARK: - Lifecycle
     
-    internal init(batch: ExampleBatch, isSelected: Bool = false) {
+    internal init(batch: ExampleBatch, isSelected: Bool = false, action: @escaping () -> Void) {
         self.batch = batch
         self.isSelected = isSelected
+        self.action = action
     }
 }

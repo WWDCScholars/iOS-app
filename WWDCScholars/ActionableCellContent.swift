@@ -8,4 +8,6 @@
 
 import Foundation
 
-internal protocol ActionableCellContent: class {}
+internal protocol ActionableCellContent: class {
+    var action: () -> Void { get }
+}

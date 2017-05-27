@@ -14,7 +14,7 @@ internal extension SelectableSingleCellContent {
 
     // MARK: - internal Functions
 
-    internal func performAction(on contentContainer: ReloadableContentContainer?, with sectionContent: [SectionContent], at indexPath: IndexPath) {
+    internal func select(on contentContainer: ReloadableContentContainer?, with sectionContent: [SectionContent], at indexPath: IndexPath) {
         let selectableContent = sectionContent.flatMap({ $0.cellContent.flatMap({ $0 as? SelectableSingleCellContent }) })
         let contentForDeselection = selectableContent.filter({ $0 !== self })
         _ = contentForDeselection.map({ $0.isSelected = false })

@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-internal protocol SizeableCollectionViewSectionContent {
+internal protocol SizeableCollectionViewSectionContent: class {
     var sizingModifiers: CollectionViewSectionContentSizingModifiers { get }
 }

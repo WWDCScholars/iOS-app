@@ -8,6 +8,6 @@
 
 import Foundation
 
-internal protocol CellContent {
+internal protocol CellContent: class {
     var reuseIdentifier: String { get }
 }

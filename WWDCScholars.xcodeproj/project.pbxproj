@@ -65,8 +65,10 @@
 		6EB77E2C1ECE353D00E6E263 /* QuickActionShortcutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB77E2B1ECE353D00E6E263 /* QuickActionShortcutType.swift */; };
 		6EB77E321ECE3B7E00E6E263 /* QuickActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB77E311ECE3B7E00E6E263 /* QuickActionManager.swift */; };
 		6EBE862F1EDA227200C99D0D /* CLLocationManager+WWDCScholars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBE862E1EDA227200C99D0D /* CLLocationManager+WWDCScholars.swift */; };
+		6EBE86311EDA2F7700C99D0D /* BatchCollectionViewCellContentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBE86301EDA2F7700C99D0D /* BatchCollectionViewCellContentDelegate.swift */; };
+		6EBE86331EDA313400C99D0D /* ScholarCollectionViewCellContentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBE86321EDA313400C99D0D /* ScholarCollectionViewCellContentDelegate.swift */; };
 		6EC1ECA41ED2004E00302A25 /* ScholarsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1ECA31ED2004E00302A25 /* ScholarsListViewController.swift */; };
-		6EC1ECAE1ED228B300302A25 /* SwitchableContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1ECAD1ED228B300302A25 /* SwitchableContainerView.swift */; };
+		6EC1ECAE1ED228B300302A25 /* ScholarsSwitchableContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1ECAD1ED228B300302A25 /* ScholarsSwitchableContainerView.swift */; };
 		6EC1ECB01ED2299C00302A25 /* ContainerViewSwitchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1ECAF1ED2299C00302A25 /* ContainerViewSwitchHelper.swift */; };
 		6EC1ECB41ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1ECB31ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift */; };
 		6ECF5BE91ED8CAE20024CC9A /* BlogPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF5BE81ED8CAE20024CC9A /* BlogPostViewController.swift */; };
@@ -188,8 +190,10 @@
 		6EB77E2B1ECE353D00E6E263 /* QuickActionShortcutType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickActionShortcutType.swift; sourceTree = "<group>"; };
 		6EB77E311ECE3B7E00E6E263 /* QuickActionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickActionManager.swift; sourceTree = "<group>"; };
 		6EBE862E1EDA227200C99D0D /* CLLocationManager+WWDCScholars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+WWDCScholars.swift"; sourceTree = "<group>"; };
+		6EBE86301EDA2F7700C99D0D /* BatchCollectionViewCellContentDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchCollectionViewCellContentDelegate.swift; sourceTree = "<group>"; };
+		6EBE86321EDA313400C99D0D /* ScholarCollectionViewCellContentDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarCollectionViewCellContentDelegate.swift; sourceTree = "<group>"; };
 		6EC1ECA31ED2004E00302A25 /* ScholarsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsListViewController.swift; sourceTree = "<group>"; };
-		6EC1ECAD1ED228B300302A25 /* SwitchableContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchableContainerView.swift; sourceTree = "<group>"; };
+		6EC1ECAD1ED228B300302A25 /* ScholarsSwitchableContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsSwitchableContainerView.swift; sourceTree = "<group>"; };
 		6EC1ECAF1ED2299C00302A25 /* ContainerViewSwitchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewSwitchHelper.swift; sourceTree = "<group>"; };
 		6EC1ECB31ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsListViewControllerCellContentFactory.swift; sourceTree = "<group>"; };
 		6ECF5BE81ED8CAE20024CC9A /* BlogPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 			children = (
 				6E032F5D1EC7AE8000410B7C /* ScholarCollectionViewCell.swift */,
 				6E032F5F1EC7AE9500410B7C /* ScholarCollectionViewCellContent.swift */,
+				6EBE86321EDA313400C99D0D /* ScholarCollectionViewCellContentDelegate.swift */,
 			);
 			name = ScholarCollectionViewCell;
 			sourceTree = "<group>";
@@ -453,7 +458,7 @@
 				6E2EFC281ED0C91500C23E16 /* AnnotationViews */,
 				6ED441BB1ED075AD0035BD31 /* BackgroundViewControllers */,
 				6ED441BA1ED075970035BD31 /* NavigationBarExtensionView */,
-				6EC1ECB51ED23D4600302A25 /* SwitchableContainerView */,
+				6EC1ECB51ED23D4600302A25 /* ScholarsSwitchableContainerView */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -577,12 +582,12 @@
 			name = ScholarsMapViewController;
 			sourceTree = "<group>";
 		};
-		6EC1ECB51ED23D4600302A25 /* SwitchableContainerView */ = {
+		6EC1ECB51ED23D4600302A25 /* ScholarsSwitchableContainerView */ = {
 			isa = PBXGroup;
 			children = (
-				6EC1ECAD1ED228B300302A25 /* SwitchableContainerView.swift */,
+				6EC1ECAD1ED228B300302A25 /* ScholarsSwitchableContainerView.swift */,
 			);
-			name = SwitchableContainerView;
+			name = ScholarsSwitchableContainerView;
 			sourceTree = "<group>";
 		};
 		6ECF5BE71ED8CABD0024CC9A /* BlogPostViewController */ = {
@@ -757,6 +762,7 @@
 			children = (
 				6EE99A021EC51FC900F13809 /* BatchCollectionViewCell.swift */,
 				6EE99A061EC5205A00F13809 /* BatchCollectionViewCellContent.swift */,
+				6EBE86301EDA2F7700C99D0D /* BatchCollectionViewCellContentDelegate.swift */,
 			);
 			name = BatchCollectionViewCell;
 			sourceTree = "<group>";
@@ -944,7 +950,7 @@
 				6E67DE991EBFA48A00992E69 /* CGFloat+WWDCScholars.swift in Sources */,
 				6EC1ECB41ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift in Sources */,
 				6E1083CF1ECBCC5600139C23 /* SizeableCollectionViewCellContent.swift in Sources */,
-				6EC1ECAE1ED228B300302A25 /* SwitchableContainerView.swift in Sources */,
+				6EC1ECAE1ED228B300302A25 /* ScholarsSwitchableContainerView.swift in Sources */,
 				6E3C55631EA03D17008F9AC9 /* UITabBar+Style.swift in Sources */,
 				6ED441C21ED077E20035BD31 /* BackgroundViewHelper.swift in Sources */,
 				6EE999ED1EC509B600F13809 /* HeaderFooterView.swift in Sources */,
@@ -954,6 +960,7 @@
 				6E7D17411EBD290200C93E89 /* String+WWDCScholars.swift in Sources */,
 				6EE999EB1EC509B600F13809 /* CollectionViewContentController.swift in Sources */,
 				6E997BDB1EBE61FB0098C140 /* UILabel+Style.swift in Sources */,
+				6EBE86331EDA313400C99D0D /* ScholarCollectionViewCellContentDelegate.swift in Sources */,
 				6EE999EC1EC509B600F13809 /* ContentController.swift in Sources */,
 				6E7930011ED65B8C00846434 /* UITabBarController+WWDCScholars.swift in Sources */,
 				6E032F691EC92BC600410B7C /* SizeableCollectionViewSectionContent.swift in Sources */,
@@ -986,6 +993,7 @@
 				6E48061E1EA14ED100213835 /* ScholarsMapViewController.swift in Sources */,
 				6E825ADD1ED7C24A0082FAD6 /* ContainerViewElements.swift in Sources */,
 				6E1083C71ECBCBFB00139C23 /* VariableHeightFixedWidthCollectionViewCellContent.swift in Sources */,
+				6EBE86311EDA2F7700C99D0D /* BatchCollectionViewCellContentDelegate.swift in Sources */,
 				6E032F5E1EC7AE8000410B7C /* ScholarCollectionViewCell.swift in Sources */,
 				6E1083CB1ECBCC2D00139C23 /* VariableSizeCollectionViewCellContent.swift in Sources */,
 				6EC1ECA41ED2004E00302A25 /* ScholarsListViewController.swift in Sources */,

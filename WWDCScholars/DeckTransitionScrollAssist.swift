@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import DeckTransition
 
-internal protocol DeckTransitionScrollAssist {
+internal protocol DeckTransitionScrollAssist: class {
     func updateDeckTransition(for scrollView: UIScrollView)
 }
 

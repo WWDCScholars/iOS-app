@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal protocol FixedSizeCollectionViewCellContent: SizeableCollectionViewCellContent {
+internal protocol FixedSizeCollectionViewCellContent: class, SizeableCollectionViewCellContent {
     var width: CGFloat { get }
     var height: CGFloat { get }
 }

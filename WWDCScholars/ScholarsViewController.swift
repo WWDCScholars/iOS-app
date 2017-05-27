@@ -76,9 +76,9 @@ internal final class ScholarsViewController: UIViewController {
         self.batchCollectionViewContentController.configure(collectionView: self.batchCollectionView)
         
         let batches: [ExampleBatch] = [BatchEarlier(), Batch2014(), Batch2015(), Batch2016(), Batch2017()]
-        let batchesSectionContent = ScholarsViewControllerCellContentFactory.batchesSectionContent(from: batches)
+        let batchSectionContent = ScholarsViewControllerCellContentFactory.batchSectionContent(from: batches, delegate: self)
         
-        self.batchCollectionViewContentController.add(sectionContent: batchesSectionContent)
+        self.batchCollectionViewContentController.add(sectionContent: batchSectionContent)
         self.batchCollectionViewContentController.reloadContent()
     }
     
@@ -89,5 +89,14 @@ internal final class ScholarsViewController: UIViewController {
         
         let rightBarButtonItemImage = (self.containerViewSwitchHelper?.inactiveContainerViewElements?.view as? ScholarsSwitchableContainerView)?.navigationBarItemImage
         self.navigationItem.rightBarButtonItem?.image = rightBarButtonItemImage
+    }
+}
+
+extension ScholarsViewController: BatchCollectionViewCellContentDelegate {
+    
+    // MARK: - Internal Functions
+    
+    internal func update(for batch: ExampleBatch) {
+    
     }
 }

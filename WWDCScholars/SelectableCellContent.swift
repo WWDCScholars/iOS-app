@@ -11,5 +11,5 @@ import Foundation
 internal protocol SelectableCellContent: class {
     var isSelected: Bool { get set }
 
-    func performAction(on contentContainer: ReloadableContentContainer?, with sectionContent: [SectionContent], at indexPath: IndexPath)
+    func select(on contentContainer: ReloadableContentContainer?, with sectionContent: [SectionContent], at indexPath: IndexPath)
 }

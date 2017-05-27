@@ -35,7 +35,8 @@ extension CollectionViewContentController: UICollectionViewDelegate {
 
     internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let content = self.cellContent(for: indexPath)
-        (content as? SelectableCellContent)?.performAction(on: self.collectionView, with: self.sectionContent, at: indexPath)
+        (content as? SelectableCellContent)?.select(on: self.collectionView, with: self.sectionContent, at: indexPath)
+        (content as? ActionableCellContent)?.action()
 
         self.collectionView?.deselectItem(at: indexPath, animated: true)
     }

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal protocol HeaderParallaxAssist {}
+internal protocol HeaderParallaxAssist: class {}
 
 internal extension HeaderParallaxAssist {
     

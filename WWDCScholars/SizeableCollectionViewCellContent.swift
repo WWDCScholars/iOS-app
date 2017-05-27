@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-internal protocol SizeableCollectionViewCellContent {
+internal protocol SizeableCollectionViewCellContent: class {
     func size(within collectionView: UICollectionView, sizingModifiers: CollectionViewSectionContentSizingModifiers) -> CGSize
 }

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal final class BlogPostCollectionViewCell: UICollectionViewCell {
+internal final class BlogPostCollectionViewCell: UICollectionViewCell, Cell {
     
     // MARK: - Private Properties
     
@@ -20,13 +20,16 @@ internal final class BlogPostCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var authorLabel: UILabel?
     @IBOutlet private weak var infoContainerView: UIView?
     
+    // MARK: - Internal Properties
+    
+    internal var cellContent: CellContent?
+    
     // MARK: - Lifecycle
     
     internal override func awakeFromNib() {
         super.awakeFromNib()
         
         self.styleUI()
-        self.configureUI()
     }
     
     // MARK: - UI
@@ -41,14 +44,19 @@ internal final class BlogPostCollectionViewCell: UICollectionViewCell {
         self.authorProfileButton?.roundCorners()
     }
     
-    private func configureUI() {
-        let authorProfileImage = UIImage(named: "profile")
-        self.authorProfileButton?.setBackgroundImage(authorProfileImage, for: .normal)
+    // MARK: - Internal Functions
+    
+    internal func configure(with cellContent: CellContent) {
+        self.cellContent = cellContent
         
-        let heroImage = UIImage(named: "blogPostHero")
-        self.heroImageView?.image = heroImage
+        guard let cellContent = cellContent as? BlogPostCollectionViewCellContent else {
+            return
+        }
         
-        self.titleLabel?.text = "Meeting Apple Executives"
-        self.authorLabel?.text = "by Andrew Walker"
+        let blogPost = cellContent.blogPost
+        self.heroImageView?.image = blogPost.heroImage
+        self.authorProfileButton?.setBackgroundImage(blogPost.author.profileImage, for: .normal)
+        self.titleLabel?.text = blogPost.title
+        self.authorLabel?.text = "by \(blogPost.author.fullName)"
     }
 }

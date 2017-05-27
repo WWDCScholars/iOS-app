@@ -11,6 +11,10 @@ import UIKit
 
 internal final class BlogViewController: UIViewController {
     
+    // MARK: - Private Properties
+    
+    private let blogPostCollectionViewContentController = CollectionViewContentController()
+    
     // MARK: - File Private Properties
     
     @IBOutlet fileprivate weak var collectionView: UICollectionView?
@@ -24,6 +28,7 @@ internal final class BlogViewController: UIViewController {
         
         self.styleUI()
         self.configureUI()
+        self.configureBlogPostContentController()
     }
     
     // MARK: - UI
@@ -35,42 +40,25 @@ internal final class BlogViewController: UIViewController {
     private func configureUI() {
         self.title = "Blog"
     }
-}
-
-extension BlogViewController: UICollectionViewDataSource {
-    
-    // MARK: - Internal Functions
-    
-    internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = self.collectionView?.dequeueReusableCell(withReuseIdentifier: "blogPostCollectionViewCell", for: indexPath)
-        return cell!
-    }
-}
-
-extension BlogViewController: UICollectionViewDelegateFlowLayout {
-    
-    // MARK: - Internal Functions
-    
-    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return self.cellSize()
-    }
-    
-    internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "blogPostViewController", sender: nil)
-    }
     
     // MARK: - Private Functions
     
-    private func cellSize() -> CGSize {
-        let viewSize = self.view.frame.size
-        let edgeInset: CGFloat = 8.0
-        let cellWidth = viewSize.width - (edgeInset * 2.0)
-        let cellHeight = self.cellHeight
-        let cellSize = CGSize(width: cellWidth, height: cellHeight)
-        return cellSize
+    private func configureBlogPostContentController() {
+        self.blogPostCollectionViewContentController.configure(collectionView: self.collectionView)
+        
+        let blogPosts: [ExampleBlogPost] = [BlogPostOne()]
+        let blogPostSectionContent = BlogViewControllerCellContentFactory.blogPostSectionContent(from: blogPosts, delegate: self)
+        
+        self.blogPostCollectionViewContentController.add(sectionContent: blogPostSectionContent)
+        self.blogPostCollectionViewContentController.reloadContent()
+    }
+}
+
+extension BlogViewController: BlogPostCollectionViewCellContentDelegate {
+    
+    // MARK: - Internal Functions
+    
+    internal func open(blogPost: ExampleBlogPost) {
+        self.performSegue(withIdentifier: "blogPostViewController", sender: nil)
     }
 }

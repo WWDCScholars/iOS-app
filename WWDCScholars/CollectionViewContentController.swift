@@ -27,6 +27,21 @@ internal final class CollectionViewContentController: NSObject, ContentControlle
     internal func reloadContent() {
         self.collectionView?.reloadData()
     }
+    
+    internal func select(cellContent: CellContent) {
+        guard let indexPath = self.indexPath(of: cellContent) else {
+            return
+        }
+        
+        self.performSelection(on: cellContent, at: indexPath)
+    }
+    
+    // MARK: - File Private Functions
+    
+    fileprivate func performSelection(on cellContent: CellContent, at indexPath: IndexPath) {
+        (cellContent as? SelectableCellContent)?.select(on: self.collectionView, with: self.sectionContent, at: indexPath)
+        (cellContent as? ActionableCellContent)?.action()
+    }
 }
 
 extension CollectionViewContentController: UICollectionViewDelegate {
@@ -34,10 +49,8 @@ extension CollectionViewContentController: UICollectionViewDelegate {
     // MARK: - internal Functions
 
     internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let content = self.cellContent(for: indexPath)
-        (content as? SelectableCellContent)?.select(on: self.collectionView, with: self.sectionContent, at: indexPath)
-        (content as? ActionableCellContent)?.action()
-
+        let cellContent = self.cellContentFor(indexPath: indexPath)
+        self.performSelection(on: cellContent, at: indexPath)
         self.collectionView?.deselectItem(at: indexPath, animated: true)
     }
 }
@@ -58,7 +71,7 @@ extension CollectionViewContentController: UICollectionViewDataSource {
         let reuseIdentifier = self.reuseIdentifier(for: indexPath)
         let defaultCell = UICollectionViewCell()
         let cell = self.collectionView?.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) ?? defaultCell
-        let cellContent = self.cellContent(for: indexPath)
+        let cellContent = self.cellContentFor(indexPath: indexPath)
         (cell as? Cell)?.configure(with: cellContent)
         return cell
     }
@@ -95,7 +108,7 @@ extension CollectionViewContentController: UICollectionViewDelegateFlowLayout {
     // MARK: - Private Functions
     
     private func sizeableCollectionViewCellContent(for indexPath: IndexPath) -> SizeableCollectionViewCellContent? {
-        return self.cellContent(for: indexPath) as? SizeableCollectionViewCellContent
+        return self.cellContentFor(indexPath: indexPath) as? SizeableCollectionViewCellContent
     }
     
     private func sizeableCollectionViewSectionContent(for section: Int) -> SizeableCollectionViewSectionContent? {

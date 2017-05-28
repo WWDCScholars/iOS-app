@@ -1,5 +1,5 @@
 //
-//  ScholarsSectionContent.swift
+//  ScholarSectionContent.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 15/05/2017.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal final class ScholarsSectionContent: SectionContent, SizeableCollectionViewSectionContent {
+internal final class ScholarSectionContent: SectionContent, SizeableCollectionViewSectionContent {
     
     // MARK: - Internal Properties
     

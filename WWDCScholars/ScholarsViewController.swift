@@ -24,6 +24,7 @@ internal final class ScholarsViewController: UIViewController {
     private var scholarsMapViewController: ScholarsMapViewController?
     private var scholarsListViewController: ScholarsListViewController?
     private var containerViewSwitchHelper: ContainerViewSwitchHelper?
+    private var batches: [ExampleBatch] = [Batch2013(), Batch2014(), Batch2015(), Batch2016(), Batch2017(), BatchSaved()]
     
     // MARK: - Lifecycle
     
@@ -37,6 +38,7 @@ internal final class ScholarsViewController: UIViewController {
         self.styleUI()
         self.configureUI()
         self.configureBatchContentController()
+        self.scrollToSelectedBatch()
     }
     
     internal override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -69,13 +71,24 @@ internal final class ScholarsViewController: UIViewController {
         self.navigationController?.navigationBar.applyExtendedStyle()
     }
     
+    // MARK: - Internal Functions
+    
+    internal func selectSavedBatch() {
+        self.batchCollectionViewContentController.selectSavedBatch()
+    }
+    
+    internal func scrollToSelectedBatch() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01, execute: {
+            self.batchCollectionViewContentController.scrollToSelectedBatch()
+        })
+    }
+    
     // MARK: - Private Functions
     
     private func configureBatchContentController() {
         self.batchCollectionViewContentController.configure(collectionView: self.batchCollectionView)
         
-        let batches: [ExampleBatch] = [BatchEarlier(), Batch2014(), Batch2015(), Batch2016(), Batch2017()]
-        let batchSectionContent = ScholarsViewControllerCellContentFactory.batchSectionContent(from: batches, delegate: self)
+        let batchSectionContent = ScholarsViewControllerCellContentFactory.batchSectionContent(from: self.batches, delegate: self)
         
         self.batchCollectionViewContentController.add(sectionContent: batchSectionContent)
         self.batchCollectionViewContentController.reloadContent()

@@ -16,8 +16,8 @@ internal final class ScholarsListViewControllerCellContentFactory {
     
     // MARK: - Internal Functions
     
-    internal static func scholarSectionContent(from scholars: [ExampleScholar], delegate: ScholarCollectionViewCellContentDelegate) -> SectionContent {
-        let section = ScholarsSectionContent()
+    internal static func scholarSectionContent(from scholars: [ExampleScholar], delegate: ScholarCollectionViewCellContentDelegate) -> ScholarSectionContent {
+        let section = ScholarSectionContent()
         for scholar in scholars {
             let scholarCellContent = self.scholarCellContent(from: scholar, delegate: delegate)
             section.add(cellContent: scholarCellContent)
@@ -27,7 +27,7 @@ internal final class ScholarsListViewControllerCellContentFactory {
     
     // MARK: - Private Functions
     
-    private static func scholarCellContent(from scholar: ExampleScholar, delegate: ScholarCollectionViewCellContentDelegate) -> CellContent {
+    private static func scholarCellContent(from scholar: ExampleScholar, delegate: ScholarCollectionViewCellContentDelegate) -> ScholarCollectionViewCellContent {
         let cellContent = ScholarCollectionViewCellContent(scholar: scholar, action: { [unowned delegate] in
             delegate.presentProfile(for: scholar)
         })

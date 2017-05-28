@@ -33,12 +33,12 @@ internal extension ContentController {
         return self.sectionContent[indexPath.section].cellContent[indexPath.item].reuseIdentifier
     }
 
-    internal func cellContent(for indexPath: IndexPath) -> CellContent {
-        return self.sectionContent(for: indexPath).cellContent[indexPath.row]
+    internal func cellContentFor(indexPath: IndexPath) -> CellContent {
+        return self.sectionContentFor(index: indexPath.section).cellContent[indexPath.row]
     }
     
-    internal func sectionContent(for indexPath: IndexPath) -> SectionContent {
-        return self.sectionContent[indexPath.section]
+    internal func sectionContentFor(index: Int) -> SectionContent {
+        return self.sectionContent[index]
     }
 
     internal func add(sectionContent: SectionContent) {
@@ -51,5 +51,34 @@ internal extension ContentController {
 
     internal func removeAllContent() {
         self.sectionContent.removeAll()
+    }
+    
+    internal func indexPath(of cellContent: CellContent) -> IndexPath? {
+        guard let sectionContentIndex = self.sectionContentIndex(of: cellContent) else {
+            return nil
+        }
+        
+        guard let cellContentIndex = self.index(of: cellContent, sectionContentIndex: sectionContentIndex) else {
+            return nil
+        }
+        
+        let indexPath = IndexPath(item: cellContentIndex, section: sectionContentIndex)
+        return indexPath
+    }
+    
+    internal func index(of cellContent: CellContent, sectionContentIndex: Int) -> Int? {
+        guard let index = self.sectionContentFor(index: sectionContentIndex).cellContent.index(where: { $0 === cellContent }) else {
+            return nil
+        }
+        
+        return index
+    }
+    
+    internal func sectionContentIndex(of cellContent: CellContent) -> Int? {
+        guard let index = self.sectionContent.index(where: { $0.cellContent.contains(where: { $0 === cellContent }) }) else {
+            return nil
+        }
+        
+        return index
     }
 }

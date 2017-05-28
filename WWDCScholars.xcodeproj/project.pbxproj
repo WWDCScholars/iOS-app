@@ -38,6 +38,7 @@
 		6E3C55631EA03D17008F9AC9 /* UITabBar+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C55621EA03D17008F9AC9 /* UITabBar+Style.swift */; };
 		6E3C55661EA03DFE008F9AC9 /* UIColor+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C55651EA03DFE008F9AC9 /* UIColor+Style.swift */; };
 		6E3C55681EA042F3008F9AC9 /* UINavigationBar+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C55671EA042F3008F9AC9 /* UINavigationBar+Style.swift */; };
+		6E3E97281EDB420300A116FD /* SocialAccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3E97271EDB420300A116FD /* SocialAccountButton.swift */; };
 		6E411A001ED78908004A02DE /* TWTRTweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4119FF1ED78908004A02DE /* TWTRTweetDetailViewController.swift */; };
 		6E411A031ED78C5D004A02DE /* DeckTransitionScrollAssist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E411A021ED78C5D004A02DE /* DeckTransitionScrollAssist.swift */; };
 		6E411A051ED78C90004A02DE /* HeaderParallaxAssist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E411A041ED78C90004A02DE /* HeaderParallaxAssist.swift */; };
@@ -168,6 +169,7 @@
 		6E3C55621EA03D17008F9AC9 /* UITabBar+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBar+Style.swift"; sourceTree = "<group>"; };
 		6E3C55651EA03DFE008F9AC9 /* UIColor+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Style.swift"; sourceTree = "<group>"; };
 		6E3C55671EA042F3008F9AC9 /* UINavigationBar+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Style.swift"; sourceTree = "<group>"; };
+		6E3E97271EDB420300A116FD /* SocialAccountButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialAccountButton.swift; sourceTree = "<group>"; };
 		6E4119FF1ED78908004A02DE /* TWTRTweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWTRTweetDetailViewController.swift; sourceTree = "<group>"; };
 		6E411A021ED78C5D004A02DE /* DeckTransitionScrollAssist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckTransitionScrollAssist.swift; sourceTree = "<group>"; };
 		6E411A041ED78C90004A02DE /* HeaderParallaxAssist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderParallaxAssist.swift; sourceTree = "<group>"; };
@@ -432,6 +434,14 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		6E3E97261EDB41F400A116FD /* SocialAccountButton */ = {
+			isa = PBXGroup;
+			children = (
+				6E3E97271EDB420300A116FD /* SocialAccountButton.swift */,
+			);
+			name = SocialAccountButton;
+			sourceTree = "<group>";
+		};
 		6E4119FE1ED788E9004A02DE /* TWTRTweetDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -465,6 +475,7 @@
 		6E5CA5161EA16AB20018ECB9 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				6E3E97261EDB41F400A116FD /* SocialAccountButton */,
 				6E2EFC281ED0C91500C23E16 /* AnnotationViews */,
 				6ED441BB1ED075AD0035BD31 /* BackgroundViewControllers */,
 				6ED441BA1ED075970035BD31 /* NavigationBarExtensionView */,
@@ -965,6 +976,7 @@
 				6E67DE991EBFA48A00992E69 /* CGFloat+WWDCScholars.swift in Sources */,
 				6EC1ECB41ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift in Sources */,
 				6E1083CF1ECBCC5600139C23 /* SizeableCollectionViewCellContent.swift in Sources */,
+				6E3E97281EDB420300A116FD /* SocialAccountButton.swift in Sources */,
 				6EC1ECAE1ED228B300302A25 /* ScholarsSwitchableContainerView.swift in Sources */,
 				6E3C55631EA03D17008F9AC9 /* UITabBar+Style.swift in Sources */,
 				6ED441C21ED077E20035BD31 /* BackgroundViewHelper.swift in Sources */,

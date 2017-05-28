@@ -18,9 +18,7 @@ internal final class BlogViewController: UIViewController {
     // MARK: - File Private Properties
     
     @IBOutlet fileprivate weak var collectionView: UICollectionView?
-    
-    fileprivate let cellHeight: CGFloat = 184.0
-    
+        
     // MARK: - Lifecycle
     
     internal override func viewDidLoad() {

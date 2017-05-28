@@ -34,6 +34,8 @@ internal final class ProfileViewController: UIViewController {
     private let bioLabelHeightConstraintUpdateValue: CGFloat = 1.0
     private let bioLabelText = "I’m a 20 year old App Developer from Edinburgh, UK currently studying Computing Engineering at Edinburgh Napier University. I have developed more than 15 iOS apps since I began in summer 2014. My main interests are technology, guitar, aviation and design."
     
+    private var profileSocialAccountsFactory: ProfileSocialAccountsFactory?
+    
     // MARK: - File Private Properties
     
     @IBOutlet fileprivate weak var mapView: MKMapView?
@@ -44,6 +46,9 @@ internal final class ProfileViewController: UIViewController {
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let scholar = ScholarOne()
+        self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(scholar: scholar)
         
         self.styleUI()
         self.configureUI()
@@ -120,7 +125,7 @@ internal final class ProfileViewController: UIViewController {
     }
     
     private func populateSocialAccountsContent() {
-        let socialAccountButtons = ProfileSocialAccountsFactory.accountButtons()
+        let socialAccountButtons = self.profileSocialAccountsFactory?.accountButtons() ?? []
         for button in socialAccountButtons {
             self.socialAccountsStackView?.addArrangedSubview(button)
         }

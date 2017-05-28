@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MapKit
+import DeckTransition
 
 internal final class ProfileViewController: UIViewController {
     
@@ -65,23 +66,23 @@ internal final class ProfileViewController: UIViewController {
     private func styleUI() {
         self.view.applyBackgroundStyle()
         
-        self.nameLabel?.applyProfileNameStyle()
-        self.locationLabel?.applyProfileContentStyle()
-        self.ageTitleLabel?.applyProfileTitleStyle()
-        self.ageContentLabel?.applyProfileContentStyle()
-        self.countryTitleLabel?.applyProfileTitleStyle()
-        self.countryContentLabel?.applyProfileContentStyle()
-        self.batchTitleLabel?.applyProfileTitleStyle()
-        self.batchContentLabel?.applyProfileContentStyle()
-        self.bioLabel?.applyProfileContentStyle()
+        self.nameLabel?.applyDetailHeaderTitleStyle()
+        self.locationLabel?.applyDetailContentStyle()
+        self.ageTitleLabel?.applyDetailTitleStyle()
+        self.ageContentLabel?.applyDetailContentStyle()
+        self.countryTitleLabel?.applyDetailTitleStyle()
+        self.countryContentLabel?.applyDetailContentStyle()
+        self.batchTitleLabel?.applyDetailTitleStyle()
+        self.batchContentLabel?.applyDetailContentStyle()
+        self.bioLabel?.applyDetailContentStyle()
         
-        self.profilePictureContainerView?.round()
+        self.profilePictureContainerView?.roundCorners()
         self.profilePictureContainerView?.applyRelativeCircularBorder()
-        self.teamContainerView?.round()
+        self.teamContainerView?.roundCorners()
         self.teamContainerView?.applyRelativeCircularBorder()
         
-        self.teamImageView?.round()
-        self.profilePictureImageView?.round()
+        self.teamImageView?.roundCorners()
+        self.profilePictureImageView?.roundCorners()
     }
     
     private func configureUI() {
@@ -126,25 +127,12 @@ internal final class ProfileViewController: UIViewController {
     }
 }
 
-extension ProfileViewController: UIScrollViewDelegate {
+extension ProfileViewController: UIScrollViewDelegate, DeckTransitionScrollAssist, HeaderParallaxAssist {
     
     // MARK: - Internal Functions
     
     internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.updateMapViewParallax(with: scrollView)
-    }
-    
-    // MARK: - Private Functions
-    
-    private func updateMapViewParallax(with scrollView: UIScrollView) {
-        let height = self.mapViewHeight
-        var frame = CGRect(x: 0.0, y: 0.0, width: scrollView.bounds.width, height: height)
-        
-        if scrollView.contentOffset.y < height {
-            frame.origin.y = scrollView.contentOffset.y
-            frame.size.height = -scrollView.contentOffset.y + height
-        }
-        
-        self.mapView?.frame = frame
+        self.updateDeckTransition(for: scrollView)
+        self.updateHeaderParallax(for: scrollView, on: self.mapView, baseHeight: self.mapViewHeight)
     }
 }

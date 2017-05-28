@@ -12,7 +12,7 @@
         <!--Profile View Controller-->
         <scene sceneID="5NZ-Zx-84X">
             <objects>
-                <viewController id="pVC-pL-rof" customClass="ProfileViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pVC-pL-rof" customClass="ProfileViewController" customModule="WWDCScholars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rt2-xi-TSi"/>
                         <viewControllerLayoutGuide type="bottom" id="xKc-gL-kbu"/>

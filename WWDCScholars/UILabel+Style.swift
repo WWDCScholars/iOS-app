@@ -10,20 +10,20 @@ import Foundation
 import UIKit
 
 internal extension UILabel {
-
+    
     // MARK: - Internal Functions
     
-    internal func applyProfileNameStyle() {
+    internal func applyDetailHeaderTitleStyle() {
         self.font = UIFont.systemFont(ofSize: 25.0)
         self.textColor = .titleTextDark
     }
     
-    internal func applyProfileTitleStyle() {
+    internal func applyDetailTitleStyle() {
         self.font = UIFont.systemFont(ofSize: 16.0)
         self.textColor = .titleTextDark
     }
     
-    internal func applyProfileContentStyle() {
+    internal func applyDetailContentStyle() {
         self.font = UIFont.systemFont(ofSize: 16.0)
         self.textColor = .contentTextDark
     }
@@ -44,5 +44,26 @@ internal extension UILabel {
             attributedString.addAttribute(NSKernAttributeName, value: spacing, range: NSRange(location: 0, length: attributedString.length - 1))
             attributedText = attributedString
         }
+    }
+
+    internal func applyScholarsBatchTitleStyle() {
+        self.font = UIFont.systemFont(ofSize: 14.0)
+        self.textColor = .titleTextLight
+    }
+    
+    internal func applyScholarsTitleStyle() {
+        self.font = UIFont.systemFont(ofSize: 16.0)
+        self.textColor = .titleTextLight
+    }
+    
+    internal func applyBackgroundTitleStyle() {
+        self.font = UIFont.systemFont(ofSize: 16.0)
+        self.textColor = .backgroundElementGray
+    }
+    
+    internal func applyScholarClusterStyle() {
+        self.font = UIFont.systemFont(ofSize: 16.0)
+        self.textAlignment = .center
+        self.textColor = .white
     }
 }

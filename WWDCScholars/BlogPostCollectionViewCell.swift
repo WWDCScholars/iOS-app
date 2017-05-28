@@ -9,16 +9,20 @@
 import Foundation
 import UIKit
 
-internal final class BlogPostCollectionViewCell: UICollectionViewCell {
+internal final class BlogPostCollectionViewCell: UICollectionViewCell, Cell {
     
     // MARK: - Private Properties
     
     @IBOutlet private weak var heroImageView: UIImageView?
-    @IBOutlet private weak var authorProfileButton: UIButton?
+    @IBOutlet private weak var authorProfileImageView: UIImageView?
     @IBOutlet private weak var authorProfileContainerView: UIView?
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var authorLabel: UILabel?
     @IBOutlet private weak var infoContainerView: UIView?
+    
+    // MARK: - Internal Properties
+    
+    internal var cellContent: CellContent?
     
     // MARK: - Lifecycle
     
@@ -26,7 +30,6 @@ internal final class BlogPostCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         self.styleUI()
-        self.configureUI()
     }
     
     // MARK: - UI
@@ -36,19 +39,24 @@ internal final class BlogPostCollectionViewCell: UICollectionViewCell {
         self.infoContainerView?.applyThumbnailFooterStyle()
         self.titleLabel?.applyBlogPostInfoTitleStyle()
         self.authorLabel?.applyBlogPostInfoAuthorStyle()
-        self.authorProfileContainerView?.round()
+        self.authorProfileContainerView?.roundCorners()
         self.authorProfileContainerView?.applyRelativeCircularBorder()
-        self.authorProfileButton?.round()
+        self.authorProfileImageView?.roundCorners()
     }
     
-    private func configureUI() {
-        let authorProfileImage = UIImage(named: "profile")
-        self.authorProfileButton?.setBackgroundImage(authorProfileImage, for: .normal)
+    // MARK: - Internal Functions
+    
+    internal func configure(with cellContent: CellContent) {
+        self.cellContent = cellContent
         
-        let heroImage = UIImage(named: "blogPostHero")
-        self.heroImageView?.image = heroImage
+        guard let cellContent = cellContent as? BlogPostCollectionViewCellContent else {
+            return
+        }
         
-        self.titleLabel?.text = "Meeting Apple Executives"
-        self.authorLabel?.text = "by Andrew Walker"
+        let blogPost = cellContent.blogPost
+        self.heroImageView?.image = blogPost.heroImage
+        self.authorProfileImageView?.image = blogPost.author.profileImage
+        self.titleLabel?.text = blogPost.title
+        self.authorLabel?.text = "by \(blogPost.author.fullName)"
     }
 }

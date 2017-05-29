@@ -9,5 +9,5 @@
 import Foundation
 
 internal protocol ScholarCollectionViewCellContentDelegate: class {
-    func presentProfile(for scholar: ExampleScholar)
+    func presentProfile(for scholar: BasicScholar)
 }

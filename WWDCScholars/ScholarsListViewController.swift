@@ -19,7 +19,7 @@ internal final class ScholarsListViewController: UIViewController, ContainerView
     
     // MARK: - Internal Properties
     
-    internal var scholars = [ExampleScholar]()
+    internal var scholars = [BasicScholar]()
     
     // MARK: - Lifecycle
     
@@ -52,7 +52,7 @@ extension ScholarsListViewController: ScholarCollectionViewCellContentDelegate {
     
     // MARK: - Internal Functions
     
-    internal func presentProfile(for scholar: ExampleScholar) {
+    internal func presentProfile(for scholar: BasicScholar) {
         self.presentProfileViewController()
     }
 }

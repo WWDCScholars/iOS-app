@@ -16,7 +16,7 @@ internal final class ScholarsMapAnnotationsFactory {
     
     // MARK: - Internal Functions
     
-    internal static func annotations(for scholars: [ExampleScholar]) -> [ScholarAnnotation] {
+    internal static func annotations(for scholars: [BasicScholar]) -> [ScholarAnnotation] {
         return scholars.map({ ScholarAnnotation(scholar: $0) })
     }
 }

@@ -13,6 +13,7 @@ internal protocol SectionContent: class {
     var cellContent: [CellContent] { get set }
     var headerViewContent: HeaderFooterViewContent? { get set }
     var footerViewContent: HeaderFooterViewContent? { get set }
+    var id: String? { get }
 }
 
 internal extension SectionContent {

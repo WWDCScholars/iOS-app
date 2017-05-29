@@ -18,10 +18,12 @@ internal final class BlogPostCollectionViewCellContent: CellContent, VariableWid
     internal let axisCellCount = 1
     internal let blogPost: ExampleBlogPost
     internal let action: () -> Void
+    internal let id: String?
     
     // MARK: - Lifecycle
     
-    internal init(blogPost: ExampleBlogPost, action: @escaping () -> Void) {
+    internal init(id: String? = nil, blogPost: ExampleBlogPost, action: @escaping () -> Void) {
+        self.id = id
         self.blogPost = blogPost
         self.action = action
     }

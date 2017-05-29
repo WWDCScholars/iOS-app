@@ -52,6 +52,5 @@ internal final class ScholarCollectionViewCell: UICollectionViewCell, Cell {
         }
         
         self.label?.text = cellContent.scholar.firstName
-        self.imageView?.image = cellContent.scholar.profileImage
     }
 }

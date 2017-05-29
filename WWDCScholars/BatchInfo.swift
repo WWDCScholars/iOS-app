@@ -1,5 +1,5 @@
 //
-//  ExampleBatch.swift
+//  BatchInfo.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 12/05/2017.
@@ -8,80 +8,80 @@
 
 import Foundation
 
-internal final class BatchInfo {
+internal final class BatchKey {
     
     // MARK: - Internal Properties
     
-    internal static let wwdc2013Key = "WWDC 2013"
-    internal static let wwdc2014Key = "WWDC 2014"
-    internal static let wwdc2015Key = "WWDC 2015"
-    internal static let wwdc2016Key = "WWDC 2016"
-    internal static let wwdc2017Key = "WWDC 2017"
-    internal static let savedKey = "Saved"
+    internal static let wwdc2013 = "WWDC 2013"
+    internal static let wwdc2014 = "WWDC 2014"
+    internal static let wwdc2015 = "WWDC 2015"
+    internal static let wwdc2016 = "WWDC 2016"
+    internal static let wwdc2017 = "WWDC 2017"
+    internal static let saved = "Saved"
 }
 
-internal protocol ExampleBatch: class {
+internal protocol BatchInfo: class {
     var title: String { get }
     var isDefault: Bool { get set }
     var recordName: String { get }
 }
 
-internal class Batch2013: ExampleBatch {
+internal class BatchInfo2013: BatchInfo {
     
     // MARK: - Internal Properties
     
     internal let title = "2013"
-    internal let recordName = BatchInfo.wwdc2013Key
+    internal let recordName = BatchKey.wwdc2013
     
     internal var isDefault = false
 }
 
-internal class Batch2014: ExampleBatch {
+internal class BatchInfo2014: BatchInfo  {
     
     // MARK: - Internal Properties
     
     internal let title = "2014"
-    internal let recordName = BatchInfo.wwdc2014Key
+    internal let recordName = BatchKey.wwdc2014
     
     internal var isDefault = false
 }
 
-internal class Batch2015: ExampleBatch {
+internal class BatchInfo2015: BatchInfo  {
     
     // MARK: - Internal Properties
     
     internal let title = "2015"
-    internal let recordName = BatchInfo.wwdc2015Key
+    internal let recordName = BatchKey.wwdc2015
     
     internal var isDefault = false
 }
 
-internal class Batch2016: ExampleBatch {
+internal class BatchInfo2016: BatchInfo {
     
     // MARK: - Internal Properties
     
     internal let title = "2016"
-    internal let recordName = BatchInfo.wwdc2016Key
+    internal let recordName = BatchKey.wwdc2016
     
     internal var isDefault = false
 }
 
-internal class Batch2017: ExampleBatch {
+internal class BatchInfo2017: BatchInfo  {
     
     // MARK: - Internal Properties
     
     internal let title = "2017"
-    internal let recordName = BatchInfo.wwdc2017Key
+    internal let recordName = BatchKey.wwdc2017
     
     internal var isDefault = true
 }
 
-internal class BatchSaved: ExampleBatch {
+internal class BatchInfoSaved: BatchInfo  {
     
     // MARK: - Internal Properties
     
     internal let title = "Saved"
-    internal let recordName = BatchInfo.savedKey
+    internal let recordName = BatchKey.saved
     
     internal var isDefault = false
 }

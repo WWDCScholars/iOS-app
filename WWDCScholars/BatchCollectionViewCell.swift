@@ -48,7 +48,7 @@ internal final class BatchCollectionViewCell: UICollectionViewCell, Cell {
             return
         }
         
-        self.label?.text = cellContent.batch.title
+        self.label?.text = cellContent.batchInfo.title
         self.backgroundColor = cellContent.isSelected ? .selectedTransparentWhite : .clear
     }
 }

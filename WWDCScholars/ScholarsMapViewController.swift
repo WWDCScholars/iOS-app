@@ -31,7 +31,7 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
     
     // MARK: - Internal Properties
     
-    internal var scholars = [ExampleScholar]()
+    internal var scholars = [BasicScholar]()
     
     // MARK: - Lifecycle
     

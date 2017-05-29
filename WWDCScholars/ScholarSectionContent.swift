@@ -13,6 +13,7 @@ internal final class ScholarSectionContent: SectionContent, SizeableCollectionVi
     
     // MARK: - Internal Properties
     
+    internal let id: String?
     internal let sizingModifiers: CollectionViewSectionContentSizingModifiers
     
     internal var cellContent = [CellContent]()
@@ -21,7 +22,9 @@ internal final class ScholarSectionContent: SectionContent, SizeableCollectionVi
     
     // MARK: - Lifecycle
     
-    internal init() {
+    internal init(id: String? = nil) {
+        self.id = id
+        
         let edgeInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
         let minimumLineSpacing: CGFloat = 8.0
         let minimumInteritemSpacing: CGFloat = 8.0

@@ -9,15 +9,16 @@
 import Foundation
 import CloudKit
 
-internal typealias ListScholarFetched = ((ListScholar) -> Void)
+internal typealias ListScholarFetched = ((BasicScholar) -> Void)
 internal typealias ScholarFetched = ((Scholar) -> Void)
 
 internal extension CloudKitManager {
     
     // MARK: - Internal Functions
     
-    internal func loadScholarsForList(in batch: String, with status: Scholar.Status, cursor: CKQueryCursor? = nil, recordFetched: @escaping ListScholarFetched, completion: QueryCompletion) {
-        let yearRef = CKReference.init(recordID: CKRecordID.init(recordName: batch), action: .none)
+    internal func loadScholarsForList(in batchInfo: BatchInfo, with status: Scholar.Status, cursor: CKQueryCursor? = nil, recordFetched: @escaping ListScholarFetched, completion: QueryCompletion) {
+        let recordName = batchInfo.recordName
+        let yearRef = CKReference.init(recordID: CKRecordID.init(recordName: recordName), action: .none)
         let predicate = NSPredicate(format: "status == '\(status.rawValue)' AND wwdcYears CONTAINS %@", yearRef)
         let query = CKQuery(recordType: "Scholar", predicate: predicate)
         let operation = CKQueryOperation(query: query)
@@ -29,7 +30,7 @@ internal extension CloudKitManager {
         operation.queryCompletionBlock = completion
         
         operation.recordFetchedBlock = { (record:CKRecord!) in
-            let smallScholar = ListScholar.init(record: record)
+            let smallScholar = BasicScholar.init(record: record)
             recordFetched(smallScholar)
         }
         

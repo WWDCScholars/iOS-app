@@ -10,4 +10,5 @@ import Foundation
 
 internal protocol CellContent: class {
     var reuseIdentifier: String { get }
+    var id: String? { get }
 }

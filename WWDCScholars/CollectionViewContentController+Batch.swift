@@ -13,15 +13,27 @@ internal extension CollectionViewContentController {
     // MARK: - Internal Functions
     
     internal func selectSavedBatch() {
-        guard let savedBatchSectionContent = self.sectionContent.last else {
+        guard let savedBatchSectionContent = self.sectionContent.filter({ $0.id == "Batches" }).first else {
             return
         }
         
-        guard let savedBatchCellContent = savedBatchSectionContent.cellContent.last else {
+        guard let savedBatchCellContent = savedBatchSectionContent.cellContent.filter({ $0.id == "Saved" }).first else {
             return
         }
         
         self.select(cellContent: savedBatchCellContent)
+    }
+    
+    internal func selectDefaultBatch() {
+        guard let defaultBatchSectionContent = self.sectionContent.filter({ $0.id == "Batches" }).first else {
+            return
+        }
+        
+        guard let defaultBatchCellContent = defaultBatchSectionContent.cellContent.filter({ ($0 as? BatchCollectionViewCellContent)?.batchInfo.isDefault == true }).first else {
+            return
+        }
+        
+        self.select(cellContent: defaultBatchCellContent)
     }
     
     internal func scrollToSelectedBatch() {

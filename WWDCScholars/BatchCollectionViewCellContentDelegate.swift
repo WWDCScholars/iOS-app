@@ -9,5 +9,5 @@
 import Foundation
 
 internal protocol BatchCollectionViewCellContentDelegate: class {
-    func update(for batch: ExampleBatch)
+    func update(for batchInfo: BatchInfo)
 }

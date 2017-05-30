@@ -115,9 +115,9 @@ Crazy Ones.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxz-iP-ahg">
-                                <rect key="frame" x="20" y="190" width="335" height="144"/>
+                                <rect key="frame" x="20" y="190" width="335" height="175"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="144" id="RBl-LO-jqD"/>
+                                    <constraint firstAttribute="height" constant="175" id="RBl-LO-jqD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -245,9 +245,9 @@ Crazy Ones.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpi-9h-Ayp">
-                                <rect key="frame" x="20" y="190" width="335" height="144"/>
+                                <rect key="frame" x="20" y="190" width="335" height="175"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="144" id="N1r-28-9wo"/>
+                                    <constraint firstAttribute="height" constant="175" id="N1r-28-9wo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -355,16 +355,16 @@ Crazy Ones.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2U4-aA-h7d">
-                                <rect key="frame" x="20" y="190" width="335" height="144"/>
+                                <rect key="frame" x="20" y="190" width="335" height="175"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="144" id="tx4-oV-FEw"/>
+                                    <constraint firstAttribute="height" constant="175" id="tx4-oV-FEw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSa-gr-eS9">
-                                <rect key="frame" x="20" y="342" width="335" height="30"/>
+                                <rect key="frame" x="20" y="373" width="335" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="qBx-Gn-en0"/>
                                 </constraints>

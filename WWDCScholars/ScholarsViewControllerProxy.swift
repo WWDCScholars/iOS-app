@@ -29,7 +29,9 @@ internal final class ScholarsViewControllerProxy {
     // MARK: - Internal Functions
     
     internal func loadListScholars(batchInfo: BatchInfo) {
-        CloudKitManager.shared.loadScholarsForList(in: batchInfo, with: .approved, recordFetched: self.basicScholarFetched, completion: nil)
+        CloudKitManager.shared.loadScholarsForList(in: batchInfo, with: .approved, recordFetched: self.basicScholarFetched, completion: { cur, err in
+            print (cur)
+        })
     }
     
     private func basicScholarFetched(basicScholar: BasicScholar) {

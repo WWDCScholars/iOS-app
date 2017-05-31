@@ -27,7 +27,6 @@ internal final class ScholarsListViewController: UIViewController, ContainerView
         super.viewDidLoad()
         
         self.styleUI()
-        self.configureScholarContentController()
     }
     
     // MARK: - UI
@@ -36,9 +35,9 @@ internal final class ScholarsListViewController: UIViewController, ContainerView
         self.view.applyBackgroundStyle()
     }
     
-    // MARK: - Private Functions
+    // MARK: - Internal Functions
     
-    private func configureScholarContentController() {
+    internal func configureScholarContentController() {
         self.scholarCollectionViewContentController.configure(collectionView: self.scholarCollectionView)
         
         let batchesSectionContent = ScholarsListViewControllerCellContentFactory.scholarSectionContent(from: self.scholars, delegate: self)

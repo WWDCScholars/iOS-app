@@ -85,18 +85,18 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
         self.setRegionToUserLocation()
     }
     
-    // MARK: - Internal Functions Functions
+    // MARK: - Internal Functions
     
     internal func switchedToViewController() {
         self.locationManager.requestWhenInUseAuthorization()
     }
     
-    // MARK: - Private Functions
-    
-    private func configureMapContent() {
+    internal func configureMapContent() {
         let annotations = ScholarsMapAnnotationsFactory.annotations(for: self.scholars)
         self.mapView?.clusterManager.addAnnotations(annotations)
     }
+    
+    // MARK: - Private Functions
     
     private func setRegionToDefaultLocation() {
         guard let mapView = self.mapView else {

@@ -19,12 +19,15 @@ internal final class ScholarsViewController: UIViewController {
     @IBOutlet private weak var scholarsListContainerView: ScholarsListContainerView?
     
     private let batchCollectionViewContentController = CollectionViewContentController()
-    private let scholars = [BasicScholar]()
     
     private var scholarsMapViewController: ScholarsMapViewController?
     private var scholarsListViewController: ScholarsListViewController?
     private var containerViewSwitchHelper: ContainerViewSwitchHelper?
     private var batches: [BatchInfo] = [BatchInfo2013(), BatchInfo2014(), BatchInfo2015(), BatchInfo2016(), BatchInfo2017(), BatchInfoSaved()]
+    
+    // MARK: - File Private Properties
+    
+    fileprivate var scholars = [BasicScholar]()
     
     // MARK: - Internal Properties
     
@@ -92,7 +95,12 @@ internal final class ScholarsViewController: UIViewController {
     
     // MARK: - File Private Functions
     
-    
+    fileprivate func updateContainerViewsContent() {
+        self.scholarsListViewController?.scholars = self.scholars
+        self.scholarsListViewController?.configureScholarContentController()
+        self.scholarsMapViewController?.scholars = self.scholars
+        self.scholarsMapViewController?.configureMapContent()
+    }
     
     // MARK: - Private Functions
     
@@ -124,7 +132,11 @@ extension ScholarsViewController: ScholarsViewControllerProxyDelegate {
     // MARK: - Internal Functions
     
     internal func didLoad(basicScholar: BasicScholar) {
-        print(basicScholar.firstName)
+        self.scholars.append(basicScholar)
+    }
+    
+    internal func didLoadBatch() {
+        self.updateContainerViewsContent()
     }
 }
 

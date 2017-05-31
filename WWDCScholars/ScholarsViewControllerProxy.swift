@@ -35,8 +35,9 @@ internal final class ScholarsViewControllerProxy {
                 // Do something
                 return
             }
-            
-            self.delegate?.didLoadBatch()
+            DispatchQueue.main.async {
+                self.delegate?.didLoadBatch()
+            }
         }
     }
     

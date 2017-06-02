@@ -8,10 +8,8 @@
 
 import Foundation
 
-extension Scholar {
-    enum Status: String {
-        case pending
-        case approved
-        case denied
-    }
+internal enum ScholarStatus: String {
+    case pending
+    case approved
+    case denied
 }

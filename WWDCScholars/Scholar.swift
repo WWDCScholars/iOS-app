@@ -10,44 +10,41 @@ import Foundation
 import CoreLocation
 import CloudKit
 
-internal class Scholar {
-    var id: CKRecordID?
+internal final class Scholar {
     
-//    var profileImage: CKAsset
-    var firstName: String
-    var lastName: String
-    var gender: Gender
-    var birthday: Date
-    var location: CLLocation
+    // MARK: - Internal Properties
     
-    var email: String
-    var shortBio: String
+    internal let id: CKRecordID?
+    internal let firstName: String
+    internal let lastName: String
+    internal let gender: Gender
+    internal let birthday: Date
+    internal let location: CLLocation
+    internal let email: String
+    internal let shortBio: String
+    internal let socialMediaRef: CKReference
+    internal let batches: [String]
+    internal let batchInfos: [CKReference]
+    internal let approvedOn: Date?
+    internal let createdAt: Date?
+    internal let status: ScholarStatus
     
-    var socialMediaRef: CKReference
-
-    var batches: [String]
-    var batchInfos: [CKReference]
-    var approvedOn: Date?
-    var createdAt: Date?
-    var status : Status
+    // MARK: - Lifecycle
     
-    init(record: CKRecord) {
-        id = record.recordID
-        createdAt = record.creationDate
-        
-        location = record["location"] as! CLLocation
-        shortBio = record["shortBio"] as! String
-        gender = Gender(rawValue: record["gender"] as! String)!
-        birthday = record["birthday"] as! Date
-        email = record["email"] as! String
-        lastName = record["lastName"] as! String
-        firstName = record["firstName"] as! String
-        
-        socialMediaRef = record["socialMedia"] as! CKReference
-        batches = (record["wwdcYears"] as! [CKReference]).map { $0.recordID.recordName }
-        batchInfos = record["wwdcYearInfos"] as! [CKReference]
-
-        status = Status(rawValue: record["status"] as! String)!
-        approvedOn = record["approvedOn"] as? Date
+    internal init(record: CKRecord) {
+        self.id = record.recordID
+        self.createdAt = record.creationDate
+        self.location = record["location"] as! CLLocation
+        self.shortBio = record["shortBio"] as! String
+        self.gender = Gender(rawValue: record["gender"] as! String)!
+        self.birthday = record["birthday"] as! Date
+        self.email = record["email"] as! String
+        self.lastName = record["lastName"] as! String
+        self.firstName = record["firstName"] as! String
+        self.socialMediaRef = record["socialMedia"] as! CKReference
+        self.batches = (record["wwdcYears"] as! [CKReference]).map { $0.recordID.recordName }
+        self.batchInfos = record["wwdcYearInfos"] as! [CKReference]
+        self.status = ScholarStatus(rawValue: record["status"] as! String)!
+        self.approvedOn = record["approvedOn"] as? Date
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum AppType {
+internal enum AppType {
     case online
     case offline
     case both

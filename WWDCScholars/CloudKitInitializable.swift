@@ -9,10 +9,10 @@
 import Foundation
 import CloudKit
 
-protocol CloudKitItem {
+internal protocol CloudKitItem {
     var id: CKRecordID { get }
 }
 
-protocol CloudKitInitializable: CloudKitItem {
+internal protocol CloudKitInitializable: CloudKitItem {
     init(record: CKRecord)
 }

@@ -9,35 +9,35 @@
 import Foundation
 import CloudKit
 
-internal class Batch: CloudKitInitializable {
-    internal var id: CKRecordID
+internal final class Batch: CloudKitInitializable {
     
-    internal var scholarReference: CKReference?
-    internal var yearReference: CKReference
+    // MARK: - Internal Properties
     
+    internal let id: CKRecordID
+    internal let scholarReference: CKReference?
+    internal let yearReference: CKReference
     internal let profilePicture: CKAsset
     internal let acceptanceEmail: CKAsset?
     internal let videoLink: String?
-    internal let screenshots: [CKAsset] //Screenshots
+    internal let screenshots: [CKAsset]
     internal let githubAppLink: String?
-    
     internal let appType: String?
     internal let appStoreSubmissionLink: String?
-    
     internal let appliedAs: ApplicantType
 
-    required init(record: CKRecord) {
-        id = record.recordID
-        scholarReference  = record["scholar"] as? CKReference
-        yearReference = record["year"] as! CKReference
-        profilePicture = record["profilePicture"] as! CKAsset
-        acceptanceEmail = record["acceptanceEmail"] as! CKAsset?
-        screenshots = record["screenshots"] as! [CKAsset]
-        videoLink = record["videoLink"] as! String?
-        githubAppLink = record["githubAppLink"] as! String?
-        appType = record["appType"] as? String
-        appStoreSubmissionLink = record["appStoreSubmissionLink"] as! String?
-        appliedAs = ApplicantType(rawValue: record["appliedAs"] as! String) ?? .student
-    }
+    // MARK: - Lifecycle
     
+    internal required init(record: CKRecord) {
+        self.id = record.recordID
+        self.scholarReference  = record["scholar"] as? CKReference
+        self.yearReference = record["year"] as! CKReference
+        self.profilePicture = record["profilePicture"] as! CKAsset
+        self.acceptanceEmail = record["acceptanceEmail"] as! CKAsset?
+        self.screenshots = record["screenshots"] as! [CKAsset]
+        self.videoLink = record["videoLink"] as! String?
+        self.githubAppLink = record["githubAppLink"] as! String?
+        self.appType = record["appType"] as? String
+        self.appStoreSubmissionLink = record["appStoreSubmissionLink"] as! String?
+        self.appliedAs = ApplicantType(rawValue: record["appliedAs"] as! String) ?? .student
+    }
 }

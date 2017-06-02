@@ -10,8 +10,11 @@ import Foundation
 import UIKit
 import CloudKit
 
-extension CKAsset {
-    var image: UIImage? {
+internal extension CKAsset {
+    
+    // MARK: - Internal Properties
+    
+    internal var image: UIImage? {
         if let data = try? Data(contentsOf: self.fileURL) {
             return UIImage(data: data)
         }

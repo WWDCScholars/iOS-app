@@ -836,18 +836,10 @@
 		6EE99A081EC528CB00F13809 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6E6703551ED6385100228FF0 /* Factories */,
+				6EF556721EE1CC530040BCA9 /* Activity */,
+				6EF556711EE1CC300040BCA9 /* Scholar */,
 				6EE99A091EC528D200F13809 /* Test Models */,
-				7BD91F981ED332FD00439718 /* ActivityQueryItem.swift */,
-				7BB4F8131EDCB4A800B0EE7A /* Scholar.swift */,
-				7BB4F7FE1EDCA02700B0EE7A /* Gender.swift */,
-				7BD91F9F1ED33F7A00439718 /* ActivityTimelineFilter.swift */,
-				7BB4F8001EDCA02D00B0EE7A /* ApplicantType.swift */,
-				7BB4F7FA1EDC9E9000B0EE7A /* Batch.swift */,
-				7BB4F8111EDCB43100B0EE7A /* ScholarStatus.swift */,
 				7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */,
-				7BB4F8041EDCA18100B0EE7A /* AppType.swift */,
-				7BB4F80D1EDCB2F000B0EE7A /* BasicScholar.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -909,6 +901,30 @@
 				6EBE863D1EDA3B2A00C99D0D /* BlogPostSectionContent.swift */,
 			);
 			name = Sections;
+			sourceTree = "<group>";
+		};
+		6EF556711EE1CC300040BCA9 /* Scholar */ = {
+			isa = PBXGroup;
+			children = (
+				7BB4F8041EDCA18100B0EE7A /* AppType.swift */,
+				7BB4F80D1EDCB2F000B0EE7A /* BasicScholar.swift */,
+				7BB4F7FA1EDC9E9000B0EE7A /* Batch.swift */,
+				7BB4F7FE1EDCA02700B0EE7A /* Gender.swift */,
+				7BB4F8131EDCB4A800B0EE7A /* Scholar.swift */,
+				7BB4F8111EDCB43100B0EE7A /* ScholarStatus.swift */,
+			);
+			name = Scholar;
+			sourceTree = "<group>";
+		};
+		6EF556721EE1CC530040BCA9 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				6E6703551ED6385100228FF0 /* Factories */,
+				7BB4F8001EDCA02D00B0EE7A /* ApplicantType.swift */,
+				7BD91F9F1ED33F7A00439718 /* ActivityTimelineFilter.swift */,
+				7BD91F981ED332FD00439718 /* ActivityQueryItem.swift */,
+			);
+			name = Activity;
 			sourceTree = "<group>";
 		};
 		7BB4F8061EDCAFEB00B0EE7A /* CloudKit */ = {

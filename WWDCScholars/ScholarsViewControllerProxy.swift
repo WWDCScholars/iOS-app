@@ -11,8 +11,7 @@ import Foundation
 internal protocol ScholarsViewControllerProxyDelegate: class {
     var proxy: ScholarsViewControllerProxy? { get set }
     
-    func didLoad(basicScholar: BasicScholar, for batchInfo: BatchInfo)
-    func didLoadBasicScholars(for batchInfo: BatchInfo)
+    func didLoadBatch()
 }
 
 internal final class ScholarsViewControllerProxy {
@@ -30,20 +29,32 @@ internal final class ScholarsViewControllerProxy {
     // MARK: - Internal Functions
     
     internal func loadBasicScholars(for batchInfo: BatchInfo) {
-        CloudKitManager.shared.loadScholarsForList(in: batchInfo, with: .approved, recordFetched: self.basicScholarFetched) { (cursor, error) in
+        CloudKitManager.shared.loadScholarsForList(in: batchInfo, with: .approved, recordFetched: self.basicScholarLoaded) { (cursor, error) in
             guard error == nil else {
-                // Do something
                 return
             }
+            
             DispatchQueue.main.async {
-                self.delegate?.didLoadBasicScholars(for: batchInfo)
+                self.delegate?.didLoadBatch()
             }
         }
     }
     
+    internal func basicScholarsForSelectedBatchInfo() -> [BasicScholar] {
+        return BatchManager.shared.basicScholarsForSelectedBatchInfo()
+    }
+    
+    internal func set(selectedBatchInfo: BatchInfo) {
+        BatchManager.shared.set(selectedBatchInfo: selectedBatchInfo)
+    }
+    
+    internal func add(basicScholar: BasicScholar, for batchInfo: BatchInfo) {
+        BatchManager.shared.add(basicScholar: basicScholar, to: batchInfo)
+    }
+    
     // MARK: - Private Functions
     
-    private func basicScholarFetched(basicScholar: BasicScholar, batchInfo: BatchInfo) {
-        self.delegate?.didLoad(basicScholar: basicScholar, for: batchInfo)
+    private func basicScholarLoaded(basicScholar: BasicScholar, batchInfo: BatchInfo) {
+        self.add(basicScholar: basicScholar, for: batchInfo)
     }
 }

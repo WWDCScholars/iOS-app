@@ -125,16 +125,11 @@ extension ScholarsViewController: ScholarsViewControllerProxyDelegate {
     
     // MARK: - Internal Functions
     
-    internal func didLoad(basicScholar: BasicScholar, for batchInfo: BatchInfo) {
-        BatchManager.shared.add(basicScholar: basicScholar, to: batchInfo)
-    }
-    
-    internal func didLoadBasicScholars(for batchInfo: BatchInfo) {
-        guard batchInfo === BatchManager.shared.selectedBatchInfo else {
+    internal func didLoadBatch() {
+        guard let basicScholars = self.proxy?.basicScholarsForSelectedBatchInfo() else {
             return
         }
         
-        let basicScholars = BatchManager.shared.basicScholarsForSelectedBatchInfo()
         self.updateContainerViewsContent(with: basicScholars)
     }
 }
@@ -144,12 +139,9 @@ extension ScholarsViewController: BatchCollectionViewCellContentDelegate {
     // MARK: - Internal Functions
     
     internal func update(for batchInfo: BatchInfo) {
-        // Cancel any current loading batches?
+        self.proxy?.set(selectedBatchInfo: batchInfo)
         
-        BatchManager.shared.set(selectedBatchInfo: batchInfo)
-        
-        let basicScholars = BatchManager.shared.basicScholarsForSelectedBatchInfo()
-        guard !basicScholars.isEmpty else {
+        guard let basicScholars = self.proxy?.basicScholarsForSelectedBatchInfo(), !basicScholars.isEmpty else {
             self.proxy?.loadBasicScholars(for: batchInfo)
             return
         }

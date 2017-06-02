@@ -5,31 +5,36 @@
 //  Created by Eneko Alonso on 2/25/16.
 //  Copyright © 2016 Eneko Alonso. All rights reserved.
 //
+
 import Dispatch
 import Foundation
 
 public struct SyncBlock {
     
+    // MARK: - Private Properties
+    
     private let semaphore: DispatchSemaphore
     
-    public init() {
+    // MARK: - Lifecycle
+    
+    internal init() {
         semaphore = DispatchSemaphore.init(value: 0)
     }
     
-    public func complete() {
+    // MARK: - Internal Functions
+    
+    internal func complete() {
         semaphore.signal()
     }
     
-    public func wait(seconds timeout: TimeInterval = 0) {
-        let start = NSDate()
-        while semaphore.wait(timeout: DispatchTime.now()) != .success {
+    internal func wait(seconds timeout: TimeInterval = 0.0) {
+        let start = Date()
+        while semaphore.wait(timeout: .now()) != .success {
             let intervalDate = Date(timeIntervalSinceNow: 0.01) // 10 msec
             RunLoop.current.run(until: intervalDate)
-            //            NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: intervalDate)
-            if timeout > 0 && Date().timeIntervalSince(start as Date) > timeout {
+            if timeout > 0.0 && Date().timeIntervalSince(start as Date) > timeout {
                 break
             }
         }
     }
-    
 }

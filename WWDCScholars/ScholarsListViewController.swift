@@ -38,6 +38,7 @@ internal final class ScholarsListViewController: UIViewController, ContainerView
     // MARK: - Internal Functions
     
     internal func configureScholarContentController() {
+        self.scholarCollectionViewContentController.removeAllContent()
         self.scholarCollectionViewContentController.configure(collectionView: self.scholarCollectionView)
         
         let batchesSectionContent = ScholarsListViewControllerCellContentFactory.scholarSectionContent(from: self.scholars, delegate: self)

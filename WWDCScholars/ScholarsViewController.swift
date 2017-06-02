@@ -23,11 +23,6 @@ internal final class ScholarsViewController: UIViewController {
     private var scholarsMapViewController: ScholarsMapViewController?
     private var scholarsListViewController: ScholarsListViewController?
     private var containerViewSwitchHelper: ContainerViewSwitchHelper?
-    private var batches: [BatchInfo] = [BatchInfo2013(), BatchInfo2014(), BatchInfo2015(), BatchInfo2016(), BatchInfo2017(), BatchInfoSaved()]
-    
-    // MARK: - File Private Properties
-    
-    fileprivate var scholars = [BasicScholar]()
     
     // MARK: - Internal Properties
     
@@ -56,14 +51,12 @@ internal final class ScholarsViewController: UIViewController {
         
         if segue.identifier == "ScholarsListViewController" {
             let scholarsListViewController = segue.destination as? ScholarsListViewController
-            scholarsListViewController?.scholars = self.scholars
             self.scholarsListViewController = scholarsListViewController
             return
         }
         
         if segue.identifier == "ScholarsMapViewController" {
             let scholarsMapViewController = segue.destination as? ScholarsMapViewController
-            scholarsMapViewController?.scholars = self.scholars
             self.scholarsMapViewController = scholarsMapViewController
             return
         }
@@ -95,10 +88,10 @@ internal final class ScholarsViewController: UIViewController {
     
     // MARK: - File Private Functions
     
-    fileprivate func updateContainerViewsContent() {
-        self.scholarsListViewController?.scholars = self.scholars
+    fileprivate func updateContainerViewsContent(with basicScholars: [BasicScholar]) {
+        self.scholarsListViewController?.scholars = basicScholars
         self.scholarsListViewController?.configureScholarContentController()
-        self.scholarsMapViewController?.scholars = self.scholars
+        self.scholarsMapViewController?.scholars = basicScholars
         self.scholarsMapViewController?.configureMapContent()
     }
     
@@ -107,7 +100,8 @@ internal final class ScholarsViewController: UIViewController {
     private func configureBatchContentController() {
         self.batchCollectionViewContentController.configure(collectionView: self.batchCollectionView)
         
-        let batchSectionContent = ScholarsViewControllerCellContentFactory.batchSectionContent(from: self.batches, delegate: self)
+        let batchInfos = BatchManager.shared.batchesInfos
+        let batchSectionContent = ScholarsViewControllerCellContentFactory.batchSectionContent(from: batchInfos, delegate: self)
         
         self.batchCollectionViewContentController.add(sectionContent: batchSectionContent)
         self.batchCollectionViewContentController.reloadContent()
@@ -131,12 +125,17 @@ extension ScholarsViewController: ScholarsViewControllerProxyDelegate {
     
     // MARK: - Internal Functions
     
-    internal func didLoad(basicScholar: BasicScholar) {
-        self.scholars.append(basicScholar)
+    internal func didLoad(basicScholar: BasicScholar, for batchInfo: BatchInfo) {
+        BatchManager.shared.add(basicScholar: basicScholar, to: batchInfo)
     }
     
-    internal func didLoadBatch() {
-        self.updateContainerViewsContent()
+    internal func didLoadBasicScholars(for batchInfo: BatchInfo) {
+        guard batchInfo === BatchManager.shared.selectedBatchInfo else {
+            return
+        }
+        
+        let basicScholars = BatchManager.shared.basicScholarsForSelectedBatchInfo()
+        self.updateContainerViewsContent(with: basicScholars)
     }
 }
 
@@ -145,6 +144,16 @@ extension ScholarsViewController: BatchCollectionViewCellContentDelegate {
     // MARK: - Internal Functions
     
     internal func update(for batchInfo: BatchInfo) {
-        self.proxy?.loadListScholars(batchInfo: batchInfo)
+        // Cancel any current loading batches?
+        
+        BatchManager.shared.set(selectedBatchInfo: batchInfo)
+        
+        let basicScholars = BatchManager.shared.basicScholarsForSelectedBatchInfo()
+        guard !basicScholars.isEmpty else {
+            self.proxy?.loadBasicScholars(for: batchInfo)
+            return
+        }
+        
+        self.updateContainerViewsContent(with: basicScholars)
     }
 }

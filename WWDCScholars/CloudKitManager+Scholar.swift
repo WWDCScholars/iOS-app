@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-internal typealias ListScholarFetched = ((BasicScholar) -> Void)
+internal typealias ListScholarFetched = ((BasicScholar, BatchInfo) -> Void)
 internal typealias ScholarFetched = ((Scholar) -> Void)
 
 internal extension CloudKitManager {
@@ -31,7 +31,7 @@ internal extension CloudKitManager {
         
         operation.recordFetchedBlock = { (record:CKRecord!) in
             let smallScholar = BasicScholar.init(record: record)
-            recordFetched(smallScholar)
+            recordFetched(smallScholar, batchInfo)
         }
         
         self.database.add(operation)

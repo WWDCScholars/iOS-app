@@ -24,6 +24,7 @@ internal protocol BatchInfo: class {
     var title: String { get }
     var isDefault: Bool { get set }
     var recordName: String { get }
+    var basicScholars: [BasicScholar] { get set }
 }
 
 internal class BatchInfo2013: BatchInfo {
@@ -34,6 +35,7 @@ internal class BatchInfo2013: BatchInfo {
     internal let recordName = BatchKey.wwdc2013
     
     internal var isDefault = false
+    internal var basicScholars = [BasicScholar]()
 }
 
 internal class BatchInfo2014: BatchInfo  {
@@ -44,6 +46,7 @@ internal class BatchInfo2014: BatchInfo  {
     internal let recordName = BatchKey.wwdc2014
     
     internal var isDefault = false
+    internal var basicScholars = [BasicScholar]()
 }
 
 internal class BatchInfo2015: BatchInfo  {
@@ -54,6 +57,7 @@ internal class BatchInfo2015: BatchInfo  {
     internal let recordName = BatchKey.wwdc2015
     
     internal var isDefault = false
+    internal var basicScholars = [BasicScholar]()
 }
 
 internal class BatchInfo2016: BatchInfo {
@@ -64,6 +68,7 @@ internal class BatchInfo2016: BatchInfo {
     internal let recordName = BatchKey.wwdc2016
     
     internal var isDefault = false
+    internal var basicScholars = [BasicScholar]()
 }
 
 internal class BatchInfo2017: BatchInfo  {
@@ -74,6 +79,7 @@ internal class BatchInfo2017: BatchInfo  {
     internal let recordName = BatchKey.wwdc2017
     
     internal var isDefault = true
+    internal var basicScholars = [BasicScholar]()
 }
 
 internal class BatchInfoSaved: BatchInfo  {
@@ -84,4 +90,5 @@ internal class BatchInfoSaved: BatchInfo  {
     internal let recordName = BatchKey.saved
     
     internal var isDefault = false
+    internal var basicScholars = [BasicScholar]()
 }

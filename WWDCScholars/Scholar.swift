@@ -31,6 +31,10 @@ internal class Scholar {
     var createdAt: Date?
     var status : Status
     
+    var fullName: String {
+        return "\(firstName) \(lastName)"
+    }
+    
     init(record: CKRecord) {
         id = record.recordID
         createdAt = record.creationDate

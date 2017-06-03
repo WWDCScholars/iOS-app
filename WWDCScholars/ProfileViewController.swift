@@ -10,8 +10,13 @@ import Foundation
 import UIKit
 import MapKit
 import DeckTransition
+import CloudKit
+import CoreLocation
 
 internal final class ProfileViewController: UIViewController {
+    
+    // MARK: - Internal Properties
+    internal var scholarId: CKRecordID? = nil
     
     // MARK: - Private Properties
     
@@ -32,7 +37,10 @@ internal final class ProfileViewController: UIViewController {
     @IBOutlet private weak var socialAccountsStackView: UIStackView?
     
     private let bioLabelHeightConstraintUpdateValue: CGFloat = 1.0
-    private let bioLabelText = "I’m a 20 year old App Developer from Edinburgh, UK currently studying Computing Engineering at Edinburgh Napier University. I have developed more than 15 iOS apps since I began in summer 2014. My main interests are technology, guitar, aviation and design."
+    
+    private var scholar: Scholar? = nil
+    private let socialMedia: SocialMedia? = nil
+    private let batch: Batch? = nil
     
     private var profileSocialAccountsFactory: ProfileSocialAccountsFactory?
     
@@ -47,14 +55,27 @@ internal final class ProfileViewController: UIViewController {
     internal override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scholar = ScholarOne()
-        self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(scholar: scholar)
+        guard let scholarId = scholarId else {
+            print ("ScholarID is nil")
+            return
+        }
+        
+//        self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(socialMedia: scholar)
+        CloudKitManager.shared.loadScholar(with: scholarId, recordFetched: { scholar in
+            self.scholar = scholar
+            
+            DispatchQueue.main.async {
+                self.populateHeaderContent()
+                self.populateBasicInfoContent()
+                self.populateBioContent()
+            }
+            
+        }, completion: { _, err in
+            print ("\(err.debugDescription)")
+        })
         
         self.styleUI()
         self.configureUI()
-        self.populateHeaderContent()
-        self.populateBasicInfoContent()
-        self.populateBioContent()
         self.populateSocialAccountsContent()
     }
     
@@ -106,22 +127,47 @@ internal final class ProfileViewController: UIViewController {
     // MARK: - Private Functions
     
     private func populateHeaderContent() {
+        guard let scholar = scholar else {
+            return
+        }
+        
         self.profilePictureImageView?.image = UIImage(named: "profile")
-        self.nameLabel?.text = "Andrew Walker"
-        self.locationLabel?.text = "Edinburgh, UK"
+        self.nameLabel?.text = scholar.fullName
+        
+        let geocoder = CLGeocoder.init()
+        geocoder.reverseGeocodeLocation(scholar.location, completionHandler: { placemarks,err in
+            var placeMark: CLPlacemark!
+            placeMark = placemarks?[0]
+            
+            let city = placeMark.addressDictionary?["City"] as? String ?? ""
+            
+            let country = placeMark.addressDictionary?["Country"] as? String ?? ""
+            
+            DispatchQueue.main.async {
+                self.locationLabel?.text = "\(city), \(country)"
+                self.countryContentLabel?.text = country
+            }
+        })
     }
     
     private func populateBasicInfoContent() {
+        guard let scholar = scholar else {
+            return
+        }
+        
         self.ageTitleLabel?.text = "Age"
-        self.ageContentLabel?.text = "20"
+        self.ageContentLabel?.text = "\(scholar.birthday.age)"
         self.countryTitleLabel?.text = "Country"
-        self.countryContentLabel?.text = "UK"
         self.batchTitleLabel?.text = "Attended"
-        self.batchContentLabel?.text = "'15, '16, '17"
+        self.batchContentLabel?.text = scholar.batches.joined(separator: ", ")
     }
     
     private func populateBioContent() {
-        self.bioLabel?.text = self.bioLabelText
+        guard let scholar = scholar else {
+            return
+        }
+        
+        self.bioLabel?.text = scholar.shortBio
     }
     
     private func populateSocialAccountsContent() {

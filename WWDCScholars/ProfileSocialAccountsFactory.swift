@@ -13,12 +13,12 @@ internal final class ProfileSocialAccountsFactory {
     
     // MARK: - Private Properties
     
-    private let scholar: ExampleScholar
+    private let socialMedia: SocialMedia
     
     // MARK: - Lifecycle
     
-    internal init(scholar: ExampleScholar) {
-        self.scholar = scholar
+    internal init(socialMedia: SocialMedia) {
+        self.socialMedia = socialMedia
     }
     
     // MARK: - Internal Functions
@@ -33,7 +33,7 @@ internal final class ProfileSocialAccountsFactory {
     // MARK: - Private Functions
     
     private func iMessageButton() -> UIButton? {
-        if let iMessage = self.scholar.socialMedia.iMessage, !iMessage.isEmpty {
+        if let iMessage = self.socialMedia.iMessage, !iMessage.isEmpty {
             return self.accountButton(withImageName: "iMessage", url: iMessage)
         }
         
@@ -41,7 +41,7 @@ internal final class ProfileSocialAccountsFactory {
     }
     
     private func gitHubButton() -> UIButton? {
-        if let gitHubURL = self.scholar.socialMedia.gitHub, !gitHubURL.isEmpty {
+        if let gitHubURL = self.socialMedia.gitHub, !gitHubURL.isEmpty {
             return self.accountButton(withImageName: "gitHub", url: gitHubURL)
         }
         
@@ -49,7 +49,7 @@ internal final class ProfileSocialAccountsFactory {
     }
     
     private func websiteButton() -> UIButton? {
-        if let websiteURL = self.scholar.socialMedia.website, !websiteURL.isEmpty {
+        if let websiteURL = self.socialMedia.website, !websiteURL.isEmpty {
             return self.accountButton(withImageName: "website", url: websiteURL)
         }
         
@@ -57,7 +57,7 @@ internal final class ProfileSocialAccountsFactory {
     }
     
     private func linkedInButton() -> UIButton? {
-        if let linkedInURL = self.scholar.socialMedia.linkedIn, !linkedInURL.isEmpty {
+        if let linkedInURL = self.socialMedia.linkedIn, !linkedInURL.isEmpty {
             return self.accountButton(withImageName: "linkedIn", url: linkedInURL)
         }
         
@@ -65,7 +65,7 @@ internal final class ProfileSocialAccountsFactory {
     }
     
     private func facebookButton() -> UIButton? {
-        if let facebookURL = self.scholar.socialMedia.facebook, !facebookURL.isEmpty {
+        if let facebookURL = self.socialMedia.facebook, !facebookURL.isEmpty {
             return self.accountButton(withImageName: "facebook", url: facebookURL)
         }
         
@@ -73,7 +73,7 @@ internal final class ProfileSocialAccountsFactory {
     }
     
     private func twitterButton() -> UIButton? {
-        if let twitterURL = self.scholar.socialMedia.twitter, !twitterURL.isEmpty {
+        if let twitterURL = self.socialMedia.twitter, !twitterURL.isEmpty {
             return self.accountButton(withImageName: "twitter", url: twitterURL)
         }
         

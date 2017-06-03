@@ -29,6 +29,9 @@ internal final class BlogPostViewController: UIViewController {
     
     fileprivate var heroImageViewHeight: CGFloat = 0.0
     
+    // MARK: - Private Properties
+    internal var blogPost: BlogPost? = nil
+    
     // MARK: - Lifecycle
     
     internal override func viewDidLoad() {

@@ -14,11 +14,12 @@ internal final class BlogViewController: UIViewController {
     // MARK: - Private Properties
     
     private let blogPostCollectionViewContentController = CollectionViewContentController()
+    private var blogPosts: [BlogPost] = []
     
     // MARK: - File Private Properties
     
     @IBOutlet fileprivate weak var collectionView: UICollectionView?
-        
+    
     // MARK: - Lifecycle
     
     internal override func viewDidLoad() {
@@ -43,16 +44,21 @@ internal final class BlogViewController: UIViewController {
     
     private func loadBlogPosts() {
         CloudKitManager.shared.loadBlogPosts(cursor: nil, recordFetched: { blogPost in
-            let blogPostSectionContent = BlogViewControllerCellContentFactory.blogPostSectionContent(from: [blogPost], delegate: self)
-            
-            self.blogPostCollectionViewContentController.add(sectionContent: blogPostSectionContent)
+            if self.blogPosts.contains(where: { blogPost.id == $0.id }) {
+                self.blogPosts.append(blogPost)
+            }
         }, completion: { _, error in
             guard error == nil else {
                 //todo: error handling
                 print (error.debugDescription)
                 return
             }
+        
             
+            let blogPostSectionContent = BlogViewControllerCellContentFactory.blogPostSectionContent(from: self.blogPosts, delegate: self)
+            
+            self.blogPostCollectionViewContentController.add(sectionContent: blogPostSectionContent)
+
             DispatchQueue.main.async {
                 self.blogPostCollectionViewContentController.reloadContent()
             }
@@ -70,5 +76,12 @@ extension BlogViewController: BlogPostCollectionViewCellContentDelegate {
     
     internal func open(blogPost: BlogPost) {
         self.performSegue(withIdentifier: "blogPostViewController", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "blogPostViewController" {
+            let dest = segue.destination as! BlogPostViewController
+            dest.blogPost =
+        }
     }
 }

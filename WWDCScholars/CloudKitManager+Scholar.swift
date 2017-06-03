@@ -25,7 +25,7 @@ internal extension CloudKitManager {
         operation.desiredKeys = ["recordID", "location", "firstName", "wwdcYears", "wwdcYearInfos"]
         operation.resultsLimit = CKQueryOperationMaximumResults
         operation.cursor = cursor
-        operation.qualityOfService = .userInitiated
+        operation.qualityOfService = .userInteractive
         
         operation.queryCompletionBlock = completion
         
@@ -42,7 +42,7 @@ internal extension CloudKitManager {
         let query = CKQuery(recordType: "Scholar", predicate: predicate)
         let operation = CKQueryOperation(query: query)
         operation.resultsLimit = 1
-        operation.qualityOfService = .userInitiated
+        operation.qualityOfService = .userInteractive
         
         operation.queryCompletionBlock = { cursor, err in
             print ("\(err.debugDescription)")

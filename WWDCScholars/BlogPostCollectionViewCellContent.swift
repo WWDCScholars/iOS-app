@@ -16,13 +16,13 @@ internal final class BlogPostCollectionViewCellContent: CellContent, VariableWid
     internal let reuseIdentifier = "blogPostCollectionViewCell"
     internal let height: CGFloat = 190.0
     internal let axisCellCount = 1
-    internal let blogPost: ExampleBlogPost
+    internal let blogPost: BlogPost
     internal let action: () -> Void
     internal let id: String?
     
     // MARK: - Lifecycle
     
-    internal init(id: String? = nil, blogPost: ExampleBlogPost, action: @escaping () -> Void) {
+    internal init(id: String? = nil, blogPost: BlogPost, action: @escaping () -> Void) {
         self.id = id
         self.blogPost = blogPost
         self.action = action

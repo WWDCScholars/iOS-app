@@ -41,14 +41,26 @@ internal final class BlogViewController: UIViewController {
     
     // MARK: - Private Functions
     
+    private func loadBlogPosts() {
+        CloudKitManager.shared.loadBlogPosts(cursor: nil, recordFetched: { blogPost in
+            let blogPostSectionContent = BlogViewControllerCellContentFactory.blogPostSectionContent(from: [blogPost], delegate: self)
+            
+            self.blogPostCollectionViewContentController.add(sectionContent: blogPostSectionContent)
+        }, completion: { _, error in
+            guard error == nil else {
+                //todo: error handling
+                print (error.debugDescription)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.blogPostCollectionViewContentController.reloadContent()
+            }
+        })
+    }
+    
     private func configureBlogPostContentController() {
         self.blogPostCollectionViewContentController.configure(collectionView: self.collectionView)
-        
-        let blogPosts: [ExampleBlogPost] = [BlogPostOne()]
-        let blogPostSectionContent = BlogViewControllerCellContentFactory.blogPostSectionContent(from: blogPosts, delegate: self)
-        
-        self.blogPostCollectionViewContentController.add(sectionContent: blogPostSectionContent)
-        self.blogPostCollectionViewContentController.reloadContent()
     }
 }
 
@@ -56,7 +68,7 @@ extension BlogViewController: BlogPostCollectionViewCellContentDelegate {
     
     // MARK: - Internal Functions
     
-    internal func open(blogPost: ExampleBlogPost) {
+    internal func open(blogPost: BlogPost) {
         self.performSegue(withIdentifier: "blogPostViewController", sender: nil)
     }
 }

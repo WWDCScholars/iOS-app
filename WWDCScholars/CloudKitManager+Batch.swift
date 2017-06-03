@@ -20,7 +20,7 @@ extension CloudKitManager {
         let operation = CKQueryOperation(query: query)
         operation.desiredKeys = keys // ["recordID", "profilePicture"]
         operation.resultsLimit = CKQueryOperationMaximumResults
-        operation.qualityOfService = .userInitiated
+        operation.qualityOfService = .userInteractive
         operation.queryCompletionBlock = completion
         operation.recordFetchedBlock = recordFetched
         self.database.add(operation)

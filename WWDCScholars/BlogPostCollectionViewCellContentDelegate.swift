@@ -9,5 +9,5 @@
 import Foundation
 
 internal protocol BlogPostCollectionViewCellContentDelegate: class {
-    func open(blogPost: ExampleBlogPost)
+    func open(blogPost: BlogPost)
 }

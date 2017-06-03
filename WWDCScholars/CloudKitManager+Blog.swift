@@ -1,5 +1,5 @@
 //
-//  CloudKitManager+SocialMedia.swift
+//  CloudKitManager+Blog.swift
 //  WWDCScholars
 //
 //  Created by Matthijs Logemann on 03/06/2017.
@@ -9,24 +9,25 @@
 import Foundation
 import CloudKit
 
-internal typealias SocialMediaFetched = ((SocialMedia) -> Void)
+internal typealias BlogPostLoaded = ((BlogPost) -> Void)
 
 internal extension CloudKitManager {
     
     // MARK: - Internal Functions
     
-    internal func loadSocialMedia(with id: CKRecordID, recordFetched: @escaping SocialMediaFetched, completion: QueryCompletion) {
-        let predicate = NSPredicate(format: "recordID = %@", id)
-        let query = CKQuery(recordType: "ScholarSocialMedia", predicate: predicate)
+    internal func loadBlogPosts(cursor: CKQueryCursor? = nil, recordFetched: @escaping BlogPostLoaded, completion: QueryCompletion) {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "BlogPost", predicate: predicate)
         let operation = CKQueryOperation(query: query)
-        operation.resultsLimit = 1
+        operation.resultsLimit = CKQueryOperationMaximumResults
+        operation.cursor = cursor
         operation.qualityOfService = .userInteractive
         
         operation.queryCompletionBlock = completion
         
         operation.recordFetchedBlock = { (record:CKRecord!) in
-            let socialMedia = SocialMedia.init(record: record)
-            recordFetched(socialMedia)
+            let blogPost = BlogPost.init(record: record)
+            recordFetched(blogPost)
         }
         
         self.database.add(operation)

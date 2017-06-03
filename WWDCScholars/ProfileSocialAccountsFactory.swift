@@ -33,7 +33,7 @@ internal final class ProfileSocialAccountsFactory {
     // MARK: - Private Functions
     
     private func iMessageButton() -> UIButton? {
-        if let iMessage = self.socialMedia.iMessage, !iMessage.isEmpty {
+        if let iMessage = self.socialMedia.imessage, !iMessage.isEmpty {
             return self.accountButton(withImageName: "iMessage", url: iMessage)
         }
         
@@ -41,7 +41,7 @@ internal final class ProfileSocialAccountsFactory {
     }
     
     private func gitHubButton() -> UIButton? {
-        if let gitHubURL = self.socialMedia.gitHub, !gitHubURL.isEmpty {
+        if let gitHubURL = self.socialMedia.github, !gitHubURL.isEmpty {
             return self.accountButton(withImageName: "gitHub", url: gitHubURL)
         }
         
@@ -57,7 +57,7 @@ internal final class ProfileSocialAccountsFactory {
     }
     
     private func linkedInButton() -> UIButton? {
-        if let linkedInURL = self.socialMedia.linkedIn, !linkedInURL.isEmpty {
+        if let linkedInURL = self.socialMedia.linkedin, !linkedInURL.isEmpty {
             return self.accountButton(withImageName: "linkedIn", url: linkedInURL)
         }
         

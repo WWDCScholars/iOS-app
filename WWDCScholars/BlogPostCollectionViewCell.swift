@@ -55,8 +55,8 @@ internal final class BlogPostCollectionViewCell: UICollectionViewCell, Cell {
         
         let blogPost = cellContent.blogPost
         self.heroImageView?.image = blogPost.heroImage
-        self.authorProfileImageView?.image = blogPost.author.profileImage
+//        self.authorProfileImageView?.image = blogPost.author
         self.titleLabel?.text = blogPost.title
-        self.authorLabel?.text = "by \(blogPost.author.fullName)"
+//        self.authorLabel?.text = "by \(blogPost.author.fullName)"
     }
 }

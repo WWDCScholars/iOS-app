@@ -8,10 +8,11 @@
 
 import Foundation
 import UIKit
+import CloudKit
 
 internal protocol ExampleBlogPost {
     var title: String { get }
-    var author: ExampleScholar { get }
+    var author: CKRecord { get }
     var heroImage: UIImage { get }
 }
 
@@ -20,6 +21,6 @@ internal struct BlogPostOne: ExampleBlogPost {
     // MARK: - Internal Properties
     
     internal let title = "Meeting Apple Executives"
-    internal let author: ExampleScholar = ScholarOne()
+    internal let author: CKRecord = CKRecord.init(recordType: "test")
     internal let heroImage = UIImage(named: "blogPostHero")!
 }

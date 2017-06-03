@@ -9,18 +9,18 @@
 import Foundation
 import CloudKit
 
-internal final class BasicScholar {
+internal final class BasicScholar: CloudKitInitializable {
     
     // MARK: - Internal Properties
     
-    internal let recordID: CKRecordID?
+    internal var id: CKRecordID
     internal let firstName: String
     internal let location: CLLocation
     
     // MARK: - Lifecycle
     
-    internal init(record: CKRecord) {
-        self.recordID = record.recordID
+    internal required init(record: CKRecord) {
+        self.id = record.recordID
         self.location = record["location"] as! CLLocation
         self.firstName = record["firstName"] as! String
     }

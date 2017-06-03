@@ -43,7 +43,7 @@ internal final class BlogPostViewController: UIViewController {
         self.configureUI()
         self.populateHeaderContent()
         
-        CloudKitManager.shared.loadScholarsForBlog(with: blogPost.author.recordID, recordFetched: { scholar in
+        CloudKitManager.shared.loadScholarsForBlog(with: self.blogPost.author.recordID, recordFetched: { scholar in
             scholar.profilePictureLoaded = { err in
                 print (err.debugDescription)
                 DispatchQueue.main.async {

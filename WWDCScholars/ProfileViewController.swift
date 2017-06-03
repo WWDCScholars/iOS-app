@@ -68,6 +68,7 @@ internal final class ProfileViewController: UIViewController {
                 self.populateHeaderContent()
                 self.populateBasicInfoContent()
                 self.populateBioContent()
+                self.configureMapView()
             }
             
         }, completion: { _, err in
@@ -120,8 +121,16 @@ internal final class ProfileViewController: UIViewController {
     private func configureBioLabel() {
         let font = self.bioLabel?.font
         let width = self.bioLabel?.frame.width ?? 0.0
-        let height = self.bioLabelText.height(for: width, font: font)
+        let height = self.scholar?.shortBio.height(for: width, font: font) ?? 0
         self.bioLabelHeightConstraint?.constant = height + self.bioLabelHeightConstraintUpdateValue
+    }
+    
+    private func configureMapView() {
+        guard let scholar = scholar else {
+            return
+        }
+        
+        self.mapView?.setCenter(scholar.location.coordinate, animated: true)
     }
     
     // MARK: - Private Functions

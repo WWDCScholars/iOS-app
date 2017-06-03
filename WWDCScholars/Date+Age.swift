@@ -14,7 +14,7 @@ extension Date {
     
         let now = calendar.startOfDay(for: Date())
         let birthdate = calendar.startOfDay(for: self)
-        let components = calendar.components([.year], fromDate: birthdate, toDate: now)
-        return components.year
+        let components = calendar.dateComponents([.year], from: birthdate, to: now)
+        return components.year!
     }
 }

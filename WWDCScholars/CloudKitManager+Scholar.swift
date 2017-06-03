@@ -10,6 +10,7 @@ import Foundation
 import CloudKit
 
 internal typealias ListScholarFetched = ((BasicScholar) -> Void)
+internal typealias BlogScholarFetched = ListScholarFetched
 internal typealias ScholarFetched = ((Scholar) -> Void)
 
 internal extension CloudKitManager {
@@ -55,4 +56,24 @@ internal extension CloudKitManager {
         
         self.database.add(operation)
     }
+    
+    internal func loadScholarsForBlog(with id: CKRecordID, recordFetched: @escaping BlogScholarFetched, completion: QueryCompletion) {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Scholar", predicate: predicate)
+        let operation = CKQueryOperation(query: query)
+        operation.desiredKeys = ["recordID", "location", "firstName", "wwdcYears", "wwdcYearInfos"]
+        operation.resultsLimit = CKQueryOperationMaximumResults
+        operation.resultsLimit = 1
+        operation.qualityOfService = .userInteractive
+        
+        operation.queryCompletionBlock = completion
+        
+        operation.recordFetchedBlock = { (record:CKRecord!) in
+            let smallScholar = BasicScholar.init(record: record)
+            recordFetched(smallScholar)
+        }
+        
+        self.database.add(operation)
+    }
+
 }

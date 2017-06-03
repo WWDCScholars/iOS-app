@@ -21,7 +21,9 @@ internal final class BlogPostViewController: UIViewController {
     @IBOutlet private weak var webView: UIWebView?
     
     private let titleLabelHeightConstraintUpdateValue: CGFloat = 1.0
-    private let titleLabelText = "Meeting Apple Executives"
+    private let scholar: BasicScholar? = nil
+    
+//    private let titleLabelText = "Meeting Apple Executives"
     
     // MARK: - File Private Properties
     
@@ -30,7 +32,7 @@ internal final class BlogPostViewController: UIViewController {
     fileprivate var heroImageViewHeight: CGFloat = 0.0
     
     // MARK: - Private Properties
-    internal var blogPost: BlogPost? = nil
+    internal var blogPost: BlogPost! = nil
     
     // MARK: - Lifecycle
     
@@ -40,6 +42,15 @@ internal final class BlogPostViewController: UIViewController {
         self.styleUI()
         self.configureUI()
         self.populateHeaderContent()
+        
+        CloudKitManager.shared.loadScholarsForBlog(with: blogPost.author.recordID, recordFetched: { scholar in
+            scholar.profilePictureLoaded = { err in
+                print (err.debugDescription)
+                DispatchQueue.main.async {
+                    self.populateHeaderAuthorContent()
+                }
+            }
+        }, completion: nil)
     }
     
     internal override func viewDidLayoutSubviews() {
@@ -72,7 +83,7 @@ internal final class BlogPostViewController: UIViewController {
     private func configureTitleLabel() {
         let font = self.titleLabel?.font
         let width = self.titleLabel?.frame.width ?? 0.0
-        let height = self.titleLabelText.height(for: width, font: font)
+        let height = self.blogPost.title.height(for: width, font: font)
         self.titleLabelHeightConstraint?.constant = height + self.titleLabelHeightConstraintUpdateValue
     }
     
@@ -84,12 +95,16 @@ internal final class BlogPostViewController: UIViewController {
     
     // MARK: - Private Functions
     
+    private func populateHeaderAuthorContent() {
+        self.authorButton?.setBackgroundImage(self.scholar?.profilePicture?.image, for: .normal)
+        self.authorLabel?.text = "by \(scholar?.firstName ?? "Guest")"
+    }
+    
     private func populateHeaderContent() {
         let authorButtonImage = UIImage(named: "profile")
         self.authorButton?.setBackgroundImage(authorButtonImage, for: .normal)
-        self.heroImageView?.image = UIImage(named: "blogPostHero")
-        self.titleLabel?.text = self.titleLabelText
-        self.authorLabel?.text = "by Andrew Walker"
+        self.heroImageView?.image = self.blogPost.headerImage.image
+        self.titleLabel?.text = self.blogPost?.title
     }
 }
 

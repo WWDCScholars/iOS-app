@@ -56,7 +56,6 @@ internal final class BlogViewController: UIViewController {
         
             
             let blogPostSectionContent = BlogViewControllerCellContentFactory.blogPostSectionContent(from: self.blogPosts, delegate: self)
-            
             self.blogPostCollectionViewContentController.add(sectionContent: blogPostSectionContent)
 
             DispatchQueue.main.async {
@@ -75,13 +74,13 @@ extension BlogViewController: BlogPostCollectionViewCellContentDelegate {
     // MARK: - Internal Functions
     
     internal func open(blogPost: BlogPost) {
-        self.performSegue(withIdentifier: "blogPostViewController", sender: nil)
+        self.performSegue(withIdentifier: "blogPostViewController", sender: blogPost)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "blogPostViewController" {
             let dest = segue.destination as! BlogPostViewController
-            dest.blogPost =
+            dest.blogPost = sender as? BlogPost
         }
     }
 }

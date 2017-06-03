@@ -25,4 +25,5 @@ extension CloudKitManager {
         operation.recordFetchedBlock = recordFetched
         self.database.add(operation)
     }
+    
 }

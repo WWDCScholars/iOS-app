@@ -39,8 +39,7 @@ internal final class ProfileViewController: UIViewController {
     private let bioLabelHeightConstraintUpdateValue: CGFloat = 1.0
     
     private var scholar: Scholar? = nil
-    private let socialMedia: SocialMedia? = nil
-    private let batch: Batch? = nil
+    private var batch: Batch? = nil
     
     private var profileSocialAccountsFactory: ProfileSocialAccountsFactory?
     
@@ -55,29 +54,15 @@ internal final class ProfileViewController: UIViewController {
     internal override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let scholarId = scholarId else {
+        guard let _ = scholarId else {
             print ("ScholarID is nil")
             return
         }
         
-//        self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(socialMedia: scholar)
-        CloudKitManager.shared.loadScholar(with: scholarId, recordFetched: { scholar in
-            self.scholar = scholar
-            
-            DispatchQueue.main.async {
-                self.populateHeaderContent()
-                self.populateBasicInfoContent()
-                self.populateBioContent()
-                self.configureMapView()
-            }
-            
-        }, completion: { _, err in
-            print ("\(err.debugDescription)")
-        })
-        
         self.styleUI()
         self.configureUI()
-        self.populateSocialAccountsContent()
+        self.loadScholarData()
+        
     }
     
     internal override func viewDidLayoutSubviews() {
@@ -125,6 +110,30 @@ internal final class ProfileViewController: UIViewController {
         self.bioLabelHeightConstraint?.constant = height + self.bioLabelHeightConstraintUpdateValue
     }
     
+    // MARK: - Private Functions
+    
+    private func loadScholarData() {
+        CloudKitManager.shared.loadScholar(with: scholarId!, recordFetched: { scholar in
+            self.scholar = scholar
+            CloudKitManager.shared.loadSocialMedia(with: scholar.socialMediaRef.recordID, recordFetched: { socialMedia in
+                self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(socialMedia: socialMedia)
+                DispatchQueue.main.async {
+                    self.populateSocialAccountsContent()
+                }
+            }, completion: nil)
+            
+            DispatchQueue.main.async {
+                self.populateHeaderContent()
+                self.populateBasicInfoContent()
+                self.populateBioContent()
+                self.configureMapView()
+            }
+            
+        }, completion: { _, err in
+            print ("\(err.debugDescription)")
+        })
+    }
+    
     private func configureMapView() {
         guard let scholar = scholar else {
             return
@@ -132,8 +141,6 @@ internal final class ProfileViewController: UIViewController {
         
         self.mapView?.setCenter(scholar.location.coordinate, animated: true)
     }
-    
-    // MARK: - Private Functions
     
     private func populateHeaderContent() {
         guard let scholar = scholar else {

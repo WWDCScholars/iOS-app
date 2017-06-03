@@ -109,6 +109,7 @@
 		7B8DDF231EE278E5002D2A9A /* Date+Age.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF221EE278E5002D2A9A /* Date+Age.swift */; };
 		7B8DDF251EE29EF0002D2A9A /* SocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF241EE29EF0002D2A9A /* SocialMedia.swift */; };
 		7B8DDF271EE2A150002D2A9A /* ExampleBlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF261EE2A150002D2A9A /* ExampleBlogPost.swift */; };
+		7B8DDF291EE2AAD7002D2A9A /* CloudKitManager+SocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF281EE2AAD7002D2A9A /* CloudKitManager+SocialMedia.swift */; };
 		7BB4F7FB1EDC9E9000B0EE7A /* Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FA1EDC9E9000B0EE7A /* Batch.swift */; };
 		7BB4F7FD1EDC9F5C00B0EE7A /* CloudKitInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */; };
 		7BB4F7FF1EDCA02700B0EE7A /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FE1EDCA02700B0EE7A /* Gender.swift */; };
@@ -256,6 +257,7 @@
 		7B8DDF221EE278E5002D2A9A /* Date+Age.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Age.swift"; sourceTree = "<group>"; };
 		7B8DDF241EE29EF0002D2A9A /* SocialMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMedia.swift; sourceTree = "<group>"; };
 		7B8DDF261EE2A150002D2A9A /* ExampleBlogPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleBlogPost.swift; sourceTree = "<group>"; };
+		7B8DDF281EE2AAD7002D2A9A /* CloudKitManager+SocialMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CloudKitManager+SocialMedia.swift"; sourceTree = "<group>"; };
 		7BB4F7FA1EDC9E9000B0EE7A /* Batch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Batch.swift; sourceTree = "<group>"; };
 		7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitInitializable.swift; sourceTree = "<group>"; };
 		7BB4F7FE1EDCA02700B0EE7A /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
@@ -918,6 +920,7 @@
 				7BB4F8071EDCB00400B0EE7A /* CloudKitManager+Activity.swift */,
 				7BB4F8091EDCB02500B0EE7A /* CloudKitManager+Scholar.swift */,
 				7BB4F80B1EDCB03000B0EE7A /* CloudKitManager+Batch.swift */,
+				7B8DDF281EE2AAD7002D2A9A /* CloudKitManager+SocialMedia.swift */,
 			);
 			name = CloudKit;
 			sourceTree = "<group>";
@@ -1108,6 +1111,7 @@
 				6EBE863E1EDA3B2A00C99D0D /* BlogPostSectionContent.swift in Sources */,
 				6E1083CB1ECBCC2D00139C23 /* VariableSizeCollectionViewCellContent.swift in Sources */,
 				6EC1ECA41ED2004E00302A25 /* ScholarsListViewController.swift in Sources */,
+				7B8DDF291EE2AAD7002D2A9A /* CloudKitManager+SocialMedia.swift in Sources */,
 				6E6703571ED6387500228FF0 /* ActivityQueryFactory.swift in Sources */,
 				6EE999F41EC509B600F13809 /* SelectableSectionSingleCellContent.swift in Sources */,
 				6EE999E81EC509B600F13809 /* ActionableCellContent.swift in Sources */,

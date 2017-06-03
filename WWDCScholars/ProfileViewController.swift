@@ -115,12 +115,6 @@ internal final class ProfileViewController: UIViewController {
     private func loadScholarData() {
         CloudKitManager.shared.loadScholar(with: scholarId!, recordFetched: { scholar in
             self.scholar = scholar
-            CloudKitManager.shared.loadSocialMedia(with: scholar.socialMediaRef.recordID, recordFetched: { socialMedia in
-                self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(socialMedia: socialMedia)
-                DispatchQueue.main.async {
-                    self.populateSocialAccountsContent()
-                }
-            }, completion: nil)
             
             DispatchQueue.main.async {
                 self.populateHeaderContent()
@@ -129,7 +123,15 @@ internal final class ProfileViewController: UIViewController {
                 self.configureMapView()
             }
             
+            CloudKitManager.shared.loadSocialMedia(with: scholar.socialMediaRef.recordID, recordFetched: { socialMedia in
+                self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(socialMedia: socialMedia)
+                DispatchQueue.main.async {
+                    self.populateSocialAccountsContent()
+                }
+            }, completion: nil)
+            
         }, completion: { _, err in
+            //todo: show load error
             print ("\(err.debugDescription)")
         })
     }
@@ -152,6 +154,8 @@ internal final class ProfileViewController: UIViewController {
         
         let geocoder = CLGeocoder.init()
         geocoder.reverseGeocodeLocation(scholar.location, completionHandler: { placemarks,err in
+            //todo: error handling?
+            
             var placeMark: CLPlacemark!
             placeMark = placemarks?[0]
             

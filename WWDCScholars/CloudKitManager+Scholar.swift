@@ -58,7 +58,7 @@ internal extension CloudKitManager {
     }
     
     internal func loadScholarsForBlog(with id: CKRecordID, recordFetched: @escaping BlogScholarFetched, completion: QueryCompletion) {
-        let predicate = NSPredicate(value: true)
+        let predicate = NSPredicate(format: "recordID = %@", id)
         let query = CKQuery(recordType: "Scholar", predicate: predicate)
         let operation = CKQueryOperation(query: query)
         operation.desiredKeys = ["recordID", "location", "firstName", "wwdcYears", "wwdcYearInfos"]

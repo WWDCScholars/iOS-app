@@ -16,7 +16,7 @@ internal class BlogPost: CloudKitInitializable {
     internal var content: String
     internal var headerImage: CKAsset
     internal var tags: [String]
-    internal var author: CKReference
+    internal var author: CKReference?
     
     internal required init(record: CKRecord) {
         id = record.recordID
@@ -24,6 +24,6 @@ internal class BlogPost: CloudKitInitializable {
         content = record["content"] as! String
         headerImage = record["headerImage"] as! CKAsset
         tags = record["tags"] as! [String]
-        author = record["author"] as! CKReference
+        author = record["scholar"] as? CKReference
     }
 }

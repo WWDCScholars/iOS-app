@@ -21,7 +21,7 @@ internal final class BlogPostViewController: UIViewController {
     @IBOutlet private weak var webView: UIWebView?
     
     private let titleLabelHeightConstraintUpdateValue: CGFloat = 1.0
-    private let scholar: BasicScholar? = nil
+    private var scholar: BasicScholar? = nil
     
 //    private let titleLabelText = "Meeting Apple Executives"
     
@@ -43,7 +43,9 @@ internal final class BlogPostViewController: UIViewController {
         self.configureUI()
         self.populateHeaderContent()
         
-        CloudKitManager.shared.loadScholarsForBlog(with: self.blogPost.author.recordID, recordFetched: { scholar in
+        if let author = self.blogPost.author {
+        CloudKitManager.shared.loadScholarsForBlog(with: author.recordID, recordFetched: { scholar in
+            self.scholar = scholar
             scholar.profilePictureLoaded = { err in
                 print (err.debugDescription)
                 DispatchQueue.main.async {
@@ -51,6 +53,7 @@ internal final class BlogPostViewController: UIViewController {
                 }
             }
         }, completion: nil)
+        }
     }
     
     internal override func viewDidLayoutSubviews() {

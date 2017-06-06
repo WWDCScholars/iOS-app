@@ -28,6 +28,7 @@ internal final class BlogViewController: UIViewController {
         self.styleUI()
         self.configureUI()
         self.configureBlogPostContentController()
+        self.loadBlogPosts()
     }
     
     // MARK: - UI
@@ -44,7 +45,7 @@ internal final class BlogViewController: UIViewController {
     
     private func loadBlogPosts() {
         CloudKitManager.shared.loadBlogPosts(cursor: nil, recordFetched: { blogPost in
-            if self.blogPosts.contains(where: { blogPost.id == $0.id }) {
+            if !self.blogPosts.contains(where: { blogPost.id == $0.id }) {
                 self.blogPosts.append(blogPost)
             }
         }, completion: { _, error in

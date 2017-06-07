@@ -101,6 +101,9 @@ internal final class ProfileViewController: UIViewController {
         self.title = "Profile"
         
         self.mapView?.isUserInteractionEnabled = false
+        self.countryTitleLabel?.text = "Country"
+        self.batchTitleLabel?.text = "Attended"
+        self.ageTitleLabel?.text = "Age"
     }
     
     private func configureBioLabel() {
@@ -114,6 +117,12 @@ internal final class ProfileViewController: UIViewController {
     
     private func loadScholarData() {
         CloudKitManager.shared.loadScholar(with: scholarId!, recordFetched: { scholar in
+            scholar.profilePictureLoaded = { err in
+                DispatchQueue.main.async {
+                    self.profilePictureImageView?.image = scholar.profilePicture?.image
+                }
+//                self.populateHeaderContent()
+            }
             self.scholar = scholar
             
             DispatchQueue.main.async {
@@ -149,7 +158,6 @@ internal final class ProfileViewController: UIViewController {
             return
         }
         
-        self.profilePictureImageView?.image = UIImage(named: "profile")
         self.nameLabel?.text = scholar.fullName
         
         let geocoder = CLGeocoder.init()
@@ -175,10 +183,7 @@ internal final class ProfileViewController: UIViewController {
             return
         }
         
-        self.ageTitleLabel?.text = "Age"
         self.ageContentLabel?.text = "\(scholar.birthday.age)"
-        self.countryTitleLabel?.text = "Country"
-        self.batchTitleLabel?.text = "Attended"
         self.batchContentLabel?.text = scholar.batches.joined(separator: ", ")
     }
     

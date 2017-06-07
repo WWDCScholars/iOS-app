@@ -148,7 +148,8 @@ extension ScholarsMapViewController: MKMapViewDelegate {
         }
         
         let isCluster = cluster.count > 1
-        isCluster ? self.show(cluster: cluster, mapView: mapView) : self.presentProfileViewController()
+        let scholarAnnotation = view.annotation as? ScholarAnnotation
+        isCluster ? self.show(cluster: cluster, mapView: mapView) : self.presentProfileViewController(scholarId: (scholarAnnotation?.scholar.id)!)
     }
     
     // MARK: - Private Functions
@@ -158,6 +159,7 @@ extension ScholarsMapViewController: MKMapViewDelegate {
         let edgeInsets = UIEdgeInsets(top: edgeInset, left: edgeInset, bottom: edgeInset, right: edgeInset)
         mapView.show(cluster, edgePadding: edgeInsets, animated: true)
     }
+    
     
     private func scholarAnnotationView(annotation: MKAnnotation, mapView: MKMapView) -> ScholarAnnotationView {
         let defaultAnnotationView = ScholarAnnotationView(annotation: annotation, reuseIdentifier: self.scholarAnnotationViewIdentifier)

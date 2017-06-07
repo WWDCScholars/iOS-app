@@ -93,7 +93,11 @@ internal final class BlogPostViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction internal func authorButtonTapped() {
-        self.presentProfileViewController()
+        guard let scholarId = self.scholar?.id else {
+            return
+        }
+        
+        self.presentProfileViewController(scholarId: scholarId)
     }
     
     // MARK: - Private Functions

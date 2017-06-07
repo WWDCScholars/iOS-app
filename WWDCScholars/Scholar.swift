@@ -30,6 +30,8 @@ internal class Scholar {
     var approvedOn: Date?
     var createdAt: Date?
     var status : Status
+    internal var profilePicture: CKAsset?
+    internal var profilePictureLoaded: ((Error?) -> Void)? = nil
     
     var fullName: String {
         return "\(firstName) \(lastName)"
@@ -53,5 +55,18 @@ internal class Scholar {
 
         status = Status(rawValue: record["status"] as! String)!
         approvedOn = record["approvedOn"] as? Date
+        
+//        let batchInfoRefs = record["wwdcYearInfos"] as! [CKReference]
+        
+        let maxBatch = self.batches.max(by: { a, b in
+            let intOne = Int(a.replacingOccurrences(of: "WWDC ", with: ""))!
+            let intTwo = Int(b.replacingOccurrences(of: "WWDC ", with: ""))!
+            return intOne < intTwo
+        })
+        
+        CloudKitManager.shared.loadWWDCBatchItem(in: batchInfos, for: maxBatch!, recordFetched: { rec in
+            self.profilePicture = rec["profilePicture"] as? CKAsset
+            self.profilePictureLoaded?(nil)
+        })
     }
 }

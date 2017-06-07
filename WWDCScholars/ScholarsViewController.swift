@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CloudKit.CKRecordID
 
 internal final class ScholarsViewController: UIViewController {
     
@@ -65,6 +66,12 @@ internal final class ScholarsViewController: UIViewController {
             let scholarsMapViewController = segue.destination as? ScholarsMapViewController
             scholarsMapViewController?.scholars = self.scholars
             self.scholarsMapViewController = scholarsMapViewController
+            return
+        }
+        
+        if segue.identifier == "ProfileViewController" {
+            let scholarProfileViewController = segue.destination as? ProfileViewController
+            scholarProfileViewController?.scholarId = sender as? CKRecordID
             return
         }
     }

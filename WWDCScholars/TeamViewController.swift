@@ -59,6 +59,15 @@ internal final class TeamViewController: UIViewController {
         self.styleUI()
         self.configureUI()
         self.populateContent()
+        
+        let barBtn = UIBarButtonItem.init(barButtonSystemItem: .compose, target: self, action: #selector(self.showIntro))
+        self.navigationItem.rightBarButtonItem = barBtn
+    }
+    
+    func showIntro() {
+        let storyboard = UIStoryboard.init(name: "Intro", bundle: nil)
+        let intro = storyboard.instantiateInitialViewController()!
+        self.present(intro, animated: true, completion: nil)
     }
     
     internal override func viewDidLayoutSubviews() {

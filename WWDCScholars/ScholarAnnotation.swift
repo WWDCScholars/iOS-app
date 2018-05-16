@@ -9,7 +9,7 @@
 import Foundation
 import ClusterKit
 
-internal final class ScholarAnnotation: NSObject, CKAnnotation {
+internal final class ScholarAnnotation: NSObject, MKAnnotation {
     
     // MARK: - Internal Properties
     

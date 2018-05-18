@@ -17,6 +17,7 @@ internal final class BatchKey {
     internal static let wwdc2015 = "WWDC 2015"
     internal static let wwdc2016 = "WWDC 2016"
     internal static let wwdc2017 = "WWDC 2017"
+	internal static let wwdc2018 = "WWDC 2018"
     internal static let saved = "Saved"
 }
 
@@ -74,6 +75,16 @@ internal class BatchInfo2017: BatchInfo  {
     internal let recordName = BatchKey.wwdc2017
     
     internal var isDefault = true
+}
+
+internal class BatchInfo2018: BatchInfo  {
+	
+	// MARK: - Internal Properties
+	
+	internal let title = "2018"
+	internal let recordName = BatchKey.wwdc2018
+	
+	internal var isDefault = true
 }
 
 internal class BatchInfoSaved: BatchInfo  {

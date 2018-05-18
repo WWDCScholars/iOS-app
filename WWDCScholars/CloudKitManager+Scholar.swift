@@ -19,7 +19,7 @@ internal extension CloudKitManager {
     
     internal func loadScholarsForList(in batchInfo: BatchInfo, with status: Scholar.Status, cursor: CKQueryCursor? = nil, recordFetched: @escaping ListScholarFetched, completion: QueryCompletion) {
         let recordName = batchInfo.recordName
-        let yearRef = CKReference.init(recordID: CKRecordID.init(recordName: recordName), action: .none)
+        let yearRef = CKReference(recordID: CKRecordID.init(recordName: recordName), action: .none)
         let predicate = NSPredicate(format: "status = '\(status.rawValue)' AND wwdcYears CONTAINS %@", yearRef)
         let query = CKQuery(recordType: "Scholar", predicate: predicate)
         let operation = CKQueryOperation(query: query)
@@ -31,7 +31,7 @@ internal extension CloudKitManager {
         operation.queryCompletionBlock = completion
         
         operation.recordFetchedBlock = { (record:CKRecord!) in
-            let smallScholar = BasicScholar.init(record: record)
+            let smallScholar = BasicScholar(record: record)
             recordFetched(smallScholar)
         }
         
@@ -69,7 +69,7 @@ internal extension CloudKitManager {
         operation.queryCompletionBlock = completion
         
         operation.recordFetchedBlock = { (record:CKRecord!) in
-            let smallScholar = BasicScholar.init(record: record)
+            let smallScholar = BasicScholar(record: record)
             recordFetched(smallScholar)
         }
         

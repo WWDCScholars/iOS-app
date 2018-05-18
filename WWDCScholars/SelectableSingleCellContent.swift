@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal protocol SelectableSingleCellContent: class, SelectableCellContent {}
+internal protocol SelectableSingleCellContent: SelectableCellContent {}
 
 internal extension SelectableSingleCellContent {
 

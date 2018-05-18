@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal protocol VariableHeightCollectionViewCellContent: class, VariableDimensionCollectionViewCellContent {}
+internal protocol VariableHeightCollectionViewCellContent: VariableDimensionCollectionViewCellContent {}
 
 internal extension VariableHeightCollectionViewCellContent {
     

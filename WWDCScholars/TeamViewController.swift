@@ -130,7 +130,7 @@ internal final class TeamViewController: UIViewController {
         
         self.matthijsImageView?.image = UIImage(named: "profile")
         self.matthijsNameLabel?.text = "Matthijs Logemann"
-        self.matthijsDescriptionLabel?.text = "“This year I worked on the migration of our old backend to our new CloudKit-powered one. I also implemented everyhing CloudKit-related into the app.”"
+        self.matthijsDescriptionLabel?.text = "“This year I worked on the migration of our old backend to our new CloudKit-powered one. I also implemented everything CloudKit-related into the app.”"
     }
 }
 

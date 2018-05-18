@@ -19,7 +19,7 @@ internal extension String {
         }
         
         let maxSize = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let actualSize = self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil)
+        let actualSize = self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [NSAttributedStringKey.font: font], context: nil)
         return actualSize.height
     }
 }

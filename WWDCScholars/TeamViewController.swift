@@ -64,7 +64,7 @@ internal final class TeamViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = barBtn
     }
     
-    func showIntro() {
+    @objc func showIntro() {
         let storyboard = UIStoryboard.init(name: "Intro", bundle: nil)
         let intro = storyboard.instantiateInitialViewController()!
         self.present(intro, animated: true, completion: nil)

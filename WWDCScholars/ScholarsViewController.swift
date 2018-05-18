@@ -135,11 +135,10 @@ internal final class ScholarsViewController: UIViewController {
 }
 
 extension ScholarsViewController: ScholarsViewControllerProxyDelegate {
-    
+
     // MARK: - Internal Functions
-    
     internal func didLoad(basicScholar: BasicScholar) {
-        self.scholars.append(basicScholar)
+		scholars.append(basicScholar)
     }
     
     internal func didLoadBatch() {
@@ -152,6 +151,7 @@ extension ScholarsViewController: BatchCollectionViewCellContentDelegate {
     // MARK: - Internal Functions
     
     internal func update(for batchInfo: BatchInfo) {
+		self.scholars = []
         self.proxy?.loadListScholars(batchInfo: batchInfo)
     }
 }

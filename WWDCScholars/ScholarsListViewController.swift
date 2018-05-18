@@ -41,7 +41,7 @@ internal final class ScholarsListViewController: UIViewController, ContainerView
         self.scholarCollectionViewContentController.configure(collectionView: self.scholarCollectionView)
         
         let batchesSectionContent = ScholarsListViewControllerCellContentFactory.scholarSectionContent(from: self.scholars, delegate: self)
-        self.scholarCollectionViewContentController.add(sectionContent: batchesSectionContent)
+        self.scholarCollectionViewContentController.set(sectionContent: batchesSectionContent)
         
         self.scholarCollectionViewContentController.reloadContent()
     }

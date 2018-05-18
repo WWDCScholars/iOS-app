@@ -40,6 +40,10 @@ internal extension ContentController {
     internal func sectionContentFor(index: Int) -> SectionContent {
         return self.sectionContent[index]
     }
+	
+	internal func set(sectionContent: SectionContent) {
+		self.sectionContent = [sectionContent]
+	}
 
     internal func add(sectionContent: SectionContent) {
         self.sectionContent.append(sectionContent)

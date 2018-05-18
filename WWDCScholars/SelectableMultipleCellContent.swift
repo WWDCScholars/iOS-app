@@ -8,4 +8,4 @@
 
 import Foundation
 
-internal protocol SelectableMultipleCellContent: class, SelectableCellContent {}
+internal protocol SelectableMultipleCellContent: SelectableCellContent {}

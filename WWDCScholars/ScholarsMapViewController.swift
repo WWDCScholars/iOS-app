@@ -92,9 +92,16 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
     }
     
     internal func configureMapContent() {
+		clearMapContent()
         let annotations = ScholarsMapAnnotationsFactory.annotations(for: self.scholars)
         self.mapView?.clusterManager.addAnnotations(annotations)
     }
+	
+	internal func clearMapContent(){
+		if let annotations = mapView?.clusterManager.annotations{
+			mapView?.clusterManager.removeAnnotations(annotations)
+		}
+	}
     
     // MARK: - Private Functions
     

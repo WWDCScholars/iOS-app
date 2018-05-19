@@ -12,6 +12,8 @@ import MapKit
 import DeckTransition
 import CloudKit
 import CoreLocation
+import SafariServices
+import MessageUI
 
 internal final class ProfileViewController: UIViewController {
     
@@ -199,8 +201,30 @@ internal final class ProfileViewController: UIViewController {
         let socialAccountButtons = self.profileSocialAccountsFactory?.accountButtons() ?? []
         for button in socialAccountButtons {
             self.socialAccountsStackView?.addArrangedSubview(button)
+			button.addTarget(self, action: #selector(self.openURL), for: .touchUpInside)
         }
     }
+	
+	@objc private func openURL(_ sender: SocialAccountButton){
+		guard let urlString = sender.accountDetail else { return }
+		guard let type = sender.type else { return }
+		
+		var vc: UIViewController
+		
+		switch(type){
+			case .imessage:
+				let mvc = MFMessageComposeViewController()
+				mvc.recipients = [urlString]
+				mvc.messageComposeDelegate = self
+				vc = mvc
+			default:
+				guard let url = URL(string: urlString) else { return }
+				vc = SFSafariViewController(url: url)
+		}
+		
+		//TODO: change status bar colour when opening urls!
+		present(vc, animated: true, completion: nil)
+	}
 }
 
 extension ProfileViewController: UIScrollViewDelegate, DeckTransitionScrollAssist, HeaderParallaxAssist {
@@ -211,4 +235,9 @@ extension ProfileViewController: UIScrollViewDelegate, DeckTransitionScrollAssis
         self.updateDeckTransition(for: scrollView)
         self.updateHeaderParallax(for: scrollView, on: self.mapView, baseHeight: self.mapViewHeight)
     }
+}
+extension ProfileViewController: MFMessageComposeViewControllerDelegate {
+	func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+		dismiss(animated: true, completion: nil)
+	}
 }

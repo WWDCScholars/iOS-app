@@ -34,7 +34,7 @@ internal final class ProfileSocialAccountsFactory {
     
     private func iMessageButton() -> UIButton? {
         if let iMessage = self.socialMedia.imessage, !iMessage.isEmpty {
-            return self.accountButton(withImageName: "iMessage", url: iMessage)
+            return self.accountButton(withType: .imessage, url: iMessage)
         }
         
         return nil
@@ -42,7 +42,7 @@ internal final class ProfileSocialAccountsFactory {
     
     private func gitHubButton() -> UIButton? {
         if let gitHubURL = self.socialMedia.github, !gitHubURL.isEmpty {
-            return self.accountButton(withImageName: "gitHub", url: gitHubURL)
+            return self.accountButton(withType: .github, url: gitHubURL)
         }
         
         return nil
@@ -50,7 +50,7 @@ internal final class ProfileSocialAccountsFactory {
     
     private func websiteButton() -> UIButton? {
         if let websiteURL = self.socialMedia.website, !websiteURL.isEmpty {
-            return self.accountButton(withImageName: "website", url: websiteURL)
+            return self.accountButton(withType: .website, url: websiteURL)
         }
         
         return nil
@@ -58,7 +58,7 @@ internal final class ProfileSocialAccountsFactory {
     
     private func linkedInButton() -> UIButton? {
         if let linkedInURL = self.socialMedia.linkedin, !linkedInURL.isEmpty {
-            return self.accountButton(withImageName: "linkedIn", url: linkedInURL)
+            return self.accountButton(withType: .linkedin, url: linkedInURL)
         }
         
         return nil
@@ -66,7 +66,7 @@ internal final class ProfileSocialAccountsFactory {
     
     private func facebookButton() -> UIButton? {
         if let facebookURL = self.socialMedia.facebook, !facebookURL.isEmpty {
-            return self.accountButton(withImageName: "facebook", url: facebookURL)
+            return self.accountButton(withType: .facebook, url: facebookURL)
         }
         
         return nil
@@ -74,19 +74,17 @@ internal final class ProfileSocialAccountsFactory {
     
     private func twitterButton() -> UIButton? {
         if let twitterURL = self.socialMedia.twitter, !twitterURL.isEmpty {
-            return self.accountButton(withImageName: "twitter", url: twitterURL)
+            return self.accountButton(withType: .twitter, url: twitterURL)
         }
         
         return nil
     }
     
-    private func accountButton(withImageName name: String, url: String) -> SocialAccountButton {
+    private func accountButton(withType type: SocialMediaType, url: String) -> SocialAccountButton {
         let button = SocialAccountButton()
-        let image = UIImage(named: name)
         button.accountDetail = url
-        button.setBackgroundImage(image, for: .normal)
+		button.type = type
         button.widthAnchor.constraint(equalToConstant: 30.0).isActive = true
-        button.isUserInteractionEnabled = false
         return button
     }
 }

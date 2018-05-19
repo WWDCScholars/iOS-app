@@ -9,6 +9,16 @@
 import Foundation
 import CloudKit
 
+enum SocialMediaType: String{
+	case imessage
+	case itunes
+	case website
+	case linkedin
+	case github
+	case facebook
+	case twitter
+}
+
 internal class SocialMedia: CloudKitInitializable {
     
     // MARK: - Internal Functions

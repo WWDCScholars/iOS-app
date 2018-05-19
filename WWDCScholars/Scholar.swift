@@ -12,8 +12,7 @@ import CloudKit
 
 internal class Scholar {
     var id: CKRecordID?
-    
-//    var profileImage: CKAsset
+	
     var firstName: String
     var lastName: String
     var gender: Gender
@@ -56,15 +55,14 @@ internal class Scholar {
         status = Status(rawValue: record["status"] as! String)!
         approvedOn = record["approvedOn"] as? Date
         
-//        let batchInfoRefs = record["wwdcYearInfos"] as! [CKReference]
-        
         let maxBatch = self.batches.max(by: { a, b in
             let intOne = Int(a.replacingOccurrences(of: "WWDC ", with: ""))!
             let intTwo = Int(b.replacingOccurrences(of: "WWDC ", with: ""))!
             return intOne < intTwo
         })
-        
-        CloudKitManager.shared.loadWWDCBatchItem(in: batchInfos, for: maxBatch!, recordFetched: { rec in
+		
+        CloudKitManager.shared.loadWWDCBatchItem(in: batchInfos, for: maxBatch!, recordFetched: {
+			rec in
             self.profilePicture = rec["profilePicture"] as? CKAsset
             self.profilePictureLoaded?(nil)
         })

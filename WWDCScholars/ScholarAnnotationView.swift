@@ -24,6 +24,10 @@ internal final class ScholarAnnotationView: MKAnnotationView {
         
         self.configureUI()
         self.styleUI()
+		
+		if let annotation = annotation as? ScholarAnnotation{
+			setImage(scholar: annotation.scholar)
+		}
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,4 +51,15 @@ internal final class ScholarAnnotationView: MKAnnotationView {
         self.imageView.frame = self.frame
         self.addSubview(self.imageView)
     }
+	
+	private func setImage(scholar: BasicScholar){
+		scholar.profilePictureLoaded.append({
+			error in
+			guard error == nil else { return }
+			
+			DispatchQueue.main.async {
+				self.imageView.image = scholar.profilePicture?.image
+			}
+		})
+	}
 }

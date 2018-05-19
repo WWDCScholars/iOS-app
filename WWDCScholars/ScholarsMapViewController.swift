@@ -128,7 +128,7 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
 }
 
 extension ScholarsMapViewController: MKMapViewDelegate {
-    
+	
     // MARK: - Internal Functions
     
     internal func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -138,8 +138,9 @@ extension ScholarsMapViewController: MKMapViewDelegate {
         
         if cluster.count > 1 {
             return self.scholarClusterAnnotationView(in: cluster, annotation: annotation, mapView: mapView)
-        } else {
-            return self.scholarAnnotationView(annotation: annotation, mapView: mapView)
+        }
+		else {
+            return self.scholarAnnotationView(annotation: cluster.firstAnnotation!, mapView: mapView)
         }
     }
     
@@ -153,10 +154,14 @@ extension ScholarsMapViewController: MKMapViewDelegate {
         guard let cluster = view.annotation as? CKCluster else {
             return
         }
+		
         
-        let isCluster = cluster.count > 1
-        let scholarAnnotation = view.annotation as? ScholarAnnotation
-        isCluster ? self.show(cluster: cluster, mapView: mapView) : self.presentProfileViewController(scholarId: (scholarAnnotation?.scholar.id)!)
+		if cluster.count > 1{
+			self.show(cluster: cluster, mapView: mapView)
+		}
+		else if let scholarAnnotation = cluster.firstAnnotation! as? ScholarAnnotation{
+			self.presentProfileViewController(scholarId: scholarAnnotation.scholar.id)
+		}
     }
     
     // MARK: - Private Functions
@@ -169,6 +174,7 @@ extension ScholarsMapViewController: MKMapViewDelegate {
     
     
     private func scholarAnnotationView(annotation: MKAnnotation, mapView: MKMapView) -> ScholarAnnotationView {
+		guard let annotation = annotation as? ScholarAnnotation else { fatalError() }
         let defaultAnnotationView = ScholarAnnotationView(annotation: annotation, reuseIdentifier: self.scholarAnnotationViewIdentifier)
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: self.scholarAnnotationViewIdentifier) as? ScholarAnnotationView ?? defaultAnnotationView
         return annotationView

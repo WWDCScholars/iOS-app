@@ -50,7 +50,16 @@ internal final class ScholarCollectionViewCell: UICollectionViewCell, Cell {
         guard let cellContent = cellContent as? ScholarCollectionViewCellContent else {
             return
         }
-        
+		
         self.label?.text = cellContent.scholar.firstName
+		
+		cellContent.scholar.profilePictureLoaded.append({
+			error in
+			guard error == nil else { return }
+			
+			DispatchQueue.main.async {
+				self.imageView?.image = cellContent.scholar.profilePicture?.image
+			}
+		})
     }
 }

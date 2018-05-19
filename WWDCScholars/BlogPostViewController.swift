@@ -46,12 +46,11 @@ internal final class BlogPostViewController: UIViewController {
         if let author = self.blogPost.author {
         CloudKitManager.shared.loadScholarsForBlog(with: author.recordID, recordFetched: { scholar in
             self.scholar = scholar
-            scholar.profilePictureLoaded = { err in
-                print (err.debugDescription)
+            scholar.profilePictureLoaded.append({ err in
                 DispatchQueue.main.async {
                     self.populateHeaderAuthorContent()
                 }
-            }
+            })
         }, completion: nil)
         }
     }

@@ -9,6 +9,8 @@
 import Foundation
 import CloudKit
 
+typealias ImageLoaded = ((Error?) -> Void)
+
 internal final class BasicScholar: CloudKitInitializable {
     
     // MARK: - Internal Properties
@@ -17,7 +19,8 @@ internal final class BasicScholar: CloudKitInitializable {
     internal let firstName: String
     internal let location: CLLocation
     internal var profilePicture: CKAsset?
-    internal var profilePictureLoaded: ((Error?) -> Void)? = nil
+	internal var profilePictureLoaded: [ImageLoaded] = []
+	
     // MARK: - Lifecycle
     
     internal required init(record: CKRecord) {
@@ -33,10 +36,11 @@ internal final class BasicScholar: CloudKitInitializable {
             let intTwo = Int(b.replacingOccurrences(of: "WWDC ", with: ""))!
             return intOne < intTwo
         })
-        
+		
         CloudKitManager.shared.loadWWDCBatchItem(in: batchInfoRefs, for: maxBatch!, recordFetched: { rec in
             self.profilePicture = rec["profilePicture"] as? CKAsset
-            self.profilePictureLoaded?(nil)
+			_ = self.profilePictureLoaded.map{ $0(nil) }
+			self.profilePictureLoaded = []
         })
         
     }

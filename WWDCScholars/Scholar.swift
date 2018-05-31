@@ -63,7 +63,7 @@ internal class Scholar {
 		
         CloudKitManager.shared.loadWWDCBatchItem(in: batchInfos, for: maxBatch!, recordFetched: {
 			rec in
-            self.profilePicture = rec["profilePicture"] as? CKAsset
+            self.profilePicture = rec["profilePicture_small"] as? CKAsset
             self.profilePictureLoaded?(nil)
         })
     }

@@ -25,7 +25,7 @@ internal final class ProfileSocialAccountsFactory {
     
     internal func accountButtons() -> [SocialAccountButton] {
         let buttons = [self.facebookButton(), self.twitterButton(), self.linkedInButton(), self.websiteButton(), self.gitHubButton(), self.iMessageButton()]
-        let visibleButtons = buttons.flatMap({ ($0 as? SocialAccountButton) })
+        let visibleButtons = buttons.compactMap({ ($0 as? SocialAccountButton) })
         
         return visibleButtons
     }

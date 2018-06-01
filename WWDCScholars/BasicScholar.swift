@@ -38,7 +38,7 @@ internal final class BasicScholar: CloudKitInitializable {
         })
 		
         CloudKitManager.shared.loadWWDCBatchItem(in: batchInfoRefs, for: maxBatch!, recordFetched: { rec in
-            self.profilePicture = rec["profilePicture"] as? CKAsset
+            self.profilePicture = rec["profilePicture_small"] as? CKAsset
 			_ = self.profilePictureLoaded.map{ $0(nil) }
 			self.profilePictureLoaded = []
         })

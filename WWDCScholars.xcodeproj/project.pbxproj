@@ -85,7 +85,7 @@
 		6EC1ECB41ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1ECB31ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift */; };
 		6ECF5BE91ED8CAE20024CC9A /* BlogPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF5BE81ED8CAE20024CC9A /* BlogPostViewController.swift */; };
 		6ECF5BEB1ED8CB000024CC9A /* UIViewController+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF5BEA1ED8CB000024CC9A /* UIViewController+Present.swift */; };
-		6ECF5BEE1ED8CB600024CC9A /* Blog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ECF5BED1ED8CB600024CC9A /* Blog.storyboard */; };
+		6ECF5BEE1ED8CB600024CC9A /* (null) in Resources */ = {isa = PBXBuildFile; };
 		6ECF5BF01ED8CB6C0024CC9A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ECF5BEF1ED8CB6C0024CC9A /* Profile.storyboard */; };
 		6ED441BD1ED075E50035BD31 /* BackgroundViewControllers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED441BC1ED075E50035BD31 /* BackgroundViewControllers.storyboard */; };
 		6ED441BF1ED076840035BD31 /* BackgroundActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED441BE1ED076840035BD31 /* BackgroundActivityViewController.swift */; };
@@ -136,29 +136,10 @@
 		7BD91F8F1ED2158600439718 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F8C1ED2158600439718 /* TwitterKit.framework */; };
 		7BD91F901ED2158600439718 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7BD91F8D1ED2158600439718 /* TwitterKitResources.bundle */; };
 		7BD91F911ED2158600439718 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F8E1ED2158600439718 /* TwitterCore.framework */; };
-		7BD91F921ED2178000439718 /* ClusterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED441C31ED08BAD0035BD31 /* ClusterKit.framework */; };
-		7BD91F931ED2178000439718 /* ClusterKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED441C31ED08BAD0035BD31 /* ClusterKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7BD91F961ED3135100439718 /* DeckTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F951ED3135100439718 /* DeckTransition.framework */; };
-		7BD91F971ED3135100439718 /* DeckTransition.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F951ED3135100439718 /* DeckTransition.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7BD91FA11ED35EDA00439718 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD91F9A1ED333F400439718 /* CloudKitManager.swift */; };
 		7BD91FA21ED35EE600439718 /* ActivityQueryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD91F981ED332FD00439718 /* ActivityQueryItem.swift */; };
 		7BD91FA31ED35EE600439718 /* ActivityTimelineFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD91F9F1ED33F7A00439718 /* ActivityTimelineFilter.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		7BD91F941ED2178000439718 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				7BD91F971ED3135100439718 /* DeckTransition.framework in Embed Frameworks */,
-				7BD91F931ED2178000439718 /* ClusterKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2252FA7C1EDD8812003C55DE /* Blog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Blog.storyboard; sourceTree = "<group>"; };
@@ -306,10 +287,8 @@
 			files = (
 				7B2D142B1ED6E4350039C870 /* CloudKit.framework in Frameworks */,
 				7BD91F911ED2158600439718 /* TwitterCore.framework in Frameworks */,
-				7BD91F921ED2178000439718 /* ClusterKit.framework in Frameworks */,
 				7BD91F8B1ED2153E00439718 /* Crashlytics.framework in Frameworks */,
 				7BD91F8A1ED2153E00439718 /* Fabric.framework in Frameworks */,
-				7BD91F961ED3135100439718 /* DeckTransition.framework in Frameworks */,
 				7BD91F8F1ED2158600439718 /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -958,7 +937,7 @@
 				6E3C55461EA032DD008F9AC9 /* Frameworks */,
 				6E3C55471EA032DD008F9AC9 /* Resources */,
 				7BD91F871ED2151D00439718 /* ShellScript */,
-				7BD91F941ED2178000439718 /* Embed Frameworks */,
+				7B61B6D320C14DE5002A8B11 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1021,7 +1000,7 @@
 				6E127D501EA3C67F0068F7DB /* Activity.storyboard in Resources */,
 				2252FA7D1EDD8812003C55DE /* Blog.storyboard in Resources */,
 				6ECF5BF01ED8CB6C0024CC9A /* Profile.storyboard in Resources */,
-				6ECF5BEE1ED8CB600024CC9A /* Blog.storyboard in Resources */,
+				6ECF5BEE1ED8CB600024CC9A /* (null) in Resources */,
 				6E127D4B1EA3C65D0068F7DB /* Scholars.storyboard in Resources */,
 				6E3C55541EA032DD008F9AC9 /* Assets.xcassets in Resources */,
 				6E127D551EA3C6980068F7DB /* Team.storyboard in Resources */,
@@ -1035,6 +1014,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7B61B6D320C14DE5002A8B11 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ClusterKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/DeckTransition.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		7BD91F871ED2151D00439718 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1322,10 +1316,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1341,10 +1337,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

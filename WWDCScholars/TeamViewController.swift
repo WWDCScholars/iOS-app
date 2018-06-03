@@ -120,15 +120,15 @@ internal final class TeamViewController: UIViewController {
         self.andrewNameLabel?.text = "Andrew Walker"
         self.andrewDescriptionLabel?.text = "“This year I worked on the design of our updated website and rewrote our app codebase from scratch. I also helped out with merchandise and social media.”"
         
-        self.samImageView?.image = UIImage(named: "profile")
+        self.samImageView?.image = UIImage(named: "samProfile")
         self.samNameLabel?.text = "Sam Eckert"
         self.samDescriptionLabel?.text = "“This year I worked on design and creation within the iOS App. I'm also responsible for donations, marketing, public relations and project management.”"
         
-        self.moritzImageView?.image = UIImage(named: "profile")
+        self.moritzImageView?.image = UIImage(named: "moritzProfile")
         self.moritzNameLabel?.text = "Moritz Sternemann"
         self.moritzDescriptionLabel?.text = "“This year I worked on the all-new WWDCScholars.com website and recoded it. I also created the form through which all scholars submitted their details.”"
         
-        self.matthijsImageView?.image = UIImage(named: "profile")
+        self.matthijsImageView?.image = UIImage(named: "matthijsProfile")
         self.matthijsNameLabel?.text = "Matthijs Logemann"
         self.matthijsDescriptionLabel?.text = "“This year I worked on the migration of our old backend to our new CloudKit-powered one. I also implemented everything CloudKit-related into the app.”"
     }

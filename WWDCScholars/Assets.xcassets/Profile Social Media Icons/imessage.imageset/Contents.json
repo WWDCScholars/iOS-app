@@ -2,7 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "email.pdf"
+      "filename" : "imessage.pdf",
+      "scale" : "1x"
     }
   ],
   "info" : {

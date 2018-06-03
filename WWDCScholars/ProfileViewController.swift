@@ -97,6 +97,9 @@ internal final class ProfileViewController: UIViewController {
         
         self.teamImageView?.roundCorners()
         self.profilePictureImageView?.roundCorners()
+        
+        self.profilePictureImageView?.tintColor = .backgroundElementGray
+        self.profilePictureImageView?.contentMode = .center
     }
     
     private func configureUI() {
@@ -106,6 +109,8 @@ internal final class ProfileViewController: UIViewController {
         self.countryTitleLabel?.text = "Country"
         self.batchTitleLabel?.text = "Attended"
         self.ageTitleLabel?.text = "Age"
+        
+        self.profilePictureImageView?.image = UIImage.loading
     }
     
     private func configureBioLabel() {
@@ -122,6 +127,7 @@ internal final class ProfileViewController: UIViewController {
             scholar.profilePictureLoaded = { err in
                 DispatchQueue.main.async {
                     self.profilePictureImageView?.image = scholar.profilePicture?.image
+                    self.profilePictureImageView?.contentMode = .scaleAspectFill
                 }
 //                self.populateHeaderContent()
             }

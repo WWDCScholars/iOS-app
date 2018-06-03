@@ -42,8 +42,9 @@ internal final class BlogPostViewController: UIViewController {
         self.styleUI()
         self.configureUI()
         self.populateHeaderContent()
+        self.populateBodyContent()
         
-        if let author = self.blogPost.author {
+        guard let author = self.blogPost.author else { return }
         CloudKitManager.shared.loadScholarsForBlog(with: author.recordID, recordFetched: { scholar in
             self.scholar = scholar
             scholar.profilePictureLoaded.append({ err in
@@ -51,8 +52,8 @@ internal final class BlogPostViewController: UIViewController {
                     self.populateHeaderAuthorContent()
                 }
             })
+            scholar.loadProfilePicture()
         }, completion: nil)
-        }
     }
     
     internal override func viewDidLayoutSubviews() {
@@ -111,6 +112,10 @@ internal final class BlogPostViewController: UIViewController {
         self.authorButton?.setBackgroundImage(authorButtonImage, for: .normal)
         self.heroImageView?.image = self.blogPost.headerImage.image
         self.titleLabel?.text = self.blogPost?.title
+    }
+    
+    private func populateBodyContent() {
+        self.webView?.loadHTMLString(self.blogPost.content, baseURL: nil)
     }
 }
 

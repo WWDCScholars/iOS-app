@@ -298,6 +298,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		223618C320C48174005FA740 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				22768DFC1EC0D7070083DDBE /* IntroFirstViewController.swift */,
+				22768DFE1EC0D7180083DDBE /* IntroSecondViewController.swift */,
+				22879B2F1EC11FCC00B43BF4 /* IntroThirdViewController.swift */,
+				22879B311EC1220700B43BF4 /* IntroFourthViewController.swift */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
 		6E032F5C1EC7AE6C00410B7C /* ScholarCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,10 +447,7 @@
 		6E3C555E1EA03C52008F9AC9 /* UIViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				22768DFC1EC0D7070083DDBE /* IntroFirstViewController.swift */,
-				22768DFE1EC0D7180083DDBE /* IntroSecondViewController.swift */,
-				22879B2F1EC11FCC00B43BF4 /* IntroThirdViewController.swift */,
-				22879B311EC1220700B43BF4 /* IntroFourthViewController.swift */,
+				223618C320C48174005FA740 /* Intro */,
 				6E4119FE1ED788E9004A02DE /* TWTRTweetDetailViewController */,
 				6EC1ECB21ED23B3600302A25 /* ScholarsMapViewController */,
 				6EC1ECB11ED23B2700302A25 /* ScholarsListViewController */,

@@ -50,6 +50,7 @@ internal final class ScholarsViewController: UIViewController {
         self.configureBatchContentController()
         self.selectDefaultBatch()
         self.scrollToSelectedBatch()
+        self.checkForIntroSeenYet()
     }
     
     internal override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,6 +89,12 @@ internal final class ScholarsViewController: UIViewController {
         self.title = "Scholars"
     }
     
+    private func showIntro() {
+        let storyboard = UIStoryboard.init(name: "Intro", bundle: nil)
+        let intro = storyboard.instantiateInitialViewController()!
+        self.present(intro, animated: true, completion: nil)
+    }
+    
     // MARK: - Internal Functions
     
     internal func selectSavedBatch() {
@@ -98,6 +105,16 @@ internal final class ScholarsViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01, execute: {
             self.batchCollectionViewContentController.scrollToSelectedBatch()
         })
+    }
+    
+    internal func checkForIntroSeenYet(){
+        let userDefaults = UserDefaults.standard
+        if userDefaults.bool(forKey: "userHasSeen2018Intro") == true{
+            
+        }else{
+            userDefaults.set(true, forKey: "userHasSeen2018Intro")
+            showIntro()
+        }
     }
     
     // MARK: - File Private Functions

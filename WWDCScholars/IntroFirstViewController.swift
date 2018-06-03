@@ -47,6 +47,9 @@ internal class IntroFirstViewController: UIViewController {
         getStartedButton.setTitle("Get Started", for: .normal)
         getStartedButton.layer.cornerRadius = 10
         
+        // Background Image View
+        backgroundImageView.clipsToBounds = true
+        
         // UIKit Dynamics
         let attachmentBehavior = UIAttachmentBehavior(item: self.buttonBoundsDynamicItem, attachedToAnchor: self.buttonBoundsDynamicItem.center)
         

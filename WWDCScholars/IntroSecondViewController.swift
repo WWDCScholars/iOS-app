@@ -54,6 +54,9 @@ internal class IntroSecondViewController: UIViewController {
         backButton.layer.cornerRadius = 10
         nextButton.layer.cornerRadius = 10
         
+        // Background Image View
+        backgroundImageView.clipsToBounds = true
+        
         // UIKit Dynamics
         let attachmentBehavior = UIAttachmentBehavior(item: self.buttonBoundsDynamicItem, attachedToAnchor: self.buttonBoundsDynamicItem.center)
         

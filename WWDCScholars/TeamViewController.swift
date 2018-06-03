@@ -60,7 +60,7 @@ internal final class TeamViewController: UIViewController {
         self.configureUI()
         self.populateContent()
         
-        let barBtn = UIBarButtonItem.init(barButtonSystemItem: .compose, target: self, action: #selector(self.showIntro))
+        let barBtn = UIBarButtonItem.init(title: "Intro", style: .plain, target: self, action: #selector(self.showIntro))
         self.navigationItem.rightBarButtonItem = barBtn
     }
     

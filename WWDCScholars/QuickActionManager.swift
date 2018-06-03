@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 18/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -36,7 +36,7 @@ internal final class QuickActionManager {
         case .OpenSavedScholars:
             self.openSavedScholars(tabBarController: tabBarController)
         case .OpenActivity:
-            self.openAcivity(tabBarController: tabBarController)
+            self.openActivity(tabBarController: tabBarController)
         case .OpenBlog:
             self.openBlog(tabBarController: tabBarController)
         }
@@ -54,9 +54,12 @@ internal final class QuickActionManager {
     private func openSavedScholars(tabBarController: UITabBarController) {
         let index = tabBarController.indexOfNavigationController(containing: ScholarsListViewController.self) ?? 0
         tabBarController.selectedIndex = index
+        let scholarsViewController = (tabBarController.viewControllers?.first as? UINavigationController)?.viewControllers.first as? ScholarsViewController
+        scholarsViewController?.selectSavedBatch()
+        scholarsViewController?.scrollToSelectedBatch()
     }
     
-    private func openAcivity(tabBarController: UITabBarController) {
+    private func openActivity(tabBarController: UITabBarController) {
         let index = tabBarController.indexOfNavigationController(containing: ActivityViewController.self) ?? 0
         tabBarController.selectedIndex = index
     }

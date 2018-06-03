@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 27/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -16,7 +16,7 @@ internal final class BlogViewControllerCellContentFactory {
     
     // MARK: - Internal Functions
     
-    internal static func blogPostSectionContent(from blogPosts: [ExampleBlogPost], delegate: BlogPostCollectionViewCellContentDelegate) -> SectionContent {
+    internal static func blogPostSectionContent(from blogPosts: [BlogPost], delegate: BlogPostCollectionViewCellContentDelegate) -> BlogPostSectionContent {
         let section = BlogPostSectionContent()
         for blogPost in blogPosts {
             let blogPostCellContent = self.blogPostCellContent(from: blogPost, delegate: delegate)
@@ -27,7 +27,7 @@ internal final class BlogViewControllerCellContentFactory {
     
     // MARK: - Private Functions
     
-    private static func blogPostCellContent(from blogPost: ExampleBlogPost, delegate: BlogPostCollectionViewCellContentDelegate) -> CellContent {
+    private static func blogPostCellContent(from blogPost: BlogPost, delegate: BlogPostCollectionViewCellContentDelegate) -> BlogPostCollectionViewCellContent {
         let cellContent = BlogPostCollectionViewCellContent(blogPost: blogPost, action: { [unowned delegate] in
             delegate.open(blogPost: blogPost)
         })

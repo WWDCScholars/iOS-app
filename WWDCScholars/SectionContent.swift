@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 11/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -13,6 +13,7 @@ internal protocol SectionContent: class {
     var cellContent: [CellContent] { get set }
     var headerViewContent: HeaderFooterViewContent? { get set }
     var footerViewContent: HeaderFooterViewContent? { get set }
+    var id: String? { get }
 }
 
 internal extension SectionContent {

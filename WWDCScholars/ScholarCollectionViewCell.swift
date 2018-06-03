@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 13/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -40,6 +40,7 @@ internal final class ScholarCollectionViewCell: UICollectionViewCell, Cell {
     private func styleUI() {
         self.labelContainerView?.backgroundColor = .thumbnailTransparentPurple
         self.label?.applyScholarsTitleStyle()
+        self.imageView?.tintColor = .backgroundElementGray
     }
     
     // MARK: - Internal Functions
@@ -50,8 +51,20 @@ internal final class ScholarCollectionViewCell: UICollectionViewCell, Cell {
         guard let cellContent = cellContent as? ScholarCollectionViewCellContent else {
             return
         }
-        
+		
         self.label?.text = cellContent.scholar.firstName
-        self.imageView?.image = cellContent.scholar.profileImage
+        
+        self.imageView?.image = UIImage.loading
+        self.imageView?.contentMode = .center
+		cellContent.scholar.profilePictureLoaded.append({
+			error in
+			guard error == nil else { return }
+			
+			DispatchQueue.main.async {
+                self.imageView?.image = cellContent.scholar.profilePicture?.image
+                self.imageView?.contentMode = .scaleAspectFill
+			}
+		})
+        cellContent.scholar.loadProfilePicture()
     }
 }

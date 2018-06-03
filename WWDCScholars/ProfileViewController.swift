@@ -3,15 +3,22 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 16/04/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import MapKit
 import DeckTransition
+import CloudKit
+import CoreLocation
+import SafariServices
+import MessageUI
 
 internal final class ProfileViewController: UIViewController {
+    
+    // MARK: - Internal Properties
+    internal var scholarId: CKRecordID? = nil
     
     // MARK: - Private Properties
     
@@ -32,7 +39,11 @@ internal final class ProfileViewController: UIViewController {
     @IBOutlet private weak var socialAccountsStackView: UIStackView?
     
     private let bioLabelHeightConstraintUpdateValue: CGFloat = 1.0
-    private let bioLabelText = "I’m a 20 year old App Developer from Edinburgh, UK currently studying Computing Engineering at Edinburgh Napier University. I have developed more than 15 iOS apps since I began in summer 2014. My main interests are technology, guitar, aviation and design."
+    
+    private var scholar: Scholar? = nil
+    private var batch: Batch? = nil
+    
+    private var profileSocialAccountsFactory: ProfileSocialAccountsFactory?
     
     // MARK: - File Private Properties
     
@@ -45,12 +56,15 @@ internal final class ProfileViewController: UIViewController {
     internal override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let _ = scholarId else {
+            print ("ScholarID is nil")
+            return
+        }
+        
         self.styleUI()
         self.configureUI()
-        self.populateHeaderContent()
-        self.populateBasicInfoContent()
-        self.populateBioContent()
-        self.populateSocialAccountsContent()
+        self.loadScholarData()
+        
     }
     
     internal override func viewDidLayoutSubviews() {
@@ -83,48 +97,140 @@ internal final class ProfileViewController: UIViewController {
         
         self.teamImageView?.roundCorners()
         self.profilePictureImageView?.roundCorners()
+        
+        self.profilePictureImageView?.tintColor = .backgroundElementGray
+        self.profilePictureImageView?.contentMode = .center
     }
     
     private func configureUI() {
         self.title = "Profile"
         
         self.mapView?.isUserInteractionEnabled = false
+        self.countryTitleLabel?.text = "Country"
+        self.batchTitleLabel?.text = "Attended"
+        self.ageTitleLabel?.text = "Age"
+        
+        self.profilePictureImageView?.image = UIImage.loading
     }
     
     private func configureBioLabel() {
         let font = self.bioLabel?.font
         let width = self.bioLabel?.frame.width ?? 0.0
-        let height = self.bioLabelText.height(for: width, font: font)
+        let height = self.scholar?.shortBio.height(for: width, font: font) ?? 0
         self.bioLabelHeightConstraint?.constant = height + self.bioLabelHeightConstraintUpdateValue
     }
     
     // MARK: - Private Functions
     
+    private func loadScholarData() {
+        CloudKitManager.shared.loadScholar(with: scholarId!, recordFetched: { scholar in
+            scholar.profilePictureLoaded = { err in
+                DispatchQueue.main.async {
+                    self.profilePictureImageView?.image = scholar.profilePicture?.image
+                    self.profilePictureImageView?.contentMode = .scaleAspectFill
+                }
+//                self.populateHeaderContent()
+            }
+            self.scholar = scholar
+            
+            DispatchQueue.main.async {
+                self.populateHeaderContent()
+                self.populateBasicInfoContent()
+                self.populateBioContent()
+                self.configureMapView()
+            }
+            
+            CloudKitManager.shared.loadSocialMedia(with: scholar.socialMediaRef.recordID, recordFetched: { socialMedia in
+                self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(socialMedia: socialMedia)
+                DispatchQueue.main.async {
+                    self.populateSocialAccountsContent()
+                }
+            }, completion: nil)
+            
+        }, completion: { _, err in
+            //todo: show load error
+            print ("\(err.debugDescription)")
+        })
+    }
+    
+    private func configureMapView() {
+        guard let scholar = scholar else {
+            return
+        }
+        
+        self.mapView?.setCenter(scholar.location.coordinate, animated: true)
+    }
+    
     private func populateHeaderContent() {
-        self.profilePictureImageView?.image = UIImage(named: "profile")
-        self.nameLabel?.text = "Andrew Walker"
-        self.locationLabel?.text = "Edinburgh, UK"
+        guard let scholar = scholar else {
+            return
+        }
+        
+        self.nameLabel?.text = scholar.fullName
+        
+        let geocoder = CLGeocoder.init()
+        geocoder.reverseGeocodeLocation(scholar.location, completionHandler: { placemarks,err in
+            //todo: error handling?
+            
+            var placeMark: CLPlacemark!
+            placeMark = placemarks?[0]
+            
+            let city = placeMark.addressDictionary?["City"] as? String ?? ""
+            
+            let country = placeMark.addressDictionary?["Country"] as? String ?? ""
+            
+            DispatchQueue.main.async {
+                self.locationLabel?.text = "\(city), \(country)"
+                self.countryContentLabel?.text = country
+            }
+        })
     }
     
     private func populateBasicInfoContent() {
-        self.ageTitleLabel?.text = "Age"
-        self.ageContentLabel?.text = "20"
-        self.countryTitleLabel?.text = "Country"
-        self.countryContentLabel?.text = "UK"
-        self.batchTitleLabel?.text = "Attended"
-        self.batchContentLabel?.text = "'15, '16, '17"
+        guard let scholar = scholar else {
+            return
+        }
+        
+        self.ageContentLabel?.text = "\(scholar.birthday.age)"
+        self.batchContentLabel?.text = scholar.batches.joined(separator: ", ")
     }
     
     private func populateBioContent() {
-        self.bioLabel?.text = self.bioLabelText
+        guard let scholar = scholar else {
+            return
+        }
+        
+        self.bioLabel?.text = scholar.shortBio
     }
     
     private func populateSocialAccountsContent() {
-        let socialAccountButtons = ProfileSocialAccountsFactory.accountButtons()
+        let socialAccountButtons = self.profileSocialAccountsFactory?.accountButtons() ?? []
         for button in socialAccountButtons {
             self.socialAccountsStackView?.addArrangedSubview(button)
+			button.addTarget(self, action: #selector(self.openURL), for: .touchUpInside)
         }
     }
+	
+	@objc private func openURL(_ sender: SocialAccountButton){
+		guard let urlString = sender.accountDetail else { return }
+		guard let type = sender.type else { return }
+		
+		var vc: UIViewController
+		
+		switch(type){
+			case .imessage:
+				let mvc = MFMessageComposeViewController()
+				mvc.recipients = [urlString]
+				mvc.messageComposeDelegate = self
+				vc = mvc
+			default:
+				guard let url = URL(string: urlString) else { return }
+				vc = SFSafariViewController(url: url)
+		}
+		
+		//TODO: change status bar colour when opening urls!
+		present(vc, animated: true, completion: nil)
+	}
 }
 
 extension ProfileViewController: UIScrollViewDelegate, DeckTransitionScrollAssist, HeaderParallaxAssist {
@@ -135,4 +241,9 @@ extension ProfileViewController: UIScrollViewDelegate, DeckTransitionScrollAssis
         self.updateDeckTransition(for: scrollView)
         self.updateHeaderParallax(for: scrollView, on: self.mapView, baseHeight: self.mapViewHeight)
     }
+}
+extension ProfileViewController: MFMessageComposeViewControllerDelegate {
+	func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+		dismiss(animated: true, completion: nil)
+	}
 }

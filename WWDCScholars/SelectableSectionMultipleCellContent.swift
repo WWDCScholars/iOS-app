@@ -3,9 +3,9 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 11/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
 
-internal protocol SelectableSectionMultipleCellContent: class, SelectableCellContent {}
+internal protocol SelectableSectionMultipleCellContent: SelectableCellContent {}

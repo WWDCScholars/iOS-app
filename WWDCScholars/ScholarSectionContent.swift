@@ -1,18 +1,19 @@
 //
-//  ScholarsSectionContent.swift
+//  ScholarSectionContent.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 15/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-internal final class ScholarsSectionContent: SectionContent, SizeableCollectionViewSectionContent {
+internal final class ScholarSectionContent: SectionContent, SizeableCollectionViewSectionContent {
     
     // MARK: - Internal Properties
     
+    internal let id: String?
     internal let sizingModifiers: CollectionViewSectionContentSizingModifiers
     
     internal var cellContent = [CellContent]()
@@ -21,7 +22,9 @@ internal final class ScholarsSectionContent: SectionContent, SizeableCollectionV
     
     // MARK: - Lifecycle
     
-    internal init() {
+    internal init(id: String? = nil) {
+        self.id = id
+        
         let edgeInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
         let minimumLineSpacing: CGFloat = 8.0
         let minimumInteritemSpacing: CGFloat = 8.0

@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 14/04/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -86,8 +86,10 @@ extension ActivityViewController: ActivityViewControllerProxyDelegate {
     }
     
     internal func didLoadActivityQueryItems(activityQueryItems: [ActivityQueryItem]) {
-        self.configureDataSource(with: activityQueryItems)
-        self.refreshControl?.endRefreshing()
+        DispatchQueue.main.async {
+            self.configureDataSource(with: activityQueryItems)
+            self.refreshControl?.endRefreshing()
+        }
     }
     
     internal func failedToLoadActivityQueryItems() {

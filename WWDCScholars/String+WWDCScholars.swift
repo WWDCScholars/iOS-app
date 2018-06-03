@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 05/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -14,8 +14,12 @@ internal extension String {
     // MARK: - Internal Functions
     
     internal func height(for width: CGFloat, font: UIFont?) -> CGFloat {
+        guard let font = font else {
+            return 0.0
+        }
+        
         let maxSize = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let actualSize = self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil)
+        let actualSize = self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [NSAttributedStringKey.font: font], context: nil)
         return actualSize.height
     }
 }

@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 26/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -21,13 +21,18 @@ internal final class BlogPostViewController: UIViewController {
     @IBOutlet private weak var webView: UIWebView?
     
     private let titleLabelHeightConstraintUpdateValue: CGFloat = 1.0
-    private let titleLabelText = "Meeting Apple Executives"
+    private var scholar: BasicScholar? = nil
+    
+//    private let titleLabelText = "Meeting Apple Executives"
     
     // MARK: - File Private Properties
     
     @IBOutlet fileprivate weak var heroImageView: UIImageView?
     
     fileprivate var heroImageViewHeight: CGFloat = 0.0
+    
+    // MARK: - Private Properties
+    internal var blogPost: BlogPost! = nil
     
     // MARK: - Lifecycle
     
@@ -37,6 +42,17 @@ internal final class BlogPostViewController: UIViewController {
         self.styleUI()
         self.configureUI()
         self.populateHeaderContent()
+        
+        if let author = self.blogPost.author {
+        CloudKitManager.shared.loadScholarsForBlog(with: author.recordID, recordFetched: { scholar in
+            self.scholar = scholar
+            scholar.profilePictureLoaded.append({ err in
+                DispatchQueue.main.async {
+                    self.populateHeaderAuthorContent()
+                }
+            })
+        }, completion: nil)
+        }
     }
     
     internal override func viewDidLayoutSubviews() {
@@ -69,24 +85,32 @@ internal final class BlogPostViewController: UIViewController {
     private func configureTitleLabel() {
         let font = self.titleLabel?.font
         let width = self.titleLabel?.frame.width ?? 0.0
-        let height = self.titleLabelText.height(for: width, font: font)
+        let height = self.blogPost.title.height(for: width, font: font)
         self.titleLabelHeightConstraint?.constant = height + self.titleLabelHeightConstraintUpdateValue
     }
     
     // MARK: - Actions
     
     @IBAction internal func authorButtonTapped() {
-        self.presentProfileViewController()
+        guard let scholarId = self.scholar?.id else {
+            return
+        }
+        
+        self.presentProfileViewController(scholarId: scholarId)
     }
     
     // MARK: - Private Functions
     
+    private func populateHeaderAuthorContent() {
+        self.authorButton?.setBackgroundImage(self.scholar?.profilePicture?.image, for: .normal)
+        self.authorLabel?.text = "by \(scholar?.firstName ?? "Guest")"
+    }
+    
     private func populateHeaderContent() {
         let authorButtonImage = UIImage(named: "profile")
         self.authorButton?.setBackgroundImage(authorButtonImage, for: .normal)
-        self.heroImageView?.image = UIImage(named: "blogPostHero")
-        self.titleLabel?.text = self.titleLabelText
-        self.authorLabel?.text = "by Andrew Walker"
+        self.heroImageView?.image = self.blogPost.headerImage.image
+        self.titleLabel?.text = self.blogPost?.title
     }
 }
 

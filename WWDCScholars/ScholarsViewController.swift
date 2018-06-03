@@ -3,11 +3,12 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 14/04/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
 import UIKit
+import CloudKit.CKRecordID
 
 internal final class ScholarsViewController: UIViewController {
     
@@ -19,11 +20,19 @@ internal final class ScholarsViewController: UIViewController {
     @IBOutlet private weak var scholarsListContainerView: ScholarsListContainerView?
     
     private let batchCollectionViewContentController = CollectionViewContentController()
-    private let scholars: [ExampleScholar] = [ScholarOne(), ScholarTwo(), ScholarThree()]
     
     private var scholarsMapViewController: ScholarsMapViewController?
     private var scholarsListViewController: ScholarsListViewController?
     private var containerViewSwitchHelper: ContainerViewSwitchHelper?
+    private var batches: [BatchInfo] = [.wwdc2013, .wwdc2014, .wwdc2015, .wwdc2016, .wwdc2017, .wwdc2018, .saved]
+    
+    // MARK: - File Private Properties
+    
+    fileprivate var scholars = [BasicScholar]()
+    
+    // MARK: - Internal Properties
+    
+    internal var proxy: ScholarsViewControllerProxy?
     
     // MARK: - Lifecycle
     
@@ -34,9 +43,13 @@ internal final class ScholarsViewController: UIViewController {
         let scholarsMapContainerViewContent = ContainerViewElements(view: self.scholarsMapContainerView, viewController: self.scholarsMapViewController)
         self.containerViewSwitchHelper = ContainerViewSwitchHelper(activeContainerViewElements: scholarsListContainerViewContent, inactiveContainerViewElements: scholarsMapContainerViewContent)
         
+        self.proxy = ScholarsViewControllerProxy(delegate: self)
+        
         self.styleUI()
         self.configureUI()
         self.configureBatchContentController()
+        self.selectDefaultBatch()
+        self.scrollToSelectedBatch()
     }
     
     internal override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -55,18 +68,45 @@ internal final class ScholarsViewController: UIViewController {
             self.scholarsMapViewController = scholarsMapViewController
             return
         }
+        
+        if segue.identifier == "ProfileViewController" {
+            let scholarProfileViewController = segue.destination as? ProfileViewController
+            scholarProfileViewController?.scholarId = sender as? CKRecordID
+            return
+        }
     }
     
     // MARK: - UI
     
     private func styleUI() {
         self.view.applyBackgroundStyle()
+        self.navigationController?.navigationBar.applyExtendedStyle()
         self.navigationBarExtensionView?.backgroundColor = .scholarsPurple
     }
     
     private func configureUI() {
         self.title = "Scholars"
-        self.navigationController?.navigationBar.applyExtendedStyle()
+    }
+    
+    // MARK: - Internal Functions
+    
+    internal func selectSavedBatch() {
+        self.batchCollectionViewContentController.selectSavedBatch()
+    }
+    
+    internal func scrollToSelectedBatch() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01, execute: {
+            self.batchCollectionViewContentController.scrollToSelectedBatch()
+        })
+    }
+    
+    // MARK: - File Private Functions
+    
+    fileprivate func updateContainerViewsContent() {
+        self.scholarsListViewController?.scholars = self.scholars
+        self.scholarsListViewController?.configureScholarContentController()
+        self.scholarsMapViewController?.scholars = self.scholars
+        self.scholarsMapViewController?.configureMapContent()
     }
     
     // MARK: - Private Functions
@@ -74,11 +114,14 @@ internal final class ScholarsViewController: UIViewController {
     private func configureBatchContentController() {
         self.batchCollectionViewContentController.configure(collectionView: self.batchCollectionView)
         
-        let batches: [ExampleBatch] = [BatchEarlier(), Batch2014(), Batch2015(), Batch2016(), Batch2017()]
-        let batchSectionContent = ScholarsViewControllerCellContentFactory.batchSectionContent(from: batches, delegate: self)
+        let batchSectionContent = ScholarsViewControllerCellContentFactory.batchSectionContent(from: self.batches, delegate: self)
         
         self.batchCollectionViewContentController.add(sectionContent: batchSectionContent)
         self.batchCollectionViewContentController.reloadContent()
+    }
+    
+    private func selectDefaultBatch() {
+        self.batchCollectionViewContentController.selectDefaultBatch()
     }
     
     // MARK: - Actions
@@ -91,11 +134,24 @@ internal final class ScholarsViewController: UIViewController {
     }
 }
 
+extension ScholarsViewController: ScholarsViewControllerProxyDelegate {
+
+    // MARK: - Internal Functions
+    internal func didLoad(basicScholar: BasicScholar) {
+		scholars.append(basicScholar)
+    }
+    
+    internal func didLoadBatch() {
+        self.updateContainerViewsContent()
+    }
+}
+
 extension ScholarsViewController: BatchCollectionViewCellContentDelegate {
     
     // MARK: - Internal Functions
     
-    internal func update(for batch: ExampleBatch) {
-    
+    internal func update(for batchInfo: BatchInfo) {
+		self.scholars = []
+        self.proxy?.loadListScholars(batchInfo: batchInfo)
     }
 }

@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 12/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -16,10 +16,11 @@ internal final class ScholarsViewControllerCellContentFactory {
     
     // MARK: - Internal Functions
     
-    internal static func batchSectionContent(from batches: [ExampleBatch], delegate: BatchCollectionViewCellContentDelegate) -> SectionContent {
-        let section = BatchSectionContent()
-        for batch in batches {
-            let batchCellContent = self.batchCellContent(from: batch, delegate: delegate)
+    internal static func batchSectionContent(from batchInfos: [BatchInfo], delegate: BatchCollectionViewCellContentDelegate) -> BatchSectionContent {
+        let sectionID = "Batches"
+        let section = BatchSectionContent(id: sectionID)
+        for batchInfo in batchInfos {
+            let batchCellContent = self.batchCellContent(from: batchInfo, delegate: delegate)
             section.add(cellContent: batchCellContent)
         }
         return section
@@ -27,9 +28,9 @@ internal final class ScholarsViewControllerCellContentFactory {
     
     // MARK: - Private Functions
     
-    private static func batchCellContent(from batch: ExampleBatch, delegate: BatchCollectionViewCellContentDelegate) -> CellContent {
-        let cellContent = BatchCollectionViewCellContent(batch: batch, action: { [unowned delegate] in
-            delegate.update(for: batch)
+    private static func batchCellContent(from batchInfo: BatchInfo, delegate: BatchCollectionViewCellContentDelegate) -> BatchCollectionViewCellContent {
+        let cellContent = BatchCollectionViewCellContent(batchInfo: batchInfo, action: { [unowned delegate] in
+            delegate.update(for: batchInfo)
         })
         return cellContent
     }

@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 20/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -16,7 +16,7 @@ internal final class ScholarsMapAnnotationsFactory {
     
     // MARK: - Internal Functions
     
-    internal static func annotations(for scholars: [ExampleScholar]) -> [ScholarAnnotation] {
+    internal static func annotations(for scholars: [BasicScholar]) -> [ScholarAnnotation] {
         return scholars.map({ ScholarAnnotation(scholar: $0) })
     }
 }

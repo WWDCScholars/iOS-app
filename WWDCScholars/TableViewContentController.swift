@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 11/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -54,6 +54,21 @@ internal final class TableViewContentController: NSObject, ContentController {
     internal func register(headerFooterViewClass: AnyClass?, reuseIdentifier: String) {
         self.tableView?.register(headerFooterViewClass, forHeaderFooterViewReuseIdentifier: reuseIdentifier)
     }
+    
+    internal func select(cellContent: CellContent) {
+        guard let indexPath = self.indexPath(of: cellContent) else {
+            return
+        }
+        
+        self.performSelection(on: cellContent, at: indexPath)
+    }
+    
+    // MARK: - File Private Functions
+    
+    fileprivate func performSelection(on cellContent: CellContent, at indexPath: IndexPath) {
+        (cellContent as? SelectableCellContent)?.select(on: self.tableView, with: self.sectionContent, at: indexPath)
+        (cellContent as? ActionableCellContent)?.action()
+    }
 }
 
 extension TableViewContentController: UITableViewDelegate {
@@ -61,10 +76,8 @@ extension TableViewContentController: UITableViewDelegate {
     // MARK: - internal Functions
 
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let content = self.cellContent(for: indexPath)
-        (content as? SelectableCellContent)?.select(on: self.tableView, with: self.sectionContent, at: indexPath)
-        (content as? ActionableCellContent)?.action()
-
+        let cellContent = self.cellContentFor(indexPath: indexPath)
+        self.performSelection(on: cellContent, at: indexPath)
         self.tableView?.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -85,7 +98,7 @@ extension TableViewContentController: UITableViewDataSource {
         let reuseIdentifier = self.reuseIdentifier(for: indexPath)
         let defaultCell = UITableViewCell()
         let cell = self.tableView?.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) ?? defaultCell
-        let cellContent = self.cellContent(for: indexPath)
+        let cellContent = self.cellContentFor(indexPath: indexPath)
         (cell as? Cell)?.configure(with: cellContent)
         return cell
     }

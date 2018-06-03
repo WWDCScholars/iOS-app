@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 14/04/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -31,7 +31,7 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
     
     // MARK: - Internal Properties
     
-    internal var scholars = [ExampleScholar]()
+    internal var scholars = [BasicScholar]()
     
     // MARK: - Lifecycle
     
@@ -85,18 +85,25 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
         self.setRegionToUserLocation()
     }
     
-    // MARK: - Internal Functions Functions
+    // MARK: - Internal Functions
     
     internal func switchedToViewController() {
         self.locationManager.requestWhenInUseAuthorization()
     }
     
-    // MARK: - Private Functions
-    
-    private func configureMapContent() {
+    internal func configureMapContent() {
+		clearMapContent()
         let annotations = ScholarsMapAnnotationsFactory.annotations(for: self.scholars)
         self.mapView?.clusterManager.addAnnotations(annotations)
     }
+	
+	internal func clearMapContent(){
+		if let annotations = mapView?.clusterManager.annotations{
+			mapView?.clusterManager.removeAnnotations(annotations)
+		}
+	}
+    
+    // MARK: - Private Functions
     
     private func setRegionToDefaultLocation() {
         guard let mapView = self.mapView else {
@@ -121,7 +128,7 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
 }
 
 extension ScholarsMapViewController: MKMapViewDelegate {
-    
+	
     // MARK: - Internal Functions
     
     internal func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -131,8 +138,9 @@ extension ScholarsMapViewController: MKMapViewDelegate {
         
         if cluster.count > 1 {
             return self.scholarClusterAnnotationView(in: cluster, annotation: annotation, mapView: mapView)
-        } else {
-            return self.scholarAnnotationView(annotation: annotation, mapView: mapView)
+        }
+		else {
+            return self.scholarAnnotationView(annotation: cluster.firstAnnotation!, mapView: mapView)
         }
     }
     
@@ -146,9 +154,14 @@ extension ScholarsMapViewController: MKMapViewDelegate {
         guard let cluster = view.annotation as? CKCluster else {
             return
         }
+		
         
-        let isCluster = cluster.count > 1
-        isCluster ? self.show(cluster: cluster, mapView: mapView) : self.presentProfileViewController()
+		if cluster.count > 1{
+			self.show(cluster: cluster, mapView: mapView)
+		}
+		else if let scholarAnnotation = cluster.firstAnnotation! as? ScholarAnnotation{
+			self.presentProfileViewController(scholarId: scholarAnnotation.scholar.id)
+		}
     }
     
     // MARK: - Private Functions
@@ -159,7 +172,9 @@ extension ScholarsMapViewController: MKMapViewDelegate {
         mapView.show(cluster, edgePadding: edgeInsets, animated: true)
     }
     
+    
     private func scholarAnnotationView(annotation: MKAnnotation, mapView: MKMapView) -> ScholarAnnotationView {
+		guard let annotation = annotation as? ScholarAnnotation else { fatalError() }
         let defaultAnnotationView = ScholarAnnotationView(annotation: annotation, reuseIdentifier: self.scholarAnnotationViewIdentifier)
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: self.scholarAnnotationViewIdentifier) as? ScholarAnnotationView ?? defaultAnnotationView
         return annotationView

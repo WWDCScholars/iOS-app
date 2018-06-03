@@ -3,12 +3,12 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 11/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
 
-internal protocol SelectableSectionSingleCellContent: class, SelectableCellContent {}
+internal protocol SelectableSectionSingleCellContent: SelectableCellContent {}
 
 internal extension SelectableSectionSingleCellContent {
 
@@ -16,7 +16,7 @@ internal extension SelectableSectionSingleCellContent {
 
     internal func select(on contentContainer: ReloadableContentContainer?, with sectionContent: [SectionContent], at indexPath: IndexPath) {
         let cellContent = sectionContent[indexPath.section].cellContent
-        let selectableContent = cellContent.flatMap({ $0 as? SelectableSectionSingleCellContent })
+        let selectableContent = cellContent.compactMap({ $0 as? SelectableSectionSingleCellContent })
         let contentForDeselection = selectableContent.filter({ $0 !== self })
         _ = contentForDeselection.map({ $0.isSelected = false })
         self.isSelected = true

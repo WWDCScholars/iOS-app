@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 14/04/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -14,12 +14,11 @@ internal final class BlogViewController: UIViewController {
     // MARK: - Private Properties
     
     private let blogPostCollectionViewContentController = CollectionViewContentController()
+    private var blogPosts: [BlogPost] = []
     
     // MARK: - File Private Properties
     
     @IBOutlet fileprivate weak var collectionView: UICollectionView?
-    
-    fileprivate let cellHeight: CGFloat = 184.0
     
     // MARK: - Lifecycle
     
@@ -29,6 +28,7 @@ internal final class BlogViewController: UIViewController {
         self.styleUI()
         self.configureUI()
         self.configureBlogPostContentController()
+        self.loadBlogPosts()
     }
     
     // MARK: - UI
@@ -43,14 +43,30 @@ internal final class BlogViewController: UIViewController {
     
     // MARK: - Private Functions
     
+    private func loadBlogPosts() {
+        CloudKitManager.shared.loadBlogPosts(cursor: nil, recordFetched: { blogPost in
+            if !self.blogPosts.contains(where: { blogPost.id == $0.id }) {
+                self.blogPosts.append(blogPost)
+            }
+        }, completion: { _, error in
+            guard error == nil else {
+                //todo: error handling
+                print (error.debugDescription)
+                return
+            }
+        
+            
+            let blogPostSectionContent = BlogViewControllerCellContentFactory.blogPostSectionContent(from: self.blogPosts, delegate: self)
+            self.blogPostCollectionViewContentController.add(sectionContent: blogPostSectionContent)
+
+            DispatchQueue.main.async {
+                self.blogPostCollectionViewContentController.reloadContent()
+            }
+        })
+    }
+    
     private func configureBlogPostContentController() {
         self.blogPostCollectionViewContentController.configure(collectionView: self.collectionView)
-        
-        let blogPosts: [ExampleBlogPost] = [BlogPostOne()]
-        let blogPostSectionContent = BlogViewControllerCellContentFactory.blogPostSectionContent(from: blogPosts, delegate: self)
-        
-        self.blogPostCollectionViewContentController.add(sectionContent: blogPostSectionContent)
-        self.blogPostCollectionViewContentController.reloadContent()
     }
 }
 
@@ -58,7 +74,14 @@ extension BlogViewController: BlogPostCollectionViewCellContentDelegate {
     
     // MARK: - Internal Functions
     
-    internal func open(blogPost: ExampleBlogPost) {
-        self.performSegue(withIdentifier: "blogPostViewController", sender: nil)
+    internal func open(blogPost: BlogPost) {
+        self.performSegue(withIdentifier: "blogPostViewController", sender: blogPost)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "blogPostViewController" {
+            let dest = segue.destination as! BlogPostViewController
+            dest.blogPost = sender as? BlogPost
+        }
     }
 }

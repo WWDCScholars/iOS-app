@@ -3,13 +3,13 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 17/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-internal protocol VariableWidthCollectionViewCellContent: class, VariableDimensionCollectionViewCellContent {}
+internal protocol VariableWidthCollectionViewCellContent: VariableDimensionCollectionViewCellContent {}
 
 internal extension VariableWidthCollectionViewCellContent {
     

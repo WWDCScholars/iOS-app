@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 13/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -16,12 +16,14 @@ internal final class ScholarCollectionViewCellContent: CellContent, VariableWidt
     internal let reuseIdentifier = "scholarCollectionViewCell"
     internal let height: CGFloat = 140.0
     internal let axisCellCount = 3
-    internal let scholar: ExampleScholar
+    internal let scholar: BasicScholar
     internal let action: () -> Void
+    internal let id: String?
     
     // MARK: - Lifecycle
     
-    internal init(scholar: ExampleScholar, action: @escaping () -> Void) {
+    internal init(id: String? = nil, scholar: BasicScholar, action: @escaping () -> Void) {
+        self.id = id
         self.scholar = scholar
         self.action = action
     }

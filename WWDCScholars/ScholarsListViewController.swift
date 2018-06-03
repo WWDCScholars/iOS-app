@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 21/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -19,7 +19,7 @@ internal final class ScholarsListViewController: UIViewController, ContainerView
     
     // MARK: - Internal Properties
     
-    internal var scholars = [ExampleScholar]()
+    internal var scholars = [BasicScholar]()
     
     // MARK: - Lifecycle
     
@@ -27,7 +27,6 @@ internal final class ScholarsListViewController: UIViewController, ContainerView
         super.viewDidLoad()
         
         self.styleUI()
-        self.configureScholarContentController()
     }
     
     // MARK: - UI
@@ -36,13 +35,13 @@ internal final class ScholarsListViewController: UIViewController, ContainerView
         self.view.applyBackgroundStyle()
     }
     
-    // MARK: - Private Functions
+    // MARK: - Internal Functions
     
-    private func configureScholarContentController() {
+    internal func configureScholarContentController() {
         self.scholarCollectionViewContentController.configure(collectionView: self.scholarCollectionView)
         
         let batchesSectionContent = ScholarsListViewControllerCellContentFactory.scholarSectionContent(from: self.scholars, delegate: self)
-        self.scholarCollectionViewContentController.add(sectionContent: batchesSectionContent)
+        self.scholarCollectionViewContentController.set(sectionContent: batchesSectionContent)
         
         self.scholarCollectionViewContentController.reloadContent()
     }
@@ -52,7 +51,7 @@ extension ScholarsListViewController: ScholarCollectionViewCellContentDelegate {
     
     // MARK: - Internal Functions
     
-    internal func presentProfile(for scholar: ExampleScholar) {
-        self.presentProfileViewController()
+    internal func presentProfile(for scholar: BasicScholar) {
+        self.presentProfileViewController(scholarId: scholar.id)
     }
 }

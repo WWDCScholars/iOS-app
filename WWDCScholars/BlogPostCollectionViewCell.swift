@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 07/05/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -54,9 +54,9 @@ internal final class BlogPostCollectionViewCell: UICollectionViewCell, Cell {
         }
         
         let blogPost = cellContent.blogPost
-        self.heroImageView?.image = blogPost.heroImage
-        self.authorProfileImageView?.image = blogPost.author.profileImage
+        self.heroImageView?.image = blogPost.headerImage.image
+//        self.authorProfileImageView?.image = blogPost.author
         self.titleLabel?.text = blogPost.title
-        self.authorLabel?.text = "by \(blogPost.author.fullName)"
+//        self.authorLabel?.text = "by \(blogPost.author.fullName)"
     }
 }

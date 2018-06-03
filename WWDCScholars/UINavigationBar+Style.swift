@@ -3,7 +3,7 @@
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 14/04/2017.
-//  Copyright © 2017 Andrew Walker. All rights reserved.
+//  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
 import Foundation
@@ -17,7 +17,7 @@ internal extension UINavigationBar {
         self.appearance().tintColor = .white
         self.appearance().isTranslucent = false
         self.appearance().barTintColor = .scholarsPurple
-        self.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        self.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
     
     internal func applyExtendedStyle() {

@@ -24,7 +24,7 @@ internal final class ScholarsViewController: UIViewController {
     private var scholarsMapViewController: ScholarsMapViewController?
     private var scholarsListViewController: ScholarsListViewController?
     private var containerViewSwitchHelper: ContainerViewSwitchHelper?
-    private var batches: [BatchInfo] = [BatchInfo2013(), BatchInfo2014(), BatchInfo2015(), BatchInfo2016(), BatchInfo2017(), BatchInfo2018(), BatchInfoSaved()]
+    private var batches: [BatchInfo] = [.wwdc2013, .wwdc2014, .wwdc2015, .wwdc2016, .wwdc2017, .wwdc2018, .saved]
     
     // MARK: - File Private Properties
     

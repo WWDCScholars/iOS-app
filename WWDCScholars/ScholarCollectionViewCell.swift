@@ -40,6 +40,7 @@ internal final class ScholarCollectionViewCell: UICollectionViewCell, Cell {
     private func styleUI() {
         self.labelContainerView?.backgroundColor = .thumbnailTransparentPurple
         self.label?.applyScholarsTitleStyle()
+        self.imageView?.tintColor = .backgroundElementGray
     }
     
     // MARK: - Internal Functions
@@ -52,14 +53,18 @@ internal final class ScholarCollectionViewCell: UICollectionViewCell, Cell {
         }
 		
         self.label?.text = cellContent.scholar.firstName
-		
+        
+        self.imageView?.image = UIImage.loading
+        self.imageView?.contentMode = .center
 		cellContent.scholar.profilePictureLoaded.append({
 			error in
 			guard error == nil else { return }
 			
 			DispatchQueue.main.async {
-				self.imageView?.image = cellContent.scholar.profilePicture?.image
+                self.imageView?.image = cellContent.scholar.profilePicture?.image
+                self.imageView?.contentMode = .scaleAspectFill
 			}
 		})
+        cellContent.scholar.loadProfilePicture()
     }
 }

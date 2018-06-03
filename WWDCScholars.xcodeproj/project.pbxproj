@@ -139,6 +139,7 @@
 		7BD91FA11ED35EDA00439718 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD91F9A1ED333F400439718 /* CloudKitManager.swift */; };
 		7BD91FA21ED35EE600439718 /* ActivityQueryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD91F981ED332FD00439718 /* ActivityQueryItem.swift */; };
 		7BD91FA31ED35EE600439718 /* ActivityTimelineFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD91F9F1ED33F7A00439718 /* ActivityTimelineFilter.swift */; };
+		8E3897E420C450AF00D53113 /* UIImage+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3897E320C450AF00D53113 /* UIImage+Named.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -278,6 +279,7 @@
 		7BD91F9C1ED33B3E00439718 /* WWDCScholars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WWDCScholars.entitlements; sourceTree = "<group>"; };
 		7BD91F9D1ED33B4100439718 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		7BD91F9F1ED33F7A00439718 /* ActivityTimelineFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTimelineFilter.swift; sourceTree = "<group>"; };
+		8E3897E320C450AF00D53113 /* UIImage+Named.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Named.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -608,6 +610,7 @@
 				7BB4F8171EDCC82B00B0EE7A /* CKAsset+WWDCScholars.swift */,
 				7BB4F80F1EDCB36500B0EE7A /* Sync.swift */,
 				6EB77E2B1ECE353D00E6E263 /* QuickActionShortcutType.swift */,
+				8E3897E320C450AF00D53113 /* UIImage+Named.swift */,
 			);
 			name = Misc.;
 			sourceTree = "<group>";
@@ -1076,6 +1079,7 @@
 				6E6B50431EDA0E63006B28A3 /* LocationStatusManager.swift in Sources */,
 				7BB4F8121EDCB43100B0EE7A /* ScholarStatus.swift in Sources */,
 				6E7D17411EBD290200C93E89 /* String+WWDCScholars.swift in Sources */,
+				8E3897E420C450AF00D53113 /* UIImage+Named.swift in Sources */,
 				6EE999EB1EC509B600F13809 /* CollectionViewContentController.swift in Sources */,
 				7B8DDF2D1EE2B265002D2A9A /* CloudKitManager+Blog.swift in Sources */,
 				6E997BDB1EBE61FB0098C140 /* UILabel+Style.swift in Sources */,

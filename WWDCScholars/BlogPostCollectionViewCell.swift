@@ -55,8 +55,21 @@ internal final class BlogPostCollectionViewCell: UICollectionViewCell, Cell {
         
         let blogPost = cellContent.blogPost
         self.heroImageView?.image = blogPost.headerImage.image
-//        self.authorProfileImageView?.image = blogPost.author
+
         self.titleLabel?.text = blogPost.title
-//        self.authorLabel?.text = "by \(blogPost.author.fullName)"
+        
+        guard let author = blogPost.author else { return }
+        CloudKitManager.shared.loadScholarsForBlog(with: author.recordID, recordFetched: {
+            scholar in
+            scholar.profilePictureLoaded.append({ err in
+                DispatchQueue.main.async {
+                    self.authorProfileImageView?.image = scholar.profilePicture?.image
+                }
+            })
+            scholar.loadProfilePicture()
+            DispatchQueue.main.async {
+                self.authorLabel?.text = "by \(scholar.firstName)"
+            }
+        }, completion: nil)
     }
 }

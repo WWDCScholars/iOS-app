@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>3.0</string>
 	<key>CFBundleVersion</key>
-	<string>152</string>
+	<string>153</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -45,6 +45,8 @@
 			</dict>
 		</array>
 	</dict>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -117,6 +119,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-    <key>ITSAppUsesNonExemptEncryption</key><false/>
 </dict>
 </plist>

@@ -2,7 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "twitter.pdf"
+      "filename" : "twitter.pdf",
+      "scale" : "1x"
     }
   ],
   "info" : {

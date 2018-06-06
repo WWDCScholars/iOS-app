@@ -26,6 +26,11 @@ internal enum BatchInfo: String {
         return String(rawValue.split(separator: " ").last ?? "")
     }
     
+    var shortYear: String {
+        let year = String(rawValue.split(separator: " ").last ?? "")
+        return String(year[2...])
+    }
+    
     var isDefault: Bool {
         if self == .wwdc2018 {
             return true

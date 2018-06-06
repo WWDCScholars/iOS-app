@@ -192,7 +192,11 @@ internal final class ProfileViewController: UIViewController {
         }
         
         self.ageContentLabel?.text = "\(scholar.birthday.age)"
-        self.batchContentLabel?.text = scholar.batches.joined(separator: ", ")
+        
+        self.batchContentLabel?.text = scholar.batches.map { (string) -> String in
+            let year = String(string.split(separator: " ").last ?? "")
+            return "'" + String(year[2...])
+        }.joined(separator: ", ")
     }
     
     private func populateBioContent() {

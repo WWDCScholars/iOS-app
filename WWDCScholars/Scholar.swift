@@ -51,7 +51,7 @@ internal class Scholar {
             let yearInfo     = record["yearInfo"] as? [WWDCYear : UUID],
             let status       = record["status"] as? Status,
             let approvedOn   = record["approvedOn"] as? Date else {
-                assertionFailure("Scholar initializer - Initialized without all data")
+//                assertionFailure("Scholar initializer - Initialized without all data")
                 return nil
         }
         

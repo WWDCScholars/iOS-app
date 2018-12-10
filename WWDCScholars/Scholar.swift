@@ -8,10 +8,9 @@
 
 import Foundation
 import CoreLocation
-import CloudKit
 
 internal class Scholar {
-    var id: CKRecordID?
+    var id: UUID?
 	
     var firstName: String
     var lastName: String
@@ -22,23 +21,23 @@ internal class Scholar {
     var email: String
     var shortBio: String
     
-    var socialMediaRef: CKReference
+    var socialMediaId: UUID
 
-    var batches: [String]
-    var batchInfos: [CKReference]
+    var yearInfo: [WWDCYear : UUID]
+    
     var approvedOn: Date?
     var createdAt: Date?
     var status : Status
-    internal var profilePicture: CKAsset?
-    internal var profilePictureLoaded: ((Error?) -> Void)? = nil
+    
+    internal var profilePictureURL: URL?
     
     var fullName: String {
         return "\(firstName) \(lastName)"
     }
     
-    init(record: CKRecord) {
-        id = record.recordID
-        createdAt = record.creationDate
+    init(record: [String: Any]) {
+        id = record["id"] as? UUID
+        createdAt = record["creationDate"] as? Date
         
         location = record["location"] as! CLLocation
         shortBio = record["shortBio"] as! String
@@ -48,23 +47,10 @@ internal class Scholar {
         lastName = record["lastName"] as! String
         firstName = record["firstName"] as! String
         
-        socialMediaRef = record["socialMedia"] as! CKReference
-        batches = (record["wwdcYears"] as! [CKReference]).map { $0.recordID.recordName }
-        batchInfos = record["wwdcYearInfos"] as! [CKReference]
+        socialMediaId = record["socialMedia"] as! UUID
+        yearInfo = record["yearInfo"] as! [WWDCYear : UUID]
 
         status = Status(rawValue: record["status"] as! String)!
         approvedOn = record["approvedOn"] as? Date
-        
-        let maxBatch = self.batches.max(by: { a, b in
-            let intOne = Int(a.replacingOccurrences(of: "WWDC ", with: ""))!
-            let intTwo = Int(b.replacingOccurrences(of: "WWDC ", with: ""))!
-            return intOne < intTwo
-        })
-		
-        CloudKitManager.shared.loadWWDCBatchItem(in: batchInfos, for: maxBatch!, recordFetched: {
-			rec in
-            self.profilePicture = rec["profilePicture_small"] as? CKAsset
-            self.profilePictureLoaded?(nil)
-        })
     }
 }

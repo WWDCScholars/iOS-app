@@ -23,7 +23,7 @@ internal class SocialMedia: CloudKitInitializable {
     
     // MARK: - Internal Functions
     
-    internal var id: CKRecordID = CKRecordID(recordName: UUID.init().uuidString)
+    internal var id: UUID?
     
     internal var imessage : String?
     internal var itunes : String?

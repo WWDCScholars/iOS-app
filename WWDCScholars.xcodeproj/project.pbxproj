@@ -129,7 +129,6 @@
 		7BB4F8081EDCB00400B0EE7A /* CloudKitManager+Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F8071EDCB00400B0EE7A /* CloudKitManager+Activity.swift */; };
 		7BB4F80A1EDCB02500B0EE7A /* CloudKitManager+Scholar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F8091EDCB02500B0EE7A /* CloudKitManager+Scholar.swift */; };
 		7BB4F80C1EDCB03000B0EE7A /* CloudKitManager+Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F80B1EDCB03000B0EE7A /* CloudKitManager+Batch.swift */; };
-		7BB4F80E1EDCB2F000B0EE7A /* BasicScholar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F80D1EDCB2F000B0EE7A /* BasicScholar.swift */; };
 		7BB4F8101EDCB36500B0EE7A /* Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F80F1EDCB36500B0EE7A /* Sync.swift */; };
 		7BB4F8121EDCB43100B0EE7A /* ScholarStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F8111EDCB43100B0EE7A /* ScholarStatus.swift */; };
 		7BB4F8141EDCB4A800B0EE7A /* Scholar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F8131EDCB4A800B0EE7A /* Scholar.swift */; };
@@ -280,7 +279,6 @@
 		7BB4F8071EDCB00400B0EE7A /* CloudKitManager+Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CloudKitManager+Activity.swift"; sourceTree = "<group>"; };
 		7BB4F8091EDCB02500B0EE7A /* CloudKitManager+Scholar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CloudKitManager+Scholar.swift"; sourceTree = "<group>"; };
 		7BB4F80B1EDCB03000B0EE7A /* CloudKitManager+Batch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CloudKitManager+Batch.swift"; sourceTree = "<group>"; };
-		7BB4F80D1EDCB2F000B0EE7A /* BasicScholar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicScholar.swift; sourceTree = "<group>"; };
 		7BB4F80F1EDCB36500B0EE7A /* Sync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sync.swift; sourceTree = "<group>"; };
 		7BB4F8111EDCB43100B0EE7A /* ScholarStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarStatus.swift; sourceTree = "<group>"; };
 		7BB4F8131EDCB4A800B0EE7A /* Scholar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scholar.swift; sourceTree = "<group>"; };
@@ -889,7 +887,6 @@
 				7BB4F8111EDCB43100B0EE7A /* ScholarStatus.swift */,
 				7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */,
 				7BB4F8041EDCA18100B0EE7A /* AppType.swift */,
-				7BB4F80D1EDCB2F000B0EE7A /* BasicScholar.swift */,
 				7B8DDF241EE29EF0002D2A9A /* SocialMedia.swift */,
 				7B8DDF2A1EE2B0B5002D2A9A /* BlogPost.swift */,
 			);
@@ -1169,7 +1166,6 @@
 				7BB4F7FD1EDC9F5C00B0EE7A /* CloudKitInitializable.swift in Sources */,
 				6E1083C31ECBCBBB00139C23 /* VariableWidthCollectionViewCellContent.swift in Sources */,
 				7B8DDF2B1EE2B0B5002D2A9A /* BlogPost.swift in Sources */,
-				7BB4F80E1EDCB2F000B0EE7A /* BasicScholar.swift in Sources */,
 				6EE99A0B1EC528E900F13809 /* WWDCYear.swift in Sources */,
 				6E2EFC2A1ED0E4E200C23E16 /* ScholarAnnotation.swift in Sources */,
 				6E2EFC211ED0A37400C23E16 /* ScholarsMapAnnotationsFactory.swift in Sources */,

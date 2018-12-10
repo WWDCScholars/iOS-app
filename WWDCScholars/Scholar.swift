@@ -25,9 +25,10 @@ internal class Scholar {
 
     var yearInfo: [WWDCYear : UUID]
     
+    var status : Status
+    
     var approvedOn: Date?
     var createdAt: Date?
-    var status : Status
     
     internal var profilePictureURL: URL?
     
@@ -35,22 +36,43 @@ internal class Scholar {
         return "\(firstName) \(lastName)"
     }
     
-    init(record: [String: Any]) {
-        id = record["id"] as? UUID
-        createdAt = record["creationDate"] as? Date
+    init?(record: [String: Any]) {
+        guard
+            let id           = record["id"] as? UUID,
+            let creationDate = record["creationDate"] as? Date,
+            let location     = record["location"] as? CLLocation,
+            let shortBio     = record["shortBio"] as? String,
+            let gender       = record["gender"] as? Gender,
+            let birthday     = record["birthday"] as? Date,
+            let email        = record["email"] as? String,
+            let firstName    = record["firstName"] as? String,
+            let lastName     = record["lastName"] as? String,
+            let socialMedia  = record["socialMedia"] as? UUID,
+            let yearInfo     = record["yearInfo"] as? [WWDCYear : UUID],
+            let status       = record["status"] as? Status,
+            let approvedOn   = record["approvedOn"] as? Date else {
+                assertionFailure("Scholar initializer - Initialized without all data")
+                return nil
+        }
         
-        location = record["location"] as! CLLocation
-        shortBio = record["shortBio"] as! String
-        gender = Gender(rawValue: record["gender"] as! String)!
-        birthday = record["birthday"] as! Date
-        email = record["email"] as! String
-        lastName = record["lastName"] as! String
-        firstName = record["firstName"] as! String
+        self.id = id
         
-        socialMediaId = record["socialMedia"] as! UUID
-        yearInfo = record["yearInfo"] as! [WWDCYear : UUID]
-
-        status = Status(rawValue: record["status"] as! String)!
-        approvedOn = record["approvedOn"] as? Date
+        self.firstName = firstName
+        self.lastName = lastName
+        self.gender = gender
+        self.birthday = birthday
+        self.location = location
+        
+        self.email = email
+        self.socialMediaId = socialMedia
+        
+        self.shortBio = shortBio
+        
+        self.yearInfo = yearInfo
+        
+        self.status = status
+        
+        self.createdAt = creationDate
+        self.approvedOn = approvedOn
     }
 }

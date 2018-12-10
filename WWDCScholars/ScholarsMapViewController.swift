@@ -31,7 +31,7 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
     
     // MARK: - Internal Properties
     
-    internal var scholars = [BasicScholar]()
+    internal var scholars = [Scholar]()
     
     // MARK: - Lifecycle
     
@@ -160,7 +160,7 @@ extension ScholarsMapViewController: MKMapViewDelegate {
 			self.show(cluster: cluster, mapView: mapView)
 		}
 		else if let scholarAnnotation = cluster.firstAnnotation! as? ScholarAnnotation{
-			self.presentProfileViewController(scholarId: scholarAnnotation.scholar.id)
+//            self.presentProfileViewController(scholarId: scholarAnnotation.scholar.id)
 		}
     }
     

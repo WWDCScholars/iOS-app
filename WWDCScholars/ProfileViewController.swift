@@ -18,7 +18,7 @@ import MessageUI
 internal final class ProfileViewController: UIViewController {
     
     // MARK: - Internal Properties
-    internal var scholarId: CKRecordID? = nil
+    internal var scholarId: UUID? = nil
     
     // MARK: - Private Properties
     
@@ -123,34 +123,34 @@ internal final class ProfileViewController: UIViewController {
     // MARK: - Private Functions
     
     private func loadScholarData() {
-        CloudKitManager.shared.loadScholar(with: scholarId!, recordFetched: { scholar in
-            scholar.profilePictureLoaded = { err in
-                DispatchQueue.main.async {
-                    self.profilePictureImageView?.image = scholar.profilePicture?.image
-                    self.profilePictureImageView?.contentMode = .scaleAspectFill
-                }
+//        CloudKitManager.shared.loadScholar(with: scholarId!, recordFetched: { scholar in
+////            scholar.profilePictureLoaded = { err in
+////                DispatchQueue.main.async {
+////                    self.profilePictureImageView?.image = scholar.profilePicture?.image
+////                    self.profilePictureImageView?.contentMode = .scaleAspectFill
+////                }
+//////                self.populateHeaderContent()
+////            }
+//            self.scholar = scholar
+//            
+//            DispatchQueue.main.async {
 //                self.populateHeaderContent()
-            }
-            self.scholar = scholar
-            
-            DispatchQueue.main.async {
-                self.populateHeaderContent()
-                self.populateBasicInfoContent()
-                self.populateBioContent()
-                self.configureMapView()
-            }
-            
-            CloudKitManager.shared.loadSocialMedia(with: scholar.socialMediaRef.recordID, recordFetched: { socialMedia in
-                self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(socialMedia: socialMedia)
-                DispatchQueue.main.async {
-                    self.populateSocialAccountsContent()
-                }
-            }, completion: nil)
-            
-        }, completion: { _, err in
-            //todo: show load error
-            print ("\(err.debugDescription)")
-        })
+//                self.populateBasicInfoContent()
+//                self.populateBioContent()
+//                self.configureMapView()
+//            }
+//            
+////            CloudKitManager.shared.loadSocialMedia(with: scholar.socialMediaRef.recordID, recordFetched: { socialMedia in
+////                self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(socialMedia: socialMedia)
+////                DispatchQueue.main.async {
+////                    self.populateSocialAccountsContent()
+////                }
+////            }, completion: nil)
+//            
+//        }, completion: { _, err in
+//            //todo: show load error
+//            print ("\(err.debugDescription)")
+//        })
     }
     
     private func configureMapView() {
@@ -193,8 +193,8 @@ internal final class ProfileViewController: UIViewController {
         
         self.ageContentLabel?.text = "\(scholar.birthday.age)"
         
-        self.batchContentLabel?.text = scholar.batches.map { (string) -> String in
-            let year = String(string.split(separator: " ").last ?? "")
+        self.batchContentLabel?.text = scholar.yearInfo.keys.map { (string) -> String in
+            let year = String(string.title.split(separator: " ").last ?? "")
             return "'" + String(year[2...])
         }.joined(separator: ", ")
     }

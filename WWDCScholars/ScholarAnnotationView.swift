@@ -52,14 +52,14 @@ internal final class ScholarAnnotationView: MKAnnotationView {
         self.addSubview(self.imageView)
     }
 	
-	private func setImage(scholar: BasicScholar){
-		scholar.profilePictureLoaded.append({
-			error in
-			guard error == nil else { return }
-			
-			DispatchQueue.main.async {
-				self.imageView.image = scholar.profilePicture?.image
-			}
-		})
+	private func setImage(scholar: Scholar){
+//        scholar.profilePictureLoaded.append({
+//            error in
+//            guard error == nil else { return }
+//            
+//            DispatchQueue.main.async {
+//                self.imageView.image = scholar.profilePicture?.image
+//            }
+//        })
 	}
 }

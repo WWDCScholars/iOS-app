@@ -15,7 +15,7 @@ internal extension UIViewController {
     
     // MARK: - Internal Functions
     
-    internal func presentProfileViewController(scholarId: CKRecordID) {
+    internal func presentProfileViewController(scholarId: UUID) {
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
         profileViewController.scholarId = scholarId

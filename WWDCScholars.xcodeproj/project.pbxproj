@@ -121,6 +121,7 @@
 		7B8DDF291EE2AAD7002D2A9A /* CloudKitManager+SocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF281EE2AAD7002D2A9A /* CloudKitManager+SocialMedia.swift */; };
 		7B8DDF2B1EE2B0B5002D2A9A /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF2A1EE2B0B5002D2A9A /* BlogPost.swift */; };
 		7B8DDF2D1EE2B265002D2A9A /* CloudKitManager+Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF2C1EE2B265002D2A9A /* CloudKitManager+Blog.swift */; };
+		7B9509D421BEE97A005E5711 /* ScholarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9509D321BEE97A005E5711 /* ScholarTests.swift */; };
 		7BB4F7FB1EDC9E9000B0EE7A /* Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FA1EDC9E9000B0EE7A /* Batch.swift */; };
 		7BB4F7FD1EDC9F5C00B0EE7A /* CloudKitInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */; };
 		7BB4F7FF1EDCA02700B0EE7A /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FE1EDCA02700B0EE7A /* Gender.swift */; };
@@ -271,6 +272,7 @@
 		7B8DDF281EE2AAD7002D2A9A /* CloudKitManager+SocialMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CloudKitManager+SocialMedia.swift"; sourceTree = "<group>"; };
 		7B8DDF2A1EE2B0B5002D2A9A /* BlogPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 		7B8DDF2C1EE2B265002D2A9A /* CloudKitManager+Blog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CloudKitManager+Blog.swift"; sourceTree = "<group>"; };
+		7B9509D321BEE97A005E5711 /* ScholarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarTests.swift; sourceTree = "<group>"; };
 		7BB4F7FA1EDC9E9000B0EE7A /* Batch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Batch.swift; sourceTree = "<group>"; };
 		7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitInitializable.swift; sourceTree = "<group>"; };
 		7BB4F7FE1EDCA02700B0EE7A /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
@@ -952,10 +954,19 @@
 		7B4D74F921BE6C58002F6242 /* WWDCScholarsTests */ = {
 			isa = PBXGroup;
 			children = (
+				7B9509D221BEE95F005E5711 /* ModelTests */,
 				7B4D74FA21BE6C58002F6242 /* WWDCScholarsTests.swift */,
 				7B4D74FC21BE6C58002F6242 /* Info.plist */,
 			);
 			path = WWDCScholarsTests;
+			sourceTree = "<group>";
+		};
+		7B9509D221BEE95F005E5711 /* ModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				7B9509D321BEE97A005E5711 /* ScholarTests.swift */,
+			);
+			path = ModelTests;
 			sourceTree = "<group>";
 		};
 		7BB4F8061EDCAFEB00B0EE7A /* CloudKit */ = {
@@ -1249,6 +1260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B9509D421BEE97A005E5711 /* ScholarTests.swift in Sources */,
 				7B4D74FB21BE6C58002F6242 /* WWDCScholarsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,3 +18,9 @@ internal extension CLLocationManager {
         return status == .authorizedWhenInUse || status == .authorizedAlways
     }
 }
+
+extension Scholar {
+    var location: CLLocation {
+        return CLLocation.init(latitude: self.latitude, longitude: self.longitude)
+    }
+}

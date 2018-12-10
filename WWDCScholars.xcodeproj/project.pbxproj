@@ -122,6 +122,7 @@
 		7B8DDF2B1EE2B0B5002D2A9A /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF2A1EE2B0B5002D2A9A /* BlogPost.swift */; };
 		7B8DDF2D1EE2B265002D2A9A /* CloudKitManager+Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF2C1EE2B265002D2A9A /* CloudKitManager+Blog.swift */; };
 		7B9509D421BEE97A005E5711 /* ScholarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9509D321BEE97A005E5711 /* ScholarTests.swift */; };
+		7B9509D721BF06DE005E5711 /* WWDCScholars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B9509D521BF06DE005E5711 /* WWDCScholars.xcdatamodeld */; };
 		7BB4F7FB1EDC9E9000B0EE7A /* Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FA1EDC9E9000B0EE7A /* Batch.swift */; };
 		7BB4F7FD1EDC9F5C00B0EE7A /* CloudKitInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */; };
 		7BB4F7FF1EDCA02700B0EE7A /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FE1EDCA02700B0EE7A /* Gender.swift */; };
@@ -273,6 +274,7 @@
 		7B8DDF2A1EE2B0B5002D2A9A /* BlogPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 		7B8DDF2C1EE2B265002D2A9A /* CloudKitManager+Blog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CloudKitManager+Blog.swift"; sourceTree = "<group>"; };
 		7B9509D321BEE97A005E5711 /* ScholarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarTests.swift; sourceTree = "<group>"; };
+		7B9509D621BF06DE005E5711 /* WWDCScholars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WWDCScholars.xcdatamodel; sourceTree = "<group>"; };
 		7BB4F7FA1EDC9E9000B0EE7A /* Batch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Batch.swift; sourceTree = "<group>"; };
 		7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitInitializable.swift; sourceTree = "<group>"; };
 		7BB4F7FE1EDCA02700B0EE7A /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 				6E48061F1EA14F9700213835 /* UI */,
 				6E3C555E1EA03C52008F9AC9 /* UIViewControllers */,
 				6EB77E291ECE350000E6E263 /* Supporting Files */,
+				7B9509D521BF06DE005E5711 /* WWDCScholars.xcdatamodeld */,
 			);
 			path = WWDCScholars;
 			sourceTree = "<group>";
@@ -1150,6 +1153,7 @@
 				6EC1ECB01ED2299C00302A25 /* ContainerViewSwitchHelper.swift in Sources */,
 				6E2EFC241ED0C8D500C23E16 /* ScholarAnnotationView.swift in Sources */,
 				6E67DE991EBFA48A00992E69 /* CGFloat+WWDCScholars.swift in Sources */,
+				7B9509D721BF06DE005E5711 /* WWDCScholars.xcdatamodeld in Sources */,
 				6EC1ECB41ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift in Sources */,
 				6E1083CF1ECBCC5600139C23 /* SizeableCollectionViewCellContent.swift in Sources */,
 				6E3E97281EDB420300A116FD /* SocialAccountButton.swift in Sources */,
@@ -1438,7 +1442,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1459,7 +1463,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1548,6 +1552,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7B9509D521BF06DE005E5711 /* WWDCScholars.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7B9509D621BF06DE005E5711 /* WWDCScholars.xcdatamodel */,
+			);
+			currentVersion = 7B9509D621BF06DE005E5711 /* WWDCScholars.xcdatamodel */;
+			path = WWDCScholars.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6E3C55411EA032DD008F9AC9 /* Project object */;
 }

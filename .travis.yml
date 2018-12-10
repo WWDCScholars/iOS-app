@@ -4,7 +4,7 @@ install:
   - brew outdated carthage || brew upgrade carthage
   - bundle install
 before_script:
-  - carthage bootstrap
+  - carthage bootstrap --platform iOS --no-use-binaries
 script:
   - fastlane tests
 before_deploy:

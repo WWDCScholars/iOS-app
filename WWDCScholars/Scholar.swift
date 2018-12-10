@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CoreLocation
 
 /**
  Model which represents a scholar in the app
@@ -28,8 +27,11 @@ internal class Scholar {
     /** The birthday of the scholar */
     var birthday: Date
     
-    /** The location of the scholar */
-    var location: CLLocation
+    /** The latitute of the scholar */
+    var latitude: Double
+    
+    /** The longitude of the scholar */
+    var longitude: Double
     
     /** The email address of the scholar */
     var email: String
@@ -66,7 +68,8 @@ internal class Scholar {
         guard
             let id                = record["id"] as? UUID,
             let creationDate      = record["creationDate"] as? Date,
-            let location          = record["location"] as? CLLocation,
+            let latitude          = record["latitude"] as? Double,
+            let longitude         = record["longitude"] as? Double,
             let shortBio          = record["shortBio"] as? String,
             let gender            = record["gender"] as? Gender,
             let birthday          = record["birthday"] as? Date,
@@ -86,7 +89,8 @@ internal class Scholar {
         self.lastName = lastName
         self.gender = gender
         self.birthday = birthday
-        self.location = location
+        self.latitude = latitude
+        self.longitude = longitude
         self.email = email
         self.socialMediaId = socialMedia
         self.shortBio = shortBio

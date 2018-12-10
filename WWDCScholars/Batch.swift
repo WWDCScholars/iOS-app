@@ -7,37 +7,36 @@
 //
 
 import Foundation
-import CloudKit
 
-internal class Batch: CloudKitInitializable {
-    internal var id: CKRecordID
+internal class Batch {
+    internal var id: UUID
     
-    internal var scholarReference: CKReference?
-    internal var yearReference: CKReference
+    internal var scholarId: UUID?
+    internal var wwdcYear: WWDCYear
     
-    internal let profilePicture: CKAsset
-    internal let acceptanceEmail: CKAsset?
-    internal let videoLink: String?
-    internal let screenshots: [CKAsset] //Screenshots
-    internal let githubAppLink: String?
+    internal let profilePictureUrl: URL
+    internal let acceptanceEmail: URL?
+    internal let videoUrl: URL?
+    internal let screenshots: [URL]
+    internal let githubAppUrl: URL?
     
-    internal let appType: String?
-    internal let appStoreSubmissionLink: String?
+    internal let appType: AppType
+    internal let appStoreSubmissionUrl: URL?
     
     internal let appliedAs: ApplicantType
 
-    required init(record: CKRecord) {
-        id = record.recordID
-        scholarReference  = record["scholar"] as? CKReference
-        yearReference = record["year"] as! CKReference
-        profilePicture = record["profilePicture"] as! CKAsset
-        acceptanceEmail = record["acceptanceEmail"] as! CKAsset?
-        screenshots = record["screenshots"] as! [CKAsset]
-        videoLink = record["videoLink"] as! String?
-        githubAppLink = record["githubAppLink"] as! String?
-        appType = record["appType"] as? String
-        appStoreSubmissionLink = record["appStoreSubmissionLink"] as! String?
-        appliedAs = ApplicantType(rawValue: record["appliedAs"] as! String) ?? .student
+    required init(record: [String: Any]) {
+        id = record["id"] as! UUID
+        scholarId  = record["scholarId"] as? UUID
+        wwdcYear = record["year"] as! WWDCYear
+        profilePictureUrl = record["profilePictureUrl"] as! URL
+        acceptanceEmail = record["acceptanceEmailUrl"] as! URL?
+        screenshots = record["screenshots"] as! [URL]
+        videoUrl = record["videoUrl"] as? URL
+        githubAppUrl = record["githubAppUrl"] as? URL
+        appType = record["appType"] as! AppType
+        appStoreSubmissionUrl = record["appStoreSubmissionUrl"] as! URL?
+        appliedAs = record["appliedAs"] as! ApplicantType
     }
     
 }

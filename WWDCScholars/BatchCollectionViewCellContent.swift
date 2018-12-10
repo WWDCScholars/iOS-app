@@ -16,7 +16,7 @@ internal final class BatchCollectionViewCellContent: CellContent, FixedSizeColle
     internal let reuseIdentifier = "batchCollectionViewCell"
     internal let width: CGFloat = 70.0
     internal let height: CGFloat = 30.0
-    internal let batchInfo: BatchInfo
+    internal let batchInfo: WWDCYear
     internal let action: () -> Void
     internal let id: String?
     
@@ -24,7 +24,7 @@ internal final class BatchCollectionViewCellContent: CellContent, FixedSizeColle
     
     // MARK: - Lifecycle
     
-    internal init(batchInfo: BatchInfo, isSelected: Bool = false, action: @escaping () -> Void) {
+    internal init(batchInfo: WWDCYear, isSelected: Bool = false, action: @escaping () -> Void) {
         self.id = batchInfo.title
         self.batchInfo = batchInfo
         self.isSelected = isSelected

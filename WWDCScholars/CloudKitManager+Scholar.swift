@@ -17,7 +17,7 @@ internal extension CloudKitManager {
     
     // MARK: - Internal Functions
     
-    internal func loadScholarsForList(in batchInfo: BatchInfo, with status: Scholar.Status, cursor: CKQueryCursor? = nil, recordFetched: @escaping ListScholarFetched, completion: QueryCompletion) {
+    internal func loadScholarsForList(in batchInfo: WWDCYear, with status: Scholar.Status, cursor: CKQueryCursor? = nil, recordFetched: @escaping ListScholarFetched, completion: QueryCompletion) {
         let recordName = batchInfo.recordName
         let yearRef = CKReference(recordID: CKRecordID.init(recordName: recordName), action: .none)
         let predicate = NSPredicate(format: "status = '\(status.rawValue)' AND wwdcYears CONTAINS %@", yearRef)

@@ -7,23 +7,22 @@
 //
 
 import Foundation
-import CloudKit
 
-internal class BlogPost: CloudKitInitializable {
-    internal var id: CKRecordID
+internal class BlogPost {
+    internal var id: UUID
     
     internal var title: String
     internal var content: String
-    internal var headerImage: CKAsset
+    internal var headerImageUrl: URL
     internal var tags: [String]
-    internal var author: CKReference?
+    internal var author: UUID?
     
-    internal required init(record: CKRecord) {
-        id = record.recordID
+    internal required init(record: [String: Any]) {
+        id = record["id"] as! UUID
         title = record["title"] as! String
         content = record["content"] as! String
-        headerImage = record["headerImage"] as! CKAsset
+        headerImageUrl = record["headerImage"] as! URL
         tags = record["tags"] as! [String]
-        author = record["scholar"] as? CKReference
+        author = record["author"] as? UUID
     }
 }

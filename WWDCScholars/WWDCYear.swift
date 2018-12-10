@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal enum BatchInfo: String {
+internal enum WWDCYear: String {
     
     // MARK: - Cases
     

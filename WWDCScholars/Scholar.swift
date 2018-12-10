@@ -8,63 +8,94 @@
 
 import Foundation
 import CoreLocation
-import CloudKit
 
+/**
+ Model which represents a scholar in the app
+ */
 internal class Scholar {
-    var id: CKRecordID?
+    /** The unique id of the scholar */
+    var id: UUID
 	
+    /** The first name of the scholar */
     var firstName: String
+    
+    /** The last name of the scholar */
     var lastName: String
+    
+    /** The gender of the scholar */
     var gender: Gender
+    
+    /** The birthday of the scholar */
     var birthday: Date
+    
+    /** The location of the scholar */
     var location: CLLocation
     
+    /** The email address of the scholar */
     var email: String
+    /** The short biography of the scholar */
     var shortBio: String
     
-    var socialMediaRef: CKReference
+    /** The id of the social media object belonging to this scholar */
+    var socialMediaId: UUID
 
-    var batches: [String]
-    var batchInfos: [CKReference]
-    var approvedOn: Date?
-    var createdAt: Date?
-    var status : Status
-    internal var profilePicture: CKAsset?
-    internal var profilePictureLoaded: ((Error?) -> Void)? = nil
+    /** The list of (submission) information per WWDC */
+    var yearInfo: [WWDCYear : UUID]
     
+    /** The current status of the Scholar */
+    var status : Status
+    
+    /** The date when the Scholar got approved */
+    var approvedOn: Date?
+
+    /** The date when the Scholar got created */
+    var createdAt: Date
+    
+    /** The url to the scholar profile picture of this scholar */
+    var profilePictureUrl: URL
+    
+    /** Convenience variable to return the full name of the scholar */
     var fullName: String {
         return "\(firstName) \(lastName)"
     }
     
-    init(record: CKRecord) {
-        id = record.recordID
-        createdAt = record.creationDate
+    /// Constructor to get an instance of a scholar using a dictionary with data
+    ///
+    /// - Parameter record: A dictionary containing the information of the scholar
+    init?(record: [String: Any]) {
+        guard
+            let id                = record["id"] as? UUID,
+            let creationDate      = record["creationDate"] as? Date,
+            let location          = record["location"] as? CLLocation,
+            let shortBio          = record["shortBio"] as? String,
+            let gender            = record["gender"] as? Gender,
+            let birthday          = record["birthday"] as? Date,
+            let email             = record["email"] as? String,
+            let firstName         = record["firstName"] as? String,
+            let lastName          = record["lastName"] as? String,
+            let profilePictureUrl = record["profilePictureUrl"] as? URL,
+            let socialMedia       = record["socialMedia"] as? UUID,
+            let yearInfo          = record["yearInfo"] as? [WWDCYear : UUID],
+            let status            = record["status"] as? Status else {
+                return nil
+        }
         
-        location = record["location"] as! CLLocation
-        shortBio = record["shortBio"] as! String
-        gender = Gender(rawValue: record["gender"] as! String)!
-        birthday = record["birthday"] as! Date
-        email = record["email"] as! String
-        lastName = record["lastName"] as! String
-        firstName = record["firstName"] as! String
+        // Non-optional variables
+        self.id = id
+        self.firstName = firstName
+        self.lastName = lastName
+        self.gender = gender
+        self.birthday = birthday
+        self.location = location
+        self.email = email
+        self.socialMediaId = socialMedia
+        self.shortBio = shortBio
+        self.yearInfo = yearInfo
+        self.status = status
+        self.profilePictureUrl = profilePictureUrl
+        self.createdAt = creationDate
         
-        socialMediaRef = record["socialMedia"] as! CKReference
-        batches = (record["wwdcYears"] as! [CKReference]).map { $0.recordID.recordName }
-        batchInfos = record["wwdcYearInfos"] as! [CKReference]
-
-        status = Status(rawValue: record["status"] as! String)!
-        approvedOn = record["approvedOn"] as? Date
-        
-        let maxBatch = self.batches.max(by: { a, b in
-            let intOne = Int(a.replacingOccurrences(of: "WWDC ", with: ""))!
-            let intTwo = Int(b.replacingOccurrences(of: "WWDC ", with: ""))!
-            return intOne < intTwo
-        })
-		
-        CloudKitManager.shared.loadWWDCBatchItem(in: batchInfos, for: maxBatch!, recordFetched: {
-			rec in
-            self.profilePicture = rec["profilePicture_small"] as? CKAsset
-            self.profilePictureLoaded?(nil)
-        })
+        // Optional values
+        self.approvedOn = record["approvedOn"] as? Date
     }
 }

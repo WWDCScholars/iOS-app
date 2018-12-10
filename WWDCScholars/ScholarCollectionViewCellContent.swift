@@ -16,13 +16,13 @@ internal final class ScholarCollectionViewCellContent: CellContent, VariableWidt
     internal let reuseIdentifier = "scholarCollectionViewCell"
     internal let height: CGFloat = 140.0
     internal let axisCellCount = 3
-    internal let scholar: BasicScholar
+    internal let scholar: Scholar
     internal let action: () -> Void
     internal let id: String?
     
     // MARK: - Lifecycle
     
-    internal init(id: String? = nil, scholar: BasicScholar, action: @escaping () -> Void) {
+    internal init(id: String? = nil, scholar: Scholar, action: @escaping () -> Void) {
         self.id = id
         self.scholar = scholar
         self.action = action

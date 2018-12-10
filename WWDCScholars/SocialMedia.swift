@@ -19,11 +19,11 @@ enum SocialMediaType: String{
 	case twitter
 }
 
-internal class SocialMedia: CloudKitInitializable {
+internal class SocialMedia {
     
     // MARK: - Internal Functions
     
-    internal var id: CKRecordID = CKRecordID(recordName: UUID.init().uuidString)
+    internal var id: UUID
     
     internal var imessage : String?
     internal var itunes : String?
@@ -33,8 +33,8 @@ internal class SocialMedia: CloudKitInitializable {
     internal var facebook : String?
     internal var twitter : String?
     
-    internal required init(record: CKRecord) {
-        id = record.recordID
+    internal required init(record: [String: Any]) {
+        id = record["id"] as! UUID
         imessage = record["imessage"] as! String?
         itunes = record["itunes"] as! String?
         website = record["website"] as! String?

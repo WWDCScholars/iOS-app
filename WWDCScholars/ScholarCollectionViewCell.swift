@@ -56,15 +56,15 @@ internal final class ScholarCollectionViewCell: UICollectionViewCell, Cell {
         
         self.imageView?.image = UIImage.loading
         self.imageView?.contentMode = .center
-		cellContent.scholar.profilePictureLoaded.append({
-			error in
-			guard error == nil else { return }
-			
-			DispatchQueue.main.async {
-                self.imageView?.image = cellContent.scholar.profilePicture?.image
-                self.imageView?.contentMode = .scaleAspectFill
-			}
-		})
-        cellContent.scholar.loadProfilePicture()
+//        cellContent.scholar.profilePictureLoaded.append({
+//            error in
+//            guard error == nil else { return }
+//            
+//            DispatchQueue.main.async {
+//                self.imageView?.image = cellContent.scholar.profilePicture?.image
+//                self.imageView?.contentMode = .scaleAspectFill
+//            }
+//        })
+//        cellContent.scholar.loadProfilePicture()
     }
 }

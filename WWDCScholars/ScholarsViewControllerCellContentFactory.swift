@@ -16,7 +16,7 @@ internal final class ScholarsViewControllerCellContentFactory {
     
     // MARK: - Internal Functions
     
-    internal static func batchSectionContent(from batchInfos: [BatchInfo], delegate: BatchCollectionViewCellContentDelegate) -> BatchSectionContent {
+    internal static func batchSectionContent(from batchInfos: [WWDCYear], delegate: BatchCollectionViewCellContentDelegate) -> BatchSectionContent {
         let sectionID = "Batches"
         let section = BatchSectionContent(id: sectionID)
         for batchInfo in batchInfos {
@@ -28,7 +28,7 @@ internal final class ScholarsViewControllerCellContentFactory {
     
     // MARK: - Private Functions
     
-    private static func batchCellContent(from batchInfo: BatchInfo, delegate: BatchCollectionViewCellContentDelegate) -> BatchCollectionViewCellContent {
+    private static func batchCellContent(from batchInfo: WWDCYear, delegate: BatchCollectionViewCellContentDelegate) -> BatchCollectionViewCellContent {
         let cellContent = BatchCollectionViewCellContent(batchInfo: batchInfo, action: { [unowned delegate] in
             delegate.update(for: batchInfo)
         })

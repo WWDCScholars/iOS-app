@@ -9,10 +9,10 @@
 import Foundation
 import CloudKit
 
-internal protocol CloudKitItem {
-    var id: CKRecordID { get }
-}
-
-internal protocol CloudKitInitializable: CloudKitItem {
-    init(record: CKRecord)
-}
+//internal protocol CloudKitItem {
+//    var id: CKRecordID { get }
+//}
+//
+//internal protocol CloudKitInitializable: CloudKitItem {
+//    init(record: CKRecord)
+//}

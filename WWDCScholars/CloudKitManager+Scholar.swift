@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-internal typealias ListScholarFetched = ((BasicScholar) -> Void)
+internal typealias ListScholarFetched = ((Scholar) -> Void)
 internal typealias BlogScholarFetched = ListScholarFetched
 internal typealias ScholarFetched = ((Scholar) -> Void)
 
@@ -17,7 +17,7 @@ internal extension CloudKitManager {
     
     // MARK: - Internal Functions
     
-    internal func loadScholarsForList(in batchInfo: BatchInfo, with status: Scholar.Status, cursor: CKQueryCursor? = nil, recordFetched: @escaping ListScholarFetched, completion: QueryCompletion) {
+    internal func loadScholarsForList(in batchInfo: WWDCYear, with status: Scholar.Status, cursor: CKQueryCursor? = nil, recordFetched: @escaping ListScholarFetched, completion: QueryCompletion) {
         let recordName = batchInfo.recordName
         let yearRef = CKReference(recordID: CKRecordID.init(recordName: recordName), action: .none)
         let predicate = NSPredicate(format: "status = '\(status.rawValue)' AND wwdcYears CONTAINS %@", yearRef)
@@ -31,8 +31,8 @@ internal extension CloudKitManager {
         operation.queryCompletionBlock = completion
         
         operation.recordFetchedBlock = { (record:CKRecord!) in
-            let smallScholar = BasicScholar(record: record)
-            recordFetched(smallScholar)
+//            let smallScholar = Scholar(record: record)
+//            recordFetched(smallScholar)
         }
         
         self.database.add(operation)
@@ -50,8 +50,8 @@ internal extension CloudKitManager {
         }
         
         operation.recordFetchedBlock = { (record:CKRecord!) in
-            let scholar = Scholar.init(record: record)
-            recordFetched(scholar)
+//            let scholar = Scholar.init(record: record)
+//            recordFetched(scholar)
         }
         
         self.database.add(operation)
@@ -69,8 +69,8 @@ internal extension CloudKitManager {
         operation.queryCompletionBlock = completion
         
         operation.recordFetchedBlock = { (record:CKRecord!) in
-            let smallScholar = BasicScholar(record: record)
-            recordFetched(smallScholar)
+//            let smallScholar = BasicScholar(record: record)
+//            recordFetched(smallScholar)
         }
         
         self.database.add(operation)

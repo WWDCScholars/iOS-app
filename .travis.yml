@@ -1,0 +1,12 @@
+language: swift
+osx_image: xcode10.1
+install:
+  - brew outdated carthage || brew upgrade carthage
+  - bundle install
+before_script:
+  - carthage bootstrap --platform iOS --no-use-binaries
+script:
+  - fastlane tests
+before_deploy:
+  - carthage build --no-skip-current
+  - carthage archive $FRAMEWORK_NAME

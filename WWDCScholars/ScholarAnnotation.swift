@@ -13,14 +13,14 @@ internal final class ScholarAnnotation: NSObject, MKAnnotation {
     
     // MARK: - Internal Properties
     
-    internal let scholar: BasicScholar
+    internal let scholar: Scholar
     internal let coordinate: CLLocationCoordinate2D
     
     weak internal var cluster: CKCluster?
     
     // MARK: - Lifecycle
     
-    internal init(scholar: BasicScholar) {
+    internal init(scholar: Scholar) {
         self.scholar = scholar
         self.coordinate = scholar.location.coordinate
     }

@@ -26,8 +26,8 @@ internal extension CloudKitManager {
         operation.queryCompletionBlock = completion
         
         operation.recordFetchedBlock = { (record:CKRecord!) in
-            let blogPost = BlogPost.init(record: record)
-            recordFetched(blogPost)
+//            let blogPost = BlogPost.init(record: record)
+//            recordFetched(blogPost)
         }
         
         self.database.add(operation)

@@ -21,7 +21,7 @@ internal final class BlogPostViewController: UIViewController {
     @IBOutlet private weak var webView: UIWebView?
     
     private let titleLabelHeightConstraintUpdateValue: CGFloat = 1.0
-    private var scholar: BasicScholar? = nil
+    private var scholar: Scholar? = nil
     
 //    private let titleLabelText = "Meeting Apple Executives"
     
@@ -45,15 +45,15 @@ internal final class BlogPostViewController: UIViewController {
         self.populateBodyContent()
         
         guard let author = self.blogPost.author else { return }
-        CloudKitManager.shared.loadScholarsForBlog(with: author.recordID, recordFetched: { scholar in
-            self.scholar = scholar
-            scholar.profilePictureLoaded.append({ err in
-                DispatchQueue.main.async {
-                    self.populateHeaderAuthorContent()
-                }
-            })
-            scholar.loadProfilePicture()
-        }, completion: nil)
+//        CloudKitManager.shared.loadScholarsForBlog(with: author.recordID, recordFetched: { scholar in
+//            self.scholar = scholar
+////            scholar.profilePictureLoaded.append({ err in
+////                DispatchQueue.main.async {
+////                    self.populateHeaderAuthorContent()
+////                }
+////            })
+////            scholar.loadProfilePicture()
+//        }, completion: nil)
     }
     
     internal override func viewDidLayoutSubviews() {
@@ -103,14 +103,14 @@ internal final class BlogPostViewController: UIViewController {
     // MARK: - Private Functions
     
     private func populateHeaderAuthorContent() {
-        self.authorButton?.setBackgroundImage(self.scholar?.profilePicture?.image, for: .normal)
+//        self.authorButton?.setBackgroundImage(self.scholar?.profilePicture?.image, for: .normal)
         self.authorLabel?.text = "by \(scholar?.firstName ?? "Guest")"
     }
     
     private func populateHeaderContent() {
         let authorButtonImage = UIImage(named: "profile")
         self.authorButton?.setBackgroundImage(authorButtonImage, for: .normal)
-        self.heroImageView?.image = self.blogPost.headerImage.image
+//        self.heroImageView?.image = self.blogPost.headerImage.image
         self.titleLabel?.text = self.blogPost?.title
     }
     

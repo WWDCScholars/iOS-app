@@ -24,11 +24,11 @@ internal final class ScholarsViewController: UIViewController {
     private var scholarsMapViewController: ScholarsMapViewController?
     private var scholarsListViewController: ScholarsListViewController?
     private var containerViewSwitchHelper: ContainerViewSwitchHelper?
-    private var batches: [BatchInfo] = [.wwdc2013, .wwdc2014, .wwdc2015, .wwdc2016, .wwdc2017, .wwdc2018, .saved]
+    private var batches: [WWDCYear] = [.wwdc2013, .wwdc2014, .wwdc2015, .wwdc2016, .wwdc2017, .wwdc2018, .saved]
     
     // MARK: - File Private Properties
     
-    fileprivate var scholars = [BasicScholar]()
+    fileprivate var scholars = [Scholar]()
     
     // MARK: - Internal Properties
     
@@ -72,7 +72,7 @@ internal final class ScholarsViewController: UIViewController {
         
         if segue.identifier == "ProfileViewController" {
             let scholarProfileViewController = segue.destination as? ProfileViewController
-            scholarProfileViewController?.scholarId = sender as? CKRecordID
+//            scholarProfileViewController?.scholarId = sender as? CKRecordID
             return
         }
     }
@@ -154,7 +154,7 @@ internal final class ScholarsViewController: UIViewController {
 extension ScholarsViewController: ScholarsViewControllerProxyDelegate {
 
     // MARK: - Internal Functions
-    internal func didLoad(basicScholar: BasicScholar) {
+    internal func didLoad(basicScholar: Scholar) {
 		scholars.append(basicScholar)
     }
     
@@ -167,7 +167,7 @@ extension ScholarsViewController: BatchCollectionViewCellContentDelegate {
     
     // MARK: - Internal Functions
     
-    internal func update(for batchInfo: BatchInfo) {
+    internal func update(for batchInfo: WWDCYear) {
 		self.scholars = []
         self.proxy?.loadListScholars(batchInfo: batchInfo)
     }

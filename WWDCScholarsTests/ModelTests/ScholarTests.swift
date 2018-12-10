@@ -24,6 +24,7 @@ class ScholarTests: XCTestCase {
         testData["email"] = "test@email.com"
         testData["firstName"] = "FNTest"
         testData["lastName"] = "LNTest"
+        testData["profilePictureUrl"] = URL.init(string: "https://wwdcscholars.com")
         testData["socialMedia"] = UUID.init(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E55")
         testData["yearInfo"] = [WWDCYear.wwdc2018: UUID.init(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E51")]
         testData["status"]  = Scholar.Status.pending
@@ -38,8 +39,8 @@ class ScholarTests: XCTestCase {
         let instance = Scholar.init(record: testData)
         XCTAssertNotNil(instance, "instance != nil")
         
-        XCTAssertEqual(instance?.id?.uuidString, "E621E1F8-C36C-495A-93FC-0C247A3E6E5F")
-        XCTAssertEqual(instance?.createdAt?.timeIntervalSince1970, 1544467154)
+        XCTAssertEqual(instance?.id.uuidString, "E621E1F8-C36C-495A-93FC-0C247A3E6E5F")
+        XCTAssertEqual(instance?.createdAt.timeIntervalSince1970, 1544467154)
         XCTAssertEqual(instance?.location.coordinate.latitude, 50.01774)
         XCTAssertEqual(instance?.location.coordinate.longitude, 30.24939)
         XCTAssertEqual(instance?.location.coordinate.longitude, 30.24939)

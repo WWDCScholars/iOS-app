@@ -35,6 +35,7 @@ internal class Scholar {
     
     /** The email address of the scholar */
     var email: String
+    
     /** The short biography of the scholar */
     var shortBio: String
     

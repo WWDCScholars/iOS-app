@@ -17,7 +17,8 @@ class ScholarTests: XCTestCase {
     override func setUp() {
         testData["id"] = UUID.init(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E5F")
         testData["creationDate"] = Date.init(timeIntervalSince1970: 1544467154)
-        testData["location"] = CLLocation.init(latitude: 50.01774, longitude: 30.24939)
+        testData["latitude"] = 50.01774
+        testData["longitude"] = 30.24939
         testData["shortBio"] = "Test bio"
         testData["gender"] = Gender.male
         testData["birthday"] = Date.init(timeIntervalSince1970: 1544467305)
@@ -41,9 +42,8 @@ class ScholarTests: XCTestCase {
         
         XCTAssertEqual(instance?.id.uuidString, "E621E1F8-C36C-495A-93FC-0C247A3E6E5F")
         XCTAssertEqual(instance?.createdAt.timeIntervalSince1970, 1544467154)
-        XCTAssertEqual(instance?.location.coordinate.latitude, 50.01774)
-        XCTAssertEqual(instance?.location.coordinate.longitude, 30.24939)
-        XCTAssertEqual(instance?.location.coordinate.longitude, 30.24939)
+        XCTAssertEqual(instance?.latitude, 50.01774)
+        XCTAssertEqual(instance?.longitude, 30.24939)
         XCTAssertEqual(instance?.shortBio, "Test bio")
         XCTAssertEqual(instance?.gender, Gender.male)
         XCTAssertEqual(instance?.birthday.timeIntervalSince1970, 1544467305)
@@ -71,5 +71,13 @@ class ScholarTests: XCTestCase {
         XCTAssertNotNil(instance, "instance != nil")
         
         XCTAssertEqual(instance?.fullName, "FNTest LNTest")
+    }
+    
+    func testLocation() {
+        let instance = Scholar.init(record: testData)
+        XCTAssertNotNil(instance, "instance != nil")
+        
+        XCTAssertEqual(instance?.location.coordinate.latitude, 50.01774)
+        XCTAssertEqual(instance?.location.coordinate.longitude, 30.24939)
     }
 }

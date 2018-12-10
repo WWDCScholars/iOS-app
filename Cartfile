@@ -1,2 +1,4 @@
-github "hulab/ClusterKit"
-github "HarshilShah/DeckTransition"
+github "HarshilShah/DeckTransition" ~> 2.1.0
+github "JohnEstropia/CoreStore" >= 5.0.0
+#github "hulab/ClusterKit" ~> 0.3.5
+

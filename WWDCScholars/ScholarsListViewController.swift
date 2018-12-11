@@ -52,6 +52,6 @@ extension ScholarsListViewController: ScholarCollectionViewCellContentDelegate {
     // MARK: - Internal Functions
     
     internal func presentProfile(for scholar: Scholar) {
-//        self.presentProfileViewController(scholarId: scholar.id)
+        self.presentProfileViewController(scholarId: scholar.id)
     }
 }

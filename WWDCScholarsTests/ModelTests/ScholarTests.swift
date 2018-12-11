@@ -17,6 +17,7 @@ class ScholarTests: XCTestCase {
     override func setUp() {
         testData["id"] = UUID.init(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E5F")
         testData["creationDate"] = Date.init(timeIntervalSince1970: 1544467154)
+        testData["modifyDate"] = Date.init(timeIntervalSince1970: 1544456154)
         testData["latitude"] = 50.01774
         testData["longitude"] = 30.24939
         testData["shortBio"] = "Test bio"
@@ -42,6 +43,7 @@ class ScholarTests: XCTestCase {
         
         XCTAssertEqual(instance?.id.uuidString, "E621E1F8-C36C-495A-93FC-0C247A3E6E5F")
         XCTAssertEqual(instance?.createdAt.timeIntervalSince1970, 1544467154)
+        XCTAssertEqual(instance?.updatedAt.timeIntervalSince1970, 1544456154)
         XCTAssertEqual(instance?.latitude, 50.01774)
         XCTAssertEqual(instance?.longitude, 30.24939)
         XCTAssertEqual(instance?.shortBio, "Test bio")

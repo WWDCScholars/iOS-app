@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import MapKit
 import DeckTransition
-import CloudKit
 import CoreLocation
 import SafariServices
 import MessageUI

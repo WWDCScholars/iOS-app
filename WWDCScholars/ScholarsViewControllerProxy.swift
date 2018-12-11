@@ -30,7 +30,7 @@ internal final class ScholarsViewControllerProxy {
     // MARK: - Internal Functions
     
     internal func loadListScholars(batchInfo: WWDCYear) {
-        CloudKitManager.shared.loadScholarsForList(in: batchInfo, with: .approved, recordFetched: self.basicScholarFetched) { (cursor, error) in
+        CloudKitManager.shared.loadScholars(for: batchInfo, with: .approved, recordFetched: self.basicScholarFetched) { (cursor, error) in
             guard error == nil else {
                 // Do something
                 return

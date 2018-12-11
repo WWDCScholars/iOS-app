@@ -458,6 +458,7 @@
 		6E3C554B1EA032DD008F9AC9 /* WWDCScholars */ = {
 			isa = PBXGroup;
 			children = (
+				7B9509D821BFAA41005E5711 /* CloudKit */,
 				7BD91F9C1ED33B3E00439718 /* WWDCScholars.entitlements */,
 				6E3C554C1EA032DD008F9AC9 /* AppDelegate.swift */,
 				6EB77E301ECE3B7300E6E263 /* Managers */,
@@ -972,7 +973,7 @@
 			path = ModelTests;
 			sourceTree = "<group>";
 		};
-		7BB4F8061EDCAFEB00B0EE7A /* CloudKit */ = {
+		7B9509D821BFAA41005E5711 /* CloudKit */ = {
 			isa = PBXGroup;
 			children = (
 				7BD91F9A1ED333F400439718 /* CloudKitManager.swift */,
@@ -981,6 +982,13 @@
 				7BB4F80B1EDCB03000B0EE7A /* CloudKitManager+Batch.swift */,
 				7B8DDF281EE2AAD7002D2A9A /* CloudKitManager+SocialMedia.swift */,
 				7B8DDF2C1EE2B265002D2A9A /* CloudKitManager+Blog.swift */,
+			);
+			path = CloudKit;
+			sourceTree = "<group>";
+		};
+		7BB4F8061EDCAFEB00B0EE7A /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			name = CloudKit;
 			sourceTree = "<group>";

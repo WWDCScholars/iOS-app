@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import CloudKit.CKRecordID
 
 internal final class ScholarsViewController: UIViewController {
     

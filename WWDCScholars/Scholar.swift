@@ -54,6 +54,9 @@ internal class Scholar {
     /** The date when the Scholar got created */
     var createdAt: Date
     
+    /** The date when the Scholar got created */
+    var updatedAt: Date
+    
     /** The url to the scholar profile picture of this scholar */
     var profilePictureUrl: URL
     
@@ -69,6 +72,7 @@ internal class Scholar {
         guard
             let id                = record["id"] as? UUID,
             let creationDate      = record["creationDate"] as? Date,
+            let updatedAt         = record["modifyDate"] as? Date,
             let latitude          = record["latitude"] as? Double,
             let longitude         = record["longitude"] as? Double,
             let shortBio          = record["shortBio"] as? String,
@@ -99,6 +103,7 @@ internal class Scholar {
         self.status = status
         self.profilePictureUrl = profilePictureUrl
         self.createdAt = creationDate
+        self.updatedAt  = updatedAt
         
         // Optional values
         self.approvedOn = record["approvedOn"] as? Date

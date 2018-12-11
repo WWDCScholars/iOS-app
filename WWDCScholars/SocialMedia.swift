@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CloudKit
 
 enum SocialMediaType: String{
 	case imessage

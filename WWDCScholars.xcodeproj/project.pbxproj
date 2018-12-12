@@ -14,6 +14,8 @@
 		22768E011EC0D8070083DDBE /* APLPositionToBoundsMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768E001EC0D8070083DDBE /* APLPositionToBoundsMapping.swift */; };
 		22879B301EC11FCC00B43BF4 /* IntroThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22879B2F1EC11FCC00B43BF4 /* IntroThirdViewController.swift */; };
 		22879B321EC1220700B43BF4 /* IntroFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22879B311EC1220700B43BF4 /* IntroFourthViewController.swift */; };
+		22E852C621C1BF6000DEC873 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E852C521C1BF6000DEC873 /* Stickers.xcassets */; };
+		22E852CA21C1BF6000DEC873 /* WWDCScholars Sticker Pack.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 22E852C321C1BF5E00DEC873 /* WWDCScholars Sticker Pack.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6E032F5E1EC7AE8000410B7C /* ScholarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E032F5D1EC7AE8000410B7C /* ScholarCollectionViewCell.swift */; };
 		6E032F601EC7AE9500410B7C /* ScholarCollectionViewCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E032F5F1EC7AE9500410B7C /* ScholarCollectionViewCellContent.swift */; };
 		6E032F641EC92B1C00410B7C /* BatchSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E032F631EC92B1C00410B7C /* BatchSectionContent.swift */; };
@@ -146,6 +148,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		22E852C821C1BF6000DEC873 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E3C55411EA032DD008F9AC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22E852C221C1BF5E00DEC873;
+			remoteInfo = "WWDCScholars Sticker Pack";
+		};
 		7B4D74FD21BE6C58002F6242 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6E3C55411EA032DD008F9AC9 /* Project object */;
@@ -155,6 +164,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		22E852CE21C1BF6000DEC873 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				22E852CA21C1BF6000DEC873 /* WWDCScholars Sticker Pack.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2252FA7C1EDD8812003C55DE /* Blog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Blog.storyboard; sourceTree = "<group>"; };
 		22768DEE1EC0BAC50083DDBE /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
@@ -163,6 +186,9 @@
 		22768E001EC0D8070083DDBE /* APLPositionToBoundsMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APLPositionToBoundsMapping.swift; sourceTree = "<group>"; };
 		22879B2F1EC11FCC00B43BF4 /* IntroThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroThirdViewController.swift; sourceTree = "<group>"; };
 		22879B311EC1220700B43BF4 /* IntroFourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroFourthViewController.swift; sourceTree = "<group>"; };
+		22E852C321C1BF5E00DEC873 /* WWDCScholars Sticker Pack.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WWDCScholars Sticker Pack.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22E852C521C1BF6000DEC873 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
+		22E852C721C1BF6000DEC873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E032F5D1EC7AE8000410B7C /* ScholarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E032F5F1EC7AE9500410B7C /* ScholarCollectionViewCellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarCollectionViewCellContent.swift; sourceTree = "<group>"; };
 		6E032F631EC92B1C00410B7C /* BatchSectionContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchSectionContent.swift; sourceTree = "<group>"; };
@@ -334,6 +360,15 @@
 			name = Intro;
 			sourceTree = "<group>";
 		};
+		22E852C421C1BF5E00DEC873 /* WWDCScholars Sticker Pack */ = {
+			isa = PBXGroup;
+			children = (
+				22E852C521C1BF6000DEC873 /* Stickers.xcassets */,
+				22E852C721C1BF6000DEC873 /* Info.plist */,
+			);
+			path = "WWDCScholars Sticker Pack";
+			sourceTree = "<group>";
+		};
 		6E032F5C1EC7AE6C00410B7C /* ScholarCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				7B4D74F921BE6C58002F6242 /* WWDCScholarsTests */,
+				22E852C421C1BF5E00DEC873 /* WWDCScholars Sticker Pack */,
 				6ED441C71ED08BB40035BD31 /* Frameworks */,
 				6E3C554B1EA032DD008F9AC9 /* WWDCScholars */,
 				6E3C554A1EA032DD008F9AC9 /* Products */,
@@ -449,6 +485,7 @@
 			children = (
 				6E3C55491EA032DD008F9AC9 /* WWDCScholars.app */,
 				7B4D74F821BE6C58002F6242 /* WWDCScholarsTests.xctest */,
+				22E852C321C1BF5E00DEC873 /* WWDCScholars Sticker Pack.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -985,6 +1022,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		22E852C221C1BF5E00DEC873 /* WWDCScholars Sticker Pack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22E852CD21C1BF6000DEC873 /* Build configuration list for PBXNativeTarget "WWDCScholars Sticker Pack" */;
+			buildPhases = (
+				22E852C121C1BF5E00DEC873 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WWDCScholars Sticker Pack";
+			productName = "WWDCScholars Sticker Pack";
+			productReference = 22E852C321C1BF5E00DEC873 /* WWDCScholars Sticker Pack.appex */;
+			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
+		};
 		6E3C55481EA032DD008F9AC9 /* WWDCScholars */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E3C555B1EA032DD008F9AC9 /* Build configuration list for PBXNativeTarget "WWDCScholars" */;
@@ -994,10 +1046,12 @@
 				6E3C55471EA032DD008F9AC9 /* Resources */,
 				7BD91F871ED2151D00439718 /* ShellScript */,
 				7B61B6D320C14DE5002A8B11 /* ShellScript */,
+				22E852CE21C1BF6000DEC873 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				22E852C921C1BF6000DEC873 /* PBXTargetDependency */,
 			);
 			name = WWDCScholars;
 			productName = WWDCScholars;
@@ -1032,6 +1086,11 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = WWDCScholars;
 				TargetAttributes = {
+					22E852C221C1BF5E00DEC873 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = YQ3FQN6Z53;
+						ProvisioningStyle = Automatic;
+					};
 					6E3C55481EA032DD008F9AC9 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = YQ3FQN6Z53;
@@ -1068,11 +1127,20 @@
 			targets = (
 				6E3C55481EA032DD008F9AC9 /* WWDCScholars */,
 				7B4D74F721BE6C58002F6242 /* WWDCScholarsTests */,
+				22E852C221C1BF5E00DEC873 /* WWDCScholars Sticker Pack */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		22E852C121C1BF5E00DEC873 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22E852C621C1BF6000DEC873 /* Stickers.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6E3C55471EA032DD008F9AC9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1268,6 +1336,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		22E852C921C1BF6000DEC873 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22E852C221C1BF5E00DEC873 /* WWDCScholars Sticker Pack */;
+			targetProxy = 22E852C821C1BF6000DEC873 /* PBXContainerItemProxy */;
+		};
 		7B4D74FE21BE6C58002F6242 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6E3C55481EA032DD008F9AC9 /* WWDCScholars */;
@@ -1319,6 +1392,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		22E852CB21C1BF6000DEC873 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YQ3FQN6Z53;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "WWDCScholars Sticker Pack/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015.WWDCScholars-Sticker-Pack";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		22E852CC21C1BF6000DEC873 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YQ3FQN6Z53;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "WWDCScholars Sticker Pack/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015.WWDCScholars-Sticker-Pack";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		6E3C55591EA032DD008F9AC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1431,6 +1549,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = YQ3FQN6Z53;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1452,6 +1571,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = YQ3FQN6Z53;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1520,6 +1640,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		22E852CD21C1BF6000DEC873 /* Build configuration list for PBXNativeTarget "WWDCScholars Sticker Pack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22E852CB21C1BF6000DEC873 /* Debug */,
+				22E852CC21C1BF6000DEC873 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6E3C55441EA032DD008F9AC9 /* Build configuration list for PBXProject "WWDCScholars" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

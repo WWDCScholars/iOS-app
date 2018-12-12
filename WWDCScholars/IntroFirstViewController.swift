@@ -12,6 +12,9 @@ internal class IntroFirstViewController: UIViewController {
 
     @IBOutlet var backgroundImageView: UIImageView!
     @IBOutlet var headerLabel: UILabel!
+    
+    
+    @IBOutlet var skipButton: UIButton!
     @IBOutlet var getStartedButton: UIButton!
     
     
@@ -82,6 +85,11 @@ internal class IntroFirstViewController: UIViewController {
     
     @IBAction func getStartedButtonAction(_ sender: Any) {
     }
+    
+    @IBAction func skipButtonAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     @IBAction func unwindToFirst(segue: UIStoryboardSegue) {}
 }

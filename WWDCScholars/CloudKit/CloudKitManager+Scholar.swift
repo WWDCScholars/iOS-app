@@ -16,40 +16,40 @@ internal extension CloudKitManager {
     
     // MARK: - Internal Functions
     
-    internal func loadScholars(`for` batch: WWDCYear, with status: Scholar.Status, recordFetched: @escaping ScholarFetched, completion: QueryCompletion) {
-        let recordName = batch.recordName
-        let yearRef = CKRecord.Reference(recordID: CKRecord.ID.init(recordName: recordName), action: .none)
-        let predicate = NSPredicate(format: "status = '\(status.rawValue)' AND wwdcYears CONTAINS %@", yearRef)
-        let query = CKQuery(recordType: "Scholar", predicate: predicate)
-        let operation = CKQueryOperation(query: query)
-//        operation.desiredKeys = ["gender", "location", "firstName", "status", "wwdcYearInfos", "shortBio", "birthday", "email", "lastName", "socialMedia", "wwdcYears"]
-        operation.desiredKeys = ["socialMedia", "lastName", "firstName", "wwdcYears", "shortBio", "approvedOn", "location", "birthday", "wwdcYearInfos", "email", "gender", "status", "profilePictureUrl"]
-//        operation.resultsLimit = 1
-        operation.qualityOfService = .userInteractive
-        
-        operation.queryCompletionBlock = completion
-        
-        operation.recordFetchedBlock = { (record:CKRecord!) in
-            self.convertScholarRecord(record) { data in
-                guard let data = data else {
-                    print("loadScholars - Scholar data of \(record.recordID.recordName) is not complete")
-                    return
-                }
-                
-                guard let scholar = Scholar(record: data) else {
-                    print("loadScholars - Scholar could not be created")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    recordFetched(scholar)
-                }
-//                recordFetched(scholar)
-            }
-        }
-        
-        self.database.add(operation)
-    }
+//    internal func loadScholars(`for` batch: WWDCYear, with status: Scholar.Status, recordFetched: @escaping ScholarFetched, completion: QueryCompletion) {
+//        let recordName = batch.recordName
+//        let yearRef = CKRecord.Reference(recordID: CKRecord.ID.init(recordName: recordName), action: .none)
+//        let predicate = NSPredicate(format: "status = '\(status.rawValue)' AND wwdcYears CONTAINS %@", yearRef)
+//        let query = CKQuery(recordType: "Scholar", predicate: predicate)
+//        let operation = CKQueryOperation(query: query)
+////        operation.desiredKeys = ["gender", "location", "firstName", "status", "wwdcYearInfos", "shortBio", "birthday", "email", "lastName", "socialMedia", "wwdcYears"]
+//        operation.desiredKeys = ["socialMedia", "lastName", "firstName", "wwdcYears", "shortBio", "approvedOn", "location", "birthday", "wwdcYearInfos", "email", "gender", "status", "profilePictureUrl"]
+////        operation.resultsLimit = 1
+//        operation.qualityOfService = .userInteractive
+//
+//        operation.queryCompletionBlock = completion
+//
+//        operation.recordFetchedBlock = { (record:CKRecord!) in
+//            self.convertScholarRecord(record) { data in
+//                guard let data = data else {
+//                    print("loadScholars - Scholar data of \(record.recordID.recordName) is not complete")
+//                    return
+//                }
+//
+//                guard let scholar = Scholar(record: data) else {
+//                    print("loadScholars - Scholar could not be created")
+//                    return
+//                }
+//
+//                DispatchQueue.main.async {
+//                    recordFetched(scholar)
+//                }
+////                recordFetched(scholar)
+//            }
+//        }
+//
+//        self.database.add(operation)
+//    }
     
     internal func convertScholarRecord(_ record: CKRecord, completion: @escaping ([String: Any]?) -> ()) {
         var testData: [String: Any] = [:]

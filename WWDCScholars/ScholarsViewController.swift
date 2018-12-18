@@ -157,6 +157,10 @@ extension ScholarsViewController: ScholarsViewControllerProxyDelegate {
 		scholars.append(basicScholar)
     }
     
+    internal func didLoad(scholars: [Scholar]) {
+        self.scholars = scholars
+    }
+    
     internal func didLoadBatch() {
         self.updateContainerViewsContent()
     }

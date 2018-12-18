@@ -11,7 +11,7 @@ import Foundation
 /**
  Model which represents a scholar in the app
  */
-internal class Scholar {
+internal struct Scholar {
     /** The unique id of the scholar */
     var id: UUID
 	
@@ -64,48 +64,50 @@ internal class Scholar {
     var fullName: String {
         return "\(firstName) \(lastName)"
     }
+}
+
+extension Scholar {
+        /// Constructor to get an instance of a scholar using a dictionary with data
+        ///
+        /// - Parameter record: A dictionary containing the information of the scholar
+        init?(record: [String: Any]) {
+            guard
+                let id                = record["id"] as? UUID,
+                let creationDate      = record["creationDate"] as? Date,
+                let updatedAt         = record["modifyDate"] as? Date,
+                let latitude          = record["latitude"] as? Double,
+                let longitude         = record["longitude"] as? Double,
+                let shortBio          = record["shortBio"] as? String,
+                let gender            = record["gender"] as? Gender,
+                let birthday          = record["birthday"] as? Date,
+                let email             = record["email"] as? String,
+                let firstName         = record["firstName"] as? String,
+                let lastName          = record["lastName"] as? String,
+                let profilePictureUrl = record["profilePictureUrl"] as? URL,
+                let socialMedia       = record["socialMedia"] as? UUID,
+                let yearInfo          = record["yearInfo"] as? [WWDCYear : UUID],
+                let status            = record["status"] as? Status else {
+                    return nil
+            }
     
-    /// Constructor to get an instance of a scholar using a dictionary with data
-    ///
-    /// - Parameter record: A dictionary containing the information of the scholar
-    init?(record: [String: Any]) {
-        guard
-            let id                = record["id"] as? UUID,
-            let creationDate      = record["creationDate"] as? Date,
-            let updatedAt         = record["modifyDate"] as? Date,
-            let latitude          = record["latitude"] as? Double,
-            let longitude         = record["longitude"] as? Double,
-            let shortBio          = record["shortBio"] as? String,
-            let gender            = record["gender"] as? Gender,
-            let birthday          = record["birthday"] as? Date,
-            let email             = record["email"] as? String,
-            let firstName         = record["firstName"] as? String,
-            let lastName          = record["lastName"] as? String,
-            let profilePictureUrl = record["profilePictureUrl"] as? URL,
-            let socialMedia       = record["socialMedia"] as? UUID,
-            let yearInfo          = record["yearInfo"] as? [WWDCYear : UUID],
-            let status            = record["status"] as? Status else {
-                return nil
+            // Non-optional variables
+            self.id = id
+            self.firstName = firstName
+            self.lastName = lastName
+            self.gender = gender
+            self.birthday = birthday
+            self.latitude = latitude
+            self.longitude = longitude
+            self.email = email
+            self.socialMediaId = socialMedia
+            self.shortBio = shortBio
+            self.yearInfo = yearInfo
+            self.status = status
+            self.profilePictureUrl = profilePictureUrl
+            self.createdAt = creationDate
+            self.updatedAt  = updatedAt
+    
+            // Optional values
+            self.approvedOn = record["approvedOn"] as? Date
         }
-        
-        // Non-optional variables
-        self.id = id
-        self.firstName = firstName
-        self.lastName = lastName
-        self.gender = gender
-        self.birthday = birthday
-        self.latitude = latitude
-        self.longitude = longitude
-        self.email = email
-        self.socialMediaId = socialMedia
-        self.shortBio = shortBio
-        self.yearInfo = yearInfo
-        self.status = status
-        self.profilePictureUrl = profilePictureUrl
-        self.createdAt = creationDate
-        self.updatedAt  = updatedAt
-        
-        // Optional values
-        self.approvedOn = record["approvedOn"] as? Date
-    }
 }

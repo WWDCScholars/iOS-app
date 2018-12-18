@@ -9,8 +9,6 @@
 import Foundation
 
 protocol ScholarDataController {
-    associatedtype Iterator: ScholarIterator
-
     /// Returns all scholars for a given year with a given status
     ///
     /// - Parameters:
@@ -53,8 +51,6 @@ protocol ScholarDataController {
     ///
     /// - Parameter scholar: Scholar to update
     func update(_ scholar: Scholar)
-    
-    func iterator(for year: WWDCYear) -> Iterator
 }
 
 protocol ScholarIterator: IteratorProtocol where Element == Scholar {

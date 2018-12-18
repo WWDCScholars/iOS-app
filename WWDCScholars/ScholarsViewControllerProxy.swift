@@ -12,6 +12,9 @@ internal protocol ScholarsViewControllerProxyDelegate: class {
     var proxy: ScholarsViewControllerProxy? { get set }
     
     func didLoad(basicScholar: Scholar)
+    
+    func didLoad(scholars: [Scholar])
+
     func didLoadBatch()
 }
 
@@ -30,15 +33,9 @@ internal final class ScholarsViewControllerProxy {
     // MARK: - Internal Functions
     
     internal func loadListScholars(batchInfo: WWDCYear) {
-        CloudKitManager.shared.loadScholars(for: batchInfo, with: .approved, recordFetched: self.basicScholarFetched) { (cursor, error) in
-            guard error == nil else {
-                // Do something
-                return
-            }
-            DispatchQueue.main.async {
-                self.delegate?.didLoadBatch()
-            }
-        }
+        let scholars = CKDataController.shared.scholars(for: batchInfo, with: .approved)
+        self.delegate?.didLoad(scholars: scholars)
+        self.delegate?.didLoadBatch()
     }
     
     private func basicScholarFetched(basicScholar: Scholar) {

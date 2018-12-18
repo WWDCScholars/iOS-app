@@ -37,17 +37,8 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
             }())
             
             $0.imageCache = ImageCache()
-            
-            #if swift(>=4.2)
+
             $0.dataCache = try! DataCache(name: "com.wwdcscholars.profilepictures.DataCache")
-//            #else
-//            $0.dataCache = try! DataCache(
-//                name: "com.github.kean.Nuke.DataCache",
-//                filenameGenerator: {
-//                    guard let data = $0.cString(using: .utf8) else { return nil }
-//                    return _nuke_sha1(data, UInt32(data.count))
-//            })
-            #endif
         }
         
         if let shortcutItem = launchOptions?[.shortcutItem] as? UIApplicationShortcutItem {

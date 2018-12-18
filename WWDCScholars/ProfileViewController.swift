@@ -131,38 +131,20 @@ internal final class ProfileViewController: UIViewController {
                 self.populateBasicInfoContent()
                 self.populateBioContent()
                 self.configureMapView()
+                
                 Nuke.loadImage(with: self.scholar!.profilePictureUrl, into: self.profilePictureImageView!)
+                
                 self.profilePictureImageView?.contentMode = .scaleAspectFill
             }
         }
-//        CloudKitManager.shared.loadScholar(with: scholarId!, recordFetched: { scholar in
-////            scholar.profilePictureLoaded = { err in
-////                DispatchQueue.main.async {
-////                    self.profilePictureImageView?.image = scholar.profilePicture?.image
-////                    self.profilePictureImageView?.contentMode = .scaleAspectFill
-////                }
-//////                self.populateHeaderContent()
-////            }
-//            self.scholar = scholar
-//            
-//            DispatchQueue.main.async {
-//                self.populateHeaderContent()
-//                self.populateBasicInfoContent()
-//                self.populateBioContent()
-//                self.configureMapView()
-//            }
-//            
+
 ////            CloudKitManager.shared.loadSocialMedia(with: scholar.socialMediaRef.recordID, recordFetched: { socialMedia in
 ////                self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(socialMedia: socialMedia)
 ////                DispatchQueue.main.async {
 ////                    self.populateSocialAccountsContent()
 ////                }
 ////            }, completion: nil)
-//            
-//        }, completion: { _, err in
-//            //todo: show load error
-//            print ("\(err.debugDescription)")
-//        })
+
     }
     
     private func configureMapView() {
@@ -170,7 +152,8 @@ internal final class ProfileViewController: UIViewController {
             return
         }
         
-        self.mapView?.setCenter(scholar.location.coordinate, animated: true)
+        self.mapView?.setCenter(scholar.location.coordinate, animated: false)
+
     }
     
     private func populateHeaderContent() {

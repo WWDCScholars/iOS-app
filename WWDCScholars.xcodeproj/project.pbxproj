@@ -111,6 +111,8 @@
 		6EE99A0E1EC52C9200F13809 /* ScholarsViewControllerCellContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE99A0D1EC52C9200F13809 /* ScholarsViewControllerCellContentFactory.swift */; };
 		6EE99A171EC52E2F00F13809 /* BasicSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE99A161EC52E2F00F13809 /* BasicSectionContent.swift */; };
 		6EF533911ED63F8E000157E5 /* ActivityFilterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF533901ED63F8E000157E5 /* ActivityFilterFactory.swift */; };
+		7B0B93AF21C919F90038C617 /* ScholarDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B93AE21C919F90038C617 /* ScholarDataController.swift */; };
+		7B0B93B121C91EB60038C617 /* CKDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B93B021C91EB60038C617 /* CKDataController.swift */; };
 		7B1D56921EDF3E3300C98B14 /* ScholarsViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1D56911EDF3E3300C98B14 /* ScholarsViewControllerProxy.swift */; };
 		7B2D142B1ED6E4350039C870 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F9D1ED33B4100439718 /* CloudKit.framework */; };
 		7B4D74FB21BE6C58002F6242 /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D74FA21BE6C58002F6242 /* WWDCScholarsTests.swift */; };
@@ -265,6 +267,8 @@
 		6EE99A0D1EC52C9200F13809 /* ScholarsViewControllerCellContentFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsViewControllerCellContentFactory.swift; sourceTree = "<group>"; };
 		6EE99A161EC52E2F00F13809 /* BasicSectionContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSectionContent.swift; sourceTree = "<group>"; };
 		6EF533901ED63F8E000157E5 /* ActivityFilterFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityFilterFactory.swift; sourceTree = "<group>"; };
+		7B0B93AE21C919F90038C617 /* ScholarDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarDataController.swift; sourceTree = "<group>"; };
+		7B0B93B021C91EB60038C617 /* CKDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKDataController.swift; sourceTree = "<group>"; };
 		7B1D56911EDF3E3300C98B14 /* ScholarsViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsViewControllerProxy.swift; sourceTree = "<group>"; };
 		7B4D74F821BE6C58002F6242 /* WWDCScholarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B4D74FA21BE6C58002F6242 /* WWDCScholarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsTests.swift; sourceTree = "<group>"; };
@@ -932,6 +936,8 @@
 			isa = PBXGroup;
 			children = (
 				6EE999D81EC5098A00F13809 /* ContentController */,
+				7B0B93AE21C919F90038C617 /* ScholarDataController.swift */,
+				7B0B93B021C91EB60038C617 /* CKDataController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1231,12 +1237,14 @@
 				6EE999F21EC509B600F13809 /* SelectableMultipleCellContent.swift in Sources */,
 				6E4806211EA14FA700213835 /* UIStatusBar.swift in Sources */,
 				7B8DDF231EE278E5002D2A9A /* Date+Age.swift in Sources */,
+				7B0B93B121C91EB60038C617 /* CKDataController.swift in Sources */,
 				6E48061C1EA14EC500213835 /* ActivityViewController.swift in Sources */,
 				6E3C55661EA03DFE008F9AC9 /* UIColor+Style.swift in Sources */,
 				7BD91FA11ED35EDA00439718 /* CloudKitManager.swift in Sources */,
 				7B1D56921EDF3E3300C98B14 /* ScholarsViewControllerProxy.swift in Sources */,
 				6EE999F61EC509B600F13809 /* TableViewContentController.swift in Sources */,
 				6E3C55681EA042F3008F9AC9 /* UINavigationBar+Style.swift in Sources */,
+				7B0B93AF21C919F90038C617 /* ScholarDataController.swift in Sources */,
 				7BB4F8101EDCB36500B0EE7A /* Sync.swift in Sources */,
 				6ECF5BEB1ED8CB000024CC9A /* UIViewController+Present.swift in Sources */,
 				6E032F661EC92B5300410B7C /* ScholarSectionContent.swift in Sources */,

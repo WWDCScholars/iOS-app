@@ -123,6 +123,9 @@
 		7B8DDF2D1EE2B265002D2A9A /* CloudKitManager+Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF2C1EE2B265002D2A9A /* CloudKitManager+Blog.swift */; };
 		7B9509D421BEE97A005E5711 /* ScholarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9509D321BEE97A005E5711 /* ScholarTests.swift */; };
 		7B9509D721BF06DE005E5711 /* WWDCScholars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B9509D521BF06DE005E5711 /* WWDCScholars.xcdatamodeld */; };
+		7B9509DA21BFC2E6005E5711 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9509D921BFC2E6005E5711 /* Nuke.framework */; };
+		7B9509DC21BFC316005E5711 /* CoreStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9509DB21BFC316005E5711 /* CoreStore.framework */; };
+		7B9509DE21BFD40A005E5711 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9509DD21BFD409005E5711 /* Alamofire.framework */; };
 		7BB4F7FB1EDC9E9000B0EE7A /* Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FA1EDC9E9000B0EE7A /* Batch.swift */; };
 		7BB4F7FD1EDC9F5C00B0EE7A /* CloudKitInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */; };
 		7BB4F7FF1EDCA02700B0EE7A /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FE1EDCA02700B0EE7A /* Gender.swift */; };
@@ -275,6 +278,9 @@
 		7B8DDF2C1EE2B265002D2A9A /* CloudKitManager+Blog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CloudKitManager+Blog.swift"; sourceTree = "<group>"; };
 		7B9509D321BEE97A005E5711 /* ScholarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarTests.swift; sourceTree = "<group>"; };
 		7B9509D621BF06DE005E5711 /* WWDCScholars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WWDCScholars.xcdatamodel; sourceTree = "<group>"; };
+		7B9509D921BFC2E6005E5711 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
+		7B9509DB21BFC316005E5711 /* CoreStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreStore.framework; path = Carthage/Build/iOS/CoreStore.framework; sourceTree = "<group>"; };
+		7B9509DD21BFD409005E5711 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		7BB4F7FA1EDC9E9000B0EE7A /* Batch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Batch.swift; sourceTree = "<group>"; };
 		7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitInitializable.swift; sourceTree = "<group>"; };
 		7BB4F7FE1EDCA02700B0EE7A /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
@@ -306,6 +312,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B9509DE21BFD40A005E5711 /* Alamofire.framework in Frameworks */,
+				7B9509DC21BFC316005E5711 /* CoreStore.framework in Frameworks */,
+				7B9509DA21BFC2E6005E5711 /* Nuke.framework in Frameworks */,
 				7B78F4F721BDCBB600E16FFD /* ClusterKit.framework in Frameworks */,
 				7B2D142B1ED6E4350039C870 /* CloudKit.framework in Frameworks */,
 				7BD91F911ED2158600439718 /* TwitterCore.framework in Frameworks */,
@@ -746,6 +755,9 @@
 		6ED441C71ED08BB40035BD31 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B9509DD21BFD409005E5711 /* Alamofire.framework */,
+				7B9509DB21BFC316005E5711 /* CoreStore.framework */,
+				7B9509D921BFC2E6005E5711 /* Nuke.framework */,
 				7B78F4F621BDCBB600E16FFD /* ClusterKit.framework */,
 				7BD91F951ED3135100439718 /* DeckTransition.framework */,
 				7BD91F9D1ED33B4100439718 /* CloudKit.framework */,
@@ -1121,12 +1133,15 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/ClusterKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/DeckTransition.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CoreStore.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		7BD91F871ED2151D00439718 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1139,7 +1154,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run d870990c31d5e6607e80fc418397610c59340eec e90d6681747a8d65aebd5a8df4fd264459fbd5e3d9d33deee5deb3c49f3f9b2f";
+			shellScript = "./Fabric.framework/run d870990c31d5e6607e80fc418397610c59340eec e90d6681747a8d65aebd5a8df4fd264459fbd5e3d9d33deee5deb3c49f3f9b2f\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

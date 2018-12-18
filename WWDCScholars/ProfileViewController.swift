@@ -174,9 +174,9 @@ internal final class ProfileViewController: UIViewController {
             var placeMark: CLPlacemark!
             placeMark = placemarks?[0]
             
-            let city = placeMark.addressDictionary?["City"] as? String ?? ""
+            let city = placeMark.locality ?? ""
             
-            let country = placeMark.addressDictionary?["Country"] as? String ?? ""
+            let country = placeMark.country as? String ?? ""
             
             DispatchQueue.main.async {
                 self.locationLabel?.text = "\(city), \(country)"

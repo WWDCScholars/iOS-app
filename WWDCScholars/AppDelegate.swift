@@ -10,6 +10,7 @@ import UIKit
 import Fabric
 import TwitterKit
 import Crashlytics
+import Nuke
 
 @UIApplicationMain
 internal final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,28 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
         UIStatusBar.applyScholarsLightStyle()
         UINavigationBar.applyScholarsStyle()
         UITabBar.applyScholarsStyle()
+        
+        ImagePipeline {
+            $0.dataLoader = DataLoader(configuration: {
+                // Disable disk caching built into URLSession
+                let conf = DataLoader.defaultConfiguration
+                conf.urlCache = nil
+                return conf
+            }())
+            
+            $0.imageCache = ImageCache()
+            
+            #if swift(>=4.2)
+            $0.dataCache = try! DataCache(name: "com.github.kean.Nuke.DataCache")
+//            #else
+//            $0.dataCache = try! DataCache(
+//                name: "com.github.kean.Nuke.DataCache",
+//                filenameGenerator: {
+//                    guard let data = $0.cString(using: .utf8) else { return nil }
+//                    return _nuke_sha1(data, UInt32(data.count))
+//            })
+            #endif
+        }
         
         if let shortcutItem = launchOptions?[.shortcutItem] as? UIApplicationShortcutItem {
             let success = self.handle(shortcutItem: shortcutItem)

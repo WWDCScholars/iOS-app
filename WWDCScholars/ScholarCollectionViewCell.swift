@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Nuke
 
 internal final class ScholarCollectionViewCell: UICollectionViewCell, Cell {
     
@@ -56,6 +57,7 @@ internal final class ScholarCollectionViewCell: UICollectionViewCell, Cell {
         
         self.imageView?.image = UIImage.loading
         self.imageView?.contentMode = .center
+        Nuke.loadImage(with: cellContent.scholar.profilePictureUrl, into: self.imageView!)
 //        cellContent.scholar.profilePictureLoaded.append({
 //            error in
 //            guard error == nil else { return }

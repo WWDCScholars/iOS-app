@@ -108,9 +108,7 @@ internal final class ScholarsViewController: UIViewController {
     
     internal func checkForIntroSeenYet(){
         let userDefaults = UserDefaults.standard
-        if userDefaults.bool(forKey: "userHasSeen2018Intro") == true{
-            
-        }else{
+        if userDefaults.bool(forKey: "userHasSeen2018Intro") == false {
             userDefaults.set(true, forKey: "userHasSeen2018Intro")
             showIntro()
         }

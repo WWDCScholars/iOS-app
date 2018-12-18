@@ -66,6 +66,8 @@ class CKDataController: ScholarDataController {
             
             if let cursor = cursor {
                 let operation = CKQueryOperation(cursor: cursor)
+                operation.desiredKeys = ["socialMedia", "lastName", "firstName", "wwdcYears", "shortBio", "approvedOn", "location", "birthday", "wwdcYearInfos", "email", "gender", "status", "profilePictureUrl"]
+                operation.qualityOfService = .userInteractive
                 operation.recordFetchedBlock = self.scholarFetched
                 operation.queryCompletionBlock = self.queryCompleted
                 self.container.publicCloudDatabase.add(operation)
@@ -85,7 +87,41 @@ class CKDataController: ScholarDataController {
     }
     
     func scholar(for id: UUID) -> Scholar? {
-        return nil
+        var loadedScholar: Scholar? = nil
+        
+        let sync = SyncBlock.init()
+        
+        let record = CKRecord.ID.init(recordName: id.uuidString)
+        let operation = CKFetchRecordsOperation.init(recordIDs: [record])
+        operation.desiredKeys = ["socialMedia", "lastName", "firstName", "wwdcYears", "shortBio", "approvedOn", "location", "birthday", "wwdcYearInfos", "email", "gender", "status", "profilePictureUrl"]
+        operation.qualityOfService = .userInteractive
+        
+        
+            operation.fetchRecordsCompletionBlock = { (records, error) in
+                guard error == nil,
+                    let records = records,
+                let record = records[record] else {
+                    fatalError(error?.localizedDescription ?? "No records")
+                    return
+                }
+                
+                guard let scholar = Scholar(record: record) else {
+                    print("loadScholars - Scholar could not be created")
+                    return
+                }
+                
+                print ("Hello scholar \(scholar.id.uuidString)")
+                
+                loadedScholar = scholar
+                
+                sync.complete()
+        }
+        
+        self.container.publicCloudDatabase.add(operation)
+        
+        sync.wait(seconds: 30)
+        
+        return loadedScholar
     }
     
     func scholarData(for year: WWDCYear, scholar: Scholar) -> Batch? {

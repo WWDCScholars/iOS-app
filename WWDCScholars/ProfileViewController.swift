@@ -13,6 +13,7 @@ import DeckTransition
 import CoreLocation
 import SafariServices
 import MessageUI
+import Nuke
 
 internal final class ProfileViewController: UIViewController {
     
@@ -122,6 +123,18 @@ internal final class ProfileViewController: UIViewController {
     // MARK: - Private Functions
     
     private func loadScholarData() {
+        DispatchQueue.init(label: "ScholarLoading").async {
+            self.scholar = CKDataController.shared.scholar(for: self.scholarId!)
+            
+            DispatchQueue.main.async {
+                self.populateHeaderContent()
+                self.populateBasicInfoContent()
+                self.populateBioContent()
+                self.configureMapView()
+                Nuke.loadImage(with: self.scholar!.profilePictureUrl, into: self.profilePictureImageView!)
+                self.profilePictureImageView?.contentMode = .scaleAspectFill
+            }
+        }
 //        CloudKitManager.shared.loadScholar(with: scholarId!, recordFetched: { scholar in
 ////            scholar.profilePictureLoaded = { err in
 ////                DispatchQueue.main.async {

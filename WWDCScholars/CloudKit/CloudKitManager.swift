@@ -12,6 +12,7 @@ import CloudKit
 internal typealias RecordFetched = (CKRecord) -> Void
 internal typealias QueryCompletion = ((CKQueryOperation.Cursor?, Error?) -> Void)?
 
+@available(*, deprecated)
 internal final class CloudKitManager {
     
     // MARK: - Internal Properties

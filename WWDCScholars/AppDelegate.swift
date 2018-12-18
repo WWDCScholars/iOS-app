@@ -28,7 +28,7 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.applyScholarsStyle()
         UITabBar.applyScholarsStyle()
         
-        ImagePipeline {
+        ImagePipeline.shared = ImagePipeline {
             $0.dataLoader = DataLoader(configuration: {
                 // Disable disk caching built into URLSession
                 let conf = DataLoader.defaultConfiguration
@@ -39,7 +39,7 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.imageCache = ImageCache()
             
             #if swift(>=4.2)
-            $0.dataCache = try! DataCache(name: "com.github.kean.Nuke.DataCache")
+            $0.dataCache = try! DataCache(name: "com.wwdcscholars.profilepictures.DataCache")
 //            #else
 //            $0.dataCache = try! DataCache(
 //                name: "com.github.kean.Nuke.DataCache",

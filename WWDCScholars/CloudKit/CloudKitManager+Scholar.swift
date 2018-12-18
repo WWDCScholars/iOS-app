@@ -18,7 +18,7 @@ internal extension CloudKitManager {
     
     internal func loadScholars(`for` batch: WWDCYear, with status: Scholar.Status, recordFetched: @escaping ScholarFetched, completion: QueryCompletion) {
         let recordName = batch.recordName
-        let yearRef = CKReference(recordID: CKRecordID.init(recordName: recordName), action: .none)
+        let yearRef = CKRecord.Reference(recordID: CKRecord.ID.init(recordName: recordName), action: .none)
         let predicate = NSPredicate(format: "status = '\(status.rawValue)' AND wwdcYears CONTAINS %@", yearRef)
         let query = CKQuery(recordType: "Scholar", predicate: predicate)
         let operation = CKQueryOperation(query: query)
@@ -116,15 +116,15 @@ internal extension CloudKitManager {
             return completion(nil)
         }
         
-        if let socialMedia = record["socialMedia"] as? CKReference,
+        if let socialMedia = record["socialMedia"] as? CKRecord.Reference,
             let socialMediaId = UUID.init(uuidString: socialMedia.recordID.recordName) {
             testData["socialMedia"] = socialMediaId
         } else {
             return completion(nil)
         }
         
-        if let wwdcYears = record["wwdcYears"] as? [CKReference],
-            let wwdcYearInfos = record["wwdcYearInfos"] as? [CKReference] {
+        if let wwdcYears = record["wwdcYears"] as? [CKRecord.Reference],
+            let wwdcYearInfos = record["wwdcYearInfos"] as? [CKRecord.Reference] {
             var wwdcInfo: [WWDCYear: UUID] = [:]
             for (index, wwdcYear) in wwdcYears.enumerated() {
                 if let year = WWDCYear.init(rawValue: wwdcYear.recordID.recordName),

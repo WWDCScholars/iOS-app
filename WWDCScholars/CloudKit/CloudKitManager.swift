@@ -10,7 +10,7 @@ import Foundation
 import CloudKit
 
 internal typealias RecordFetched = (CKRecord) -> Void
-internal typealias QueryCompletion = ((CKQueryCursor?, Error?) -> Void)?
+internal typealias QueryCompletion = ((CKQueryOperation.Cursor?, Error?) -> Void)?
 
 internal final class CloudKitManager {
     

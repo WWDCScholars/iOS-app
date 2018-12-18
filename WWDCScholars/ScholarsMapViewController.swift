@@ -111,7 +111,7 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
         }
         
         let distance: CLLocationDistance = 10000000.0
-        let defaultRegion = MKCoordinateRegionMakeWithDistance(mapView.centerCoordinate, distance, distance)
+        let defaultRegion = MKCoordinateRegion.init(center: mapView.centerCoordinate, latitudinalMeters: distance, longitudinalMeters: distance)
         mapView.setRegion(defaultRegion, animated: true)
     }
     
@@ -122,7 +122,7 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
         
         let userCoordinate = mapView.userLocation.coordinate
         let distance: CLLocationDistance = 2500000.0
-        let userRegion = MKCoordinateRegionMakeWithDistance(userCoordinate, distance, distance)
+        let userRegion = MKCoordinateRegion.init(center: userCoordinate, latitudinalMeters: distance, longitudinalMeters: distance)
         mapView.setRegion(userRegion, animated: true)
     }
 }

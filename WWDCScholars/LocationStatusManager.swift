@@ -71,7 +71,7 @@ internal final class LocationStatusManager {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let settingsAction = UIAlertAction(title: "Settings", style: .default, handler: { _ in
-            if let settingsURL = URL(string: UIApplicationOpenSettingsURLString) {
+            if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(settingsURL)
             }
         })

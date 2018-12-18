@@ -59,10 +59,10 @@ internal class IntroFirstViewController: UIViewController {
         self.animator!.addBehavior(self.attachmentBehavior)
         
         getStartedButton.adjustsImageWhenHighlighted = false
-        self.getStartedButton.addTarget(self, action: #selector(IntroFirstViewController.onDown(sender:)), for: UIControlEvents.touchDown)
-        self.getStartedButton.addTarget(self, action: #selector(IntroFirstViewController.onUp(sender:)), for: UIControlEvents.touchCancel)
-        self.getStartedButton.addTarget(self, action: #selector(IntroFirstViewController.onUp(sender:)), for: UIControlEvents.touchUpInside)
-        self.getStartedButton.addTarget(self, action: #selector(IntroFirstViewController.onUp(sender:)), for: UIControlEvents.touchUpOutside)
+        self.getStartedButton.addTarget(self, action: #selector(IntroFirstViewController.onDown(sender:)), for: UIControl.Event.touchDown)
+        self.getStartedButton.addTarget(self, action: #selector(IntroFirstViewController.onUp(sender:)), for: UIControl.Event.touchCancel)
+        self.getStartedButton.addTarget(self, action: #selector(IntroFirstViewController.onUp(sender:)), for: UIControl.Event.touchUpInside)
+        self.getStartedButton.addTarget(self, action: #selector(IntroFirstViewController.onUp(sender:)), for: UIControl.Event.touchUpOutside)
     }
     @objc private func onDown(sender: UIButton) {
         self.attachmentBehavior.damping = 0.1

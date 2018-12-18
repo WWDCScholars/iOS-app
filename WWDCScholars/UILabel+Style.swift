@@ -41,7 +41,7 @@ internal extension UILabel {
     internal func addTextSpacing(spacing: Float) {
         if text != nil {
             let attributedString = NSMutableAttributedString(string: text!)
-            attributedString.addAttribute(NSAttributedStringKey.kern, value: spacing, range: NSRange(location: 0, length: attributedString.length - 1))
+            attributedString.addAttribute(NSAttributedString.Key.kern, value: spacing, range: NSRange(location: 0, length: attributedString.length - 1))
             attributedText = attributedString
         }
     }

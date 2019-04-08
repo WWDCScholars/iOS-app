@@ -1088,12 +1088,12 @@
 				TargetAttributes = {
 					22E852C221C1BF5E00DEC873 = {
 						CreatedOnToolsVersion = 10.1;
-						DevelopmentTeam = YQ3FQN6Z53;
+						DevelopmentTeam = S2TB4FUFGQ;
 						ProvisioningStyle = Automatic;
 					};
 					6E3C55481EA032DD008F9AC9 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = YQ3FQN6Z53;
+						DevelopmentTeam = S2TB4FUFGQ;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -1106,7 +1106,7 @@
 					};
 					7B4D74F721BE6C58002F6242 = {
 						CreatedOnToolsVersion = 10.1;
-						DevelopmentTeam = YQ3FQN6Z53;
+						DevelopmentTeam = S2TB4FUFGQ;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 6E3C55481EA032DD008F9AC9;
 					};
@@ -1117,6 +1117,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1402,13 +1403,13 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YQ3FQN6Z53;
+				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "WWDCScholars Sticker Pack/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015.WWDCScholars-Sticker-Pack";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cecose.WWDCScholars.WWDCScholars-Sticker-Pack";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1425,12 +1426,12 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YQ3FQN6Z53;
+				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "WWDCScholars Sticker Pack/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015.WWDCScholars-Sticker-Pack";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cecose.WWDCScholars.WWDCScholars-Sticker-Pack";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1550,7 +1551,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = YQ3FQN6Z53;
+				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1559,7 +1560,7 @@
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cecose.WWDCScholars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1572,7 +1573,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = YQ3FQN6Z53;
+				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1581,7 +1582,7 @@
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cecose.WWDCScholars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1598,7 +1599,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YQ3FQN6Z53;
+				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = WWDCScholarsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -1623,7 +1624,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YQ3FQN6Z53;
+				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = WWDCScholarsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;

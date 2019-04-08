@@ -26,7 +26,7 @@ internal final class CloudKitManager {
     // MARK: - Lifecycle
     
     private init() {
-        self.container = CKContainer(identifier: "iCloud.com.wwdcscholars.WWDCScholars")
+        self.container = CKContainer(identifier: "iCloud.com.cecose.WWDCScholars")
         self.database = self.container.publicCloudDatabase
     }
 }

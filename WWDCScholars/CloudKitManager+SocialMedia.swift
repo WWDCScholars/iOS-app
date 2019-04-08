@@ -15,7 +15,7 @@ internal extension CloudKitManager {
     
     // MARK: - Internal Functions
     
-    internal func loadSocialMedia(with id: CKRecordID, recordFetched: @escaping SocialMediaFetched, completion: QueryCompletion) {
+    internal func loadSocialMedia(with id: CKRecord.ID, recordFetched: @escaping SocialMediaFetched, completion: QueryCompletion) {
         let predicate = NSPredicate(format: "recordID = %@", id)
         let query = CKQuery(recordType: "ScholarSocialMedia", predicate: predicate)
         let operation = CKQueryOperation(query: query)

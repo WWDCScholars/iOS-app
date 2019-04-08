@@ -15,11 +15,11 @@ internal extension CloudKitManager {
     
     // MARK: - Internal Functions
     
-    internal func loadBlogPosts(cursor: CKQueryCursor? = nil, recordFetched: @escaping BlogPostLoaded, completion: QueryCompletion) {
+    internal func loadBlogPosts(cursor: CKQueryOperation.Cursor? = nil, recordFetched: @escaping BlogPostLoaded, completion: QueryCompletion) {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "BlogPost", predicate: predicate)
         let operation = CKQueryOperation(query: query)
-        operation.resultsLimit = CKQueryOperationMaximumResults
+        operation.resultsLimit = CKQueryOperation.maximumResults
         operation.cursor = cursor
         operation.qualityOfService = .userInteractive
         

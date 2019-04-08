@@ -17,7 +17,7 @@ internal extension UINavigationBar {
         self.appearance().tintColor = .white
         self.appearance().isTranslucent = false
         self.appearance().barTintColor = .scholarsPurple
-        self.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     internal func applyExtendedStyle() {

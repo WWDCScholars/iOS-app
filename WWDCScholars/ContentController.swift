@@ -71,7 +71,7 @@ internal extension ContentController {
     }
     
     internal func index(of cellContent: CellContent, sectionContentIndex: Int) -> Int? {
-        guard let index = self.sectionContentFor(index: sectionContentIndex).cellContent.index(where: { $0 === cellContent }) else {
+        guard let index = self.sectionContentFor(index: sectionContentIndex).cellContent.firstIndex(where: { $0 === cellContent }) else {
             return nil
         }
         
@@ -79,7 +79,7 @@ internal extension ContentController {
     }
     
     internal func sectionContentIndex(of cellContent: CellContent) -> Int? {
-        guard let index = self.sectionContent.index(where: { $0.cellContent.contains(where: { $0 === cellContent }) }) else {
+        guard let index = self.sectionContent.firstIndex(where: { $0.cellContent.contains(where: { $0 === cellContent }) }) else {
             return nil
         }
         

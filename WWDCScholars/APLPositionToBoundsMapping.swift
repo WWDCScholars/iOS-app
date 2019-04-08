@@ -8,7 +8,7 @@
 //
 import UIKit
 
-@objc protocol ResizableDynamicItem : UIDynamicItem{
+protocol ResizableDynamicItem : UIDynamicItem{
     var bounds: CGRect {get set}
 }
 

@@ -37,11 +37,11 @@ internal extension CollectionViewContentController {
     }
     
     internal func scrollToSelectedBatch() {
-        guard let sectionContentIndex = self.sectionContent.index(where: { $0.cellContent.contains(where: { ($0 as? BatchCollectionViewCellContent)?.isSelected == true }) }) else {
+        guard let sectionContentIndex = self.sectionContent.firstIndex(where: { $0.cellContent.contains(where: { ($0 as? BatchCollectionViewCellContent)?.isSelected == true }) }) else {
             return
         }
         
-        guard let cellContentIndex = self.sectionContentFor(index: sectionContentIndex).cellContent.index(where: { ($0 as? BatchCollectionViewCellContent)?.isSelected == true }) else {
+        guard let cellContentIndex = self.sectionContentFor(index: sectionContentIndex).cellContent.firstIndex(where: { ($0 as? BatchCollectionViewCellContent)?.isSelected == true }) else {
             return
         }
         

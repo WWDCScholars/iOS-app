@@ -13,7 +13,7 @@ internal extension UIControl {
     
     // MARK: - Internal Functions
     
-    internal func replaceTarget(_ target: Any?, action: Selector, for controlEvents: UIControlEvents) {
+    internal func replaceTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {
         self.removeTarget(nil, action: nil, for: .allEvents)
         self.addTarget(target, action: action, for: controlEvents)
     }

@@ -17,14 +17,14 @@ internal extension CloudKitManager {
     
     // MARK: - Internal Functions
     
-    internal func loadScholarsForList(in batchInfo: WWDCYear, with status: Scholar.Status, cursor: CKQueryCursor? = nil, recordFetched: @escaping ListScholarFetched, completion: QueryCompletion) {
+    internal func loadScholarsForList(in batchInfo: WWDCYear, with status: Scholar.Status, cursor: CKQueryOperation.Cursor? = nil, recordFetched: @escaping ListScholarFetched, completion: QueryCompletion) {
         let recordName = batchInfo.recordName
-        let yearRef = CKReference(recordID: CKRecordID.init(recordName: recordName), action: .none)
+        let yearRef = CKRecord.Reference(recordID: CKRecord.ID.init(recordName: recordName), action: .none)
         let predicate = NSPredicate(format: "status = '\(status.rawValue)' AND wwdcYears CONTAINS %@", yearRef)
         let query = CKQuery(recordType: "Scholar", predicate: predicate)
         let operation = CKQueryOperation(query: query)
         operation.desiredKeys = ["recordID", "location", "firstName", "wwdcYears", "wwdcYearInfos"]
-        operation.resultsLimit = CKQueryOperationMaximumResults
+        operation.resultsLimit = CKQueryOperation.maximumResults
         operation.cursor = cursor
         operation.qualityOfService = .userInteractive
         
@@ -38,7 +38,7 @@ internal extension CloudKitManager {
         self.database.add(operation)
     }
     
-    internal func loadScholar(with id: CKRecordID, recordFetched: @escaping ScholarFetched, completion: QueryCompletion) {
+    internal func loadScholar(with id: CKRecord.ID, recordFetched: @escaping ScholarFetched, completion: QueryCompletion) {
         let predicate = NSPredicate(format: "recordID = %@", id)
         let query = CKQuery(recordType: "Scholar", predicate: predicate)
         let operation = CKQueryOperation(query: query)
@@ -57,12 +57,12 @@ internal extension CloudKitManager {
         self.database.add(operation)
     }
     
-    internal func loadScholarsForBlog(with id: CKRecordID, recordFetched: @escaping BlogScholarFetched, completion: QueryCompletion) {
+    internal func loadScholarsForBlog(with id: CKRecord.ID, recordFetched: @escaping BlogScholarFetched, completion: QueryCompletion) {
         let predicate = NSPredicate(format: "recordID = %@", id)
         let query = CKQuery(recordType: "Scholar", predicate: predicate)
         let operation = CKQueryOperation(query: query)
         operation.desiredKeys = ["recordID", "location", "firstName", "wwdcYears", "wwdcYearInfos"]
-        operation.resultsLimit = CKQueryOperationMaximumResults
+        operation.resultsLimit = CKQueryOperation.maximumResults
         operation.resultsLimit = 1
         operation.qualityOfService = .userInteractive
         

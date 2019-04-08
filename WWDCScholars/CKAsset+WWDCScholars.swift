@@ -12,7 +12,7 @@ import CloudKit
 
 extension CKAsset {
     var image: UIImage? {
-        if let data = try? Data(contentsOf: self.fileURL) {
+        if let data = try? Data(contentsOf: self.fileURL!) {
             return UIImage(data: data)
         }
         return nil

@@ -66,16 +66,16 @@ internal class IntroThirdViewController: UIViewController {
         self.animator!.addBehavior(self.attachmentBehavior)
         
         nextButton.adjustsImageWhenHighlighted = false
-        self.nextButton.addTarget(self, action: #selector(IntroThirdViewController.onDown(sender:)), for: UIControlEvents.touchDown)
-        self.nextButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControlEvents.touchCancel)
-        self.nextButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControlEvents.touchUpInside)
-        self.nextButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControlEvents.touchUpOutside)
+        self.nextButton.addTarget(self, action: #selector(IntroThirdViewController.onDown(sender:)), for: UIControl.Event.touchDown)
+        self.nextButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControl.Event.touchCancel)
+        self.nextButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControl.Event.touchUpInside)
+        self.nextButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControl.Event.touchUpOutside)
         
         backButton.adjustsImageWhenHighlighted = false
-        self.backButton.addTarget(self, action: #selector(IntroThirdViewController.onDown(sender:)), for: UIControlEvents.touchDown)
-        self.backButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControlEvents.touchCancel)
-        self.backButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControlEvents.touchUpInside)
-        self.backButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControlEvents.touchUpOutside)
+        self.backButton.addTarget(self, action: #selector(IntroThirdViewController.onDown(sender:)), for: UIControl.Event.touchDown)
+        self.backButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControl.Event.touchCancel)
+        self.backButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControl.Event.touchUpInside)
+        self.backButton.addTarget(self, action: #selector(IntroThirdViewController.onUp(sender:)), for: UIControl.Event.touchUpOutside)
     }
     @objc private func onDown(sender: UIButton) {
         self.attachmentBehavior.damping = 0.1

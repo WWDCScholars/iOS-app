@@ -37,17 +37,17 @@ internal final class TableViewContentController: NSObject, ContentController {
     }
 
     internal func set(estimatedRowHeight: CGFloat) {
-        self.tableView?.rowHeight = UITableViewAutomaticDimension
+        self.tableView?.rowHeight = UITableView.automaticDimension
         self.tableView?.estimatedRowHeight = estimatedRowHeight
     }
 
     internal func set(estimatedSectionHeaderHeight: CGFloat) {
-        self.tableView?.sectionHeaderHeight = UITableViewAutomaticDimension
+        self.tableView?.sectionHeaderHeight = UITableView.automaticDimension
         self.tableView?.estimatedSectionHeaderHeight = estimatedSectionHeaderHeight
     }
 
     internal func set(estimatedSectionFooterHeight: CGFloat) {
-        self.tableView?.sectionFooterHeight = UITableViewAutomaticDimension
+        self.tableView?.sectionFooterHeight = UITableView.automaticDimension
         self.tableView?.estimatedSectionFooterHeight = estimatedSectionFooterHeight
     }
 

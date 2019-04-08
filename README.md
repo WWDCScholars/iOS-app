@@ -15,7 +15,7 @@ In case you have a technical question or need some guidance, don't hesitate to o
 
 ## Social
 - GitHub: [@WWDCScholars](https://github.com/WWDCScholars)
-- Email: [team@WWDCScholars](mailto:team@WWDCScholars.com)
+- Email: [team@WWDCScholars.com](mailto:team@WWDCScholars.com)
 - Twitter: [@WWDCScholars](https://twitter.com/WWDCScholars)
 
 ## Related Projects

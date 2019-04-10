@@ -24,7 +24,7 @@ internal final class ScholarsViewController: UIViewController {
     private var scholarsMapViewController: ScholarsMapViewController?
     private var scholarsListViewController: ScholarsListViewController?
     private var containerViewSwitchHelper: ContainerViewSwitchHelper?
-    private var batches: [WWDCYear] = [.wwdc2013, .wwdc2014, .wwdc2015, .wwdc2016, .wwdc2017, .wwdc2018, .saved]
+    private var batches: [WWDCYear] = [.wwdc2013, .wwdc2014, .wwdc2015, .wwdc2016, .wwdc2017, .wwdc2018, .wwdc2019, .saved]
     
     // MARK: - File Private Properties
     
@@ -109,10 +109,10 @@ internal final class ScholarsViewController: UIViewController {
     
     internal func checkForIntroSeenYet(){
         let userDefaults = UserDefaults.standard
-        if userDefaults.bool(forKey: "userHasSeen2018Intro") == true{
+        if userDefaults.bool(forKey: "userHasSeen2019Intro") == true{
             
         }else{
-            userDefaults.set(true, forKey: "userHasSeen2018Intro")
+            userDefaults.set(true, forKey: "userHasSeen2019Intro")
             showIntro()
         }
     }

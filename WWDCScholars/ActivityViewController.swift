@@ -113,10 +113,10 @@ extension ActivityViewController: TWTRTweetViewDelegate {
     }
     
     internal func tweetView(_ tweetView: TWTRTweetView, didTapProfileImageFor user: TWTRUser) {
-        if (UIApplication.shared.canOpenURL(URL(string:"twitter://")!)) {
-            UIApplication.shared.open(URL.init(string: "twitter://user?id=\(user.userID)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-        }else if (UIApplication.shared.canOpenURL(URL(string:"tweetbot://")!)) {
+        if (UIApplication.shared.canOpenURL(URL(string:"tweetbot://")!)) {
             UIApplication.shared.open(URL.init(string: "tweetbot://\(user.screenName)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+        }else if (UIApplication.shared.canOpenURL(URL(string:"twitter://")!)) {
+            UIApplication.shared.open(URL.init(string: "twitter://user?id=\(user.userID)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         }else {
             openSafariViewController(for: user.profileURL)
         }
@@ -139,10 +139,10 @@ extension ActivityViewController: TWTRTweetDetailViewControllerDelegate {
     }
     
     internal func tweetDetailViewController(_ controller: TWTRTweetDetailViewController, didTapProfileImageFor user: TWTRUser) {
-        if (UIApplication.shared.canOpenURL(URL(string:"twitter://")!)) {
-            UIApplication.shared.open(URL.init(string: "twitter://user?id=\(user.userID)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-        }else if (UIApplication.shared.canOpenURL(URL(string:"tweetbot://")!)) {
+        if (UIApplication.shared.canOpenURL(URL(string:"tweetbot://")!)) {
             UIApplication.shared.open(URL.init(string: "tweetbot://\(user.screenName)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+        }else if (UIApplication.shared.canOpenURL(URL(string:"twitter://")!)) {
+            UIApplication.shared.open(URL.init(string: "twitter://user?id=\(user.userID)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         }else {
             openSafariViewController(for: user.profileURL)
         }
@@ -152,10 +152,10 @@ extension ActivityViewController: TWTRTweetDetailViewControllerDelegate {
         if hashtag.text == "WWDCScholars" {
             self.dismiss(animated: true, completion: nil)
         }else {
-            if (UIApplication.shared.canOpenURL(URL(string:"twitter://")!)) {
-                UIApplication.shared.open(URL.init(string: "twitter://search?query=%23\(hashtag.text)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-            }else if (UIApplication.shared.canOpenURL(URL(string:"tweetbot://")!)) {
+            if (UIApplication.shared.canOpenURL(URL(string:"tweetbot://")!)) {
                 UIApplication.shared.open(URL.init(string: "tweetbot://query=%23\(hashtag.text)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+            }else if (UIApplication.shared.canOpenURL(URL(string:"twitter://")!)) {
+                UIApplication.shared.open(URL.init(string: "twitter://search?query=%23\(hashtag.text)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             }else {
                 openSafariViewController(for: URL.init(string: "https://twitter.com/search?q=%23\(hashtag.text)")!)
             }
@@ -163,10 +163,10 @@ extension ActivityViewController: TWTRTweetDetailViewControllerDelegate {
     }
     
     internal func tweetDetailViewController(_ controller: TWTRTweetDetailViewController, didTapCashtag cashtag: TWTRTweetCashtagEntity) {
-        if (UIApplication.shared.canOpenURL(URL(string:"twitter://")!)) {
-            UIApplication.shared.open(URL.init(string: "twitter://search?query=%24\(cashtag.text)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-        }else if (UIApplication.shared.canOpenURL(URL(string:"tweetbot://")!)) {
+        if (UIApplication.shared.canOpenURL(URL(string:"tweetbot://")!)) {
             UIApplication.shared.open(URL.init(string: "tweetbot://query=%24\(cashtag.text)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+        }else if (UIApplication.shared.canOpenURL(URL(string:"twitter://")!)) {
+            UIApplication.shared.open(URL.init(string: "twitter://search?query=%24\(cashtag.text)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         }else {
             openSafariViewController(for: URL.init(string: "https://twitter.com/search?q=%24\(cashtag.text)")!)
         }

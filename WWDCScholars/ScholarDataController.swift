@@ -9,13 +9,12 @@
 import Foundation
 
 protocol ScholarDataController {
-    /// Returns all scholars for a given year with a given status
+    /// Returns all scholars for a given year
     ///
     /// - Parameters:
     ///   - year: WWDC year to get the scholars for
-    ///   - status: Optional status of the scholars returned
-    /// - Returns: An array of scholars with given year and status
-    func scholars(`for` year: WWDCYear, with status: Scholar.Status?) -> [Scholar]
+    /// - Returns: An array of scholars with given year
+    func scholars(`for` year: WWDCYear) -> [Scholar]
     
     /// Gets a scholar identified by the id
     ///

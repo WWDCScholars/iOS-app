@@ -45,9 +45,6 @@ internal struct Scholar {
     /** The list of (submission) information per WWDC */
     var wwdcYearInfos: [WWDCYear : UUID]
 
-    /** The current status of the Scholar */
-    //var status : Status
-
     /** The date when the Scholar got created */
     var createdAt: Date
 
@@ -82,8 +79,7 @@ extension Scholar {
                 let familyName        = record["familyName"] as? String,
                 let profilePictureUrl = record["profilePictureUrl"] as? URL,
                 let socialMedia       = record["socialMedia"] as? UUID,
-                let wwdcYearInfos     = record["wwdcYearInfos"] as? [WWDCYear : UUID]/*,
-                let status            = record["status"] as? Status*/ else {
+                let wwdcYearInfos     = record["wwdcYearInfos"] as? [WWDCYear : UUID] else {
                     return nil
             }
 
@@ -99,7 +95,6 @@ extension Scholar {
             self.socialMediaId = socialMedia
             self.biography = biography
             self.wwdcYearInfos = wwdcYearInfos
-            //self.status = status
             self.profilePictureUrl = profilePictureUrl
             self.createdAt = creationDate
             self.updatedAt  = updatedAt

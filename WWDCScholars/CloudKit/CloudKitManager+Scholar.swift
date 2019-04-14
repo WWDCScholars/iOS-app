@@ -141,12 +141,12 @@ internal extension CloudKitManager {
         //        testData["profilePictureUrl"] = (record["profilePicture"] as? CKAsset)?.fileURL ?? URL.init(string: "https://wwdcscholars.com")
        
         
-        if let statusStr = record["status"] as? String,
+        /*if let statusStr = record["status"] as? String,
             let status = Scholar.Status.init(rawValue: statusStr) {
             testData["status"] = status
         } else {
             return completion(nil)
-        }
+        }*/
         
         //        if let approvedOn = record["approvedOn"] as? Date {
         

@@ -140,7 +140,6 @@
 		7BB4F80A1EDCB02500B0EE7A /* CloudKitManager+Scholar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F8091EDCB02500B0EE7A /* CloudKitManager+Scholar.swift */; };
 		7BB4F80C1EDCB03000B0EE7A /* CloudKitManager+Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F80B1EDCB03000B0EE7A /* CloudKitManager+Batch.swift */; };
 		7BB4F8101EDCB36500B0EE7A /* Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F80F1EDCB36500B0EE7A /* Sync.swift */; };
-		7BB4F8121EDCB43100B0EE7A /* ScholarStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F8111EDCB43100B0EE7A /* ScholarStatus.swift */; };
 		7BB4F8141EDCB4A800B0EE7A /* Scholar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F8131EDCB4A800B0EE7A /* Scholar.swift */; };
 		7BB4F8181EDCC82B00B0EE7A /* CKAsset+WWDCScholars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F8171EDCC82B00B0EE7A /* CKAsset+WWDCScholars.swift */; };
 		7BD91F8A1ED2153E00439718 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F881ED2153E00439718 /* Fabric.framework */; };
@@ -322,7 +321,6 @@
 		7BB4F8091EDCB02500B0EE7A /* CloudKitManager+Scholar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CloudKitManager+Scholar.swift"; sourceTree = "<group>"; };
 		7BB4F80B1EDCB03000B0EE7A /* CloudKitManager+Batch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CloudKitManager+Batch.swift"; sourceTree = "<group>"; };
 		7BB4F80F1EDCB36500B0EE7A /* Sync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sync.swift; sourceTree = "<group>"; };
-		7BB4F8111EDCB43100B0EE7A /* ScholarStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarStatus.swift; sourceTree = "<group>"; };
 		7BB4F8131EDCB4A800B0EE7A /* Scholar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scholar.swift; sourceTree = "<group>"; };
 		7BB4F8171EDCC82B00B0EE7A /* CKAsset+WWDCScholars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CKAsset+WWDCScholars.swift"; sourceTree = "<group>"; };
 		7BD91F881ED2153E00439718 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -945,7 +943,6 @@
 				7BD91F9F1ED33F7A00439718 /* ActivityTimelineFilter.swift */,
 				7BB4F8001EDCA02D00B0EE7A /* ApplicantType.swift */,
 				7BB4F7FA1EDC9E9000B0EE7A /* WWDCYearInfo.swift */,
-				7BB4F8111EDCB43100B0EE7A /* ScholarStatus.swift */,
 				7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */,
 				7BB4F8041EDCA18100B0EE7A /* AppType.swift */,
 				7B8DDF241EE29EF0002D2A9A /* SocialMedia.swift */,
@@ -1268,7 +1265,6 @@
 				6EE999ED1EC509B600F13809 /* HeaderFooterView.swift in Sources */,
 				6E3C55601EA03C6D008F9AC9 /* ScholarsViewController.swift in Sources */,
 				6E6B50431EDA0E63006B28A3 /* LocationStatusManager.swift in Sources */,
-				7BB4F8121EDCB43100B0EE7A /* ScholarStatus.swift in Sources */,
 				6E7D17411EBD290200C93E89 /* String+WWDCScholars.swift in Sources */,
 				8E3897E420C450AF00D53113 /* UIImage+Named.swift in Sources */,
 				6EE999EB1EC509B600F13809 /* CollectionViewContentController.swift in Sources */,

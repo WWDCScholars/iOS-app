@@ -32,7 +32,7 @@ internal final class ScholarsViewControllerProxy {
 
     internal func loadListScholars(batchInfo: WWDCYear) {
         DispatchQueue.global(qos: .background).async {
-            let scholars = CKDataController.shared.scholars(for: batchInfo, with: .approved)
+            let scholars = CKDataController.shared.scholars(for: batchInfo)
             DispatchQueue.main.async {
                 self.delegate?.didLoad(scholars: scholars)
                 self.delegate?.didLoadWWDCYearInfo()

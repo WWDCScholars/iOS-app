@@ -29,7 +29,6 @@ class ScholarTests: XCTestCase {
         testData["profilePictureUrl"] = URL.init(string: "https://wwdcscholars.com")
         testData["socialMedia"] = UUID.init(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E55")
         testData["wwdcYearInfos"] = [WWDCYear.wwdc2019: UUID.init(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E51")]
-        testData["status"]  = Scholar.Status.pending
     }
 
     override func tearDown() {
@@ -55,7 +54,6 @@ class ScholarTests: XCTestCase {
         XCTAssertEqual(instance?.wwdcYearInfos.count ?? 0, 1)
         XCTAssertNotNil(instance?.wwdcYearInfos[WWDCYear.wwdc2019])
         XCTAssertEqual(instance?.wwdcYearInfos[WWDCYear.wwdc2019]?.uuidString, "E621E1F8-C36C-495A-93FC-0C247A3E6E51")
-        XCTAssertEqual(instance?.status, Scholar.Status.pending)
     }
 
     func testConstructorError() {

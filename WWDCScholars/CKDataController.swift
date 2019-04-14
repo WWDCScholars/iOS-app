@@ -25,12 +25,11 @@ class CKDataController: ScholarDataController {
 //        self.database = self.container.publicCloudDatabase
     }
     
-    func scholars(for year: WWDCYear, with status: Scholar.Status?) -> [Scholar] {
+    func scholars(for year: WWDCYear) -> [Scholar] {
         var loadedScholars: [Scholar] = []
         
         let sync = SyncBlock.init()
         let yearRef = CKRecord.Reference(recordID: CKRecord.ID.init(recordName: year.recordName), action: .none)
-        //let statusPredicate = (status != nil) ? "status = '\(status!.rawValue)' AND" : ""
         let predicate = NSPredicate(format: "wwdcYears CONTAINS %@", yearRef)
         
         let query = CKQuery(recordType: "Scholar", predicate: predicate)
@@ -166,8 +165,6 @@ extension Scholar {
             let socialMediaId = UUID.init(uuidString: socialMedia.recordID.recordName),
             let wwdcYears = record["wwdcYears"] as? [CKRecord.Reference],
             let wwdcYearInfos = record["wwdcYearInfos"] as? [CKRecord.Reference],
-            //let statusStr = record["status"] as? String,
-            //let status = Scholar.Status.init(rawValue: statusStr),
             let picUrl = URL.init(string: picStr) {
 
             var wwdcInfo: [WWDCYear: UUID] = [:]
@@ -190,7 +187,6 @@ extension Scholar {
                          biography: biography,
                          socialMediaId: socialMediaId,
                          wwdcYearInfos: wwdcInfo,
-                         //status: status,
                          createdAt: creationDate,
                          updatedAt: modifyDate,
                          profilePictureUrl: picUrl)

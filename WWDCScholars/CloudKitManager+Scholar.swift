@@ -18,13 +18,13 @@ internal extension CloudKitManager {
     // MARK: - Internal Functions
     
     internal func loadScholarsForList(in batchInfo: WWDCYear, with status: Scholar.Status, cursor: CKQueryOperation.Cursor? = nil, recordFetched: @escaping ListScholarFetched, completion: QueryCompletion) {
-        print("Load")
-        
         let recordName = batchInfo.recordName
         let yearRef = CKRecord.Reference(recordID: CKRecord.ID.init(recordName: recordName), action: .none)
-        let predicate = NSPredicate(format: "status = '\(status.rawValue)' AND wwdcYears CONTAINS %@", yearRef)
-        //let predicate = NSPredicate(format: "wwdcYears CONTAINS %@", yearRef)
-        let query = CKQuery(recordType: "Scholar", predicate: predicate)
+        let yearPredicate = NSPredicate(format: "wwdcYears CONTAINS %@", yearRef)
+        let statusPredicate = NSPredicate(format: "SUBQUERY()", yearRef) // TODO: @Moritz Adapt subquery
+        //let compoundPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [yearPredicate, statusPredicate])
+
+        let query = CKQuery(recordType: "Scholar", predicate: yearPredicate)
         let operation = CKQueryOperation(query: query)
         operation.desiredKeys = ["recordID", "location", "givenName", "wwdcYears", "wwdcYearInfos"]
         operation.resultsLimit = CKQueryOperation.maximumResults
@@ -36,6 +36,7 @@ internal extension CloudKitManager {
         operation.recordFetchedBlock = { (record:CKRecord!) in
 //            let smallScholar = Scholar(record: record)
 //            recordFetched(smallScholar)
+            print(record)
         }
         
         self.database.add(operation)

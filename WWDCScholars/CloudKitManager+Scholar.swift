@@ -23,7 +23,7 @@ internal extension CloudKitManager {
         let predicate = NSPredicate(format: "status = '\(status.rawValue)' AND wwdcYears CONTAINS %@", yearRef)
         let query = CKQuery(recordType: "Scholar", predicate: predicate)
         let operation = CKQueryOperation(query: query)
-        operation.desiredKeys = ["recordID", "location", "firstName", "wwdcYears", "wwdcYearInfos"]
+        operation.desiredKeys = ["recordID", "location", "givenName", "wwdcYears", "wwdcYearInfos"]
         operation.resultsLimit = CKQueryOperation.maximumResults
         operation.cursor = cursor
         operation.qualityOfService = .userInteractive
@@ -61,7 +61,7 @@ internal extension CloudKitManager {
         let predicate = NSPredicate(format: "recordID = %@", id)
         let query = CKQuery(recordType: "Scholar", predicate: predicate)
         let operation = CKQueryOperation(query: query)
-        operation.desiredKeys = ["recordID", "location", "firstName", "wwdcYears", "wwdcYearInfos"]
+        operation.desiredKeys = ["recordID", "location", "givenName", "wwdcYears", "wwdcYearInfos"]
         operation.resultsLimit = CKQueryOperation.maximumResults
         operation.resultsLimit = 1
         operation.qualityOfService = .userInteractive

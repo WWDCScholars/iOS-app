@@ -104,7 +104,7 @@ internal final class BlogPostViewController: UIViewController {
     
     private func populateHeaderAuthorContent() {
 //        self.authorButton?.setBackgroundImage(self.scholar?.profilePicture?.image, for: .normal)
-        self.authorLabel?.text = "by \(scholar?.firstName ?? "Guest")"
+        self.authorLabel?.text = "by \(scholar?.givenName ?? "Guest")"
     }
     
     private func populateHeaderContent() {

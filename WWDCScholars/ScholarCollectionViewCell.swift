@@ -52,7 +52,7 @@ internal final class ScholarCollectionViewCell: UICollectionViewCell, Cell {
             return
         }
 		
-        self.label?.text = cellContent.scholar.firstName
+        self.label?.text = cellContent.scholar.givenName
         
         self.imageView?.image = UIImage.loading
         self.imageView?.contentMode = .center

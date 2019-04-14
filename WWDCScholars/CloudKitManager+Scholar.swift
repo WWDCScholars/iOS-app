@@ -21,8 +21,6 @@ internal extension CloudKitManager {
         let recordName = batchInfo.recordName
         let yearRef = CKRecord.Reference(recordID: CKRecord.ID.init(recordName: recordName), action: .none)
         let yearPredicate = NSPredicate(format: "wwdcYears CONTAINS %@", yearRef)
-        let statusPredicate = NSPredicate(format: "SUBQUERY()", yearRef) // TODO: @Moritz Adapt subquery
-        //let compoundPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [yearPredicate, statusPredicate])
 
         let query = CKQuery(recordType: "Scholar", predicate: yearPredicate)
         let operation = CKQueryOperation(query: query)

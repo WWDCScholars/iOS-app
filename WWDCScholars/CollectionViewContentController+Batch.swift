@@ -1,5 +1,5 @@
 //
-//  CollectionViewContentController+Batch.swift
+//  CollectionViewContentController+WWDCYearInfo.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 28/05/2017.
@@ -12,36 +12,36 @@ internal extension CollectionViewContentController {
     
     // MARK: - Internal Functions
     
-    internal func selectSavedBatch() {
-        guard let savedBatchSectionContent = self.sectionContent.filter({ $0.id == "Batches" }).first else {
+    internal func selectSavedWWDCYearInfo() {
+        guard let savedWWDCYearInfoSectionContent = self.sectionContent.filter({ $0.id == "WWDCYearInfoes" }).first else {
             return
         }
         
-        guard let savedBatchCellContent = savedBatchSectionContent.cellContent.filter({ $0.id == "Saved" }).first else {
+        guard let savedWWDCYearInfoCellContent = savedWWDCYearInfoSectionContent.cellContent.filter({ $0.id == "Saved" }).first else {
             return
         }
         
-        self.select(cellContent: savedBatchCellContent)
+        self.select(cellContent: savedWWDCYearInfoCellContent)
     }
     
-    internal func selectDefaultBatch() {
-        guard let defaultBatchSectionContent = self.sectionContent.filter({ $0.id == "Batches" }).first else {
+    internal func selectDefaultWWDCYearInfo() {
+        guard let defaultWWDCYearInfoSectionContent = self.sectionContent.filter({ $0.id == "WWDCYearInfoes" }).first else {
             return
         }
         
-        guard let defaultBatchCellContent = defaultBatchSectionContent.cellContent.filter({ ($0 as? BatchCollectionViewCellContent)?.batchInfo.isDefault == true }).first else {
+        guard let defaultWWDCYearInfoCellContent = defaultWWDCYearInfoSectionContent.cellContent.filter({ ($0 as? WWDCYearInfoCollectionViewCellContent)?.batchInfo.isDefault == true }).first else {
             return
         }
         
-        self.select(cellContent: defaultBatchCellContent)
+        self.select(cellContent: defaultWWDCYearInfoCellContent)
     }
     
-    internal func scrollToSelectedBatch() {
-        guard let sectionContentIndex = self.sectionContent.index(where: { $0.cellContent.contains(where: { ($0 as? BatchCollectionViewCellContent)?.isSelected == true }) }) else {
+    internal func scrollToSelectedWWDCYearInfo() {
+        guard let sectionContentIndex = self.sectionContent.firstIndex(where: { $0.cellContent.contains(where: { ($0 as? WWDCYearInfoCollectionViewCellContent)?.isSelected == true }) }) else {
             return
         }
         
-        guard let cellContentIndex = self.sectionContentFor(index: sectionContentIndex).cellContent.index(where: { ($0 as? BatchCollectionViewCellContent)?.isSelected == true }) else {
+        guard let cellContentIndex = self.sectionContentFor(index: sectionContentIndex).cellContent.firstIndex(where: { ($0 as? WWDCYearInfoCollectionViewCellContent)?.isSelected == true }) else {
             return
         }
         

@@ -10,38 +10,36 @@ import Foundation
 
 internal protocol ScholarsViewControllerProxyDelegate: class {
     var proxy: ScholarsViewControllerProxy? { get set }
-    
-    func didLoad(basicScholar: Scholar)
-    
-    func didLoad(scholars: [Scholar])
 
-    func didLoadBatch()
+    func didLoad(basicScholar: Scholar)
+    func didLoad(scholars: [Scholar])
+    func didLoadWWDCYearInfo()
 }
 
 internal final class ScholarsViewControllerProxy {
-    
+
     // MARK: - Private Properties
-    
+
     private weak var delegate: ScholarsViewControllerProxyDelegate?
-    
+
     // MARK: - Lifecycle
-    
+
     internal init(delegate: ScholarsViewControllerProxyDelegate) {
         self.delegate = delegate
     }
-    
+
     // MARK: - Internal Functions
-    
+
     internal func loadListScholars(batchInfo: WWDCYear) {
         DispatchQueue.global(qos: .background).async {
             let scholars = CKDataController.shared.scholars(for: batchInfo, with: .approved)
             DispatchQueue.main.async {
                 self.delegate?.didLoad(scholars: scholars)
-                self.delegate?.didLoadBatch()
+                self.delegate?.didLoadWWDCYearInfo()
             }
         }
     }
-    
+
     private func basicScholarFetched(basicScholar: Scholar) {
         self.delegate?.didLoad(basicScholar: basicScholar)
     }

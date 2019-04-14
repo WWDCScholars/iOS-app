@@ -131,7 +131,7 @@
 		7B9509DA21BFC2E6005E5711 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9509D921BFC2E6005E5711 /* Nuke.framework */; };
 		7B9509DC21BFC316005E5711 /* CoreStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9509DB21BFC316005E5711 /* CoreStore.framework */; };
 		7B9509DE21BFD40A005E5711 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9509DD21BFD409005E5711 /* Alamofire.framework */; };
-		7BB4F7FB1EDC9E9000B0EE7A /* Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FA1EDC9E9000B0EE7A /* Batch.swift */; };
+		7BB4F7FB1EDC9E9000B0EE7A /* WWDCYearInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FA1EDC9E9000B0EE7A /* WWDCYearInfo.swift */; };
 		7BB4F7FD1EDC9F5C00B0EE7A /* CloudKitInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */; };
 		7BB4F7FF1EDCA02700B0EE7A /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FE1EDCA02700B0EE7A /* Gender.swift */; };
 		7BB4F8011EDCA02D00B0EE7A /* ApplicantType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F8001EDCA02D00B0EE7A /* ApplicantType.swift */; };
@@ -313,7 +313,7 @@
 		7B9509D921BFC2E6005E5711 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		7B9509DB21BFC316005E5711 /* CoreStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreStore.framework; path = Carthage/Build/iOS/CoreStore.framework; sourceTree = "<group>"; };
 		7B9509DD21BFD409005E5711 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		7BB4F7FA1EDC9E9000B0EE7A /* Batch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Batch.swift; sourceTree = "<group>"; };
+		7BB4F7FA1EDC9E9000B0EE7A /* WWDCYearInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWDCYearInfo.swift; sourceTree = "<group>"; };
 		7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitInitializable.swift; sourceTree = "<group>"; };
 		7BB4F7FE1EDCA02700B0EE7A /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		7BB4F8001EDCA02D00B0EE7A /* ApplicantType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicantType.swift; sourceTree = "<group>"; };
@@ -944,7 +944,7 @@
 				7BB4F7FE1EDCA02700B0EE7A /* Gender.swift */,
 				7BD91F9F1ED33F7A00439718 /* ActivityTimelineFilter.swift */,
 				7BB4F8001EDCA02D00B0EE7A /* ApplicantType.swift */,
-				7BB4F7FA1EDC9E9000B0EE7A /* Batch.swift */,
+				7BB4F7FA1EDC9E9000B0EE7A /* WWDCYearInfo.swift */,
 				7BB4F8111EDCB43100B0EE7A /* ScholarStatus.swift */,
 				7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */,
 				7BB4F8041EDCA18100B0EE7A /* AppType.swift */,
@@ -1115,18 +1115,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = WWDCScholars;
 				TargetAttributes = {
 					22E852C221C1BF5E00DEC873 = {
 						CreatedOnToolsVersion = 10.1;
-						DevelopmentTeam = YQ3FQN6Z53;
+						DevelopmentTeam = S2TB4FUFGQ;
 						ProvisioningStyle = Automatic;
 					};
 					6E3C55481EA032DD008F9AC9 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = YQ3FQN6Z53;
-						LastSwiftMigration = 1010;
+						DevelopmentTeam = S2TB4FUFGQ;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -1139,7 +1139,7 @@
 					};
 					7B4D74F721BE6C58002F6242 = {
 						CreatedOnToolsVersion = 10.1;
-						DevelopmentTeam = YQ3FQN6Z53;
+						DevelopmentTeam = S2TB4FUFGQ;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 6E3C55481EA032DD008F9AC9;
 					};
@@ -1150,6 +1150,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1245,7 +1246,7 @@
 				6E5CA51E1EA172E70018ECB9 /* UIView+Style.swift in Sources */,
 				22768DFF1EC0D7180083DDBE /* IntroSecondViewController.swift in Sources */,
 				6EB77E2C1ECE353D00E6E263 /* QuickActionShortcutType.swift in Sources */,
-				7BB4F7FB1EDC9E9000B0EE7A /* Batch.swift in Sources */,
+				7BB4F7FB1EDC9E9000B0EE7A /* WWDCYearInfo.swift in Sources */,
 				6E411A001ED78908004A02DE /* TWTRTweetDetailViewController.swift in Sources */,
 				6E825ADB1ED7C2380082FAD6 /* ContainerViewController.swift in Sources */,
 				6EE999F51EC509B600F13809 /* SelectableSingleCellContent.swift in Sources */,
@@ -1442,16 +1443,18 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YQ3FQN6Z53;
+				CURRENT_PROJECT_VERSION = 159;
+				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "WWDCScholars Sticker Pack/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015.WWDCScholars-Sticker-Pack";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cecose.WWDCScholars.WWDCScholars-Sticker-Pack";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1465,15 +1468,17 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YQ3FQN6Z53;
+				CURRENT_PROJECT_VERSION = 159;
+				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "WWDCScholars Sticker Pack/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015.WWDCScholars-Sticker-Pack";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cecose.WWDCScholars.WWDCScholars-Sticker-Pack";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -1481,6 +1486,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1538,6 +1544,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1590,7 +1597,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = YQ3FQN6Z53;
+				CURRENT_PROJECT_VERSION = 159;
+				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1599,10 +1607,11 @@
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cecose.WWDCScholars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1612,7 +1621,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = YQ3FQN6Z53;
+				CURRENT_PROJECT_VERSION = 159;
+				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1621,10 +1631,11 @@
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wwdcscholars.WWDC-Scholars-2015";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cecose.WWDCScholars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -1638,7 +1649,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YQ3FQN6Z53;
+				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = WWDCScholarsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -1663,7 +1674,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YQ3FQN6Z53;
+				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = WWDCScholarsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;

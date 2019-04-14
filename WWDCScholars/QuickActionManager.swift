@@ -55,8 +55,8 @@ internal final class QuickActionManager {
         let index = tabBarController.indexOfNavigationController(containing: ScholarsListViewController.self) ?? 0
         tabBarController.selectedIndex = index
         let scholarsViewController = (tabBarController.viewControllers?.first as? UINavigationController)?.viewControllers.first as? ScholarsViewController
-        scholarsViewController?.selectSavedBatch()
-        scholarsViewController?.scrollToSelectedBatch()
+        scholarsViewController?.selectSavedWWDCYearInfo()
+        scholarsViewController?.scrollToSelectedWWDCYearInfo()
     }
     
     private func openActivity(tabBarController: UITabBarController) {

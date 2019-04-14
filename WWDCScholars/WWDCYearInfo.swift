@@ -1,5 +1,5 @@
 //
-//  Batch.swift
+//  WWDCYearInfo.swift
 //  WWDCScholars
 //
 //  Created by Matthijs Logemann on 29/05/2017.
@@ -8,11 +8,12 @@
 
 import Foundation
 
-internal class Batch {
+internal class WWDCYearInfo {
     internal var id: UUID
     
     internal var scholarId: UUID?
     internal var wwdcYear: WWDCYear
+    internal var status: String?
     
     internal let profilePictureUrl: URL
     internal let acceptanceEmail: URL?
@@ -21,7 +22,7 @@ internal class Batch {
     internal let githubAppUrl: URL?
     
     internal let appType: AppType
-    internal let appStoreSubmissionUrl: URL?
+    internal let appstoreLink: URL?
     
     internal let appliedAs: ApplicantType
 
@@ -29,13 +30,14 @@ internal class Batch {
         id = record["id"] as! UUID
         scholarId  = record["scholarId"] as? UUID
         wwdcYear = record["year"] as! WWDCYear
+        status = record["status"] as? String
         profilePictureUrl = record["profilePictureUrl"] as! URL
         acceptanceEmail = record["acceptanceEmailUrl"] as! URL?
         screenshots = record["screenshots"] as! [URL]
         videoUrl = record["videoUrl"] as? URL
         githubAppUrl = record["githubAppUrl"] as? URL
         appType = record["appType"] as! AppType
-        appStoreSubmissionUrl = record["appStoreSubmissionUrl"] as! URL?
+        appstoreLink = record["appstoreLink"] as! URL?
         appliedAs = record["appliedAs"] as! ApplicantType
     }
     

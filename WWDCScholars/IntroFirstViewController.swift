@@ -50,6 +50,10 @@ internal class IntroFirstViewController: UIViewController {
         getStartedButton.setTitle("Get Started", for: .normal)
         getStartedButton.layer.cornerRadius = 10
         
+        // Button text and adaption
+        skipButton.setTitle("Skip", for: .normal)
+        skipButton.layer.cornerRadius = 10
+        
         // Background Image View
         backgroundImageView.clipsToBounds = true
         

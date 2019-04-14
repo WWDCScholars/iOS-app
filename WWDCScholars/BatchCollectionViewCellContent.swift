@@ -1,5 +1,5 @@
 //
-//  BatchCollectionViewCellContent.swift
+//  WWDCYearInfoCollectionViewCellContent.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 11/05/2017.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal final class BatchCollectionViewCellContent: CellContent, FixedSizeCollectionViewCellContent, SelectableSingleCellContent, ActionableCellContent {
+internal final class WWDCYearInfoCollectionViewCellContent: CellContent, FixedSizeCollectionViewCellContent, SelectableSingleCellContent, ActionableCellContent {
     
     // MARK: - Internal Properties
     

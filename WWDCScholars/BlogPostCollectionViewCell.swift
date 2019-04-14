@@ -68,7 +68,7 @@ internal final class BlogPostCollectionViewCell: UICollectionViewCell, Cell {
 //            })
 //            scholar.loadProfilePicture()
 //            DispatchQueue.main.async {
-//                self.authorLabel?.text = "by \(scholar.firstName)"
+//                self.authorLabel?.text = "by \(scholar.givenName)"
 //            }
 //        }, completion: nil)
     }

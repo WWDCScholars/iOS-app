@@ -1,5 +1,5 @@
 //
-//  BatchInfo.swift
+//  WWDCYearInfoInfo.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 12/05/2017.
@@ -18,6 +18,7 @@ internal enum WWDCYear: String {
     case wwdc2016 = "WWDC 2016"
     case wwdc2017 = "WWDC 2017"
     case wwdc2018 = "WWDC 2018"
+    case wwdc2019 = "WWDC 2019"
     case saved = "Saved"
     
     // MARK: - Internal Properties
@@ -32,7 +33,7 @@ internal enum WWDCYear: String {
     }
     
     var isDefault: Bool {
-        if self == .wwdc2018 {
+        if self == .wwdc2019 {
             return true
         }
         

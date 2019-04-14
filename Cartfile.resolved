@@ -1,5 +1,5 @@
 github "Alamofire/Alamofire" "4.8.0"
 github "HarshilShah/DeckTransition" "2.1.0"
-github "JohnEstropia/CoreStore" "5.3.1"
-github "hulab/ClusterKit" "0.3.5"
+github "JohnEstropia/CoreStore" "6.3.1"
+github "hulab/ClusterKit" "0.4.0"
 github "kean/Nuke" "7.5.1"

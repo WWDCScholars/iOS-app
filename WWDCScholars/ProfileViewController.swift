@@ -41,7 +41,7 @@ internal final class ProfileViewController: UIViewController {
     private let bioLabelHeightConstraintUpdateValue: CGFloat = 1.0
     
     private var scholar: Scholar? = nil
-    private var batch: Batch? = nil
+    private var batch: WWDCYearInfo? = nil
     
     private var profileSocialAccountsFactory: ProfileSocialAccountsFactory?
     
@@ -116,7 +116,7 @@ internal final class ProfileViewController: UIViewController {
     private func configureBioLabel() {
         let font = self.bioLabel?.font
         let width = self.bioLabel?.frame.width ?? 0.0
-        let height = self.scholar?.shortBio.height(for: width, font: font) ?? 0
+        let height = self.scholar?.biography.height(for: width, font: font) ?? 0
         self.bioLabelHeightConstraint?.constant = height + self.bioLabelHeightConstraintUpdateValue
     }
     
@@ -188,7 +188,7 @@ internal final class ProfileViewController: UIViewController {
         
         self.ageContentLabel?.text = "\(scholar.birthday.age)"
         
-        self.batchContentLabel?.text = scholar.yearInfo.keys.map { (string) -> String in
+        self.batchContentLabel?.text = scholar.wwdcYearInfos.keys.map { (string) -> String in
             let year = String(string.title.split(separator: " ").last ?? "")
             return "'" + String(year[2...])
         }.joined(separator: ", ")
@@ -199,7 +199,7 @@ internal final class ProfileViewController: UIViewController {
             return
         }
         
-        self.bioLabel?.text = scholar.shortBio
+        self.bioLabel?.text = scholar.biography
     }
     
     private func populateSocialAccountsContent() {

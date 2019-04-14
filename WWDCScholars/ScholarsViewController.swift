@@ -47,9 +47,9 @@ internal final class ScholarsViewController: UIViewController {
         
         self.styleUI()
         self.configureUI()
-        self.configureBatchContentController()
-        self.selectDefaultBatch()
-        self.scrollToSelectedBatch()
+        self.configureWWDCYearInfoContentController()
+        self.selectDefaultWWDCYearInfo()
+        self.scrollToSelectedWWDCYearInfo()
         self.checkForIntroSeenYet()
     }
     
@@ -97,13 +97,13 @@ internal final class ScholarsViewController: UIViewController {
     
     // MARK: - Internal Functions
     
-    internal func selectSavedBatch() {
-        self.batchCollectionViewContentController.selectSavedBatch()
+    internal func selectSavedWWDCYearInfo() {
+        self.batchCollectionViewContentController.selectSavedWWDCYearInfo()
     }
     
-    internal func scrollToSelectedBatch() {
+    internal func scrollToSelectedWWDCYearInfo() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01, execute: {
-            self.batchCollectionViewContentController.scrollToSelectedBatch()
+            self.batchCollectionViewContentController.scrollToSelectedWWDCYearInfo()
         })
     }
     
@@ -128,7 +128,7 @@ internal final class ScholarsViewController: UIViewController {
     
     // MARK: - Private Functions
     
-    private func configureBatchContentController() {
+    private func configureWWDCYearInfoContentController() {
         self.batchCollectionViewContentController.configure(collectionView: self.batchCollectionView)
         
         let batchSectionContent = ScholarsViewControllerCellContentFactory.batchSectionContent(from: self.batches, delegate: self)
@@ -137,8 +137,8 @@ internal final class ScholarsViewController: UIViewController {
         self.batchCollectionViewContentController.reloadContent()
     }
     
-    private func selectDefaultBatch() {
-        self.batchCollectionViewContentController.selectDefaultBatch()
+    private func selectDefaultWWDCYearInfo() {
+        self.batchCollectionViewContentController.selectDefaultWWDCYearInfo()
     }
     
     // MARK: - Actions
@@ -158,12 +158,12 @@ extension ScholarsViewController: ScholarsViewControllerProxyDelegate {
 		scholars.append(basicScholar)
     }
     
-    internal func didLoadBatch() {
+    internal func didLoadWWDCYearInfo() {
         self.updateContainerViewsContent()
     }
 }
 
-extension ScholarsViewController: BatchCollectionViewCellContentDelegate {
+extension ScholarsViewController: WWDCYearInfoCollectionViewCellContentDelegate {
     
     // MARK: - Internal Functions
     

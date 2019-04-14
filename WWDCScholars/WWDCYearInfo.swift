@@ -1,5 +1,5 @@
 //
-//  Batch.swift
+//  WWDCYearInfo.swift
 //  WWDCScholars
 //
 //  Created by Matthijs Logemann on 29/05/2017.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal class Batch {
+internal class WWDCYearInfo {
     internal var id: UUID
     
     internal var scholarId: UUID?

@@ -46,7 +46,7 @@ internal extension UILabel {
         }
     }
 
-    internal func applyScholarsBatchTitleStyle() {
+    internal func applyScholarsWWDCYearInfoTitleStyle() {
         self.font = UIFont.systemFont(ofSize: 14.0)
         self.textColor = .titleTextLight
     }

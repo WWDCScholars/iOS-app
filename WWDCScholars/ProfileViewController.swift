@@ -41,7 +41,7 @@ internal final class ProfileViewController: UIViewController {
     private let bioLabelHeightConstraintUpdateValue: CGFloat = 1.0
     
     private var scholar: Scholar? = nil
-    private var batch: Batch? = nil
+    private var batch: WWDCYearInfo? = nil
     
     private var profileSocialAccountsFactory: ProfileSocialAccountsFactory?
     

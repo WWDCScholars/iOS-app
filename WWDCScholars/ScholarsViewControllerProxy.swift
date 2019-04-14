@@ -44,3 +44,8 @@ internal final class ScholarsViewControllerProxy {
         self.delegate?.didLoad(basicScholar: basicScholar)
     }
 }
+
+func didLoadWWDCYearInfo() {
+    // TODO: O
+}
+

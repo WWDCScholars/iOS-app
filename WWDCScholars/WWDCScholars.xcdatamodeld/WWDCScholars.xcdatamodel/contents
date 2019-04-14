@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.98" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CDScholar" representedClassName="CDScholar" syncable="YES" codeGenerationType="class">
         <attribute name="apprivedOn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="biography" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="familyName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="givenName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="profilePictureUrl" optional="YES" attributeType="URI" syncable="YES"/>
-        <attribute name="shortBio" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="yearInfo" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="socialMedia" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDSocialMedia" inverseName="scholar" inverseEntity="CDSocialMedia" syncable="YES"/>
     </entity>
@@ -22,7 +21,7 @@
     </entity>
     <entity name="Entity" representedClassName="Entity" syncable="YES" codeGenerationType="class"/>
     <elements>
-        <element name="CDScholar" positionX="-63" positionY="-18" width="128" height="270"/>
+        <element name="CDScholar" positionX="-63" positionY="-18" width="128" height="255"/>
         <element name="CDSocialMedia" positionX="-54" positionY="72" width="128" height="60"/>
         <element name="Entity" positionX="-36" positionY="117" width="128" height="45"/>
     </elements>

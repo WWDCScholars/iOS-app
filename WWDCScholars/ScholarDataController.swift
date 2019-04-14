@@ -28,7 +28,7 @@ protocol ScholarDataController {
     /// - Parameters:
     ///   - year: The year to get the data for
     ///   - scholar: Scholar to get the data for
-    func scholarData(for year: WWDCYear, scholar: Scholar) -> Batch?
+    func scholarData(for year: WWDCYear, scholar: Scholar) -> WWDCYearInfo?
     
     /// Returns the amount of scholars in the database
     /// for the given year

@@ -149,7 +149,6 @@ internal extension CloudKitManager {
         }
         
         //        if let approvedOn = record["approvedOn"] as? Date {
-        testData["approvedOn"] = record["approvedOn"] as? Date
         
         if let picStr = record["profilePictureUrl"] as? String,
             let picUrl = URL.init(string: picStr) {

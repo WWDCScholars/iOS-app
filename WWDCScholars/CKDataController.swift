@@ -21,7 +21,7 @@ class CKDataController: ScholarDataController {
 //    private let publicDatabase: CKDatabase
     
     private init() {
-        self.container = CKContainer(identifier: "iCloud.com.wwdcscholars.WWDCScholars")
+        self.container = CKContainer(identifier: "iCloud.com.cecose.WWDCScholars")
 //        self.database = self.container.publicCloudDatabase
     }
     
@@ -30,12 +30,12 @@ class CKDataController: ScholarDataController {
         
         let sync = SyncBlock.init()
         let yearRef = CKRecord.Reference(recordID: CKRecord.ID.init(recordName: year.recordName), action: .none)
-        let statusPredicate = (status != nil) ? "status = '\(status!.rawValue)' AND" : ""
-        let predicate = NSPredicate(format: "\(statusPredicate) wwdcYears CONTAINS %@", yearRef)
+        //let statusPredicate = (status != nil) ? "status = '\(status!.rawValue)' AND" : ""
+        let predicate = NSPredicate(format: "wwdcYears CONTAINS %@", yearRef)
         
         let query = CKQuery(recordType: "Scholar", predicate: predicate)
         let operation = CKQueryOperation(query: query)
-        operation.desiredKeys = ["socialMedia", "lastName", "firstName", "wwdcYears", "shortBio", "approvedOn", "location", "birthday", "wwdcYearInfos", "email", "gender", "status", "profilePictureUrl"]
+        operation.desiredKeys = ["socialMedia", "familyName", "givenName", "wwdcYears", "biography", "location", "birthday", "wwdcYearInfos", "email", "gender", "profilePictureUrl"]
         operation.qualityOfService = .userInteractive
         
         scholarFetched = { (record:CKRecord!) in
@@ -66,7 +66,7 @@ class CKDataController: ScholarDataController {
             
             if let cursor = cursor {
                 let operation = CKQueryOperation(cursor: cursor)
-                operation.desiredKeys = ["socialMedia", "lastName", "firstName", "wwdcYears", "shortBio", "approvedOn", "location", "birthday", "wwdcYearInfos", "email", "gender", "status", "profilePictureUrl"]
+                operation.desiredKeys = ["socialMedia", "familyName", "givenName", "wwdcYears", "biography", "location", "birthday", "wwdcYearInfos", "email", "gender", "profilePictureUrl"]
                 operation.qualityOfService = .userInteractive
                 operation.recordFetchedBlock = self.scholarFetched
                 operation.queryCompletionBlock = self.queryCompleted
@@ -93,7 +93,7 @@ class CKDataController: ScholarDataController {
         
         let record = CKRecord.ID.init(recordName: id.uuidString)
         let operation = CKFetchRecordsOperation.init(recordIDs: [record])
-        operation.desiredKeys = ["socialMedia", "lastName", "firstName", "wwdcYears", "shortBio", "approvedOn", "location", "birthday", "wwdcYearInfos", "email", "gender", "status", "profilePictureUrl"]
+        operation.desiredKeys = ["socialMedia", "familyName", "givenName", "wwdcYears", "biography", "location", "birthday", "wwdcYearInfos", "email", "gender", "profilePictureUrl"]
         operation.qualityOfService = .userInteractive
         
         
@@ -106,7 +106,7 @@ class CKDataController: ScholarDataController {
                 }
                 
                 guard let scholar = Scholar(record: record) else {
-                    print("loadScholars - Scholar could not be created")
+                    print("scholar for ID - Scholar could not be created")
                     return
                 }
                 
@@ -124,7 +124,7 @@ class CKDataController: ScholarDataController {
         return loadedScholar
     }
     
-    func scholarData(for year: WWDCYear, scholar: Scholar) -> Batch? {
+    func scholarData(for year: WWDCYear, scholar: Scholar) -> WWDCYearInfo? {
         return nil
     }
     
@@ -151,25 +151,24 @@ extension Scholar {
     init?(record: CKRecord) {
         let picStr = record["profilePictureUrl"] as? String ?? "https://pbs.twimg.com/profile_images/856454273164562432/sSTBrbQ0_400x400.jpg"
         
-        if let id = UUID.init(uuidString: record.recordID.recordName),
+        if let id = UUID(uuidString: record.recordID.recordName),
             let creationDate = record.creationDate,
             let modifyDate = record.modificationDate,
             let location = record["location"] as? CLLocation,
-            let shortBio = record["shortBio"] as? String,
+            let biography = record["biography"] as? String,
             let genderStr = record["gender"] as? String,
             let gender = Gender.init(rawValue: genderStr),
             let birthday = record["birthday"] as? Date,
             let email = record["email"] as? String,
-            let firstName = record["firstName"] as? String,
-            let lastName = record["lastName"] as? String,
+            let givenName = record["givenName"] as? String,
+            let familyName = record["familyName"] as? String,
             let socialMedia = record["socialMedia"] as? CKRecord.Reference,
             let socialMediaId = UUID.init(uuidString: socialMedia.recordID.recordName),
             let wwdcYears = record["wwdcYears"] as? [CKRecord.Reference],
             let wwdcYearInfos = record["wwdcYearInfos"] as? [CKRecord.Reference],
-            let statusStr = record["status"] as? String,
-            let status = Scholar.Status.init(rawValue: statusStr),
+            //let statusStr = record["status"] as? String,
+            //let status = Scholar.Status.init(rawValue: statusStr),
             let picUrl = URL.init(string: picStr) {
-            let approvedOn = record["approvedOn"] as? Date
 
             var wwdcInfo: [WWDCYear: UUID] = [:]
             for (index, wwdcYear) in wwdcYears.enumerated() {
@@ -181,22 +180,22 @@ extension Scholar {
             }
 
             self.init(id: id,
-                         firstName: firstName,
-                         lastName: lastName,
+                         givenName: givenName,
+                         familyName: familyName,
                          gender: gender,
                          birthday: birthday,
                          latitude: location.coordinate.latitude,
                          longitude: location.coordinate.longitude,
                          email: email,
-                         shortBio: shortBio,
+                         biography: biography,
                          socialMediaId: socialMediaId,
-                         yearInfo: wwdcInfo,
-                         status: status,
-                         approvedOn: approvedOn,
+                         wwdcYearInfos: wwdcInfo,
+                         //status: status,
                          createdAt: creationDate,
                          updatedAt: modifyDate,
                          profilePictureUrl: picUrl)
         }else {
+            print("Missing a parameter")
             return nil
         }
 //

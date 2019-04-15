@@ -72,6 +72,9 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
     // MARK: - Actions
     
     @IBAction internal func myLocationButtonTapped() {
+        self.locationManager.requestWhenInUseAuthorization()
+
+        
         guard CLLocationManager.locationServicesEnabled() else {
             self.locationStatusManager?.handleLocationServicesDisabled()
             return
@@ -88,7 +91,7 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
     // MARK: - Internal Functions
     
     internal func switchedToViewController() {
-        self.locationManager.requestWhenInUseAuthorization()
+        //self.locationManager.requestWhenInUseAuthorization()
     }
     
     internal func configureMapContent() {

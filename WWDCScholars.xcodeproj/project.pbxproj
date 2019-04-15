@@ -1408,7 +1408,7 @@
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "WWDCScholars Sticker Pack/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cecose.WWDCScholars.WWDCScholars-Sticker-Pack";
@@ -1433,7 +1433,7 @@
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "WWDCScholars Sticker Pack/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cecose.WWDCScholars.WWDCScholars-Sticker-Pack";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1566,7 +1566,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cecose.WWDCScholars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1590,7 +1590,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cecose.WWDCScholars;
 				PRODUCT_NAME = "$(TARGET_NAME)";

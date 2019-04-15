@@ -19,6 +19,7 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
     @IBOutlet private weak var mapView: MKMapView?
     @IBOutlet private weak var myLocationButtonVisualEffectView: UIVisualEffectView?
     @IBOutlet private weak var myLocationButton: UIButton?
+    private var compassButton: MKCompassButton?
     
     private let locationManager = CLLocationManager()
     
@@ -91,16 +92,23 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
     // MARK: - Internal Functions
     
     internal func switchedToViewController() {
-        //self.locationManager.requestWhenInUseAuthorization()
+        //self.locationManager.requestWhenInUseAuthorization() – No longer needed
     }
     
     internal func configureMapContent() {
 		clearMapContent()
         let annotations = ScholarsMapAnnotationsFactory.annotations(for: self.scholars)
         self.mapView?.clusterManager.addAnnotations(annotations)
+        
+        compassButton = MKCompassButton(mapView:mapView)
+        compassButton?.frame = CGRect(x: (mapView?.frame.size.width)!-46, y: 54, width: 38, height: 38)
+        compassButton!.compassVisibility = .adaptive
+        view.addSubview(compassButton!)
     }
 	
 	internal func clearMapContent(){
+        compassButton?.removeFromSuperview()
+        
 		if let annotations = mapView?.clusterManager.annotations{
 			mapView?.clusterManager.removeAnnotations(annotations)
 		}
@@ -124,7 +132,7 @@ internal final class ScholarsMapViewController: UIViewController, ContainerViewC
         }
         
         let userCoordinate = mapView.userLocation.coordinate
-        let distance: CLLocationDistance = 2500000.0
+        let distance: CLLocationDistance = 750000.0
         let userRegion = MKCoordinateRegion.init(center: userCoordinate, latitudinalMeters: distance, longitudinalMeters: distance)
         mapView.setRegion(userRegion, animated: true)
     }

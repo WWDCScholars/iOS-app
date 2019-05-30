@@ -149,22 +149,24 @@ internal final class ProfileViewController: UIViewController {
                 }
  
                 self.profilePictureImageView?.contentMode = .scaleAspectFill
+                
+                if let socialMedia = self.scholar?.socialMedia?.recordID{
+                    print("socialMedia is \(socialMedia)")
+                    
+                    CloudKitManager.shared.loadSocialMedia(with: socialMedia, recordFetched: { socialMedia in
+                        self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(socialMedia: socialMedia)
+                        DispatchQueue.main.async {
+                            self.populateSocialAccountsContent()
+                        }
+                    }, completion: nil)
+                }else{
+                    print("No socialMediaID")
+                }
             }
             
         }
         
-        if let socialMedia = scholar?.socialMedia?.recordID{
-            print("socialMedia is \(socialMedia)")
-            
-            CloudKitManager.shared.loadSocialMedia(with: socialMedia, recordFetched: { socialMedia in
-                self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(socialMedia: socialMedia)
-                DispatchQueue.main.async {
-                    self.populateSocialAccountsContent()
-                }
-            }, completion: nil)
-        }else{
-            print("No socialMediaID")
-        }
+        
 
         
 

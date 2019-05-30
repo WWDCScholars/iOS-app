@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CloudKit
 
 enum SocialMediaType: String{
     case discord
@@ -22,9 +23,6 @@ enum SocialMediaType: String{
 internal class SocialMedia {
     
     // MARK: - Internal Functions
-    
-    internal var id: UUID
-    
     internal var discord : String?
     internal var imessage : String?
     internal var itunes : String?
@@ -34,8 +32,7 @@ internal class SocialMedia {
     internal var facebook : String?
     internal var twitter : String?
     
-    internal required init(record: [String: Any]) {
-        id = record["id"] as! UUID
+    internal required init(record: CKRecord) {
         discord = record["discord"] as! String?
         imessage = record["imessage"] as! String?
         itunes = record["itunes"] as! String?

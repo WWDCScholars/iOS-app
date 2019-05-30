@@ -150,12 +150,12 @@ internal extension CloudKitManager {
         
         //        if let approvedOn = record["approvedOn"] as? Date {
         
-        if let picStr = record["profilePictureUrl"] as? String,
+        if let picStr = record["profilePicture"] as? String,
             let picUrl = URL.init(string: picStr) {
-            testData["profilePictureUrl"] = picUrl
+            testData["profilePicture"] = picUrl
         }
         else {
-            testData["profilePictureUrl"] = URL.init(string: "https://pbs.twimg.com/profile_images/856454273164562432/sSTBrbQ0_400x400.jpg")!
+            testData["profilePicture"] = URL.init(string: "https://pbs.twimg.com/profile_images/856454273164562432/sSTBrbQ0_400x400.jpg")!
         }
         
         

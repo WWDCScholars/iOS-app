@@ -23,7 +23,7 @@ internal final class ProfileViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    @IBOutlet private weak var profilePictureImageView: UIImageView?
+    @IBOutlet private weak var profilePictureImageView: UIImageView!
     @IBOutlet private weak var profilePictureContainerView: UIView?
     @IBOutlet private weak var teamImageView: UIImageView?
     @IBOutlet private weak var teamContainerView: UIView?
@@ -97,6 +97,7 @@ internal final class ProfileViewController: UIViewController {
         self.teamContainerView?.applyRelativeCircularBorder()
         
         self.teamImageView?.roundCorners()
+        
         self.profilePictureImageView?.roundCorners()
         
         self.profilePictureImageView?.tintColor = .backgroundElementGray
@@ -112,6 +113,16 @@ internal final class ProfileViewController: UIViewController {
         self.ageTitleLabel?.text = "Age"
         
         self.profilePictureImageView?.image = UIImage.loading
+        
+        configureTeamImageView()
+    }
+    
+    private func configureTeamImageView(){
+        if self.scholar?.fullName == "Sam Eckert" || self.scholar?.fullName == "Moritz Sternemann" || self.scholar?.fullName == "Andrew Walker"{
+            self.teamContainerView?.isHidden = false
+        }else{
+            self.teamContainerView?.isHidden = true
+        }
     }
     
     private func configureBioLabel() {
@@ -133,18 +144,20 @@ internal final class ProfileViewController: UIViewController {
                 self.populateBioContent()
                 self.configureMapView()
                 
-                Nuke.loadImage(with: self.scholar!.profilePicture?.fileURL ?? URL(string: "")! , into: self.profilePictureImageView!)
-                
+                if let profileURL = self.scholar?.profilePicture?.fileURL{
+                    Nuke.loadImage(with: profileURL, into: self.profilePictureImageView!)
+                }
+ 
                 self.profilePictureImageView?.contentMode = .scaleAspectFill
             }
         }
 
-////            CloudKitManager.shared.loadSocialMedia(with: scholar.socialMediaRef.recordID, recordFetched: { socialMedia in
-////                self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(socialMedia: socialMedia)
-////                DispatchQueue.main.async {
-////                    self.populateSocialAccountsContent()
-////                }
-////            }, completion: nil)
+            CloudKitManager.shared.loadSocialMedia(with: scholar.socialMediaRef.recordID, recordFetched: { socialMedia in
+                self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(socialMedia: socialMedia)
+                DispatchQueue.main.async {
+                    self.populateSocialAccountsContent()
+                }
+            }, completion: nil)
 
     }
     
@@ -187,7 +200,7 @@ internal final class ProfileViewController: UIViewController {
             return
         }
         
-        self.ageContentLabel?.text = "\(scholar.birthday?.age)"
+        self.ageContentLabel?.text = "\(scholar.birthday?.age ?? 18)"
         
         /*let scholarYearInfos = CKFetchRecordsOperation(recordIDs: [scholar.wwdcYearInfos])
         

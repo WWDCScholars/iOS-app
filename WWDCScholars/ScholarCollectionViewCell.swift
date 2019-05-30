@@ -58,7 +58,12 @@ internal final class ScholarCollectionViewCell: UICollectionViewCell, Cell {
         self.imageView?.image = UIImage.loading
         self.imageView?.contentMode = .center
         
-        Nuke.loadImage(with: (cellContent.scholar.profilePicture?.fileURL!)!, into: self.imageView!)
+        /*self.imageView?.contentMode = .scaleAspectFill*
+        self.imageView?.image = cellContent.scholar.profilePicture?.image*/
+        if let profileURL = cellContent.scholar.profilePicture?.fileURL{
+            Nuke.loadImage(with: profileURL, into: self.imageView!)
+        }
+        
 
 //        cellContent.scholar.profilePictureLoaded.append({
 //            error in

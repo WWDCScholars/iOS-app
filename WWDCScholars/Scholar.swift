@@ -34,7 +34,7 @@ internal struct Scholar {
 
     /** Convenience variable to return the full name of the scholar */
     var fullName: String {
-        return "\(givenName) \(familyName)"
+        return "\(givenName ?? "") \(familyName ?? "")"
     }
 }
 

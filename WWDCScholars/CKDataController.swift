@@ -34,7 +34,7 @@ class CKDataController: ScholarDataController {
         
         let sync = SyncBlock.init()
         let yearRef = CKRecord.Reference(recordID: CKRecord.ID.init(recordName: year.recordName), action: .none)
-        let predicate = NSPredicate(format: "wwdcYears CONTAINS %@", yearRef)
+        let predicate = NSPredicate(format: "(wwdcYears CONTAINS %@) AND (wwdcYearsApproved CONTAINS %@) AND (gdprConsentAt <= %@)", yearRef, yearRef, NSDate())
         
         let query = CKQuery(recordType: "Scholar", predicate: predicate)
         let operation = CKQueryOperation(query: query)
@@ -98,7 +98,7 @@ class CKDataController: ScholarDataController {
         let sync = SyncBlock.init()
         
         let operation = CKFetchRecordsOperation.init(recordIDs: [id])
-        operation.desiredKeys = ["socialMedia", "familyName", "givenName", "wwdcYears", "biography", "location", "birthday", "wwdcYearInfos", "email", "gender", "profilePictureUrl"]
+        operation.desiredKeys = ["socialMedia", "familyName", "givenName", "wwdcYears", "biography", "location", "birthday", "wwdcYearInfos", "email", "gender", "profilePicture"]
         operation.qualityOfService = .userInteractive
         
         

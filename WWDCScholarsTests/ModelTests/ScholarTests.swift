@@ -26,7 +26,7 @@ class ScholarTests: XCTestCase {
         testData["email"] = "test@email.com"
         testData["givenName"] = "FNTest"
         testData["familyName"] = "LNTest"
-        testData["profilePictureUrl"] = URL.init(string: "https://wwdcscholars.com")
+        testData["profilePicture"] = URL.init(string: "https://wwdcscholars.com")
         testData["socialMedia"] = UUID.init(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E55")
         testData["wwdcYearInfos"] = [WWDCYear.wwdc2019: UUID.init(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E51")]
     }
@@ -60,19 +60,19 @@ class ScholarTests: XCTestCase {
         var testData: [String: Any] = [:]
         testData["id"] = nil
 
-        let instance = Scholar.init(record: testData)
+        let instance = Scholar.init(scholarRecord: testData)
         XCTAssertNil(instance, "instance == nil")
     }
 
     func testFullName() {
-        let instance = Scholar.init(record: testData)
+        let instance = Scholar.init(scholarRecord: testData)
         XCTAssertNotNil(instance, "instance != nil")
 
         XCTAssertEqual(instance?.fullName, "FNTest LNTest")
     }
 
     func testLocation() {
-        let instance = Scholar.init(record: testData)
+        let instance = Scholar.init(scholarRecord: testData)
         XCTAssertNotNil(instance, "instance != nil")
 
         XCTAssertEqual(instance?.location.coordinate.latitude, 50.01774)

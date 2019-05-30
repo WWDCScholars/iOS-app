@@ -172,7 +172,7 @@ extension ScholarsViewController: ScholarsViewControllerProxyDelegate {
     }
 
     internal func didLoad(scholars: [Scholar]) {
-        self.scholars = scholars
+        self.scholars = scholars.sorted(by: { $0.givenName! < $1.givenName! })
         
         print("didLoad scholars")
     }

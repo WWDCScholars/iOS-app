@@ -24,13 +24,21 @@ internal final class ProfileSocialAccountsFactory {
     // MARK: - Internal Functions
     
     internal func accountButtons() -> [SocialAccountButton] {
-        let buttons = [self.facebookButton(), self.twitterButton(), self.linkedInButton(), self.websiteButton(), self.gitHubButton(), self.iMessageButton()]
+        let buttons = [self.facebookButton(), self.twitterButton(), self.linkedInButton(), self.websiteButton(), self.gitHubButton(), self.iMessageButton(), self.discordButton()]
         let visibleButtons = buttons.compactMap({ ($0 as? SocialAccountButton) })
         
         return visibleButtons
     }
     
     // MARK: - Private Functions
+    
+    private func discordButton() -> UIButton? {
+        if let discord = self.socialMedia.discord, !discord.isEmpty {
+            return self.accountButton(withType: .discord, url: discord)
+        }
+        
+        return nil
+    }
     
     private func iMessageButton() -> UIButton? {
         if let iMessage = self.socialMedia.imessage, !iMessage.isEmpty {

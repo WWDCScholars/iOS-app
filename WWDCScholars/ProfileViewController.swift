@@ -150,14 +150,23 @@ internal final class ProfileViewController: UIViewController {
  
                 self.profilePictureImageView?.contentMode = .scaleAspectFill
             }
+            
         }
-
-            CloudKitManager.shared.loadSocialMedia(with: scholar.socialMediaRef.recordID, recordFetched: { socialMedia in
+        
+        if let socialMedia = scholar?.socialMedia?.recordID{
+            print("socialMedia is \(socialMedia)")
+            
+            CloudKitManager.shared.loadSocialMedia(with: socialMedia, recordFetched: { socialMedia in
                 self.profileSocialAccountsFactory = ProfileSocialAccountsFactory(socialMedia: socialMedia)
                 DispatchQueue.main.async {
                     self.populateSocialAccountsContent()
                 }
             }, completion: nil)
+        }else{
+            print("No socialMediaID")
+        }
+
+        
 
     }
     
@@ -222,6 +231,7 @@ internal final class ProfileViewController: UIViewController {
     }
     
     private func populateSocialAccountsContent() {
+        print("populateSocialAccountsContent")
         let socialAccountButtons = self.profileSocialAccountsFactory?.accountButtons() ?? []
         for button in socialAccountButtons {
             self.socialAccountsStackView?.addArrangedSubview(button)

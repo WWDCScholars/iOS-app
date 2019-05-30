@@ -9,6 +9,7 @@
 import Foundation
 
 enum SocialMediaType: String{
+    case discord
 	case imessage
 	case itunes
 	case website
@@ -24,6 +25,7 @@ internal class SocialMedia {
     
     internal var id: UUID
     
+    internal var discord : String?
     internal var imessage : String?
     internal var itunes : String?
     internal var website : String?
@@ -34,6 +36,7 @@ internal class SocialMedia {
     
     internal required init(record: [String: Any]) {
         id = record["id"] as! UUID
+        discord = record["discord"] as! String?
         imessage = record["imessage"] as! String?
         itunes = record["itunes"] as! String?
         website = record["website"] as! String?
@@ -42,5 +45,4 @@ internal class SocialMedia {
         facebook = record["facebook"] as! String?
         twitter = record["twitter"] as! String?
     }
-
 }

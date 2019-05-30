@@ -163,13 +163,7 @@ internal final class ProfileViewController: UIViewController {
                     print("No socialMediaID")
                 }
             }
-            
         }
-        
-        
-
-        
-
     }
     
     private func configureMapView() {
@@ -178,7 +172,6 @@ internal final class ProfileViewController: UIViewController {
         }
         
         self.mapView?.setCenter(scholar.location.coordinate, animated: false)
-
     }
     
     private func populateHeaderContent() {
@@ -213,13 +206,18 @@ internal final class ProfileViewController: UIViewController {
         
         self.ageContentLabel?.text = "\(scholar.birthday?.age ?? 18)"
         
-        /*let scholarYearInfos = CKFetchRecordsOperation(recordIDs: [scholar.wwdcYearInfos])
+        var years = [String]()
+        for yearInfo in scholar.wwdcYears ?? []{
+            years.append(yearInfo.recordID.recordName)
+        }
         
+        print(years)
+  
         
-        self.batchContentLabel?.text = scholar.wwdcYearInfos.keys.map { (string) -> String in
-            let year = String(string.title.split(separator: " ").last ?? "")
+        self.batchContentLabel?.text = years.map { (string) -> String in
+            let year = String(string.split(separator: " ").last ?? "")
             return "'" + String(year[2...])
-        }.joined(separator: ", ")*/
+        }.joined(separator: ", ")
         
         // TODO
     }

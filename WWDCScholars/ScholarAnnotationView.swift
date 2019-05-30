@@ -49,10 +49,16 @@ internal final class ScholarAnnotationView: MKAnnotationView {
         
         self.imageView.image = UIImage(named: "profile")
         self.imageView.frame = self.frame
+        self.imageView.contentMode = .scaleAspectFill
         self.addSubview(self.imageView)
     }
 	
 	private func setImage(scholar: Scholar){
+        DispatchQueue.main.async {
+            self.imageView.image = scholar.profilePicture?.image
+        }
+        
+          //  scholar.profilePicture
 //        scholar.profilePictureLoaded.append({
 //            error in
 //            guard error == nil else { return }

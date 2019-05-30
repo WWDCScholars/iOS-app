@@ -13,7 +13,7 @@ internal extension CollectionViewContentController {
     // MARK: - Internal Functions
     
     internal func selectSavedWWDCYearInfo() {
-        guard let savedWWDCYearInfoSectionContent = self.sectionContent.filter({ $0.id == "WWDCYearInfoes" }).first else {
+        guard let savedWWDCYearInfoSectionContent = self.sectionContent.filter({ $0.id == "WWDCYearInfos" }).first else {
             return
         }
         
@@ -25,7 +25,7 @@ internal extension CollectionViewContentController {
     }
     
     internal func selectDefaultWWDCYearInfo() {
-        guard let defaultWWDCYearInfoSectionContent = self.sectionContent.filter({ $0.id == "WWDCYearInfoes" }).first else {
+        guard let defaultWWDCYearInfoSectionContent = self.sectionContent.filter({ $0.id == "WWDCYearInfos" }).first else {
             return
         }
         

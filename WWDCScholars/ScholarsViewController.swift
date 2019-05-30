@@ -15,6 +15,8 @@ internal final class ScholarsViewController: UIViewController {
 
     @IBOutlet private weak var navigationBarExtensionView: NavigationBarExtensionView?
     @IBOutlet private weak var batchCollectionView: UICollectionView?
+    @IBOutlet private weak var loadingScholarsView: UIView!
+    @IBOutlet private weak var loadingScholarsActivityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var scholarsMapContainerView: ScholarsMapContainerView?
     @IBOutlet private weak var scholarsListContainerView: ScholarsListContainerView?
 
@@ -37,6 +39,9 @@ internal final class ScholarsViewController: UIViewController {
 
     internal override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadingScholarsActivityIndicator.startAnimating()
+        loadingScholarsView.isHidden = false
 
         let scholarsListContainerViewContent = ContainerViewElements(view: self.scholarsListContainerView, viewController: self.scholarsListViewController)
         let scholarsMapContainerViewContent = ContainerViewElements(view: self.scholarsMapContainerView, viewController: self.scholarsMapViewController)
@@ -123,6 +128,9 @@ internal final class ScholarsViewController: UIViewController {
         self.scholarsListViewController?.configureScholarContentController()
         self.scholarsMapViewController?.scholars = self.scholars
         self.scholarsMapViewController?.configureMapContent()
+        
+        loadingScholarsActivityIndicator.stopAnimating()
+        loadingScholarsView.isHidden = true
     }
 
     // MARK: - Private Functions
@@ -180,6 +188,8 @@ extension ScholarsViewController: WWDCYearInfoCollectionViewCellContentDelegate 
     // MARK: - Internal Functions
 
     internal func update(for batchInfo: WWDCYear) {
+        print("update")
+        
 		self.scholars = []
         self.proxy?.loadListScholars(batchInfo: batchInfo)
     }

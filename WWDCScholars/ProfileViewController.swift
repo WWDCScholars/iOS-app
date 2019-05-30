@@ -211,15 +211,11 @@ internal final class ProfileViewController: UIViewController {
             years.append(yearInfo.recordID.recordName)
         }
         
-        print(years)
-  
-        
         self.batchContentLabel?.text = years.map { (string) -> String in
             let year = String(string.split(separator: " ").last ?? "")
             return "'" + String(year[2...])
         }.joined(separator: ", ")
         
-        // TODO
     }
     
     private func populateBioContent() {

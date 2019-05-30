@@ -31,6 +31,8 @@ internal final class ScholarsViewControllerProxy {
 
     // MARK: - Internal Functions
     internal func loadListScholars(batchInfo: WWDCYear) {
+        print("loadListScholars")
+        
         DispatchQueue.global(qos: .background).async {
             let scholars = CKDataController.shared.scholars(for: batchInfo)
             DispatchQueue.main.async {

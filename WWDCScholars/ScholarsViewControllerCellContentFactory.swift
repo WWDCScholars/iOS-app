@@ -17,7 +17,7 @@ internal final class ScholarsViewControllerCellContentFactory {
     // MARK: - Internal Functions
     
     internal static func batchSectionContent(from batchInfos: [WWDCYear], delegate: WWDCYearInfoCollectionViewCellContentDelegate) -> WWDCYearInfoSectionContent {
-        let sectionID = "WWDCYearInfoes"
+        let sectionID = "WWDCYearInfos"
         let section = WWDCYearInfoSectionContent(id: sectionID)
         for batchInfo in batchInfos {
             let batchCellContent = self.batchCellContent(from: batchInfo, delegate: delegate)

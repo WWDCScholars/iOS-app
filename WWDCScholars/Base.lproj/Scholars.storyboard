@@ -51,6 +51,33 @@
                                     <segue destination="PH2-Q1-fYf" kind="embed" identifier="ScholarsListViewController" id="a6y-Bj-bAc"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5f-nQ-URZ">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gtg-XT-Pgm">
+                                        <rect key="frame" x="110" y="34" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Scholars…" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pu-Wm-ADa">
+                                        <rect key="frame" x="36" y="72" width="168" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="7VC-Tq-mHf"/>
+                                            <constraint firstAttribute="width" constant="168" id="qrL-Lu-MGq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gtg-XT-Pgm" firstAttribute="centerX" secondItem="W5f-nQ-URZ" secondAttribute="centerX" id="2fk-dP-rSL"/>
+                                    <constraint firstAttribute="bottom" secondItem="3pu-Wm-ADa" secondAttribute="bottom" constant="26" id="3IU-v4-dqg"/>
+                                    <constraint firstAttribute="width" constant="240" id="U8I-W1-QpH"/>
+                                    <constraint firstItem="3pu-Wm-ADa" firstAttribute="centerX" secondItem="W5f-nQ-URZ" secondAttribute="centerX" id="Ugf-GS-MZN"/>
+                                    <constraint firstAttribute="height" constant="128" id="YPJ-GA-coU"/>
+                                    <constraint firstItem="gtg-XT-Pgm" firstAttribute="top" secondItem="W5f-nQ-URZ" secondAttribute="top" constant="34" id="w9O-4q-R6w"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufY-CR-ih1" customClass="NavigationBarExtensionView" customModule="WWDCScholars" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="50"/>
                                 <subviews>
@@ -108,6 +135,8 @@
                         <constraints>
                             <constraint firstItem="Na7-a8-isB" firstAttribute="leading" secondItem="xVN-Qy-XxB" secondAttribute="leading" id="234-t8-T2q"/>
                             <constraint firstAttribute="trailing" secondItem="Na7-a8-isB" secondAttribute="trailing" id="Q3W-1w-yV7"/>
+                            <constraint firstItem="W5f-nQ-URZ" firstAttribute="centerX" secondItem="xVN-Qy-XxB" secondAttribute="centerX" id="YMu-tF-rWZ"/>
+                            <constraint firstItem="W5f-nQ-URZ" firstAttribute="centerY" secondItem="xVN-Qy-XxB" secondAttribute="centerY" id="Z7k-YX-rfb"/>
                             <constraint firstItem="S38-HA-16i" firstAttribute="top" secondItem="Na7-a8-isB" secondAttribute="bottom" id="bC6-IW-bAs"/>
                             <constraint firstAttribute="trailing" secondItem="LPF-51-alX" secondAttribute="trailing" id="gvc-Tp-Jcd"/>
                             <constraint firstItem="ufY-CR-ih1" firstAttribute="top" secondItem="Blw-iU-Ci0" secondAttribute="bottom" id="ihB-J2-HaG"/>
@@ -128,6 +157,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="batchCollectionView" destination="AfL-6f-7Ot" id="nQh-3F-zQG"/>
+                        <outlet property="loadingScholarsActivityIndicator" destination="gtg-XT-Pgm" id="c7u-GW-LUz"/>
+                        <outlet property="loadingScholarsView" destination="W5f-nQ-URZ" id="GjC-T1-T4o"/>
                         <outlet property="navigationBarExtensionView" destination="ufY-CR-ih1" id="t8D-Lt-Ec5"/>
                         <outlet property="scholarsListContainerView" destination="LPF-51-alX" id="csj-gh-Mdr"/>
                         <outlet property="scholarsMapContainerView" destination="Na7-a8-isB" id="V2S-PB-qXd"/>
@@ -135,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfZ-9i-o7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1589.5999999999999" y="-1240.0299850074964"/>
+            <point key="canvasLocation" x="1588.4057971014495" y="-1240.1785714285713"/>
         </scene>
         <!--Scholars List View Controller-->
         <scene sceneID="I7z-RD-tmy">
@@ -307,6 +338,6 @@
         <image name="scholarsTabBarIconUnfilled" width="26" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="G5l-BR-PGf"/>
+        <segue reference="35h-42-TPM"/>
     </inferredMetricsTieBreakers>
 </document>

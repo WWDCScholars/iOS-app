@@ -9,7 +9,8 @@
 import Foundation
 
 internal enum ApplicantType: String {
-    case stem
     case student
+    case stem
+    case academy
     case both
 }

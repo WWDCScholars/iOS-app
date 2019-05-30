@@ -153,19 +153,25 @@ internal final class ScholarsViewController: UIViewController {
 extension ScholarsViewController: ScholarsViewControllerProxyDelegate {
     func didLoadWWDCYearInfo() {
         // TODO: O
+        print("didLoadWWDCYearInfo")
+
     }
     
     // MARK: - Internal Functions
     internal func didLoad(basicScholar: Scholar) {
 		scholars.append(basicScholar)
+        print("didLoad basicScholar")
     }
 
     internal func didLoad(scholars: [Scholar]) {
         self.scholars = scholars
+        
+        print("didLoad scholars")
     }
 
     internal func didLoadBatch() {
         self.updateContainerViewsContent()
+        print("didLoadBatch")
     }
 }
 

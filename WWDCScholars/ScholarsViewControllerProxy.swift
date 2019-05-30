@@ -14,6 +14,7 @@ internal protocol ScholarsViewControllerProxyDelegate: class {
     func didLoad(basicScholar: Scholar)
     func didLoad(scholars: [Scholar])
     func didLoadWWDCYearInfo()
+    func didLoadBatch()
 }
 
 internal final class ScholarsViewControllerProxy {
@@ -36,6 +37,7 @@ internal final class ScholarsViewControllerProxy {
             DispatchQueue.main.async {
                 self.delegate?.didLoad(scholars: scholars)
                 self.delegate?.didLoadWWDCYearInfo()
+                self.delegate?.didLoadBatch()
             }
         }
     }

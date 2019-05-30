@@ -14,11 +14,12 @@ import CoreLocation
 import SafariServices
 import MessageUI
 import Nuke
+import CloudKit
 
 internal final class ProfileViewController: UIViewController {
     
     // MARK: - Internal Properties
-    internal var scholarId: UUID? = nil
+    internal var scholarId: CKRecord.ID? = nil
     
     // MARK: - Private Properties
     
@@ -116,7 +117,7 @@ internal final class ProfileViewController: UIViewController {
     private func configureBioLabel() {
         let font = self.bioLabel?.font
         let width = self.bioLabel?.frame.width ?? 0.0
-        let height = self.scholar?.biography.height(for: width, font: font) ?? 0
+        let height = self.scholar?.biography?.height(for: width, font: font) ?? 0
         self.bioLabelHeightConstraint?.constant = height + self.bioLabelHeightConstraintUpdateValue
     }
     
@@ -132,7 +133,7 @@ internal final class ProfileViewController: UIViewController {
                 self.populateBioContent()
                 self.configureMapView()
                 
-                Nuke.loadImage(with: self.scholar!.profilePictureUrl, into: self.profilePictureImageView!)
+                Nuke.loadImage(with: self.scholar!.profilePicture?.fileURL ?? URL(string: "")! , into: self.profilePictureImageView!)
                 
                 self.profilePictureImageView?.contentMode = .scaleAspectFill
             }
@@ -186,12 +187,17 @@ internal final class ProfileViewController: UIViewController {
             return
         }
         
-        self.ageContentLabel?.text = "\(scholar.birthday.age)"
+        self.ageContentLabel?.text = "\(scholar.birthday?.age)"
+        
+        /*let scholarYearInfos = CKFetchRecordsOperation(recordIDs: [scholar.wwdcYearInfos])
+        
         
         self.batchContentLabel?.text = scholar.wwdcYearInfos.keys.map { (string) -> String in
             let year = String(string.title.split(separator: " ").last ?? "")
             return "'" + String(year[2...])
-        }.joined(separator: ", ")
+        }.joined(separator: ", ")*/
+        
+        // TODO
     }
     
     private func populateBioContent() {

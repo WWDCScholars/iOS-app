@@ -21,6 +21,6 @@ internal extension CLLocationManager {
 
 extension Scholar {
     var location: CLLocation {
-        return CLLocation.init(latitude: self.latitude, longitude: self.longitude)
+        return CLLocation.init(latitude: self.loc?.coordinate.latitude ?? 0.0, longitude: self.loc?.coordinate.latitude ?? 0.0)
     }
 }

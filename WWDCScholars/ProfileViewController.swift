@@ -15,6 +15,7 @@ import SafariServices
 import MessageUI
 import Nuke
 import CloudKit
+import Agrume
 
 internal final class ProfileViewController: UIViewController {
     
@@ -23,6 +24,7 @@ internal final class ProfileViewController: UIViewController {
     
     // MARK: - Private Properties
     
+    @IBOutlet var profilePictureButton: UIButton!
     @IBOutlet private weak var profilePictureImageView: UIImageView!
     @IBOutlet private weak var profilePictureContainerView: UIView?
     @IBOutlet private weak var teamImageView: UIImageView?
@@ -43,7 +45,6 @@ internal final class ProfileViewController: UIViewController {
     
     private var scholar: Scholar? = nil
     private var batch: WWDCYearInfo? = nil
-    
     private var profileSocialAccountsFactory: ProfileSocialAccountsFactory?
     
     // MARK: - File Private Properties
@@ -98,10 +99,10 @@ internal final class ProfileViewController: UIViewController {
         
         self.teamImageView?.roundCorners()
         
-        self.profilePictureImageView?.roundCorners()
+        self.profilePictureButton?.roundCorners()
         
-        self.profilePictureImageView?.tintColor = .backgroundElementGray
-        self.profilePictureImageView?.contentMode = .center
+        self.profilePictureButton?.tintColor = .backgroundElementGray
+        self.profilePictureButton?.contentMode = .center
     }
     
     private func configureUI() {
@@ -112,7 +113,7 @@ internal final class ProfileViewController: UIViewController {
         self.batchTitleLabel?.text = "Attended"
         self.ageTitleLabel?.text = "Age"
         
-        self.profilePictureImageView?.image = UIImage.loading
+        self.profilePictureButton?.setImage(UIImage.loading, for: .normal)
         
         configureTeamImageView()
     }
@@ -132,6 +133,12 @@ internal final class ProfileViewController: UIViewController {
         self.bioLabelHeightConstraint?.constant = height + self.bioLabelHeightConstraintUpdateValue
     }
     
+    @IBAction func profilePictureButtonPressed(_ sender: Any) {
+        let agrume = Agrume(image: (profilePictureButton?.imageView?.image!)!)
+        agrume.show(from: self)
+    }
+    
+    
     // MARK: - Private Functions
     
     private func loadScholarData() {
@@ -145,10 +152,13 @@ internal final class ProfileViewController: UIViewController {
                 self.configureMapView()
                 
                 if let profileURL = self.scholar?.profilePicture?.fileURL{
-                    Nuke.loadImage(with: profileURL, into: self.profilePictureImageView!)
+                    
+                    Nuke.loadImage(with: profileURL, into: self.profilePictureButton.imageView!)
+                    
+                    //self.profilePictureButton.setImage(self.profilePictureImageView.image, for: .normal)
                 }
  
-                self.profilePictureImageView?.contentMode = .scaleAspectFill
+                self.profilePictureButton?.contentMode = .scaleAspectFill
                 
                 if let socialMedia = self.scholar?.socialMedia?.recordID{
                     print("socialMedia is \(socialMedia)")

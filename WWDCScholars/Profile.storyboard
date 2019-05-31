@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pVC-pL-rof">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pVC-pL-rof">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,17 +39,27 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LpK-h4-PcV">
                                                         <rect key="frame" x="137.5" y="-50" width="100" height="100"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DpM-ZP-bET">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbE-4Z-XeY">
+                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                                <connections>
+                                                                    <action selector="profilePictureButtonPressed:" destination="pVC-pL-rof" eventType="touchUpInside" id="sbl-DP-tSW"/>
+                                                                </connections>
+                                                            </button>
+                                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DpM-ZP-bET">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
+                                                            <constraint firstItem="LbE-4Z-XeY" firstAttribute="leading" secondItem="LpK-h4-PcV" secondAttribute="leading" id="BQJ-U2-I1S"/>
+                                                            <constraint firstItem="LbE-4Z-XeY" firstAttribute="top" secondItem="LpK-h4-PcV" secondAttribute="top" id="Iy9-sP-vYy"/>
                                                             <constraint firstItem="DpM-ZP-bET" firstAttribute="leading" secondItem="LpK-h4-PcV" secondAttribute="leading" id="Xdb-IG-LKg"/>
                                                             <constraint firstAttribute="trailing" secondItem="DpM-ZP-bET" secondAttribute="trailing" id="dFJ-cr-ULf"/>
                                                             <constraint firstAttribute="width" constant="100" id="hla-El-P4s"/>
                                                             <constraint firstAttribute="height" constant="100" id="od8-U8-KHa"/>
                                                             <constraint firstAttribute="bottom" secondItem="DpM-ZP-bET" secondAttribute="bottom" id="pxL-5p-c1z"/>
+                                                            <constraint firstAttribute="trailing" secondItem="LbE-4Z-XeY" secondAttribute="trailing" id="rrX-Nu-b8B"/>
+                                                            <constraint firstAttribute="bottom" secondItem="LbE-4Z-XeY" secondAttribute="bottom" id="thM-5U-Ygm"/>
                                                             <constraint firstItem="DpM-ZP-bET" firstAttribute="top" secondItem="LpK-h4-PcV" secondAttribute="top" id="yYs-gD-Cz7"/>
                                                         </constraints>
                                                     </view>
@@ -334,6 +344,7 @@
                         <outlet property="locationLabel" destination="uIB-A1-kmL" id="Y8R-Et-Ktm"/>
                         <outlet property="mapView" destination="yTt-t0-tfi" id="Vfb-ex-eai"/>
                         <outlet property="nameLabel" destination="7yd-WE-aAE" id="zaB-qa-aDH"/>
+                        <outlet property="profilePictureButton" destination="LbE-4Z-XeY" id="UNX-Ma-rkN"/>
                         <outlet property="profilePictureContainerView" destination="LpK-h4-PcV" id="CJb-kr-gyn"/>
                         <outlet property="profilePictureImageView" destination="DpM-ZP-bET" id="R6y-if-oqb"/>
                         <outlet property="socialAccountsStackView" destination="6Ya-MI-2SV" id="JiG-Ts-6Gr"/>

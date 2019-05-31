@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		22249BF822A03226009B88F5 /* ScholarStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22249BF722A03226009B88F5 /* ScholarStatus.swift */; };
+		223DC9FD22A1467900FD58CA /* UIImage+Tinted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DC9FC22A1467900FD58CA /* UIImage+Tinted.swift */; };
 		2252FA7D1EDD8812003C55DE /* Blog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2252FA7C1EDD8812003C55DE /* Blog.storyboard */; };
 		22768DEF1EC0BAC50083DDBE /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22768DEE1EC0BAC50083DDBE /* Intro.storyboard */; };
 		22768DFD1EC0D7070083DDBE /* IntroFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768DFC1EC0D7070083DDBE /* IntroFirstViewController.swift */; };
@@ -15,6 +16,8 @@
 		22768E011EC0D8070083DDBE /* APLPositionToBoundsMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768E001EC0D8070083DDBE /* APLPositionToBoundsMapping.swift */; };
 		22879B301EC11FCC00B43BF4 /* IntroThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22879B2F1EC11FCC00B43BF4 /* IntroThirdViewController.swift */; };
 		22879B321EC1220700B43BF4 /* IntroFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22879B311EC1220700B43BF4 /* IntroFourthViewController.swift */; };
+		22BB18A222A13098000EDF77 /* Agrume.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BB18A022A12DC0000EDF77 /* Agrume.framework */; };
+		22BB18A422A1321E000EDF77 /* SwiftyGif.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BB18A322A1321E000EDF77 /* SwiftyGif.framework */; };
 		22E852C621C1BF6000DEC873 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E852C521C1BF6000DEC873 /* Stickers.xcassets */; };
 		22E852CA21C1BF6000DEC873 /* WWDCScholars Sticker Pack.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 22E852C321C1BF5E00DEC873 /* WWDCScholars Sticker Pack.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6E032F5E1EC7AE8000410B7C /* ScholarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E032F5D1EC7AE8000410B7C /* ScholarCollectionViewCell.swift */; };
@@ -128,7 +131,6 @@
 		7B8DDF2B1EE2B0B5002D2A9A /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF2A1EE2B0B5002D2A9A /* BlogPost.swift */; };
 		7B8DDF2D1EE2B265002D2A9A /* CloudKitManager+Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF2C1EE2B265002D2A9A /* CloudKitManager+Blog.swift */; };
 		7B9509D421BEE97A005E5711 /* ScholarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9509D321BEE97A005E5711 /* ScholarTests.swift */; };
-		7B9509D721BF06DE005E5711 /* WWDCScholars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B9509D521BF06DE005E5711 /* WWDCScholars.xcdatamodeld */; };
 		7B9509DA21BFC2E6005E5711 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9509D921BFC2E6005E5711 /* Nuke.framework */; };
 		7B9509DC21BFC316005E5711 /* CoreStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9509DB21BFC316005E5711 /* CoreStore.framework */; };
 		7B9509DE21BFD40A005E5711 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9509DD21BFD409005E5711 /* Alamofire.framework */; };
@@ -187,6 +189,7 @@
 
 /* Begin PBXFileReference section */
 		22249BF722A03226009B88F5 /* ScholarStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarStatus.swift; sourceTree = "<group>"; };
+		223DC9FC22A1467900FD58CA /* UIImage+Tinted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Tinted.swift"; sourceTree = "<group>"; };
 		2252FA7C1EDD8812003C55DE /* Blog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Blog.storyboard; sourceTree = "<group>"; };
 		22768DEE1EC0BAC50083DDBE /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		22768DFC1EC0D7070083DDBE /* IntroFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroFirstViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 		22768E001EC0D8070083DDBE /* APLPositionToBoundsMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APLPositionToBoundsMapping.swift; sourceTree = "<group>"; };
 		22879B2F1EC11FCC00B43BF4 /* IntroThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroThirdViewController.swift; sourceTree = "<group>"; };
 		22879B311EC1220700B43BF4 /* IntroFourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroFourthViewController.swift; sourceTree = "<group>"; };
+		22BB18A022A12DC0000EDF77 /* Agrume.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Agrume.framework; path = Carthage/Build/iOS/Agrume.framework; sourceTree = "<group>"; };
+		22BB18A322A1321E000EDF77 /* SwiftyGif.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyGif.framework; path = Carthage/Build/iOS/SwiftyGif.framework; sourceTree = "<group>"; };
 		22E852C321C1BF5E00DEC873 /* WWDCScholars Sticker Pack.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WWDCScholars Sticker Pack.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E852C521C1BF6000DEC873 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		22E852C721C1BF6000DEC873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -310,7 +315,6 @@
 		7B8DDF2A1EE2B0B5002D2A9A /* BlogPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 		7B8DDF2C1EE2B265002D2A9A /* CloudKitManager+Blog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CloudKitManager+Blog.swift"; sourceTree = "<group>"; };
 		7B9509D321BEE97A005E5711 /* ScholarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarTests.swift; sourceTree = "<group>"; };
-		7B9509D621BF06DE005E5711 /* WWDCScholars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WWDCScholars.xcdatamodel; sourceTree = "<group>"; };
 		7B9509D921BFC2E6005E5711 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		7B9509DB21BFC316005E5711 /* CoreStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreStore.framework; path = Carthage/Build/iOS/CoreStore.framework; sourceTree = "<group>"; };
 		7B9509DD21BFD409005E5711 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -344,6 +348,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22BB18A422A1321E000EDF77 /* SwiftyGif.framework in Frameworks */,
+				22BB18A222A13098000EDF77 /* Agrume.framework in Frameworks */,
 				7B9509DE21BFD40A005E5711 /* Alamofire.framework in Frameworks */,
 				7B9509DC21BFC316005E5711 /* CoreStore.framework in Frameworks */,
 				7B9509DA21BFC2E6005E5711 /* Nuke.framework in Frameworks */,
@@ -522,7 +528,6 @@
 				6E48061F1EA14F9700213835 /* UI */,
 				6E3C555E1EA03C52008F9AC9 /* UIViewControllers */,
 				6EB77E291ECE350000E6E263 /* Supporting Files */,
-				7B9509D521BF06DE005E5711 /* WWDCScholars.xcdatamodeld */,
 			);
 			path = WWDCScholars;
 			sourceTree = "<group>";
@@ -703,6 +708,7 @@
 				6EB77E2B1ECE353D00E6E263 /* QuickActionShortcutType.swift */,
 				8E3897E320C450AF00D53113 /* UIImage+Named.swift */,
 				7B64B10720C8436200B3F1A2 /* String+Substring.swift */,
+				223DC9FC22A1467900FD58CA /* UIImage+Tinted.swift */,
 			);
 			name = Misc.;
 			sourceTree = "<group>";
@@ -798,6 +804,8 @@
 		6ED441C71ED08BB40035BD31 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22BB18A322A1321E000EDF77 /* SwiftyGif.framework */,
+				22BB18A022A12DC0000EDF77 /* Agrume.framework */,
 				7B9509DD21BFD409005E5711 /* Alamofire.framework */,
 				7B9509DB21BFC316005E5711 /* CoreStore.framework */,
 				7B9509D921BFC2E6005E5711 /* Nuke.framework */,
@@ -1076,8 +1084,8 @@
 				6E3C55451EA032DD008F9AC9 /* Sources */,
 				6E3C55461EA032DD008F9AC9 /* Frameworks */,
 				6E3C55471EA032DD008F9AC9 /* Resources */,
+				7B61B6D320C14DE5002A8B11 /* Copy Carthage Frameworks */,
 				7BD91F871ED2151D00439718 /* ShellScript */,
-				7B61B6D320C14DE5002A8B11 /* ShellScript */,
 				22E852CE21C1BF6000DEC873 /* Embed App Extensions */,
 			);
 			buildRules = (
@@ -1204,7 +1212,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7B61B6D320C14DE5002A8B11 /* ShellScript */ = {
+		7B61B6D320C14DE5002A8B11 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1215,7 +1223,10 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CoreStore.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Agrume.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyGif.framework",
 			);
+			name = "Copy Carthage Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1255,7 +1266,6 @@
 				6EC1ECB01ED2299C00302A25 /* ContainerViewSwitchHelper.swift in Sources */,
 				6E2EFC241ED0C8D500C23E16 /* ScholarAnnotationView.swift in Sources */,
 				6E67DE991EBFA48A00992E69 /* CGFloat+WWDCScholars.swift in Sources */,
-				7B9509D721BF06DE005E5711 /* WWDCScholars.xcdatamodeld in Sources */,
 				6EC1ECB41ED23B9000302A25 /* ScholarsListViewControllerCellContentFactory.swift in Sources */,
 				6E1083CF1ECBCC5600139C23 /* SizeableCollectionViewCellContent.swift in Sources */,
 				6E3E97281EDB420300A116FD /* SocialAccountButton.swift in Sources */,
@@ -1326,6 +1336,7 @@
 				7BB4F7FF1EDCA02700B0EE7A /* Gender.swift in Sources */,
 				6EBE86361EDA356D00C99D0D /* BlogPostCollectionViewCellContent.swift in Sources */,
 				6E1083C71ECBCBFB00139C23 /* VariableHeightFixedWidthCollectionViewCellContent.swift in Sources */,
+				223DC9FD22A1467900FD58CA /* UIImage+Tinted.swift in Sources */,
 				6EBE86311EDA2F7700C99D0D /* BatchCollectionViewCellContentDelegate.swift in Sources */,
 				6E032F5E1EC7AE8000410B7C /* ScholarCollectionViewCell.swift in Sources */,
 				6EBE863E1EDA3B2A00C99D0D /* BlogPostSectionContent.swift in Sources */,
@@ -1728,19 +1739,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		7B9509D521BF06DE005E5711 /* WWDCScholars.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				7B9509D621BF06DE005E5711 /* WWDCScholars.xcdatamodel */,
-			);
-			currentVersion = 7B9509D621BF06DE005E5711 /* WWDCScholars.xcdatamodel */;
-			path = WWDCScholars.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 6E3C55411EA032DD008F9AC9 /* Project object */;
 }

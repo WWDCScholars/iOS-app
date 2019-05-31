@@ -15,6 +15,7 @@ import SafariServices
 import MessageUI
 import Nuke
 import CloudKit
+import Agrume
 
 internal final class ProfileViewController: UIViewController {
     
@@ -22,7 +23,6 @@ internal final class ProfileViewController: UIViewController {
     internal var scholarId: CKRecord.ID? = nil
     
     // MARK: - Private Properties
-    
     @IBOutlet private weak var profilePictureImageView: UIImageView!
     @IBOutlet private weak var profilePictureContainerView: UIView?
     @IBOutlet private weak var teamImageView: UIImageView?
@@ -38,12 +38,12 @@ internal final class ProfileViewController: UIViewController {
     @IBOutlet private weak var bioLabel: UILabel?
     @IBOutlet private weak var bioLabelHeightConstraint: NSLayoutConstraint?
     @IBOutlet private weak var socialAccountsStackView: UIStackView?
+    @IBOutlet private weak var savedButton: UIButton!
     
     private let bioLabelHeightConstraintUpdateValue: CGFloat = 1.0
     
     private var scholar: Scholar? = nil
     private var batch: WWDCYearInfo? = nil
-    
     private var profileSocialAccountsFactory: ProfileSocialAccountsFactory?
     
     // MARK: - File Private Properties
@@ -102,6 +102,8 @@ internal final class ProfileViewController: UIViewController {
         
         self.profilePictureImageView?.tintColor = .backgroundElementGray
         self.profilePictureImageView?.contentMode = .center
+        
+        self.savedButton.setImage(UIImage(named: "Saved")?.tinted(with: .scholarsPurple), for: .normal)
     }
     
     private func configureUI() {
@@ -130,6 +132,15 @@ internal final class ProfileViewController: UIViewController {
         let width = self.bioLabel?.frame.width ?? 0.0
         let height = self.scholar?.biography?.height(for: width, font: font) ?? 0
         self.bioLabelHeightConstraint?.constant = height + self.bioLabelHeightConstraintUpdateValue
+    }
+    
+    @IBAction func profilePicturePressed(_ sender: Any) {
+        let agrume = Agrume(image: (profilePictureImageView?.image!)!)
+        agrume.show(from: self)
+    }
+    
+    @IBAction func savedButtonPressed(_ sender: Any) {
+        
     }
     
     // MARK: - Private Functions

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pVC-pL-rof">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pVC-pL-rof">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,6 +41,10 @@
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DpM-ZP-bET">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                                <gestureRecognizers/>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="VIN-nU-4TD" appends="YES" id="tXV-T3-YW6"/>
+                                                                </connections>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,6 +56,9 @@
                                                             <constraint firstAttribute="bottom" secondItem="DpM-ZP-bET" secondAttribute="bottom" id="pxL-5p-c1z"/>
                                                             <constraint firstItem="DpM-ZP-bET" firstAttribute="top" secondItem="LpK-h4-PcV" secondAttribute="top" id="yYs-gD-Cz7"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="VIN-nU-4TD" appends="YES" id="Sus-g8-Bbr"/>
+                                                        </connections>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yd-WE-aAE">
                                                         <rect key="frame" x="16" y="62" width="343" height="30"/>
@@ -88,10 +95,23 @@
                                                             <constraint firstAttribute="height" constant="35" id="kDB-yg-xSS"/>
                                                         </constraints>
                                                     </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJQ-j7-dDX">
+                                                        <rect key="frame" x="339" y="8" width="34" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="34" id="nFe-Tc-X9G"/>
+                                                            <constraint firstAttribute="width" constant="34" id="qRs-vh-yHz"/>
+                                                        </constraints>
+                                                        <color key="tintColor" red="0.25490196079999999" green="0.2274509804" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" image="Saved"/>
+                                                        <connections>
+                                                            <action selector="savedButtonPressed:" destination="pVC-pL-rof" eventType="touchUpInside" id="yjf-v7-2aO"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="LpK-h4-PcV" firstAttribute="centerX" secondItem="e97-Is-YvX" secondAttribute="centerX" id="0US-F3-3aa"/>
+                                                    <constraint firstAttribute="trailing" secondItem="XJQ-j7-dDX" secondAttribute="trailing" constant="2" id="7Td-3h-aJp"/>
                                                     <constraint firstItem="7yd-WE-aAE" firstAttribute="top" secondItem="LpK-h4-PcV" secondAttribute="bottom" constant="12" id="9xo-N1-Dxi"/>
                                                     <constraint firstAttribute="bottom" secondItem="uIB-A1-kmL" secondAttribute="bottom" constant="16" id="BIS-aN-8YB"/>
                                                     <constraint firstItem="nQ5-Nj-MpX" firstAttribute="top" secondItem="DpM-ZP-bET" secondAttribute="bottom" constant="-31" id="Cfd-9I-0zA"/>
@@ -103,6 +123,7 @@
                                                     <constraint firstItem="uIB-A1-kmL" firstAttribute="top" secondItem="7yd-WE-aAE" secondAttribute="bottom" constant="4" id="gG7-66-HE5"/>
                                                     <constraint firstItem="nQ5-Nj-MpX" firstAttribute="leading" secondItem="DpM-ZP-bET" secondAttribute="trailing" constant="-31" id="nyJ-Sg-DSz"/>
                                                     <constraint firstAttribute="height" constant="132.5" id="uSr-I4-ePX"/>
+                                                    <constraint firstItem="XJQ-j7-dDX" firstAttribute="top" secondItem="e97-Is-YvX" secondAttribute="top" constant="8" id="w1S-uc-CEC"/>
                                                     <constraint firstItem="7yd-WE-aAE" firstAttribute="centerX" secondItem="e97-Is-YvX" secondAttribute="centerX" id="wfg-FQ-N6X"/>
                                                 </constraints>
                                             </view>
@@ -336,17 +357,24 @@
                         <outlet property="nameLabel" destination="7yd-WE-aAE" id="zaB-qa-aDH"/>
                         <outlet property="profilePictureContainerView" destination="LpK-h4-PcV" id="CJb-kr-gyn"/>
                         <outlet property="profilePictureImageView" destination="DpM-ZP-bET" id="R6y-if-oqb"/>
+                        <outlet property="savedButton" destination="XJQ-j7-dDX" id="2bN-LT-s1f"/>
                         <outlet property="socialAccountsStackView" destination="6Ya-MI-2SV" id="JiG-Ts-6Gr"/>
                         <outlet property="teamContainerView" destination="nQ5-Nj-MpX" id="7BX-fE-bHX"/>
                         <outlet property="teamImageView" destination="KTi-AS-dke" id="vot-J6-vRT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiU-46-hVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VIN-nU-4TD">
+                    <connections>
+                        <action selector="profilePicturePressed:" destination="pVC-pL-rof" id="YdO-7M-oSY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1101.5999999999999" y="139.880059970015"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Saved" width="166.66667175292969" height="166.66667175292969"/>
         <image name="teamIndicator" width="27" height="27"/>
     </resources>
 </document>

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 import DeckTransition
+import Agrume
 
 internal final class TeamViewController: UIViewController {
     
@@ -114,6 +115,10 @@ internal final class TeamViewController: UIViewController {
     }
     
     // MARK: - Private Functions
+    @IBAction func tappedTeamImage(_ sender: Any) {
+        let agrume = Agrume(image: (wwdcscholarsTeamBannerImageView?.image!)!)
+        agrume.show(from: self)
+    }
     
     private func populateContent() {
         self.andrewImageView?.image = UIImage(named: "profile")

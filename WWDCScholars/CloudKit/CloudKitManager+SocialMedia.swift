@@ -24,9 +24,7 @@ internal extension CloudKitManager {
         
         operation.queryCompletionBlock = completion
         
-        operation.recordFetchedBlock = { (record:CKRecord!) in
-            let err = record["ww"]
-            
+        operation.recordFetchedBlock = { (record:CKRecord!) in            
             let socialMedia = SocialMedia.init(record: record)
             recordFetched(socialMedia)
         }

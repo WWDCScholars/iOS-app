@@ -23,8 +23,6 @@ internal final class ProfileViewController: UIViewController {
     internal var scholarId: CKRecord.ID? = nil
     
     // MARK: - Private Properties
-    
-    @IBOutlet var profilePictureButton: UIButton!
     @IBOutlet private weak var profilePictureImageView: UIImageView!
     @IBOutlet private weak var profilePictureContainerView: UIView?
     @IBOutlet private weak var teamImageView: UIImageView?
@@ -40,6 +38,7 @@ internal final class ProfileViewController: UIViewController {
     @IBOutlet private weak var bioLabel: UILabel?
     @IBOutlet private weak var bioLabelHeightConstraint: NSLayoutConstraint?
     @IBOutlet private weak var socialAccountsStackView: UIStackView?
+    @IBOutlet private weak var savedButton: UIButton!
     
     private let bioLabelHeightConstraintUpdateValue: CGFloat = 1.0
     
@@ -99,10 +98,12 @@ internal final class ProfileViewController: UIViewController {
         
         self.teamImageView?.roundCorners()
         
-        self.profilePictureButton?.roundCorners()
+        self.profilePictureImageView?.roundCorners()
         
-        self.profilePictureButton?.tintColor = .backgroundElementGray
-        self.profilePictureButton?.contentMode = .center
+        self.profilePictureImageView?.tintColor = .backgroundElementGray
+        self.profilePictureImageView?.contentMode = .center
+        
+        self.savedButton.setImage(UIImage(named: "Saved")?.tinted(with: .scholarsPurple), for: .normal)
     }
     
     private func configureUI() {
@@ -113,7 +114,7 @@ internal final class ProfileViewController: UIViewController {
         self.batchTitleLabel?.text = "Attended"
         self.ageTitleLabel?.text = "Age"
         
-        self.profilePictureButton?.setImage(UIImage.loading, for: .normal)
+        self.profilePictureImageView?.image = UIImage.loading
         
         configureTeamImageView()
     }
@@ -133,11 +134,14 @@ internal final class ProfileViewController: UIViewController {
         self.bioLabelHeightConstraint?.constant = height + self.bioLabelHeightConstraintUpdateValue
     }
     
-    @IBAction func profilePictureButtonPressed(_ sender: Any) {
-        let agrume = Agrume(image: (profilePictureButton?.imageView?.image!)!)
+    @IBAction func profilePicturePressed(_ sender: Any) {
+        let agrume = Agrume(image: (profilePictureImageView?.image!)!)
         agrume.show(from: self)
     }
     
+    @IBAction func savedButtonPressed(_ sender: Any) {
+        
+    }
     
     // MARK: - Private Functions
     
@@ -152,13 +156,10 @@ internal final class ProfileViewController: UIViewController {
                 self.configureMapView()
                 
                 if let profileURL = self.scholar?.profilePicture?.fileURL{
-                    
-                    Nuke.loadImage(with: profileURL, into: self.profilePictureButton.imageView!)
-                    
-                    //self.profilePictureButton.setImage(self.profilePictureImageView.image, for: .normal)
+                    Nuke.loadImage(with: profileURL, into: self.profilePictureImageView!)
                 }
  
-                self.profilePictureButton?.contentMode = .scaleAspectFill
+                self.profilePictureImageView?.contentMode = .scaleAspectFill
                 
                 if let socialMedia = self.scholar?.socialMedia?.recordID{
                     print("socialMedia is \(socialMedia)")

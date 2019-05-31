@@ -1,5 +1,5 @@
 //
-//  BatchCollectionViewCell.swift
+//  WWDCYearInfoCollectionViewCell.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 11/05/2017.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal final class BatchCollectionViewCell: UICollectionViewCell, Cell {
+internal final class WWDCYearInfoCollectionViewCell: UICollectionViewCell, Cell {
     
     // MARK: - Private Properties
     
@@ -36,7 +36,7 @@ internal final class BatchCollectionViewCell: UICollectionViewCell, Cell {
     // MARK: - UI
     
     private func styleUI() {
-        self.label?.applyScholarsBatchTitleStyle()
+        self.label?.applyScholarsWWDCYearInfoTitleStyle()
     }
     
     // MARK: - Internal Functions
@@ -44,7 +44,7 @@ internal final class BatchCollectionViewCell: UICollectionViewCell, Cell {
     internal func configure(with cellContent: CellContent) {
         self.cellContent = cellContent
         
-        guard let cellContent = cellContent as? BatchCollectionViewCellContent else {
+        guard let cellContent = cellContent as? WWDCYearInfoCollectionViewCellContent else {
             return
         }
         

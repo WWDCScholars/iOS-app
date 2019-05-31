@@ -1,5 +1,5 @@
 //
-//  BatchSectionContent.swift
+//  WWDCYearInfoSectionContent.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 15/05/2017.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal final class BatchSectionContent: SectionContent, SizeableCollectionViewSectionContent {
+internal final class WWDCYearInfoSectionContent: SectionContent, SizeableCollectionViewSectionContent {
     
     // MARK: - Internal Properties
     

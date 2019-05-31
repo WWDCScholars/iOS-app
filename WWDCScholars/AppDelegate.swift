@@ -10,6 +10,7 @@ import UIKit
 import Fabric
 import TwitterKit
 import Crashlytics
+import Nuke
 
 @UIApplicationMain
 internal final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,19 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
         UIStatusBar.applyScholarsLightStyle()
         UINavigationBar.applyScholarsStyle()
         UITabBar.applyScholarsStyle()
+        
+        ImagePipeline.shared = ImagePipeline {
+            $0.dataLoader = DataLoader(configuration: {
+                // Disable disk caching built into URLSession
+                let conf = DataLoader.defaultConfiguration
+                conf.urlCache = nil
+                return conf
+            }())
+            
+            $0.imageCache = ImageCache()
+
+            $0.dataCache = try! DataCache(name: "com.wwdcscholars.profilepictures.DataCache")
+        }
         
         if let shortcutItem = launchOptions?[.shortcutItem] as? UIApplicationShortcutItem {
             let success = self.handle(shortcutItem: shortcutItem)

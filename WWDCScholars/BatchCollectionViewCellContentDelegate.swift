@@ -1,5 +1,5 @@
 //
-//  BatchCollectionViewCellContentDelegate.swift
+//  WWDCYearInfoCollectionViewCellContentDelegate.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 27/05/2017.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-internal protocol BatchCollectionViewCellContentDelegate: class {
+internal protocol WWDCYearInfoCollectionViewCellContentDelegate: class {
     func update(for batchInfo: WWDCYear)
 }

@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 import DeckTransition
-import CloudKit.CKRecordID
+import CloudKit
 
 internal extension UIViewController {
     
     // MARK: - Internal Functions
     
-    internal func presentProfileViewController(scholarId: UUID) {
+    internal func presentProfileViewController(scholarId: CKRecord.ID) {
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
         profileViewController.scholarId = scholarId

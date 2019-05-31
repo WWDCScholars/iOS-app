@@ -1,5 +1,5 @@
 //
-//  BatchInfo.swift
+//  WWDCYearInfoInfo.swift
 //  WWDCScholars
 //
 //  Created by Andrew Walker on 12/05/2017.

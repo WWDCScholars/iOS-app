@@ -286,11 +286,11 @@
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ZB-Lx-bCz">
                                 <rect key="frame" x="361" y="52" width="45" height="45"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zOS-2E-s0T">
-                                    <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="38" height="38"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhD-aF-Sms">
-                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="38" height="38"/>
                                             <connections>
                                                 <action selector="myLocationButtonTapped" destination="20p-BO-DzZ" eventType="touchUpInside" id="2nd-Lz-zjp"/>
                                             </connections>
@@ -304,10 +304,10 @@
                                     </constraints>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="CPI-zh-ich"/>
-                                    <constraint firstAttribute="width" constant="45" id="anP-od-gAg"/>
+                                    <constraint firstAttribute="height" constant="38" id="CPI-zh-ich"/>
+                                    <constraint firstAttribute="width" constant="38" id="anP-od-gAg"/>
                                 </constraints>
-                                <blurEffect style="light"/>
+                                <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -329,7 +329,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qlc-Jq-3xN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2484" y="-940"/>
+            <point key="canvasLocation" x="2484" y="-940.02998500749629"/>
         </scene>
     </scenes>
     <resources>

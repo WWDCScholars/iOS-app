@@ -47,9 +47,13 @@
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="wwdcscholarsTeamBanner" translatesAutoresizingMaskIntoConstraints="NO" id="64b-By-rQY">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="64b-By-rQY" secondAttribute="height" multiplier="16:9" id="K19-GV-hPT"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="IJW-WN-XeK" appends="YES" id="iXV-BV-d70"/>
+                                                </connections>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Dl-Dv-Zrk">
                                                 <rect key="frame" x="0.0" y="211" width="375" height="1300"/>
@@ -611,6 +615,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDY-0T-1KC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="IJW-WN-XeK">
+                    <connections>
+                        <action selector="tappedTeamImage:" destination="K3a-Kv-CIl" id="wNs-jx-o8V"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1445.5999999999999" y="1580.5097451274364"/>
         </scene>

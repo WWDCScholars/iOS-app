@@ -75,22 +75,6 @@
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>savedQuickActionIcon</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Saved Scholars</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenSavedScholars</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>blogQuickActionIcon</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Blog</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenBlog</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
 			<string>activityQuickActionIcon</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Activity</string>

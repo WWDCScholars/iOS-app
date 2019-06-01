@@ -39,7 +39,7 @@ internal final class TeamViewController: UIViewController {
     @IBOutlet private weak var moritzDescriptionLabel: UILabel?
     
     // MARK: Matthijs
-    @IBOutlet private weak var matthijsImageContentView: UIView?
+    @IBOutlet private weak var michieImageContentView: UIView?
     @IBOutlet private weak var michieImageView: UIImageView?
     @IBOutlet private weak var michieNameLabel: UILabel?
     @IBOutlet private weak var michieDescriptionLabel: UILabel?
@@ -104,8 +104,8 @@ internal final class TeamViewController: UIViewController {
         self.moritzImageView?.roundCorners()
 
         
-        self.matthijsImageContentView?.roundCorners()
-        self.matthijsImageContentView?.applyRelativeCircularBorder()
+        self.michieImageContentView?.roundCorners()
+        self.michieImageContentView?.applyRelativeCircularBorder()
         self.michieImageView?.roundCorners()
 
     }

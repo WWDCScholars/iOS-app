@@ -162,7 +162,6 @@ extension ScholarsViewController: ScholarsViewControllerProxyDelegate {
     func didLoadWWDCYearInfo() {
         // TODO: O
         print("didLoadWWDCYearInfo")
-
     }
     
     // MARK: - Internal Functions

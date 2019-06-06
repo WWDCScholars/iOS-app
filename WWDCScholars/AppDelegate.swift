@@ -69,6 +69,42 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
         completionHandler(success)
     }
     
+    internal func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        // The following guard checks whether the NSUserActivity has to do with Universal Links
+        // Might have to change when more NSUserActivity stuff is used inside the app
+        
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+            let incomingURL = userActivity.webpageURL else {
+                return false
+        }
+        
+        let pathComponents = incomingURL.pathComponents
+        
+        print("path = \(incomingURL.path)")
+        
+        if pathComponents.count >= 3,
+            pathComponents[1] == "s",
+            let incomingId = pathComponents.last,
+            let scholarId = UUID.init(uuidString: incomingId) {
+            
+            print("scholar = \(scholarId)")
+            
+            if self.window?.rootViewController?.presentedViewController != nil {
+                self.window?.rootViewController?.dismiss(animated: false, completion: nil)
+            }
+            
+            if let rootViewController = self.window?.rootViewController {
+                rootViewController.presentProfileViewController(scholarId: scholarId.asRecordId())
+            }
+            
+            return true
+            
+        } else {
+            print("Either wrong first path item or scholar  UUID in wrong format")
+            return false
+        }
+    }
+    
     // MARK: - Private Functions
     
     private func handle(shortcutItem: UIApplicationShortcutItem) -> Bool {

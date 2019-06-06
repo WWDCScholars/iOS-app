@@ -246,25 +246,36 @@ internal final class ProfileViewController: UIViewController {
         }
     }
 	
-	@objc private func openURL(_ sender: SocialAccountButton){
-		guard let urlString = sender.accountDetail else { return }
-		guard let type = sender.type else { return }
-		
-		var vc: UIViewController
-		
-		switch(type){
-			case .imessage:
-				let mvc = MFMessageComposeViewController()
-				mvc.recipients = [urlString]
-				mvc.messageComposeDelegate = self
-				vc = mvc
-			default:
-				guard let url = URL(string: urlString) else { return }
-				vc = SFSafariViewController(url: url)
-		}
-		
-		//TODO: change status bar colour when opening urls!
-		present(vc, animated: true, completion: nil)
+    @objc private func openURL(_ sender: SocialAccountButton){
+        guard let urlString = sender.accountDetail else { return }
+        guard let type = sender.type else { return }
+        
+        var vc: UIViewController?
+        
+        switch(type){
+        case .imessage:
+            let mvc = MFMessageComposeViewController()
+            mvc.recipients = [urlString]
+            mvc.messageComposeDelegate = self
+            vc = mvc
+        case .discord:
+            let alert = UIAlertController(title: "Discord", message: urlString, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { action in
+                UIPasteboard.general.string = urlString
+            }))
+            alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true)
+        default:
+            guard let url = URL(string: urlString) else { return }
+            vc = SFSafariViewController(url: url)
+        }
+        
+        if let vc = vc {
+            //TODO: change status bar colour when opening urls!
+            present(vc, animated: true, completion: nil)
+        }
 	}
 }
 

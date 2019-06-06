@@ -61,7 +61,7 @@ class CKDataController: ScholarDataController {
         
         queryCompleted = { (cursor, error) in
             if let error = error {
-                fatalError(error.localizedDescription)
+                print("Error loading scholars!: \(error.localizedDescription)")
                 return
             }
             

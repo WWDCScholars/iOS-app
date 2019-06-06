@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>3.0</string>
 	<key>CFBundleVersion</key>
-	<string>161</string>
+	<string>162</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -72,22 +72,6 @@
 			<string>My Profile</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenMyProfile</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>savedQuickActionIcon</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Saved Scholars</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenSavedScholars</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>blogQuickActionIcon</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Blog</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenBlog</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>

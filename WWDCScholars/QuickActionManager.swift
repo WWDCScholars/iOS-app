@@ -33,8 +33,6 @@ internal final class QuickActionManager {
         switch quickActionShortcutType {
         case .OpenMyProfile:
             self.openProfile(tabBarController: tabBarController)
-        case .OpenSavedScholars:
-            self.openSavedScholars(tabBarController: tabBarController)
         case .OpenActivity:
             self.openActivity(tabBarController: tabBarController)
         case .OpenBlog:
@@ -49,14 +47,6 @@ internal final class QuickActionManager {
     private func openProfile(tabBarController: UITabBarController) {
         let index = tabBarController.indexOfNavigationController(containing: ScholarsListViewController.self) ?? 0
         tabBarController.selectedIndex = index
-    }
-    
-    private func openSavedScholars(tabBarController: UITabBarController) {
-        let index = tabBarController.indexOfNavigationController(containing: ScholarsListViewController.self) ?? 0
-        tabBarController.selectedIndex = index
-        let scholarsViewController = (tabBarController.viewControllers?.first as? UINavigationController)?.viewControllers.first as? ScholarsViewController
-        scholarsViewController?.selectSavedWWDCYearInfo()
-        scholarsViewController?.scrollToSelectedWWDCYearInfo()
     }
     
     private func openActivity(tabBarController: UITabBarController) {

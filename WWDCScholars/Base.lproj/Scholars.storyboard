@@ -148,13 +148,7 @@
                             <constraint firstItem="Na7-a8-isB" firstAttribute="top" secondItem="ufY-CR-ih1" secondAttribute="bottom" id="rg9-LY-OUb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GdJ-AQ-7Pt">
-                        <barButtonItem key="rightBarButtonItem" image="mapNavigationBarIconFilled" id="zo9-Da-SPd">
-                            <connections>
-                                <action selector="switchViewButtonTapped" destination="qGl-J7-dbK" id="RFl-sF-uSO"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="GdJ-AQ-7Pt"/>
                     <connections>
                         <outlet property="batchCollectionView" destination="AfL-6f-7Ot" id="nQh-3F-zQG"/>
                         <outlet property="loadingScholarsActivityIndicator" destination="gtg-XT-Pgm" id="c7u-GW-LUz"/>
@@ -284,13 +278,13 @@
                                 </connections>
                             </mapView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ZB-Lx-bCz">
-                                <rect key="frame" x="361" y="52" width="45" height="45"/>
+                                <rect key="frame" x="368" y="52" width="38" height="38"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zOS-2E-s0T">
                                     <rect key="frame" x="0.0" y="0.0" width="38" height="38"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhD-aF-Sms">
-                                            <rect key="frame" x="0.0" y="0.0" width="38" height="38"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
                                             <connections>
                                                 <action selector="myLocationButtonTapped" destination="20p-BO-DzZ" eventType="touchUpInside" id="2nd-Lz-zjp"/>
                                             </connections>
@@ -333,7 +327,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mapNavigationBarIconFilled" width="22" height="20"/>
         <image name="scholarsTabBarIconFilled" width="26" height="20"/>
         <image name="scholarsTabBarIconUnfilled" width="26" height="20"/>
     </resources>

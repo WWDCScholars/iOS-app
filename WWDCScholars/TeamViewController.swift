@@ -39,10 +39,10 @@ internal final class TeamViewController: UIViewController {
     @IBOutlet private weak var moritzDescriptionLabel: UILabel?
     
     // MARK: Matthijs
-    @IBOutlet private weak var matthijsImageContentView: UIView?
-    @IBOutlet private weak var matthijsImageView: UIImageView?
-    @IBOutlet private weak var matthijsNameLabel: UILabel?
-    @IBOutlet private weak var matthijsDescriptionLabel: UILabel?
+    @IBOutlet private weak var michieImageContentView: UIView?
+    @IBOutlet private weak var michieImageView: UIImageView?
+    @IBOutlet private weak var michieNameLabel: UILabel?
+    @IBOutlet private weak var michieDescriptionLabel: UILabel?
 
     
     // MARK: - File Private Properties
@@ -104,9 +104,9 @@ internal final class TeamViewController: UIViewController {
         self.moritzImageView?.roundCorners()
 
         
-        self.matthijsImageContentView?.roundCorners()
-        self.matthijsImageContentView?.applyRelativeCircularBorder()
-        self.matthijsImageView?.roundCorners()
+        self.michieImageContentView?.roundCorners()
+        self.michieImageContentView?.applyRelativeCircularBorder()
+        self.michieImageView?.roundCorners()
 
     }
     
@@ -123,19 +123,19 @@ internal final class TeamViewController: UIViewController {
     private func populateContent() {
         self.andrewImageView?.image = UIImage(named: "profile")
         self.andrewNameLabel?.text = "Andrew Walker"
-        self.andrewDescriptionLabel?.text = "“This year I worked on the design of our updated website and rewrote our app codebase from scratch. I also helped out with merchandise and social media.”"
+        self.andrewDescriptionLabel?.text = "“Andrew has been working on iOS applications for 4 1/2 years. He recently interned at Apple after attending WWDC as a scholarship winner for three consecutive years.”"
         
         self.samImageView?.image = UIImage(named: "samProfile")
         self.samNameLabel?.text = "Sam Eckert"
-        self.samDescriptionLabel?.text = "“This year I worked on design and creation within the iOS App. I'm also responsible for donations, marketing, public relations and project management.”"
+        self.samDescriptionLabel?.text = "“Sam started developing iOS apps when he turned 14. He received two WWDC scholarships and is now connecting companies with the young generation at agenZy.”"
         
         self.moritzImageView?.image = UIImage(named: "moritzProfile")
         self.moritzNameLabel?.text = "Moritz Sternemann"
-        self.moritzDescriptionLabel?.text = "“This year I worked on the all-new WWDCScholars.com website and recoded it. I also created the form through which all scholars submitted their details.”"
+        self.moritzDescriptionLabel?.text = "“Moritz is the most recent addition to our team and mostly worked on the website and the signup form. He attended WWDC as a scholarship winner for two consecutive years.”"
         
-        self.matthijsImageView?.image = UIImage(named: "matthijsProfile")
-        self.matthijsNameLabel?.text = "Matthijs Logemann"
-        self.matthijsDescriptionLabel?.text = "“This year I worked on the migration of our old backend to our new CloudKit-powered one. I also implemented everything CloudKit-related into the app.”"
+        self.michieImageView?.image = UIImage(named: "michieProfile")
+        self.michieNameLabel?.text = "Michie Ang"
+        self.michieDescriptionLabel?.text = "“Michie was a nurse when she first got into iOS development. She won a scholarship three times, builds tech communities and travels around to inspire others to learn programming.”"
     }
 }
 

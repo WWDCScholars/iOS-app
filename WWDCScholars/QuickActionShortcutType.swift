@@ -10,7 +10,6 @@ import Foundation
 
 internal enum QuickActionShortcutType: String {
     case OpenMyProfile
-    case OpenSavedScholars
     case OpenBlog
     case OpenActivity
     

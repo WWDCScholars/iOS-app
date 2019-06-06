@@ -246,7 +246,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxc-5x-cRX" userLabel="Matthijs">
                                                         <rect key="frame" x="0.0" y="682" width="375" height="200"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matthijs Logemann" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWA-S4-fWi">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Michie Ang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWA-S4-fWi">
                                                                 <rect key="frame" x="72" y="19" width="289" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="JcM-fR-5Ie"/>
@@ -445,7 +445,7 @@
                                                                         <color key="textColor" red="0.65490196079999996" green="0.65098039220000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Michie Ang" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdE-JW-ibY">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matthijs Logemann" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdE-JW-ibY">
                                                                         <rect key="frame" x="0.0" y="108" width="165" height="28"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="28" id="Hx2-zz-Wn4"/>
@@ -596,10 +596,10 @@
                         <outlet property="andrewImageContentView" destination="lNU-E4-D2e" id="2Vr-DL-2jE"/>
                         <outlet property="andrewImageView" destination="rCf-3f-PNn" id="Gnu-Pk-RoW"/>
                         <outlet property="andrewNameLabel" destination="kYS-pr-Q4Z" id="SlG-yx-fMu"/>
-                        <outlet property="matthijsDescriptionLabel" destination="oeU-8U-3o7" id="UsL-fH-z8m"/>
-                        <outlet property="matthijsImageContentView" destination="VXY-HZ-KaV" id="JeZ-U8-y17"/>
-                        <outlet property="matthijsImageView" destination="R2y-2B-GfH" id="l1j-2f-sqa"/>
-                        <outlet property="matthijsNameLabel" destination="hWA-S4-fWi" id="P1b-dc-Cyk"/>
+                        <outlet property="michieDescriptionLabel" destination="oeU-8U-3o7" id="tty-g6-WTQ"/>
+                        <outlet property="michieImageContentView" destination="VXY-HZ-KaV" id="p4X-Sm-9Zl"/>
+                        <outlet property="michieImageView" destination="R2y-2B-GfH" id="Vi5-Rm-meO"/>
+                        <outlet property="michieNameLabel" destination="hWA-S4-fWi" id="wmK-ko-dx3"/>
                         <outlet property="moritzDescriptionLabel" destination="4a7-Rc-W0w" id="hx6-lG-aUp"/>
                         <outlet property="moritzImageContentView" destination="jwE-uK-Crf" id="QsA-z2-ohX"/>
                         <outlet property="moritzImageView" destination="mQN-qV-4dY" id="3bP-fw-Jsb"/>

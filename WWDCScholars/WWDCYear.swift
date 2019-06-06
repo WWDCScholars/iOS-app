@@ -19,7 +19,6 @@ internal enum WWDCYear: String {
     case wwdc2017 = "WWDC 2017"
     case wwdc2018 = "WWDC 2018"
     case wwdc2019 = "WWDC 2019"
-    case saved = "Saved"
     
     // MARK: - Internal Properties
     

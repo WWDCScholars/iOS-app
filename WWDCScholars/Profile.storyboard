@@ -95,7 +95,7 @@
                                                             <constraint firstAttribute="height" constant="35" id="kDB-yg-xSS"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJQ-j7-dDX">
+                                                    <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJQ-j7-dDX">
                                                         <rect key="frame" x="339" y="8" width="34" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="nFe-Tc-X9G"/>

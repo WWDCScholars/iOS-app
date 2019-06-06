@@ -38,11 +38,17 @@ internal final class TeamViewController: UIViewController {
     @IBOutlet private weak var moritzNameLabel: UILabel?
     @IBOutlet private weak var moritzDescriptionLabel: UILabel?
     
-    // MARK: Matthijs
+    // MARK: Michie
     @IBOutlet private weak var michieImageContentView: UIView?
     @IBOutlet private weak var michieImageView: UIImageView?
     @IBOutlet private weak var michieNameLabel: UILabel?
     @IBOutlet private weak var michieDescriptionLabel: UILabel?
+    
+    // MARK: Matthijs
+    @IBOutlet private weak var matthijsImageContentView: UIView?
+    @IBOutlet private weak var matthijsImageView: UIImageView?
+    @IBOutlet private weak var matthijsNameLabel: UILabel?
+    @IBOutlet private weak var matthijsDescriptionLabel: UILabel?
 
     
     // MARK: - File Private Properties
@@ -107,6 +113,11 @@ internal final class TeamViewController: UIViewController {
         self.michieImageContentView?.roundCorners()
         self.michieImageContentView?.applyRelativeCircularBorder()
         self.michieImageView?.roundCorners()
+        
+        
+        self.matthijsImageContentView?.roundCorners()
+        self.matthijsImageContentView?.applyRelativeCircularBorder()
+        self.matthijsImageView?.roundCorners()
 
     }
     
@@ -136,6 +147,12 @@ internal final class TeamViewController: UIViewController {
         self.michieImageView?.image = UIImage(named: "michieProfile")
         self.michieNameLabel?.text = "Michie Ang"
         self.michieDescriptionLabel?.text = "“Michie was a nurse when she first got into iOS development. She won a scholarship three times, builds tech communities and travels around to inspire others to learn programming.”"
+        
+
+        self.matthijsImageView?.image = UIImage(named: "matthijsProfile")
+        self.matthijsNameLabel?.text = "Matthijs Logemann"
+        self.matthijsDescriptionLabel?.text = "“Matthijs has been developping for iOS for around 8 years, has received two WWDC scholarships and now studies Computer Science at the Eindhoven University of Technology.”"
+        
     }
 }
 

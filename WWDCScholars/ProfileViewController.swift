@@ -120,7 +120,10 @@ internal final class ProfileViewController: UIViewController {
     }
     
     private func configureTeamImageView(){
-        if self.scholar?.fullName == "Sam Eckert" || self.scholar?.fullName == "Moritz Sternemann" || self.scholar?.fullName == "Andrew Walker"{
+        if self.scholar?.fullName == "Sam Eckert" ||
+            self.scholar?.fullName == "Moritz Sternemann" ||
+            self.scholar?.fullName == "Andrew Walker" ||
+            self.scholar?.fullName == "Matthijs Logemann" {
             self.teamContainerView?.isHidden = false
         }else{
             self.teamContainerView?.isHidden = true

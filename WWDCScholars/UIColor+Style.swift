@@ -13,47 +13,67 @@ internal extension UIColor {
     
     // MARK: - Internal Functions
     
-    internal static var scholarsPurple: UIColor {
-        return UIColor(red: 65.0 / 255.0, green: 58.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0)
+    static var scholarsPurple: UIColor {
+        UIColor(named: "scholarsPurple")!
     }
     
-    internal static var scholarsTranslucentPurple: UIColor {
+    static var scholarsTranslucentPurple: UIColor {
         return UIColor(red: 10.0 / 255.0, green: 1.0 / 255.0, blue: 114.0 / 255.0, alpha: 1.0)
     }
     
-    internal static var navigationBarBorderGray: UIColor {
+    static var navigationBarBorderGray: UIColor {
+        if #available(iOS 13.0, *) {
+            return .quaternarySystemFill
+        }
+
         return UIColor(red: 178.0 / 255.0, green: 178.0 / 255.0, blue: 178.0 / 255.0, alpha: 1.0)
     }
+
+    static var tabBarTint: UIColor {
+        UIColor(named: "tabBarTint")!
+    }
     
-    internal static var backgroundGray: UIColor {
+    static var backgroundGray: UIColor {
+        if #available(iOS 13.0, *) {
+            return .secondarySystemBackground
+        }
+        
         return UIColor(red: 245.0 / 255.0, green: 245.0 / 255.0, blue: 245.0 / 255.0, alpha: 1.0)
     }
     
-    internal static var backgroundElementGray: UIColor {
+    static var backgroundElementGray: UIColor {
         return UIColor(red: 130.0 / 255.0, green: 130.0 / 255.0, blue: 130.0 / 255.0, alpha: 1.0)
     }
     
-    internal static var titleTextDark: UIColor {
+    static var titleTextDark: UIColor {
+        if #available(iOS 13.0, *) {
+            return .label
+        }
+
         return UIColor(red: 64.0 / 255.0, green: 64.0 / 255.0, blue: 64.0 / 255.0, alpha: 1.0)
     }
     
-    internal static var contentTextDark: UIColor {
+    static var contentTextDark: UIColor {
+        if #available(iOS 13.0, *) {
+            return .secondaryLabel
+        }
+
         return UIColor(red: 146.0 / 255.0, green: 146.0 / 255.0, blue: 146.0 / 255.0, alpha: 1.0)
     }
     
-    internal static var titleTextLight: UIColor {
+    static var titleTextLight: UIColor {
         return UIColor(red: 255.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
     }
     
-    internal static var contentTextLight: UIColor {
+    static var contentTextLight: UIColor {
         return UIColor(red: 200.0 / 255.0, green: 200.0 / 255.0, blue: 200.0 / 255.0, alpha: 1.0)
     }
     
-    internal static var selectedTransparentWhite: UIColor {
+    static var selectedTransparentWhite: UIColor {
         return UIColor(red: 255.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 0.2)
     }
     
-    internal static var thumbnailTransparentPurple: UIColor {
+    static var thumbnailTransparentPurple: UIColor {
         return self.scholarsPurple.withAlphaComponent(.threeQuarters)
     }
 }

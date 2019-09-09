@@ -1,0 +1,10 @@
+{
+  "commitish" : "2.2.0",
+  "iOS" : [
+    {
+      "name" : "DeckTransition",
+      "hash" : "e9b229d6d988c18b2f23b8a399536b5cdac04f1771a22f94b57022a73f28f4d2",
+      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.6 clang-1100.0.32.1)"
+    }
+  ]
+}

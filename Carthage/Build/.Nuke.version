@@ -1,0 +1,10 @@
+{
+  "commitish" : "7.6.3",
+  "iOS" : [
+    {
+      "name" : "Nuke",
+      "hash" : "3686125685a6af3a7b54aeccddce8ac9ef38327f7b3d0cea9ced9d6f9bc73501",
+      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.6 clang-1100.0.32.1)"
+    }
+  ]
+}

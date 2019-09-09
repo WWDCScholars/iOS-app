@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal protocol ActivityViewControllerProxyDelegate: class {
+protocol ActivityViewControllerProxyDelegate: class {
     var proxy: ActivityViewControllerProxy? { get set }
     
     func didLoadActivityTimelineFilters(activityTimelineFilters: [ActivityTimelineFilter])
@@ -17,7 +17,7 @@ internal protocol ActivityViewControllerProxyDelegate: class {
     func failedToLoadActivityQueryItems()
 }
 
-internal final class ActivityViewControllerProxy {
+final class ActivityViewControllerProxy {
     
     // MARK: - Private Properties
     
@@ -25,13 +25,13 @@ internal final class ActivityViewControllerProxy {
     
     // MARK: - Lifecycle
     
-    internal init(delegate: ActivityViewControllerProxyDelegate) {
+    init(delegate: ActivityViewControllerProxyDelegate) {
         self.delegate = delegate
     }
     
     // MARK: - Internal Functions
     
-    internal func loadActivityQueryItems() {
+    func loadActivityQueryItems() {
         CloudKitManager.shared.loadActivityQueryItems { (activityQueryItems, error) in
             guard let activityQueryItems = activityQueryItems else {
                 self.delegate?.failedToLoadActivityQueryItems()
@@ -42,7 +42,7 @@ internal final class ActivityViewControllerProxy {
         }
     }
     
-    internal func loadActivityTimelineFilters() {
+    func loadActivityTimelineFilters() {
         CloudKitManager.shared.loadActivityTimelineFilters { (activityTimelineFilters, error) in
             guard let activityTimelineFilters = activityTimelineFilters else {
                 self.delegate?.failedToLoadActivityTimelineFilters()

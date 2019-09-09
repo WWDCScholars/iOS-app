@@ -16,6 +16,10 @@ internal extension UIColor {
     static var scholarsPurple: UIColor {
         UIColor(named: "scholarsPurple")!
     }
+
+    static var adjustingScholarsPurple: UIColor {
+        UIColor(named: "adjustingScholarsPurple")!
+    }
     
     static var scholarsTranslucentPurple: UIColor {
         return UIColor(red: 10.0 / 255.0, green: 1.0 / 255.0, blue: 114.0 / 255.0, alpha: 1.0)
@@ -27,10 +31,6 @@ internal extension UIColor {
         }
 
         return UIColor(red: 178.0 / 255.0, green: 178.0 / 255.0, blue: 178.0 / 255.0, alpha: 1.0)
-    }
-
-    static var tabBarTint: UIColor {
-        UIColor(named: "tabBarTint")!
     }
     
     static var backgroundGray: UIColor {

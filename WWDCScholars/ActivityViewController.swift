@@ -12,20 +12,20 @@ import TwitterKit
 import SafariServices
 import DeckTransition
 
-internal final class ActivityViewController: TWTRTimelineViewController {
+final class ActivityViewController: TWTRTimelineViewController {
 
-    // MARK: - File Private Properties
+    // MARK: - Private Properties
 
-    fileprivate var filter: TWTRTimelineFilter?
-
-    // MARK: - Internal Properties
-
-    internal var proxy: ActivityViewControllerProxy?
+    var proxy: ActivityViewControllerProxy?
+    private var filter: TWTRTimelineFilter?
+    private var twitterInteractionController: TwitterInteractionController?
 
     // MARK: - Lifecycle
 
-    internal override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
+
+        twitterInteractionController = TwitterInteractionController(presenter: self)
 
         self.proxy = ActivityViewControllerProxy(delegate: self)
 
@@ -36,36 +36,46 @@ internal final class ActivityViewController: TWTRTimelineViewController {
     // MARK: - UI
 
     private func configureUI() {
-        self.title = "Activity"
-        self.showTweetActions = true
-        self.tweetViewDelegate = self
+        title = "Activity"
+        showTweetActions = false
+        tweetViewDelegate = self
 
-        let composeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(self.presentTweetComposer))
-        self.navigationItem.rightBarButtonItem = composeBarButtonItem
+        let appearance = TWTRTweetView.appearance()
+        appearance.linkTextColor = .adjustingScholarsPurple
+        if #available(iOS 13.0, *) {
+            appearance.backgroundColor = .systemBackground
+            appearance.primaryTextColor = .label
+        }
 
-        self.refreshControl?.replaceTarget(self, action: #selector(self.loadTimeline), for: .valueChanged)
+//        let composeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(self.composeTweetButtonTapped))
+//        navigationItem.rightBarButtonItem = composeBarButtonItem
+
+        refreshControl?.replaceTarget(self, action: #selector(self.loadTimeline), for: .valueChanged)
     }
 
-    // MARK: - File Private Functions
+    // MARK: - Private Functions
 
-    fileprivate func configureDataSource(with activityQueryItems: [ActivityQueryItem]) {
+    private func configureDataSource(with activityQueryItems: [ActivityQueryItem]) {
         let query = ActivityQueryFactory.query(for: activityQueryItems)
         let client = TWTRAPIClient()
         let dataSource = TWTRSearchTimelineDataSource(searchQuery: query, apiClient: client)
         dataSource.filterSensitiveTweets = true
         dataSource.timelineFilter = self.filter
-        dataSource.topTweetsOnly = false
+        dataSource.resultType = "recent"
+
         self.dataSource = dataSource
-        self.refresh()
+        refresh()
     }
 
     // MARK: - Actions
 
-    @objc fileprivate func loadTimeline() {
+    @objc
+    private func loadTimeline() {
         self.proxy?.loadActivityTimelineFilters()
     }
 
-    @objc fileprivate func presentTweetComposer() {
+    @objc
+    private func composeTweetButtonTapped() {
         let composer = TWTRComposer()
         composer.setText("#WWDCScholars")
         composer.show(from: self) { _ in }
@@ -76,104 +86,49 @@ extension ActivityViewController: ActivityViewControllerProxyDelegate {
 
     // MARK: - Internal Functions
 
-    internal func didLoadActivityTimelineFilters(activityTimelineFilters: [ActivityTimelineFilter]) {
+    func didLoadActivityTimelineFilters(activityTimelineFilters: [ActivityTimelineFilter]) {
         self.filter = ActivityFilterFactory.filter(for: activityTimelineFilters)
         self.proxy?.loadActivityQueryItems()
     }
 
-    internal func failedToLoadActivityTimelineFilters() {
+    func failedToLoadActivityTimelineFilters() {
         // TODO: Update UI to display background view controller
     }
 
-    internal func didLoadActivityQueryItems(activityQueryItems: [ActivityQueryItem]) {
+    func didLoadActivityQueryItems(activityQueryItems: [ActivityQueryItem]) {
         DispatchQueue.main.async {
             self.configureDataSource(with: activityQueryItems)
             self.refreshControl?.endRefreshing()
         }
     }
 
-    internal func failedToLoadActivityQueryItems() {
+    func failedToLoadActivityQueryItems() {
         // TODO: Update UI to display background view controller
     }
 }
 
 extension ActivityViewController: TWTRTweetViewDelegate {
-    internal func openSafariViewController(`for` url: URL) {
-        let svc = SFSafariViewController(url: url)
-        svc.preferredBarTintColor = .scholarsTranslucentPurple
-        if let presVC = self.presentedViewController {
-            presVC.present(svc, animated: true, completion: nil)
-        }else {
-            self.present(svc, animated: true, completion: nil)
-        }
+    func tweetView(_ tweetView: TWTRTweetView, didTap tweet: TWTRTweet) {
+        twitterInteractionController?.handleEntityTap(.tweet(screenName: tweet.author.screenName, tweetID: tweet.tweetID))
     }
 
-    internal func tweetView(_ tweetView: TWTRTweetView, didTap url: URL) {
-        openSafariViewController(for: url)
+    func tweetView(_ tweetView: TWTRTweetView, didTapProfileImageFor user: TWTRUser) {
+        twitterInteractionController?.handleEntityTap(.profile(screenName: user.screenName))
     }
 
-    internal func tweetView(_ tweetView: TWTRTweetView, didTapProfileImageFor user: TWTRUser) {
-        if (UIApplication.shared.canOpenURL(URL(string:"tweetbot://")!)) {
-            UIApplication.shared.open(URL.init(string: "tweetbot://\(user.screenName)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-        }else if (UIApplication.shared.canOpenURL(URL(string:"twitter://")!)) {
-            UIApplication.shared.open(URL.init(string: "twitter://user?id=\(user.userID)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-        }else {
-            openSafariViewController(for: user.profileURL)
-        }
+    func tweetView(_ tweetView: TWTRTweetView, didTap url: URL) {
+        twitterInteractionController?.openSafari(withURL: url)
     }
 
-    internal func tweetView(_ tweetView: TWTRTweetView, shouldDisplay controller: TWTRTweetDetailViewController) -> Bool {
-        controller.delegate = self
-        let transitionDelegate = DeckTransitioningDelegate()
-        controller.transitioningDelegate = transitionDelegate
-        controller.modalPresentationStyle = .custom
-        present(controller, animated: true, completion: nil)
-        controller.scrollView.delegate = controller
-        return false
-    }
-}
-
-extension ActivityViewController: TWTRTweetDetailViewControllerDelegate {
-    internal func tweetDetailViewController(_ controller: TWTRTweetDetailViewController, didTap url: URL) {
-        openSafariViewController(for: url)
+    func tweetView(_ tweetView: TWTRTweetView, didTapHashtag hashtag: String) {
+        twitterInteractionController?.handleEntityTap(.tag(screenName: tweetView.tweet.author.screenName, query: "#\(hashtag)"))
     }
 
-    internal func tweetDetailViewController(_ controller: TWTRTweetDetailViewController, didTapProfileImageFor user: TWTRUser) {
-        if (UIApplication.shared.canOpenURL(URL(string:"tweetbot://")!)) {
-            UIApplication.shared.open(URL.init(string: "tweetbot://\(user.screenName)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-        }else if (UIApplication.shared.canOpenURL(URL(string:"twitter://")!)) {
-            UIApplication.shared.open(URL.init(string: "twitter://user?id=\(user.userID)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-        }else {
-            openSafariViewController(for: user.profileURL)
-        }
+    func tweetView(_ tweetView: TWTRTweetView, didTapCashtag cashtag: String) {
+        twitterInteractionController?.handleEntityTap(.tag(screenName: tweetView.tweet.author.screenName, query: "$\(cashtag)"))
     }
 
-    internal func tweetDetailViewController(_ controller: TWTRTweetDetailViewController, didTapHashtag hashtag: TWTRTweetHashtagEntity) {
-        if hashtag.text == "WWDCScholars" {
-            self.dismiss(animated: true, completion: nil)
-        }else {
-            if (UIApplication.shared.canOpenURL(URL(string:"tweetbot://")!)) {
-                UIApplication.shared.open(URL.init(string: "tweetbot://query=%23\(hashtag.text)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-            }else if (UIApplication.shared.canOpenURL(URL(string:"twitter://")!)) {
-                UIApplication.shared.open(URL.init(string: "twitter://search?query=%23\(hashtag.text)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-            }else {
-                openSafariViewController(for: URL.init(string: "https://twitter.com/search?q=%23\(hashtag.text)")!)
-            }
-        }
+    func tweetView(_ tweetView: TWTRTweetView, didTapUserMention userID: String, screenName: String, name: String) {
+        twitterInteractionController?.handleEntityTap(.profile(screenName: screenName))
     }
-
-    internal func tweetDetailViewController(_ controller: TWTRTweetDetailViewController, didTapCashtag cashtag: TWTRTweetCashtagEntity) {
-        if (UIApplication.shared.canOpenURL(URL(string:"tweetbot://")!)) {
-            UIApplication.shared.open(URL.init(string: "tweetbot://query=%24\(cashtag.text)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-        }else if (UIApplication.shared.canOpenURL(URL(string:"twitter://")!)) {
-            UIApplication.shared.open(URL.init(string: "twitter://search?query=%24\(cashtag.text)")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-        }else {
-            openSafariViewController(for: URL.init(string: "https://twitter.com/search?q=%24\(cashtag.text)")!)
-        }
-    }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

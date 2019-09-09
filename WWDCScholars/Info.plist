@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>twitterkit-ZDi2mIKVmGIDChRv9w2fMcxnG</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -32,18 +41,14 @@
 				<key>KitName</key>
 				<string>Crashlytics</string>
 			</dict>
-			<dict>
-				<key>KitInfo</key>
-				<dict>
-					<key>consumerKey</key>
-					<string>ZDi2mIKVmGIDChRv9w2fMcxnG</string>
-					<key>consumerSecret</key>
-					<string>R7NRvY9sY4rciLDYKaE64dAMuan1zuHuoQWGGKiq2PTxINXmfs</string>
-				</dict>
-				<key>KitName</key>
-				<string>Twitter</string>
-			</dict>
 		</array>
+	</dict>
+	<key>Twitter</key>
+	<dict>
+		<key>consumerKey</key>
+		<string>ZDi2mIKVmGIDChRv9w2fMcxnG</string>
+		<key>consumerSecret</key>
+		<string>R7NRvY9sY4rciLDYKaE64dAMuan1zuHuoQWGGKiq2PTxINXmfs</string>
 	</dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
@@ -53,6 +58,7 @@
 	<array>
 		<string>twitter</string>
 		<string>tweetbot</string>
+		<string>twitterauth</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

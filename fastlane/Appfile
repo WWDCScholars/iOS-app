@@ -1,5 +1,5 @@
 app_identifier("com.cecose.WWDCScholars") # The bundle identifier of your app
-apple_id("development@cecose.com") # Your Apple email address
+apple_id("team@wwdcscholars.com") # Your Apple email address
 
 itc_team_id("118995962") # App Store Connect Team ID
 team_id("S2TB4FUFGQ") # Developer Portal Team ID

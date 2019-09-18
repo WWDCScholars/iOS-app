@@ -1,6 +1,14 @@
 language: swift
 osx_image: xcode11
+
+before_install:
+  - brew install git-lfs
+
 install:
   - bundle install
+
+before_script:
+  - git lfs pull
+
 script:
   - fastlane tests

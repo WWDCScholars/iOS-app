@@ -1617,7 +1617,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 162;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1641,6 +1641,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: cecose GmbH (S2TB4FUFGQ)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 162;
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				FRAMEWORK_SEARCH_PATHS = (

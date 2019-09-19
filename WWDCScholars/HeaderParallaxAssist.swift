@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-internal protocol HeaderParallaxAssist: class {}
+protocol HeaderParallaxAssist: class {}
 
-internal extension HeaderParallaxAssist {
+extension HeaderParallaxAssist {
     
     // MARK: - Internal Functions
     
-    internal func updateHeaderParallax(for scrollView: UIScrollView, on view: UIView?, baseHeight: CGFloat) {
+    func updateHeaderParallax(for scrollView: UIScrollView, on view: UIView?, baseHeight: CGFloat) {
         var frame = CGRect(x: 0.0, y: 0.0, width: scrollView.bounds.width, height: baseHeight)
         
         if scrollView.contentOffset.y < baseHeight {

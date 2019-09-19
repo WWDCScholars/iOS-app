@@ -9,27 +9,27 @@
 import Foundation
 import UIKit
 
-internal extension CGFloat {
+extension CGFloat {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal static var zero: CGFloat {
+    static var zero: CGFloat {
         return 0.0
     }
     
-    internal static var quarter: CGFloat {
+    static var quarter: CGFloat {
         return 0.25
     }
     
-    internal static var half: CGFloat {
+    static var half: CGFloat {
         return 0.5
     }
     
-    internal static var threeQuarters: CGFloat {
+    static var threeQuarters: CGFloat {
         return 0.75
     }
     
-    internal static var one: CGFloat {
+    static var one: CGFloat {
         return 1.0
     }
 }

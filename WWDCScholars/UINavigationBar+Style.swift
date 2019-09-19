@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-internal extension UINavigationBar {
+extension UINavigationBar {
     
     // MARK: - Internal Functions
     
-    internal static func applyScholarsStyle() {
+    static func applyScholarsStyle() {
         self.appearance().tintColor = .white
         self.appearance().isTranslucent = false
         self.appearance().barTintColor = .scholarsPurple
         self.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
-    internal func applyExtendedStyle() {
+    func applyExtendedStyle() {
         let image = UIImage()
         self.setBackgroundImage(image, for: .default)
         self.shadowImage = image

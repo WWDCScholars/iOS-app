@@ -13,16 +13,15 @@ import Nuke
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    // MARK: - Internal Properties
+    // MARK: - Properties
     
     var window: UIWindow?
 
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupTwitter()
 
-        UIStatusBar.applyScholarsLightStyle()
         UINavigationBar.applyScholarsStyle()
         UITabBar.applyScholarsStyle()
         

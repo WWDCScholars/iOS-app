@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-internal protocol VariableWidthCollectionViewCellContent: VariableDimensionCollectionViewCellContent {}
+protocol VariableWidthCollectionViewCellContent: VariableDimensionCollectionViewCellContent {}
 
-internal extension VariableWidthCollectionViewCellContent {
+extension VariableWidthCollectionViewCellContent {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal func width(within collectionView: UICollectionView, minimumInteritemSpacing: CGFloat, edgeInsets: UIEdgeInsets) -> CGFloat {
+    func width(within collectionView: UICollectionView, minimumInteritemSpacing: CGFloat, edgeInsets: UIEdgeInsets) -> CGFloat {
         return self.dimension(within: collectionView, spacing: minimumInteritemSpacing, edgeInset1: edgeInsets.left, edgeInset2: edgeInsets.right)
     }
 }

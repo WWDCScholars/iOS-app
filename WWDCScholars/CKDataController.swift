@@ -46,8 +46,6 @@ class CKDataController: ScholarDataController {
                 print("loadScholars - Scholar could not be created")
                 return
             }
-            
-            print ("Hello scholar \(scholar.id)")
 
             if !loadedScholars.contains(where: { $0.id == scholar.id }) {
                 loadedScholars.append(scholar)
@@ -107,15 +105,12 @@ class CKDataController: ScholarDataController {
                     let records = records,
                 let record = records[id] else {
                     fatalError(error?.localizedDescription ?? "No records")
-                    return
                 }
                 
                 guard let scholar = Scholar(scholarRecord: record) else {
                     print("scholar for ID - Scholar could not be created")
                     return
                 }
-                
-                print ("Hello scholar \(scholar.id)")
                 
                 loadedScholar = scholar
                 

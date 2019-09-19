@@ -9,13 +9,13 @@
 import Foundation
 import CloudKit
 
-internal typealias BlogPostLoaded = ((BlogPost) -> Void)
+typealias BlogPostLoaded = ((BlogPost) -> Void)
 
-internal extension CloudKitManager {
+extension CloudKitManager {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal func loadBlogPosts(cursor: CKQueryOperation.Cursor? = nil, recordFetched: @escaping BlogPostLoaded, completion: QueryCompletion) {
+    func loadBlogPosts(cursor: CKQueryOperation.Cursor? = nil, recordFetched: @escaping BlogPostLoaded, completion: QueryCompletion) {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "BlogPost", predicate: predicate)
         let operation = CKQueryOperation(query: query)

@@ -75,7 +75,7 @@ internal final class ScholarsViewController: UIViewController {
         }
 
         if segue.identifier == "ProfileViewController" {
-            let scholarProfileViewController = segue.destination as? ProfileViewController
+//            let scholarProfileViewController = segue.destination as? ProfileViewController
 //            scholarProfileViewController?.scholarId = sender as? CKRecordID
             return
         }

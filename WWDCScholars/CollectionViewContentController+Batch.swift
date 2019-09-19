@@ -8,11 +8,11 @@
 
 import Foundation
 
-internal extension CollectionViewContentController {
+extension CollectionViewContentController {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal func selectSavedWWDCYearInfo() {
+    func selectSavedWWDCYearInfo() {
         guard let savedWWDCYearInfoSectionContent = self.sectionContent.filter({ $0.id == "WWDCYearInfos" }).first else {
             return
         }
@@ -24,7 +24,7 @@ internal extension CollectionViewContentController {
         self.select(cellContent: savedWWDCYearInfoCellContent)
     }
     
-    internal func selectDefaultWWDCYearInfo() {
+    func selectDefaultWWDCYearInfo() {
         guard let defaultWWDCYearInfoSectionContent = self.sectionContent.filter({ $0.id == "WWDCYearInfos" }).first else {
             return
         }
@@ -36,7 +36,7 @@ internal extension CollectionViewContentController {
         self.select(cellContent: defaultWWDCYearInfoCellContent)
     }
     
-    internal func scrollToSelectedWWDCYearInfo() {
+    func scrollToSelectedWWDCYearInfo() {
         guard let sectionContentIndex = self.sectionContent.firstIndex(where: { $0.cellContent.contains(where: { ($0 as? WWDCYearInfoCollectionViewCellContent)?.isSelected == true }) }) else {
             return
         }

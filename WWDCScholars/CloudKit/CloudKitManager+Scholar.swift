@@ -10,13 +10,13 @@ import Foundation
 import CloudKit
 import Alamofire
 
-internal typealias ScholarFetched = ((Scholar) -> Void)
+typealias ScholarFetched = ((Scholar) -> Void)
 
-internal extension CloudKitManager {
+extension CloudKitManager {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-//    internal func loadScholars(`for` batch: WWDCYear, with status: Scholar.Status, recordFetched: @escaping ScholarFetched, completion: QueryCompletion) {
+//    func loadScholars(`for` batch: WWDCYear, with status: Scholar.Status, recordFetched: @escaping ScholarFetched, completion: QueryCompletion) {
 //        let recordName = batch.recordName
 //        let yearRef = CKRecord.Reference(recordID: CKRecord.ID.init(recordName: recordName), action: .none)
 //        let predicate = NSPredicate(format: "status = '\(status.rawValue)' AND wwdcYears CONTAINS %@", yearRef)
@@ -51,7 +51,7 @@ internal extension CloudKitManager {
 //        self.database.add(operation)
 //    }
     
-    internal func convertScholarRecord(_ record: CKRecord, completion: @escaping ([String: Any]?) -> ()) {
+    func convertScholarRecord(_ record: CKRecord, completion: @escaping ([String: Any]?) -> ()) {
         var testData: [String: Any] = [:]
         print(record.allKeys())
         if let id = UUID.init(uuidString: record.recordID.recordName) {

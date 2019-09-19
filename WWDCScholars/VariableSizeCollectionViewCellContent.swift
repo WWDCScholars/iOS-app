@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-internal protocol VariableSizeCollectionViewCellContent: SizeableCollectionViewCellContent, VariableHeightCollectionViewCellContent, VariableWidthCollectionViewCellContent {}
+protocol VariableSizeCollectionViewCellContent: SizeableCollectionViewCellContent, VariableHeightCollectionViewCellContent, VariableWidthCollectionViewCellContent {}
 
-internal extension VariableSizeCollectionViewCellContent {
+extension VariableSizeCollectionViewCellContent {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal func size(within collectionView: UICollectionView, sizingModifiers: CollectionViewSectionContentSizingModifiers) -> CGSize {
+    func size(within collectionView: UICollectionView, sizingModifiers: CollectionViewSectionContentSizingModifiers) -> CGSize {
         let width = self.width(within: collectionView, minimumInteritemSpacing: sizingModifiers.minimumInteritemSpacing, edgeInsets: sizingModifiers.edgeInsets)
         let height = self.height(within: collectionView, minimumLineSpacing: sizingModifiers.minimumLineSpacing, edgeInsets: sizingModifiers.edgeInsets)
         return CGSize(width: width, height: height)

@@ -44,7 +44,7 @@ internal final class BlogPostViewController: UIViewController {
         self.populateHeaderContent()
         self.populateBodyContent()
         
-        guard let author = self.blogPost.author else { return }
+        guard let _ = self.blogPost.author else { return }
 //        CloudKitManager.shared.loadScholarsForBlog(with: author.recordID, recordFetched: { scholar in
 //            self.scholar = scholar
 ////            scholar.profilePictureLoaded.append({ err in

@@ -8,9 +8,9 @@
 
 import UIKit
 
-internal extension UIImage {
+extension UIImage {
     
-    internal static var loading: UIImage {
+    static var loading: UIImage {
         return UIImage(named: "loading") ?? UIImage()
     }
     

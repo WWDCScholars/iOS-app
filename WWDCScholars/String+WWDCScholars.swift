@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-internal extension String {
+extension String {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal func height(for width: CGFloat, font: UIFont?) -> CGFloat {
+    func height(for width: CGFloat, font: UIFont?) -> CGFloat {
         guard let font = font else {
             return 0.0
         }

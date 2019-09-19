@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal protocol ContentController: class {
+protocol ContentController: class {
     var sectionContent: [SectionContent] { get set }
 
     func reloadContent()
@@ -17,47 +17,47 @@ internal protocol ContentController: class {
     func removeAllContent()
 }
 
-internal extension ContentController {
+extension ContentController {
 
-    // MARK: - internal Functions
+    // MARK: - Functions
 
-    internal func numberOfSections() -> Int {
+    func numberOfSections() -> Int {
         return self.sectionContent.count
     }
 
-    internal func numberOfItems(in section: Int) -> Int {
+    func numberOfItems(in section: Int) -> Int {
         return self.sectionContent[section].cellContent.count
     }
 
-    internal func reuseIdentifier(for indexPath: IndexPath) -> String {
+    func reuseIdentifier(for indexPath: IndexPath) -> String {
         return self.sectionContent[indexPath.section].cellContent[indexPath.item].reuseIdentifier
     }
 
-    internal func cellContentFor(indexPath: IndexPath) -> CellContent {
+    func cellContentFor(indexPath: IndexPath) -> CellContent {
         return self.sectionContentFor(index: indexPath.section).cellContent[indexPath.row]
     }
     
-    internal func sectionContentFor(index: Int) -> SectionContent {
+    func sectionContentFor(index: Int) -> SectionContent {
         return self.sectionContent[index]
     }
 	
-	internal func set(sectionContent: SectionContent) {
+	func set(sectionContent: SectionContent) {
 		self.sectionContent = [sectionContent]
 	}
 
-    internal func add(sectionContent: SectionContent) {
+    func add(sectionContent: SectionContent) {
         self.sectionContent.append(sectionContent)
     }
 
-    internal func add(sectionContent: [SectionContent]) {
+    func add(sectionContent: [SectionContent]) {
         self.sectionContent.append(contentsOf: sectionContent)
     }
 
-    internal func removeAllContent() {
+    func removeAllContent() {
         self.sectionContent.removeAll()
     }
     
-    internal func indexPath(of cellContent: CellContent) -> IndexPath? {
+    func indexPath(of cellContent: CellContent) -> IndexPath? {
         guard let sectionContentIndex = self.sectionContentIndex(of: cellContent) else {
             return nil
         }
@@ -70,7 +70,7 @@ internal extension ContentController {
         return indexPath
     }
     
-    internal func index(of cellContent: CellContent, sectionContentIndex: Int) -> Int? {
+    func index(of cellContent: CellContent, sectionContentIndex: Int) -> Int? {
         guard let index = self.sectionContentFor(index: sectionContentIndex).cellContent.firstIndex(where: { $0 === cellContent }) else {
             return nil
         }
@@ -78,7 +78,7 @@ internal extension ContentController {
         return index
     }
     
-    internal func sectionContentIndex(of cellContent: CellContent) -> Int? {
+    func sectionContentIndex(of cellContent: CellContent) -> Int? {
         guard let index = self.sectionContent.firstIndex(where: { $0.cellContent.contains(where: { $0 === cellContent }) }) else {
             return nil
         }

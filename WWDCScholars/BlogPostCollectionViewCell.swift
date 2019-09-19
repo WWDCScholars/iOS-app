@@ -58,7 +58,7 @@ internal final class BlogPostCollectionViewCell: UICollectionViewCell, Cell {
 
         self.titleLabel?.text = blogPost.title
         
-        guard let author = blogPost.author else { return }
+        guard let _ = blogPost.author else { return }
 //        CloudKitManager.shared.loadScholarsForBlog(with: author.recordID, recordFetched: {
 //            scholar in
 //            scholar.profilePictureLoaded.append({ err in

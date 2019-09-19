@@ -9,13 +9,13 @@
 import Foundation
 import CloudKit
 
-internal typealias SocialMediaFetched = ((SocialMedia) -> Void)
+typealias SocialMediaFetched = ((SocialMedia) -> Void)
 
-internal extension CloudKitManager {
+extension CloudKitManager {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal func loadSocialMedia(with id: CKRecord.ID, recordFetched: @escaping SocialMediaFetched, completion: QueryCompletion) {
+    func loadSocialMedia(with id: CKRecord.ID, recordFetched: @escaping SocialMediaFetched, completion: QueryCompletion) {
         let predicate = NSPredicate(format: "recordID = %@", id)
         let query = CKQuery(recordType: "ScholarSocialMedia", predicate: predicate)
         let operation = CKQueryOperation(query: query)

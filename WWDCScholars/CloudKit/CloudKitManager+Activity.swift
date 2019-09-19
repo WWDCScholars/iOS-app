@@ -9,11 +9,11 @@
 import Foundation
 import CloudKit
 
-internal extension CloudKitManager {
+extension CloudKitManager {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal func loadActivityTimelineFilters(completion: @escaping ([ActivityTimelineFilter]?, Error?) -> Void) {
+    func loadActivityTimelineFilters(completion: @escaping ([ActivityTimelineFilter]?, Error?) -> Void) {
         let recordType = "ActivityTimelineFilter"
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: recordType, predicate: predicate)
@@ -29,11 +29,11 @@ internal extension CloudKitManager {
     }
 }
 
-internal extension CloudKitManager {
+extension CloudKitManager {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal func loadActivityQueryItems(completion: @escaping ([ActivityQueryItem]?, Error?) -> Void) {
+    func loadActivityQueryItems(completion: @escaping ([ActivityQueryItem]?, Error?) -> Void) {
         let recordType = "ActivityQueryItem"
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: recordType, predicate: predicate)

@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-internal extension UIControl {
+extension UIControl {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal func replaceTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {
+    func replaceTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {
         self.removeTarget(nil, action: nil, for: .allEvents)
         self.addTarget(target, action: action, for: controlEvents)
     }

@@ -8,13 +8,13 @@
 
 import Foundation
 
-internal protocol SelectableSectionSingleCellContent: SelectableCellContent {}
+protocol SelectableSectionSingleCellContent: SelectableCellContent {}
 
-internal extension SelectableSectionSingleCellContent {
+extension SelectableSectionSingleCellContent {
 
-    // MARK: - internal Functions
+    // MARK: - Functions
 
-    internal func select(on contentContainer: ReloadableContentContainer?, with sectionContent: [SectionContent], at indexPath: IndexPath) {
+    func select(on contentContainer: ReloadableContentContainer?, with sectionContent: [SectionContent], at indexPath: IndexPath) {
         let cellContent = sectionContent[indexPath.section].cellContent
         let selectableContent = cellContent.compactMap({ $0 as? SelectableSectionSingleCellContent })
         let contentForDeselection = selectableContent.filter({ $0 !== self })

@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-internal extension UITabBarController {
+extension UITabBarController {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal func index<T: UIViewController>(of viewController: T.Type) -> Int? {
+    func index<T: UIViewController>(of viewController: T.Type) -> Int? {
         return self.viewControllers?.firstIndex(where: { $0 is T })
     }
     
-    internal func indexOfNavigationController<T: UIViewController>(containing viewController: T.Type) -> Int? {
+    func indexOfNavigationController<T: UIViewController>(containing viewController: T.Type) -> Int? {
         return self.viewControllers?.firstIndex(where: { ($0 as? UINavigationController)?.viewControllers.first is T })
     }
 }

@@ -170,7 +170,7 @@ extension ScholarsMapViewController: MKMapViewDelegate {
 		if cluster.count > 1{
 			self.show(cluster: cluster, mapView: mapView)
 		}
-		else if let scholarAnnotation = cluster.firstAnnotation! as? ScholarAnnotation{
+		else if let _ = cluster.firstAnnotation! as? ScholarAnnotation{
 //            self.presentProfileViewController(scholarId: scholarAnnotation.scholar.id)
 		}
     }

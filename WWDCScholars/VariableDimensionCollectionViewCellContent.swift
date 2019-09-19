@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-internal protocol VariableDimensionCollectionViewCellContent: class {
+protocol VariableDimensionCollectionViewCellContent: class {
     var axisCellCount: Int { get }
 }
 
-internal extension VariableDimensionCollectionViewCellContent {
+extension VariableDimensionCollectionViewCellContent {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal func dimension(within collectionView: UICollectionView, spacing: CGFloat, edgeInset1: CGFloat, edgeInset2: CGFloat) -> CGFloat {
+    func dimension(within collectionView: UICollectionView, spacing: CGFloat, edgeInset1: CGFloat, edgeInset2: CGFloat) -> CGFloat {
         let axisCellCount = CGFloat(self.axisCellCount)
         let dimension = collectionView.frame.width / axisCellCount
         let edgeInset1 = edgeInset1 / axisCellCount

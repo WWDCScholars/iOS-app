@@ -9,11 +9,11 @@
 import Foundation
 import CoreLocation
 
-internal extension CLLocationManager {
+extension CLLocationManager {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal static func isAuthorized() -> Bool {
+    static func isAuthorized() -> Bool {
         let status = self.authorizationStatus()
         return status == .authorizedWhenInUse || status == .authorizedAlways
     }

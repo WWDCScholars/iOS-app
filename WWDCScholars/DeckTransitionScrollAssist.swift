@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 import DeckTransition
 
-internal protocol DeckTransitionScrollAssist: class {
+protocol DeckTransitionScrollAssist: class {
     func updateDeckTransition(for scrollView: UIScrollView)
 }
 
-internal extension DeckTransitionScrollAssist where Self: UIViewController {
+extension DeckTransitionScrollAssist where Self: UIViewController {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal func updateDeckTransition(for scrollView: UIScrollView) {
+    func updateDeckTransition(for scrollView: UIScrollView) {
 		//This behaviour is default in the new version of DeckTransition?
 		return
     }

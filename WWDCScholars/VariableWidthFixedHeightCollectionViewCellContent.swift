@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-internal protocol VariableWidthFixedHeightCollectionViewCellContent: SizeableCollectionViewCellContent, VariableWidthCollectionViewCellContent {
+protocol VariableWidthFixedHeightCollectionViewCellContent: SizeableCollectionViewCellContent, VariableWidthCollectionViewCellContent {
     var height: CGFloat { get }
 }
 
-internal extension VariableWidthFixedHeightCollectionViewCellContent {
+extension VariableWidthFixedHeightCollectionViewCellContent {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal func size(within collectionView: UICollectionView, sizingModifiers: CollectionViewSectionContentSizingModifiers) -> CGSize {
+    func size(within collectionView: UICollectionView, sizingModifiers: CollectionViewSectionContentSizingModifiers) -> CGSize {
         let width = self.width(within: collectionView, minimumInteritemSpacing: sizingModifiers.minimumInteritemSpacing, edgeInsets: sizingModifiers.edgeInsets)
         let height = self.height
         return CGSize(width: width, height: height)

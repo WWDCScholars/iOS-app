@@ -9,36 +9,36 @@
 import Foundation
 import UIKit
 
-internal extension UILabel {
+extension UILabel {
     
-    // MARK: - Internal Functions
+    // MARK: - Functions
     
-    internal func applyDetailHeaderTitleStyle() {
+    func applyDetailHeaderTitleStyle() {
         self.font = UIFont.systemFont(ofSize: 25.0)
         self.textColor = .titleTextDark
     }
     
-    internal func applyDetailTitleStyle() {
+    func applyDetailTitleStyle() {
         self.font = UIFont.systemFont(ofSize: 16.0)
         self.textColor = .titleTextDark
     }
     
-    internal func applyDetailContentStyle() {
+    func applyDetailContentStyle() {
         self.font = UIFont.systemFont(ofSize: 16.0)
         self.textColor = .contentTextDark
     }
     
-    internal func applyBlogPostInfoTitleStyle() {
+    func applyBlogPostInfoTitleStyle() {
         self.font = UIFont.systemFont(ofSize: 16.0)
         self.textColor = .titleTextLight
     }
     
-    internal func applyBlogPostInfoAuthorStyle() {
+    func applyBlogPostInfoAuthorStyle() {
         self.font = UIFont.systemFont(ofSize: 10.0)
         self.textColor = .contentTextLight
     }
     
-    internal func addTextSpacing(spacing: Float) {
+    func addTextSpacing(spacing: Float) {
         if text != nil {
             let attributedString = NSMutableAttributedString(string: text!)
             attributedString.addAttribute(NSAttributedString.Key.kern, value: spacing, range: NSRange(location: 0, length: attributedString.length - 1))
@@ -46,22 +46,22 @@ internal extension UILabel {
         }
     }
 
-    internal func applyScholarsWWDCYearInfoTitleStyle() {
+    func applyScholarsWWDCYearInfoTitleStyle() {
         self.font = UIFont.systemFont(ofSize: 14.0)
         self.textColor = .titleTextLight
     }
     
-    internal func applyScholarsTitleStyle() {
+    func applyScholarsTitleStyle() {
         self.font = UIFont.systemFont(ofSize: 16.0)
         self.textColor = .titleTextLight
     }
     
-    internal func applyBackgroundTitleStyle() {
+    func applyBackgroundTitleStyle() {
         self.font = UIFont.systemFont(ofSize: 16.0)
         self.textColor = .backgroundElementGray
     }
     
-    internal func applyScholarClusterStyle() {
+    func applyScholarClusterStyle() {
         self.font = UIFont.systemFont(ofSize: 16.0)
         self.textAlignment = .center
         self.textColor = .white

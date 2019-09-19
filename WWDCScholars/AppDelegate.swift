@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import Fabric
 import TwitterKit
-import Crashlytics
 import Nuke
 
 @UIApplicationMain
@@ -22,7 +20,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Internal Functions
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Fabric.with([Crashlytics.self])
         setupTwitter()
 
         UIStatusBar.applyScholarsLightStyle()

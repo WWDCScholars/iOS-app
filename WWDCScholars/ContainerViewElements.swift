@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-internal final class ContainerViewElements {
+final class ContainerViewElements {
     
-    // MARK: - Internal Properties
+    // MARK: - Properties
     
-    internal let view: UIView?
-    internal let viewController: ContainerViewController?
+    let view: UIView?
+    let viewController: ContainerViewController?
     
     // MARK: - Lifecycle
     
-    internal init(view: UIView?, viewController: ContainerViewController?) {
+    init(view: UIView?, viewController: ContainerViewController?) {
         self.view = view
         self.viewController = viewController
     }

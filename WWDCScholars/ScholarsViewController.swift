@@ -87,6 +87,10 @@ internal final class ScholarsViewController: UIViewController {
         self.view.applyBackgroundStyle()
         self.navigationController?.navigationBar.applyExtendedStyle()
         self.navigationBarExtensionView?.backgroundColor = .scholarsPurple
+
+        if #available(iOS 13.0, *) {
+            loadingScholarsActivityIndicator.style = .medium
+        }
     }
 
     private func configureUI() {

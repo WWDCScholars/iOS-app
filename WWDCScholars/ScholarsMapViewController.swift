@@ -64,6 +64,10 @@ final class ScholarsMapViewController: UIViewController, ContainerViewController
     private func styleUI() {
         userTrackingButtonEffectView.applyDefaultCornerRadius()
         userTrackingButton.tintColor = .adjustingScholarsPurple
+
+        if #available(iOS 13.0, *) {
+            userTrackingButtonEffectView.effect = UIBlurEffect(style: .systemThickMaterial)
+        }
     }
     
     private func configureUI() {

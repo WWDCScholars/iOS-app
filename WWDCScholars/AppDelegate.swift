@@ -13,16 +13,17 @@ import Crashlytics
 import Nuke
 
 @UIApplicationMain
-internal final class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Internal Properties
     
-    internal var window: UIWindow?
+    var window: UIWindow?
 
     // MARK: - Internal Functions
     
-    internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Fabric.with([Crashlytics.self, Twitter.self])
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Fabric.with([Crashlytics.self])
+        setupTwitter()
 
         UIStatusBar.applyScholarsLightStyle()
         UINavigationBar.applyScholarsStyle()
@@ -48,28 +49,17 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
-    internal func applicationWillResignActive(_ application: UIApplication) {
-    }
 
-    internal func applicationDidEnterBackground(_ application: UIApplication) {
-    }
-
-    internal func applicationWillEnterForeground(_ application: UIApplication) {
-    }
-
-    internal func applicationDidBecomeActive(_ application: UIApplication) {
-    }
-
-    internal func applicationWillTerminate(_ application: UIApplication) {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
     }
     
-    internal func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         let success = self.handle(shortcutItem: shortcutItem)
         completionHandler(success)
     }
     
-    internal func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         // The following guard checks whether the NSUserActivity has to do with Universal Links
         // Might have to change when more NSUserActivity stuff is used inside the app
         
@@ -106,6 +96,17 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: - Private Functions
+
+    private func setupTwitter() {
+        guard let twitterDictionary = Bundle.main.object(forInfoDictionaryKey: "Twitter") as? [String: String],
+            let consumerKey = twitterDictionary["consumerKey"],
+            let consumerSecret = twitterDictionary["consumerSecret"]
+        else {
+            fatalError("Twitter consumerKey or consumerSecret missing in Info.plist")
+        }
+
+        TWTRTwitter.sharedInstance().start(withConsumerKey: consumerKey, consumerSecret: consumerSecret)
+    }
     
     private func handle(shortcutItem: UIApplicationShortcutItem) -> Bool {
         return QuickActionManager.shared.handle(shortcutItem: shortcutItem, rootViewController: self.window?.rootViewController)

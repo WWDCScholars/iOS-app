@@ -12,7 +12,7 @@ import MapKit
 import DeckTransition
 import Agrume
 
-internal final class TeamViewController: UIViewController {
+final class TeamViewController: UIViewController {
     
     // MARK: - Private Properties
     
@@ -52,106 +52,97 @@ internal final class TeamViewController: UIViewController {
 
     
     // MARK: - File Private Properties
-      @IBOutlet fileprivate weak var wwdcscholarsTeamBannerImageView: UIImageView!
+    @IBOutlet fileprivate weak var wwdcscholarsTeamBannerImageView: UIImageView!
     
-    fileprivate var wwdcscholarsTeamBannerImageViewHeight: CGFloat = 0.0
+    private var wwdcscholarsTeamBannerImageViewHeight: CGFloat = 0.0
     
     // MARK: - Lifecycle
     
-    internal override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
-        self.scrollView?.contentSize.width = self.view.frame.size.width
-        self.scrollView?.showsHorizontalScrollIndicator = false
+        scrollView?.contentSize.width = view.frame.size.width
+        scrollView?.showsHorizontalScrollIndicator = false
         
-        self.styleUI()
-        self.configureUI()
-        self.populateContent()
+        styleUI()
+        configureUI()
+        populateContent()
         
-        let barBtn = UIBarButtonItem.init(title: "Intro", style: .plain, target: self, action: #selector(self.showIntro))
-        self.navigationItem.rightBarButtonItem = barBtn
+        let barBtn = UIBarButtonItem.init(title: "Intro", style: .plain, target: self, action: #selector(showIntroTapped))
+        navigationItem.rightBarButtonItem = barBtn
+
+        let teamImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(teamImageTapped))
+        wwdcscholarsTeamBannerImageView.addGestureRecognizer(teamImageTapGestureRecognizer)
     }
-    
-    @objc func showIntro() {
-        let storyboard = UIStoryboard.init(name: "Intro", bundle: nil)
-        let intro = storyboard.instantiateInitialViewController()!
-        self.present(intro, animated: true, completion: nil)
-    }
-    
-    internal override func viewDidLayoutSubviews() {
+
+    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        self.wwdcscholarsTeamBannerImageViewHeight = self.wwdcscholarsTeamBannerImageView?.frame.height ?? 0.0
+
+        wwdcscholarsTeamBannerImageViewHeight = wwdcscholarsTeamBannerImageView?.frame.height ?? 0.0
 
     }
     
     // MARK: - UI
     
     private func styleUI() {
-        self.view.applyBackgroundStyle()
-        
-//        self.nameLabel?.applyDetailHeaderTitleStyle()
-//        self.descriptionLabel?.applyDetailContentStyle()
-        
-        self.wwdcscholarsLogoContainerView?.roundCorners()
-        self.wwdcscholarsLogoContainerView?.applyRelativeCircularBorder()
-        self.wwdcscholarsLogoImageView?.roundCorners()
-        
-        self.andrewImageContentView?.roundCorners()
-        self.andrewImageContentView?.applyRelativeCircularBorder()
-        self.andrewImageView?.roundCorners()
-        
-        self.samImageContentView?.roundCorners()
-        self.samImageContentView?.applyRelativeCircularBorder()
-        self.samImageView?.roundCorners()
+        wwdcscholarsLogoContainerView?.roundCorners()
+        wwdcscholarsLogoImageView?.roundCorners()
 
-        
-        self.moritzImageContentView?.roundCorners()
-        self.moritzImageContentView?.applyRelativeCircularBorder()
-        self.moritzImageView?.roundCorners()
+        andrewImageContentView?.roundCorners()
+        andrewImageView?.roundCorners()
 
-        
-        self.michieImageContentView?.roundCorners()
-        self.michieImageContentView?.applyRelativeCircularBorder()
-        self.michieImageView?.roundCorners()
-        
-        
-        self.matthijsImageContentView?.roundCorners()
-        self.matthijsImageContentView?.applyRelativeCircularBorder()
-        self.matthijsImageView?.roundCorners()
+        samImageContentView?.roundCorners()
+        samImageView?.roundCorners()
 
+        moritzImageContentView?.roundCorners()
+        moritzImageView?.roundCorners()
+
+        michieImageContentView?.roundCorners()
+        michieImageView?.roundCorners()
+
+        matthijsImageContentView?.roundCorners()
+        matthijsImageView?.roundCorners()
     }
     
     private func configureUI() {
-        self.title = "Team"
+        title = "Team"
     }
     
     // MARK: - Private Functions
-    @IBAction func tappedTeamImage(_ sender: Any) {
-        let agrume = Agrume(image: (wwdcscholarsTeamBannerImageView?.image!)!)
+    @objc
+    private func teamImageTapped() {
+        let agrume = Agrume(image: UIImage(named: "wwdcscholarsTeamBanner")!)
         agrume.show(from: self)
+    }
+
+    @objc
+    private func showIntroTapped() {
+        let storyboard = UIStoryboard(name: "Intro", bundle: nil)
+        let intro = storyboard.instantiateInitialViewController()!
+        intro.modalPresentationStyle = .fullScreen
+        present(intro, animated: true, completion: nil)
     }
     
     private func populateContent() {
-        self.andrewImageView?.image = UIImage(named: "profile")
-        self.andrewNameLabel?.text = "Andrew Walker"
-        self.andrewDescriptionLabel?.text = "“Andrew has been working on iOS applications for 4 1/2 years. He recently interned at Apple after attending WWDC as a scholarship winner for three consecutive years.”"
+        andrewImageView?.image = UIImage(named: "profile")
+        andrewNameLabel?.text = "Andrew Walker"
+        andrewDescriptionLabel?.text = "“Andrew has been working on iOS applications for 4 1/2 years. He recently interned at Apple after attending WWDC as a scholarship winner for three consecutive years.”"
         
-        self.samImageView?.image = UIImage(named: "samProfile")
-        self.samNameLabel?.text = "Sam Eckert"
-        self.samDescriptionLabel?.text = "“Sam started developing iOS apps when he turned 14. He received two WWDC scholarships and is now connecting companies with the young generation at agenZy.”"
+        samImageView?.image = UIImage(named: "samProfile")
+        samNameLabel?.text = "Sam Eckert"
+        samDescriptionLabel?.text = "“Sam started developing iOS apps when he turned 14. He received two WWDC scholarships and is now connecting companies with the young generation at agenZy.”"
         
-        self.moritzImageView?.image = UIImage(named: "moritzProfile")
-        self.moritzNameLabel?.text = "Moritz Sternemann"
-        self.moritzDescriptionLabel?.text = "“Moritz is the most recent addition to our team and mostly worked on the website and the signup form. He attended WWDC as a scholarship winner for two consecutive years.”"
+        moritzImageView?.image = UIImage(named: "moritzProfile")
+        moritzNameLabel?.text = "Moritz Sternemann"
+        moritzDescriptionLabel?.text = "“Moritz is the most recent addition to our team and mostly worked on the website and the signup form. He attended WWDC as a scholarship winner for two consecutive years.”"
         
-        self.michieImageView?.image = UIImage(named: "michieProfile")
-        self.michieNameLabel?.text = "Michie Ang"
-        self.michieDescriptionLabel?.text = "“Michie was a nurse when she first got into iOS development. She won a scholarship three times, builds tech communities and travels around to inspire others to learn programming.”"
+        michieImageView?.image = UIImage(named: "michieProfile")
+        michieNameLabel?.text = "Michie Ang"
+        michieDescriptionLabel?.text = "“Michie was a nurse when she first got into iOS development. She won a scholarship three times, builds tech communities and travels around to inspire others to learn programming.”"
         
 
-        self.matthijsImageView?.image = UIImage(named: "matthijsProfile")
-        self.matthijsNameLabel?.text = "Matthijs Logemann"
-        self.matthijsDescriptionLabel?.text = "“Matthijs has been developping for iOS for around 8 years, has received two WWDC scholarships and now studies Computer Science at the Eindhoven University of Technology.”"
+        matthijsImageView?.image = UIImage(named: "matthijsProfile")
+        matthijsNameLabel?.text = "Matthijs Logemann"
+        matthijsDescriptionLabel?.text = "“Matthijs has been developping for iOS for around 8 years, has received two WWDC scholarships and now studies Computer Science at the Eindhoven University of Technology.”"
         
     }
 }
@@ -161,7 +152,7 @@ extension TeamViewController: UIScrollViewDelegate, DeckTransitionScrollAssist, 
     // MARK: - Internal Functions
     
     internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.updateDeckTransition(for: scrollView)
-        self.updateHeaderParallax(for: scrollView, on: self.wwdcscholarsTeamBannerImageView, baseHeight: self.wwdcscholarsTeamBannerImageViewHeight)
+        updateDeckTransition(for: scrollView)
+        updateHeaderParallax(for: scrollView, on: wwdcscholarsTeamBannerImageView, baseHeight: wwdcscholarsTeamBannerImageViewHeight)
     }
 }

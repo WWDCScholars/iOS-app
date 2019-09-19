@@ -92,9 +92,7 @@ internal final class ProfileViewController: UIViewController {
         self.bioLabel?.applyDetailContentStyle()
         
         self.profilePictureContainerView?.roundCorners()
-        self.profilePictureContainerView?.applyRelativeCircularBorder()
         self.teamContainerView?.roundCorners()
-        self.teamContainerView?.applyRelativeCircularBorder()
         
         self.teamImageView?.roundCorners()
         

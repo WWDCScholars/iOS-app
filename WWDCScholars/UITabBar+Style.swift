@@ -13,8 +13,8 @@ internal extension UITabBar {
     
     // MARK: - Internal Functions
     
-    internal static func applyScholarsStyle() {
-        self.appearance().tintColor = .scholarsPurple
-        self.appearance().isTranslucent = false
+    static func applyScholarsStyle() {
+        self.appearance().tintColor = .adjustingScholarsPurple
+        self.appearance().isTranslucent = true
     }
 }

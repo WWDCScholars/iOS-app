@@ -1,12 +1,15 @@
 language: swift
-osx_image: xcode10.1
+osx_image: xcode11
+
+before_install:
+  - brew install git-lfs
+  - git lfs install
+
 install:
-  - brew outdated carthage || brew upgrade carthage
   - bundle install
+
 before_script:
-  - carthage bootstrap --platform iOS --no-use-binaries
+  - git lfs pull
+
 script:
   - fastlane tests
-before_deploy:
-  - carthage build --no-skip-current
-  - carthage archive $FRAMEWORK_NAME

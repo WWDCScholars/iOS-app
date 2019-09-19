@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8qZ-uI-XB1">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8qZ-uI-XB1">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Scholars-->
         <scene sceneID="PHr-Hy-k7m">
             <objects>
-                <navigationController id="8qZ-uI-XB1" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" id="8qZ-uI-XB1" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Scholars" image="scholarsTabBarIconUnfilled" selectedImage="scholarsTabBarIconFilled" id="euh-VL-n7g"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hyK-7l-vvB">
@@ -46,7 +44,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LPF-51-alX" customClass="ScholarsListContainerView" customModule="WWDCScholars" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="138" width="414" height="675"/>
+                                <rect key="frame" x="0.0" y="138" width="414" height="758"/>
                                 <connections>
                                     <segue destination="PH2-Q1-fYf" kind="embed" identifier="ScholarsListViewController" id="a6y-Bj-bAc"/>
                                 </connections>
@@ -131,7 +129,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Na7-a8-isB" firstAttribute="leading" secondItem="xVN-Qy-XxB" secondAttribute="leading" id="234-t8-T2q"/>
                             <constraint firstAttribute="trailing" secondItem="Na7-a8-isB" secondAttribute="trailing" id="Q3W-1w-yV7"/>
@@ -141,7 +139,7 @@
                             <constraint firstAttribute="trailing" secondItem="LPF-51-alX" secondAttribute="trailing" id="gvc-Tp-Jcd"/>
                             <constraint firstItem="ufY-CR-ih1" firstAttribute="top" secondItem="Blw-iU-Ci0" secondAttribute="bottom" id="ihB-J2-HaG"/>
                             <constraint firstItem="ufY-CR-ih1" firstAttribute="leading" secondItem="xVN-Qy-XxB" secondAttribute="leading" id="jcj-Lf-fVY"/>
-                            <constraint firstItem="S38-HA-16i" firstAttribute="top" secondItem="LPF-51-alX" secondAttribute="bottom" id="lTf-7y-q0Y"/>
+                            <constraint firstAttribute="bottom" secondItem="LPF-51-alX" secondAttribute="bottom" id="lTf-7y-q0Y"/>
                             <constraint firstItem="LPF-51-alX" firstAttribute="top" secondItem="ufY-CR-ih1" secondAttribute="bottom" id="loL-CM-AQS"/>
                             <constraint firstItem="LPF-51-alX" firstAttribute="leading" secondItem="xVN-Qy-XxB" secondAttribute="leading" id="pL2-NM-PRp"/>
                             <constraint firstAttribute="trailing" secondItem="ufY-CR-ih1" secondAttribute="trailing" id="qxP-1C-XsE"/>
@@ -171,12 +169,12 @@
                         <viewControllerLayoutGuide type="bottom" id="y8N-Zc-85H"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="a32-D6-iJu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="675"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pzc-cf-gJB">
-                                <rect key="frame" x="0.0" y="44" width="414" height="597"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="714"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rzr-ac-a4m">
                                     <size key="itemSize" width="120" height="140"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -233,9 +231,9 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="y8N-Zc-85H" firstAttribute="top" secondItem="Pzc-cf-gJB" secondAttribute="bottom" id="0wH-2Z-aNJ"/>
+                            <constraint firstAttribute="bottom" secondItem="Pzc-cf-gJB" secondAttribute="bottom" id="0wH-2Z-aNJ"/>
                             <constraint firstItem="Pzc-cf-gJB" firstAttribute="top" secondItem="za2-YH-8gJ" secondAttribute="bottom" id="WiK-LR-X0s"/>
                             <constraint firstAttribute="trailing" secondItem="Pzc-cf-gJB" secondAttribute="trailing" id="ZcG-hd-s7f"/>
                             <constraint firstItem="Pzc-cf-gJB" firstAttribute="leading" secondItem="a32-D6-iJu" secondAttribute="leading" id="yYk-gk-Fqs"/>
@@ -272,7 +270,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WIB-Nb-tF1">
-                                <rect key="frame" x="0.0" y="44" width="414" height="597"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="631"/>
                                 <connections>
                                     <outlet property="delegate" destination="20p-BO-DzZ" id="17S-5T-Mwk"/>
                                 </connections>
@@ -284,7 +282,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhD-aF-Sms">
-                                            <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="38" height="38"/>
                                             <connections>
                                                 <action selector="myLocationButtonTapped" destination="20p-BO-DzZ" eventType="touchUpInside" id="2nd-Lz-zjp"/>
                                             </connections>

@@ -17,9 +17,18 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.0</string>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>twitterkit-ZDi2mIKVmGIDChRv9w2fMcxnG</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>162</string>
+	<string>166</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -32,17 +41,6 @@
 				<key>KitName</key>
 				<string>Crashlytics</string>
 			</dict>
-			<dict>
-				<key>KitInfo</key>
-				<dict>
-					<key>consumerKey</key>
-					<string>ZDi2mIKVmGIDChRv9w2fMcxnG</string>
-					<key>consumerSecret</key>
-					<string>R7NRvY9sY4rciLDYKaE64dAMuan1zuHuoQWGGKiq2PTxINXmfs</string>
-				</dict>
-				<key>KitName</key>
-				<string>Twitter</string>
-			</dict>
 		</array>
 	</dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
@@ -53,6 +51,7 @@
 	<array>
 		<string>twitter</string>
 		<string>tweetbot</string>
+		<string>twitterauth</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -63,6 +62,13 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your current location will be displayed on the map alongside Scholarship Winners from around the world.</string>
+	<key>Twitter</key>
+	<dict>
+		<key>consumerKey</key>
+		<string>ZDi2mIKVmGIDChRv9w2fMcxnG</string>
+		<key>consumerSecret</key>
+		<string>R7NRvY9sY4rciLDYKaE64dAMuan1zuHuoQWGGKiq2PTxINXmfs</string>
+	</dict>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>

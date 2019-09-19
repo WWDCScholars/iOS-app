@@ -6,22 +6,31 @@
 //  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
-import Foundation
-import ClusterKit
+import MapKit
 
-internal final class ScholarAnnotation: NSObject, MKAnnotation {
+final class ScholarAnnotation: NSObject, MKAnnotation {
     
-    // MARK: - Internal Properties
+    // MARK: - Properties
     
-    internal let scholar: Scholar
-    internal let coordinate: CLLocationCoordinate2D
-    
-    weak internal var cluster: CKCluster?
+    let scholar: Scholar
     
     // MARK: - Lifecycle
     
-    internal init(scholar: Scholar) {
+    init(scholar: Scholar) {
         self.scholar = scholar
-        self.coordinate = scholar.location.coordinate
+    }
+
+    // MARK: - Computed Properties
+
+    var title: String? {
+        return scholar.givenName
+    }
+
+    var coordinate: CLLocationCoordinate2D {
+        return scholar.location.coordinate
+    }
+
+    var image: UIImage? {
+        return scholar.profilePicture?.image
     }
 }

@@ -121,7 +121,6 @@
 		7B2D142B1ED6E4350039C870 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F9D1ED33B4100439718 /* CloudKit.framework */; };
 		7B4D74FB21BE6C58002F6242 /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D74FA21BE6C58002F6242 /* WWDCScholarsTests.swift */; };
 		7B64B10820C8436200B3F1A2 /* String+Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B64B10720C8436200B3F1A2 /* String+Substring.swift */; };
-		7B78F4F721BDCBB600E16FFD /* ClusterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B78F4F621BDCBB600E16FFD /* ClusterKit.framework */; };
 		7B8DDF231EE278E5002D2A9A /* Date+Age.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF221EE278E5002D2A9A /* Date+Age.swift */; };
 		7B8DDF251EE29EF0002D2A9A /* SocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF241EE29EF0002D2A9A /* SocialMedia.swift */; };
 		7B8DDF291EE2AAD7002D2A9A /* CloudKitManager+SocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF281EE2AAD7002D2A9A /* CloudKitManager+SocialMedia.swift */; };
@@ -150,6 +149,7 @@
 		8E628D1A2323DA1400C1CB93 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E628D102323D6CC00C1CB93 /* TwitterKit.framework */; };
 		8E628D1D23250B9B00C1CB93 /* UIApplication+CanOpenTwitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E628D1C23250B9B00C1CB93 /* UIApplication+CanOpenTwitter.swift */; };
 		8E628D1F23251CE100C1CB93 /* TwitterInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E628D1E23251CE100C1CB93 /* TwitterInteractionController.swift */; };
+		8E6B36392333D17100084455 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B36382333D17100084455 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -302,7 +302,6 @@
 		7B4D74FA21BE6C58002F6242 /* WWDCScholarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsTests.swift; sourceTree = "<group>"; };
 		7B4D74FC21BE6C58002F6242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B64B10720C8436200B3F1A2 /* String+Substring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Substring.swift"; sourceTree = "<group>"; };
-		7B78F4F621BDCBB600E16FFD /* ClusterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ClusterKit.framework; path = Carthage/Build/iOS/ClusterKit.framework; sourceTree = "<group>"; };
 		7B8DDF221EE278E5002D2A9A /* Date+Age.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Age.swift"; sourceTree = "<group>"; };
 		7B8DDF241EE29EF0002D2A9A /* SocialMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMedia.swift; sourceTree = "<group>"; };
 		7B8DDF281EE2AAD7002D2A9A /* CloudKitManager+SocialMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CloudKitManager+SocialMedia.swift"; sourceTree = "<group>"; };
@@ -335,6 +334,7 @@
 		8E628D112323D6CC00C1CB93 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = Carthage/Build/iOS/TwitterCore.framework; sourceTree = "<group>"; };
 		8E628D1C23250B9B00C1CB93 /* UIApplication+CanOpenTwitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+CanOpenTwitter.swift"; sourceTree = "<group>"; };
 		8E628D1E23251CE100C1CB93 /* TwitterInteractionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterInteractionController.swift; sourceTree = "<group>"; };
+		8E6B36382333D17100084455 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,7 +348,6 @@
 				7B9509DC21BFC316005E5711 /* CoreStore.framework in Frameworks */,
 				8E628D1A2323DA1400C1CB93 /* TwitterKit.framework in Frameworks */,
 				7B9509DA21BFC2E6005E5711 /* Nuke.framework in Frameworks */,
-				7B78F4F721BDCBB600E16FFD /* ClusterKit.framework in Frameworks */,
 				7B2D142B1ED6E4350039C870 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -684,6 +683,7 @@
 				7B64B10720C8436200B3F1A2 /* String+Substring.swift */,
 				223DC9FC22A1467900FD58CA /* UIImage+Tinted.swift */,
 				7B9FF97822A9963000D2C9EE /* UUID+CloudKit.swift */,
+				8E6B36382333D17100084455 /* Constants.swift */,
 			);
 			name = Misc.;
 			sourceTree = "<group>";
@@ -786,7 +786,6 @@
 				7B9509DD21BFD409005E5711 /* Alamofire.framework */,
 				7B9509DB21BFC316005E5711 /* CoreStore.framework */,
 				7B9509D921BFC2E6005E5711 /* Nuke.framework */,
-				7B78F4F621BDCBB600E16FFD /* ClusterKit.framework */,
 				7BD91F951ED3135100439718 /* DeckTransition.framework */,
 				7BD91F9D1ED33B4100439718 /* CloudKit.framework */,
 			);
@@ -1191,7 +1190,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/ClusterKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/DeckTransition.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CoreStore.framework",
@@ -1318,6 +1316,7 @@
 				7BD91FA21ED35EE600439718 /* ActivityQueryItem.swift in Sources */,
 				6E6703591ED63B3700228FF0 /* UIControl+WWDCScholars.swift in Sources */,
 				6E032F641EC92B1C00410B7C /* BatchSectionContent.swift in Sources */,
+				8E6B36392333D17100084455 /* Constants.swift in Sources */,
 				22249BF822A03226009B88F5 /* ScholarStatus.swift in Sources */,
 				7B64B10820C8436200B3F1A2 /* String+Substring.swift in Sources */,
 				6E48061A1EA14EB700213835 /* BlogViewController.swift in Sources */,
@@ -1410,7 +1409,6 @@
 		22E852CB21C1BF6000DEC873 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = MessagesIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1436,7 +1434,6 @@
 		22E852CC21C1BF6000DEC873 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = MessagesIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;

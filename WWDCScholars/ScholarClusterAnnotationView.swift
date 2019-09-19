@@ -6,51 +6,56 @@
 //  Copyright © 2017 WWDCScholars. All rights reserved.
 //
 
-import Foundation
-import UIKit
 import MapKit
 
-internal final class ScholarClusterAnnotationView: MKAnnotationView {
-    
-    // MARK: - Private Properties
-    
-    private let label = UILabel()
-    private let size = CGSize(width: 30.0, height: 30.0)
-    
-    // MARK: - Lifecycle
-    
-    internal override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
-        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        
-        self.configureUI()
-        self.styleUI()
+final class ScholarClusterAnnotationView: MKMarkerAnnotationView {
+
+    override var annotation: MKAnnotation? {
+        willSet {
+            guard let _ = newValue as? MKClusterAnnotation else { return }
+            markerTintColor = .scholarsPurple
+        }
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - UI
-    
-    private func styleUI() {
-        self.roundCorners()
-        self.applyRelativeCircularBorder()
-        self.backgroundColor = .scholarsPurple
-        
-        self.label.applyScholarClusterStyle()
-    }
-    
-    private func configureUI() {
-        self.frame.size = self.size
-        self.canShowCallout = false
-        
-        self.label.frame = self.frame
-        self.addSubview(self.label)
-    }
-    
-    // MARK: - Internal Functions
-    
-    internal func setLabel(text: String) {
-        self.label.text = text
-    }
+//    // MARK: - Private Properties
+//
+//    private let label = UILabel()
+//    private let size = CGSize(width: 30.0, height: 30.0)
+//
+//    // MARK: - Lifecycle
+//
+//    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
+//        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+//
+//        configureUI()
+//        styleUI()
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
+//    // MARK: - UI
+//
+//    private func styleUI() {
+//        roundCorners()
+//        applyRelativeCircularBorder()
+//        backgroundColor = .scholarsPurple
+//
+//        label.applyScholarClusterStyle()
+//    }
+//
+//    private func configureUI() {
+//        canShowCallout = false
+//        frame.size = size
+//
+//        label.frame = frame
+//        addSubview(label)
+//    }
+//
+//    // MARK: - Functions
+//
+//    func setLabel(text: String) {
+//        self.label.text = text
+//    }
 }

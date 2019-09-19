@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8qZ-uI-XB1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8qZ-uI-XB1">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -56,10 +56,9 @@
                                         <rect key="frame" x="110" y="34" width="20" height="20"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Scholars…" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pu-Wm-ADa">
-                                        <rect key="frame" x="36" y="72" width="168" height="30"/>
+                                        <rect key="frame" x="47.5" y="72" width="145" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="7VC-Tq-mHf"/>
-                                            <constraint firstAttribute="width" constant="168" id="qrL-Lu-MGq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -146,7 +145,13 @@
                             <constraint firstItem="Na7-a8-isB" firstAttribute="top" secondItem="ufY-CR-ih1" secondAttribute="bottom" id="rg9-LY-OUb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GdJ-AQ-7Pt"/>
+                    <navigationItem key="navigationItem" id="GdJ-AQ-7Pt">
+                        <barButtonItem key="rightBarButtonItem" image="mapNavigationBarIconFilled" id="hjf-Yj-WDs">
+                            <connections>
+                                <action selector="switchViewButtonTapped" destination="qGl-J7-dbK" id="4Xc-Mg-y1s"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="batchCollectionView" destination="AfL-6f-7Ot" id="nQh-3F-zQG"/>
                         <outlet property="loadingScholarsActivityIndicator" destination="gtg-XT-Pgm" id="c7u-GW-LUz"/>
@@ -276,30 +281,16 @@
                                 </connections>
                             </mapView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ZB-Lx-bCz">
-                                <rect key="frame" x="368" y="52" width="38" height="38"/>
+                                <rect key="frame" x="364" y="52" width="42" height="42"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zOS-2E-s0T">
-                                    <rect key="frame" x="0.0" y="0.0" width="38" height="38"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhD-aF-Sms">
-                                            <rect key="frame" x="0.0" y="0.0" width="38" height="38"/>
-                                            <connections>
-                                                <action selector="myLocationButtonTapped" destination="20p-BO-DzZ" eventType="touchUpInside" id="2nd-Lz-zjp"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="UhD-aF-Sms" firstAttribute="leading" secondItem="zOS-2E-s0T" secondAttribute="leading" id="51e-8y-8Lx"/>
-                                        <constraint firstAttribute="trailing" secondItem="UhD-aF-Sms" secondAttribute="trailing" id="kxF-Xe-S3i"/>
-                                        <constraint firstItem="UhD-aF-Sms" firstAttribute="top" secondItem="zOS-2E-s0T" secondAttribute="top" id="mVg-pJ-RP9"/>
-                                        <constraint firstAttribute="bottom" secondItem="UhD-aF-Sms" secondAttribute="bottom" id="xl9-fI-jYC"/>
-                                    </constraints>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="CPI-zh-ich"/>
-                                    <constraint firstAttribute="width" constant="38" id="anP-od-gAg"/>
+                                    <constraint firstAttribute="height" constant="42" id="CPI-zh-ich"/>
+                                    <constraint firstAttribute="width" constant="42" id="anP-od-gAg"/>
                                 </constraints>
-                                <blurEffect style="extraLight"/>
+                                <blurEffect style="systemThickMaterial"/>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -314,8 +305,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="WIB-Nb-tF1" id="7OK-sF-voe"/>
-                        <outlet property="myLocationButton" destination="UhD-aF-Sms" id="VuS-TS-A83"/>
-                        <outlet property="myLocationButtonVisualEffectView" destination="1ZB-Lx-bCz" id="0K0-Kw-Jkf"/>
+                        <outlet property="userTrackingButtonEffectView" destination="1ZB-Lx-bCz" id="0K0-Kw-Jkf"/>
                         <segue destination="XS0-Sv-dxH" kind="show" identifier="ProfileViewController" id="G5l-BR-PGf"/>
                     </connections>
                 </viewController>
@@ -325,10 +315,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="mapNavigationBarIconFilled" width="22" height="20"/>
         <image name="scholarsTabBarIconFilled" width="26" height="20"/>
         <image name="scholarsTabBarIconUnfilled" width="26" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="35h-42-TPM"/>
+        <segue reference="G5l-BR-PGf"/>
     </inferredMetricsTieBreakers>
 </document>

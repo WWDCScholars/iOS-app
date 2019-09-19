@@ -111,6 +111,13 @@ internal final class ProfileViewController: UIViewController {
         self.countryTitleLabel?.text = "Country"
         self.batchTitleLabel?.text = "Attended"
         self.ageTitleLabel?.text = "Age"
+
+        self.nameLabel?.text = ""
+        self.locationLabel?.text = ""
+        self.ageContentLabel?.text = ""
+        self.countryContentLabel?.text = ""
+        self.batchContentLabel?.text = ""
+        self.bioLabel?.text = ""
         
         self.profilePictureImageView?.image = UIImage.loading
         

@@ -58,7 +58,13 @@ final class ScholarsMapViewController: UIViewController, ContainerViewController
         ])
 
         compassButton = MKCompassButton(mapView: mapView)
+        compassButton.translatesAutoresizingMaskIntoConstraints = false
         compassButton.compassVisibility = .adaptive
+        view.addSubview(compassButton)
+        NSLayoutConstraint.activate([
+            compassButton.centerXAnchor.constraint(equalTo: userTrackingButtonEffectView.centerXAnchor),
+            compassButton.topAnchor.constraint(equalTo: userTrackingButtonEffectView.bottomAnchor, constant: 12)
+        ])
     }
     
     private func styleUI() {
@@ -83,7 +89,7 @@ final class ScholarsMapViewController: UIViewController, ContainerViewController
     // MARK: - Functions
     
     func switchedToViewController() {
-        setRegionToDefaultLocation()
+        setRegionToDefaultLocation(animated: false)
     }
     
     func configureMapContent() {
@@ -96,19 +102,34 @@ final class ScholarsMapViewController: UIViewController, ContainerViewController
         mapView.removeAnnotations(mapView.annotations)
 	}
     
-    // MARK: - Private Functions
+    // MARK: - Private Functionn
+
+    private func setRegionToCoordinate(_ coordinate: CLLocationCoordinate2D, distance: CLLocationDistance = 500000) {
+        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: distance, longitudinalMeters: distance)
+        mapView.setRegion(region, animated: true)
+    }
     
-    private func setRegionToDefaultLocation() {
-        let distance: CLLocationDistance = 10000000.0
-        let defaultRegion = MKCoordinateRegion.init(center: mapView.centerCoordinate, latitudinalMeters: distance, longitudinalMeters: distance)
-        mapView.setRegion(defaultRegion, animated: true)
+    private func setRegionToDefaultLocation(animated: Bool = true) {
+        setRegionToCoordinate(mapView.centerCoordinate, distance: 10000000)
     }
     
     private func setRegionToUserLocation() {
-        let userCoordinate = mapView.userLocation.coordinate
-        let distance: CLLocationDistance = 750000.0
-        let userRegion = MKCoordinateRegion.init(center: userCoordinate, latitudinalMeters: distance, longitudinalMeters: distance)
-        mapView.setRegion(userRegion, animated: true)
+        setRegionToCoordinate(mapView.userLocation.coordinate, distance: 750000)
+    }
+
+    private func setRegionToAnnotation(_ annotation: MKAnnotation) {
+        setRegionToCoordinate(annotation.coordinate)
+    }
+
+    private func setRegionToCluster(_ annotation: MKClusterAnnotation) {
+        let rect = boundingRectForAnnotations(annotation.memberAnnotations)
+        mapView.setVisibleMapRect(rect, edgePadding: UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30), animated: true)
+    }
+
+    private func boundingRectForAnnotations(_ annotations: [MKAnnotation]) -> MKMapRect {
+        return annotations
+            .map { MKMapRect(origin: MKMapPoint($0.coordinate), size: MKMapSize(width: 50, height: 50)) }
+            .reduce(MKMapRect.null) { $0.union($1) }
     }
 }
 
@@ -131,12 +152,23 @@ extension ScholarsMapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-//        mapView.deselectAnnotation(view.annotation, animated: false)
-
-        guard let _ = view.annotation else { return }
+        guard let annotation = view.annotation else { return }
 
         // If cluster, zoom to cluster
+        if let annotation = annotation as? MKClusterAnnotation {
+            setRegionToCluster(annotation)
+        } else if let annotation = annotation as? ScholarAnnotation {
+            setRegionToAnnotation(annotation)
+        }
 
-        // Else, show profile
+        // TODO: show profile
+    }
+
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        if view.annotation is MKClusterAnnotation {
+            return
+        } else if view is ScholarAnnotationView {
+            setRegionToDefaultLocation()
+        }
     }
 }

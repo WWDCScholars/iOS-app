@@ -8,12 +8,18 @@
 
 import MapKit
 
+fileprivate extension K {
+    static let viewSize: CGFloat = 40.0
+    static let selectedSizeFactor: CGFloat = 1.5
+    static let imageBorderWidth: CGFloat = 3.0
+}
+
 final class ScholarAnnotationView: MKAnnotationView {
     
     // MARK: - Private Properties
-    
+
+    private let contentView = UIView()
     private let imageView = UIImageView()
-    private let size = CGSize(width: 50.0, height: 50.0)
 
     override var annotation: MKAnnotation? {
         willSet {
@@ -28,39 +34,57 @@ final class ScholarAnnotationView: MKAnnotationView {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         
         configureUI()
-        styleUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        bounds = contentView.bounds
+    }
+
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        configureCorners()
+    }
+
     override func prepareForReuse() {
         imageView.image = nil
+        bounds = contentView.bounds
     }
     
     // MARK: - UI
-    
-    private func styleUI() {
-        backgroundColor = .scholarsPurple
-        roundCorners()
-        applyRelativeCircularBorder()
-        
-        imageView.roundCorners()
-    }
-    
+
     private func configureUI() {
         canShowCallout = false
         clusteringIdentifier = K.scholarClusterAnnotationReuseIdentifier
         displayPriority = .required
         collisionMode = .circle
 
-        frame.size = size
-        
-//        imageView.image = UIImage(named: "profile")
-        imageView.frame = frame
+        contentView.backgroundColor = .scholarsPurple
+        contentView.layoutMargins = UIEdgeInsets(top: K.imageBorderWidth, left: K.imageBorderWidth, bottom: K.imageBorderWidth, right: K.imageBorderWidth)
+        contentView.bounds.size = CGSize(width: K.viewSize, height: K.viewSize)
+        addSubview(contentView)
+
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        addSubview(imageView)
+        imageView.clipsToBounds = true
+        contentView.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor)
+        ])
+
+        bounds = contentView.bounds
+    }
+    
+    private func configureCorners() {
+        contentView.roundCorners()
+        imageView.roundCorners()
     }
 	
     private func setImage(_ image: UIImage?) {

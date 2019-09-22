@@ -280,32 +280,24 @@
                                     <outlet property="delegate" destination="20p-BO-DzZ" id="17S-5T-Mwk"/>
                                 </connections>
                             </mapView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ZB-Lx-bCz">
-                                <rect key="frame" x="364" y="52" width="42" height="42"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zOS-2E-s0T">
-                                    <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="CPI-zh-ich"/>
-                                    <constraint firstAttribute="width" constant="42" id="anP-od-gAg"/>
-                                </constraints>
-                                <blurEffect style="extraLight"/>
-                            </visualEffectView>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="44" placeholderIntrinsicHeight="88" translatesAutoresizingMaskIntoConstraints="NO" id="8m8-NB-xU6" customClass="HoverBar" customModule="WWDCScholars" customModuleProvider="target">
+                                <rect key="frame" x="362" y="52" width="44" height="88"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="WIB-Nb-tF1" secondAttribute="bottom" id="4Uq-A4-4nc"/>
-                            <constraint firstItem="1ZB-Lx-bCz" firstAttribute="top" secondItem="blG-wd-QIe" secondAttribute="bottom" constant="8" id="EZ9-fo-pcd"/>
+                            <constraint firstItem="8m8-NB-xU6" firstAttribute="top" secondItem="blG-wd-QIe" secondAttribute="bottom" constant="8" id="Udr-a5-qt1"/>
                             <constraint firstAttribute="trailing" secondItem="WIB-Nb-tF1" secondAttribute="trailing" id="dPO-uE-yWx"/>
                             <constraint firstItem="WIB-Nb-tF1" firstAttribute="top" secondItem="blG-wd-QIe" secondAttribute="bottom" id="eKM-1L-bw4"/>
                             <constraint firstItem="WIB-Nb-tF1" firstAttribute="leading" secondItem="HuZ-Wc-4hm" secondAttribute="leading" id="j5L-ZV-d2a"/>
-                            <constraint firstAttribute="trailing" secondItem="1ZB-Lx-bCz" secondAttribute="trailing" constant="8" id="lDz-75-BRr"/>
+                            <constraint firstAttribute="trailing" secondItem="8m8-NB-xU6" secondAttribute="trailing" constant="8" id="oCE-ge-qPo"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="WIB-Nb-tF1" id="7OK-sF-voe"/>
-                        <outlet property="userTrackingButtonEffectView" destination="1ZB-Lx-bCz" id="0K0-Kw-Jkf"/>
+                        <outlet property="toolbar" destination="8m8-NB-xU6" id="m73-de-cOE"/>
                         <segue destination="XS0-Sv-dxH" kind="show" identifier="ProfileViewController" id="G5l-BR-PGf"/>
                     </connections>
                 </viewController>

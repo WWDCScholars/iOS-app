@@ -35,7 +35,7 @@ platform :ios do
 
     gym(
       scheme: "WWDCScholars",
-      configuration: "Release",
+      configuration: "Beta",
       clean: true,
       include_symbols: true,
       export_method: "app-store",

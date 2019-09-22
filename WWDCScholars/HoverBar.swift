@@ -87,7 +87,7 @@ final class HoverBar: UIView {
     var itemsControlsMap: NSMapTable<UIControl, Item> = NSMapTable.weakToWeakObjects()
 
     // Subviews
-    var backgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+    var backgroundView = UIVisualEffectView()
     var separatorView = HoverBarSeparatorView()
     var shadowLayer = HoverBarShadowLayer()
 
@@ -104,6 +104,14 @@ final class HoverBar: UIView {
     func commonInit() {
         backgroundColor = .clear
 
+        let blurEffect: UIBlurEffect
+        if #available(iOS 13, *) {
+            blurEffect = UIBlurEffect(style: .systemMaterial)
+        } else {
+            blurEffect = UIBlurEffect(style: .extraLight)
+        }
+        backgroundView.effect = blurEffect
+
         // add shadow layer
         layer.addSublayer(shadowLayer)
 
@@ -114,7 +122,11 @@ final class HoverBar: UIView {
         addSubview(separatorView)
 
         // set default values
-        borderColor = .lightGray
+        if #available(iOS 13.0, *) {
+            borderColor = .systemGray2
+        } else {
+            borderColor = .lightGray
+        }
         borderWidth = 1.0 / UIScreen.main.scale
         cornerRadius = 8.0
         shadowOpacity = 0.25

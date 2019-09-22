@@ -12,7 +12,7 @@ final class HoverBarSeparatorView: UIView {
     public var orientation: HoverBarOrientation = .horizontal {
         didSet { setNeedsDisplay() }
     }
-    public var separatorColor: UIColor = .lightGray {
+    public var separatorColor: UIColor {
         didSet { setNeedsDisplay() }
     }
     public var separatorWidth: CGFloat = 0.0 {
@@ -23,6 +23,11 @@ final class HoverBarSeparatorView: UIView {
     }
 
     init() {
+        if #available(iOS 13.0, *) {
+            separatorColor = .systemGray2
+        } else {
+            separatorColor = .lightGray
+        }
         super.init(frame: .zero)
         self.backgroundColor = .clear
     }

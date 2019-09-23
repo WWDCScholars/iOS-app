@@ -16,10 +16,10 @@ import Nuke
 import CloudKit
 import Agrume
 
-internal final class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
-    // MARK: - Internal Properties
-    internal var scholarId: CKRecord.ID? = nil
+    // MARK: - Properties
+    var scholarId: CKRecord.ID? = nil
     
     // MARK: - Private Properties
     @IBOutlet private weak var profilePictureImageView: UIImageView!
@@ -38,7 +38,8 @@ internal final class ProfileViewController: UIViewController {
     @IBOutlet private weak var bioLabelHeightConstraint: NSLayoutConstraint?
     @IBOutlet private weak var socialAccountsStackView: UIStackView?
     @IBOutlet private weak var savedButton: UIButton!
-    
+    @IBOutlet var handleView: UIView!
+
     private let bioLabelHeightConstraintUpdateValue: CGFloat = 1.0
     
     private var scholar: Scholar? = nil
@@ -53,7 +54,7 @@ internal final class ProfileViewController: UIViewController {
     
     // MARK: - Lifecycle
     
-    internal override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let _ = scholarId else {
@@ -61,84 +62,95 @@ internal final class ProfileViewController: UIViewController {
             return
         }
         
-        self.styleUI()
-        self.configureUI()
-        self.loadScholarData()
+        styleUI()
+        configureUI()
+        loadScholarData()
         
     }
     
-    internal override func viewDidLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.mapViewHeight = self.mapView?.frame.height ?? 0.0
+        mapViewHeight = mapView?.frame.height ?? 0.0
         
-        self.configureBioLabel()
+        configureBioLabel()
     }
     
     // MARK: - UI
     
     private func styleUI() {
-        self.view.applyBackgroundStyle()
+        view.applyBackgroundStyle()
         
-        self.nameLabel?.applyDetailHeaderTitleStyle()
-        self.locationLabel?.applyDetailContentStyle()
-        self.ageTitleLabel?.applyDetailTitleStyle()
-        self.ageContentLabel?.applyDetailContentStyle()
-        self.countryTitleLabel?.applyDetailTitleStyle()
-        self.countryContentLabel?.applyDetailContentStyle()
-        self.batchTitleLabel?.applyDetailTitleStyle()
-        self.batchContentLabel?.applyDetailContentStyle()
-        self.bioLabel?.applyDetailContentStyle()
+        nameLabel?.applyDetailHeaderTitleStyle()
+        locationLabel?.applyDetailContentStyle()
+        ageTitleLabel?.applyDetailTitleStyle()
+        ageContentLabel?.applyDetailContentStyle()
+        countryTitleLabel?.applyDetailTitleStyle()
+        countryContentLabel?.applyDetailContentStyle()
+        batchTitleLabel?.applyDetailTitleStyle()
+        batchContentLabel?.applyDetailContentStyle()
+        bioLabel?.applyDetailContentStyle()
         
-        self.profilePictureContainerView?.roundCorners()
-        self.teamContainerView?.roundCorners()
+        profilePictureContainerView?.roundCorners()
+        teamContainerView?.roundCorners()
         
-        self.teamImageView?.roundCorners()
+        teamImageView?.roundCorners()
         
-        self.profilePictureImageView?.roundCorners()
+        profilePictureImageView?.roundCorners()
         
-        self.profilePictureImageView?.tintColor = .backgroundElementGray
-        self.profilePictureImageView?.contentMode = .center
+        profilePictureImageView?.tintColor = .backgroundElementGray
+        profilePictureImageView?.contentMode = .center
         
-        self.savedButton.setImage(UIImage(named: "Saved")?.tinted(with: .scholarsPurple), for: .normal)
+        savedButton.setImage(UIImage(named: "Saved")?.tinted(with: .scholarsPurple), for: .normal)
+
+        if #available(iOS 13.0, *) {
+            handleView.backgroundColor = .systemGray2
+        }
+        handleView.roundCorners()
     }
     
     private func configureUI() {
-        self.title = "Profile"
+        title = "Profile"
         
-        self.mapView?.isUserInteractionEnabled = false
-        self.countryTitleLabel?.text = "Country"
-        self.batchTitleLabel?.text = "Attended"
-        self.ageTitleLabel?.text = "Age"
+        mapView?.isUserInteractionEnabled = false
+        countryTitleLabel?.text = "Country"
+        batchTitleLabel?.text = "Attended"
+        ageTitleLabel?.text = "Age"
 
-        self.nameLabel?.text = ""
-        self.locationLabel?.text = ""
-        self.ageContentLabel?.text = ""
-        self.countryContentLabel?.text = ""
-        self.batchContentLabel?.text = ""
-        self.bioLabel?.text = ""
+        nameLabel?.text = ""
+        locationLabel?.text = ""
+        ageContentLabel?.text = ""
+        countryContentLabel?.text = ""
+        batchContentLabel?.text = ""
+        bioLabel?.text = ""
         
-        self.profilePictureImageView?.image = UIImage.loading
+        profilePictureImageView?.image = UIImage.loading
         
         configureTeamImageView()
+
+        if #available(iOS 13.0, *) {
+            navigationController?.isNavigationBarHidden = true
+        } else {
+            handleView.isHidden = true
+        }
     }
     
     private func configureTeamImageView(){
-        if self.scholar?.fullName == "Sam Eckert" ||
-            self.scholar?.fullName == "Moritz Sternemann" ||
-            self.scholar?.fullName == "Andrew Walker" ||
-            self.scholar?.fullName == "Matthijs Logemann" {
-            self.teamContainerView?.isHidden = false
+        if scholar?.fullName == "Sam Eckert" ||
+            scholar?.fullName == "Moritz Sternemann" ||
+            scholar?.fullName == "Andrew Walker" ||
+            scholar?.fullName == "Matthijs Logemann" {
+            teamContainerView?.isHidden = false
         }else{
-            self.teamContainerView?.isHidden = true
+            teamContainerView?.isHidden = true
         }
     }
     
     private func configureBioLabel() {
-        let font = self.bioLabel?.font
-        let width = self.bioLabel?.frame.width ?? 0.0
-        let height = self.scholar?.biography?.height(for: width, font: font) ?? 0
-        self.bioLabelHeightConstraint?.constant = height + self.bioLabelHeightConstraintUpdateValue
+        let font = bioLabel?.font
+        let width = bioLabel?.frame.width ?? 0.0
+        let height = scholar?.biography?.height(for: width, font: font) ?? 0
+        bioLabelHeightConstraint?.constant = height + bioLabelHeightConstraintUpdateValue
     }
     
     @IBAction func profilePicturePressed(_ sender: Any) {
@@ -149,7 +161,11 @@ internal final class ProfileViewController: UIViewController {
     @IBAction func savedButtonPressed(_ sender: Any) {
         
     }
-    
+
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
+
     // MARK: - Private Functions
     
     private func loadScholarData() {
@@ -189,7 +205,7 @@ internal final class ProfileViewController: UIViewController {
             return
         }
         
-        self.mapView?.setCenter(scholar.location.coordinate, animated: false)
+        mapView?.setCenter(scholar.location.coordinate, animated: false)
     }
     
     private func populateHeaderContent() {
@@ -197,7 +213,7 @@ internal final class ProfileViewController: UIViewController {
             return
         }
         
-        self.nameLabel?.text = scholar.fullName
+        nameLabel?.text = scholar.fullName
         
         let geocoder = CLGeocoder.init()
         geocoder.reverseGeocodeLocation(scholar.location, completionHandler: { placemarks,err in
@@ -222,14 +238,14 @@ internal final class ProfileViewController: UIViewController {
             return
         }
         
-        self.ageContentLabel?.text = "\(scholar.birthday?.age ?? 18)"
+        ageContentLabel?.text = "\(scholar.birthday?.age ?? 18)"
         
         var years = [String]()
         for yearInfo in scholar.wwdcYears ?? []{
             years.append(yearInfo.recordID.recordName)
         }
         
-        self.batchContentLabel?.text = years.map { (string) -> String in
+        batchContentLabel?.text = years.map { (string) -> String in
             let year = String(string.split(separator: " ").last ?? "")
             return "'" + String(year[2...])
         }.joined(separator: ", ")
@@ -241,15 +257,15 @@ internal final class ProfileViewController: UIViewController {
             return
         }
         
-        self.bioLabel?.text = scholar.biography
+        bioLabel?.text = scholar.biography
     }
     
     private func populateSocialAccountsContent() {
         print("populateSocialAccountsContent")
-        let socialAccountButtons = self.profileSocialAccountsFactory?.accountButtons() ?? []
+        let socialAccountButtons = profileSocialAccountsFactory?.accountButtons() ?? []
         for button in socialAccountButtons {
-            self.socialAccountsStackView?.addArrangedSubview(button)
-			button.addTarget(self, action: #selector(self.openURL), for: .touchUpInside)
+            socialAccountsStackView?.addArrangedSubview(button)
+			button.addTarget(self, action: #selector(openURL), for: .touchUpInside)
         }
     }
 	
@@ -273,7 +289,7 @@ internal final class ProfileViewController: UIViewController {
             }))
             alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
             
-            self.present(alert, animated: true)
+            present(alert, animated: true)
         default:
             guard let url = URL(string: urlString) else { return }
             vc = SFSafariViewController(url: url)

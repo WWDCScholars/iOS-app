@@ -16,9 +16,10 @@ extension UIViewController {
     
     func presentProfileViewController(scholarId: CKRecord.ID) {
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
-        let profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+        let profileViewController = navigationController.viewControllers.first as! ProfileViewController
         profileViewController.scholarId = scholarId
         profileViewController.modalPresentationStyle = .pageSheet
-        self.present(profileViewController, animated: true, completion: nil)
+        self.present(navigationController, animated: true, completion: nil)
     }
 }

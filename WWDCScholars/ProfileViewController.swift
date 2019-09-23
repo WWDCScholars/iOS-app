@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import MapKit
-import DeckTransition
 import CoreLocation
 import SafariServices
 import MessageUI
@@ -287,15 +286,6 @@ internal final class ProfileViewController: UIViewController {
 	}
 }
 
-extension ProfileViewController: UIScrollViewDelegate, DeckTransitionScrollAssist, HeaderParallaxAssist {
-    
-    // MARK: - Internal Functions
-    
-    internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.updateDeckTransition(for: scrollView)
-        self.updateHeaderParallax(for: scrollView, on: self.mapView, baseHeight: self.mapViewHeight)
-    }
-}
 extension ProfileViewController: MFMessageComposeViewControllerDelegate {
 	func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
 		dismiss(animated: true, completion: nil)

@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import MapKit
-import DeckTransition
 import Agrume
 
 final class TeamViewController: UIViewController {
@@ -144,15 +143,5 @@ final class TeamViewController: UIViewController {
         matthijsNameLabel?.text = "Matthijs Logemann"
         matthijsDescriptionLabel?.text = "“Matthijs has been developping for iOS for around 8 years, has received two WWDC scholarships and now studies Computer Science at the Eindhoven University of Technology.”"
         
-    }
-}
-
-extension TeamViewController: UIScrollViewDelegate, DeckTransitionScrollAssist, HeaderParallaxAssist {
-    
-    // MARK: - Internal Functions
-    
-    internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        updateDeckTransition(for: scrollView)
-        updateHeaderParallax(for: scrollView, on: wwdcscholarsTeamBannerImageView, baseHeight: wwdcscholarsTeamBannerImageViewHeight)
     }
 }

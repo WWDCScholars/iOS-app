@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import TwitterKit
 import SafariServices
-import DeckTransition
 
 final class ActivityViewController: TWTRTimelineViewController {
 

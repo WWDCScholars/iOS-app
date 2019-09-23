@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import DeckTransition
 import CloudKit
 
 extension UIViewController {
@@ -19,9 +18,7 @@ extension UIViewController {
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
         profileViewController.scholarId = scholarId
-        let transitionDelegate = DeckTransitioningDelegate()
-        profileViewController.transitioningDelegate = transitionDelegate
-        profileViewController.modalPresentationStyle = .custom
+        profileViewController.modalPresentationStyle = .pageSheet
         self.present(profileViewController, animated: true, completion: nil)
     }
 }

@@ -1,4 +1,3 @@
-github "HarshilShah/DeckTransition" ~> 2.1.0
 github "JohnEstropia/CoreStore" >= 5.0.0
 github "kean/Nuke" ~> 7.0
 github "Alamofire/Alamofire" ~> 4.8.0

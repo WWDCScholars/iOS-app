@@ -118,12 +118,3 @@ internal final class BlogPostViewController: UIViewController {
         self.webView?.loadHTMLString(self.blogPost.content, baseURL: nil)
     }
 }
-
-extension BlogPostViewController: UIScrollViewDelegate, HeaderParallaxAssist {
-    
-    // MARK: - Internal Functions
-    
-    internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.updateHeaderParallax(for: scrollView, on: self.heroImageView, baseHeight: self.heroImageViewHeight)
-    }
-}

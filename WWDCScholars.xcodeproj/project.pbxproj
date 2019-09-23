@@ -1130,10 +1130,9 @@
 			};
 			buildConfigurationList = 6E3C55441EA032DD008F9AC9 /* Build configuration list for PBXProject "WWDCScholars" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);

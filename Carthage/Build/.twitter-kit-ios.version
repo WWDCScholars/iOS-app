@@ -1,13 +1,13 @@
 {
-  "commitish" : "v3.4.4",
+  "commitish" : "v5.2.0",
   "iOS" : [
     {
       "name" : "TwitterCore",
-      "hash" : "f01f48fe44b1cfff448f1c7b40c5a26dbacbf1af06ab4ac9bea9da20193cde98"
+      "hash" : "f482bd45235a69dda15a8635598ec5cf76271c549f9d75f3bf6106e03b90e817"
     },
     {
       "name" : "TwitterKit",
-      "hash" : "eafd366fc777728b74b0b7a65954fc908d420e43046fb26bebd5a68e74119769"
+      "hash" : "ce23fa9c292e52df3593bcdda69eeb0c93ce3d3c75d5a12133e3ea6306076216"
     }
   ]
 }

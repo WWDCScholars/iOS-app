@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal enum WWDCYear: String {
+internal enum WWDCYear: String, CaseIterable {
     
     // MARK: - Cases
     
@@ -19,6 +19,7 @@ internal enum WWDCYear: String {
     case wwdc2017 = "WWDC 2017"
     case wwdc2018 = "WWDC 2018"
     case wwdc2019 = "WWDC 2019"
+    case wwdc2020 = "WWDC 2020"
     
     // MARK: - Internal Properties
     
@@ -32,11 +33,11 @@ internal enum WWDCYear: String {
     }
     
     var isDefault: Bool {
-        if self == .wwdc2019 {
-            return true
-        }
+        let last = WWDCYear.allCases
+            .sorted(by: { $0.rawValue.compare($1.rawValue) == .orderedAscending })
+            .last
         
-        return false
+        return self == last
     }
     
     var recordName: String {

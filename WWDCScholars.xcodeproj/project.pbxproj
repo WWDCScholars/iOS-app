@@ -22,6 +22,10 @@
 		8EA914F526110505007BDB30 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914F226110505007BDB30 /* DeepLinkHandler.swift */; };
 		8EA914F626110505007BDB30 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914F326110505007BDB30 /* AppEnvironment.swift */; };
 		8EA914F726110505007BDB30 /* SystemEventsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914F426110505007BDB30 /* SystemEventsHandler.swift */; };
+		8EA914FF26110661007BDB30 /* CKRecordConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914FD26110661007BDB30 /* CKRecordConvertible.swift */; };
+		8EA9150026110661007BDB30 /* CloudKitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914FE26110661007BDB30 /* CloudKitRepository.swift */; };
+		8EA91507261106AD007BDB30 /* CKQueryOperation+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA91505261106AD007BDB30 /* CKQueryOperation+Publisher.swift */; };
+		8EA91508261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA91506261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		8EA914F226110505007BDB30 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
 		8EA914F326110505007BDB30 /* AppEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		8EA914F426110505007BDB30 /* SystemEventsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemEventsHandler.swift; sourceTree = "<group>"; };
+		8EA914FD26110661007BDB30 /* CKRecordConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKRecordConvertible.swift; sourceTree = "<group>"; };
+		8EA914FE26110661007BDB30 /* CloudKitRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitRepository.swift; sourceTree = "<group>"; };
+		8EA91505261106AD007BDB30 /* CKQueryOperation+Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CKQueryOperation+Publisher.swift"; sourceTree = "<group>"; };
+		8EA91506261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CKFetchRecordsOperation+Publisher.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,8 +186,36 @@
 				8EA914BB26110212007BDB30 /* Store.swift */,
 				8EA914E426110386007BDB30 /* CancelBag.swift */,
 				8EA914C226110278007BDB30 /* Loadable.swift */,
+				8EA9150326110675007BDB30 /* Extensions */,
+				8EA914FC2611063C007BDB30 /* CloudKit */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8EA914FC2611063C007BDB30 /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				8EA914FD26110661007BDB30 /* CKRecordConvertible.swift */,
+				8EA914FE26110661007BDB30 /* CloudKitRepository.swift */,
+			);
+			path = CloudKit;
+			sourceTree = "<group>";
+		};
+		8EA9150326110675007BDB30 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8EA9150426110699007BDB30 /* CloudKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8EA9150426110699007BDB30 /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				8EA91506261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift */,
+				8EA91505261106AD007BDB30 /* CKQueryOperation+Publisher.swift */,
+			);
+			path = CloudKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,10 +319,14 @@
 			files = (
 				8EA914F526110505007BDB30 /* DeepLinkHandler.swift in Sources */,
 				8EA914BC26110212007BDB30 /* Store.swift in Sources */,
+				8EA9150026110661007BDB30 /* CloudKitRepository.swift in Sources */,
 				8EA914ED261103C5007BDB30 /* ServicesContainer.swift in Sources */,
 				8EA914EC261103C5007BDB30 /* DependencyInjector.swift in Sources */,
 				8EA914E526110386007BDB30 /* CancelBag.swift in Sources */,
+				8EA91507261106AD007BDB30 /* CKQueryOperation+Publisher.swift in Sources */,
 				8EA914F626110505007BDB30 /* AppEnvironment.swift in Sources */,
+				8EA91508261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift in Sources */,
+				8EA914FF26110661007BDB30 /* CKRecordConvertible.swift in Sources */,
 				8EA914C326110278007BDB30 /* Loadable.swift in Sources */,
 				8EA914EB261103C5007BDB30 /* AppState.swift in Sources */,
 				8EA914702610CA4E007BDB30 /* ContentView.swift in Sources */,

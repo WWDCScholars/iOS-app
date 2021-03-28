@@ -23,13 +23,6 @@
 			remoteGlobalIDString = 8EA914692610CA4E007BDB30;
 			remoteInfo = WWDCScholars;
 		};
-		8EA914872610CA4E007BDB30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8EA914622610CA4E007BDB30 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8EA914692610CA4E007BDB30;
-			remoteInfo = WWDCScholars;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +35,6 @@
 		8EA9147B2610CA4E007BDB30 /* WWDCScholarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA9147F2610CA4E007BDB30 /* WWDCScholarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsTests.swift; sourceTree = "<group>"; };
 		8EA914812610CA4E007BDB30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8EA914862610CA4E007BDB30 /* WWDCScholarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA914AE2610FA66007BDB30 /* WWDCScholars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WWDCScholars.entitlements; sourceTree = "<group>"; };
 		8EA914B02610FA6C007BDB30 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -57,13 +49,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		8EA914782610CA4E007BDB30 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8EA914832610CA4E007BDB30 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -88,7 +73,6 @@
 			children = (
 				8EA9146A2610CA4E007BDB30 /* WWDCScholars.app */,
 				8EA9147B2610CA4E007BDB30 /* WWDCScholarsTests.xctest */,
-				8EA914862610CA4E007BDB30 /* WWDCScholarsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,24 +177,6 @@
 			productReference = 8EA9147B2610CA4E007BDB30 /* WWDCScholarsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8EA914852610CA4E007BDB30 /* WWDCScholarsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8EA914952610CA4E007BDB30 /* Build configuration list for PBXNativeTarget "WWDCScholarsUITests" */;
-			buildPhases = (
-				8EA914822610CA4E007BDB30 /* Sources */,
-				8EA914832610CA4E007BDB30 /* Frameworks */,
-				8EA914842610CA4E007BDB30 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8EA914882610CA4E007BDB30 /* PBXTargetDependency */,
-			);
-			name = WWDCScholarsUITests;
-			productName = WWDCScholarsUITests;
-			productReference = 8EA914862610CA4E007BDB30 /* WWDCScholarsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -224,10 +190,6 @@
 						CreatedOnToolsVersion = 12.4;
 					};
 					8EA9147A2610CA4E007BDB30 = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = 8EA914692610CA4E007BDB30;
-					};
-					8EA914852610CA4E007BDB30 = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = 8EA914692610CA4E007BDB30;
 					};
@@ -248,7 +210,6 @@
 			targets = (
 				8EA914692610CA4E007BDB30 /* WWDCScholars */,
 				8EA9147A2610CA4E007BDB30 /* WWDCScholarsTests */,
-				8EA914852610CA4E007BDB30 /* WWDCScholarsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -270,13 +231,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8EA914842610CA4E007BDB30 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -284,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EA914BC26110212007BDB30 /* Store.swift in Sources */,
 				8EA914702610CA4E007BDB30 /* ContentView.swift in Sources */,
 				8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */,
 			);
@@ -297,13 +252,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8EA914822610CA4E007BDB30 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -311,11 +259,6 @@
 			isa = PBXTargetDependency;
 			target = 8EA914692610CA4E007BDB30 /* WWDCScholars */;
 			targetProxy = 8EA9147C2610CA4E007BDB30 /* PBXContainerItemProxy */;
-		};
-		8EA914882610CA4E007BDB30 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8EA914692610CA4E007BDB30 /* WWDCScholars */;
-			targetProxy = 8EA914872610CA4E007BDB30 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -532,46 +475,6 @@
 			};
 			name = Release;
 		};
-		8EA914962610CA4E007BDB30 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S2TB4FUFGQ;
-				INFOPLIST_FILE = WWDCScholarsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cecose.WWDCScholarsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = WWDCScholars;
-			};
-			name = Debug;
-		};
-		8EA914972610CA4E007BDB30 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S2TB4FUFGQ;
-				INFOPLIST_FILE = WWDCScholarsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cecose.WWDCScholarsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = WWDCScholars;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -598,15 +501,6 @@
 			buildConfigurations = (
 				8EA914932610CA4E007BDB30 /* Debug */,
 				8EA914942610CA4E007BDB30 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8EA914952610CA4E007BDB30 /* Build configuration list for PBXNativeTarget "WWDCScholarsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8EA914962610CA4E007BDB30 /* Debug */,
-				8EA914972610CA4E007BDB30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

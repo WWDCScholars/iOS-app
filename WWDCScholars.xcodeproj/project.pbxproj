@@ -96,8 +96,8 @@
 		8EA9146C2610CA4E007BDB30 /* WWDCScholars */ = {
 			isa = PBXGroup;
 			children = (
-				8EA9146D2610CA4E007BDB30 /* WWDCScholarsApp.swift */,
-				8EA9146F2610CA4E007BDB30 /* ContentView.swift */,
+				8EA914B6261100C2007BDB30 /* System */,
+				8EA914B7261100CD007BDB30 /* UI */,
 				8EA914B52611007B007BDB30 /* Resources */,
 			);
 			path = WWDCScholars;
@@ -129,6 +129,30 @@
 				8EA914AE2610FA66007BDB30 /* WWDCScholars.entitlements */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		8EA914B6261100C2007BDB30 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				8EA9146D2610CA4E007BDB30 /* WWDCScholarsApp.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		8EA914B7261100CD007BDB30 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8EA914B8261100D8007BDB30 /* Screens */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		8EA914B8261100D8007BDB30 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				8EA9146F2610CA4E007BDB30 /* ContentView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

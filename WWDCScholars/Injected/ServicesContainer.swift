@@ -7,10 +7,18 @@
 
 extension DIContainer {
     struct Services {
-        init() {}
+        let yearsService: YearsService
+
+        init(
+            yearsService: YearsService
+        ) {
+            self.yearsService = yearsService
+        }
 
         static var stub: Self {
-            .init()
+            .init(
+                yearsService: StubYearsService()
+            )
         }
     }
 }

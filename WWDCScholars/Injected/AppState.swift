@@ -22,7 +22,7 @@ extension AppState {
 
 extension AppState {
     struct ViewRouting: Equatable {
-        // Add routing state of each screen
+        var scholars = ScholarsView.Routing()
     }
 }
 

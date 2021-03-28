@@ -18,7 +18,8 @@ struct WWDCScholarsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: .init(container: environment.container))
+                .onOpenURL(perform: systemEventsHandler.sceneOpenURL(_:))
         }
         .onChange(of: scenePhase) { newScenePhase in
             switch newScenePhase {

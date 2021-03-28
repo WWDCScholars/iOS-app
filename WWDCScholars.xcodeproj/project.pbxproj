@@ -33,6 +33,13 @@
 		8EA9152326110C1A007BDB30 /* LazyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9152226110C1A007BDB30 /* LazyList.swift */; };
 		8EA9152826110C47007BDB30 /* Just+withErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9152726110C47007BDB30 /* Just+withErrorType.swift */; };
 		8EA9152E26110C7A007BDB30 /* Publisher+sinkToLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9152D26110C7A007BDB30 /* Publisher+sinkToLoadable.swift */; };
+		8EA9153626110E24007BDB30 /* ScholarsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9153426110E24007BDB30 /* ScholarsViewModel.swift */; };
+		8EA9153726110E24007BDB30 /* ScholarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9153526110E24007BDB30 /* ScholarsView.swift */; };
+		8EA9153C26110E2B007BDB30 /* YearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9153A26110E2B007BDB30 /* YearPickerView.swift */; };
+		8EA9153D26110E2B007BDB30 /* YearPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9153B26110E2B007BDB30 /* YearPickerViewModel.swift */; };
+		8EA9154126110E40007BDB30 /* CapsulePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9154026110E40007BDB30 /* CapsulePicker.swift */; };
+		8EA9154526110E62007BDB30 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9154426110E62007BDB30 /* ActivityIndicatorView.swift */; };
+		8EA9154926110E98007BDB30 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9154826110E98007BDB30 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +84,13 @@
 		8EA9152226110C1A007BDB30 /* LazyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyList.swift; sourceTree = "<group>"; };
 		8EA9152726110C47007BDB30 /* Just+withErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Just+withErrorType.swift"; sourceTree = "<group>"; };
 		8EA9152D26110C7A007BDB30 /* Publisher+sinkToLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+sinkToLoadable.swift"; sourceTree = "<group>"; };
+		8EA9153426110E24007BDB30 /* ScholarsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsViewModel.swift; sourceTree = "<group>"; };
+		8EA9153526110E24007BDB30 /* ScholarsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsView.swift; sourceTree = "<group>"; };
+		8EA9153A26110E2B007BDB30 /* YearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearPickerView.swift; sourceTree = "<group>"; };
+		8EA9153B26110E2B007BDB30 /* YearPickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearPickerViewModel.swift; sourceTree = "<group>"; };
+		8EA9154026110E40007BDB30 /* CapsulePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsulePicker.swift; sourceTree = "<group>"; };
+		8EA9154426110E62007BDB30 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		8EA9154826110E98007BDB30 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				8EA914B8261100D8007BDB30 /* Screens */,
+				8EA9153126110DD6007BDB30 /* Components */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -182,6 +197,7 @@
 		8EA914B8261100D8007BDB30 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				8EA9153226110DE9007BDB30 /* Scholars */,
 				8EA9146F2610CA4E007BDB30 /* ContentView.swift */,
 			);
 			path = Screens;
@@ -271,6 +287,35 @@
 			name = Combine;
 			path = WWDCScholars/Utilities/Extensions/Combine;
 			sourceTree = SOURCE_ROOT;
+		};
+		8EA9153126110DD6007BDB30 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8EA9154426110E62007BDB30 /* ActivityIndicatorView.swift */,
+				8EA9154026110E40007BDB30 /* CapsulePicker.swift */,
+				8EA9154826110E98007BDB30 /* ErrorView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8EA9153226110DE9007BDB30 /* Scholars */ = {
+			isa = PBXGroup;
+			children = (
+				8EA9153526110E24007BDB30 /* ScholarsView.swift */,
+				8EA9153426110E24007BDB30 /* ScholarsViewModel.swift */,
+				8EA9153326110E02007BDB30 /* YearPicker */,
+			);
+			path = Scholars;
+			sourceTree = "<group>";
+		};
+		8EA9153326110E02007BDB30 /* YearPicker */ = {
+			isa = PBXGroup;
+			children = (
+				8EA9153A26110E2B007BDB30 /* YearPickerView.swift */,
+				8EA9153B26110E2B007BDB30 /* YearPickerViewModel.swift */,
+			);
+			path = YearPicker;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -376,23 +421,30 @@
 				8EA9151426110B2D007BDB30 /* WWDCYear.swift in Sources */,
 				8EA9152826110C47007BDB30 /* Just+withErrorType.swift in Sources */,
 				8EA914BC26110212007BDB30 /* Store.swift in Sources */,
+				8EA9154926110E98007BDB30 /* ErrorView.swift in Sources */,
 				8EA9150026110661007BDB30 /* CloudKitRepository.swift in Sources */,
 				8EA9151F26110BF9007BDB30 /* YearsDatabaseRepository.swift in Sources */,
 				8EA914ED261103C5007BDB30 /* ServicesContainer.swift in Sources */,
 				8EA914EC261103C5007BDB30 /* DependencyInjector.swift in Sources */,
 				8EA914E526110386007BDB30 /* CancelBag.swift in Sources */,
 				8EA91507261106AD007BDB30 /* CKQueryOperation+Publisher.swift in Sources */,
+				8EA9153D26110E2B007BDB30 /* YearPickerViewModel.swift in Sources */,
 				8EA914F626110505007BDB30 /* AppEnvironment.swift in Sources */,
 				8EA9152E26110C7A007BDB30 /* Publisher+sinkToLoadable.swift in Sources */,
 				8EA91508261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift in Sources */,
 				8EA914FF26110661007BDB30 /* CKRecordConvertible.swift in Sources */,
 				8EA914C326110278007BDB30 /* Loadable.swift in Sources */,
+				8EA9153626110E24007BDB30 /* ScholarsViewModel.swift in Sources */,
 				8EA9150F26110B0E007BDB30 /* YearsCloudKitRepository.swift in Sources */,
 				8EA914EB261103C5007BDB30 /* AppState.swift in Sources */,
 				8EA914702610CA4E007BDB30 /* ContentView.swift in Sources */,
+				8EA9153C26110E2B007BDB30 /* YearPickerView.swift in Sources */,
 				8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */,
+				8EA9154126110E40007BDB30 /* CapsulePicker.swift in Sources */,
 				8EA9151B26110BF2007BDB30 /* YearsService.swift in Sources */,
 				8EA914F726110505007BDB30 /* SystemEventsHandler.swift in Sources */,
+				8EA9153726110E24007BDB30 /* ScholarsView.swift in Sources */,
+				8EA9154526110E62007BDB30 /* ActivityIndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

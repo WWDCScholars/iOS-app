@@ -13,6 +13,12 @@
 		8EA914752610CA4E007BDB30 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EA914742610CA4E007BDB30 /* Preview Assets.xcassets */; };
 		8EA914802610CA4E007BDB30 /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9147F2610CA4E007BDB30 /* WWDCScholarsTests.swift */; };
 		8EA914B12610FA6C007BDB30 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA914B02610FA6C007BDB30 /* CloudKit.framework */; };
+		8EA914BC26110212007BDB30 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914BB26110212007BDB30 /* Store.swift */; };
+		8EA914C326110278007BDB30 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914C226110278007BDB30 /* Loadable.swift */; };
+		8EA914E526110386007BDB30 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914E426110386007BDB30 /* CancelBag.swift */; };
+		8EA914EB261103C5007BDB30 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914E8261103C5007BDB30 /* AppState.swift */; };
+		8EA914EC261103C5007BDB30 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914E9261103C5007BDB30 /* DependencyInjector.swift */; };
+		8EA914ED261103C5007BDB30 /* ServicesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914EA261103C5007BDB30 /* ServicesContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +43,12 @@
 		8EA914812610CA4E007BDB30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EA914AE2610FA66007BDB30 /* WWDCScholars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WWDCScholars.entitlements; sourceTree = "<group>"; };
 		8EA914B02610FA6C007BDB30 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		8EA914BB26110212007BDB30 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		8EA914C226110278007BDB30 /* Loadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		8EA914E426110386007BDB30 /* CancelBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
+		8EA914E8261103C5007BDB30 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		8EA914E9261103C5007BDB30 /* DependencyInjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
+		8EA914EA261103C5007BDB30 /* ServicesContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				8EA914B6261100C2007BDB30 /* System */,
+				8EA914BA261101D3007BDB30 /* Utilities */,
+				8EA914B92611018A007BDB30 /* Injected */,
 				8EA914B7261100CD007BDB30 /* UI */,
 				8EA914B52611007B007BDB30 /* Resources */,
 			);
@@ -137,6 +151,26 @@
 				8EA9146F2610CA4E007BDB30 /* ContentView.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		8EA914B92611018A007BDB30 /* Injected */ = {
+			isa = PBXGroup;
+			children = (
+				8EA914E8261103C5007BDB30 /* AppState.swift */,
+				8EA914EA261103C5007BDB30 /* ServicesContainer.swift */,
+				8EA914E9261103C5007BDB30 /* DependencyInjector.swift */,
+			);
+			path = Injected;
+			sourceTree = "<group>";
+		};
+		8EA914BA261101D3007BDB30 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8EA914BB26110212007BDB30 /* Store.swift */,
+				8EA914E426110386007BDB30 /* CancelBag.swift */,
+				8EA914C226110278007BDB30 /* Loadable.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +273,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EA914BC26110212007BDB30 /* Store.swift in Sources */,
+				8EA914ED261103C5007BDB30 /* ServicesContainer.swift in Sources */,
+				8EA914EC261103C5007BDB30 /* DependencyInjector.swift in Sources */,
+				8EA914E526110386007BDB30 /* CancelBag.swift in Sources */,
+				8EA914C326110278007BDB30 /* Loadable.swift in Sources */,
+				8EA914EB261103C5007BDB30 /* AppState.swift in Sources */,
 				8EA914702610CA4E007BDB30 /* ContentView.swift in Sources */,
 				8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */,
 			);

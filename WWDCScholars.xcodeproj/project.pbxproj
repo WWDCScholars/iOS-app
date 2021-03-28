@@ -19,6 +19,9 @@
 		8EA914EB261103C5007BDB30 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914E8261103C5007BDB30 /* AppState.swift */; };
 		8EA914EC261103C5007BDB30 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914E9261103C5007BDB30 /* DependencyInjector.swift */; };
 		8EA914ED261103C5007BDB30 /* ServicesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914EA261103C5007BDB30 /* ServicesContainer.swift */; };
+		8EA914F526110505007BDB30 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914F226110505007BDB30 /* DeepLinkHandler.swift */; };
+		8EA914F626110505007BDB30 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914F326110505007BDB30 /* AppEnvironment.swift */; };
+		8EA914F726110505007BDB30 /* SystemEventsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914F426110505007BDB30 /* SystemEventsHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		8EA914E8261103C5007BDB30 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		8EA914E9261103C5007BDB30 /* DependencyInjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		8EA914EA261103C5007BDB30 /* ServicesContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesContainer.swift; sourceTree = "<group>"; };
+		8EA914F226110505007BDB30 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
+		8EA914F326110505007BDB30 /* AppEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		8EA914F426110505007BDB30 /* SystemEventsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemEventsHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				8EA9146D2610CA4E007BDB30 /* WWDCScholarsApp.swift */,
+				8EA914F326110505007BDB30 /* AppEnvironment.swift */,
+				8EA914F226110505007BDB30 /* DeepLinkHandler.swift */,
+				8EA914F426110505007BDB30 /* SystemEventsHandler.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -272,14 +281,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EA914F526110505007BDB30 /* DeepLinkHandler.swift in Sources */,
 				8EA914BC26110212007BDB30 /* Store.swift in Sources */,
 				8EA914ED261103C5007BDB30 /* ServicesContainer.swift in Sources */,
 				8EA914EC261103C5007BDB30 /* DependencyInjector.swift in Sources */,
 				8EA914E526110386007BDB30 /* CancelBag.swift in Sources */,
+				8EA914F626110505007BDB30 /* AppEnvironment.swift in Sources */,
 				8EA914C326110278007BDB30 /* Loadable.swift in Sources */,
 				8EA914EB261103C5007BDB30 /* AppState.swift in Sources */,
 				8EA914702610CA4E007BDB30 /* ContentView.swift in Sources */,
 				8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */,
+				8EA914F726110505007BDB30 /* SystemEventsHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

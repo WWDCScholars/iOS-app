@@ -49,6 +49,8 @@
 		8EA915662611114A007BDB30 /* ScholarsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA915652611114A007BDB30 /* ScholarsService.swift */; };
 		8EA9156B26111158007BDB30 /* ScholarsCloudKitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9156926111158007BDB30 /* ScholarsCloudKitRepository.swift */; };
 		8EA9156C26111158007BDB30 /* ScholarsDatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9156A26111158007BDB30 /* ScholarsDatabaseRepository.swift */; };
+		8EA915722611144C007BDB30 /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA915702611144C007BDB30 /* NavigationBarColor.swift */; };
+		8EA915732611144C007BDB30 /* StatusBarStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA915712611144C007BDB30 /* StatusBarStyleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		8EA915652611114A007BDB30 /* ScholarsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsService.swift; sourceTree = "<group>"; };
 		8EA9156926111158007BDB30 /* ScholarsCloudKitRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsCloudKitRepository.swift; sourceTree = "<group>"; };
 		8EA9156A26111158007BDB30 /* ScholarsDatabaseRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsDatabaseRepository.swift; sourceTree = "<group>"; };
+		8EA915702611144C007BDB30 /* NavigationBarColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
+		8EA915712611144C007BDB30 /* StatusBarStyleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarStyleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,7 @@
 			children = (
 				8EA914B8261100D8007BDB30 /* Screens */,
 				8EA9153126110DD6007BDB30 /* Components */,
+				8EA9156F2611141A007BDB30 /* Modifiers */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -368,6 +373,15 @@
 			path = SwiftUI;
 			sourceTree = "<group>";
 		};
+		8EA9156F2611141A007BDB30 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				8EA915702611144C007BDB30 /* NavigationBarColor.swift */,
+				8EA915712611144C007BDB30 /* StatusBarStyleView.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -480,6 +494,7 @@
 				8EA9151F26110BF9007BDB30 /* YearsDatabaseRepository.swift in Sources */,
 				8EA914ED261103C5007BDB30 /* ServicesContainer.swift in Sources */,
 				8EA914EC261103C5007BDB30 /* DependencyInjector.swift in Sources */,
+				8EA915722611144C007BDB30 /* NavigationBarColor.swift in Sources */,
 				8EA914E526110386007BDB30 /* CancelBag.swift in Sources */,
 				8EA9154F2611107D007BDB30 /* ScholarsListView.swift in Sources */,
 				8EA91507261106AD007BDB30 /* CKQueryOperation+Publisher.swift in Sources */,
@@ -498,6 +513,7 @@
 				8EA91559261110CA007BDB30 /* Scholar+MockData.swift in Sources */,
 				8EA915502611107D007BDB30 /* ScholarsListViewModel.swift in Sources */,
 				8EA914702610CA4E007BDB30 /* ContentView.swift in Sources */,
+				8EA915732611144C007BDB30 /* StatusBarStyleView.swift in Sources */,
 				8EA9153C26110E2B007BDB30 /* YearPickerView.swift in Sources */,
 				8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */,
 				8EA9154126110E40007BDB30 /* CapsulePicker.swift in Sources */,

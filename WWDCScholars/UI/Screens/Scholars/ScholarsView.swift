@@ -22,8 +22,10 @@ struct ScholarsView: View {
                             Text("Scholars")
                                 .font(.system(size: 17))
                         }
+                        .foregroundColor(.white)
                     }
                 }
+                .purpleNavigationBar
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

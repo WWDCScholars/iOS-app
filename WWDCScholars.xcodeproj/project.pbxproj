@@ -26,6 +26,8 @@
 		8EA9150026110661007BDB30 /* CloudKitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA914FE26110661007BDB30 /* CloudKitRepository.swift */; };
 		8EA91507261106AD007BDB30 /* CKQueryOperation+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA91505261106AD007BDB30 /* CKQueryOperation+Publisher.swift */; };
 		8EA91508261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA91506261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift */; };
+		8EA9150F26110B0E007BDB30 /* YearsCloudKitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9150D26110B0E007BDB30 /* YearsCloudKitRepository.swift */; };
+		8EA9151426110B2D007BDB30 /* WWDCYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9151326110B2D007BDB30 /* WWDCYear.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		8EA914FE26110661007BDB30 /* CloudKitRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitRepository.swift; sourceTree = "<group>"; };
 		8EA91505261106AD007BDB30 /* CKQueryOperation+Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CKQueryOperation+Publisher.swift"; sourceTree = "<group>"; };
 		8EA91506261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CKFetchRecordsOperation+Publisher.swift"; sourceTree = "<group>"; };
+		8EA9150D26110B0E007BDB30 /* YearsCloudKitRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearsCloudKitRepository.swift; sourceTree = "<group>"; };
+		8EA9151326110B2D007BDB30 /* WWDCYear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWDCYear.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				8EA914B6261100C2007BDB30 /* System */,
 				8EA914BA261101D3007BDB30 /* Utilities */,
 				8EA914B92611018A007BDB30 /* Injected */,
+				8EA9150B26110ADC007BDB30 /* Repositories */,
+				8EA9150C26110AF6007BDB30 /* Models */,
 				8EA914B7261100CD007BDB30 /* UI */,
 				8EA914B52611007B007BDB30 /* Resources */,
 			);
@@ -218,6 +224,22 @@
 			path = CloudKit;
 			sourceTree = "<group>";
 		};
+		8EA9150B26110ADC007BDB30 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				8EA9150D26110B0E007BDB30 /* YearsCloudKitRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		8EA9150C26110AF6007BDB30 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8EA9151326110B2D007BDB30 /* WWDCYear.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -318,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EA914F526110505007BDB30 /* DeepLinkHandler.swift in Sources */,
+				8EA9151426110B2D007BDB30 /* WWDCYear.swift in Sources */,
 				8EA914BC26110212007BDB30 /* Store.swift in Sources */,
 				8EA9150026110661007BDB30 /* CloudKitRepository.swift in Sources */,
 				8EA914ED261103C5007BDB30 /* ServicesContainer.swift in Sources */,
@@ -328,6 +351,7 @@
 				8EA91508261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift in Sources */,
 				8EA914FF26110661007BDB30 /* CKRecordConvertible.swift in Sources */,
 				8EA914C326110278007BDB30 /* Loadable.swift in Sources */,
+				8EA9150F26110B0E007BDB30 /* YearsCloudKitRepository.swift in Sources */,
 				8EA914EB261103C5007BDB30 /* AppState.swift in Sources */,
 				8EA914702610CA4E007BDB30 /* ContentView.swift in Sources */,
 				8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */,

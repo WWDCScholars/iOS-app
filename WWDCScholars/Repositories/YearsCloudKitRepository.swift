@@ -17,7 +17,10 @@ struct YearsCloudKitRepositoryImpl: YearsCloudKitRepository {
     let queue: DispatchQueue
 
     func loadAllYears()  -> AnyPublisher<[WWDCYear], Error> {
+        let sortYear = NSSortDescriptor(key: "year", ascending: true)
         let yearsQuery = CKQuery(recordType: WWDCYear.recordType, predicate: NSPredicate(value: true))
+        yearsQuery.sortDescriptors = [sortYear]
+
         return query(yearsQuery)
     }
 }

@@ -23,8 +23,13 @@ struct ScholarsCloudKitRepositoryImpl: ScholarsCloudKitRepositry {
 
     func loadAllScholars(year: String) -> AnyPublisher<[Scholar], Error> {
         let yearRecordID = CKRecord.ID(recordName: year)
-        let predicate = NSPredicate(format: "wwdcYearsApproved CONTAINS %@", yearRecordID)
+        let referenceDate = Date()
+        let predicate = NSPredicate(format: "wwdcYearsApproved CONTAINS %@ AND gdprConsentAt <= %@", argumentArray: [yearRecordID, referenceDate])
+        let sortGivenName = NSSortDescriptor(key: "givenName", ascending: true)
+        let sortFamilyName = NSSortDescriptor(key: "familyName", ascending: true)
         let scholarsQuery = CKQuery(recordType: Scholar.recordType, predicate: predicate)
+        scholarsQuery.sortDescriptors = [sortGivenName, sortFamilyName]
+
         return query(scholarsQuery)
     }
 }

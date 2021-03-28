@@ -35,7 +35,7 @@ struct ScholarsView: View {
                 .padding(.vertical, 10)
                 .background(Color.accentColor)
 
-            Text("Scholars List for \(viewModel.routingState.selectedYear ?? "nil")")
+            ScholarsListView(viewModel: .init(container: viewModel.container, selectedYear: viewModel.routingState.selectedYear))
                 .frame(maxHeight: .infinity)
         }
     }

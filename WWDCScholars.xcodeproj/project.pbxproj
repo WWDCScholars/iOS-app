@@ -40,6 +40,15 @@
 		8EA9154126110E40007BDB30 /* CapsulePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9154026110E40007BDB30 /* CapsulePicker.swift */; };
 		8EA9154526110E62007BDB30 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9154426110E62007BDB30 /* ActivityIndicatorView.swift */; };
 		8EA9154926110E98007BDB30 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9154826110E98007BDB30 /* ErrorView.swift */; };
+		8EA9154F2611107D007BDB30 /* ScholarsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9154D2611107D007BDB30 /* ScholarsListView.swift */; };
+		8EA915502611107D007BDB30 /* ScholarsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9154E2611107D007BDB30 /* ScholarsListViewModel.swift */; };
+		8EA91554261110AC007BDB30 /* Scholar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA91553261110AC007BDB30 /* Scholar.swift */; };
+		8EA91559261110CA007BDB30 /* Scholar+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA91558261110CA007BDB30 /* Scholar+MockData.swift */; };
+		8EA9155D261110E1007BDB30 /* ScholarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9155C261110E1007BDB30 /* ScholarCell.swift */; };
+		8EA9156226111125007BDB30 /* View+eraseToAnyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9156126111125007BDB30 /* View+eraseToAnyView.swift */; };
+		8EA915662611114A007BDB30 /* ScholarsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA915652611114A007BDB30 /* ScholarsService.swift */; };
+		8EA9156B26111158007BDB30 /* ScholarsCloudKitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9156926111158007BDB30 /* ScholarsCloudKitRepository.swift */; };
+		8EA9156C26111158007BDB30 /* ScholarsDatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9156A26111158007BDB30 /* ScholarsDatabaseRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +100,15 @@
 		8EA9154026110E40007BDB30 /* CapsulePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsulePicker.swift; sourceTree = "<group>"; };
 		8EA9154426110E62007BDB30 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		8EA9154826110E98007BDB30 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		8EA9154D2611107D007BDB30 /* ScholarsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsListView.swift; sourceTree = "<group>"; };
+		8EA9154E2611107D007BDB30 /* ScholarsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsListViewModel.swift; sourceTree = "<group>"; };
+		8EA91553261110AC007BDB30 /* Scholar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scholar.swift; sourceTree = "<group>"; };
+		8EA91558261110CA007BDB30 /* Scholar+MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scholar+MockData.swift"; sourceTree = "<group>"; };
+		8EA9155C261110E1007BDB30 /* ScholarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarCell.swift; sourceTree = "<group>"; };
+		8EA9156126111125007BDB30 /* View+eraseToAnyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+eraseToAnyView.swift"; sourceTree = "<group>"; };
+		8EA915652611114A007BDB30 /* ScholarsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsService.swift; sourceTree = "<group>"; };
+		8EA9156926111158007BDB30 /* ScholarsCloudKitRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsCloudKitRepository.swift; sourceTree = "<group>"; };
+		8EA9156A26111158007BDB30 /* ScholarsDatabaseRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsDatabaseRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +258,7 @@
 			children = (
 				8EA9150426110699007BDB30 /* CloudKit */,
 				8EA9152626110C47007BDB30 /* Combine */,
+				8EA9156026111106007BDB30 /* SwiftUI */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -256,6 +275,8 @@
 		8EA9150B26110ADC007BDB30 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				8EA9156926111158007BDB30 /* ScholarsCloudKitRepository.swift */,
+				8EA9156A26111158007BDB30 /* ScholarsDatabaseRepository.swift */,
 				8EA9150D26110B0E007BDB30 /* YearsCloudKitRepository.swift */,
 				8EA9151E26110BF9007BDB30 /* YearsDatabaseRepository.swift */,
 			);
@@ -265,7 +286,9 @@
 		8EA9150C26110AF6007BDB30 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8EA91553261110AC007BDB30 /* Scholar.swift */,
 				8EA9151326110B2D007BDB30 /* WWDCYear.swift */,
+				8EA91557261110B9007BDB30 /* MockData */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -273,6 +296,7 @@
 		8EA9151926110BD9007BDB30 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8EA915652611114A007BDB30 /* ScholarsService.swift */,
 				8EA9151A26110BF2007BDB30 /* YearsService.swift */,
 			);
 			path = Services;
@@ -294,6 +318,7 @@
 				8EA9154426110E62007BDB30 /* ActivityIndicatorView.swift */,
 				8EA9154026110E40007BDB30 /* CapsulePicker.swift */,
 				8EA9154826110E98007BDB30 /* ErrorView.swift */,
+				8EA9155C261110E1007BDB30 /* ScholarCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -304,6 +329,7 @@
 				8EA9153526110E24007BDB30 /* ScholarsView.swift */,
 				8EA9153426110E24007BDB30 /* ScholarsViewModel.swift */,
 				8EA9153326110E02007BDB30 /* YearPicker */,
+				8EA9154C26111061007BDB30 /* ScholarsList */,
 			);
 			path = Scholars;
 			sourceTree = "<group>";
@@ -315,6 +341,31 @@
 				8EA9153B26110E2B007BDB30 /* YearPickerViewModel.swift */,
 			);
 			path = YearPicker;
+			sourceTree = "<group>";
+		};
+		8EA9154C26111061007BDB30 /* ScholarsList */ = {
+			isa = PBXGroup;
+			children = (
+				8EA9154D2611107D007BDB30 /* ScholarsListView.swift */,
+				8EA9154E2611107D007BDB30 /* ScholarsListViewModel.swift */,
+			);
+			path = ScholarsList;
+			sourceTree = "<group>";
+		};
+		8EA91557261110B9007BDB30 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				8EA91558261110CA007BDB30 /* Scholar+MockData.swift */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
+		8EA9156026111106007BDB30 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				8EA9156126111125007BDB30 /* View+eraseToAnyView.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,8 +467,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EA9156C26111158007BDB30 /* ScholarsDatabaseRepository.swift in Sources */,
 				8EA914F526110505007BDB30 /* DeepLinkHandler.swift in Sources */,
 				8EA9152326110C1A007BDB30 /* LazyList.swift in Sources */,
+				8EA9155D261110E1007BDB30 /* ScholarCell.swift in Sources */,
+				8EA9156B26111158007BDB30 /* ScholarsCloudKitRepository.swift in Sources */,
 				8EA9151426110B2D007BDB30 /* WWDCYear.swift in Sources */,
 				8EA9152826110C47007BDB30 /* Just+withErrorType.swift in Sources */,
 				8EA914BC26110212007BDB30 /* Store.swift in Sources */,
@@ -427,16 +481,22 @@
 				8EA914ED261103C5007BDB30 /* ServicesContainer.swift in Sources */,
 				8EA914EC261103C5007BDB30 /* DependencyInjector.swift in Sources */,
 				8EA914E526110386007BDB30 /* CancelBag.swift in Sources */,
+				8EA9154F2611107D007BDB30 /* ScholarsListView.swift in Sources */,
 				8EA91507261106AD007BDB30 /* CKQueryOperation+Publisher.swift in Sources */,
 				8EA9153D26110E2B007BDB30 /* YearPickerViewModel.swift in Sources */,
 				8EA914F626110505007BDB30 /* AppEnvironment.swift in Sources */,
 				8EA9152E26110C7A007BDB30 /* Publisher+sinkToLoadable.swift in Sources */,
 				8EA91508261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift in Sources */,
 				8EA914FF26110661007BDB30 /* CKRecordConvertible.swift in Sources */,
+				8EA9156226111125007BDB30 /* View+eraseToAnyView.swift in Sources */,
 				8EA914C326110278007BDB30 /* Loadable.swift in Sources */,
 				8EA9153626110E24007BDB30 /* ScholarsViewModel.swift in Sources */,
+				8EA91554261110AC007BDB30 /* Scholar.swift in Sources */,
 				8EA9150F26110B0E007BDB30 /* YearsCloudKitRepository.swift in Sources */,
+				8EA915662611114A007BDB30 /* ScholarsService.swift in Sources */,
 				8EA914EB261103C5007BDB30 /* AppState.swift in Sources */,
+				8EA91559261110CA007BDB30 /* Scholar+MockData.swift in Sources */,
+				8EA915502611107D007BDB30 /* ScholarsListViewModel.swift in Sources */,
 				8EA914702610CA4E007BDB30 /* ContentView.swift in Sources */,
 				8EA9153C26110E2B007BDB30 /* YearPickerView.swift in Sources */,
 				8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */,

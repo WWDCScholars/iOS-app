@@ -44,20 +44,21 @@ extension AppEnvironment {
     private static func configuredCloudKitRepositories(database: CKDatabase) -> DIContainer.CloudKitRepositories {
         let queue = DispatchQueue(label: "CloudKit", qos: .userInitiated)
 
-        let yearsCloudKitRepository = YearsCloudKitRepositoryImpl(
-            database: database,
-            queue: queue
-        )
+        let scholarsCloudKitRepository = ScholarsCloudKitRepositoryImpl(in: database, on: queue)
+        let yearsCloudKitRepository = YearsCloudKitRepositoryImpl(database: database, queue: queue)
 
         return .init(
+            scholarsRepository: scholarsCloudKitRepository,
             yearsRepository: yearsCloudKitRepository
         )
     }
 
     private static func configureDatabaseRepositories(appState: Store<AppState>) -> DIContainer.DatabaseRepositories {
+        let scholarsDatabaseRepository = ScholarsDatabaseRepositoryImpl()
         let yearsDatabaseRepository = YearsDatabaseRepositoryImpl()
 
         return .init(
+            scholarsRepository: scholarsDatabaseRepository,
             yearsRepository: yearsDatabaseRepository
         )
     }
@@ -67,6 +68,11 @@ extension AppEnvironment {
         databaseRepositories: DIContainer.DatabaseRepositories,
         cloudKitRepositories: DIContainer.CloudKitRepositories
     ) -> DIContainer.Services {
+        let scholarsService = ScholarsServiceImpl(
+            cloudKitRepository: cloudKitRepositories.scholarsRepository,
+            databaseRepository: databaseRepositories.scholarsRepository,
+            appState: appState
+        )
         let yearsService = YearsServiceImpl(
             cloudKitRepository: cloudKitRepositories.yearsRepository,
             databaseRepository: databaseRepositories.yearsRepository,
@@ -74,6 +80,7 @@ extension AppEnvironment {
         )
 
         return .init(
+            scholarsService: scholarsService,
             yearsService: yearsService
         )
     }
@@ -81,10 +88,12 @@ extension AppEnvironment {
 
 extension DIContainer {
     struct CloudKitRepositories {
+        let scholarsRepository: ScholarsCloudKitRepositry
         let yearsRepository: YearsCloudKitRepository
     }
 
     struct DatabaseRepositories {
+        let scholarsRepository: ScholarsDatabaseRepository
         let yearsRepository: YearsDatabaseRepository
     }
 }

@@ -12,6 +12,7 @@
 		8EA914722610CA4E007BDB30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EA914712610CA4E007BDB30 /* Assets.xcassets */; };
 		8EA914752610CA4E007BDB30 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EA914742610CA4E007BDB30 /* Preview Assets.xcassets */; };
 		8EA914802610CA4E007BDB30 /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9147F2610CA4E007BDB30 /* WWDCScholarsTests.swift */; };
+		8EA914B12610FA6C007BDB30 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA914B02610FA6C007BDB30 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		8EA9147F2610CA4E007BDB30 /* WWDCScholarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsTests.swift; sourceTree = "<group>"; };
 		8EA914812610CA4E007BDB30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EA914862610CA4E007BDB30 /* WWDCScholarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCScholarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EA914AE2610FA66007BDB30 /* WWDCScholars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WWDCScholars.entitlements; sourceTree = "<group>"; };
+		8EA914B02610FA6C007BDB30 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EA914B12610FA6C007BDB30 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +79,7 @@
 				8EA9146C2610CA4E007BDB30 /* WWDCScholars */,
 				8EA9147E2610CA4E007BDB30 /* WWDCScholarsTests */,
 				8EA9146B2610CA4E007BDB30 /* Products */,
+				8EA914AF2610FA6C007BDB30 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +96,7 @@
 		8EA9146C2610CA4E007BDB30 /* WWDCScholars */ = {
 			isa = PBXGroup;
 			children = (
+				8EA914AE2610FA66007BDB30 /* WWDCScholars.entitlements */,
 				8EA9146D2610CA4E007BDB30 /* WWDCScholarsApp.swift */,
 				8EA9146F2610CA4E007BDB30 /* ContentView.swift */,
 				8EA914712610CA4E007BDB30 /* Assets.xcassets */,
@@ -115,6 +121,14 @@
 				8EA914812610CA4E007BDB30 /* Info.plist */,
 			);
 			path = WWDCScholarsTests;
+			sourceTree = "<group>";
+		};
+		8EA914AF2610FA6C007BDB30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EA914B02610FA6C007BDB30 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,8 +417,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WWDCScholars/Preview Content\"";
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				ENABLE_PREVIEWS = YES;
@@ -428,6 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"WWDCScholars/Preview Content\"";

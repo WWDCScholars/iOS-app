@@ -47,4 +47,26 @@ platform :ios do
       skip_submission: true
     )
   end
+
+  desc "Push a new release build to TestFlight"
+  lane :release do |options|
+    certificates(
+      refresh_certificates: options[:refresh_certificates]
+    )
+
+    increment_build_number
+
+    gym(
+      scheme: "WWDCScholars",
+      configuration: "Release",
+      clean: true,
+      include_symbols: true,
+      export_method: "app-store",
+      verbose: true
+    )
+
+    testflight(
+      skip_waiting_for_build_processing: true,
+      skip_submission: true
+    )
 end

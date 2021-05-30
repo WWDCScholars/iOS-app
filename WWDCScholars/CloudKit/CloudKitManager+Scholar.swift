@@ -8,7 +8,6 @@
 
 import Foundation
 import CloudKit
-import Alamofire
 
 typealias ScholarFetched = ((Scholar) -> Void)
 

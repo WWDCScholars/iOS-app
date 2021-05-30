@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,8 +16,6 @@
 		22768E011EC0D8070083DDBE /* APLPositionToBoundsMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768E001EC0D8070083DDBE /* APLPositionToBoundsMapping.swift */; };
 		22879B301EC11FCC00B43BF4 /* IntroThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22879B2F1EC11FCC00B43BF4 /* IntroThirdViewController.swift */; };
 		22879B321EC1220700B43BF4 /* IntroFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22879B311EC1220700B43BF4 /* IntroFourthViewController.swift */; };
-		22BB18A222A13098000EDF77 /* Agrume.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BB18A022A12DC0000EDF77 /* Agrume.framework */; };
-		22BB18A422A1321E000EDF77 /* SwiftyGif.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BB18A322A1321E000EDF77 /* SwiftyGif.framework */; };
 		22E852C621C1BF6000DEC873 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E852C521C1BF6000DEC873 /* Stickers.xcassets */; };
 		22E852CA21C1BF6000DEC873 /* WWDCScholars Sticker Pack.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 22E852C321C1BF5E00DEC873 /* WWDCScholars Sticker Pack.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6E032F5E1EC7AE8000410B7C /* ScholarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E032F5D1EC7AE8000410B7C /* ScholarCollectionViewCell.swift */; };
@@ -125,9 +123,6 @@
 		7B8DDF2B1EE2B0B5002D2A9A /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF2A1EE2B0B5002D2A9A /* BlogPost.swift */; };
 		7B8DDF2D1EE2B265002D2A9A /* CloudKitManager+Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF2C1EE2B265002D2A9A /* CloudKitManager+Blog.swift */; };
 		7B9509D421BEE97A005E5711 /* ScholarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9509D321BEE97A005E5711 /* ScholarTests.swift */; };
-		7B9509DA21BFC2E6005E5711 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9509D921BFC2E6005E5711 /* Nuke.framework */; };
-		7B9509DC21BFC316005E5711 /* CoreStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9509DB21BFC316005E5711 /* CoreStore.framework */; };
-		7B9509DE21BFD40A005E5711 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9509DD21BFD409005E5711 /* Alamofire.framework */; };
 		7B9FF97922A9963000D2C9EE /* UUID+CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9FF97822A9963000D2C9EE /* UUID+CloudKit.swift */; };
 		7BB4F7FB1EDC9E9000B0EE7A /* WWDCYearInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FA1EDC9E9000B0EE7A /* WWDCYearInfo.swift */; };
 		7BB4F7FD1EDC9F5C00B0EE7A /* CloudKitInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */; };
@@ -147,10 +142,11 @@
 		8E4B20D02337E54F0059154C /* HoverBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4B20CF2337E54F0059154C /* HoverBar.swift */; };
 		8E4B20D22337E5AB0059154C /* HoverBarSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4B20D12337E5AB0059154C /* HoverBarSeparatorView.swift */; };
 		8E4B20D42337E5C50059154C /* HoverBarShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4B20D32337E5C50059154C /* HoverBarShadowLayer.swift */; };
-		8E628D1A2323DA1400C1CB93 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E628D102323D6CC00C1CB93 /* TwitterKit.framework */; };
 		8E628D1D23250B9B00C1CB93 /* UIApplication+CanOpenTwitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E628D1C23250B9B00C1CB93 /* UIApplication+CanOpenTwitter.swift */; };
 		8E628D1F23251CE100C1CB93 /* TwitterInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E628D1E23251CE100C1CB93 /* TwitterInteractionController.swift */; };
 		8E6B36392333D17100084455 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B36382333D17100084455 /* Constants.swift */; };
+		8EFFF1182664169600D47FC4 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 8EFFF1172664169600D47FC4 /* Nuke */; };
+		8EFFF11B266416FC00D47FC4 /* Agrume in Frameworks */ = {isa = PBXBuildFile; productRef = 8EFFF11A266416FC00D47FC4 /* Agrume */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,13 +339,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22BB18A422A1321E000EDF77 /* SwiftyGif.framework in Frameworks */,
-				22BB18A222A13098000EDF77 /* Agrume.framework in Frameworks */,
-				7B9509DE21BFD40A005E5711 /* Alamofire.framework in Frameworks */,
-				7B9509DC21BFC316005E5711 /* CoreStore.framework in Frameworks */,
-				8E628D1A2323DA1400C1CB93 /* TwitterKit.framework in Frameworks */,
-				7B9509DA21BFC2E6005E5711 /* Nuke.framework in Frameworks */,
+				8EFFF11B266416FC00D47FC4 /* Agrume in Frameworks */,
 				7B2D142B1ED6E4350039C870 /* CloudKit.framework in Frameworks */,
+				8EFFF1182664169600D47FC4 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1057,7 +1049,6 @@
 				6E3C55451EA032DD008F9AC9 /* Sources */,
 				6E3C55461EA032DD008F9AC9 /* Frameworks */,
 				6E3C55471EA032DD008F9AC9 /* Resources */,
-				7B61B6D320C14DE5002A8B11 /* Copy Carthage Frameworks */,
 				22E852CE21C1BF6000DEC873 /* Embed App Extensions */,
 			);
 			buildRules = (
@@ -1066,6 +1057,10 @@
 				22E852C921C1BF6000DEC873 /* PBXTargetDependency */,
 			);
 			name = WWDCScholars;
+			packageProductDependencies = (
+				8EFFF1172664169600D47FC4 /* Nuke */,
+				8EFFF11A266416FC00D47FC4 /* Agrume */,
+			);
 			productName = WWDCScholars;
 			productReference = 6E3C55491EA032DD008F9AC9 /* WWDCScholars.app */;
 			productType = "com.apple.product-type.application";
@@ -1137,6 +1132,10 @@
 				Base,
 			);
 			mainGroup = 6E3C55401EA032DD008F9AC9;
+			packageReferences = (
+				8EFFF1162664169600D47FC4 /* XCRemoteSwiftPackageReference "Nuke" */,
+				8EFFF119266416FC00D47FC4 /* XCRemoteSwiftPackageReference "Agrume" */,
+			);
 			productRefGroup = 6E3C554A1EA032DD008F9AC9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1182,30 +1181,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		7B61B6D320C14DE5002A8B11 /* Copy Carthage Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CoreStore.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Agrume.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyGif.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/TwitterCore.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/TwitterKit.framework",
-			);
-			name = "Copy Carthage Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6E3C55451EA032DD008F9AC9 /* Sources */ = {
@@ -1420,7 +1395,7 @@
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "WWDCScholars Sticker Pack/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 3.2.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1446,7 +1421,7 @@
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "WWDCScholars Sticker Pack/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 3.2.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cecose.WWDCScholars.WWDCScholars-Sticker-Pack";
@@ -1507,7 +1482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1559,10 +1534,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1574,7 +1550,7 @@
 				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 173;
+				CURRENT_PROJECT_VERSION = 174;
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1582,9 +1558,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.2.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cecose.WWDCScholars-dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1601,7 +1580,7 @@
 				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: cecose GmbH (S2TB4FUFGQ)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 173;
+				CURRENT_PROJECT_VERSION = 174;
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1609,9 +1588,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.2.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cecose.WWDCScholars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.cecose.WWDCScholars";
@@ -1634,8 +1616,12 @@
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = WWDCScholarsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.wwdcscholars.WWDCScholarsTests;
@@ -1659,8 +1645,12 @@
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = WWDCScholarsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.wwdcscholars.WWDCScholarsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1713,10 +1703,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Beta;
@@ -1728,7 +1719,7 @@
 				CODE_SIGN_ENTITLEMENTS = WWDCScholars/WWDCScholars.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: cecose GmbH (S2TB4FUFGQ)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 173;
+				CURRENT_PROJECT_VERSION = 174;
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1736,9 +1727,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WWDCScholars/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.2.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cecose.WWDCScholars-beta";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.cecose.WWDCScholars";
@@ -1761,8 +1755,12 @@
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = WWDCScholarsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.wwdcscholars.WWDCScholarsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1786,7 +1784,7 @@
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "WWDCScholars Sticker Pack/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 3.2.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cecose.WWDCScholars-beta.WWDCScholars-Sticker-Pack";
@@ -1842,6 +1840,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8EFFF1162664169600D47FC4 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.6.1;
+			};
+		};
+		8EFFF119266416FC00D47FC4 /* XCRemoteSwiftPackageReference "Agrume" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:JanGorman/Agrume.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.13;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8EFFF1172664169600D47FC4 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8EFFF1162664169600D47FC4 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		8EFFF11A266416FC00D47FC4 /* Agrume */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8EFFF119266416FC00D47FC4 /* XCRemoteSwiftPackageReference "Agrume" */;
+			productName = Agrume;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6E3C55411EA032DD008F9AC9 /* Project object */;
 }

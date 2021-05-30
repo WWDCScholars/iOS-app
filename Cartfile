@@ -1,7 +1,0 @@
-github "JohnEstropia/CoreStore" >= 5.0.0
-github "kean/Nuke" ~> 7.0
-github "Alamofire/Alamofire" ~> 4.8.0
-github "JanGorman/Agrume" ~> 5.3.0
-
-github "touren/twitter-kit-ios" ~> 5.2.0
-

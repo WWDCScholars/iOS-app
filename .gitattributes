@@ -1,2 +1,0 @@
-Carthage/Build/iOS/** filter=lfs diff=lfs merge=lfs -text
-

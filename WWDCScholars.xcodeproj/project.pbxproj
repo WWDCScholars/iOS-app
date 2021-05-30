@@ -114,7 +114,6 @@
 		7B0B93B121C91EB60038C617 /* CKDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B93B021C91EB60038C617 /* CKDataController.swift */; };
 		7B0B93B321C95F2F0038C617 /* BlogDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B93B221C95F2E0038C617 /* BlogDataController.swift */; };
 		7B1D56921EDF3E3300C98B14 /* ScholarsViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1D56911EDF3E3300C98B14 /* ScholarsViewControllerProxy.swift */; };
-		7B2D142B1ED6E4350039C870 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD91F9D1ED33B4100439718 /* CloudKit.framework */; };
 		7B4D74FB21BE6C58002F6242 /* WWDCScholarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D74FA21BE6C58002F6242 /* WWDCScholarsTests.swift */; };
 		7B64B10820C8436200B3F1A2 /* String+Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B64B10720C8436200B3F1A2 /* String+Substring.swift */; };
 		7B8DDF231EE278E5002D2A9A /* Date+Age.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DDF221EE278E5002D2A9A /* Date+Age.swift */; };
@@ -190,8 +189,6 @@
 		22768E001EC0D8070083DDBE /* APLPositionToBoundsMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APLPositionToBoundsMapping.swift; sourceTree = "<group>"; };
 		22879B2F1EC11FCC00B43BF4 /* IntroThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroThirdViewController.swift; sourceTree = "<group>"; };
 		22879B311EC1220700B43BF4 /* IntroFourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroFourthViewController.swift; sourceTree = "<group>"; };
-		22BB18A022A12DC0000EDF77 /* Agrume.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Agrume.framework; path = Carthage/Build/iOS/Agrume.framework; sourceTree = "<group>"; };
-		22BB18A322A1321E000EDF77 /* SwiftyGif.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyGif.framework; path = Carthage/Build/iOS/SwiftyGif.framework; sourceTree = "<group>"; };
 		22E852C321C1BF5E00DEC873 /* WWDCScholars Sticker Pack.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WWDCScholars Sticker Pack.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E852C521C1BF6000DEC873 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		22E852C721C1BF6000DEC873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -303,9 +300,6 @@
 		7B8DDF2A1EE2B0B5002D2A9A /* BlogPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 		7B8DDF2C1EE2B265002D2A9A /* CloudKitManager+Blog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CloudKitManager+Blog.swift"; sourceTree = "<group>"; };
 		7B9509D321BEE97A005E5711 /* ScholarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarTests.swift; sourceTree = "<group>"; };
-		7B9509D921BFC2E6005E5711 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
-		7B9509DB21BFC316005E5711 /* CoreStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreStore.framework; path = Carthage/Build/iOS/CoreStore.framework; sourceTree = "<group>"; };
-		7B9509DD21BFD409005E5711 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		7B9FF97822A9963000D2C9EE /* UUID+CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UUID+CloudKit.swift"; sourceTree = "<group>"; };
 		7BB4F7FA1EDC9E9000B0EE7A /* WWDCYearInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWDCYearInfo.swift; sourceTree = "<group>"; };
 		7BB4F7FC1EDC9F5C00B0EE7A /* CloudKitInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitInitializable.swift; sourceTree = "<group>"; };
@@ -321,14 +315,11 @@
 		7BD91F981ED332FD00439718 /* ActivityQueryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityQueryItem.swift; sourceTree = "<group>"; };
 		7BD91F9A1ED333F400439718 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		7BD91F9C1ED33B3E00439718 /* WWDCScholars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WWDCScholars.entitlements; sourceTree = "<group>"; };
-		7BD91F9D1ED33B4100439718 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		7BD91F9F1ED33F7A00439718 /* ActivityTimelineFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTimelineFilter.swift; sourceTree = "<group>"; };
 		8E3897E320C450AF00D53113 /* UIImage+Named.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Named.swift"; sourceTree = "<group>"; };
 		8E4B20CF2337E54F0059154C /* HoverBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverBar.swift; sourceTree = "<group>"; };
 		8E4B20D12337E5AB0059154C /* HoverBarSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverBarSeparatorView.swift; sourceTree = "<group>"; };
 		8E4B20D32337E5C50059154C /* HoverBarShadowLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverBarShadowLayer.swift; sourceTree = "<group>"; };
-		8E628D102323D6CC00C1CB93 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = Carthage/Build/iOS/TwitterKit.framework; sourceTree = "<group>"; };
-		8E628D112323D6CC00C1CB93 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = Carthage/Build/iOS/TwitterCore.framework; sourceTree = "<group>"; };
 		8E628D1C23250B9B00C1CB93 /* UIApplication+CanOpenTwitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+CanOpenTwitter.swift"; sourceTree = "<group>"; };
 		8E628D1E23251CE100C1CB93 /* TwitterInteractionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterInteractionController.swift; sourceTree = "<group>"; };
 		8E6B36382333D17100084455 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -340,7 +331,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EFFF11B266416FC00D47FC4 /* Agrume in Frameworks */,
-				7B2D142B1ED6E4350039C870 /* CloudKit.framework in Frameworks */,
 				8EFFF1182664169600D47FC4 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,7 +470,6 @@
 			children = (
 				7B4D74F921BE6C58002F6242 /* WWDCScholarsTests */,
 				22E852C421C1BF5E00DEC873 /* WWDCScholars Sticker Pack */,
-				6ED441C71ED08BB40035BD31 /* Frameworks */,
 				6E3C554B1EA032DD008F9AC9 /* WWDCScholars */,
 				6E3C554A1EA032DD008F9AC9 /* Products */,
 			);
@@ -758,21 +747,6 @@
 				6ED441BE1ED076840035BD31 /* BackgroundActivityViewController.swift */,
 			);
 			name = BackgroundActivityViewController;
-			sourceTree = "<group>";
-		};
-		6ED441C71ED08BB40035BD31 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8E628D112323D6CC00C1CB93 /* TwitterCore.framework */,
-				8E628D102323D6CC00C1CB93 /* TwitterKit.framework */,
-				22BB18A322A1321E000EDF77 /* SwiftyGif.framework */,
-				22BB18A022A12DC0000EDF77 /* Agrume.framework */,
-				7B9509DD21BFD409005E5711 /* Alamofire.framework */,
-				7B9509DB21BFC316005E5711 /* CoreStore.framework */,
-				7B9509D921BFC2E6005E5711 /* Nuke.framework */,
-				7BD91F9D1ED33B4100439718 /* CloudKit.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		6EE999D81EC5098A00F13809 /* ContentController */ = {

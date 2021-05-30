@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol VariableDimensionCollectionViewCellContent: class {
+protocol VariableDimensionCollectionViewCellContent: AnyObject {
     var axisCellCount: Int { get }
 }
 

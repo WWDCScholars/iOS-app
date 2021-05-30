@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc internal protocol ContainerViewController: class {
+@objc internal protocol ContainerViewController: AnyObject {
     @objc optional func switchedToViewController()
     @objc optional func switchedFromViewController()
 }

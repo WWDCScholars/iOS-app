@@ -8,6 +8,6 @@
 
 import Foundation
 
-internal protocol ScholarCollectionViewCellContentDelegate: class {
+internal protocol ScholarCollectionViewCellContentDelegate: AnyObject {
     func presentProfile(for scholar: Scholar)
 }

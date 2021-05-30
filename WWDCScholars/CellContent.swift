@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal protocol CellContent: class {
+internal protocol CellContent: AnyObject {
     var reuseIdentifier: String { get }
     var id: String? { get }
 }

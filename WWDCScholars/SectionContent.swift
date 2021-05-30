@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol SectionContent: class {
+protocol SectionContent: AnyObject {
     var cellContent: [CellContent] { get set }
     var headerViewContent: HeaderFooterViewContent? { get set }
     var footerViewContent: HeaderFooterViewContent? { get set }

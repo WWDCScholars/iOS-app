@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal protocol HeaderFooterView: class {
+internal protocol HeaderFooterView: AnyObject {
     var content: HeaderFooterViewContent? { get set }
 
     func configure(with content: HeaderFooterViewContent)

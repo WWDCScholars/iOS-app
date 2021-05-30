@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal protocol ScholarsViewControllerProxyDelegate: class {
+internal protocol ScholarsViewControllerProxyDelegate: AnyObject {
     var proxy: ScholarsViewControllerProxy? { get set }
 
     func didLoad(basicScholar: Scholar)

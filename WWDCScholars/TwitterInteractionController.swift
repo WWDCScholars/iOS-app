@@ -35,7 +35,7 @@ enum TwitterEntity {
     }
 }
 
-protocol TwitterClient: class {
+protocol TwitterClient: AnyObject {
     static var baseURLComponents: URLComponents { get }
     static func url(for entity: TwitterEntity) -> URL
 }

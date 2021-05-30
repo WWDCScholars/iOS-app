@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal protocol ScholarsSwitchableContainerView: class {
+internal protocol ScholarsSwitchableContainerView: AnyObject {
     var navigationBarItemImage: UIImage? { get }
 }
 

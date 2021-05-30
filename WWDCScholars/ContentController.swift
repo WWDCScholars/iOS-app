@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ContentController: class {
+protocol ContentController: AnyObject {
     var sectionContent: [SectionContent] { get set }
 
     func reloadContent()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal protocol SelectableCellContent: class {
+internal protocol SelectableCellContent: AnyObject {
     var isSelected: Bool { get set }
 
     func select(on contentContainer: ReloadableContentContainer?, with sectionContent: [SectionContent], at indexPath: IndexPath)

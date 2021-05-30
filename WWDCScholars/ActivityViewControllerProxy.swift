@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ActivityViewControllerProxyDelegate: class {
+protocol ActivityViewControllerProxyDelegate: AnyObject {
     var proxy: ActivityViewControllerProxy? { get set }
     
     func didLoadActivityTimelineFilters(activityTimelineFilters: [ActivityTimelineFilter])

@@ -8,6 +8,6 @@
 
 import Foundation
 
-internal protocol BlogPostCollectionViewCellContentDelegate: class {
+internal protocol BlogPostCollectionViewCellContentDelegate: AnyObject {
     func open(blogPost: BlogPost)
 }

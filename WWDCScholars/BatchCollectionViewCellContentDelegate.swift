@@ -8,6 +8,6 @@
 
 import Foundation
 
-internal protocol WWDCYearInfoCollectionViewCellContentDelegate: class {
+internal protocol WWDCYearInfoCollectionViewCellContentDelegate: AnyObject {
     func update(for batchInfo: WWDCYear)
 }

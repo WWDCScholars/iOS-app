@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal protocol Cell: class {
+internal protocol Cell: AnyObject {
     var cellContent: CellContent? { get set }
 
     func configure(with cellContent: CellContent)

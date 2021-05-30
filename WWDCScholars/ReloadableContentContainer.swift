@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal protocol ReloadableContentContainer: class {
+internal protocol ReloadableContentContainer: AnyObject {
     func reload(sections: IndexSet)
 }
 

@@ -8,6 +8,6 @@
 
 import Foundation
 
-internal protocol HeaderFooterViewContent: class {
+internal protocol HeaderFooterViewContent: AnyObject {
     var reuseIdentifier: String { get }
 }

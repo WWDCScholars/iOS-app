@@ -20,6 +20,7 @@ internal enum WWDCYear: String, CaseIterable {
     case wwdc2018 = "WWDC 2018"
     case wwdc2019 = "WWDC 2019"
     case wwdc2020 = "WWDC 2020"
+    case wwdc2021 = "WWDC 2021"
     
     // MARK: - Internal Properties
     

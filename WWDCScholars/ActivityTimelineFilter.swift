@@ -8,7 +8,6 @@
 
 import Foundation
 import CloudKit
-import TwitterKit
 
 internal enum ActivityTimelineFilterType: String {
     case keyword

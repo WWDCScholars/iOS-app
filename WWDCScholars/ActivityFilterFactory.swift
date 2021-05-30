@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import TwitterKit
 
 internal final class ActivityFilterFactory {
     
@@ -17,12 +16,12 @@ internal final class ActivityFilterFactory {
     
     // MARK: - Internal Functions
     
-    internal static func filter(for activityTimelineFilters: [ActivityTimelineFilter]) -> TWTRTimelineFilter {
+    internal static func filter(for activityTimelineFilters: [ActivityTimelineFilter]) -> Never {
         var keywords = Set<AnyHashable>()
         var hashtags = Set<AnyHashable>()
         var handles = Set<AnyHashable>()
         var urls = Set<AnyHashable>()
-        
+
         for filter in activityTimelineFilters {
             switch filter.type {
             case .keyword:
@@ -39,12 +38,14 @@ internal final class ActivityFilterFactory {
                 break
             }
         }
-        
-        let filter = TWTRTimelineFilter()
-        filter.keywords = keywords
-        filter.hashtags = hashtags
-        filter.handles = handles
-        filter.urls = urls
-        return filter
+
+        fatalError()
+
+//        let filter = TWTRTimelineFilter()
+//        filter.keywords = keywords
+//        filter.hashtags = hashtags
+//        filter.handles = handles
+//        filter.urls = urls
+//        return filter
     }
 }

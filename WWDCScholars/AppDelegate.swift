@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TwitterKit
 import Nuke
 
 @UIApplicationMain
@@ -20,8 +19,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Functions
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        setupTwitter()
-
         UINavigationBar.applyScholarsStyle()
         UITabBar.applyScholarsStyle()
         
@@ -44,10 +41,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return true
-    }
-
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
     }
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
@@ -92,17 +85,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: - Private Functions
-
-    private func setupTwitter() {
-        guard let twitterDictionary = Bundle.main.object(forInfoDictionaryKey: "Twitter") as? [String: String],
-            let consumerKey = twitterDictionary["consumerKey"],
-            let consumerSecret = twitterDictionary["consumerSecret"]
-        else {
-            fatalError("Twitter consumerKey or consumerSecret missing in Info.plist")
-        }
-
-        TWTRTwitter.sharedInstance().start(withConsumerKey: consumerKey, consumerSecret: consumerSecret)
-    }
     
     private func handle(shortcutItem: UIApplicationShortcutItem) -> Bool {
         return QuickActionManager.shared.handle(shortcutItem: shortcutItem, rootViewController: self.window?.rootViewController)

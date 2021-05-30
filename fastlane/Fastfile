@@ -69,4 +69,5 @@ platform :ios do
       skip_waiting_for_build_processing: true,
       skip_submission: true
     )
+  end
 end

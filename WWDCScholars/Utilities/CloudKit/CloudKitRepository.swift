@@ -14,35 +14,40 @@ protocol CloudKitRepository {
 }
 
 extension CloudKitRepository {
-    func query<Value>(_ query: CKQuery) -> AnyPublisher<[Value], Error> where Value: CKRecordConvertible {
+    func queryAll<Value>(_ query: CKQuery, desiredKeys: [CKRecord.FieldKey]? = nil) -> AnyPublisher<[Value], Error> where Value: CKRecordConvertible {
+        return CKQueryOperation.publisher(for: query, desiredKeys: desiredKeys, in: database, on: queue)
+            .compactMap(Value.init(record:))
+            .collect()
+            .eraseToAnyPublisher()
+    }
+
+    func query<Value>(_ query: CKQuery) -> AnyPublisher<Value, Error> where Value: CKRecordConvertible {
         return CKQueryOperation.publisher(for: query, in: database, on: queue)
-            .reduce([]) { values, action -> [Value] in
-                if case let .recordFetched(record) = action,
-                   let value = Value(record: record) {
-                    return values + [value]
-                }
-                return values
+            .compactMap(Value.init(record:))
+            .eraseToAnyPublisher()
+    }
+
+    func fetch(recordID: CKRecord.ID, desiredKeys: [CKRecord.FieldKey]? = nil) -> AnyPublisher<CKRecord, Error> {
+        return CKFetchRecordsOperation.publisher(recordID: recordID, desiredKeys: desiredKeys, in: database, on: queue)
+            .compactMap { action -> CKRecord? in
+                guard case let .recordsFetched(records) = action else { return nil }
+                return records[recordID]
             }
             .eraseToAnyPublisher()
     }
 
-    func fetch<Value>(recordID: CKRecord.ID) -> AnyPublisher<Value, Error> where Value: CKRecordConvertible {
-        return Deferred {
-            return Future { promise in
-                database.fetch(withRecordID: recordID) { record, error in
-                    if let error = error {
-                        promise(.failure(error))
-                    } else if let record = record, let value = Value(record: record) {
-                        promise(.success(value))
-                    }
-                }
+    func fetch<Value>(recordID: CKRecord.ID, desiredKeys: [CKRecord.FieldKey]? = nil) -> AnyPublisher<Value, Error> where Value: CKRecordConvertible {
+        return CKFetchRecordsOperation.publisher(recordID: recordID, desiredKeys: desiredKeys, in: database, on: queue)
+            .compactMap { action -> CKRecord? in
+                guard case let .recordsFetched(records) = action else { return nil }
+                return records[recordID]
             }
-        }
-        .eraseToAnyPublisher()
+            .compactMap(Value.init(record:))
+            .eraseToAnyPublisher()
     }
 
-    func fetch<Value>(recordIDs: [CKRecord.ID]) -> AnyPublisher<[CKRecord.ID: Value], Error> where Value: CKRecordConvertible {
-        return CKFetchRecordsOperation.publisher(recordIDs: recordIDs, in: database, on: queue)
+    func fetch<Value>(recordIDs: [CKRecord.ID], desiredKeys: [CKRecord.FieldKey]? = nil) -> AnyPublisher<[CKRecord.ID: Value], Error> where Value: CKRecordConvertible {
+        return CKFetchRecordsOperation.publisher(recordIDs: recordIDs, desiredKeys: desiredKeys, in: database, on: queue)
             .compactMap { action -> [CKRecord.ID: Value]? in
                 guard case let .recordsFetched(records) = action else { return nil }
                 return records.compactMapValues(Value.init(record:))

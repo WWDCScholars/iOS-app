@@ -20,10 +20,12 @@ extension AppEnvironment {
         let database = configuredCloudKitDatabase()
         let cloudKitRepositories = configuredCloudKitRepositories(database: database)
         let databaseRepositories = configureDatabaseRepositories(appState: appState)
+        let cacheRepositories = configureCacheRepositories()
         let services = configuredServices(
             appState: appState,
             databaseRepositories: databaseRepositories,
-            cloudKitRepositories: cloudKitRepositories
+            cloudKitRepositories: cloudKitRepositories,
+            cacheRepositories: cacheRepositories
         )
         let diContainer = DIContainer(appState: appState, services: services)
 
@@ -63,10 +65,17 @@ extension AppEnvironment {
         )
     }
 
+    private static func configureCacheRepositories() -> DIContainer.CacheRepositories {
+        let imagesMemoryCacheRepository = ImagesMemoryCacheRepositoryImpl()
+
+        return .init(imagesMemoryRepository: imagesMemoryCacheRepository)
+    }
+
     private static func configuredServices(
         appState: Store<AppState>,
         databaseRepositories: DIContainer.DatabaseRepositories,
-        cloudKitRepositories: DIContainer.CloudKitRepositories
+        cloudKitRepositories: DIContainer.CloudKitRepositories,
+        cacheRepositories: DIContainer.CacheRepositories
     ) -> DIContainer.Services {
         let scholarsService = ScholarsServiceImpl(
             cloudKitRepository: cloudKitRepositories.scholarsRepository,
@@ -78,10 +87,15 @@ extension AppEnvironment {
             databaseRepository: databaseRepositories.yearsRepository,
             appState: appState
         )
+        let imagesService = ImagesServiceImpl(
+            scholarsCloudKitRepository: cloudKitRepositories.scholarsRepository,
+            memoryCacheRepository: cacheRepositories.imagesMemoryRepository
+        )
 
         return .init(
             scholarsService: scholarsService,
-            yearsService: yearsService
+            yearsService: yearsService,
+            imagesService: imagesService,
         )
     }
 }
@@ -95,5 +109,9 @@ extension DIContainer {
     struct DatabaseRepositories {
         let scholarsRepository: ScholarsDatabaseRepository
         let yearsRepository: YearsDatabaseRepository
+    }
+
+    struct CacheRepositories {
+        let imagesMemoryRepository: ImagesCacheRepository
     }
 }

@@ -71,6 +71,12 @@ extension AppEnvironment {
         return .init(imagesMemoryRepository: imagesMemoryCacheRepository)
     }
 
+    private static func configuredGeocodingService() -> GeocodingService {
+        let queue = DispatchQueue(label: "Geocoding", qos: .userInitiated)
+
+        return GeocodingServiceImpl(queue: queue)
+    }
+
     private static func configuredServices(
         appState: Store<AppState>,
         databaseRepositories: DIContainer.DatabaseRepositories,
@@ -91,11 +97,13 @@ extension AppEnvironment {
             scholarsCloudKitRepository: cloudKitRepositories.scholarsRepository,
             memoryCacheRepository: cacheRepositories.imagesMemoryRepository
         )
+        let geocodingService = configuredGeocodingService()
 
         return .init(
             scholarsService: scholarsService,
             yearsService: yearsService,
             imagesService: imagesService,
+            geocodingService: geocodingService
         )
     }
 }

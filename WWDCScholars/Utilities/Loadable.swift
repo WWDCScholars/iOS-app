@@ -92,6 +92,12 @@ struct ValueIsMissingError: LocalizedError {
     }
 }
 
+struct NotFoundError: LocalizedError {
+    var localizedDescription: String {
+        NSLocalizedString("Not found", comment: "")
+    }
+}
+
 extension Optional: SomeOptional {
     func unwrap() throws -> Wrapped {
         switch self {

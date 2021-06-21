@@ -46,14 +46,16 @@ extension ObservableObject {
     }
 }
 
-extension Binding {
+extension Binding where Value: Equatable {
     typealias ValueClosure = (Value) -> Void
 
     func onSet(_ perform: @escaping ValueClosure) -> Self {
         return .init(get: {
             self.wrappedValue
         }, set: { value in
-            self.wrappedValue = value
+            if self.wrappedValue != value {
+                self.wrappedValue = value
+            }
             perform(value)
         })
     }

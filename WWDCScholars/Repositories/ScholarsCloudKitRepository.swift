@@ -10,6 +10,7 @@ import Combine
 
 protocol ScholarsCloudKitRepositry: CloudKitRepository {
     func loadAllScholars(year: String) -> AnyPublisher<[Scholar], Error>
+    func loadScholarProfilePicture(of scholar: Scholar) -> AnyPublisher<CKAsset, Error>
 }
 
 struct ScholarsCloudKitRepositoryImpl: ScholarsCloudKitRepositry {
@@ -24,12 +25,21 @@ struct ScholarsCloudKitRepositoryImpl: ScholarsCloudKitRepositry {
     func loadAllScholars(year: String) -> AnyPublisher<[Scholar], Error> {
         let yearRecordID = CKRecord.ID(recordName: year)
         let referenceDate = Date()
-        let predicate = NSPredicate(format: "wwdcYearsApproved CONTAINS %@ AND gdprConsentAt <= %@", argumentArray: [yearRecordID, referenceDate])
+        let predicate = NSPredicate(format: "wwdcYearsApproved CONTAINS %@ AND gdprConsentAt < %@", argumentArray: [yearRecordID, referenceDate])
         let sortGivenName = NSSortDescriptor(key: "givenName", ascending: true)
         let sortFamilyName = NSSortDescriptor(key: "familyName", ascending: true)
         let scholarsQuery = CKQuery(recordType: Scholar.recordType, predicate: predicate)
         scholarsQuery.sortDescriptors = [sortGivenName, sortFamilyName]
 
-        return query(scholarsQuery)
+        return queryAll(scholarsQuery, desiredKeys: Scholar.DesiredKeys.default)
+
+    func loadScholarProfilePicture(of scholar: Scholar) -> AnyPublisher<CKAsset, Error> {
+        let scholarRecordID = CKRecord.ID(recordName: scholar.recordName)
+
+        return fetch(recordID: scholarRecordID, desiredKeys: Scholar.DesiredKeys.onlyProfilePicture)
+            .compactMap { record -> CKAsset? in
+                return record["profilePicture"] as? CKAsset
+            }
+            .eraseToAnyPublisher()
     }
 }

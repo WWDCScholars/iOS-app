@@ -17,4 +17,14 @@ extension Publisher {
             completion(.loaded(value))
         })
     }
+
+    func sinkToLoadableLoading(cancelBag: CancelBag, _ completion: @escaping (Loadable<Output>) -> Void) -> AnyCancellable {
+        return sink(receiveCompletion: { subscriptionCompletion in
+            if case let .failure(error) = subscriptionCompletion {
+                completion(.failed(error))
+            }
+        }, receiveValue: { value in
+            completion(.isLoading(last: value, cancelBag: cancelBag))
+        })
+    }
 }

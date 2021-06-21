@@ -41,13 +41,26 @@ struct ScholarsServiceImpl: ScholarsService {
         let cancelBag = CancelBag()
         scholars.wrappedValue.setIsLoading(cancelBag: cancelBag)
 
-        Just.withErrorType(Error.self)
+        // Scholars loading behavior
+        // 1. return all Scholars from cache
+        // 2. start loading all Scholars from CloudKit
+        //   2.1 when done, replace loaded with new result
+
+        // return all Scholars from cache
+        databaseRepository.scholars(year: year)
+            .receive(on: RunLoop.main)
+            .sinkToLoadableLoading(cancelBag: cancelBag) { scholars.wrappedValue = $0 }
+            .store(in: cancelBag)
+
+        // start loading all Scholars from CloudKit
+        refreshScholarsList(year: year)
             .flatMap { [databaseRepository] in
-                databaseRepository.hasLoadedScholars(year: year)
+                databaseRepository.scholars(year: year)
             }
-            .flatMap { hasLoaded -> AnyPublisher<Void, Error> in
-                if hasLoaded {
-                    return Just(()).setFailureType(to: Error.self).eraseToAnyPublisher()
+            .receive(on: RunLoop.main)
+            .sinkToLoadable { scholars.wrappedValue = $0 }
+            .store(in: cancelBag)
+    }
                 } else {
                     return self.refreshScholarsList(year: year)
                 }

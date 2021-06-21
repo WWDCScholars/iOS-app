@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ScholarsListView: View {
+    enum Constants {
+        static let gridItemSize: CGFloat = 160
+        static let gridSpacing: CGFloat = 15
+    }
+
     @ObservedObject private(set) var viewModel: ViewModel
 
     var body: some View {
@@ -52,20 +57,26 @@ extension ScholarsListView {
                 .padding()
         }
 
-        return List(scholars.sorted()) { scholar in
-            NavigationLink(
-                destination: profileView(scholar: scholar),
-                tag: scholar.recordName,
-                selection: $viewModel.routingState.scholarProfile,
-                label: { ScholarCell(scholar: scholar) }
-            )
+        let items: [GridItem] = [
+            .init(.adaptive(minimum: Constants.gridItemSize), spacing: Constants.gridSpacing)
+        ]
+
+        ScrollView(.vertical) {
+            LazyVGrid(columns: items, alignment: .leading, spacing: Constants.gridSpacing) {
+                ForEach(scholars) { scholar in
+                    ScholarCell(container: viewModel.container, scholar: scholar)
+                        .onTapGesture {
+                            self.viewModel.routingState.scholarProfile = RecordName(scholar.recordName)
+                        }
+                }
+            }
+            .padding(15)
         }
-        .eraseToAnyView()
+        .sheet(item: $viewModel.routingState.scholarProfile, content: profileView(scholarRecordName:))
     }
 
-    private func profileView(scholar: Scholar) -> some View {
-        Text("Scholar \(scholar.fullName)")
-//        ScholarProfileView(viewModel: .init(container: viewModel.container, scholar: scholar))
+    private func profileView(scholarRecordName: RecordName) -> some View {
+        Text(scholarRecordName.value)
     }
 }
 
@@ -74,7 +85,8 @@ extension ScholarsListView {
 #if DEBUG
 struct ScholarsListView_Previews: PreviewProvider {
     static var previews: some View {
-        ScholarsListView(viewModel: .init(container: .preview, selectedYear: "WWDC 2020"))
+        ScholarsListView(viewModel: .init(container: .preview, scholars: .loaded(Scholar.mockData.lazyList), selectedYear: "WWDC 2020"))
+            .padding(15)
     }
 }
 #endif

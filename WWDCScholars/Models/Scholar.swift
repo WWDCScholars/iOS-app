@@ -16,10 +16,10 @@ struct Scholar {
     let birthday: Date
     let location: CLLocation
     let biography: String
-    let profilePicture: CKAsset
+    let profilePicture: CKAsset?
     let gdprConsentAt: Date
 
-    let scholarPrivate: CKRecord.Reference
+    let scholarPrivate: CKRecord.Reference?
     let socialMedia: CKRecord.Reference
     let wwdcYearInfos: [CKRecord.Reference]
     let wwdcYears: [CKRecord.Reference]
@@ -48,9 +48,7 @@ extension Scholar: CKRecordConvertible {
               let birthday = record["birthday"] as? Date,
               let location = record["location"] as? CLLocation,
               let biography = record["biography"] as? String,
-              let profilePicture = record["profilePicture"] as? CKAsset,
               let gdprConsentAt = record["gdprConsentAt"] as? Date,
-              let scholarPrivate = record["scholarPrivate"] as? CKRecord.Reference,
               let socialMedia = record["socialMedia"] as? CKRecord.Reference,
               let wwdcYearInfos = record["wwdcYearInfos"] as? [CKRecord.Reference],
               let wwdcYears = record["wwdcYears"] as? [CKRecord.Reference],
@@ -65,14 +63,37 @@ extension Scholar: CKRecordConvertible {
         self.birthday = birthday
         self.location = location
         self.biography = biography
-        self.profilePicture = profilePicture
+        profilePicture = record["profilePicture"] as? CKAsset
         self.gdprConsentAt = gdprConsentAt
 
-        self.scholarPrivate = scholarPrivate
+        scholarPrivate = record["scholarPrivate"] as? CKRecord.Reference
         self.socialMedia = socialMedia
         self.wwdcYearInfos = wwdcYearInfos
         self.wwdcYears = wwdcYears
         self.wwdcYearsApproved = wwdcYearsApproved
+    }
+}
+
+// MARK: - Partial Fetching
+
+extension Scholar {
+    enum DesiredKeys {
+        static let `default`: [CKRecord.FieldKey] = [
+            "givenName",
+            "familyName",
+            "gender",
+            "birthday",
+            "location",
+            "biography",
+            "gdprConsentAt",
+            "scholarPrivate",
+            "socialMedia",
+            "wwdcYearInfos",
+            "wwdcYears",
+            "wwdcYearsApproved"
+        ]
+
+        static let onlyProfilePicture: [CKRecord.FieldKey] = ["profilePicture"]
     }
 }
 

@@ -11,7 +11,7 @@ import SwiftUI
 
 extension ScholarsListView {
     struct Routing: Equatable {
-        var scholarProfile: String?
+        var scholarProfile: RecordName?
     }
 }
 

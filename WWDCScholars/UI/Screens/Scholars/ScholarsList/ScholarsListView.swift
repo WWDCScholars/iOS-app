@@ -12,14 +12,10 @@ struct ScholarsListView: View {
 
     var body: some View {
         switch viewModel.scholars {
-        case .notRequested:
-            return AnyView(notRequestedView)
-        case let .isLoading(last, _):
-            return AnyView(loadingView(last))
-        case let .loaded(scholars):
-            return AnyView(loadedView(scholars, showSearch: true, showLoading: false))
-        case let .failed(error):
-            return AnyView(failedView(error))
+        case .notRequested: notRequestedView
+        case let .isLoading(last, _): loadingView(last)
+        case let .loaded(scholars): loadedView(scholars, showLoading: false)
+        case let .failed(error): failedView(error)
         }
     }
 }
@@ -31,15 +27,16 @@ extension ScholarsListView {
         Text("")
     }
 
-    private func loadingView(_ previouslyLoaded: LazyList<Scholar>?) -> AnyView {
+    @ViewBuilder
+    private func loadingView(_ previouslyLoaded: LazyList<Scholar>?) -> some View {
         if let scholars = previouslyLoaded {
-            return AnyView(loadedView(scholars, showSearch: true, showLoading: true))
+            loadedView(scholars, showLoading: true)
         }
-        return AnyView(ActivityIndicatorView())
+        ActivityIndicatorView()
     }
 
     private func failedView(_ error: Error) -> some View {
-        return ErrorView(error: error) {
+        ErrorView(error: error) {
             viewModel.reloadScholars()
         }
     }
@@ -48,11 +45,11 @@ extension ScholarsListView {
 // MARK: - Displaying Content
 
 extension ScholarsListView {
-    private func loadedView(_ scholars: LazyList<Scholar>, showSearch: Bool, showLoading: Bool) -> AnyView {
+    @ViewBuilder
+    private func loadedView(_ scholars: LazyList<Scholar>, showLoading: Bool) -> some View {
         if showLoading {
-            return ActivityIndicatorView()
+            ActivityIndicatorView()
                 .padding()
-                .eraseToAnyView()
         }
 
         return List(scholars.sorted()) { scholar in

@@ -13,14 +13,10 @@ struct YearPickerView: View {
 
     var body: some View {
         switch viewModel.years {
-        case .notRequested:
-            return AnyView(notRequestedView)
-        case let .isLoading(last, _):
-            return AnyView(loadingView(last))
-        case let .loaded(years):
-            return AnyView(loadedView(years, showLoading: false))
-        case let .failed(error):
-            return AnyView(failedView(error))
+        case .notRequested: notRequestedView
+        case let .isLoading(last, _): loadingView(last)
+        case let .loaded(years): loadedView(years, showLoading: false)
+        case let .failed(error): failedView(error)
         }
     }
 }
@@ -32,11 +28,12 @@ extension YearPickerView {
         Text("").onAppear(perform: viewModel.reloadYears)
     }
 
-    private func loadingView(_ previouslyLoaded: LazyList<WWDCYear>?) -> AnyView {
+    @ViewBuilder
+    private func loadingView(_ previouslyLoaded: LazyList<WWDCYear>?) -> some View {
         if let years = previouslyLoaded {
-            return AnyView(loadedView(years, showLoading: true))
+            loadedView(years, showLoading: true)
         }
-        return AnyView(ActivityIndicatorView())
+        ActivityIndicatorView()
     }
 
     private func failedView(_ error: Error) -> some View {

@@ -13,8 +13,10 @@ struct BaseColor {
     let brandPrimary = Color("brandPrimary")
     let brandSecondary = Color("brandSecondary")
 
+    let primary = Color("primary")
+    let secondary = Color("secondary")
+
     let contrastPrimary = Color("contrastPrimary")
-    let contrastSecondary = Color("contrastSecondary")
 
     // MARK: Static Colors
 
@@ -34,6 +36,7 @@ struct ThemeColor {
     let secondary: Color
 
     let onBrand: Color
+    let onPrimary: Color
 
     init() {
         brand = baseColor.purple
@@ -41,10 +44,11 @@ struct ThemeColor {
         highlight = baseColor.brandPrimary
         secondaryHighlight = baseColor.brandSecondary
 
-        primary = baseColor.contrastPrimary
-        secondary = baseColor.contrastSecondary
+        primary = baseColor.primary
+        secondary = baseColor.secondary
 
         onBrand = baseColor.white
+        onPrimary = baseColor.contrastPrimary
     }
 }
 

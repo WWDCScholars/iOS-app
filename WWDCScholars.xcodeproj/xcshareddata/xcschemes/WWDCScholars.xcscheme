@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8EA914692610CA4E007BDB30"
-               BuildableName = "WWDCScholars.app"
+               BuildableName = "Scholars.app"
                BlueprintName = "WWDCScholars"
                ReferencedContainer = "container:WWDCScholars.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8EA914692610CA4E007BDB30"
-            BuildableName = "WWDCScholars.app"
+            BuildableName = "Scholars.app"
             BlueprintName = "WWDCScholars"
             ReferencedContainer = "container:WWDCScholars.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8EA914692610CA4E007BDB30"
-            BuildableName = "WWDCScholars.app"
+            BuildableName = "Scholars.app"
             BlueprintName = "WWDCScholars"
             ReferencedContainer = "container:WWDCScholars.xcodeproj">
          </BuildableReference>

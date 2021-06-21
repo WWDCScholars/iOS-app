@@ -9,13 +9,36 @@ import CloudKit
 import Combine
 
 extension CKFetchRecordsOperation {
+    /// Returns a publisher that wraps a `CKFetchRecordsOperation`.
+    ///
+    /// - Parameters:
+    ///     - recordIDs: The ids of records to retrieve.
+    ///     - desiredKeys: The fields of the records to fetch.
+    ///     - database: The CloudKit database to perform the operation on.
+    ///     - queue: Underlying queue to run the operation on.
     class func publisher(
         recordIDs: [CKRecord.ID],
+        desiredKeys: [CKRecord.FieldKey]? = nil,
         in database: CKDatabase,
         on queue: DispatchQueue
     ) -> CKFetchRecordsOperation.Publisher {
         return CKFetchRecordsOperation.Publisher(
             recordIDs: recordIDs,
+            desiredKeys: desiredKeys,
+            in: database,
+            on: queue
+        )
+    }
+
+    class func publisher(
+        recordID: CKRecord.ID,
+        desiredKeys: [CKRecord.FieldKey]? = nil,
+        in database: CKDatabase,
+        on queue: DispatchQueue
+    ) -> CKFetchRecordsOperation.Publisher {
+        return CKFetchRecordsOperation.Publisher(
+            recordIDs: [recordID],
+            desiredKeys: desiredKeys,
             in: database,
             on: queue
         )
@@ -41,6 +64,9 @@ extension CKFetchRecordsOperation {
         /// The ids of records to retrieve.
         private let recordIDs: [CKRecord.ID]
 
+        /// The fields of the records to fetch.
+        private let desiredKeys: [CKRecord.FieldKey]?
+
         /// The CloudKit database to perform the operation on.
         private let database: CKDatabase
 
@@ -53,14 +79,17 @@ extension CKFetchRecordsOperation {
         ///
         /// - Parameters:
         ///     - recordIDs: The ids of records to retrieve.
+        ///     - desiredKeys: The fields of the records to fetch.
         ///     - database: The CloudKit database to perform the operation on.
         ///     - queue: Underlying queue to run the operation on.
         init(
             recordIDs: [CKRecord.ID],
+            desiredKeys: [CKRecord.FieldKey]? = nil,
             in database: CKDatabase,
             on queue: DispatchQueue
         ) {
             self.recordIDs = recordIDs
+            self.desiredKeys = desiredKeys
             self.database = database
             self.queue = queue
         }
@@ -71,6 +100,7 @@ extension CKFetchRecordsOperation {
             let subscription = Subscription(
                 subscriber: subscriber,
                 recordIDs: recordIDs,
+                desiredKeys: desiredKeys,
                 in: database,
                 on: queue
             )
@@ -95,6 +125,9 @@ extension CKFetchRecordsOperation.Publisher {
         /// The ids of records to retrieve.
         private let recordIDs: [CKRecord.ID]
 
+        /// The fields of the records to fetch.
+        private let desiredKeys: [CKRecord.FieldKey]?
+
         /// The CloudKit database to perform the operation on.
         private let database: CKDatabase
 
@@ -112,11 +145,13 @@ extension CKFetchRecordsOperation.Publisher {
         init(
             subscriber: S,
             recordIDs: [CKRecord.ID],
+            desiredKeys: [CKRecord.FieldKey]?,
             in database: CKDatabase,
             on queue: DispatchQueue
         ) {
             self.subscriber = subscriber
             self.recordIDs = recordIDs
+            self.desiredKeys = desiredKeys
             self.database = database
             self.queue = queue
 
@@ -134,6 +169,7 @@ extension CKFetchRecordsOperation.Publisher {
             let operation = CKFetchRecordsOperation(recordIDs: recordIDs)
 
             operation.database = database
+            operation.desiredKeys = desiredKeys
             operation.qualityOfService = .userInitiated
 
             operation.fetchRecordsCompletionBlock = { [weak self] records, error in

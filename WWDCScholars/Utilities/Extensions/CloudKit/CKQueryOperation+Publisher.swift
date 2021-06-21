@@ -9,14 +9,24 @@ import CloudKit
 import Combine
 
 extension CKQueryOperation {
+    /// Returns a publisher that wraps a `CKQueryOperation`.
+    ///
+    /// - Parameters:
+    ///     - query: The query to perform.
+    ///     - desiredKeys: The fields of the records to fetch.
+    ///     - resultsLimit: The maximum number of records to return at one time.
+    ///     - database: The CloudKit database to perform the operation on.
+    ///     - queue: Underlying queue to run the operation on.
     class func publisher(
         for query: CKQuery,
-        resultsLimit: Int = CKQueryOperation.maximumResults,
+        desiredKeys: [CKRecord.FieldKey]? = nil,
+        resultsLimit: Int? = nil,
         in database: CKDatabase,
         on queue: DispatchQueue
     ) -> CKQueryOperation.Publisher {
         return CKQueryOperation.Publisher(
             for: query,
+            desiredKeys: desiredKeys,
             resultsLimit: resultsLimit,
             in: database,
             on: queue
@@ -25,26 +35,18 @@ extension CKQueryOperation {
 }
 
 extension CKQueryOperation {
-    /// A publisher that wraps a `CKQueryOperation` and emits events as the operation completes.
+    /// A publisher that wraps a `CKQueryOperation` and emits records as the operation completes.
     struct Publisher: Combine.Publisher {
-        // MARK: Types
-
-        /// The events emitted by the publisher.
-        enum Action {
-            /// Posted when a record is received from the server.
-            case recordFetched(CKRecord)
-
-            /// Indicates there are more results to fetch. Initialize a new query operation object when you are ready to retrieve the next batch of results.
-            case moreAvailable(CKQueryOperation.Cursor)
-        }
-
         // MARK: Properties
 
         /// The query to perform.
         private let query: CKQuery
 
-        /// The maximum number of results.
-        private let resultsLimit: Int
+        /// The fields of the records to fetch.
+        private let desiredKeys: [CKRecord.FieldKey]?
+
+        /// The maximum number of records to return at one time.
+        private let resultsLimit: Int?
 
         /// The CloudKit database to perform the operation on.
         private let database: CKDatabase
@@ -58,16 +60,19 @@ extension CKQueryOperation {
         ///
         /// - Parameters:
         ///     - query: The query to perform.
-        ///     - resultsLimit: The maximum number of results.
+        ///     - desiredKeys: The fields of the records to fetch.
+        ///     - resultsLimit: The maximum number of records to return at one time.
         ///     - database: The CloudKit database to perform the operation on.
         ///     - queue: Underlying queue to run the operation on.
         init(
             for query: CKQuery,
-            resultsLimit: Int = CKQueryOperation.maximumResults,
+            desiredKeys: [CKRecord.FieldKey]? = nil,
+            resultsLimit: Int? = nil,
             in database: CKDatabase,
             on queue: DispatchQueue
         ) {
             self.query = query
+            self.desiredKeys = desiredKeys
             self.resultsLimit = resultsLimit
             self.database = database
             self.queue = queue
@@ -79,6 +84,7 @@ extension CKQueryOperation {
             let subscription = Subscription(
                 subscriber: subscriber,
                 for: query,
+                desiredKeys: desiredKeys,
                 resultsLimit: resultsLimit,
                 in: database,
                 on: queue
@@ -86,7 +92,7 @@ extension CKQueryOperation {
             subscriber.receive(subscription: subscription)
         }
 
-        typealias Output = Action
+        typealias Output = CKRecord
         typealias Failure = Error
     }
 }
@@ -104,8 +110,11 @@ extension CKQueryOperation.Publisher {
         /// The query to perform
         private let query: CKQuery
 
-        /// The maximum number of results.
-        private let resultsLimit: Int
+        /// The fields of the records to fetch.
+        private let desiredKeys: [CKRecord.FieldKey]?
+
+        /// The maximum number of records to return at one time.
+        private let resultsLimit: Int?
 
         /// The CloudKit database to perform the operation on.
         private let database: CKDatabase
@@ -116,20 +125,19 @@ extension CKQueryOperation.Publisher {
         /// An operation queue to run all operations on.
         private let operationQueue: OperationQueue
 
-        /// The operation when in flight.
-        private var operation: CKQueryOperation?
-
         // MARK: Initialization
 
         init(
             subscriber: S,
             for query: CKQuery,
-            resultsLimit: Int,
+            desiredKeys: [CKRecord.FieldKey]?,
+            resultsLimit: Int?,
             in database: CKDatabase,
             on queue: DispatchQueue
         ) {
             self.subscriber = subscriber
             self.query = query
+            self.desiredKeys = desiredKeys
             self.resultsLimit = resultsLimit
             self.database = database
             self.queue = queue
@@ -144,21 +152,23 @@ extension CKQueryOperation.Publisher {
         // MARK: Operation
 
         /// Configures the operation and sets up the callbacks to send events.
-        private func configureOperation() {
-            let operation = CKQueryOperation(query: query)
-
+        private func configureOperation(_ operation: CKQueryOperation) {
             operation.database = database
-            operation.resultsLimit = resultsLimit
+            operation.resultsLimit = resultsLimit ?? CKQueryOperation.maximumResults
+            operation.desiredKeys = desiredKeys
             operation.qualityOfService = .userInitiated
 
             operation.queryCompletionBlock = { [weak self] cursor, error in
                 if let error = error as? CKError {
-                    self?.handleError(error)
+                    self?.handleError(error, in: operation)
                 } else if let error = error {
                     self?.subscriber?.receive(completion: .failure(error))
                 } else {
                     if let cursor = cursor {
-                        _ = self?.subscriber?.receive(.moreAvailable(cursor))
+                        guard let self = self else { return }
+                        let operation = CKQueryOperation(cursor: cursor)
+                        self.configureOperation(operation)
+                        self.operationQueue.addOperation(operation)
                     }
 
                     self?.subscriber?.receive(completion: .finished)
@@ -166,22 +176,17 @@ extension CKQueryOperation.Publisher {
             }
 
             operation.recordFetchedBlock = { [weak self] record in
-                _ = self?.subscriber?.receive(.recordFetched(record))
-            }
-
-            queue.async {
-                self.operation = operation
-                self.operationQueue.addOperation(operation)
+                _ = self?.subscriber?.receive(record)
             }
         }
 
         /// Handle CloudKit errors.
         ///
         /// - Parameter error: The error to handle.
-        private func handleError(_ error: CKError) {
+        private func handleError(_ error: CKError, in operation: CKQueryOperation) {
             if let retryDelay = error.retryAfterSeconds {
                 operationQueue.schedule(after: .init(Date() + retryDelay)) { [weak self] in
-                    self?.configureOperation()
+                    self?.configureOperation(operation)
                 }
             } else {
                 subscriber?.receive(completion: .failure(error))
@@ -195,17 +200,20 @@ extension CKQueryOperation.Publisher {
 extension CKQueryOperation.Publisher.Subscription: Cancellable {
     func cancel() {
         subscriber = nil
-        operation?.cancel()
+        operationQueue.cancelAllOperations()
     }
 }
 
 extension CKQueryOperation.Publisher.Subscription: Subscription {
     func request(_ demand: Subscribers.Demand) {
-        guard subscriber != nil,
-              operation == nil,
-              demand > 0
-          else { return }
+        guard demand != .none,
+              subscriber != nil
+        else { return }
 
-        configureOperation()
+        queue.async {
+            let operation = CKQueryOperation(query: self.query)
+            self.configureOperation(operation)
+            self.operationQueue.addOperation(operation)
+        }
     }
 }

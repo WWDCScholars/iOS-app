@@ -35,7 +35,7 @@ struct ScholarsView: View {
             YearPickerView(viewModel: viewModel.yearPickerViewModel, selectedYear: $viewModel.routingState.selectedYear)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 10)
-                .background(Color.accentColor)
+                .background(Color.theme.brand)
 
             ScholarsListView(viewModel: .init(container: viewModel.container, selectedYear: viewModel.routingState.selectedYear))
                 .frame(maxHeight: .infinity)

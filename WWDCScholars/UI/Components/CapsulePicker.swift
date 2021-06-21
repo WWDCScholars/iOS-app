@@ -99,7 +99,7 @@ struct CapsulePicker_Previews: PreviewProvider {
     static var previews: some View {
         CapsulePicker(years, selection: $selection)
             .frame(width: 375, height: 30)
-            .background(Color("accent"))
+            .background(Color.theme.brand)
     }
 }
 #endif

@@ -16,6 +16,7 @@ struct NavigationBarColor: ViewModifier {
         let coloredAppearance = UINavigationBarAppearance()
         coloredAppearance.configureWithTransparentBackground()
         coloredAppearance.backgroundColor = .clear
+        coloredAppearance.shadowImage = UIImage()
         coloredAppearance.titleTextAttributes = [.foregroundColor: tintColor]
         coloredAppearance.largeTitleTextAttributes = [.foregroundColor: tintColor]
 
@@ -46,7 +47,7 @@ extension View {
     }
 
     var purpleNavigationBar: some View {
-        return navigationBarColor(backgroundColor: UIColor(named: "AccentColor")!, tintColor: .white)
+        return navigationBarColor(backgroundColor: UIColor(.theme.brand), tintColor: UIColor(.theme.onBrand))
             .statusBarStyle(.lightContent)
     }
 }

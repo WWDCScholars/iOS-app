@@ -11,6 +11,7 @@ import Combine
 protocol ScholarsCloudKitRepositry: CloudKitRepository {
     func loadAllScholars(year: String) -> AnyPublisher<[Scholar], Error>
     func loadScholarProfilePicture(of scholar: Scholar) -> AnyPublisher<CKAsset, Error>
+    func loadSocialMedia(with recordID: CKRecord.ID) -> AnyPublisher<ScholarSocialMedia, Error>
 }
 
 struct ScholarsCloudKitRepositoryImpl: ScholarsCloudKitRepositry {
@@ -41,5 +42,10 @@ struct ScholarsCloudKitRepositoryImpl: ScholarsCloudKitRepositry {
                 return record["profilePicture"] as? CKAsset
             }
             .eraseToAnyPublisher()
+    }
+
+    func loadSocialMedia(with recordID: CKRecord.ID) -> AnyPublisher<ScholarSocialMedia, Error> {
+        logger.info("loadSocialMedia: \(recordID.recordName)")
+        return fetch(recordID: recordID)
     }
 }

@@ -11,6 +11,7 @@ import Foundation
 protocol ScholarsService {
     func refreshScholarsList(year: String) -> AnyPublisher<Void, Error>
     func load(scholars: LoadableSubject<LazyList<Scholar>>, year: String)
+    func load(socialMedia: LoadableSubject<ScholarSocialMedia>, scholar: Scholar)
 }
 
 struct ScholarsServiceImpl: ScholarsService {
@@ -61,17 +62,32 @@ struct ScholarsServiceImpl: ScholarsService {
             .sinkToLoadable { scholars.wrappedValue = $0 }
             .store(in: cancelBag)
     }
+
+    func load(socialMedia: LoadableSubject<ScholarSocialMedia>, scholar: Scholar) {
+        let cancelBag = CancelBag()
+        socialMedia.wrappedValue.setIsLoading(cancelBag: cancelBag)
+
+        databaseRepository
+            .socialMedia(for: scholar)
+            .flatMap { socialMedia -> AnyPublisher<ScholarSocialMedia?, Error> in
+                if socialMedia != nil {
+                    return Just(socialMedia).setFailureType(to: Error.self).eraseToAnyPublisher()
                 } else {
-                    return self.refreshScholarsList(year: year)
+                    return self.loadAndStoreSocialMediaFromCloudKit(scholar: scholar)
                 }
             }
-            .flatMap { [databaseRepository] in
-                databaseRepository.scholars(year: year)
-            }
             .receive(on: RunLoop.main)
-            .sinkToLoadable { scholars.wrappedValue = $0 }
+            .sinkToLoadable { socialMedia.wrappedValue = $0.unwrap() }
             .store(in: cancelBag)
+    }
 
+    private func loadAndStoreSocialMediaFromCloudKit(scholar: Scholar) -> AnyPublisher<ScholarSocialMedia?, Error> {
+        return cloudKitRepository
+            .loadSocialMedia(with: scholar.socialMedia.recordID)
+            .flatMap { [databaseRepository] in
+                databaseRepository.store(socialMedia: $0, for: scholar)
+            }
+            .eraseToAnyPublisher()
     }
 }
 
@@ -81,4 +97,6 @@ struct StubScholarsService: ScholarsService {
     }
 
     func load(scholars: LoadableSubject<LazyList<Scholar>>, year: String) {}
+
+    func load(socialMedia: LoadableSubject<ScholarSocialMedia>, scholar: Scholar) {}
 }

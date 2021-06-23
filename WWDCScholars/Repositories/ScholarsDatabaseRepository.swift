@@ -12,6 +12,9 @@ protocol ScholarsDatabaseRepository {
 
     func store(scholars: [Scholar]) -> AnyPublisher<Void, Error>
     func scholars(year: String) -> AnyPublisher<LazyList<Scholar>, Error>
+
+    func store(socialMedia: ScholarSocialMedia, for scholar: Scholar) -> AnyPublisher<ScholarSocialMedia?, Error>
+    func socialMedia(for scholar: Scholar) -> AnyPublisher<ScholarSocialMedia?, Error>
 }
 
 struct ScholarsDatabaseRepositoryImpl: ScholarsDatabaseRepository {
@@ -38,10 +41,20 @@ struct ScholarsDatabaseRepositoryImpl: ScholarsDatabaseRepository {
             .map { $0.lazyList }
             .eraseToAnyPublisher()
     }
+
+    func store(socialMedia: ScholarSocialMedia, for scholar: Scholar) -> AnyPublisher<ScholarSocialMedia?, Error> {
+        inMemoryStore.socialMedias[socialMedia.recordName] = socialMedia
+        return Just.withErrorType(socialMedia, Error.self)
+    }
+
+    func socialMedia(for scholar: Scholar) -> AnyPublisher<ScholarSocialMedia?, Error> {
+        return Just.withErrorType(inMemoryStore.socialMedias[scholar.socialMedia.recordID.recordName], Error.self)
+    }
 }
 
 extension ScholarsDatabaseRepositoryImpl {
     private final class InMemoryStore {
         var scholars: [String: Scholar] = [:]
+        var socialMedias: [String: ScholarSocialMedia] = [:]
     }
 }

@@ -53,6 +53,7 @@ struct ScholarsDatabaseRepositoryImpl: ScholarsDatabaseRepository {
             .map {
                 inMemoryStore.scholars.values
                     .filter { $0.wwdcYearsApproved.map(\.recordID.recordName).contains(year) }
+                    .sorted()
             }
             .map { $0.lazyList }
             .eraseToAnyPublisher()

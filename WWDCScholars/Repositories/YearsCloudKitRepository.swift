@@ -7,12 +7,15 @@
 
 import CloudKit
 import Combine
+import OSLog
 
 protocol YearsCloudKitRepository: CloudKitRepository {
     func loadAllYears() -> AnyPublisher<[WWDCYear], Error>
 }
 
 struct YearsCloudKitRepositoryImpl: YearsCloudKitRepository {
+    private let logger = Logger(subsystem: Logger.subsystem("YearsCloudKitRepository"), category: .cloudKit)
+
     let database: CKDatabase
     let queue: DispatchQueue
 
@@ -21,6 +24,7 @@ struct YearsCloudKitRepositoryImpl: YearsCloudKitRepository {
         let yearsQuery = CKQuery(recordType: WWDCYear.recordType, predicate: NSPredicate(value: true))
         yearsQuery.sortDescriptors = [sortYear]
 
-        return query(yearsQuery)
+        logger.info("loadAllYears")
+        return queryAll(yearsQuery)
     }
 }

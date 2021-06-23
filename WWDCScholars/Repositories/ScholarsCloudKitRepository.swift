@@ -7,6 +7,7 @@
 
 import CloudKit
 import Combine
+import OSLog
 
 protocol ScholarsCloudKitRepositry: CloudKitRepository {
     func loadScholar(recordName: String) -> AnyPublisher<Scholar, Error>
@@ -16,6 +17,8 @@ protocol ScholarsCloudKitRepositry: CloudKitRepository {
 }
 
 struct ScholarsCloudKitRepositoryImpl: ScholarsCloudKitRepositry {
+    private let logger = Logger(subsystem: Logger.subsystem("ScholarsCloudKitRepository"), category: .cloudKit)
+
     let database: CKDatabase
     let queue: DispatchQueue
 
@@ -40,11 +43,14 @@ struct ScholarsCloudKitRepositoryImpl: ScholarsCloudKitRepositry {
         let scholarsQuery = CKQuery(recordType: Scholar.recordType, predicate: predicate)
         scholarsQuery.sortDescriptors = [sortGivenName, sortFamilyName]
 
+        logger.info("loadAllScholars year=\(year, privacy: .public)")
         return queryAll(scholarsQuery, desiredKeys: Scholar.DesiredKeys.default)
+    }
 
     func loadScholarProfilePicture(of scholar: Scholar) -> AnyPublisher<CKAsset, Error> {
         let scholarRecordID = CKRecord.ID(recordName: scholar.recordName)
 
+        logger.info("loadScholarProfilePicture scholar=\(scholar.recordName)")
         return fetch(recordID: scholarRecordID, desiredKeys: Scholar.DesiredKeys.onlyProfilePicture)
             .compactMap { record -> CKAsset? in
                 return record["profilePicture"] as? CKAsset

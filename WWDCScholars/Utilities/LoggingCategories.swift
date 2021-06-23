@@ -9,5 +9,6 @@ import OSLog
 
 extension Logger {
     enum Category: String {
+        case cloudKit = "CloudKit"
     }
 }

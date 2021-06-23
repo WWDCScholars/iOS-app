@@ -18,8 +18,10 @@
 		8E297707261A29D400747D4C /* UIImage+estimatedSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E297706261A29D400747D4C /* UIImage+estimatedSize.swift */; };
 		8E29770B261A310300747D4C /* ScholarProfilePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E29770A261A310300747D4C /* ScholarProfilePicture.swift */; };
 		8E499587266C10D6006A51E2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E499586266C10D6006A51E2 /* Colors.swift */; };
+		8E4AD37A26690C970017D02D /* ScholarProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4AD37926690C970017D02D /* ScholarProfileView.swift */; };
 		8E975214267391220027F3B1 /* ProfileMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E975213267391220027F3B1 /* ProfileMapView.swift */; };
 		8E9D1BCA267AAC7D00179226 /* RecordName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BC9267AAC7D00179226 /* RecordName.swift */; };
+		8E9D1BCC267AAD2E00179226 /* ScholarProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BCB267AAD2E00179226 /* ScholarProfileViewModel.swift */; };
 		8E9D1BCE267B985D00179226 /* GeocodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BCD267B985D00179226 /* GeocodingService.swift */; };
 		8E9D1BD1267B9A9200179226 /* CLGeocoder+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BD0267B9A9200179226 /* CLGeocoder+Publisher.swift */; };
 		8EA34DA62673F5E100A71CCD /* ProfileSocialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA34DA52673F5E100A71CCD /* ProfileSocialsView.swift */; };
@@ -92,8 +94,10 @@
 		8E297706261A29D400747D4C /* UIImage+estimatedSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+estimatedSize.swift"; sourceTree = "<group>"; };
 		8E29770A261A310300747D4C /* ScholarProfilePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarProfilePicture.swift; sourceTree = "<group>"; };
 		8E499586266C10D6006A51E2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		8E4AD37926690C970017D02D /* ScholarProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarProfileView.swift; sourceTree = "<group>"; };
 		8E975213267391220027F3B1 /* ProfileMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMapView.swift; sourceTree = "<group>"; };
 		8E9D1BC9267AAC7D00179226 /* RecordName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordName.swift; sourceTree = "<group>"; };
+		8E9D1BCB267AAD2E00179226 /* ScholarProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarProfileViewModel.swift; sourceTree = "<group>"; };
 		8E9D1BCD267B985D00179226 /* GeocodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingService.swift; sourceTree = "<group>"; };
 		8E9D1BD0267B9A9200179226 /* CLGeocoder+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLGeocoder+Publisher.swift"; sourceTree = "<group>"; };
 		8EA34DA52673F5E100A71CCD /* ProfileSocialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSocialsView.swift; sourceTree = "<group>"; };
@@ -185,6 +189,15 @@
 				8E297706261A29D400747D4C /* UIImage+estimatedSize.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		8E4AD37826690C810017D02D /* ScholarProfile */ = {
+			isa = PBXGroup;
+			children = (
+				8E4AD37926690C970017D02D /* ScholarProfileView.swift */,
+				8E9D1BCB267AAD2E00179226 /* ScholarProfileViewModel.swift */,
+			);
+			path = ScholarProfile;
 			sourceTree = "<group>";
 		};
 		8E9D1BCF267B9A7100179226 /* CoreLocation */ = {
@@ -416,6 +429,7 @@
 				8EA9153426110E24007BDB30 /* ScholarsViewModel.swift */,
 				8EA9153326110E02007BDB30 /* YearPicker */,
 				8EA9154C26111061007BDB30 /* ScholarsList */,
+				8E4AD37826690C810017D02D /* ScholarProfile */,
 			);
 			path = Scholars;
 			sourceTree = "<group>";
@@ -599,6 +613,7 @@
 				8EA91507261106AD007BDB30 /* CKQueryOperation+Publisher.swift in Sources */,
 				8EA9153D26110E2B007BDB30 /* YearPickerViewModel.swift in Sources */,
 				8E2976EF261A26CC00747D4C /* ImagesFilesystemCacheRepository.swift in Sources */,
+				8E4AD37A26690C970017D02D /* ScholarProfileView.swift in Sources */,
 				8EA914F626110505007BDB30 /* AppEnvironment.swift in Sources */,
 				8EA9152E26110C7A007BDB30 /* Publisher+sinkToLoadable.swift in Sources */,
 				8E297702261A292700747D4C /* ImageCacheError.swift in Sources */,
@@ -620,6 +635,7 @@
 				8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */,
 				8E29770B261A310300747D4C /* ScholarProfilePicture.swift in Sources */,
 				8EA9154126110E40007BDB30 /* CapsulePicker.swift in Sources */,
+				8E9D1BCC267AAD2E00179226 /* ScholarProfileViewModel.swift in Sources */,
 				8EA9151B26110BF2007BDB30 /* YearsService.swift in Sources */,
 				8EA34DA62673F5E100A71CCD /* ProfileSocialsView.swift in Sources */,
 				8E9D1BD1267B9A9200179226 /* CLGeocoder+Publisher.swift in Sources */,

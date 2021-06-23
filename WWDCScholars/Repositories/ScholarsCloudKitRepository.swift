@@ -9,6 +9,7 @@ import CloudKit
 import Combine
 
 protocol ScholarsCloudKitRepositry: CloudKitRepository {
+    func loadScholar(recordName: String) -> AnyPublisher<Scholar, Error>
     func loadAllScholars(year: String) -> AnyPublisher<[Scholar], Error>
     func loadScholarProfilePicture(of scholar: Scholar) -> AnyPublisher<CKAsset, Error>
     func loadSocialMedia(with recordID: CKRecord.ID) -> AnyPublisher<ScholarSocialMedia, Error>
@@ -21,6 +22,13 @@ struct ScholarsCloudKitRepositoryImpl: ScholarsCloudKitRepositry {
     init(in database: CKDatabase, on queue: DispatchQueue) {
         self.database = database
         self.queue = queue
+    }
+
+    func loadScholar(recordName: String) -> AnyPublisher<Scholar, Error> {
+        let scholarRecordID = CKRecord.ID(recordName: recordName)
+
+        logger.info("loadScholar: \(recordName)")
+        return fetch(recordID: scholarRecordID)
     }
 
     func loadAllScholars(year: String) -> AnyPublisher<[Scholar], Error> {

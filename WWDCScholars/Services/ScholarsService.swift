@@ -9,6 +9,7 @@ import Combine
 import Foundation
 
 protocol ScholarsService {
+    func load(scholar: LoadableSubject<Scholar>, recordName: String)
     func refreshScholarsList(year: String) -> AnyPublisher<Void, Error>
     func load(scholars: LoadableSubject<LazyList<Scholar>>, year: String)
     func load(socialMedia: LoadableSubject<ScholarSocialMedia>, scholar: Scholar)
@@ -27,6 +28,45 @@ struct ScholarsServiceImpl: ScholarsService {
         self.cloudKitRepository = cloudKitRepository
         self.databaseRepository = databaseRepository
         self.appState = appState
+    }
+
+    private func loadScholar(recordName: String) -> AnyPublisher<Void, Error> {
+        return cloudKitRepository
+            .loadScholar(recordName: recordName)
+            .flatMap { [databaseRepository] in
+                databaseRepository.store(scholar: $0)
+            }
+            .eraseToAnyPublisher()
+    }
+
+    func load(scholar: LoadableSubject<Scholar>, recordName: String) {
+        let cancelBag = CancelBag()
+        scholar.wrappedValue.setIsLoading(cancelBag: cancelBag)
+
+        Just.withErrorType(Error.self)
+            .flatMap { [databaseRepository] () -> AnyPublisher<Scholar?, Error> in
+                databaseRepository.scholar(recordName: recordName)
+            }
+            .flatMap { [databaseRepository] scholar -> AnyPublisher<Scholar?, Error> in
+                if let scholar = scholar {
+                    return Just.withErrorType(scholar, Error.self)
+                } else {
+                    return loadScholar(recordName: recordName)
+                        .flatMap { [databaseRepository] in
+                            databaseRepository.scholar(recordName: recordName)
+                        }
+                        .eraseToAnyPublisher()
+                }
+            }
+            .tryMap { scholar -> Scholar in
+                guard let scholar = scholar else {
+                    throw NotFoundError()
+                }
+                return scholar
+            }
+            .receive(on: RunLoop.main)
+            .sinkToLoadable { scholar.wrappedValue = $0 }
+            .store(in: cancelBag)
     }
 
     func refreshScholarsList(year: String) -> AnyPublisher<Void, Error> {
@@ -92,6 +132,10 @@ struct ScholarsServiceImpl: ScholarsService {
 }
 
 struct StubScholarsService: ScholarsService {
+    func load(scholar: LoadableSubject<Scholar>, recordName: String) {
+        scholar.wrappedValue = .loaded(Scholar.mockData[0])
+    }
+
     func refreshScholarsList(year: String) -> AnyPublisher<Void, Error> {
         return Just.withErrorType(Error.self)
     }

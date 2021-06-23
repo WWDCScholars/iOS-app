@@ -8,6 +8,9 @@
 import Combine
 
 protocol ScholarsDatabaseRepository {
+    func store(scholar: Scholar) -> AnyPublisher<Void, Error>
+    func scholar(recordName: String) -> AnyPublisher<Scholar?, Error>
+
     func hasLoadedScholars(year: String) -> AnyPublisher<Bool, Error>
 
     func store(scholars: [Scholar]) -> AnyPublisher<Void, Error>
@@ -19,6 +22,19 @@ protocol ScholarsDatabaseRepository {
 
 struct ScholarsDatabaseRepositoryImpl: ScholarsDatabaseRepository {
     private let inMemoryStore = InMemoryStore()
+
+    func store(scholar: Scholar) -> AnyPublisher<Void, Error> {
+        inMemoryStore.scholars[scholar.recordName] = scholar
+        return Just.withErrorType(Error.self)
+    }
+
+    func scholar(recordName: String) -> AnyPublisher<Scholar?, Error> {
+        return Just.withErrorType(Error.self)
+            .map {
+                inMemoryStore.scholars[recordName]
+            }
+            .eraseToAnyPublisher()
+    }
 
     func hasLoadedScholars(year: String) -> AnyPublisher<Bool, Error> {
         let scholars = inMemoryStore.scholars.values.filter { $0.wwdcYearsApproved.map(\.recordID.recordName).contains(year) }

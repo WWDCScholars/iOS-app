@@ -103,4 +103,10 @@ extension Scholar {
     var fullName: String {
         "\(givenName) \(familyName)"
     }
+
+    var age: UInt {
+        let ageComponents = Calendar.current.dateComponents([.year], from: birthday, to: Date())
+        guard let age = ageComponents.year else { return 0 }
+        return UInt(age)
+    }
 }

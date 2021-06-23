@@ -76,7 +76,7 @@ extension ScholarsListView {
     }
 
     private func profileView(scholarRecordName: RecordName) -> some View {
-        Text(scholarRecordName.value)
+        ScholarProfileView(viewModel: .init(container: viewModel.container, scholarRecordName: scholarRecordName.value))
     }
 }
 

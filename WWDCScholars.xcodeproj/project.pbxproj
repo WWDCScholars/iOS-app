@@ -26,6 +26,7 @@
 		8E9D1BD1267B9A9200179226 /* CLGeocoder+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BD0267B9A9200179226 /* CLGeocoder+Publisher.swift */; };
 		8EA34DA62673F5E100A71CCD /* ProfileSocialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA34DA52673F5E100A71CCD /* ProfileSocialsView.swift */; };
 		8EA34DA82673F66D00A71CCD /* ScholarSocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA34DA72673F66D00A71CCD /* ScholarSocialMedia.swift */; };
+		8EA713822683BCBE00C9362C /* LoggingCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA713812683BCBE00C9362C /* LoggingCategories.swift */; };
 		8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9146D2610CA4E007BDB30 /* WWDCScholarsApp.swift */; };
 		8EA914702610CA4E007BDB30 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9146F2610CA4E007BDB30 /* ContentView.swift */; };
 		8EA914722610CA4E007BDB30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EA914712610CA4E007BDB30 /* Assets.xcassets */; };
@@ -70,6 +71,8 @@
 		8EA915722611144C007BDB30 /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA915702611144C007BDB30 /* NavigationBarColor.swift */; };
 		8EA915732611144C007BDB30 /* StatusBarStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA915712611144C007BDB30 /* StatusBarStyleView.swift */; };
 		8EED5DEF267E8554008DDF11 /* ProfileSocialsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EED5DEE267E8554008DDF11 /* ProfileSocialsViewModel.swift */; };
+		8EED5DF5267E8E39008DDF11 /* Logger+subsystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EED5DF4267E8E39008DDF11 /* Logger+subsystem.swift */; };
+		8EED5DF7267E8E4A008DDF11 /* Logger+InitCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EED5DF6267E8E4A008DDF11 /* Logger+InitCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +105,7 @@
 		8E9D1BD0267B9A9200179226 /* CLGeocoder+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLGeocoder+Publisher.swift"; sourceTree = "<group>"; };
 		8EA34DA52673F5E100A71CCD /* ProfileSocialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSocialsView.swift; sourceTree = "<group>"; };
 		8EA34DA72673F66D00A71CCD /* ScholarSocialMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarSocialMedia.swift; sourceTree = "<group>"; };
+		8EA713812683BCBE00C9362C /* LoggingCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingCategories.swift; sourceTree = "<group>"; };
 		8EA9146A2610CA4E007BDB30 /* Scholars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scholars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA9146D2610CA4E007BDB30 /* WWDCScholarsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsApp.swift; sourceTree = "<group>"; };
 		8EA9146F2610CA4E007BDB30 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 		8EA915702611144C007BDB30 /* NavigationBarColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		8EA915712611144C007BDB30 /* StatusBarStyleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarStyleView.swift; sourceTree = "<group>"; };
 		8EED5DEE267E8554008DDF11 /* ProfileSocialsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSocialsViewModel.swift; sourceTree = "<group>"; };
+		8EED5DF4267E8E39008DDF11 /* Logger+subsystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+subsystem.swift"; sourceTree = "<group>"; };
+		8EED5DF6267E8E4A008DDF11 /* Logger+InitCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+InitCategory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +221,15 @@
 				8E975213267391220027F3B1 /* ProfileMapView.swift */,
 			);
 			path = ScholarProfile;
+			sourceTree = "<group>";
+		};
+		8EA713802683BC8400C9362C /* OSLog */ = {
+			isa = PBXGroup;
+			children = (
+				8EED5DF4267E8E39008DDF11 /* Logger+subsystem.swift */,
+				8EED5DF6267E8E4A008DDF11 /* Logger+InitCategory.swift */,
+			);
+			path = OSLog;
 			sourceTree = "<group>";
 		};
 		8EA914612610CA4E007BDB30 = {
@@ -328,8 +343,9 @@
 				8EA914E426110386007BDB30 /* CancelBag.swift */,
 				8EA914C226110278007BDB30 /* Loadable.swift */,
 				8EA9152226110C1A007BDB30 /* LazyList.swift */,
-				8EA9150326110675007BDB30 /* Extensions */,
+				8EA713812683BCBE00C9362C /* LoggingCategories.swift */,
 				8EA914FC2611063C007BDB30 /* CloudKit */,
+				8EA9150326110675007BDB30 /* Extensions */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -349,6 +365,7 @@
 				8EA9150426110699007BDB30 /* CloudKit */,
 				8EA9152626110C47007BDB30 /* Combine */,
 				8E9D1BCF267B9A7100179226 /* CoreLocation */,
+				8EA713802683BC8400C9362C /* OSLog */,
 				8E297705261A29C100747D4C /* UIKit */,
 			);
 			path = Extensions;
@@ -477,8 +494,6 @@
 				8EED5DEE267E8554008DDF11 /* ProfileSocialsViewModel.swift */,
 			);
 			path = ProfileSocialsView;
-			sourceTree = "<group>";
-		};
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -623,6 +638,7 @@
 				8EA9153626110E24007BDB30 /* ScholarsViewModel.swift in Sources */,
 				8EA91554261110AC007BDB30 /* Scholar.swift in Sources */,
 				8E499587266C10D6006A51E2 /* Colors.swift in Sources */,
+				8EED5DF5267E8E39008DDF11 /* Logger+subsystem.swift in Sources */,
 				8EA9150F26110B0E007BDB30 /* YearsCloudKitRepository.swift in Sources */,
 				8EA915662611114A007BDB30 /* ScholarsService.swift in Sources */,
 				8E2976E5261A203000747D4C /* AsyncImage.swift in Sources */,
@@ -638,6 +654,8 @@
 				8E9D1BCC267AAD2E00179226 /* ScholarProfileViewModel.swift in Sources */,
 				8EA9151B26110BF2007BDB30 /* YearsService.swift in Sources */,
 				8EA34DA62673F5E100A71CCD /* ProfileSocialsView.swift in Sources */,
+				8EA713822683BCBE00C9362C /* LoggingCategories.swift in Sources */,
+				8EED5DF7267E8E4A008DDF11 /* Logger+InitCategory.swift in Sources */,
 				8E9D1BD1267B9A9200179226 /* CLGeocoder+Publisher.swift in Sources */,
 				8E2976FA261A28AD00747D4C /* ImagesCacheRepository.swift in Sources */,
 				8EA914F726110505007BDB30 /* SystemEventsHandler.swift in Sources */,

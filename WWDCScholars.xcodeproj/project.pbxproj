@@ -17,6 +17,7 @@
 		8E297707261A29D400747D4C /* UIImage+estimatedSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E297706261A29D400747D4C /* UIImage+estimatedSize.swift */; };
 		8E29770B261A310300747D4C /* ScholarProfilePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E29770A261A310300747D4C /* ScholarProfilePicture.swift */; };
 		8E499587266C10D6006A51E2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E499586266C10D6006A51E2 /* Colors.swift */; };
+		8E975214267391220027F3B1 /* ProfileMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E975213267391220027F3B1 /* ProfileMapView.swift */; };
 		8E9D1BCA267AAC7D00179226 /* RecordName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BC9267AAC7D00179226 /* RecordName.swift */; };
 		8E9D1BCE267B985D00179226 /* GeocodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BCD267B985D00179226 /* GeocodingService.swift */; };
 		8E9D1BD1267B9A9200179226 /* CLGeocoder+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BD0267B9A9200179226 /* CLGeocoder+Publisher.swift */; };
@@ -86,6 +87,7 @@
 		8E297706261A29D400747D4C /* UIImage+estimatedSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+estimatedSize.swift"; sourceTree = "<group>"; };
 		8E29770A261A310300747D4C /* ScholarProfilePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarProfilePicture.swift; sourceTree = "<group>"; };
 		8E499586266C10D6006A51E2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		8E975213267391220027F3B1 /* ProfileMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMapView.swift; sourceTree = "<group>"; };
 		8E9D1BC9267AAC7D00179226 /* RecordName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordName.swift; sourceTree = "<group>"; };
 		8E9D1BCD267B985D00179226 /* GeocodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingService.swift; sourceTree = "<group>"; };
 		8E9D1BD0267B9A9200179226 /* CLGeocoder+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLGeocoder+Publisher.swift"; sourceTree = "<group>"; };
@@ -561,6 +563,7 @@
 				8EA914ED261103C5007BDB30 /* ServicesContainer.swift in Sources */,
 				8EA914EC261103C5007BDB30 /* DependencyInjector.swift in Sources */,
 				8E2976E9261A212E00747D4C /* ImagesService.swift in Sources */,
+				8E975214267391220027F3B1 /* ProfileMapView.swift in Sources */,
 				8EA915722611144C007BDB30 /* NavigationBarColor.swift in Sources */,
 				8EA914E526110386007BDB30 /* CancelBag.swift in Sources */,
 				8EA9154F2611107D007BDB30 /* ScholarsListView.swift in Sources */,

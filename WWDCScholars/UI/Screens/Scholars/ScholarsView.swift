@@ -27,11 +27,10 @@ struct ScholarsView: View {
                 }
                 .purpleNavigationBar
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 
     private var content: some View {
-        VStack {
+        VStack(spacing: 0) {
             YearPickerView(viewModel: viewModel.yearPickerViewModel, selectedYear: $viewModel.routingState.selectedYear)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 10)

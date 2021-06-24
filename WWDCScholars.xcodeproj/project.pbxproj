@@ -27,7 +27,9 @@
 		8EA34DA62673F5E100A71CCD /* ProfileSocialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA34DA52673F5E100A71CCD /* ProfileSocialsView.swift */; };
 		8EA34DA82673F66D00A71CCD /* ScholarSocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA34DA72673F66D00A71CCD /* ScholarSocialMedia.swift */; };
 		8EA713822683BCBE00C9362C /* LoggingCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA713812683BCBE00C9362C /* LoggingCategories.swift */; };
+		8EA713852683BF4100C9362C /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA713842683BF4100C9362C /* AboutView.swift */; };
 		8EA713872683C0AD00C9362C /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA713862683C0AD00C9362C /* TeamMember.swift */; };
+		8EA713892683C29D00C9362C /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA713882683C29D00C9362C /* AboutViewModel.swift */; };
 		8EA7138B2683C57900C9362C /* AboutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7138A2683C57900C9362C /* AboutService.swift */; };
 		8EA7138D2683D7BF00C9362C /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7138C2683D7BF00C9362C /* FAQItem.swift */; };
 		8EA7138F2683DB4900C9362C /* AboutCloudKitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7138E2683DB4900C9362C /* AboutCloudKitRepository.swift */; };
@@ -117,7 +119,9 @@
 		8EA34DA52673F5E100A71CCD /* ProfileSocialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSocialsView.swift; sourceTree = "<group>"; };
 		8EA34DA72673F66D00A71CCD /* ScholarSocialMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarSocialMedia.swift; sourceTree = "<group>"; };
 		8EA713812683BCBE00C9362C /* LoggingCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingCategories.swift; sourceTree = "<group>"; };
+		8EA713842683BF4100C9362C /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		8EA713862683C0AD00C9362C /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
+		8EA713882683C29D00C9362C /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 		8EA7138A2683C57900C9362C /* AboutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutService.swift; sourceTree = "<group>"; };
 		8EA7138C2683D7BF00C9362C /* FAQItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQItem.swift; sourceTree = "<group>"; };
 		8EA7138E2683DB4900C9362C /* AboutCloudKitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCloudKitRepository.swift; sourceTree = "<group>"; };
@@ -254,6 +258,15 @@
 			path = OSLog;
 			sourceTree = "<group>";
 		};
+		8EA713832683BF2E00C9362C /* About */ = {
+			isa = PBXGroup;
+			children = (
+				8EA713842683BF4100C9362C /* AboutView.swift */,
+				8EA713882683C29D00C9362C /* AboutViewModel.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		8EA713922684A0AF00C9362C /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +382,7 @@
 		8EA914B8261100D8007BDB30 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				8EA713832683BF2E00C9362C /* About */,
 				8EA9153226110DE9007BDB30 /* Scholars */,
 				8EA9146F2610CA4E007BDB30 /* ContentView.swift */,
 			);
@@ -691,6 +705,7 @@
 				8EA914F626110505007BDB30 /* AppEnvironment.swift in Sources */,
 				8EA9152E26110C7A007BDB30 /* Publisher+sinkToLoadable.swift in Sources */,
 				8E297702261A292700747D4C /* ImageCacheError.swift in Sources */,
+				8EA713852683BF4100C9362C /* AboutView.swift in Sources */,
 				8EA91508261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift in Sources */,
 				8EA713962684D29200C9362C /* AboutTeamMembersView.swift in Sources */,
 				8EA914FF26110661007BDB30 /* CKRecordConvertible.swift in Sources */,
@@ -719,6 +734,7 @@
 				8EA9154126110E40007BDB30 /* CapsulePicker.swift in Sources */,
 				8E9D1BCC267AAD2E00179226 /* ScholarProfileViewModel.swift in Sources */,
 				8EA7139E2684E6E600C9362C /* TeamMember+MockData.swift in Sources */,
+				8EA713892683C29D00C9362C /* AboutViewModel.swift in Sources */,
 				8EA9151B26110BF2007BDB30 /* YearsService.swift in Sources */,
 				8EA713A02684E95700C9362C /* FAQItem+MockData.swift in Sources */,
 				8EA34DA62673F5E100A71CCD /* ProfileSocialsView.swift in Sources */,

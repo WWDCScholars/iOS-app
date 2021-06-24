@@ -48,20 +48,24 @@ extension AppEnvironment {
 
         let scholarsCloudKitRepository = ScholarsCloudKitRepositoryImpl(in: database, on: queue)
         let yearsCloudKitRepository = YearsCloudKitRepositoryImpl(database: database, queue: queue)
+        let aboutCloudKitRepository = AboutCloudKitRepositoryImpl(in: database, on: queue)
 
         return .init(
             scholarsRepository: scholarsCloudKitRepository,
-            yearsRepository: yearsCloudKitRepository
+            yearsRepository: yearsCloudKitRepository,
+            aboutRepository: aboutCloudKitRepository
         )
     }
 
     private static func configureDatabaseRepositories(appState: Store<AppState>) -> DIContainer.DatabaseRepositories {
         let scholarsDatabaseRepository = ScholarsDatabaseRepositoryImpl()
         let yearsDatabaseRepository = YearsDatabaseRepositoryImpl()
+        let aboutDatabaseRepository = AboutDatabaseRepositoryImpl()
 
         return .init(
             scholarsRepository: scholarsDatabaseRepository,
-            yearsRepository: yearsDatabaseRepository
+            yearsRepository: yearsDatabaseRepository,
+            aboutRepository: aboutDatabaseRepository
         )
     }
 
@@ -93,6 +97,10 @@ extension AppEnvironment {
             databaseRepository: databaseRepositories.yearsRepository,
             appState: appState
         )
+        let aboutService = AboutServiceImpl(
+            cloudKitRepository: cloudKitRepositories.aboutRepository,
+            databaseRepository: databaseRepositories.aboutRepository
+        )
         let imagesService = ImagesServiceImpl(
             scholarsCloudKitRepository: cloudKitRepositories.scholarsRepository,
             memoryCacheRepository: cacheRepositories.imagesMemoryRepository
@@ -102,6 +110,7 @@ extension AppEnvironment {
         return .init(
             scholarsService: scholarsService,
             yearsService: yearsService,
+            aboutService: aboutService,
             imagesService: imagesService,
             geocodingService: geocodingService
         )
@@ -112,11 +121,13 @@ extension DIContainer {
     struct CloudKitRepositories {
         let scholarsRepository: ScholarsCloudKitRepositry
         let yearsRepository: YearsCloudKitRepository
+        let aboutRepository: AboutCloudKitRepository
     }
 
     struct DatabaseRepositories {
         let scholarsRepository: ScholarsDatabaseRepository
         let yearsRepository: YearsDatabaseRepository
+        let aboutRepository: AboutDatabaseRepository
     }
 
     struct CacheRepositories {

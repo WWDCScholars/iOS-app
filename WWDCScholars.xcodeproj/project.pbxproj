@@ -28,7 +28,10 @@
 		8EA34DA82673F66D00A71CCD /* ScholarSocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA34DA72673F66D00A71CCD /* ScholarSocialMedia.swift */; };
 		8EA713822683BCBE00C9362C /* LoggingCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA713812683BCBE00C9362C /* LoggingCategories.swift */; };
 		8EA713872683C0AD00C9362C /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA713862683C0AD00C9362C /* TeamMember.swift */; };
+		8EA7138B2683C57900C9362C /* AboutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7138A2683C57900C9362C /* AboutService.swift */; };
 		8EA7138D2683D7BF00C9362C /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7138C2683D7BF00C9362C /* FAQItem.swift */; };
+		8EA7138F2683DB4900C9362C /* AboutCloudKitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7138E2683DB4900C9362C /* AboutCloudKitRepository.swift */; };
+		8EA713912683DDCC00C9362C /* AboutDatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA713902683DDCC00C9362C /* AboutDatabaseRepository.swift */; };
 		8EA7139E2684E6E600C9362C /* TeamMember+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7139D2684E6E600C9362C /* TeamMember+MockData.swift */; };
 		8EA713A02684E95700C9362C /* FAQItem+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7139F2684E95700C9362C /* FAQItem+MockData.swift */; };
 		8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9146D2610CA4E007BDB30 /* WWDCScholarsApp.swift */; };
@@ -111,7 +114,10 @@
 		8EA34DA72673F66D00A71CCD /* ScholarSocialMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarSocialMedia.swift; sourceTree = "<group>"; };
 		8EA713812683BCBE00C9362C /* LoggingCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingCategories.swift; sourceTree = "<group>"; };
 		8EA713862683C0AD00C9362C /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
+		8EA7138A2683C57900C9362C /* AboutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutService.swift; sourceTree = "<group>"; };
 		8EA7138C2683D7BF00C9362C /* FAQItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQItem.swift; sourceTree = "<group>"; };
+		8EA7138E2683DB4900C9362C /* AboutCloudKitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCloudKitRepository.swift; sourceTree = "<group>"; };
+		8EA713902683DDCC00C9362C /* AboutDatabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDatabaseRepository.swift; sourceTree = "<group>"; };
 		8EA7139D2684E6E600C9362C /* TeamMember+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamMember+MockData.swift"; sourceTree = "<group>"; };
 		8EA7139F2684E95700C9362C /* FAQItem+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FAQItem+MockData.swift"; sourceTree = "<group>"; };
 		8EA9146A2610CA4E007BDB30 /* Scholars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scholars.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -391,6 +397,8 @@
 		8EA9150B26110ADC007BDB30 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				8EA7138E2683DB4900C9362C /* AboutCloudKitRepository.swift */,
+				8EA713902683DDCC00C9362C /* AboutDatabaseRepository.swift */,
 				8EA9156926111158007BDB30 /* ScholarsCloudKitRepository.swift */,
 				8EA9156A26111158007BDB30 /* ScholarsDatabaseRepository.swift */,
 				8EA9150D26110B0E007BDB30 /* YearsCloudKitRepository.swift */,
@@ -417,6 +425,7 @@
 		8EA9151926110BD9007BDB30 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8EA7138A2683C57900C9362C /* AboutService.swift */,
 				8EA915652611114A007BDB30 /* ScholarsService.swift */,
 				8EA9151A26110BF2007BDB30 /* YearsService.swift */,
 				8E2976E8261A212E00747D4C /* ImagesService.swift */,
@@ -640,6 +649,7 @@
 				8EA9154F2611107D007BDB30 /* ScholarsListView.swift in Sources */,
 				8EA91507261106AD007BDB30 /* CKQueryOperation+Publisher.swift in Sources */,
 				8EA9153D26110E2B007BDB30 /* YearPickerViewModel.swift in Sources */,
+				8EA7138B2683C57900C9362C /* AboutService.swift in Sources */,
 				8E2976EF261A26CC00747D4C /* ImagesFilesystemCacheRepository.swift in Sources */,
 				8E4AD37A26690C970017D02D /* ScholarProfileView.swift in Sources */,
 				8EA914F626110505007BDB30 /* AppEnvironment.swift in Sources */,
@@ -655,8 +665,10 @@
 				8EED5DF5267E8E39008DDF11 /* Logger+subsystem.swift in Sources */,
 				8EA9150F26110B0E007BDB30 /* YearsCloudKitRepository.swift in Sources */,
 				8EA915662611114A007BDB30 /* ScholarsService.swift in Sources */,
+				8EA7138F2683DB4900C9362C /* AboutCloudKitRepository.swift in Sources */,
 				8E2976E5261A203000747D4C /* AsyncImage.swift in Sources */,
 				8EA914EB261103C5007BDB30 /* AppState.swift in Sources */,
+				8EA713912683DDCC00C9362C /* AboutDatabaseRepository.swift in Sources */,
 				8EA91559261110CA007BDB30 /* Scholar+MockData.swift in Sources */,
 				8EA915502611107D007BDB30 /* ScholarsListViewModel.swift in Sources */,
 				8EA914702610CA4E007BDB30 /* ContentView.swift in Sources */,

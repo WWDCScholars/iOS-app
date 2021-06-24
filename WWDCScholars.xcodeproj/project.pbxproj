@@ -28,7 +28,9 @@
 		8EA34DA82673F66D00A71CCD /* ScholarSocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA34DA72673F66D00A71CCD /* ScholarSocialMedia.swift */; };
 		8EA713822683BCBE00C9362C /* LoggingCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA713812683BCBE00C9362C /* LoggingCategories.swift */; };
 		8EA713872683C0AD00C9362C /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA713862683C0AD00C9362C /* TeamMember.swift */; };
+		8EA7138D2683D7BF00C9362C /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7138C2683D7BF00C9362C /* FAQItem.swift */; };
 		8EA7139E2684E6E600C9362C /* TeamMember+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7139D2684E6E600C9362C /* TeamMember+MockData.swift */; };
+		8EA713A02684E95700C9362C /* FAQItem+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7139F2684E95700C9362C /* FAQItem+MockData.swift */; };
 		8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9146D2610CA4E007BDB30 /* WWDCScholarsApp.swift */; };
 		8EA914702610CA4E007BDB30 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9146F2610CA4E007BDB30 /* ContentView.swift */; };
 		8EA914722610CA4E007BDB30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EA914712610CA4E007BDB30 /* Assets.xcassets */; };
@@ -109,7 +111,9 @@
 		8EA34DA72673F66D00A71CCD /* ScholarSocialMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarSocialMedia.swift; sourceTree = "<group>"; };
 		8EA713812683BCBE00C9362C /* LoggingCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingCategories.swift; sourceTree = "<group>"; };
 		8EA713862683C0AD00C9362C /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
+		8EA7138C2683D7BF00C9362C /* FAQItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQItem.swift; sourceTree = "<group>"; };
 		8EA7139D2684E6E600C9362C /* TeamMember+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamMember+MockData.swift"; sourceTree = "<group>"; };
+		8EA7139F2684E95700C9362C /* FAQItem+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FAQItem+MockData.swift"; sourceTree = "<group>"; };
 		8EA9146A2610CA4E007BDB30 /* Scholars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scholars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA9146D2610CA4E007BDB30 /* WWDCScholarsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCScholarsApp.swift; sourceTree = "<group>"; };
 		8EA9146F2610CA4E007BDB30 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -403,6 +407,7 @@
 				8EA9151326110B2D007BDB30 /* WWDCYear.swift */,
 				8EA34DA72673F66D00A71CCD /* ScholarSocialMedia.swift */,
 				8EA713862683C0AD00C9362C /* TeamMember.swift */,
+				8EA7138C2683D7BF00C9362C /* FAQItem.swift */,
 				8EA91557261110B9007BDB30 /* MockData */,
 				8E9D1BC9267AAC7D00179226 /* RecordName.swift */,
 			);
@@ -480,6 +485,7 @@
 				8EA91558261110CA007BDB30 /* Scholar+MockData.swift */,
 				8E0592242673F83B005FEA18 /* ScholarSocialMedia+MockData.swift */,
 				8EA7139D2684E6E600C9362C /* TeamMember+MockData.swift */,
+				8EA7139F2684E95700C9362C /* FAQItem+MockData.swift */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -641,6 +647,7 @@
 				8E297702261A292700747D4C /* ImageCacheError.swift in Sources */,
 				8EA91508261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift in Sources */,
 				8EA914FF26110661007BDB30 /* CKRecordConvertible.swift in Sources */,
+				8EA7138D2683D7BF00C9362C /* FAQItem.swift in Sources */,
 				8EA914C326110278007BDB30 /* Loadable.swift in Sources */,
 				8EA9153626110E24007BDB30 /* ScholarsViewModel.swift in Sources */,
 				8EA91554261110AC007BDB30 /* Scholar.swift in Sources */,
@@ -661,6 +668,7 @@
 				8E9D1BCC267AAD2E00179226 /* ScholarProfileViewModel.swift in Sources */,
 				8EA7139E2684E6E600C9362C /* TeamMember+MockData.swift in Sources */,
 				8EA9151B26110BF2007BDB30 /* YearsService.swift in Sources */,
+				8EA713A02684E95700C9362C /* FAQItem+MockData.swift in Sources */,
 				8EA34DA62673F5E100A71CCD /* ProfileSocialsView.swift in Sources */,
 				8EA713822683BCBE00C9362C /* LoggingCategories.swift in Sources */,
 				8EED5DF7267E8E4A008DDF11 /* Logger+InitCategory.swift in Sources */,

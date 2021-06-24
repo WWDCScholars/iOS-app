@@ -39,8 +39,6 @@ extension Scholar: Comparable {
 }
 
 extension Scholar: CKRecordConvertible {
-    static var recordType: String { "Scholar" }
-
     init?(record: CKRecord) {
         guard let givenName = record["givenName"] as? String,
               let familyName = record["familyName"] as? String,

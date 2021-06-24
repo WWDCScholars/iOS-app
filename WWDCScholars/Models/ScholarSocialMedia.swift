@@ -24,8 +24,6 @@ struct ScholarSocialMedia {
 }
 
 extension ScholarSocialMedia: CKRecordConvertible {
-    static let recordType = "ScholarSocialMedia"
-
     init?(record: CKRecord) {
         guard let scholar = record["scholar"] as? CKRecord.Reference
         else { return nil }

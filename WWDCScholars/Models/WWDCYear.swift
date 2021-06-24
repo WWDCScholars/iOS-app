@@ -28,8 +28,6 @@ extension WWDCYear: Comparable {
 }
 
 extension WWDCYear: CKRecordConvertible {
-    static var recordType: String { "WWDCYear" }
-
     init?(record: CKRecord) {
         guard let name = record["name"] as? String,
               let year = record["year"] as? String

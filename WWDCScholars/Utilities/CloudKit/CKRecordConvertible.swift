@@ -11,3 +11,7 @@ protocol CKRecordConvertible {
     static var recordType: String { get }
     init?(record: CKRecord)
 }
+
+extension CKRecordConvertible {
+    static var recordType: String { String(describing: self) }
+}

@@ -32,6 +32,10 @@
 		8EA7138D2683D7BF00C9362C /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7138C2683D7BF00C9362C /* FAQItem.swift */; };
 		8EA7138F2683DB4900C9362C /* AboutCloudKitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7138E2683DB4900C9362C /* AboutCloudKitRepository.swift */; };
 		8EA713912683DDCC00C9362C /* AboutDatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA713902683DDCC00C9362C /* AboutDatabaseRepository.swift */; };
+		8EA713962684D29200C9362C /* AboutTeamMembersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA713952684D29200C9362C /* AboutTeamMembersView.swift */; };
+		8EA713982684D2E800C9362C /* AboutFAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA713972684D2E800C9362C /* AboutFAQView.swift */; };
+		8EA7139A2684D2FA00C9362C /* AboutTeamMembersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA713992684D2FA00C9362C /* AboutTeamMembersViewModel.swift */; };
+		8EA7139C2684D30E00C9362C /* AboutFAQViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7139B2684D30E00C9362C /* AboutFAQViewModel.swift */; };
 		8EA7139E2684E6E600C9362C /* TeamMember+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7139D2684E6E600C9362C /* TeamMember+MockData.swift */; };
 		8EA713A02684E95700C9362C /* FAQItem+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7139F2684E95700C9362C /* FAQItem+MockData.swift */; };
 		8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9146D2610CA4E007BDB30 /* WWDCScholarsApp.swift */; };
@@ -118,6 +122,10 @@
 		8EA7138C2683D7BF00C9362C /* FAQItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQItem.swift; sourceTree = "<group>"; };
 		8EA7138E2683DB4900C9362C /* AboutCloudKitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCloudKitRepository.swift; sourceTree = "<group>"; };
 		8EA713902683DDCC00C9362C /* AboutDatabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDatabaseRepository.swift; sourceTree = "<group>"; };
+		8EA713952684D29200C9362C /* AboutTeamMembersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTeamMembersView.swift; sourceTree = "<group>"; };
+		8EA713972684D2E800C9362C /* AboutFAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutFAQView.swift; sourceTree = "<group>"; };
+		8EA713992684D2FA00C9362C /* AboutTeamMembersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTeamMembersViewModel.swift; sourceTree = "<group>"; };
+		8EA7139B2684D30E00C9362C /* AboutFAQViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutFAQViewModel.swift; sourceTree = "<group>"; };
 		8EA7139D2684E6E600C9362C /* TeamMember+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamMember+MockData.swift"; sourceTree = "<group>"; };
 		8EA7139F2684E95700C9362C /* FAQItem+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FAQItem+MockData.swift"; sourceTree = "<group>"; };
 		8EA9146A2610CA4E007BDB30 /* Scholars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scholars.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +252,33 @@
 				8EED5DF6267E8E4A008DDF11 /* Logger+InitCategory.swift */,
 			);
 			path = OSLog;
+			sourceTree = "<group>";
+		};
+		8EA713922684A0AF00C9362C /* About */ = {
+			isa = PBXGroup;
+			children = (
+				8EA713932684A0BC00C9362C /* AboutTeamMembers */,
+				8EA713942684A0C200C9362C /* AboutFAQ */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		8EA713932684A0BC00C9362C /* AboutTeamMembers */ = {
+			isa = PBXGroup;
+			children = (
+				8EA713952684D29200C9362C /* AboutTeamMembersView.swift */,
+				8EA713992684D2FA00C9362C /* AboutTeamMembersViewModel.swift */,
+			);
+			path = AboutTeamMembers;
+			sourceTree = "<group>";
+		};
+		8EA713942684A0C200C9362C /* AboutFAQ */ = {
+			isa = PBXGroup;
+			children = (
+				8EA713972684D2E800C9362C /* AboutFAQView.swift */,
+				8EA7139B2684D30E00C9362C /* AboutFAQViewModel.swift */,
+			);
+			path = AboutFAQ;
 			sourceTree = "<group>";
 		};
 		8EA914612610CA4E007BDB30 = {
@@ -447,6 +482,7 @@
 		8EA9153126110DD6007BDB30 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8EA713922684A0AF00C9362C /* About */,
 				8EA34DA42673F5CA00A71CCD /* ScholarProfile */,
 				8EA9154426110E62007BDB30 /* ActivityIndicatorView.swift */,
 				8EA9154026110E40007BDB30 /* CapsulePicker.swift */,
@@ -656,10 +692,12 @@
 				8EA9152E26110C7A007BDB30 /* Publisher+sinkToLoadable.swift in Sources */,
 				8E297702261A292700747D4C /* ImageCacheError.swift in Sources */,
 				8EA91508261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift in Sources */,
+				8EA713962684D29200C9362C /* AboutTeamMembersView.swift in Sources */,
 				8EA914FF26110661007BDB30 /* CKRecordConvertible.swift in Sources */,
 				8EA7138D2683D7BF00C9362C /* FAQItem.swift in Sources */,
 				8EA914C326110278007BDB30 /* Loadable.swift in Sources */,
 				8EA9153626110E24007BDB30 /* ScholarsViewModel.swift in Sources */,
+				8EA713982684D2E800C9362C /* AboutFAQView.swift in Sources */,
 				8EA91554261110AC007BDB30 /* Scholar.swift in Sources */,
 				8E499587266C10D6006A51E2 /* Colors.swift in Sources */,
 				8EED5DF5267E8E39008DDF11 /* Logger+subsystem.swift in Sources */,
@@ -670,10 +708,12 @@
 				8EA914EB261103C5007BDB30 /* AppState.swift in Sources */,
 				8EA713912683DDCC00C9362C /* AboutDatabaseRepository.swift in Sources */,
 				8EA91559261110CA007BDB30 /* Scholar+MockData.swift in Sources */,
+				8EA7139A2684D2FA00C9362C /* AboutTeamMembersViewModel.swift in Sources */,
 				8EA915502611107D007BDB30 /* ScholarsListViewModel.swift in Sources */,
 				8EA914702610CA4E007BDB30 /* ContentView.swift in Sources */,
 				8EA915732611144C007BDB30 /* StatusBarStyleView.swift in Sources */,
 				8EA9153C26110E2B007BDB30 /* YearPickerView.swift in Sources */,
+				8EA7139C2684D30E00C9362C /* AboutFAQViewModel.swift in Sources */,
 				8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */,
 				8E29770B261A310300747D4C /* ScholarProfilePicture.swift in Sources */,
 				8EA9154126110E40007BDB30 /* CapsulePicker.swift in Sources */,

@@ -19,7 +19,7 @@ struct ScholarsListView: View {
         switch viewModel.scholars {
         case .notRequested: notRequestedView
         case let .isLoading(last, _): loadingView(last)
-        case let .loaded(scholars): loadedView(scholars, showLoading: false)
+        case let .loaded(scholars): loadedView(scholars)
         case let .failed(error): failedView(error)
         }
     }
@@ -34,10 +34,12 @@ extension ScholarsListView {
 
     @ViewBuilder
     private func loadingView(_ previouslyLoaded: LazyList<Scholar>?) -> some View {
-        if let scholars = previouslyLoaded {
-            loadedView(scholars, showLoading: true)
-        }
         ActivityIndicatorView()
+            .padding()
+
+        if let scholars = previouslyLoaded {
+            loadedView(scholars)
+        }
     }
 
     private func failedView(_ error: Error) -> some View {
@@ -51,12 +53,7 @@ extension ScholarsListView {
 
 extension ScholarsListView {
     @ViewBuilder
-    private func loadedView(_ scholars: LazyList<Scholar>, showLoading: Bool) -> some View {
-        if showLoading {
-            ActivityIndicatorView()
-                .padding()
-        }
-
+    private func loadedView(_ scholars: LazyList<Scholar>) -> some View {
         let items: [GridItem] = [
             .init(.adaptive(minimum: Constants.gridItemSize), spacing: Constants.gridSpacing)
         ]

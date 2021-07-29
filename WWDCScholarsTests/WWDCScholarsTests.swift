@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import WWDCScholars
+@testable import Scholars
 
 class WWDCScholarsTests: XCTestCase {
 

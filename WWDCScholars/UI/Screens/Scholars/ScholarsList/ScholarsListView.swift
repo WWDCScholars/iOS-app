@@ -79,11 +79,9 @@ extension ScholarsListView {
 
 // MARK: - Previews
 
-#if DEBUG
 struct ScholarsListView_Previews: PreviewProvider {
     static var previews: some View {
         ScholarsListView(viewModel: .init(container: .preview, scholars: .loaded(Scholar.mockData.lazyList), selectedYear: "WWDC 2020"))
             .padding(15)
     }
 }
-#endif

@@ -25,7 +25,8 @@ struct ErrorView: View {
     }
 }
 
-#if DEBUG
+// MARK: - Previews
+
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
         ErrorView(
@@ -34,4 +35,3 @@ struct ErrorView_Previews: PreviewProvider {
         )
     }
 }
-#endif

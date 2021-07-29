@@ -95,7 +95,8 @@ extension AsyncImage {
     }
 }
 
-#if DEBUG
+// MARK: - Previews
+
 struct CloudImage_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -108,4 +109,3 @@ struct CloudImage_Previews: PreviewProvider {
         .previewLayout(.fixed(width: 200, height: 200))
     }
 }
-#endif

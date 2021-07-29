@@ -83,7 +83,6 @@ struct CapsulePicker<SelectionValue>: View where SelectionValue: Hashable {
 
 // MARK: - Previews
 
-#if DEBUG
 struct CapsulePicker_Previews: PreviewProvider {
     @State static var selection: String = "WWDC 2020"
 
@@ -102,4 +101,3 @@ struct CapsulePicker_Previews: PreviewProvider {
             .background(Color.theme.brand)
     }
 }
-#endif

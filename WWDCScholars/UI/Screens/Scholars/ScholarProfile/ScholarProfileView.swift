@@ -58,7 +58,7 @@ extension ScholarProfileView {
                 Rectangle()
                     .aspectRatio(1, contentMode: .fill)
                     .overlay(
-                        ScholarProfilePicture(viewModel: .init(container: viewModel.container, scholar: scholar))
+                        ProfilePicture { viewModel.loadProfilePicture($0, of: scholar) }
                             .scaledToFill()
                     )
                     .frame(width: 200, height: 200)

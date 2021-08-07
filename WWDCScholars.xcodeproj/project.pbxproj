@@ -16,7 +16,7 @@
 		8E2976FA261A28AD00747D4C /* ImagesCacheRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2976F9261A28AD00747D4C /* ImagesCacheRepository.swift */; };
 		8E297702261A292700747D4C /* ImageCacheError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E297701261A292700747D4C /* ImageCacheError.swift */; };
 		8E297707261A29D400747D4C /* UIImage+estimatedSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E297706261A29D400747D4C /* UIImage+estimatedSize.swift */; };
-		8E29770B261A310300747D4C /* ScholarProfilePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E29770A261A310300747D4C /* ScholarProfilePicture.swift */; };
+		8E29770B261A310300747D4C /* ProfilePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E29770A261A310300747D4C /* ProfilePicture.swift */; };
 		8E499587266C10D6006A51E2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E499586266C10D6006A51E2 /* Colors.swift */; };
 		8E4AD37A26690C970017D02D /* ScholarProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4AD37926690C970017D02D /* ScholarProfileView.swift */; };
 		8E975214267391220027F3B1 /* ProfileMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E975213267391220027F3B1 /* ProfileMapView.swift */; };
@@ -108,7 +108,7 @@
 		8E2976F9261A28AD00747D4C /* ImagesCacheRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCacheRepository.swift; sourceTree = "<group>"; };
 		8E297701261A292700747D4C /* ImageCacheError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheError.swift; sourceTree = "<group>"; };
 		8E297706261A29D400747D4C /* UIImage+estimatedSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+estimatedSize.swift"; sourceTree = "<group>"; };
-		8E29770A261A310300747D4C /* ScholarProfilePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarProfilePicture.swift; sourceTree = "<group>"; };
+		8E29770A261A310300747D4C /* ProfilePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicture.swift; sourceTree = "<group>"; };
 		8E499586266C10D6006A51E2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8E4AD37926690C970017D02D /* ScholarProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarProfileView.swift; sourceTree = "<group>"; };
 		8E975213267391220027F3B1 /* ProfileMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMapView.swift; sourceTree = "<group>"; };
@@ -503,7 +503,7 @@
 				8EA9154826110E98007BDB30 /* ErrorView.swift */,
 				8EA9155C261110E1007BDB30 /* ScholarCell.swift */,
 				8E2976E4261A203000747D4C /* AsyncImage.swift */,
-				8E29770A261A310300747D4C /* ScholarProfilePicture.swift */,
+				8E29770A261A310300747D4C /* ProfilePicture.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -730,7 +730,7 @@
 				8EA9153C26110E2B007BDB30 /* YearPickerView.swift in Sources */,
 				8EA7139C2684D30E00C9362C /* AboutFAQViewModel.swift in Sources */,
 				8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */,
-				8E29770B261A310300747D4C /* ScholarProfilePicture.swift in Sources */,
+				8E29770B261A310300747D4C /* ProfilePicture.swift in Sources */,
 				8EA9154126110E40007BDB30 /* CapsulePicker.swift in Sources */,
 				8E9D1BCC267AAD2E00179226 /* ScholarProfileViewModel.swift in Sources */,
 				8EA7139E2684E6E600C9362C /* TeamMember+MockData.swift in Sources */,

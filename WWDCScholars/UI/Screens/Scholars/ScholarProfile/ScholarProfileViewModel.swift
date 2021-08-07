@@ -79,5 +79,9 @@ extension ScholarProfileView {
             case let .failed(error): return "Failed: \(error.localizedDescription)"
             }
         }
+
+        func loadProfilePicture(_ image: LoadableSubject<UIImage>, of scholar: Scholar) -> CancelBag {
+            container.services.imagesService.loadProfilePicture(image, of: scholar)
+        }
     }
 }

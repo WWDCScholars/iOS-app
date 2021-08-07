@@ -20,7 +20,7 @@ struct ScholarCell: View {
             Rectangle()
                 .aspectRatio(1, contentMode: .fill)
                 .overlay(
-                    ScholarProfilePicture(viewModel: .init(container: container, scholar: scholar))
+                    ProfilePicture { container.services.imagesService.loadProfilePicture($0, of: scholar) }
                         .scaledToFill()
                 )
 

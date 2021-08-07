@@ -6,6 +6,7 @@
 //
 
 import CloudKit
+import UIKit
 
 struct TeamMember {
     let recordName: String
@@ -13,7 +14,7 @@ struct TeamMember {
     let name: String
     let biography: String?
     let birthday: Date?
-    let picture: CKAsset?
+    let picture: UIImage?
     let isActive: Bool
     let scholar: CKRecord.Reference?
 }
@@ -42,7 +43,7 @@ extension TeamMember: CKRecordConvertible {
         self.name = name
         biography = record["biography"] as? String
         birthday = record["birthday"] as? Date
-        picture = record["picture"] as? CKAsset
+        picture = (record["picture"] as? CKAsset)?.image
         self.isActive = isActive
         scholar = record["scholar"] as? CKRecord.Reference
     }

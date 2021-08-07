@@ -140,7 +140,9 @@ struct StubScholarsService: ScholarsService {
         return Just.withErrorType(Error.self)
     }
 
-    func load(scholars: LoadableSubject<LazyList<Scholar>>, year: String) {}
+    func load(scholars: LoadableSubject<LazyList<Scholar>>, year: String) {
+        scholars.wrappedValue = .loaded(Scholar.mockData.lazyList)
+    }
 
     func load(socialMedia: LoadableSubject<ScholarSocialMedia>, scholar: Scholar) {}
 }

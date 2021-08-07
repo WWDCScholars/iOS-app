@@ -6,6 +6,7 @@
 //
 
 import CloudKit
+import UIKit
 
 struct Scholar {
     let recordName: String
@@ -16,7 +17,7 @@ struct Scholar {
     let birthday: Date
     let location: CLLocation
     let biography: String
-    let profilePicture: CKAsset?
+    let profilePicture: UIImage?
     let gdprConsentAt: Date
 
     let scholarPrivate: CKRecord.Reference?
@@ -61,7 +62,7 @@ extension Scholar: CKRecordConvertible {
         self.birthday = birthday
         self.location = location
         self.biography = biography
-        profilePicture = record["profilePicture"] as? CKAsset
+        profilePicture = (record["profilePicture"] as? CKAsset)?.image
         self.gdprConsentAt = gdprConsentAt
 
         scholarPrivate = record["scholarPrivate"] as? CKRecord.Reference

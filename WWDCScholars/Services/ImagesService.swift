@@ -38,13 +38,13 @@ struct ImagesServiceImpl: ImagesService {
 //                  // TODO: Filesystem Cache
 //            }
             .catch { _ -> AnyPublisher<UIImage, Error> in
-                if let asset = scholar.profilePicture, let loadedImage = loadAsset(asset) {
-                    return Just(loadedImage).setFailureType(to: Error.self).eraseToAnyPublisher()
+                if let profilePicture = scholar.profilePicture {
+                    return Just(profilePicture).setFailureType(to: Error.self).eraseToAnyPublisher()
                 }
 
                 return self.scholarsCloudKitRepository.loadScholarProfilePicture(of: scholar)
                     .flatMap { asset -> AnyPublisher<UIImage, Error> in
-                        if let fetchedImage = loadAsset(asset) {
+                        if let fetchedImage = asset.image {
                             return Just(fetchedImage).setFailureType(to: Error.self).eraseToAnyPublisher()
                         }
                         return Fail(error: ImagesServiceError.fetchedImageMissing).eraseToAnyPublisher()
@@ -75,6 +75,13 @@ enum ImagesServiceError: Error {
 
 struct StubImagesService: ImagesService {
     func loadProfilePicture(_ image: LoadableSubject<UIImage>, of scholar: Scholar) -> CancelBag {
-        fatalError()
+        if let profilePicture = scholar.profilePicture {
+            image.wrappedValue = .loaded(profilePicture)
+        } else {
+            image.wrappedValue = .failed(ValueIsMissingError())
+        }
+
+        return CancelBag()
+    }
     }
 }

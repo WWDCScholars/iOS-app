@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E0592252673F83B005FEA18 /* ScholarSocialMedia+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0592242673F83B005FEA18 /* ScholarSocialMedia+MockData.swift */; };
+		8E1DA3BF26B2F17E008816DD /* CKAsset+image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DA3BE26B2F17E008816DD /* CKAsset+image.swift */; };
 		8E1F2F7D2680D8CB0035886A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1F2F7C2680D8CB0035886A /* Colors.xcassets */; };
 		8E2976E5261A203000747D4C /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2976E4261A203000747D4C /* AsyncImage.swift */; };
 		8E2976E9261A212E00747D4C /* ImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2976E8261A212E00747D4C /* ImagesService.swift */; };
@@ -100,6 +101,7 @@
 
 /* Begin PBXFileReference section */
 		8E0592242673F83B005FEA18 /* ScholarSocialMedia+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScholarSocialMedia+MockData.swift"; sourceTree = "<group>"; };
+		8E1DA3BE26B2F17E008816DD /* CKAsset+image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKAsset+image.swift"; sourceTree = "<group>"; };
 		8E1F2F7C2680D8CB0035886A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8E2976E4261A203000747D4C /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		8E2976E8261A212E00747D4C /* ImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesService.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 			children = (
 				8EA91506261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift */,
 				8EA91505261106AD007BDB30 /* CKQueryOperation+Publisher.swift */,
+				8E1DA3BE26B2F17E008816DD /* CKAsset+image.swift */,
 			);
 			path = CloudKit;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 				8EA914EC261103C5007BDB30 /* DependencyInjector.swift in Sources */,
 				8E0592252673F83B005FEA18 /* ScholarSocialMedia+MockData.swift in Sources */,
 				8E2976E9261A212E00747D4C /* ImagesService.swift in Sources */,
+				8E1DA3BF26B2F17E008816DD /* CKAsset+image.swift in Sources */,
 				8E975214267391220027F3B1 /* ProfileMapView.swift in Sources */,
 				8EA915722611144C007BDB30 /* NavigationBarColor.swift in Sources */,
 				8EA914E526110386007BDB30 /* CancelBag.swift in Sources */,

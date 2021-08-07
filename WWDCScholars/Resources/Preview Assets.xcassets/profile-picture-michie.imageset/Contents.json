@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "profile-picture-michie.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

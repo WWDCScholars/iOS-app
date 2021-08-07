@@ -7,6 +7,7 @@
 
 import CloudKit
 import Foundation
+import UIKit
 
 #if DEBUG
 extension TeamMember {
@@ -16,7 +17,7 @@ extension TeamMember {
             name: "Andrew Walker",
             biography: "Andrew has been working on iOS applications for 4 1/2 years. He recently interned at Apple after attending WWDC as a scholarship winner for three consecutive years.",
             birthday: Date(timeIntervalSince1970: 845856000),
-            picture: nil,
+            picture: UIImage(named: "profile-picture-andrew"),
             isActive: false,
             scholar: .init(recordID: .init(recordName: "CAA0AC95-E07D-4648-85BE-AE727440BD34"), action: .none)
         ),
@@ -25,7 +26,7 @@ extension TeamMember {
             name: "Michie Ang",
             biography: "Michie was a nurse when she first got into iOS development. She won a scholarship three times, builds tech communities and travels around to inspire others to learn programming.",
             birthday: Date(timeIntervalSince1970: 845856000),
-            picture: nil,
+            picture: UIImage(named: "profile-picture-michie"),
             isActive: true,
             scholar: .init(recordID: .init(recordName: "4A4B50FA-4D81-49E5-B38A-7AB4B5710BA1"), action: .none)
         ),
@@ -34,7 +35,7 @@ extension TeamMember {
             name: "Moritz Sternemann",
             biography: "Moritz is the most recent addition to our team and mostly worked on our website and the signup form. He attended WWDC as a scholarship winner for three years.",
             birthday: Date(timeIntervalSince1970: 845856000),
-            picture: nil,
+            picture: UIImage(named: "profile-picture-moritz"),
             isActive: true,
             scholar: .init(recordID: .init(recordName: "4B12EC83-9A0A-44F2-A815-D4A99AA7D208"), action: .none)
         ),
@@ -43,7 +44,7 @@ extension TeamMember {
             name: "Sam Eckert",
             biography: "Sam started developing iOS apps when he turned 14. He received two WWDC scholarships and is now building great apps at vectornator.io",
             birthday: Date(timeIntervalSince1970: 845856000),
-            picture: nil,
+            picture: UIImage(named: "profile-picture-sam"),
             isActive: true,
             scholar: .init(recordID: .init(recordName: "3DC4AA81-48FC-4CD3-AF2D-0C74B73489B6"), action: .none)
         ),

@@ -72,5 +72,6 @@ extension YearPickerView {
 struct YearPickerView_Previews: PreviewProvider {
     static var previews: some View {
         YearPickerView(viewModel: .init(container: .preview, selectedYear: Binding.constant("WWDC 2020")), selectedYear: Binding.constant("WWDC 2020"))
+            .background(Color.theme.brand)
     }
 }

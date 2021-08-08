@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8E0592252673F83B005FEA18 /* ScholarSocialMedia+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0592242673F83B005FEA18 /* ScholarSocialMedia+MockData.swift */; };
 		8E1DA3BF26B2F17E008816DD /* CKAsset+image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DA3BE26B2F17E008816DD /* CKAsset+image.swift */; };
+		8E1DA3C126B2FDD8008816DD /* WWDCYear+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DA3C026B2FDD8008816DD /* WWDCYear+MockData.swift */; };
+		8E1DA3C426B30B0C008816DD /* CLPlacemark+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DA3C326B30B0C008816DD /* CLPlacemark+MockData.swift */; };
 		8E1F2F7D2680D8CB0035886A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1F2F7C2680D8CB0035886A /* Colors.xcassets */; };
 		8E2976E5261A203000747D4C /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2976E4261A203000747D4C /* AsyncImage.swift */; };
 		8E2976E9261A212E00747D4C /* ImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2976E8261A212E00747D4C /* ImagesService.swift */; };
@@ -102,6 +104,8 @@
 /* Begin PBXFileReference section */
 		8E0592242673F83B005FEA18 /* ScholarSocialMedia+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScholarSocialMedia+MockData.swift"; sourceTree = "<group>"; };
 		8E1DA3BE26B2F17E008816DD /* CKAsset+image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKAsset+image.swift"; sourceTree = "<group>"; };
+		8E1DA3C026B2FDD8008816DD /* WWDCYear+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WWDCYear+MockData.swift"; sourceTree = "<group>"; };
+		8E1DA3C326B30B0C008816DD /* CLPlacemark+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLPlacemark+MockData.swift"; sourceTree = "<group>"; };
 		8E1F2F7C2680D8CB0035886A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8E2976E4261A203000747D4C /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		8E2976E8261A212E00747D4C /* ImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesService.swift; sourceTree = "<group>"; };
@@ -206,6 +210,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E1DA3C226B30AEF008816DD /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				8E1DA3C326B30B0C008816DD /* CLPlacemark+MockData.swift */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
 		8E2976F8261A289A00747D4C /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +337,7 @@
 				8EA9151926110BD9007BDB30 /* Services */,
 				8EA9150C26110AF6007BDB30 /* Models */,
 				8EA914B7261100CD007BDB30 /* UI */,
+				8E1DA3C226B30AEF008816DD /* MockData */,
 				8EA914B52611007B007BDB30 /* Resources */,
 			);
 			path = WWDCScholars;
@@ -548,6 +561,7 @@
 				8E0592242673F83B005FEA18 /* ScholarSocialMedia+MockData.swift */,
 				8EA7139D2684E6E600C9362C /* TeamMember+MockData.swift */,
 				8EA7139F2684E95700C9362C /* FAQItem+MockData.swift */,
+				8E1DA3C026B2FDD8008816DD /* WWDCYear+MockData.swift */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -729,6 +743,7 @@
 				8EA91559261110CA007BDB30 /* Scholar+MockData.swift in Sources */,
 				8EA7139A2684D2FA00C9362C /* AboutTeamMembersViewModel.swift in Sources */,
 				8EA915502611107D007BDB30 /* ScholarsListViewModel.swift in Sources */,
+				8E1DA3C126B2FDD8008816DD /* WWDCYear+MockData.swift in Sources */,
 				8EA914702610CA4E007BDB30 /* ContentView.swift in Sources */,
 				8EA915732611144C007BDB30 /* StatusBarStyleView.swift in Sources */,
 				8EA9153C26110E2B007BDB30 /* YearPickerView.swift in Sources */,
@@ -739,6 +754,7 @@
 				8E9D1BCC267AAD2E00179226 /* ScholarProfileViewModel.swift in Sources */,
 				8EA7139E2684E6E600C9362C /* TeamMember+MockData.swift in Sources */,
 				8EA713892683C29D00C9362C /* AboutViewModel.swift in Sources */,
+				8E1DA3C426B30B0C008816DD /* CLPlacemark+MockData.swift in Sources */,
 				8EA9151B26110BF2007BDB30 /* YearsService.swift in Sources */,
 				8EA713A02684E95700C9362C /* FAQItem+MockData.swift in Sources */,
 				8EA34DA62673F5E100A71CCD /* ProfileSocialsView.swift in Sources */,

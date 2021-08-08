@@ -56,9 +56,7 @@ struct YearsServiceImpl: YearsService {
                 databaseRepository.years()
             }
             .receive(on: RunLoop.main)
-            .sinkToLoadable {
-                years.wrappedValue = $0
-            }
+            .sinkToLoadable { years.wrappedValue = $0 }
             .store(in: cancelBag)
     }
 }
@@ -68,5 +66,7 @@ struct StubYearsService: YearsService {
         return Just.withErrorType(Error.self)
     }
 
-    func load(years: LoadableSubject<LazyList<WWDCYear>>) {}
+    func load(years: LoadableSubject<LazyList<WWDCYear>>) {
+        years.wrappedValue = .loaded(WWDCYear.mockData.lazyList)
+    }
 }

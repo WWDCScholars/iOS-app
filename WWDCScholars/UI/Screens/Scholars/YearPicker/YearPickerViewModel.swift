@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 extension YearPickerView {
     final class ViewModel: ObservableObject {
         // State

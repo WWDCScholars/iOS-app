@@ -47,8 +47,26 @@ extension AboutTeamMembersView {
 
 extension AboutTeamMembersView {
     @ViewBuilder
-    private func loadedView(_ faqItems: LazyList<TeamMember>) -> some View {
-        Text("\(faqItems.count) team members")
+    private func loadedView(_ teamMembers: LazyList<TeamMember>) -> some View {
+        VStack {
+            ForEach(teamMembers) { teamMember in
+                HStack {
+                    Rectangle()
+                        .aspectRatio(1, contentMode: .fill)
+                        .overlay(
+                            ProfilePicture { viewModel.loadPicture($0, of: teamMember) }
+                                .scaledToFill()
+                        )
+                        .frame(width: 100, height: 100)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.white, lineWidth: 3))
+                        .shadow(color: .black.opacity(0.16), radius: 3)
+
+
+                    Text("\(teamMember.name)")
+                }
+            }
+        }
     }
 }
 

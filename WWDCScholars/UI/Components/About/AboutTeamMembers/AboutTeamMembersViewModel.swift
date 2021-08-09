@@ -31,5 +31,9 @@ extension AboutTeamMembersView {
                     isActive: showActiveTeamMembers
                 )
         }
+
+        func loadPicture(_ image: LoadableSubject<UIImage>, of teamMember: TeamMember) -> CancelBag {
+            container.services.imagesService.loadPicture(image, of: teamMember)
+        }
     }
 }

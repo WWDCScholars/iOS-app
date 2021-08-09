@@ -103,6 +103,7 @@ extension AppEnvironment {
         )
         let imagesService = ImagesServiceImpl(
             scholarsCloudKitRepository: cloudKitRepositories.scholarsRepository,
+            aboutCloudKitRepository: cloudKitRepositories.aboutRepository,
             memoryCacheRepository: cacheRepositories.imagesMemoryRepository
         )
         let geocodingService = configuredGeocodingService()

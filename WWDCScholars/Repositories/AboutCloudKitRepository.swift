@@ -11,6 +11,7 @@ import OSLog
 
 protocol AboutCloudKitRepository: CloudKitRepository {
     func loadAllTeamMembers(isActive: Bool) -> AnyPublisher<[TeamMember], Error>
+    func loadTeamMemberPicture(of teamMember: TeamMember) -> AnyPublisher<CKAsset, Error>
     func loadAllFAQItems(languageCode: String) -> AnyPublisher<[FAQItem], Error>
 }
 
@@ -32,6 +33,17 @@ struct AboutCloudKitRepositoryImpl: AboutCloudKitRepository {
 
         logger.info("loadAllTeamMembers isActive=\(isActive, privacy: .public)")
         return queryAll(teamMembersQuery, desiredKeys: TeamMember.DesiredKeys.default)
+    }
+
+    func loadTeamMemberPicture(of teamMember: TeamMember) -> AnyPublisher<CKAsset, Error> {
+        let teamMemberRecordID = CKRecord.ID(recordName: teamMember.recordName)
+
+        logger.info("loadTeamMemberPicture teamMember=\(teamMember.recordName)")
+        return fetch(recordID: teamMemberRecordID, desiredKeys: TeamMember.DesiredKeys.onlyPicture)
+            .compactMap { record -> CKAsset? in
+                return record["picture"] as? CKAsset
+            }
+            .eraseToAnyPublisher()
     }
 
     func loadAllFAQItems(languageCode: String) -> AnyPublisher<[FAQItem], Error> {

@@ -13,7 +13,14 @@ struct ContentView: View {
     @ObservedObject private(set) var viewModel: ViewModel
 
     var body: some View {
-        ScholarsView(viewModel: .init(container: viewModel.container))
+        TabView {
+            ScholarsView(viewModel: .init(container: viewModel.container))
+                .tabItem { Label("Scholars", systemImage: "graduationcap") }
+
+            AboutView(viewModel: .init(container: viewModel.container))
+                .tabItem { Label("About", systemImage: "person.3") }
+        }
+        .accentColor(.theme.brand)
     }
 }
 

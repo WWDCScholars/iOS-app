@@ -18,7 +18,7 @@ final class CancelBag {
         subscriptions.formUnion(cancellables())
     }
 
-    @_functionBuilder
+    @resultBuilder
     struct Builder {
         static func buildBlock(_ cancellables: AnyCancellable...) -> [AnyCancellable] {
             return cancellables

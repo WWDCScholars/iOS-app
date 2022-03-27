@@ -22,6 +22,8 @@
 		8E29770B261A310300747D4C /* ProfilePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E29770A261A310300747D4C /* ProfilePicture.swift */; };
 		8E499587266C10D6006A51E2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E499586266C10D6006A51E2 /* Colors.swift */; };
 		8E4AD37A26690C970017D02D /* ScholarProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4AD37926690C970017D02D /* ScholarProfileView.swift */; };
+		8E73344127EFC2C700733350 /* WWDCYearInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344027EFC2C700733350 /* WWDCYearInfo.swift */; };
+		8E73344B27F0845D00733350 /* WWDCYearInfo+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344A27F0845D00733350 /* WWDCYearInfo+MockData.swift */; };
 		8E975214267391220027F3B1 /* ProfileMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E975213267391220027F3B1 /* ProfileMapView.swift */; };
 		8E9D1BCA267AAC7D00179226 /* RecordName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BC9267AAC7D00179226 /* RecordName.swift */; };
 		8E9D1BCC267AAD2E00179226 /* ScholarProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BCB267AAD2E00179226 /* ScholarProfileViewModel.swift */; };
@@ -117,6 +119,8 @@
 		8E29770A261A310300747D4C /* ProfilePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicture.swift; sourceTree = "<group>"; };
 		8E499586266C10D6006A51E2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8E4AD37926690C970017D02D /* ScholarProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarProfileView.swift; sourceTree = "<group>"; };
+		8E73344027EFC2C700733350 /* WWDCYearInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCYearInfo.swift; sourceTree = "<group>"; };
+		8E73344A27F0845D00733350 /* WWDCYearInfo+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WWDCYearInfo+MockData.swift"; sourceTree = "<group>"; };
 		8E975213267391220027F3B1 /* ProfileMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMapView.swift; sourceTree = "<group>"; };
 		8E9D1BC9267AAC7D00179226 /* RecordName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordName.swift; sourceTree = "<group>"; };
 		8E9D1BCB267AAD2E00179226 /* ScholarProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarProfileViewModel.swift; sourceTree = "<group>"; };
@@ -478,6 +482,7 @@
 			children = (
 				8EA91553261110AC007BDB30 /* Scholar.swift */,
 				8EA9151326110B2D007BDB30 /* WWDCYear.swift */,
+				8E73344027EFC2C700733350 /* WWDCYearInfo.swift */,
 				8EA34DA72673F66D00A71CCD /* ScholarSocialMedia.swift */,
 				8EA713862683C0AD00C9362C /* TeamMember.swift */,
 				8EA7138C2683D7BF00C9362C /* FAQItem.swift */,
@@ -562,6 +567,7 @@
 				8EA7139D2684E6E600C9362C /* TeamMember+MockData.swift */,
 				8EA7139F2684E95700C9362C /* FAQItem+MockData.swift */,
 				8E1DA3C026B2FDD8008816DD /* WWDCYear+MockData.swift */,
+				8E73344A27F0845D00733350 /* WWDCYearInfo+MockData.swift */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -717,6 +723,7 @@
 				8EA9154F2611107D007BDB30 /* ScholarsListView.swift in Sources */,
 				8EA91507261106AD007BDB30 /* CKQueryOperation+Publisher.swift in Sources */,
 				8EA9153D26110E2B007BDB30 /* YearPickerViewModel.swift in Sources */,
+				8E73344127EFC2C700733350 /* WWDCYearInfo.swift in Sources */,
 				8EA7138B2683C57900C9362C /* AboutService.swift in Sources */,
 				8E2976EF261A26CC00747D4C /* ImagesFilesystemCacheRepository.swift in Sources */,
 				8E4AD37A26690C970017D02D /* ScholarProfileView.swift in Sources */,
@@ -727,6 +734,7 @@
 				8EA91508261106AD007BDB30 /* CKFetchRecordsOperation+Publisher.swift in Sources */,
 				8EA713962684D29200C9362C /* AboutTeamMembersView.swift in Sources */,
 				8EA914FF26110661007BDB30 /* CKRecordConvertible.swift in Sources */,
+				8E73344B27F0845D00733350 /* WWDCYearInfo+MockData.swift in Sources */,
 				8EA7138D2683D7BF00C9362C /* FAQItem.swift in Sources */,
 				8EA914C326110278007BDB30 /* Loadable.swift in Sources */,
 				8EA9153626110E24007BDB30 /* ScholarsViewModel.swift in Sources */,

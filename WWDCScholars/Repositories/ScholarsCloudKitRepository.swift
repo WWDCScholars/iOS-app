@@ -14,6 +14,7 @@ protocol ScholarsCloudKitRepositry: CloudKitRepository {
     func loadAllScholars(year: String) -> AnyPublisher<[Scholar], Error>
     func loadScholarProfilePicture(of scholar: Scholar) -> AnyPublisher<CKAsset, Error>
     func loadSocialMedia(with recordID: CKRecord.ID) -> AnyPublisher<ScholarSocialMedia, Error>
+    func loadWWDCYearInfo(with recordID: CKRecord.ID) -> AnyPublisher<WWDCYearInfo, Error>
 }
 
 struct ScholarsCloudKitRepositoryImpl: ScholarsCloudKitRepositry {
@@ -61,5 +62,10 @@ struct ScholarsCloudKitRepositoryImpl: ScholarsCloudKitRepositry {
     func loadSocialMedia(with recordID: CKRecord.ID) -> AnyPublisher<ScholarSocialMedia, Error> {
         logger.info("loadSocialMedia: \(recordID.recordName)")
         return fetch(recordID: recordID)
+    }
+
+    func loadWWDCYearInfo(with recordID: CKRecord.ID) -> AnyPublisher<WWDCYearInfo, Error> {
+        logger.info("loadWWDCYearInfo: \(recordID.recordName)")
+        return fetch(recordID: recordID, desiredKeys: WWDCYearInfo.DesiredKeys.default)
     }
 }

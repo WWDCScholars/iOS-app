@@ -10,6 +10,7 @@ import Combine
 import OSLog
 
 protocol YearsCloudKitRepository: CloudKitRepository {
+    func loadYear(recordName: String) -> AnyPublisher<WWDCYear, Error>
     func loadAllYears() -> AnyPublisher<[WWDCYear], Error>
 }
 
@@ -18,6 +19,11 @@ struct YearsCloudKitRepositoryImpl: YearsCloudKitRepository {
 
     let database: CKDatabase
     let queue: DispatchQueue
+
+    func loadYear(recordName: String) -> AnyPublisher<WWDCYear, Error> {
+        logger.info("loadYear: \(recordName)")
+        return fetch(recordID: .init(recordName: recordName))
+    }
 
     func loadAllYears()  -> AnyPublisher<[WWDCYear], Error> {
         let sortYear = NSSortDescriptor(key: "year", ascending: true)

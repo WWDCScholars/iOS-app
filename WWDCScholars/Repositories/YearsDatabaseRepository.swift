@@ -8,6 +8,9 @@
 import Combine
 
 protocol YearsDatabaseRepository {
+    func store(year: WWDCYear) -> AnyPublisher<WWDCYear?, Error>
+    func year(recordName: String) -> AnyPublisher<WWDCYear?, Error>
+
     func hasLoadedYears() -> AnyPublisher<Bool, Error>
 
     func store(years: [WWDCYear]) -> AnyPublisher<Void, Error>
@@ -16,6 +19,19 @@ protocol YearsDatabaseRepository {
 
 struct YearsDatabaseRepositoryImpl: YearsDatabaseRepository {
     private let inMemoryStore = InMemoryStore()
+
+    func store(year: WWDCYear) -> AnyPublisher<WWDCYear?, Error> {
+        inMemoryStore.years[year.recordName] = year
+        return Just.withErrorType(year, Error.self)
+    }
+
+    func year(recordName: String) -> AnyPublisher<WWDCYear?, Error> {
+        return Just.withErrorType(Error.self)
+            .map {
+                inMemoryStore.years[recordName]
+            }
+            .eraseToAnyPublisher()
+    }
 
     func hasLoadedYears() -> AnyPublisher<Bool, Error> {
         return Just.withErrorType(!inMemoryStore.years.isEmpty, Error.self)

@@ -13,28 +13,35 @@ protocol ScholarsService {
     func refreshScholarsList(year: String) -> AnyPublisher<Void, Error>
     func load(scholars: LoadableSubject<LazyList<Scholar>>, year: String)
     func load(socialMedia: LoadableSubject<ScholarSocialMedia>, scholar: Scholar)
+    func load(yearInfoAndYear: LoadableSubject<(WWDCYearInfo, WWDCYear)>, scholar: Scholar, yearRecordName: String)
 }
 
 struct ScholarsServiceImpl: ScholarsService {
-    let cloudKitRepository: ScholarsCloudKitRepositry
-    let databaseRepository: ScholarsDatabaseRepository
+    let scholarsCloudKitRepository: ScholarsCloudKitRepositry
+    let scholarsDatabaseRepository: ScholarsDatabaseRepository
+    let yearsCloudKitRepository: YearsCloudKitRepository
+    let yearsDatabaseRepository: YearsDatabaseRepository
     let appState: Store<AppState>
 
     init(
-        cloudKitRepository: ScholarsCloudKitRepositry,
-        databaseRepository: ScholarsDatabaseRepository,
+        scholarsCloudKitRepository: ScholarsCloudKitRepositry,
+        scholarsDatabaseRepository: ScholarsDatabaseRepository,
+        yearsCloudKitRepository: YearsCloudKitRepository,
+        yearsDatabaseRepository: YearsDatabaseRepository,
         appState: Store<AppState>
     ) {
-        self.cloudKitRepository = cloudKitRepository
-        self.databaseRepository = databaseRepository
+        self.scholarsCloudKitRepository = scholarsCloudKitRepository
+        self.scholarsDatabaseRepository = scholarsDatabaseRepository
+        self.yearsCloudKitRepository = yearsCloudKitRepository
+        self.yearsDatabaseRepository = yearsDatabaseRepository
         self.appState = appState
     }
 
     private func loadScholar(recordName: String) -> AnyPublisher<Void, Error> {
-        return cloudKitRepository
+        return scholarsCloudKitRepository
             .loadScholar(recordName: recordName)
-            .flatMap { [databaseRepository] in
-                databaseRepository.store(scholar: $0)
+            .flatMap { [scholarsDatabaseRepository] in
+                scholarsDatabaseRepository.store(scholar: $0)
             }
             .eraseToAnyPublisher()
     }
@@ -44,16 +51,16 @@ struct ScholarsServiceImpl: ScholarsService {
         scholar.wrappedValue.setIsLoading(cancelBag: cancelBag)
 
         Just.withErrorType(Error.self)
-            .flatMap { [databaseRepository] () -> AnyPublisher<Scholar?, Error> in
-                databaseRepository.scholar(recordName: recordName)
+            .flatMap { [scholarsDatabaseRepository] () -> AnyPublisher<Scholar?, Error> in
+                scholarsDatabaseRepository.scholar(recordName: recordName)
             }
-            .flatMap { [databaseRepository] scholar -> AnyPublisher<Scholar?, Error> in
+            .flatMap { [scholarsDatabaseRepository] scholar -> AnyPublisher<Scholar?, Error> in
                 if let scholar = scholar {
                     return Just.withErrorType(scholar, Error.self)
                 } else {
                     return loadScholar(recordName: recordName)
-                        .flatMap { [databaseRepository] in
-                            databaseRepository.scholar(recordName: recordName)
+                        .flatMap { [scholarsDatabaseRepository] in
+                            scholarsDatabaseRepository.scholar(recordName: recordName)
                         }
                         .eraseToAnyPublisher()
                 }
@@ -70,10 +77,10 @@ struct ScholarsServiceImpl: ScholarsService {
     }
 
     func refreshScholarsList(year: String) -> AnyPublisher<Void, Error> {
-        return cloudKitRepository
+        return scholarsCloudKitRepository
             .loadAllScholars(year: year)
-            .flatMap { [databaseRepository] in
-                databaseRepository.store(scholars: $0)
+            .flatMap { [scholarsDatabaseRepository] in
+                scholarsDatabaseRepository.store(scholars: $0)
             }
             .eraseToAnyPublisher()
     }
@@ -88,15 +95,15 @@ struct ScholarsServiceImpl: ScholarsService {
         //   2.1 when done, replace loaded with new result
 
         // return all Scholars from cache
-        databaseRepository.scholars(year: year)
+        scholarsDatabaseRepository.scholars(year: year)
             .receive(on: RunLoop.main)
             .sinkToLoadableLoading(cancelBag: cancelBag) { scholars.wrappedValue = $0 }
             .store(in: cancelBag)
 
         // start loading all Scholars from CloudKit
         refreshScholarsList(year: year)
-            .flatMap { [databaseRepository] in
-                databaseRepository.scholars(year: year)
+            .flatMap { [scholarsDatabaseRepository] in
+                scholarsDatabaseRepository.scholars(year: year)
             }
             .receive(on: RunLoop.main)
             .sinkToLoadable { scholars.wrappedValue = $0 }
@@ -107,7 +114,7 @@ struct ScholarsServiceImpl: ScholarsService {
         let cancelBag = CancelBag()
         socialMedia.wrappedValue.setIsLoading(cancelBag: cancelBag)
 
-        databaseRepository
+        scholarsDatabaseRepository
             .socialMedia(for: scholar)
             .flatMap { socialMedia -> AnyPublisher<ScholarSocialMedia?, Error> in
                 if socialMedia != nil {
@@ -122,10 +129,71 @@ struct ScholarsServiceImpl: ScholarsService {
     }
 
     private func loadAndStoreSocialMediaFromCloudKit(scholar: Scholar) -> AnyPublisher<ScholarSocialMedia?, Error> {
-        return cloudKitRepository
+        return scholarsCloudKitRepository
             .loadSocialMedia(with: scholar.socialMedia.recordID)
-            .flatMap { [databaseRepository] in
-                databaseRepository.store(socialMedia: $0, for: scholar)
+            .flatMap { [scholarsDatabaseRepository] in
+                scholarsDatabaseRepository.store(socialMedia: $0, for: scholar)
+            }
+            .eraseToAnyPublisher()
+    }
+
+    func load(yearInfoAndYear: LoadableSubject<(WWDCYearInfo, WWDCYear)>, scholar: Scholar, yearRecordName: String) {
+        let cancelBag = CancelBag()
+        yearInfoAndYear.wrappedValue.setIsLoading(cancelBag: cancelBag)
+
+        let yearInfoPublisher = scholarsDatabaseRepository
+            .yearInfo(for: scholar, year: yearRecordName)
+            .flatMap { yearInfo -> AnyPublisher<WWDCYearInfo?, Error> in
+                if yearInfo != nil {
+                    return Just.withErrorType(yearInfo, Error.self)
+                } else {
+                    return self.loadAndStoreYearInfoFromCloudKit(scholar: scholar, yearRecordName: yearRecordName)
+                }
+            }
+
+        let yearPublisher = yearsDatabaseRepository
+            .year(recordName: yearRecordName)
+            .flatMap { year -> AnyPublisher<WWDCYear?, Error> in
+                if year != nil {
+                    return Just.withErrorType(year, Error.self)
+                } else {
+                    return self.loadAndStoreYearFromCloudKit(recordName: yearRecordName)
+                }
+            }
+
+        yearInfoPublisher
+            .zip(yearPublisher)
+            .receive(on: RunLoop.main)
+            .map { yearInfo, year -> (WWDCYearInfo, WWDCYear)? in
+                guard let yearInfo = yearInfo,
+                      let year = year
+                else { return nil }
+                return (yearInfo, year)
+            }
+            .sinkToLoadable { yearInfoAndYear.wrappedValue = $0.unwrap() }
+            .store(in: cancelBag)
+    }
+
+    private func loadAndStoreYearInfoFromCloudKit(scholar: Scholar, yearRecordName: String) -> AnyPublisher<WWDCYearInfo?, Error> {
+        guard let yearInfoIndex = scholar.wwdcYearsApproved.firstIndex(where: { $0.recordID.recordName == yearRecordName }),
+              let yearInfoRecordID = scholar.wwdcYearInfos[safe: yearInfoIndex]?.recordID
+        else {
+            return Just(nil).setFailureType(to: Error.self).eraseToAnyPublisher() // TODO: This should be a 'Year Info not Available' error
+        }
+
+        return scholarsCloudKitRepository
+            .loadWWDCYearInfo(with: yearInfoRecordID)
+            .flatMap { [scholarsDatabaseRepository] in
+                scholarsDatabaseRepository.store(yearInfo: $0, for: scholar)
+            }
+            .eraseToAnyPublisher()
+    }
+
+    private func loadAndStoreYearFromCloudKit(recordName: String) -> AnyPublisher<WWDCYear?, Error> {
+        return yearsCloudKitRepository
+            .loadYear(recordName: recordName)
+            .flatMap { [yearsDatabaseRepository] in
+                yearsDatabaseRepository.store(year: $0)
             }
             .eraseToAnyPublisher()
     }
@@ -144,5 +212,14 @@ struct StubScholarsService: ScholarsService {
         scholars.wrappedValue = .loaded(Scholar.mockData.lazyList)
     }
 
-    func load(socialMedia: LoadableSubject<ScholarSocialMedia>, scholar: Scholar) {}
+    func load(socialMedia: LoadableSubject<ScholarSocialMedia>, scholar: Scholar) {
+        socialMedia.wrappedValue = .loaded(ScholarSocialMedia.mockData[0])
+    }
+
+    func load(yearInfoAndYear: LoadableSubject<(WWDCYearInfo, WWDCYear)>, scholar: Scholar, yearRecordName: String) {
+        yearInfoAndYear.wrappedValue = .loaded((
+            WWDCYearInfo.mockData[0],
+            WWDCYear.mockData.last!
+        ))
+    }
 }

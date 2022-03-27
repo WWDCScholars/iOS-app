@@ -23,6 +23,7 @@
 		8E499587266C10D6006A51E2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E499586266C10D6006A51E2 /* Colors.swift */; };
 		8E4AD37A26690C970017D02D /* ScholarProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4AD37926690C970017D02D /* ScholarProfileView.swift */; };
 		8E73344127EFC2C700733350 /* WWDCYearInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344027EFC2C700733350 /* WWDCYearInfo.swift */; };
+		8E73344427EFC83400733350 /* RandomAccessCollection+subscript-safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344327EFC83400733350 /* RandomAccessCollection+subscript-safe.swift */; };
 		8E73344B27F0845D00733350 /* WWDCYearInfo+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344A27F0845D00733350 /* WWDCYearInfo+MockData.swift */; };
 		8E975214267391220027F3B1 /* ProfileMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E975213267391220027F3B1 /* ProfileMapView.swift */; };
 		8E9D1BCA267AAC7D00179226 /* RecordName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BC9267AAC7D00179226 /* RecordName.swift */; };
@@ -120,6 +121,7 @@
 		8E499586266C10D6006A51E2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8E4AD37926690C970017D02D /* ScholarProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarProfileView.swift; sourceTree = "<group>"; };
 		8E73344027EFC2C700733350 /* WWDCYearInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCYearInfo.swift; sourceTree = "<group>"; };
+		8E73344327EFC83400733350 /* RandomAccessCollection+subscript-safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RandomAccessCollection+subscript-safe.swift"; sourceTree = "<group>"; };
 		8E73344A27F0845D00733350 /* WWDCYearInfo+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WWDCYearInfo+MockData.swift"; sourceTree = "<group>"; };
 		8E975213267391220027F3B1 /* ProfileMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMapView.swift; sourceTree = "<group>"; };
 		8E9D1BC9267AAC7D00179226 /* RecordName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordName.swift; sourceTree = "<group>"; };
@@ -248,6 +250,14 @@
 				8E9D1BCB267AAD2E00179226 /* ScholarProfileViewModel.swift */,
 			);
 			path = ScholarProfile;
+			sourceTree = "<group>";
+		};
+		8E73344227EFC7BE00733350 /* StandardLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				8E73344327EFC83400733350 /* RandomAccessCollection+subscript-safe.swift */,
+			);
+			path = StandardLibrary;
 			sourceTree = "<group>";
 		};
 		8E9D1BCF267B9A7100179226 /* CoreLocation */ = {
@@ -448,6 +458,7 @@
 				8EA9152626110C47007BDB30 /* Combine */,
 				8E9D1BCF267B9A7100179226 /* CoreLocation */,
 				8EA713802683BC8400C9362C /* OSLog */,
+				8E73344227EFC7BE00733350 /* StandardLibrary */,
 				8E297705261A29C100747D4C /* UIKit */,
 			);
 			path = Extensions;
@@ -721,6 +732,7 @@
 				8EA915722611144C007BDB30 /* NavigationBarColor.swift in Sources */,
 				8EA914E526110386007BDB30 /* CancelBag.swift in Sources */,
 				8EA9154F2611107D007BDB30 /* ScholarsListView.swift in Sources */,
+				8E73344427EFC83400733350 /* RandomAccessCollection+subscript-safe.swift in Sources */,
 				8EA91507261106AD007BDB30 /* CKQueryOperation+Publisher.swift in Sources */,
 				8EA9153D26110E2B007BDB30 /* YearPickerViewModel.swift in Sources */,
 				8E73344127EFC2C700733350 /* WWDCYearInfo.swift in Sources */,

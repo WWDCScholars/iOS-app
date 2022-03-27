@@ -88,8 +88,10 @@ extension AppEnvironment {
         cacheRepositories: DIContainer.CacheRepositories
     ) -> DIContainer.Services {
         let scholarsService = ScholarsServiceImpl(
-            cloudKitRepository: cloudKitRepositories.scholarsRepository,
-            databaseRepository: databaseRepositories.scholarsRepository,
+            scholarsCloudKitRepository: cloudKitRepositories.scholarsRepository,
+            scholarsDatabaseRepository: databaseRepositories.scholarsRepository,
+            yearsCloudKitRepository: cloudKitRepositories.yearsRepository,
+            yearsDatabaseRepository: databaseRepositories.yearsRepository,
             appState: appState
         )
         let yearsService = YearsServiceImpl(

@@ -250,9 +250,11 @@
 		8E4AD37826690C810017D02D /* ScholarProfile */ = {
 			isa = PBXGroup;
 			children = (
-				8E73344527EFCC5600733350 /* ProfileSubmissionView */,
 				8E4AD37926690C970017D02D /* ScholarProfileView.swift */,
 				8E9D1BCB267AAD2E00179226 /* ScholarProfileViewModel.swift */,
+				8E73344C27F0BE3700733350 /* ProfileMapView */,
+				8EED5DED267E8542008DDF11 /* ProfileSocialsView */,
+				8E73344527EFCC5600733350 /* ProfileSubmissionView */,
 			);
 			path = ScholarProfile;
 			sourceTree = "<group>";
@@ -274,21 +276,20 @@
 			path = ProfileSubmissionView;
 			sourceTree = "<group>";
 		};
+		8E73344C27F0BE3700733350 /* ProfileMapView */ = {
+			isa = PBXGroup;
+			children = (
+				8E975213267391220027F3B1 /* ProfileMapView.swift */,
+			);
+			path = ProfileMapView;
+			sourceTree = "<group>";
+		};
 		8E9D1BCF267B9A7100179226 /* CoreLocation */ = {
 			isa = PBXGroup;
 			children = (
 				8E9D1BD0267B9A9200179226 /* CLGeocoder+Publisher.swift */,
 			);
 			path = CoreLocation;
-			sourceTree = "<group>";
-		};
-		8EA34DA42673F5CA00A71CCD /* ScholarProfile */ = {
-			isa = PBXGroup;
-			children = (
-				8EED5DED267E8542008DDF11 /* ProfileSocialsView */,
-				8E975213267391220027F3B1 /* ProfileMapView.swift */,
-			);
-			path = ScholarProfile;
 			sourceTree = "<group>";
 		};
 		8EA713802683BC8400C9362C /* OSLog */ = {
@@ -543,7 +544,6 @@
 			isa = PBXGroup;
 			children = (
 				8EA713922684A0AF00C9362C /* About */,
-				8EA34DA42673F5CA00A71CCD /* ScholarProfile */,
 				8EA9154426110E62007BDB30 /* ActivityIndicatorView.swift */,
 				8EA9154026110E40007BDB30 /* CapsulePicker.swift */,
 				8EA9154826110E98007BDB30 /* ErrorView.swift */,

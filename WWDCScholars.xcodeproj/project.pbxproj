@@ -24,6 +24,8 @@
 		8E4AD37A26690C970017D02D /* ScholarProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4AD37926690C970017D02D /* ScholarProfileView.swift */; };
 		8E73344127EFC2C700733350 /* WWDCYearInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344027EFC2C700733350 /* WWDCYearInfo.swift */; };
 		8E73344427EFC83400733350 /* RandomAccessCollection+subscript-safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344327EFC83400733350 /* RandomAccessCollection+subscript-safe.swift */; };
+		8E73344727EFCC9C00733350 /* ProfileSubmissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344627EFCC9C00733350 /* ProfileSubmissionView.swift */; };
+		8E73344927EFCCDA00733350 /* ProfileSubmissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344827EFCCDA00733350 /* ProfileSubmissionViewModel.swift */; };
 		8E73344B27F0845D00733350 /* WWDCYearInfo+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344A27F0845D00733350 /* WWDCYearInfo+MockData.swift */; };
 		8E975214267391220027F3B1 /* ProfileMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E975213267391220027F3B1 /* ProfileMapView.swift */; };
 		8E9D1BCA267AAC7D00179226 /* RecordName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BC9267AAC7D00179226 /* RecordName.swift */; };
@@ -122,6 +124,8 @@
 		8E4AD37926690C970017D02D /* ScholarProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarProfileView.swift; sourceTree = "<group>"; };
 		8E73344027EFC2C700733350 /* WWDCYearInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCYearInfo.swift; sourceTree = "<group>"; };
 		8E73344327EFC83400733350 /* RandomAccessCollection+subscript-safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RandomAccessCollection+subscript-safe.swift"; sourceTree = "<group>"; };
+		8E73344627EFCC9C00733350 /* ProfileSubmissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubmissionView.swift; sourceTree = "<group>"; };
+		8E73344827EFCCDA00733350 /* ProfileSubmissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubmissionViewModel.swift; sourceTree = "<group>"; };
 		8E73344A27F0845D00733350 /* WWDCYearInfo+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WWDCYearInfo+MockData.swift"; sourceTree = "<group>"; };
 		8E975213267391220027F3B1 /* ProfileMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMapView.swift; sourceTree = "<group>"; };
 		8E9D1BC9267AAC7D00179226 /* RecordName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordName.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 		8E4AD37826690C810017D02D /* ScholarProfile */ = {
 			isa = PBXGroup;
 			children = (
+				8E73344527EFCC5600733350 /* ProfileSubmissionView */,
 				8E4AD37926690C970017D02D /* ScholarProfileView.swift */,
 				8E9D1BCB267AAD2E00179226 /* ScholarProfileViewModel.swift */,
 			);
@@ -258,6 +263,15 @@
 				8E73344327EFC83400733350 /* RandomAccessCollection+subscript-safe.swift */,
 			);
 			path = StandardLibrary;
+			sourceTree = "<group>";
+		};
+		8E73344527EFCC5600733350 /* ProfileSubmissionView */ = {
+			isa = PBXGroup;
+			children = (
+				8E73344627EFCC9C00733350 /* ProfileSubmissionView.swift */,
+				8E73344827EFCCDA00733350 /* ProfileSubmissionViewModel.swift */,
+			);
+			path = ProfileSubmissionView;
 			sourceTree = "<group>";
 		};
 		8E9D1BCF267B9A7100179226 /* CoreLocation */ = {
@@ -707,6 +721,7 @@
 			files = (
 				8EA9156C26111158007BDB30 /* ScholarsDatabaseRepository.swift in Sources */,
 				8EA914F526110505007BDB30 /* DeepLinkHandler.swift in Sources */,
+				8E73344927EFCCDA00733350 /* ProfileSubmissionViewModel.swift in Sources */,
 				8EA9152326110C1A007BDB30 /* LazyList.swift in Sources */,
 				8EA9155D261110E1007BDB30 /* ScholarCell.swift in Sources */,
 				8E9D1BCA267AAC7D00179226 /* RecordName.swift in Sources */,
@@ -739,6 +754,7 @@
 				8EA7138B2683C57900C9362C /* AboutService.swift in Sources */,
 				8E2976EF261A26CC00747D4C /* ImagesFilesystemCacheRepository.swift in Sources */,
 				8E4AD37A26690C970017D02D /* ScholarProfileView.swift in Sources */,
+				8E73344727EFCC9C00733350 /* ProfileSubmissionView.swift in Sources */,
 				8EA914F626110505007BDB30 /* AppEnvironment.swift in Sources */,
 				8EA9152E26110C7A007BDB30 /* Publisher+sinkToLoadable.swift in Sources */,
 				8E297702261A292700747D4C /* ImageCacheError.swift in Sources */,

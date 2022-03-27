@@ -30,7 +30,7 @@ extension WWDCYear {
             recordName: "WWDC 2021",
             name: "WWDC 2021",
             year: "2021",
-            challengeDescription: nil
+            challengeDescription: "In 2021, applicants were tasked with building an interactive playground to showcase their creativity and technical abilities."
         )
     ]
 }

@@ -27,6 +27,10 @@
 		8E73344727EFCC9C00733350 /* ProfileSubmissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344627EFCC9C00733350 /* ProfileSubmissionView.swift */; };
 		8E73344927EFCCDA00733350 /* ProfileSubmissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344827EFCCDA00733350 /* ProfileSubmissionViewModel.swift */; };
 		8E73344B27F0845D00733350 /* WWDCYearInfo+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344A27F0845D00733350 /* WWDCYearInfo+MockData.swift */; };
+		8E73344F27F0BF7600733350 /* ProfileSubmissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344E27F0BF7600733350 /* ProfileSubmissionsView.swift */; };
+		8E73345227F0C8CA00733350 /* ProfileSubmissionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73345127F0C8CA00733350 /* ProfileSubmissionsViewModel.swift */; };
+		8E73345527F0EE8500733350 /* ProfileSubmissionsYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73345427F0EE8500733350 /* ProfileSubmissionsYearPickerView.swift */; };
+		8E73345727F0EE9500733350 /* ProfileSubmissionsYearPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73345627F0EE9500733350 /* ProfileSubmissionsYearPickerViewModel.swift */; };
 		8E73345927F0FD0100733350 /* Sequence+sorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73345827F0FD0100733350 /* Sequence+sorted.swift */; };
 		8E975214267391220027F3B1 /* ProfileMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E975213267391220027F3B1 /* ProfileMapView.swift */; };
 		8E9D1BCA267AAC7D00179226 /* RecordName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BC9267AAC7D00179226 /* RecordName.swift */; };
@@ -128,6 +132,10 @@
 		8E73344627EFCC9C00733350 /* ProfileSubmissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubmissionView.swift; sourceTree = "<group>"; };
 		8E73344827EFCCDA00733350 /* ProfileSubmissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubmissionViewModel.swift; sourceTree = "<group>"; };
 		8E73344A27F0845D00733350 /* WWDCYearInfo+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WWDCYearInfo+MockData.swift"; sourceTree = "<group>"; };
+		8E73344E27F0BF7600733350 /* ProfileSubmissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubmissionsView.swift; sourceTree = "<group>"; };
+		8E73345127F0C8CA00733350 /* ProfileSubmissionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubmissionsViewModel.swift; sourceTree = "<group>"; };
+		8E73345427F0EE8500733350 /* ProfileSubmissionsYearPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubmissionsYearPickerView.swift; sourceTree = "<group>"; };
+		8E73345627F0EE9500733350 /* ProfileSubmissionsYearPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubmissionsYearPickerViewModel.swift; sourceTree = "<group>"; };
 		8E73345827F0FD0100733350 /* Sequence+sorted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+sorted.swift"; sourceTree = "<group>"; };
 		8E975213267391220027F3B1 /* ProfileMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMapView.swift; sourceTree = "<group>"; };
 		8E9D1BC9267AAC7D00179226 /* RecordName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordName.swift; sourceTree = "<group>"; };
@@ -256,6 +264,7 @@
 				8E9D1BCB267AAD2E00179226 /* ScholarProfileViewModel.swift */,
 				8E73344C27F0BE3700733350 /* ProfileMapView */,
 				8EED5DED267E8542008DDF11 /* ProfileSocialsView */,
+				8E73344D27F0BF5F00733350 /* ProfileSubmissionsView */,
 				8E73344527EFCC5600733350 /* ProfileSubmissionView */,
 			);
 			path = ScholarProfile;
@@ -285,6 +294,25 @@
 				8E975213267391220027F3B1 /* ProfileMapView.swift */,
 			);
 			path = ProfileMapView;
+			sourceTree = "<group>";
+		};
+		8E73344D27F0BF5F00733350 /* ProfileSubmissionsView */ = {
+			isa = PBXGroup;
+			children = (
+				8E73345327F0EE4B00733350 /* ProfileSubmissionsYearPicker */,
+				8E73344E27F0BF7600733350 /* ProfileSubmissionsView.swift */,
+				8E73345127F0C8CA00733350 /* ProfileSubmissionsViewModel.swift */,
+			);
+			path = ProfileSubmissionsView;
+			sourceTree = "<group>";
+		};
+		8E73345327F0EE4B00733350 /* ProfileSubmissionsYearPicker */ = {
+			isa = PBXGroup;
+			children = (
+				8E73345427F0EE8500733350 /* ProfileSubmissionsYearPickerView.swift */,
+				8E73345627F0EE9500733350 /* ProfileSubmissionsYearPickerViewModel.swift */,
+			);
+			path = ProfileSubmissionsYearPicker;
 			sourceTree = "<group>";
 		};
 		8E9D1BCF267B9A7100179226 /* CoreLocation */ = {
@@ -743,6 +771,7 @@
 				8EA9151F26110BF9007BDB30 /* YearsDatabaseRepository.swift in Sources */,
 				8E297707261A29D400747D4C /* UIImage+estimatedSize.swift in Sources */,
 				8EA914ED261103C5007BDB30 /* ServicesContainer.swift in Sources */,
+				8E73345227F0C8CA00733350 /* ProfileSubmissionsViewModel.swift in Sources */,
 				8EA914EC261103C5007BDB30 /* DependencyInjector.swift in Sources */,
 				8E0592252673F83B005FEA18 /* ScholarSocialMedia+MockData.swift in Sources */,
 				8E2976E9261A212E00747D4C /* ImagesService.swift in Sources */,
@@ -781,7 +810,9 @@
 				8EA914EB261103C5007BDB30 /* AppState.swift in Sources */,
 				8EA713912683DDCC00C9362C /* AboutDatabaseRepository.swift in Sources */,
 				8EA91559261110CA007BDB30 /* Scholar+MockData.swift in Sources */,
+				8E73344F27F0BF7600733350 /* ProfileSubmissionsView.swift in Sources */,
 				8EA7139A2684D2FA00C9362C /* AboutTeamMembersViewModel.swift in Sources */,
+				8E73345727F0EE9500733350 /* ProfileSubmissionsYearPickerViewModel.swift in Sources */,
 				8EA915502611107D007BDB30 /* ScholarsListViewModel.swift in Sources */,
 				8E1DA3C126B2FDD8008816DD /* WWDCYear+MockData.swift in Sources */,
 				8EA914702610CA4E007BDB30 /* ContentView.swift in Sources */,
@@ -789,6 +820,7 @@
 				8EA9153C26110E2B007BDB30 /* YearPickerView.swift in Sources */,
 				8EA7139C2684D30E00C9362C /* AboutFAQViewModel.swift in Sources */,
 				8EA9146E2610CA4E007BDB30 /* WWDCScholarsApp.swift in Sources */,
+				8E73345527F0EE8500733350 /* ProfileSubmissionsYearPickerView.swift in Sources */,
 				8E29770B261A310300747D4C /* ProfilePicture.swift in Sources */,
 				8EA9154126110E40007BDB30 /* CapsulePicker.swift in Sources */,
 				8E9D1BCC267AAD2E00179226 /* ScholarProfileViewModel.swift in Sources */,

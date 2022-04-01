@@ -92,6 +92,10 @@ extension ScholarProfileView {
                     if let socialsViewModel = viewModel.socialsViewModel {
                         ProfileSocialsView(viewModel: socialsViewModel)
                     }
+
+                    if let submissionsViewModel = viewModel.submissionsViewModel {
+                        ProfileSubmissionsView(viewModel: submissionsViewModel)
+                    }
                 }
                 .padding(.horizontal, 20)
             }

@@ -16,6 +16,7 @@ extension ScholarProfileView {
         private let scholarRecordName: String
 
         var socialsViewModel: ProfileSocialsView.ViewModel?
+        var submissionsViewModel: ProfileSubmissionsView.ViewModel?
 
         // Misc
         let container: DIContainer
@@ -50,6 +51,7 @@ extension ScholarProfileView {
 
         private func onScholarLoaded(_ scholar: Scholar) {
             socialsViewModel = .init(container: container, scholar: scholar)
+            submissionsViewModel = .init(container: container, scholar: scholar)
 
             reverseGeocode(location: scholar.location)
         }

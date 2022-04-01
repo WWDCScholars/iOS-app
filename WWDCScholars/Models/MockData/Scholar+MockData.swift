@@ -25,8 +25,15 @@ extension Scholar {
             scholarPrivate: CKRecord.Reference(recordID: .init(recordName: "0C8D2624-38CE-483F-90D5-12A328D6B177"), action: .none),
             socialMedia: CKRecord.Reference(recordID: .init(recordName: "D9A2B77D-8279-4E40-8906-318F74605990"), action: .none),
             wwdcYearInfos: [],
-            wwdcYears: [],
-            wwdcYearsApproved: []
+            wwdcYears: [
+                .init(recordID: .init(recordName: "WWDC 2016"), action: .none),
+                .init(recordID: .init(recordName: "WWDC 2017"), action: .none),
+                .init(recordID: .init(recordName: "WWDC 2020"), action: .none)
+            ],
+            wwdcYearsApproved: [
+                .init(recordID: .init(recordName: "WWDC 2017"), action: .none),
+                .init(recordID: .init(recordName: "WWDC 2020"), action: .none)
+            ]
         ),
         .init(
             recordName: "AA1EE7F8-C2A1-459D-85DD-F65EBD362E2C",

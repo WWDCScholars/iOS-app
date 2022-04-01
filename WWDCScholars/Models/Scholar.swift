@@ -108,4 +108,10 @@ extension Scholar {
         guard let age = ageComponents.year else { return 0 }
         return UInt(age)
     }
+
+    var lastApprovedYearReference: CKRecord.Reference? {
+        wwdcYearsApproved
+            .sorted(by: \.recordID.recordName)
+            .last
+    }
 }

@@ -63,7 +63,7 @@ extension ScholarsListView {
                 ForEach(scholars) { scholar in
                     ScholarCell(container: viewModel.container, scholar: scholar)
                         .onTapGesture {
-                            self.viewModel.routingState.scholarProfile = RecordName(scholar.recordName)
+                            self.viewModel.onScholarTapped(scholar)
                         }
                 }
             }

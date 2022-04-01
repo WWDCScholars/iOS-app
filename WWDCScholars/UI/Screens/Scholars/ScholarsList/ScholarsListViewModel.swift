@@ -56,5 +56,10 @@ extension ScholarsListView {
                     year: year
                 )
         }
+
+        func onScholarTapped(_ scholar: Scholar) {
+            container.appState[\.routing.scholarsList.scholarProfile] = RecordName(scholar.recordName)
+            container.appState[\.routing.scholarProfileSubmissions.selectedYear] = selectedYear
+        }
     }
 }

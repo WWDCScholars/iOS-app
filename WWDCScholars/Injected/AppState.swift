@@ -24,6 +24,7 @@ extension AppState {
     struct ViewRouting: Equatable {
         var scholars = ScholarsView.Routing()
         var scholarsList = ScholarsListView.Routing()
+        var scholarProfileSubmissions = ProfileSubmissionsView.Routing()
     }
 }
 

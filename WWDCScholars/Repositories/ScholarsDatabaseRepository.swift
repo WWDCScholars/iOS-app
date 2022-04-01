@@ -20,7 +20,7 @@ protocol ScholarsDatabaseRepository {
     func socialMedia(for scholar: Scholar) -> AnyPublisher<ScholarSocialMedia?, Error>
 
     func store(yearInfo: WWDCYearInfo, for scholar: Scholar) -> AnyPublisher<WWDCYearInfo?, Error>
-    func yearInfo(for scholar: Scholar, year: String) -> AnyPublisher<WWDCYearInfo?, Error>
+    func yearInfo(for scholar: Scholar, yearInfoRecordName: String) -> AnyPublisher<WWDCYearInfo?, Error>
 }
 
 struct ScholarsDatabaseRepositoryImpl: ScholarsDatabaseRepository {
@@ -67,6 +67,7 @@ struct ScholarsDatabaseRepositoryImpl: ScholarsDatabaseRepository {
         return Just.withErrorType(socialMedia, Error.self)
     }
 
+    // TODO: Maybe pass recordName to align with yearInfo
     func socialMedia(for scholar: Scholar) -> AnyPublisher<ScholarSocialMedia?, Error> {
         return Just.withErrorType(inMemoryStore.socialMedias[scholar.socialMedia.recordID.recordName], Error.self)
     }
@@ -76,13 +77,7 @@ struct ScholarsDatabaseRepositoryImpl: ScholarsDatabaseRepository {
         return Just.withErrorType(yearInfo, Error.self)
     }
 
-    func yearInfo(for scholar: Scholar, year: String) -> AnyPublisher<WWDCYearInfo?, Error> {
-        guard let yearInfoIndex = scholar.wwdcYearsApproved.firstIndex(where: { $0.recordID.recordName == year }),
-              let yearInfoRecordName = scholar.wwdcYearInfos[safe: yearInfoIndex]?.recordID.recordName
-        else {
-            return Just.withErrorType(nil, Error.self) // TODO: This should be a 'Year Info not Available' error
-        }
-
+    func yearInfo(for scholar: Scholar, yearInfoRecordName: String) -> AnyPublisher<WWDCYearInfo?, Error> {
         return Just.withErrorType(inMemoryStore.yearInfos[yearInfoRecordName], Error.self)
     }
 }

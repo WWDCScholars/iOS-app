@@ -141,13 +141,22 @@ struct ScholarsServiceImpl: ScholarsService {
         let cancelBag = CancelBag()
         yearInfoAndYear.wrappedValue.setIsLoading(cancelBag: cancelBag)
 
+        // Use wwdcYears instead of wwdcYears approved to get the correct index
+        guard let yearInfoIndex = scholar.wwdcYears.firstIndex(where: { $0.recordID.recordName == yearRecordName }),
+              let yearInfoRecordName = scholar.wwdcYearInfos[safe: yearInfoIndex]?.recordID.recordName
+        else {
+            // TODO: Maybe we want a more specific error and display an error message
+            yearInfoAndYear.wrappedValue = .failed(ValueIsMissingError())
+            return
+        }
+
         let yearInfoPublisher = scholarsDatabaseRepository
-            .yearInfo(for: scholar, year: yearRecordName)
+            .yearInfo(for: scholar, yearInfoRecordName: yearInfoRecordName)
             .flatMap { yearInfo -> AnyPublisher<WWDCYearInfo?, Error> in
                 if yearInfo != nil {
                     return Just.withErrorType(yearInfo, Error.self)
                 } else {
-                    return self.loadAndStoreYearInfoFromCloudKit(scholar: scholar, yearRecordName: yearRecordName)
+                    return self.loadAndStoreYearInfoFromCloudKit(scholar: scholar, yearInfoRecordName: yearInfoRecordName)
                 }
             }
 
@@ -174,15 +183,9 @@ struct ScholarsServiceImpl: ScholarsService {
             .store(in: cancelBag)
     }
 
-    private func loadAndStoreYearInfoFromCloudKit(scholar: Scholar, yearRecordName: String) -> AnyPublisher<WWDCYearInfo?, Error> {
-        guard let yearInfoIndex = scholar.wwdcYearsApproved.firstIndex(where: { $0.recordID.recordName == yearRecordName }),
-              let yearInfoRecordID = scholar.wwdcYearInfos[safe: yearInfoIndex]?.recordID
-        else {
-            return Just(nil).setFailureType(to: Error.self).eraseToAnyPublisher() // TODO: This should be a 'Year Info not Available' error
-        }
-
+    private func loadAndStoreYearInfoFromCloudKit(scholar: Scholar, yearInfoRecordName: String) -> AnyPublisher<WWDCYearInfo?, Error> {
         return scholarsCloudKitRepository
-            .loadWWDCYearInfo(with: yearInfoRecordID)
+            .loadWWDCYearInfo(with: .init(recordName: yearInfoRecordName))
             .flatMap { [scholarsDatabaseRepository] in
                 scholarsDatabaseRepository.store(yearInfo: $0, for: scholar)
             }

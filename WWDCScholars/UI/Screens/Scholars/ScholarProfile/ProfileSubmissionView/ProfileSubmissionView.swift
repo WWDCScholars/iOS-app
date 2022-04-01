@@ -25,7 +25,7 @@ struct ProfileSubmissionView: View {
 extension ProfileSubmissionView {
     private var notRequestedView: some View {
         Text("")
-            .onAppear { viewModel.loadYearInfo() }
+            .onAppear { viewModel.reloadYearInfo() }
     }
 
     private var loadingView: some View {
@@ -33,7 +33,9 @@ extension ProfileSubmissionView {
     }
 
     private func failedView(_ error: Error) -> some View {
-        ErrorView(error: error) {}
+        ErrorView(error: error) {
+            viewModel.reloadYearInfo()
+        }
     }
 }
 

@@ -12,12 +12,12 @@ extension ProfileSubmissionView {
         // State
         @Published var yearInfoAndYear: Loadable<(WWDCYearInfo, WWDCYear)>
         let scholar: Scholar
-        private let yearRecordName: String
+        private let yearRecordName: String?
 
         // Misc
         let container: DIContainer
 
-        init(container: DIContainer, yearInfoAndYear: Loadable<(WWDCYearInfo, WWDCYear)> = .notRequested, scholar: Scholar, yearRecordName: String) {
+        init(container: DIContainer, yearInfoAndYear: Loadable<(WWDCYearInfo, WWDCYear)> = .notRequested, scholar: Scholar, yearRecordName: String?) {
             self.container = container
             _yearInfoAndYear = .init(initialValue: yearInfoAndYear)
             self.scholar = scholar
@@ -26,7 +26,9 @@ extension ProfileSubmissionView {
 
         // MARK: Side Effects
 
-        func loadYearInfo() {
+        func reloadYearInfo() {
+            guard let yearRecordName = yearRecordName else { return }
+
             container.services.scholarsService
                 .load(
                     yearInfoAndYear: loadableSubject(\.yearInfoAndYear),

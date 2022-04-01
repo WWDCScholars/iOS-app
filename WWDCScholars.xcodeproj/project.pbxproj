@@ -27,6 +27,7 @@
 		8E73344727EFCC9C00733350 /* ProfileSubmissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344627EFCC9C00733350 /* ProfileSubmissionView.swift */; };
 		8E73344927EFCCDA00733350 /* ProfileSubmissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344827EFCCDA00733350 /* ProfileSubmissionViewModel.swift */; };
 		8E73344B27F0845D00733350 /* WWDCYearInfo+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73344A27F0845D00733350 /* WWDCYearInfo+MockData.swift */; };
+		8E73345927F0FD0100733350 /* Sequence+sorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73345827F0FD0100733350 /* Sequence+sorted.swift */; };
 		8E975214267391220027F3B1 /* ProfileMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E975213267391220027F3B1 /* ProfileMapView.swift */; };
 		8E9D1BCA267AAC7D00179226 /* RecordName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BC9267AAC7D00179226 /* RecordName.swift */; };
 		8E9D1BCC267AAD2E00179226 /* ScholarProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D1BCB267AAD2E00179226 /* ScholarProfileViewModel.swift */; };
@@ -127,6 +128,7 @@
 		8E73344627EFCC9C00733350 /* ProfileSubmissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubmissionView.swift; sourceTree = "<group>"; };
 		8E73344827EFCCDA00733350 /* ProfileSubmissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubmissionViewModel.swift; sourceTree = "<group>"; };
 		8E73344A27F0845D00733350 /* WWDCYearInfo+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WWDCYearInfo+MockData.swift"; sourceTree = "<group>"; };
+		8E73345827F0FD0100733350 /* Sequence+sorted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+sorted.swift"; sourceTree = "<group>"; };
 		8E975213267391220027F3B1 /* ProfileMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMapView.swift; sourceTree = "<group>"; };
 		8E9D1BC9267AAC7D00179226 /* RecordName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordName.swift; sourceTree = "<group>"; };
 		8E9D1BCB267AAD2E00179226 /* ScholarProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarProfileViewModel.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				8E73344327EFC83400733350 /* RandomAccessCollection+subscript-safe.swift */,
+				8E73345827F0FD0100733350 /* Sequence+sorted.swift */,
 			);
 			path = StandardLibrary;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				8EA9156B26111158007BDB30 /* ScholarsCloudKitRepository.swift in Sources */,
 				8EA9151426110B2D007BDB30 /* WWDCYear.swift in Sources */,
 				8EA9152826110C47007BDB30 /* Just+withErrorType.swift in Sources */,
+				8E73345927F0FD0100733350 /* Sequence+sorted.swift in Sources */,
 				8EED5DEF267E8554008DDF11 /* ProfileSocialsViewModel.swift in Sources */,
 				8EA914BC26110212007BDB30 /* Store.swift in Sources */,
 				8EA713872683C0AD00C9362C /* TeamMember.swift in Sources */,

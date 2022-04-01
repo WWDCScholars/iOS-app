@@ -63,7 +63,7 @@ extension ScholarProfileView {
                     )
                     .frame(width: 200, height: 200)
                     .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.white, lineWidth: 6))
+                    .overlay(Circle().stroke(Color.white, lineWidth: 8))
                     .shadow(color: .black.opacity(0.16), radius: 6)
                     .offset(y: -100)
                     .padding(.bottom, -100)

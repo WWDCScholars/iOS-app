@@ -89,7 +89,9 @@ extension ScholarProfileView {
                     Text(scholar.biography)
                         .frame(maxWidth: .infinity, alignment: .topLeading)
 
-                    ProfileSocialsView(viewModel: .init(container: viewModel.container, scholar: scholar))
+                    if let socialsViewModel = viewModel.socialsViewModel {
+                        ProfileSocialsView(viewModel: socialsViewModel)
+                    }
                 }
                 .padding(.horizontal, 20)
             }

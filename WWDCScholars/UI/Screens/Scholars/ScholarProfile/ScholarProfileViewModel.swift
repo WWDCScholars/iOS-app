@@ -15,6 +15,8 @@ extension ScholarProfileView {
         @Published private var locationPlacemark: Loadable<CLPlacemark>
         private let scholarRecordName: String
 
+        var socialsViewModel: ProfileSocialsView.ViewModel?
+
         // Misc
         let container: DIContainer
         private let cancelBag = CancelBag()
@@ -31,12 +33,8 @@ extension ScholarProfileView {
             self.scholarRecordName = scholarRecordName
             cancelBag.collect {
                 $scholar
-                    .compactMap { loadable -> Scholar? in
-                        guard case let .loaded(scholar) = loadable else { return nil }
-                        return scholar
-                    }
-                    .map(\.location)
-                    .sink(receiveValue: reverseGeocode(location:))
+                    .compactMap(\.value)
+                    .sink(receiveValue: onScholarLoaded(_:))
             }
         }
 
@@ -48,6 +46,12 @@ extension ScholarProfileView {
                     scholar: loadableSubject(\.scholar),
                     recordName: scholarRecordName
                 )
+        }
+
+        private func onScholarLoaded(_ scholar: Scholar) {
+            socialsViewModel = .init(container: container, scholar: scholar)
+
+            reverseGeocode(location: scholar.location)
         }
 
         private func reverseGeocode(location: CLLocation) {

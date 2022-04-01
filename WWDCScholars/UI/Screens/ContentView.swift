@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: - View
 
 struct ContentView: View {
-    @ObservedObject private(set) var viewModel: ViewModel
+    private(set) var viewModel: ViewModel
 
     var body: some View {
         TabView {
@@ -27,7 +27,7 @@ struct ContentView: View {
 // MARK: - ViewModel
 
 extension ContentView {
-    final class ViewModel: ObservableObject {
+    struct ViewModel {
         let container: DIContainer
 
         init(container: DIContainer) {

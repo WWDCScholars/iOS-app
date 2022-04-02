@@ -44,40 +44,41 @@ extension ProfileSocialsView {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 6) {
                 if let twitter = socialMedia.twitter {
-                    socialButton(to: twitter, icon: "twitter")
+                    socialButton(to: twitter, image: Image("twitter-circle"))
                 }
                 if let instagram = socialMedia.instagram {
-                    socialButton(to: instagram, icon: "instagram")
+                    socialButton(to: instagram, image: Image("instagram"))
                 }
                 if let github = socialMedia.github {
-                    socialButton(to: github, icon: "github")
+                    socialButton(to: github, image: Image("github"))
                 }
                 if let linkedin = socialMedia.linkedin {
-                    socialButton(to: linkedin, icon: "linkedin")
+                    socialButton(to: linkedin, image: Image("linkedin"))
                 }
                 if let imessage = socialMedia.imessage {
-                    socialButton(to: imessage, icon: "messages")
+                    socialButton(to: imessage, image: Image(systemName: "message.circle"))
                 }
                 if let facebook = socialMedia.facebook {
-                    socialButton(to: facebook, icon: "facebook")
+                    socialButton(to: facebook, image: Image("facebook-square"))
                 }
                 if let itunes = socialMedia.itunes {
-                    socialButton(to: itunes, icon: "appstore")
+                    socialButton(to: itunes, image: Image("app-store-circle"))
                 }
                 if let website = socialMedia.website {
-                    socialButton(to: website, icon: "website")
+                    socialButton(to: website, image: Image(systemName: "globe.americas.fill"))
                 }
                 if let discord = socialMedia.discord {
-                    socialButton(to: discord, icon: "discord")
+                    socialButton(to: discord, image: Image("discord"))
                 }
             }
         }
     }
 
-    private func socialButton(to destination: String, icon: String) -> some View {
+    private func socialButton(to destination: String, image: Image) -> some View {
         Button(action: {}) {
-            Image("icon-\(icon)")
-                .resizable()
+            image
+                .font(.system(size: 32, weight: .light))
+                .foregroundColor(.theme.brand)
                 .frame(width: 32, height: 32)
                 .padding(4)
         }

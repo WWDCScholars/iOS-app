@@ -24,6 +24,7 @@ struct ProfileSubmissionsYearPickerView: View {
 
 // MARK: - Preview
 
+#if DEBUG
 struct ProfileSubmissionsYearPickerView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileSubmissionsYearPickerView(
@@ -37,3 +38,4 @@ struct ProfileSubmissionsYearPickerView_Previews: PreviewProvider {
             .background(Color.theme.brand)
     }
 }
+#endif

@@ -84,6 +84,7 @@ struct AboutServiceImpl: AboutService {
     }
 }
 
+#if DEBUG
 struct StubAboutService: AboutService {
     func load(teamMembers: LoadableSubject<LazyList<TeamMember>>, isActive: Bool) {
         let members = TeamMember.mockData.filter { $0.isActive == isActive }
@@ -94,3 +95,4 @@ struct StubAboutService: AboutService {
         faqItems.wrappedValue = .loaded(FAQItem.mockData.lazyList)
     }
 }
+#endif

@@ -74,8 +74,10 @@ struct AboutView: View {
 
 // MARK: - Preview
 
+#if DEBUG
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
         AboutView(viewModel: .init(container: .preview))
     }
 }
+#endif

@@ -27,6 +27,7 @@ extension DIContainer {
             self.geocodingService = geocodingService
         }
 
+#if DEBUG
         static var stub: Self {
             .init(
                 scholarsService: StubScholarsService(),
@@ -36,5 +37,6 @@ extension DIContainer {
                 geocodingService: StubGeocodingService()
             )
         }
+#endif
     }
 }

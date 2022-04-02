@@ -106,8 +106,10 @@ extension ScholarProfileView {
 
 // MARK: - Preview
 
+#if DEBUG
 struct ScholarProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ScholarProfileView(viewModel: .init(container: .preview, scholar: .loaded(Scholar.mockData[0]), scholarRecordName: ""))
     }
 }
+#endif

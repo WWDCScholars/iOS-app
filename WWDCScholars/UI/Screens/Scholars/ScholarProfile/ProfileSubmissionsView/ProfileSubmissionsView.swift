@@ -38,8 +38,10 @@ struct ProfileSubmissionsView: View {
 
 // MARK: - Preview
 
+#if DEBUG
 struct ProfileSubmissionsView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileSubmissionsView(viewModel: .init(container: .preview, scholar: Scholar.mockData[0]))
     }
 }
+#endif

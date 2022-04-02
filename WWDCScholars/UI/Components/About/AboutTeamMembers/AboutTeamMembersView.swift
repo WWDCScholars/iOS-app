@@ -72,8 +72,10 @@ extension AboutTeamMembersView {
 
 // MARK: - Preview
 
+#if DEBUG
 struct AboutTeamMembersView_Previews: PreviewProvider {
     static var previews: some View {
         AboutTeamMembersView(viewModel: .init(container: .preview, showActiveTeamMembers: true))
     }
 }
+#endif

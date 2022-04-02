@@ -72,8 +72,10 @@ extension ProfileSubmissionView {
 
 // MARK: - Preview
 
+#if DEBUG
 struct ProfileSubmissionView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileSubmissionView(viewModel: .init(container: .preview, scholar: Scholar.mockData[0], yearRecordName: "WWDC 2021"))
     }
 }
+#endif

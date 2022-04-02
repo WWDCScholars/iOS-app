@@ -86,9 +86,11 @@ extension ProfileSocialsView {
 
 // MARK: - Preview
 
+#if DEBUG
 struct ProfileSocialsView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileSocialsView(viewModel: .init(container: .preview, scholar: Scholar.mockData[0]))
             .previewLayout(.fixed(width: 350, height: 50))
     }
 }
+#endif

@@ -13,9 +13,7 @@ struct DIContainer: EnvironmentKey {
     let appState: Store<AppState>
     let services: Services
 
-    static var defaultValue: Self { Self.default }
-
-    private static let `default` = Self(appState: AppState(), services: .stub)
+    static var defaultValue: Self { fatalError("DIContainer needs to be initialized before use.") }
 
     init(appState: Store<AppState>, services: Services) {
         self.appState = appState

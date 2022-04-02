@@ -202,6 +202,7 @@ struct ScholarsServiceImpl: ScholarsService {
     }
 }
 
+#if DEBUG
 struct StubScholarsService: ScholarsService {
     func load(scholar: LoadableSubject<Scholar>, recordName: String) {
         scholar.wrappedValue = .loaded(Scholar.mockData[0])
@@ -226,3 +227,4 @@ struct StubScholarsService: ScholarsService {
         ))
     }
 }
+#endif

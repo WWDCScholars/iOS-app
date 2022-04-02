@@ -34,14 +34,6 @@ struct ProfileMapView: View {
     }
 }
 
-// MARK: - Preview
-
-struct ProfileMapView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileMapView(scholar: Scholar.mockData[0])
-    }
-}
-
 // MARK: - ScholarAnnotatable
 
 extension ProfileMapView {
@@ -50,3 +42,13 @@ extension ProfileMapView {
         let coordinate: CLLocationCoordinate2D
     }
 }
+
+// MARK: - Preview
+
+#if DEBUG
+struct ProfileMapView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileMapView(scholar: Scholar.mockData[0])
+    }
+}
+#endif

@@ -61,6 +61,7 @@ struct YearsServiceImpl: YearsService {
     }
 }
 
+#if DEBUG
 struct StubYearsService: YearsService {
     func refreshYearsList() -> AnyPublisher<Void, Error> {
         return Just.withErrorType(Error.self)
@@ -70,3 +71,4 @@ struct StubYearsService: YearsService {
         years.wrappedValue = .loaded(WWDCYear.mockData.lazyList)
     }
 }
+#endif

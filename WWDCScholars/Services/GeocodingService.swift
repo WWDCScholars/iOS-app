@@ -35,8 +35,10 @@ struct GeocodingServiceImpl: GeocodingService {
     }
 }
 
+#if DEBUG
 struct StubGeocodingService: GeocodingService {
     func reverseGeocode(placemark: LoadableSubject<CLPlacemark>, of location: CLLocation) {
         placemark.wrappedValue = .loaded(CLPlacemark.MockData.applePark)
     }
 }
+#endif

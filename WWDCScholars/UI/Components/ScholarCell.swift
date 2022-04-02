@@ -38,9 +38,11 @@ struct ScholarCell: View {
 
 // MARK: - Previews
 
+#if DEBUG
 struct ScholarCell_Previews: PreviewProvider {
     static var previews: some View {
         ScholarCell(container: .preview, scholar: Scholar.mockData[0])
             .previewLayout(.fixed(width: 160, height: 160))
     }
 }
+#endif

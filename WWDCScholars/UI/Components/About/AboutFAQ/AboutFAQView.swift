@@ -54,8 +54,10 @@ extension AboutFAQView {
 
 // MARK: - Preview
 
+#if DEBUG
 struct AboutFAQView_Previews: PreviewProvider {
     static var previews: some View {
         AboutFAQView(viewModel: .init(container: .preview))
     }
 }
+#endif

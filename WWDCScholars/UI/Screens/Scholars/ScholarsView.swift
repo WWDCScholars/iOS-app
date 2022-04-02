@@ -44,8 +44,10 @@ struct ScholarsView: View {
 
 // MARK: - Previews
 
+#if DEBUG
 struct ScholarsView_Preview: PreviewProvider {
     static var previews: some View {
         ScholarsView(viewModel: .init(container: .preview))
     }
 }
+#endif

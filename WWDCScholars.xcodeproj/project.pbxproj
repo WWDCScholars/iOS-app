@@ -992,7 +992,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 4.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cecose.WWDCScholars;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cecose.WWDCScholars-dev";
 				PRODUCT_NAME = Scholars;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

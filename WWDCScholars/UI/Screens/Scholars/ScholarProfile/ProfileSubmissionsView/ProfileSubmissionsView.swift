@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ProfileSubmissionsView: View {
+    static let spellOutNumberFormatter = configure(NumberFormatter()) {
+        $0.numberStyle = .spellOut
+    }
+
     @ObservedObject private(set) var viewModel: ViewModel
 
     var body: some View {
@@ -16,16 +20,16 @@ struct ProfileSubmissionsView: View {
                 .font(.title2.bold())
                 .foregroundColor(.theme.brand)
 
-            Text("\(viewModel.scholar.givenName) has been awarded a WWDC scholarship two times. Here are the submissions that got him there.")
+            Text(submissionsDescription)
                 .font(.callout.italic())
                 .foregroundColor(.secondary)
 
-            ProfileSubmissionsYearPickerView(viewModel: viewModel.yearPickerViewModel, selectedYear: $viewModel.routingState.selectedYear)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 10)
-                .background(Color.theme.brand)
-
-            Text(viewModel.routingState.selectedYear ?? "no selection")
+            if viewModel.scholar.wwdcYearsApproved.count > 1 {
+                ProfileSubmissionsYearPickerView(viewModel: viewModel.yearPickerViewModel, selectedYear: $viewModel.routingState.selectedYear)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 10)
+                    .background(Color.theme.brand)
+            }
 
             ProfileSubmissionView(viewModel: .init(
                 container: viewModel.container,
@@ -33,6 +37,51 @@ struct ProfileSubmissionsView: View {
                 yearRecordName: viewModel.routingState.selectedYear
             ))
         }
+    }
+
+    private var submissionsDescription: AttributedString {
+        let yearCount = viewModel.scholar.wwdcYearsApproved.count
+
+        var yearCountMorphology = Morphology()
+        yearCountMorphology.number = .init(exactNumber: yearCount)
+        let yearCountInflectionRule = InflectionRule.explicit(yearCountMorphology)
+
+        var string = AttributedString()
+        if yearCount > 1 {
+            var yearsString = AttributedString(localized: "\(viewModel.scholar.givenName) has been awarded a WWDC scholarship \(yearCount, formatter: Self.spellOutNumberFormatter) time.")
+
+            if let rangeTime = yearsString.range(of: "time") {
+                var morphology = yearCountMorphology
+                morphology.partOfSpeech = .noun
+                yearsString[rangeTime].inflect = .explicit(morphology)
+            }
+
+            string.append(yearsString.inflected())
+        } else if let year = viewModel.scholar.wwdcYearsApproved.first {
+            let yearString = AttributedString(localized: "\(viewModel.scholar.givenName) has been awarded a WWDC scholarship in \(String(year.recordID.recordName.suffix(4))).")
+            string.append(yearString.inflected())
+        } else {
+            return AttributedString(localized: "\(viewModel.scholar.givenName) has not been awarded a WWDC scholarship yet.")
+        }
+
+        var submissionsString = AttributedString(localized: "Here is the submission that got them there.")
+
+        if let rangeIs = submissionsString.range(of: "is") {
+            submissionsString[rangeIs].inflect = yearCountInflectionRule
+        }
+        if let rangeSubmission = submissionsString.range(of: "submission") {
+            submissionsString[rangeSubmission].inflect = yearCountInflectionRule
+        }
+        if let rangeThem = submissionsString.range(of: "them") {
+            var morphology = Morphology()
+            morphology.grammaticalGender = viewModel.scholar.gender.grammaticalGender
+            submissionsString[rangeThem].inflect = .explicit(morphology)
+        }
+
+        string.append(AttributedString(" "))
+        string.append(submissionsString.inflected())
+
+        return string
     }
 }
 
@@ -45,3 +94,15 @@ struct ProfileSubmissionsView_Previews: PreviewProvider {
     }
 }
 #endif
+
+// MARK: -
+
+extension String.LocalizationValue.StringInterpolation {
+    mutating func appendInterpolation<Value: BinaryInteger>(_ number: Value, formatter: NumberFormatter) {
+        if let value = number as? NSNumber, let string = formatter.string(from: value) {
+            appendLiteral(string)
+        } else {
+            appendLiteral("\(number)")
+        }
+    }
+}

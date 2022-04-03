@@ -43,11 +43,8 @@ extension ProfileSubmissionView {
 
 extension ProfileSubmissionView {
     private func loadedView(yearInfo: WWDCYearInfo, year: WWDCYear) -> some View {
-        let challengeDescription = (year.challengeDescription.map { $0 + " " } ?? "")
-            + "Here’s how \(viewModel.scholar.givenName) describes his winning submission."
-
-        return VStack(spacing: 18) {
-            Text(challengeDescription)
+        VStack(spacing: 18) {
+            Text(challengeDescription(year: year))
                 .font(.callout.italic())
                 .foregroundColor(.secondary)
 
@@ -66,6 +63,24 @@ extension ProfileSubmissionView {
             if let appstoreLink = yearInfo.appstoreLink {
                 Text("App Store: \(appstoreLink)")
             }
+        }
+    }
+
+    private func challengeDescription(year: WWDCYear) -> AttributedString {
+        var introduction = AttributedString(localized: "Here’s how \(viewModel.scholar.givenName) describes their winning submission.")
+        if let rangeTheir = introduction.range(of: "their") {
+            var morphology = Morphology()
+            morphology.grammaticalGender = viewModel.scholar.gender.grammaticalGender
+            introduction[rangeTheir].inflect = .explicit(morphology)
+        }
+
+        if let challengeDescription = year.challengeDescription {
+            var string = AttributedString(challengeDescription)
+            string.append(AttributedString(" "))
+            string.append(introduction.inflected())
+            return string
+        } else {
+            return introduction.inflected()
         }
     }
 }

@@ -1002,7 +1002,7 @@
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WWDCScholars/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1011,6 +1011,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cecose.WWDCScholars-dev";
 				PRODUCT_NAME = Scholars;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1027,7 +1028,7 @@
 				DEVELOPMENT_TEAM = S2TB4FUFGQ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WWDCScholars/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1036,6 +1037,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cecose.WWDCScholars;
 				PRODUCT_NAME = Scholars;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -96,6 +96,8 @@
 		8EA9156C26111158007BDB30 /* ScholarsDatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9156A26111158007BDB30 /* ScholarsDatabaseRepository.swift */; };
 		8EA915722611144C007BDB30 /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA915702611144C007BDB30 /* NavigationBarColor.swift */; };
 		8EA915732611144C007BDB30 /* StatusBarStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA915712611144C007BDB30 /* StatusBarStyleView.swift */; };
+		8EA95DE127F9CC7C00D9E400 /* GrammaticalNumber+initWithExactNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA95DE027F9CC7C00D9E400 /* GrammaticalNumber+initWithExactNumber.swift */; };
+		8EA95DE327F9CF4700D9E400 /* configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA95DE227F9CF4700D9E400 /* configure.swift */; };
 		8EED5DEF267E8554008DDF11 /* ProfileSocialsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EED5DEE267E8554008DDF11 /* ProfileSocialsViewModel.swift */; };
 		8EED5DF5267E8E39008DDF11 /* Logger+subsystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EED5DF4267E8E39008DDF11 /* Logger+subsystem.swift */; };
 		8EED5DF7267E8E4A008DDF11 /* Logger+InitCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EED5DF6267E8E4A008DDF11 /* Logger+InitCategory.swift */; };
@@ -206,6 +208,8 @@
 		8EA9156A26111158007BDB30 /* ScholarsDatabaseRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarsDatabaseRepository.swift; sourceTree = "<group>"; };
 		8EA915702611144C007BDB30 /* NavigationBarColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		8EA915712611144C007BDB30 /* StatusBarStyleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarStyleView.swift; sourceTree = "<group>"; };
+		8EA95DE027F9CC7C00D9E400 /* GrammaticalNumber+initWithExactNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GrammaticalNumber+initWithExactNumber.swift"; sourceTree = "<group>"; };
+		8EA95DE227F9CF4700D9E400 /* configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = configure.swift; sourceTree = "<group>"; };
 		8EED5DEE267E8554008DDF11 /* ProfileSocialsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSocialsViewModel.swift; sourceTree = "<group>"; };
 		8EED5DF4267E8E39008DDF11 /* Logger+subsystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+subsystem.swift"; sourceTree = "<group>"; };
 		8EED5DF6267E8E4A008DDF11 /* Logger+InitCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+InitCategory.swift"; sourceTree = "<group>"; };
@@ -484,6 +488,7 @@
 				8EA713812683BCBE00C9362C /* LoggingCategories.swift */,
 				8EA914FC2611063C007BDB30 /* CloudKit */,
 				8EA9150326110675007BDB30 /* Extensions */,
+				8EA95DE227F9CF4700D9E400 /* configure.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 				8EA9150426110699007BDB30 /* CloudKit */,
 				8EA9152626110C47007BDB30 /* Combine */,
 				8E9D1BCF267B9A7100179226 /* CoreLocation */,
+				8EA95DDF27F9CC5A00D9E400 /* Foundation */,
 				8EA713802683BC8400C9362C /* OSLog */,
 				8E73344227EFC7BE00733350 /* StandardLibrary */,
 				8E297705261A29C100747D4C /* UIKit */,
@@ -635,6 +641,14 @@
 				8EA915712611144C007BDB30 /* StatusBarStyleView.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		8EA95DDF27F9CC5A00D9E400 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				8EA95DE027F9CC7C00D9E400 /* GrammaticalNumber+initWithExactNumber.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		8EED5DED267E8542008DDF11 /* ProfileSocialsView */ = {
@@ -801,6 +815,7 @@
 				8EA9153626110E24007BDB30 /* ScholarsViewModel.swift in Sources */,
 				8EA713982684D2E800C9362C /* AboutFAQView.swift in Sources */,
 				8EA91554261110AC007BDB30 /* Scholar.swift in Sources */,
+				8EA95DE127F9CC7C00D9E400 /* GrammaticalNumber+initWithExactNumber.swift in Sources */,
 				8E499587266C10D6006A51E2 /* Colors.swift in Sources */,
 				8EED5DF5267E8E39008DDF11 /* Logger+subsystem.swift in Sources */,
 				8EA9150F26110B0E007BDB30 /* YearsCloudKitRepository.swift in Sources */,
@@ -810,6 +825,7 @@
 				8EA914EB261103C5007BDB30 /* AppState.swift in Sources */,
 				8EA713912683DDCC00C9362C /* AboutDatabaseRepository.swift in Sources */,
 				8EA91559261110CA007BDB30 /* Scholar+MockData.swift in Sources */,
+				8EA95DE327F9CF4700D9E400 /* configure.swift in Sources */,
 				8E73344F27F0BF7600733350 /* ProfileSubmissionsView.swift in Sources */,
 				8EA7139A2684D2FA00C9362C /* AboutTeamMembersViewModel.swift in Sources */,
 				8E73345727F0EE9500733350 /* ProfileSubmissionsYearPickerViewModel.swift in Sources */,

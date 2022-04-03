@@ -13,7 +13,7 @@ struct Scholar {
 
     let givenName: String
     let familyName: String
-    let gender: String
+    let gender: Gender
     let birthday: Date
     let location: CLLocation
     let biography: String
@@ -43,7 +43,7 @@ extension Scholar: CKRecordConvertible {
     init?(record: CKRecord) {
         guard let givenName = record["givenName"] as? String,
               let familyName = record["familyName"] as? String,
-              let gender = record["gender"] as? String,
+              let gender = (record["gender"] as? String).flatMap(Gender.init(rawValue:)),
               let birthday = record["birthday"] as? Date,
               let location = record["location"] as? CLLocation,
               let biography = record["biography"] as? String,
@@ -59,7 +59,7 @@ extension Scholar: CKRecordConvertible {
         self.givenName = givenName
         self.familyName = familyName
         self.gender = gender
-        self.birthday = birthday
+        self.birthday = birthday // TODO: Interpret as UTC
         self.location = location
         self.biography = biography
         profilePicture = (record["profilePicture"] as? CKAsset)?.image
@@ -93,6 +93,24 @@ extension Scholar {
         ]
 
         static let onlyProfilePicture: [CKRecord.FieldKey] = ["profilePicture"]
+    }
+}
+
+// MARK: - Subtypes
+
+extension Scholar {
+    enum Gender: String {
+        case female
+        case male
+        case other
+
+        var grammaticalGender: Morphology.GrammaticalGender {
+            switch self {
+            case .female: return .feminine
+            case .male: return .masculine
+            case .other: return .neuter
+            }
+        }
     }
 }
 

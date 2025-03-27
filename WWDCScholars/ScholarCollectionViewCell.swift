@@ -56,7 +56,8 @@ internal final class ScholarCollectionViewCell: UICollectionViewCell, Cell {
         self.label?.text = cellContent.scholar.givenName
         
         self.imageView?.image = UIImage.loading
-        self.imageView?.contentMode = .center
+        self.imageView?.contentMode = .scaleAspectFill
+        self.imageView?.clipsToBounds = true
         
         /*self.imageView?.contentMode = .scaleAspectFill*
         self.imageView?.image = cellContent.scholar.profilePicture?.image*/

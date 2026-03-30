@@ -21,6 +21,7 @@ class CKDataController: ScholarDataController {
     
     private var scholarFetched: ((CKRecord) -> ())! = { a in }
     private var queryCompleted: ((CKQueryOperation.Cursor?, Error?) -> ())! = { a, b in }
+    private var cache: [WWDCYear: [Scholar]] = [:]
 
 //    private let publicDatabase: CKDatabase
     
@@ -30,8 +31,12 @@ class CKDataController: ScholarDataController {
     }
     
     func scholars(for year: WWDCYear) -> [Scholar] {
+        if let cached = cache[year] {
+            return cached
+        }
+
         var loadedScholars: [Scholar] = []
-        
+
         let sync = SyncBlock.init()
         let yearRef = CKRecord.Reference(recordID: CKRecord.ID.init(recordName: year.recordName), action: .none)
         let predicate = NSPredicate(format: "(wwdcYears CONTAINS %@) AND (wwdcYearsApproved CONTAINS %@) AND (gdprConsentAt <= %@)", yearRef, yearRef, NSDate())
@@ -86,10 +91,11 @@ class CKDataController: ScholarDataController {
         self.container.publicCloudDatabase.add(operation)
         
         sync.wait(seconds: 30)
-        
+
+        cache[year] = loadedScholars
         return loadedScholars
     }
-    
+
     func scholar(for id: CKRecord.ID) -> Scholar? {
         var loadedScholar: Scholar? = nil
         

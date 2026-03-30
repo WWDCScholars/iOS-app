@@ -193,8 +193,14 @@ extension ScholarsViewController: WWDCYearInfoCollectionViewCellContentDelegate 
 
     internal func update(for batchInfo: WWDCYear) {
         print("update")
-        
-		self.scholars = []
+
+        self.scholars = []
+        self.scholarsListViewController?.scholars = []
+        self.scholarsListViewController?.configureScholarContentController()
+        self.scholarsMapViewController?.scholars = []
+        self.scholarsMapViewController?.configureMapContent()
+        loadingScholarsActivityIndicator.startAnimating()
+        loadingScholarsView.isHidden = false
         self.proxy?.loadListScholars(batchInfo: batchInfo)
     }
 }

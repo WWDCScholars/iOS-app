@@ -135,7 +135,7 @@
                             <constraint firstAttribute="trailing" secondItem="Na7-a8-isB" secondAttribute="trailing" id="Q3W-1w-yV7"/>
                             <constraint firstItem="W5f-nQ-URZ" firstAttribute="centerX" secondItem="xVN-Qy-XxB" secondAttribute="centerX" id="YMu-tF-rWZ"/>
                             <constraint firstItem="W5f-nQ-URZ" firstAttribute="centerY" secondItem="xVN-Qy-XxB" secondAttribute="centerY" id="Z7k-YX-rfb"/>
-                            <constraint firstItem="S38-HA-16i" firstAttribute="top" secondItem="Na7-a8-isB" secondAttribute="bottom" id="bC6-IW-bAs"/>
+                            <constraint firstAttribute="bottom" secondItem="Na7-a8-isB" secondAttribute="bottom" id="bC6-IW-bAs"/>
                             <constraint firstAttribute="trailing" secondItem="LPF-51-alX" secondAttribute="trailing" id="gvc-Tp-Jcd"/>
                             <constraint firstItem="ufY-CR-ih1" firstAttribute="top" secondItem="Blw-iU-Ci0" secondAttribute="bottom" id="ihB-J2-HaG"/>
                             <constraint firstItem="ufY-CR-ih1" firstAttribute="leading" secondItem="xVN-Qy-XxB" secondAttribute="leading" id="jcj-Lf-fVY"/>

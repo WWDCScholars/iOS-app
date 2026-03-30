@@ -166,14 +166,14 @@ extension ScholarsMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let annotation = view.annotation else { return }
 
-        // If cluster, zoom to cluster
         if let annotation = annotation as? MKClusterAnnotation {
             setRegionToCluster(annotation)
         } else if let annotation = annotation as? ScholarAnnotation {
             setRegionToAnnotation(annotation)
+            if let scholarId = annotation.scholar.id {
+                presentProfileViewController(scholarId: scholarId)
+            }
         }
-
-        // TODO: show profile
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
